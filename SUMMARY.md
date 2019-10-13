@@ -75,8 +75,6 @@
   * [Rich Media](app/web-app-faq/rich-media.md)
   * [Compare Metrics](app/web-app-faq/compare-metrics.md)
 
-## Questions
-
 ## Enterprise
 
 * [Enterprise Overview](enterprise/enterprise.md)
