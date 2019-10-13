@@ -1,6 +1,5 @@
 --- 
 redirects:
-  # Overview
   getting-started: ./quickstart.md
   overview/overview: ./overview.md
   overview/company-faq: ./overview/company-faq.md
