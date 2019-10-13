@@ -70,7 +70,7 @@
   * [Tags](app/features/tags.md)
   * [Notes](app/features/notes.md)
   * [Sweeps](app/features/sweeps.md)
-  * [Alerts](app/features/untitled.md)
+  * [Alerts](app/features/alerts.md)
   * [Workspaces](app/features/workspaces.md)
 * [Web App FAQ](app/faq/README.md)
   * [Compare Metrics](app/faq/compare-metrics.md)
