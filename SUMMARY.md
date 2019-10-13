@@ -22,9 +22,9 @@
   * [API](library/api/api.md)
   * [Reference](library/api/untitled.md)
 * [Frameworks](library/frameworks/README.md)
+  * [PyTorch](library/frameworks/pytorch.md)
   * [Keras](library/frameworks/keras.md)
   * [TensorFlow](library/frameworks/tensorflow.md)
-  * [PyTorch](library/frameworks/pytorch.md)
   * [Fast.ai](library/frameworks/fastai.md)
   * [XGBoost](library/frameworks/xgboost.md)
 * [Integrations](library/integrations/README.md)
@@ -48,14 +48,14 @@
   * [Local Controller](library/sweeps/local-controller.md)
   * [Jupyter & Python API](library/sweeps/python-api.md)
 * [Examples](library/example-projects/README.md)
+  * [PyTorch Example](library/example-projects/pytorch.md)
   * [Keras Example](library/example-projects/keras.md)
   * [TensorFlow Example](library/example-projects/tensorflow.md)
-  * [PyTorch Example](library/example-projects/pytorch.md)
   * [Fast.ai Example](library/example-projects/fast.ai.md)
   * [Scikit Example](library/example-projects/scikit.md)
   * [Numpy Example](library/example-projects/numpy-example.md)
   * [XGBoost Example](library/example-projects/xgboost-example.md)
-  * [Jax Example](library/example-projects/jax-example.md)
+  * [JAX Example](library/example-projects/jax-example.md)
 
 ## Web App <a id="app"></a>
 
