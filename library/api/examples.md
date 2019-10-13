@@ -1,5 +1,5 @@
 ---
-description: Things you might want to do with our API
+description: Useful ways to use the wandb API.
 ---
 
 # Examples
