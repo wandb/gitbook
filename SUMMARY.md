@@ -24,6 +24,7 @@
   * [Keras](library/frameworks/keras.md)
   * [TensorFlow](library/frameworks/tensorflow.md)
   * [Fast.ai](library/frameworks/fastai.md)
+  * [Scikit](library/frameworks/scikit.md)
   * [XGBoost](library/frameworks/xgboost.md)
 * [Integrations](library/integrations/README.md)
   * [TensorBoard](library/integrations/tensorboard.md)
