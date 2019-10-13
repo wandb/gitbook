@@ -18,7 +18,7 @@
 * [Command Line Interface](library/cli.md)
 * [API](library/api/README.md)
   * [Examples](library/api/examples.md)
-  * [Reference](library/api/untitled.md)
+  * [Reference](library/api/reference.md)
 * [Frameworks](library/frameworks/README.md)
   * [PyTorch](library/frameworks/pytorch.md)
   * [Keras](library/frameworks/keras.md)
@@ -52,11 +52,11 @@
   * [TensorFlow Example](library/example-projects/tensorflow.md)
   * [Fast.ai Example](library/example-projects/fast.ai.md)
   * [Scikit Example](library/example-projects/scikit.md)
-  * [Numpy Example](library/example-projects/numpy-example.md)
-  * [XGBoost Example](library/example-projects/xgboost-example.md)
-  * [JAX Example](library/example-projects/jax-example.md)
-* [Library FAQ](library/web-app-questions/README.md)
-  * [Rich Media](library/web-app-questions/rich-media.md)
+  * [Numpy Example](library/example-projects/numpy.md)
+  * [XGBoost Example](library/example-projects/xgboost.md)
+  * [JAX Example](library/example-projects/jax.md)
+* [Library FAQ](library/faq/README.md)
+  * [Rich Media](library/faq/rich-media.md)
 
 ## Web App <a id="app"></a>
 
@@ -72,8 +72,8 @@
   * [Sweeps](app/features/sweeps.md)
   * [Alerts](app/features/untitled.md)
   * [Workspaces](app/features/workspaces.md)
-* [Web App FAQ](app/web-app-faq/README.md)
-  * [Compare Metrics](app/web-app-faq/compare-metrics.md)
+* [Web App FAQ](app/faq/README.md)
+  * [Compare Metrics](app/faq/compare-metrics.md)
 
 ## Enterprise
 
