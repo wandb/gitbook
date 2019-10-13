@@ -6,7 +6,7 @@ description: Sending data to W&B Enterprise installations
 
 For the most part, you can use W&B Enterprise the same way as our Software-as-a-Service offering. There are a few tweaks to keep in mind.
 
-### Command line usage
+### Command Line Usage
 
 You'll need to fetch your API key from your W&B Server instead of `wandb.ai` with one of the following methods. W&B Enterprise Server API keys have a dedicated prefix to avoid confusion between the SaaS system and your private installation.
 
@@ -22,7 +22,7 @@ WANDB_BASE_URL=http://your-server-ip-or-host wandb login
 WANDB_BASE_URL=http://your-server-ip-or-host python your-training-script.py
 ```
 
-### Jupyter notebooks
+### Jupyter Notebooks
 
 In jupyter notebooks, simply set the environment variable `WANDB_BASE_URL` to the host or IP address of the server running W&B enterprise. For example:
 

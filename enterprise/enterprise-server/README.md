@@ -21,7 +21,7 @@ Go to EC2 &gt; Images &gt; AMIs in the AWS Console, select "Private images" in t
 
 After launching your instance, wait for it to boot. Your instance will spin up and be accessible at port 80 at its public IP.
 
-Your instance is usable from boot, but for advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/server/config)
+Your instance is usable from boot, but for advanced options, you may now proceed to [configuring your instance](configuration.md).
 
 #### Configuring instance availability
 
@@ -47,7 +47,7 @@ Go to Compute Engine &gt; Images in the GCP console, and find the W&B image. Cli
 
 After creating your instance, wait for it to boot. It will spin up and be accessible at port 80 at its public IP.
 
-Your instance is usable from boot, but for advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/server/config)
+Your instance is usable from boot, but for advanced options, you may now proceed to [configuring your instance](configuration.md).
 
 #### Configuring instance availability
 
@@ -82,8 +82,17 @@ open "https://login.microsoftonline.com/$TENANT_ID/oauth2/authorize?client_id=af
 
 Manual instructions:
 
-* Navigate to [Portal.azure.com](http://portal.azure.com/) &gt; Azure Active Directory &gt; Properties. The directory ID it shows there is your Tenant ID. \([https://portal.azure.com/\#blade/Microsoft\_AAD\_IAM/ActiveDirectoryMenuBlade/Properties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)\)
-* Then, navigate to `https://login.microsoftonline.com/<Your Tenant ID>/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F`
+* Navigate to [Portal.azure.com](http://portal.azure.com/) &gt; Azure Active Directory &gt; Properties. The directory ID it shows there is your Tenant ID. 
+
+![](../../.gitbook/assets/image%20%285%29.png)
+
+* Then, navigate to https://login.microsoftonline.com/&lt;Your Tenant ID&gt;/oauth2/authorize?client\_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response\_type=code&redirect\_uri=https%3A%2F%2Fwww.microsoft.com%2F
+
+```text
+https://login.microsoftonline.com/<Your Tenant ID>/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F
+```
+
+* `https://login.microsoftonline.com/<Your Tenant ID>/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F`
 * Grant permissions. You'll be redirected to microsoft.com, at which point you can close the browser page.
 
 #### Grant W&B App Permissions to your Resource Group

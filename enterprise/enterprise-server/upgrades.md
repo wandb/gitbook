@@ -2,7 +2,7 @@
 description: How to upgrade the W&B Enterprise Server installation
 ---
 
-# Upgrades
+# Enterprise Server Upgrades
 
 Each W&B Enterprise Server comes equipped with the ability to self-update with new releases of our software. You'll be notified when new releases are available, and the upgrade process is available on the `/vm-settings` page on your VM.
 

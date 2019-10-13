@@ -1,4 +1,4 @@
-# Enterprise
+# Enterprise Overview
 
 W&B Enterprise is the on-prem version of [Weights & Biases](https://docs.wandb.com/enterprise/app.wandb.ai). It makes collaborative experiment tracking possible for enterprise machine learning teams, giving you a way to keep all training data and metadata within your organization's network.
 
@@ -15,7 +15,7 @@ We also offer [W&B Enterprise Cloud](https://docs.wandb.com/enterprise/cloud/abo
 * Integrate with your company's authentication system
 * Premier support by the W&B engineering team
 
-The Enterprise Server consists of a single virtual machine, saved as a bootable image in the format of your cloud platform. Your W&B data is saved on a separate drive from the server softare so data can be preserved across VM versions.
+The Enterprise Server consists of a single virtual machine, saved as a bootable image in the format of your cloud platform. Your W&B data is saved on a separate drive from the server software so data can be preserved across VM versions.
 
 We support the following environments:
 
@@ -28,7 +28,7 @@ We support the following environments:
 | Virtualbox | OVA |
 | Vagrant | Vagrant Box |
 
-#### Server Requirements
+### Server Requirements
 
 The W&B Enterprise server requires a virtual machine with at least 4 cores and 16GB memory.
 

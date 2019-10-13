@@ -2,7 +2,7 @@
 description: How to configure the W&B Enterprise Server installation
 ---
 
-# Configuration
+# Enterprise Server Configuration
 
 Your W&B Enterprise Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/vm-settings` page on your server once it's up and running.
 

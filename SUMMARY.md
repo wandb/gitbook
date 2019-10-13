@@ -56,12 +56,6 @@
   * [Numpy Example](python/example-projects/numpy-example.md)
   * [XGBoost Example](python/example-projects/xgboost-example.md)
   * [Jax Example](python/example-projects/jax-example.md)
-* [Enterprise](python/enterprise/README.md)
-  * [Enterprise Cloud](python/enterprise/enterprise-cloud.md)
-  * [Enterprise Server](python/enterprise/enterprise-server/README.md)
-    * [Upgrades](python/enterprise/enterprise-server/upgrades.md)
-    * [Configuration](python/enterprise/enterprise-server/configuration.md)
-  * [Sending Data](python/enterprise/sending-data.md)
 
 ## Web App <a id="app"></a>
 
@@ -82,4 +76,14 @@
 
 * [Rich Media](questions/rich-media.md)
 * [Compare Metrics](questions/compare-metrics.md)
+
+## Enterprise
+
+* [Enterprise Overview](enterprise/enterprise.md)
+* [Enterprise Cloud](enterprise/enterprise-cloud.md)
+* [Sending Data](enterprise/sending-data.md)
+* [Enterprise Server](enterprise/enterprise-server/README.md)
+  * [Enterprise Server Upgrades](enterprise/enterprise-server/upgrades.md)
+  * [Enterprise Server Configuration](enterprise/enterprise-server/configuration.md)
+* [Untitled](enterprise/untitled.md)
 
