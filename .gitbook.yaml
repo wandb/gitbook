@@ -11,6 +11,13 @@ redirects:
   api/run: ./library/api.md
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
+  enterprise/about: ./enterprise/overview.md
+  enterprise/cloud/about: ./enterprise/cloud.md
+  enterprise/server/about: ./enterprise/server.md
+  enterprise/server/config: ./enterprise/server/configuration.md
+  enterprise/server/setup: ./enterprise/server.md
+  enterprise/server/upgrades: ./enterprise/server/upgrades.md
+  enterprise/usage/sending-data: ./enterprise/sending-data.md
   frameworks/catalyst: ./library/integrations/catalyst.md
   frameworks/examples: ./library/example-projects.md
   frameworks/fastai: ./library/frameworks/fastai.md
