@@ -2,7 +2,7 @@
 
 Sergey Kolesnikov, creator of [Catalyst](https://github.com/catalyst-team/catalyst), has built an awesome W&B integration. If you are using Catalyst, we have a runner that can automatically log all hyperparameters, metrics, TensorBoard, the best trained model, and all `stdout` during training.
 
-```text
+```python
 import torch
 from catalyst.dl import SupervisedWandbRunner
 
@@ -37,7 +37,7 @@ runner.train(
 
 Custom parameters can also be given at that stage.
 
-```text
+```python
 # model training
 runner.train(
     model=model,

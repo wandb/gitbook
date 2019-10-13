@@ -4,7 +4,7 @@ W&B integrates with [Ray](https://github.com/ray-project/ray) by providing a log
 
 ### WandbLogger
 
-```text
+```python
 from ray import tune
 from wandb.ray import WandbLogger
 
