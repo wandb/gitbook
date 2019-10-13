@@ -15,16 +15,16 @@ Here's a sample screenshot from a [Species Identification project](https://app.w
 Easily add our package, `wandb`, to your model script.
 
 * [Quickstart](quickstart.md)
-* [Keras integration](python/frameworks/keras.md)
-* [PyTorch integration](python/frameworks/pytorch.md)
-* [TensorFlow integration](python/frameworks/tensorflow.md)
+* [Keras integration](library/frameworks/keras.md)
+* [PyTorch integration](library/frameworks/pytorch.md)
+* [TensorFlow integration](library/frameworks/tensorflow.md)
 
 ## Examples
 
 If you're interested in example projects, we have a few resources:
 
 * [App Gallery](https://app.wandb.ai/gallery): A gallery of featured reports in our web app
-* [Example Projects](python/example-projects/): Python scripts and the results in our web app
+* [Example Projects](library/example-projects/): Python scripts and the results in our web app
 
 ## Common Questions
 
@@ -63,5 +63,5 @@ By default, we don't log any of your dataset examples. You can explicitly turn t
 There's two ways to turn off code logging:
 
 1. Set **WANDB\_DISABLE\_CODE** to **true** to turn off all code tracking. We won't pick up the git SHA or the diff patch.
-2. Set **WANDB\_IGNORE\_GLOBS** to **\*.patch** to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](python/using-the-cli.md#restore-the-state-of-your-code) command.
+2. Set **WANDB\_IGNORE\_GLOBS** to **\*.patch** to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](library/cli.md#restore-the-state-of-your-code) command.
 

@@ -40,11 +40,11 @@ import wandb
 wandb.init(project="my-project")
 ```
 
-We automatically create the project for you if it doesn't exist. \(See the [wandb.init](python/library/init.md) documentation for more initialization options.\)
+We automatically create the project for you if it doesn't exist. \(See the [wandb.init](library/python/init.md) documentation for more initialization options.\)
 
 #### 3b. Hyperparameters \(optional\)
 
-It's easy to save hyperparameters with the [wandb.config](python/library/config.md) object.
+It's easy to save hyperparameters with the [wandb.config](library/python/config.md) object.
 
 ```text
 wandb.config.dropout = 0.2
@@ -53,7 +53,7 @@ wandb.config.hidden_layer_size = 128
 
 #### 3c. Logging \(optional\)
 
-Log metrics like loss or accuracy as your model trains or log more complicated things like histograms, graphs or images with [wandb.log](python/library/log.md).
+Log metrics like loss or accuracy as your model trains or log more complicated things like histograms, graphs or images with [wandb.log](library/python/log.md).
 
 Then log a few metrics:
 
@@ -75,14 +75,14 @@ model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 Great! Now run your script normally and we'll sync logs in a background process. Your terminal logs, metrics, and files will be synced to the cloud along with a record of your git state if you're running from a git repo.
 
 {% hint style="info" %}
-If you're testing and want to disable wandb syncing, set the [environment variable](python/advanced-features/environment-variables.md) WANDB\_MODE=dryrun
+If you're testing and want to disable wandb syncing, set the [environment variable](library/advanced-features/environment-variables.md) WANDB\_MODE=dryrun
 {% endhint %}
 
 ### Examples
 
 You can find complete examples of integrating W&B here:
 
-* [Keras](python/frameworks/keras.md)
+* [Keras](library/frameworks/keras.md)
 * [PyTorch](https://docs.wandb.com/frameworks/pytorch-example)
 * [Tensorflow](https://docs.wandb.com/frameworks/tensorflow-example)
 

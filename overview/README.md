@@ -12,7 +12,7 @@ Here's a 1 minute overview video.
 
 When you instrument your training code with wandb, as you train your models our background process will collect useful data about what is happening. For example, we can keep track of model performance metrics, hyperparameters, gradients, system metrics, model files, your most recent git commit to help you keep track of exactly how you trained your models.
 
-{% page-ref page="../python/api/examples.md" %}
+{% page-ref page="../library/api/examples.md" %}
 
 ### How hard is it to setup?
 

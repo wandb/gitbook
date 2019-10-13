@@ -7,7 +7,7 @@ After you've run a run, our web interface lets you select any **config** variabl
 If you'd like to specify grouping before you launch experiments, you have a couple options.
 
 1. [Environment Variable](environment-variables.md): Use the`WANDB_RUN_GROUP` environment variable
-2. Pass arguments to [wandb.init](../library/init.md):
+2. Pass arguments to [wandb.init](../python/init.md):
    * For a single level of grouping, set the **group** argument
    * For a second level of grouping, set the **job\_type** argument
 
