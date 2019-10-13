@@ -57,7 +57,11 @@
   * [XGBoost Example](python/example-projects/xgboost-example.md)
   * [Jax Example](python/example-projects/jax-example.md)
 * [Enterprise](python/enterprise/README.md)
-  * [Enterprise Server](python/enterprise/enterprise-server.md)
+  * [Enterprise Cloud](python/enterprise/enterprise-cloud.md)
+  * [Enterprise Server](python/enterprise/enterprise-server/README.md)
+    * [Upgrades](python/enterprise/enterprise-server/upgrades.md)
+    * [Configuration](python/enterprise/enterprise-server/configuration.md)
+  * [Sending Data](python/enterprise/sending-data.md)
 
 ## Web App <a id="app"></a>
 

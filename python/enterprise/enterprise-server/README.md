@@ -1,5 +1,5 @@
 ---
-description: Setting up a W&B enterprise server to host results
+description: How to set up the W&B Enterprise Server to host results
 ---
 
 # Enterprise Server
