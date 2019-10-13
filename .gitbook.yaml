@@ -1,6 +1,6 @@
 --- 
 redirects:
-  ### MIGRATION FROM DOCUSAURUS OCT 2019 ###
+  # MIGRATION FROM DOCUSAURUS OCT 2019
   # Overview
   getting-started: ./quickstart.md
   overview/overview: ./overview.md
