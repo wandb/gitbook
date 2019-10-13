@@ -81,6 +81,6 @@
 * [Enterprise Cloud](enterprise/cloud.md)
 * [Sending Data](enterprise/sending-data.md)
 * [Enterprise Server](enterprise/server/README.md)
-  * [Enterprise Server Upgrades](enterprise/server/upgrades.md)
   * [Enterprise Server Configuration](enterprise/server/configuration.md)
+  * [Enterprise Server Upgrades](enterprise/server/upgrades.md)
 
