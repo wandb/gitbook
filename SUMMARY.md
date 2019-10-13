@@ -83,7 +83,3 @@
 * [Rich Media](questions/rich-media.md)
 * [Compare Metrics](questions/compare-metrics.md)
 
-## Enterprise
-
-* [Untitled](enterprise/untitled.md)
-
