@@ -10,7 +10,3 @@ Before using the API you need to store your key locally by running `wandb login`
 
 If errors occur while talking to W&B servers a `wandb.CommError` will be raised. The original exception can be introspected via the **exc** attribute.
 
-```
-
-```
-
