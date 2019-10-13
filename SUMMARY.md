@@ -60,7 +60,6 @@
 ## Web App <a id="app"></a>
 
 * [Pages](app/pages/README.md)
-  * [Run Page](app/pages/run-page.md)
   * [Project Page](app/pages/project-page/README.md)
     * [Sidebar](app/pages/project-page/sidebar.md)
   * [Report Page](app/pages/reports.md)
