@@ -5,17 +5,14 @@ redirects:
   overview/company-faq: ./overview/company-faq.md
   overview/technical-faq: ./overview/technical-faq.md
   overview/getting-help: ./overview/getting-help.md
-  # Python Library
   wandb/init: ./library/python/init.md
   wandb/config: ./library/python/config.md
   wandb/init: ./library/python/init.md
   wandb/log: ./library/python/log.md
   wandb/save: ./library/python/save.md
   wandb/restore: ./library/python/restore.md
-  # API Reference
   api/overview: ./library/api.md
   api/run: ./library/api.md
   api/project: ./library/api.md
-  # Framework Support
   frameworks/keras: ./library/frameworks/keras.md
 root: ./
