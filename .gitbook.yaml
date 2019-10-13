@@ -12,13 +12,21 @@ redirects:
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   frameworks/catalyst: ./library/integrations/catalyst.md
+  frameworks/examples: ./library/example-projects.md
   frameworks/fastai: ./library/frameworks/fastai.md
+  frameworks/fastai-example: ./library/example-projects/fastai.md
+  frameworks/jax-example: ./library/example-projects/jax.md
   frameworks/keras: ./library/frameworks/keras.md
   frameworks/keras-example: ./library/example-projects/keras.md
+  frameworks/numpy-example: ./library/example-projects/numpy.md
   frameworks/pytorch: ./library/frameworks/pytorch.md
+  frameworks/pytorch-example: ./library/example-projects/pytorch.md
   frameworks/scikit: ./library/frameworks/scikit.md
+  frameworks/scikit-example: ./library/example-projects/scikit.md
   frameworks/tensorflow: ./library/frameworks/tensorflow.md
+  frameworks/tensorflow-example: ./library/example-projects/tensorflow.md
   frameworks/xgboost: ./library/frameworks/xgboost.md
+  frameworks/xgboost-example: ./library/example-projects/xgboost.md
   getting-started: ./quickstart.md
   integrations/databricks: ./library/integrations/databricks.md
   integrations/docker: ./library/integrations/docker.md
