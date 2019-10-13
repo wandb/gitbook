@@ -48,7 +48,7 @@ redirects:
   overview/technical-faq: ./overview/technical-faq.md
   sweeps/configuration: ./library/sweeps/configuration.md
   sweeps/local: ./library/sweeps/local-controller.md
-  sweeps/overview: ./library/sweeps/overview.md
+  sweeps/overview: ./library/sweeps.md
   sweeps/python: ./library/sweeps/python-api.md
   wandb/config: ./library/python/config.md
   wandb/init: ./library/python/init.md
