@@ -42,7 +42,6 @@
   * [Security](library/advanced/security.md)
   * [Limits](library/advanced/limits.md)
 * [Sweeps](library/sweeps/README.md)
-  * [Overview](library/sweeps/overview.md)
   * [Configuration](library/sweeps/configuration.md)
   * [Local Controller](library/sweeps/local-controller.md)
   * [Jupyter & Python API](library/sweeps/python-api.md)
@@ -71,7 +70,6 @@
   * [Notes](app/features/notes.md)
   * [Sweeps](app/features/sweeps.md)
   * [Alerts](app/features/alerts.md)
-  * [Workspaces](app/features/workspaces.md)
 * [Web App FAQ](app/faq/README.md)
   * [Compare Metrics](app/faq/compare-metrics.md)
 
