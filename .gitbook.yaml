@@ -1,13 +1,12 @@
 --- 
 redirects:
-  # MIGRATION FROM DOCUSAURUS OCT 2019
-  # Overview
+  # Overview
   getting-started: ./quickstart.md
   overview/overview: ./overview.md
   overview/company-faq: ./overview/company-faq.md
   overview/technical-faq: ./overview/technical-faq.md
   overview/getting-help: ./overview/getting-help.md
-  # Python Library
+  # Python Library
   wandb/init: ./library/python/init.md
   wandb/config: ./library/python/config.md
   wandb/init: ./library/python/init.md
