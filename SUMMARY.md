@@ -71,11 +71,11 @@
   * [Sweeps](app/features/sweeps.md)
   * [Alerts](app/features/untitled.md)
   * [Workspaces](app/features/workspaces.md)
+* [Web App FAQ](app/web-app-faq/README.md)
+  * [Rich Media](app/web-app-faq/rich-media.md)
+  * [Compare Metrics](app/web-app-faq/compare-metrics.md)
 
 ## Questions
-
-* [Rich Media](questions/rich-media.md)
-* [Compare Metrics](questions/compare-metrics.md)
 
 ## Enterprise
 
