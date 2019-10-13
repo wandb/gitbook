@@ -54,6 +54,8 @@
   * [Numpy Example](library/example-projects/numpy-example.md)
   * [XGBoost Example](library/example-projects/xgboost-example.md)
   * [JAX Example](library/example-projects/jax-example.md)
+* [Library FAQ](library/web-app-questions/README.md)
+  * [Rich Media](library/web-app-questions/rich-media.md)
 
 ## Web App <a id="app"></a>
 
@@ -70,7 +72,6 @@
   * [Alerts](app/features/untitled.md)
   * [Workspaces](app/features/workspaces.md)
 * [Web App FAQ](app/web-app-faq/README.md)
-  * [Rich Media](app/web-app-faq/rich-media.md)
   * [Compare Metrics](app/web-app-faq/compare-metrics.md)
 
 ## Enterprise
