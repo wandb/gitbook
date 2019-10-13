@@ -1,28 +1,17 @@
-root: ./
-
-structure:
-  readme: README.md
-  summary: SUMMARY.md
-
-redirects:
-  ### MIGRATION FROM DOCUSAURUS OCT 2019 ###
-  # Overview
+--- 
+redirects: 
+  api/overview: ./library/api.md
+  api/project: ./library/api.md
+  api/run: ./library/api.md
+  frameworks/keras: ./library/frameworks/keras.md
   getting-started: ./quickstart.md
-  overview/overview: ./overview.md
   overview/company-faq: ./overview/company-faq.md
-  overview/technical-faq: ./overview/technical-faq.md
   overview/getting-help: ./overview/getting-help.md
-  # Python Library
-  wandb/init: ./library/python/init.md
+  overview/overview: ./overview.md
+  overview/technical-faq: ./overview/technical-faq.md
   wandb/config: ./library/python/config.md
   wandb/init: ./library/python/init.md
   wandb/log: ./library/python/log.md
-  wandb/save: ./library/python/save.md
   wandb/restore: ./library/python/restore.md
-  # API Reference
-  api/overview: ./library/api.md
-  api/run: ./library/api.md
-  api/project: ./library/api.md
-  # Framework Support
-  frameworks/keras: ./library/frameworks/keras.md
-
+  wandb/save: ./library/python/save.md
+root: ./
