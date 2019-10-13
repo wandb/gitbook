@@ -1,44 +1,42 @@
 --- 
 redirects: 
+  advanced/automated: ./library/advanced/environment-variables.md
+  advanced/grouping: ./library/advanced/grouping.md
+  advanced/limits: ./library/advanced/limits.md
+  advanced/resuming: ./library/advanced/resuming.md
+  advanced/security: ./library/advanced/security.md
+  alerts/slack: ./app/features/alerts.md
+  api/overview: ./library/api.md
+  api/project: ./library/api.md
+  api/run: ./library/api.md
+  cli/overview: ./library/cli.md
+  cli/restoring: ./library/cli.md
+  frameworks/catalyst: ./library/integrations/catalyst.md
+  frameworks/fastai: ./library/frameworks/fastai.md
+  frameworks/keras: ./library/frameworks/keras.md
+  frameworks/keras-example: ./library/example-projects/keras.md
+  frameworks/pytorch: ./library/frameworks/pytorch.md
+  frameworks/scikit: ./library/frameworks/scikit.md
+  frameworks/tensorflow: ./library/frameworks/tensorflow.md
+  frameworks/xgboost: ./library/frameworks/xgboost.md
   getting-started: ./quickstart.md
-  overview/overview: ./overview.md
+  integrations/databricks: ./library/integrations/databricks.md
+  integrations/docker: ./library/integrations/docker.md
+  integrations/jupyter: ./library/integrations/jupyter.md
+  integrations/kubeflow: ./library/integrations/kubeflow.md
+  integrations/ray: ./library/integrations/ray.md
+  integrations/sagemaker: ./library/integrations/sagemaker.md
+  integrations/tensorboard: ./library/integrations/tensorboard.md
   overview/company-faq: ./overview/company-faq.md
-  overview/technical-faq: ./overview/technical-faq.md
   overview/getting-help: ./overview/getting-help.md
+  overview/overview: ./overview.md
+  overview/technical-faq: ./overview/technical-faq.md
+  sweeps/configuration: ./library/sweeps/configuration.md
+  sweeps/local: ./library/sweeps/local-controller.md
+  sweeps/overview: ./library/sweeps/overview.md
+  sweeps/python: ./library/sweeps/python-api.md
   wandb/config: ./library/python/config.md
   wandb/init: ./library/python/init.md
   wandb/log: ./library/python/log.md
   wandb/restore: ./library/python/restore.md
   wandb/save: ./library/python/save.md
-  api/overview: ./library/api.md
-  api/project: ./library/api.md
-  api/run: ./library/api.md
-  frameworks/keras: ./library/frameworks/keras.md
-  frameworks/tensorflow: ./library/frameworks/tensorflow.md
-  frameworks/pytorch: ./library/frameworks/pytorch.md
-  frameworks/fastai: ./library/frameworks/fastai.md
-  frameworks/scikit: ./library/frameworks/scikit.md
-  frameworks/xgboost: ./library/frameworks/xgboost.md
-  frameworks/scikit: ./library/frameworks/scikit.md
-  frameworks/catalyst: ./library/integrations/catalyst.md
-  integrations/tensorboard: ./library/integrations/tensorboard.md
-  integrations/sagemaker: ./library/integrations/sagemaker.md
-  integrations/kubeflow: ./library/integrations/kubeflow.md
-  integrations/docker: ./library/integrations/docker.md
-  integrations/jupyter: ./library/integrations/jupyter.md
-  integrations/databricks: ./library/integrations/databricks.md
-  integrations/ray: ./library/integrations/ray.md
-  cli/overview: ./library/cli.md
-  cli/restoring: ./library/cli.md
-  advanced/automated: ./library/advanced/environment-variables.md
-  advanced/grouping: ./library/advanced/grouping.md
-  advanced/resuming: ./library/advanced/resuming.md
-  advanced/security: ./library/advanced/security.md
-  advanced/limits: ./library/advanced/limits.md
-  sweeps/overview: ./library/sweeps/overview.md
-  sweeps/configuration: ./library/sweeps/configuration.md
-  sweeps/local: ./library/sweeps/local-controller.md
-  sweeps/overview: ./library/sweeps/overview.md
-  sweeps/python: ./library/sweeps/python-api.md
-  alerts/slack: ./app/features/alerts.md
-  frameworks/keras-example: ./library/example-projects/keras.md
