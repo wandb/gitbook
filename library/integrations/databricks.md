@@ -12,7 +12,7 @@ Navigate to your cluster configuration, choose your cluster, click on Libraries,
 
 In order to authenticate your W&B account you can add a databricks secret which your notebooks can query.
 
-```text
+```bash
 # install databricks cli
 pip install databricks-cli
 
@@ -33,7 +33,7 @@ databricks secrets put --scope wandb --key api_key
 
 #### Simple
 
-```text
+```python
 import os
 import wandb
 
@@ -48,7 +48,7 @@ wandb.log({"foo": 1})
 
 Setup required \(temporary\) for notebooks attempting to use wandb.sweep\(\) or wandb.agent\(\):
 
-```text
+```python
 import os
 # These will not be necessary in the future
 os.environ['WANDB_ENTITY'] = "my-entity"

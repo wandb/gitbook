@@ -4,7 +4,7 @@
 
 W&B supports patching TensorBoard or [TensorboardX](https://github.com/lanpa/tensorboardX) to automatically log all summaries.
 
-```text
+```python
 import wandb
 wandb.init(sync_tensorboard=True)
 ```
@@ -21,7 +21,7 @@ If you want more control over how TensorBoard is patched you can call `wandb.ten
 
 By default we also sync the tfevents files and any \*.pbtxt files. This enables us to launch a TensorBoard instance on your behalf. You will see a [TensorBoard tab](https://www.wandb.com/articles/hosted-tensorboard) on the run page. This behavior can be disabled by ~~~~passing `save=False` to `wandb.tensorboard.patch`
 
-```text
+```python
 import wandb
 wandb.init()
 wandb.tensorboard.patch(save=False, tensorboardX=True)

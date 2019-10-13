@@ -75,7 +75,7 @@ model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 Great! Now run your script normally and we'll sync logs in a background process. Your terminal logs, metrics, and files will be synced to the cloud along with a record of your git state if you're running from a git repo.
 
 {% hint style="info" %}
-If you're testing and want to disable wandb syncing, set the [environment variable](library/advanced-features/environment-variables.md) WANDB\_MODE=dryrun
+If you're testing and want to disable wandb syncing, set the [environment variable](library/advanced/environment-variables.md) WANDB\_MODE=dryrun
 {% endhint %}
 
 ### Examples
