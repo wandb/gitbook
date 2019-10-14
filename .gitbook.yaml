@@ -56,8 +56,8 @@ redirects:
   docs/frameworks/xgboost: ./library/frameworks/xgboost.md
   docs/frameworks/xgboost-example: ./library/example-projects/xgboost.md
   docs/getting-started: ./quickstart.md
-  docs/"integrations/api": ./library/api/README.md
-  docs/"integrations/api#special-methods": ./library/api/README.md
+  docs/integrations/api: ./library/api/README.md
+  "docs/integrations/api#special-methods": ./library/api/README.md
   docs/integrations/databricks: ./library/integrations/databricks.md
   docs/integrations/docker: ./library/integrations/docker.md
   docs/integrations/jupyter: ./library/integrations/jupyter.md
