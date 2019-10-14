@@ -9,6 +9,7 @@
 
 ## Library
 
+* [Reference](library/reference.md)
 * [Python Library](library/python/README.md)
   * [wandb.init](library/python/init.md)
   * [wandb.config](library/python/config.md)

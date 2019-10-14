@@ -1,5 +1,5 @@
 ---
-description: How to use our public API
+description: Generated reference documentation for the wandb public API
 ---
 
 # API Reference
