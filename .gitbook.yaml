@@ -11,7 +11,7 @@ redirects:
   api/run: ./library/api.md
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
-  docs/*: ./overview.md
+  docs/: ./quickstart.md
   "docs/log#summary-metrics": ./library/python/log#summary-metrics.md
   docs/config: ./library/python/config.md
   enterprise/about: ./enterprise/overview.md
