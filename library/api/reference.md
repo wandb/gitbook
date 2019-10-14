@@ -1,74 +1,108 @@
-# index
+---
+description: How to use our public API
+---
 
-## Api
+# Reference
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L0)
+
+### Api
+
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L90)
+
+```text
 Api(self, overrides={})
 ```
 
-W&B Public API Used for querying the wandb server. Initialize with wandb.Api\(\)
+Used for querying the wandb server.
+
+**Examples**:
+
+Most common way to initialize
+
+```text
+wandb.Api()
+```
 
 **Arguments**:
 
-* `overrides` _dict_ - You can set defaults such as
+* `overrides` _dict_ - You can set `base_url` if you are using a wandb server other than [https://api.wandb.ai](https://api.wandb.ai/). You can also set defaults for `entity`, `project`, and `run`.
 
-  entity, project, and run here as well as which api server to use.
+#### Api.flush
 
-### flush
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L157)
 
-```python
+```text
 Api.flush(self)
 ```
 
-Api keeps a local cache of runs, so if the state of the run may change while executing your script you must clear the local cache with api.flush\(\) to get the latest values associated with the run.
+The api object keeps a local cache of runs, so if the state of the run may change while executing your script you must clear the local cache with `api.flush()` to get the latest values associated with the run.
 
-### projects
+#### Api.projects
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L192)
+
+```text
 Api.projects(self, entity=None, per_page=None)
 ```
 
-Return a list of projects for a given entity.
+Get projects for a given entity.
 
-### runs
+**Arguments**:
 
-```python
+* `entity` _str_ - Name of the entity requested. If None will fallback to default entity passed to [`Api`.](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#api%60.) If no default entity, will raise a `ValueError`.
+* `per_page` _int_ - Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this.
+
+**Returns**:
+
+A [`Projects`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#projects) object which is an iterable collection of [`Project`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#project) objects.
+
+#### Api.runs
+
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L212)
+
+```text
 Api.runs(self, path='', filters={}, order='-created_at', per_page=None)
 ```
 
-Return a set of runs from a project that match the filters provided. You can filter by config._, summary._, state, entity, createdAt, etc.
+Return a set of runs from a project that match the filters provided. You can filter by `config.*`, `summary.*`, `state`, `entity`, `createdAt`, etc.
+
+**Examples**:
+
+Find runs in my\_project config.experiment\_name has been set to "foo"
+
+```text
+api.runs(path="my_entity/my_project", {"config.experiment_name": "foo"})
+```
+
+Find runs in my\_project config.experiment\_name has been set to "foo" or "bar"
+
+```text
+api.runs(path="my_entity/my_project",
+{"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
+```
+
+Find runs in my\_project sorted by ascending loss
+
+```text
+api.runs(path="my_entity/my_project", {"order": "+summary.loss"})
+```
 
 **Arguments**:
 
 * `path` _str_ - path to project, should be in the form: "entity/project"
-* `filters` _dict_ - queries for specific runs using the MongoDB query language.
-
-  Reference for the language is at  [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)
-
-  You can filter by run properties such as config, summary, state, entity, createdAt
-
-  For example: {"config.experiment\_name": "foo"} would find runs with a config entry
-
-  of experiment name set to "foo"
-
-  You can compose operations to make more complicated queries like:
-
-* `{"$or"` - \[{"config.experiment\_name": "foo"}, {"config.experiment\_name": "bar"}
-* `order` _str_ - Order can be created\_at, heartbeat\_at, config._.value, or summary._.
-
-  If you prepend order with a + order is ascending.
-
-  If you prepend order with a - order is descending \(default\).
-
-  The dafault order is run.created\_at from newest to oldest.
+* `filters` _dict_ - queries for specific runs using the MongoDB query language. You can filter by run properties such as config.key, summary.key, state, entity, createdAt, etc. For example: {"config.experiment\_name": "foo"} would find runs with a config entry of experiment name set to "foo" You can compose operations to make more complicated queries, see Reference for the language is at [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)
+* `order` _str_ - Order can be `created_at`, `heartbeat_at`, `config.*.value`, or `summary.*`. If you prepend order with a + order is ascending. If you prepend order with a - order is descending \(default\). The default order is run.created\_at from newest to oldest.
 
 **Returns**:
 
-A Runs object, which is an iterable set of Run objects.
+A [`Runs`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#runs) object, which is an iterable collection of [`Run`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#run) objects.
 
-### run
+#### Api.run
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L256)
+
+```text
 Api.run(self, path='')
 ```
 
@@ -76,19 +110,17 @@ Returns a single run by parsing path in the form entity/project/run\_id.
 
 **Arguments**:
 
-* `path` _str_ - path to run in the form entity/project/run\_id.  If api.entity
-
-  is set, this can be in the form project/run\_id and if api.project is set
-
-  this can just be the run\_id.
+* `path` _str_ - path to run in the form entity/project/run\_id. If api.entity is set, this can be in the form project/run\_id and if api.project is set this can just be the run\_id.
 
 **Returns**:
 
-A `Run` object.
+A [`Run`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#run) object.
 
-### sweep
+#### Api.sweep
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L273)
+
+```text
 Api.sweep(self, path='')
 ```
 
@@ -96,52 +128,55 @@ Returns a sweep by parsing path in the form entity/project/sweep\_id.
 
 **Arguments**:
 
-* `path` _str_ - path to sweep in the form entity/project/sweep\_id.  If api.entity
-
-  is set, this can be in the form project/sweep\_id and if api.project is set
-
-  this can just be the sweep\_id.
+* `path` _str, optional_ - path to sweep in the form entity/project/sweep\_id. If api.entity is set, this can be in the form project/sweep\_id and if api.project is set this can just be the sweep\_id.
 
 **Returns**:
 
-A `Sweep` object.
+A [`Sweep`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#sweep) object.
 
-## Projects
+### Projects
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L384)
+
+```text
 Projects(self, client, entity, per_page=50)
 ```
 
-An iterable set of projects
+An iterable collection of [`Project`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#project) objects.
 
-## Project
+### Project
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L438)
+
+```text
 Project(self, entity, project, attrs)
 ```
 
 A project is a namespace for runs
 
-## Runs
+### Runs
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L449)
+
+```text
 Runs(self, client, entity, project, filters={}, order=None, per_page=50)
 ```
 
-An iterable set of runs associated with a project and optional filter.
+An iterable collection of runs associated with a project and optional filter.
 
-## Run
+### Run
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L515)
+
+```text
 Run(self, client, entity, project, run_id, attrs={})
 ```
 
-A single run associated with an entity and project
+A single run associated with an entity and project.
 
 **Attributes**:
 
-tags \(list\(str\)\): a list of tags associated with the run
-
+* `tags` _\[str\]_ - a list of tags associated with the run
 * `url` _str_ - the url of this run
 * `id` _str_ - unique identifier for the run \(defaults to eight characters\)
 * `name` _str_ - the name of the run
@@ -149,58 +184,57 @@ tags \(list\(str\)\): a list of tags associated with the run
 * `config` _dict_ - a dict of hyperparameters associated with the run
 * `created_at` _str_ - ISO timestamp when the run was started
 * `system_metrics` _dict_ - the latest system metrics recorded for the run
-* `summary` _dict_ - A mutable dict-like property that holds the current summary.
-
-  Calling update will persist any changes.
-
+* `summary` _dict_ - A mutable dict-like property that holds the current summary. Calling update will persist any changes.
 * `project` _str_ - the project associated with the run
 * `entity` _str_ - the name of the entity associated with the run
 * `user` _str_ - the name of the user who created the run
 * `path` _str_ - Unique identifier \[entity\]/\[project\]/\[run\_id\]
 * `notes` _str_ - Notes about the run
 * `read_only` _boolean_ - Whether the run is editable
-* `history_keys` _str_ - Keys of the history metrics that have been logged
+* `history_keys` _str_ - Keys of the history metrics that have been logged with `wandb.log({key: value})`
 
-  with wandb.log\({key: value}\)
+#### Run.create
 
-### storage\_id
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L596)
 
-For compatibility with wandb.Run, which has storage IDs in self.storage\_id and names in self.id.
-
-### create
-
-```python
+```text
 Run.create(api, run_id=None, project=None, entity=None)
 ```
 
 Create a run for the given project
 
-### update
+#### Run.update
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L663)
+
+```text
 Run.update(self)
 ```
 
 Persists changes to the run object to the wandb backend.
 
-### files
+#### Run.files
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L723)
+
+```text
 Run.files(self, names=[], per_page=50)
 ```
 
 **Arguments**:
 
 * `names` _list_ - names of the requested files, if empty returns all files
-* `per_page` - \(integer\): number of results per page
+* `per_page` _int_ - number of results per page
 
 **Returns**:
 
-Files object
+A [`Files`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#files) object, which is an iterator over [`File`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#file) obejcts.
 
-### file
+#### Run.file
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L735)
+
+```text
 Run.file(self, name)
 ```
 
@@ -208,15 +242,24 @@ Run.file(self, name)
 
 * `name` _str_ - name of requested file.
 
-  Returns File
+**Returns**:
 
-### history
+A [`File`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#file) matching the name argument.
 
-```python
-Run.history(self, samples=500, keys=None, x_axis='_step', pandas=True, stream='default')
+#### Run.history
+
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L746)
+
+```text
+Run.history(self,
+            samples=500,
+            keys=None,
+            x_axis='_step',
+            pandas=True,
+            stream='default')
 ```
 
-Return history metrics for a run
+Returns sampled history metrics for a run. This is simpler and faster if you are ok with the history records being sampled.
 
 **Arguments**:
 
@@ -226,22 +269,44 @@ Return history metrics for a run
 * `x_axis` _str, optional_ - Use this metric as the xAxis defaults to \_step
 * `stream` _str, optional_ - "default" for metrics, "system" for machine metrics
 
-### scan\_history
+**Returns**:
 
-```python
+If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics.
+
+#### Run.scan\_history
+
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L778)
+
+```text
 Run.scan_history(self, keys=None, page_size=1000)
 ```
 
-Returns an iterable that returns all history for a run unsampled
+Returns an iterable collection of all history records for a run.
+
+**Examples**:
+
+Export all the loss values for an example run
+
+```text
+run = api.run("l2k2/examples-numpy-boston/i0wt6xua")
+history = run.scan_history(keys=["Loss"])
+losses = [row["Loss"] for row in history]
+```
 
 **Arguments**:
 
-* `keys` _\[str\], optional_ - only fetch these keys, and rows that have all of them
+* `keys` _\[str\], optional_ - only fetch these keys, and only fetch rows that have all of keys defined.
 * `page_size` _int, optional_ - size of pages to fetch from the api
 
-## Sweep
+**Returns**:
 
-```python
+An iterable collection over history records \(dict\).
+
+### Sweep
+
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L831)
+
+```text
 Sweep(self, client, entity, project, sweep_id, attrs={})
 ```
 
@@ -249,24 +314,56 @@ A set of runs associated with a sweep Instantiate with: api.sweep\(sweep\_path\)
 
 **Attributes**:
 
-* `runs` _Runs_ - list of runs
+* `runs` [_`Runs`_](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#runs) - list of runs
 * `id` _str_ - sweep id
 * `project` _str_ - name of project
 * `config` _str_ - dictionary of sweep configuration
 
-## Files
+### Files
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L914)
+
+```text
 Files(self, client, run, names=[], per_page=50, upload=False)
 ```
 
-Files is a paginated list of files.
+Files is an iterable collection of [`File`](https://github.com/wandb/client/blob/feature/docs/docs/markdown/wandb_api.md#file) objects.
 
-## File
+### File
 
-```python
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L970)
+
+```text
 File(self, client, attrs)
 ```
 
-File is a file saved by wandb.
+File is a class associated with a file saved by wandb.
+
+**Attributes**:
+
+* `name` _string_ - filename
+* `url` _string_ - path to file
+* `md5` _string_ - md5 of file
+* `mimetype` _string_ - mimetype of file
+* `updated_at` _string_ - timestamp of last update
+* `size` _int_ - size of file in bytes
+
+#### File.download
+
+[source](https://github.com/wandb/client/blob/feature/docs/wandb/apis/public.py#L1014)
+
+```text
+File.download(self, replace=False, root='.')
+```
+
+Downloads a file previously saved by a run from the wandb server.
+
+**Arguments**:
+
+* `replace` _boolean_ - If `True`, download will overwrite a local file if it exists. Defaults to `False`.
+* `root` _str_ - Local directory to save the file. Defaults to ".".
+
+**Raises**:
+
+`ValueError` if file already exists and replace=False
 
