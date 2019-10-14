@@ -1,6 +1,6 @@
 # Sweeps
 
-Use W&B to manage hyperparameter sweeps. Sweeps are useful for efficiently finding the best version of your model.
+Use W&B to manage hyperparameter sweeps. Sweeps are useful for efficiently finding the best version of your model. Currently not supported on Windows.
 
 ### Getting Started
 
