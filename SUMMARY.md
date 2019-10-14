@@ -26,7 +26,7 @@
   * [Scikit](library/frameworks/scikit.md)
   * [XGBoost](library/frameworks/xgboost.md)
 * [Reference](library/reference/README.md)
-  * [API](library/reference/wandb_api.md)
+  * [API Reference](library/reference/wandb_api.md)
   * [Keras Reference](library/reference/keras.md)
   * [Fast.ai Reference](library/reference/fastai.md)
   * [Data Types](library/reference/data_types.md)
