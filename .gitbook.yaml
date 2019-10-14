@@ -1,6 +1,6 @@
 --- 
 redirects: 
-  advanced/automated: ./library/advanced/environment-variables.md
+  advanced/automated: ./library/advanced/automated.md
   advanced/grouping: ./library/advanced/grouping.md
   advanced/limits: ./library/advanced/limits.md
   advanced/resuming: ./library/advanced/resuming.md
