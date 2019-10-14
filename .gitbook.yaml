@@ -44,7 +44,7 @@ redirects:
   frameworks/xgboost: ./library/frameworks/xgboost.md
   frameworks/xgboost-example: ./library/example-projects/xgboost.md
   getting-started: ./quickstart.md
-  "integrations/api": ./library/api.md
+  "integrations/api": ./quickstart.md
   "integrations/api#special-methods": ./quickstart.md
   integrations/databricks: ./library/integrations/databricks.md
   integrations/docker: ./library/integrations/docker.md
