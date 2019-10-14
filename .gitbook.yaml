@@ -39,7 +39,7 @@ redirects:
   frameworks/xgboost-example: ./library/example-projects/xgboost.md
   getting-started: ./quickstart.md
   integrations/api: ./library/api.md
-  integrations/api#special-methods: ./library/api.md
+  "integrations/api#special-methods": ./library/api.md
   integrations/databricks: ./library/integrations/databricks.md
   integrations/docker: ./library/integrations/docker.md
   integrations/jupyter: ./library/integrations/jupyter.md
