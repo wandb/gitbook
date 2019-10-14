@@ -6,7 +6,7 @@ redirects:
   advanced/resuming: ./library/advanced/resuming.md
   advanced/security: ./library/advanced/security.md
   alerts/slack: ./app/features/alerts.md
-  api: ./quickstart.md
+  api/*: ./library/api.md
   "api/overview": ./library/api.md
   "api/project": ./library/api.md
   "api/run": ./library/api.md
@@ -44,7 +44,7 @@ redirects:
   frameworks/xgboost: ./library/frameworks/xgboost.md
   frameworks/xgboost-example: ./library/example-projects/xgboost.md
   getting-started: ./quickstart.md
-  integrations/api: ./library/api.md
+  "integrations/api": ./library/api.md
   "integrations/api#special-methods": ./quickstart.md
   integrations/databricks: ./library/integrations/databricks.md
   integrations/docker: ./library/integrations/docker.md
