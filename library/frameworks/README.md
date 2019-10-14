@@ -8,11 +8,11 @@ Use framework integrations to get a wandb integration up and running quickly. He
 
 {% page-ref page="pytorch.md" %}
 
-{% page-ref page="keras/" %}
+{% page-ref page="keras.md" %}
 
 {% page-ref page="tensorflow.md" %}
 
-{% page-ref page="fastai/" %}
+{% page-ref page="fastai.md" %}
 
 {% page-ref page="xgboost.md" %}
 
