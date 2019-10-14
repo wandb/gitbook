@@ -6,10 +6,10 @@ redirects:
   advanced/resuming: ./library/advanced/resuming.md
   advanced/security: ./library/advanced/security.md
   alerts/slack: ./app/features/alerts.md
-  api: ./library/api.md
-  "api/overview": ./library/api.md
-  "api/project": ./library/api.md
-  "api/run": ./library/api.md
+  api: ./library/reference/wandb_api.md
+  "api/overview": ./library/reference/wandb_api.md
+  "api/project": ./library/reference/wandb_api.md
+  "api/run": ./library/reference/wandb_api.md
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   docs/: ./
@@ -44,8 +44,8 @@ redirects:
   frameworks/xgboost: ./library/frameworks/xgboost.md
   frameworks/xgboost-example: ./library/example-projects/xgboost.md
   getting-started: ./quickstart.md
-  "integrations/api": ./quickstart.md
-  "integrations/api#special-methods": ./quickstart.md
+  "integrations/api": ./library/reference/wandb_api.md
+  "integrations/api#special-methods": ./library/reference/wandb_api.md
   integrations/databricks: ./library/integrations/databricks.md
   integrations/docker: ./library/integrations/docker.md
   integrations/jupyter: ./library/integrations/jupyter.md
