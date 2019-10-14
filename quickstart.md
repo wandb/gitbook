@@ -82,7 +82,7 @@ If you're testing and want to disable wandb syncing, set the [environment variab
 
 You can find complete examples of integrating W&B here:
 
-* [Keras](library/frameworks/keras.md)
+* [Keras](library/frameworks/keras/)
 * [PyTorch](https://docs.wandb.com/frameworks/pytorch-example)
 * [Tensorflow](https://docs.wandb.com/frameworks/tensorflow-example)
 

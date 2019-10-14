@@ -15,7 +15,7 @@ Here's a sample screenshot from a [Species Identification project](https://app.w
 Easily add our package, `wandb`, to your model script.
 
 * [Quickstart](quickstart.md)
-* [Keras integration](library/frameworks/keras.md)
+* [Keras integration](library/frameworks/keras/)
 * [PyTorch integration](library/frameworks/pytorch.md)
 * [TensorFlow integration](library/frameworks/tensorflow.md)
 
