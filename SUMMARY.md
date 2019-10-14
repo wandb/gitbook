@@ -15,6 +15,7 @@
   * [wandb.log](library/python/log.md)
   * [wandb.save](library/python/save.md)
   * [wandb.restore](library/python/restore.md)
+  * [Data Types](library/python/data-types.md)
 * [Command Line Interface](library/cli.md)
 * [API](library/api/README.md)
   * [API Examples](library/api/examples.md)
