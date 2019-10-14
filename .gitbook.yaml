@@ -73,6 +73,7 @@ redirects:
   docs/overview/technical-faq: ./overview/technical-faq.md
   docs/restore: ./library/python/restore.md
   docs/save: ./library/python/save.md
+  docs/started: ./quickstart.md
   docs/sweeps/configuration: ./library/sweeps/configuration.md
   docs/sweeps/local: ./library/sweeps/local-controller.md
   docs/sweeps/overview: ./library/sweeps.md
