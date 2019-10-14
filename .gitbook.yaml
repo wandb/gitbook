@@ -13,6 +13,7 @@ redirects:
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   docs/: ./README.md
+  docs/automated: ./advanced/environment-variables.md
   docs/advanced/automated: ./library/advanced/environment-variables.md
   docs/advanced/grouping: ./library/advanced/grouping.md
   docs/advanced/limits: ./library/advanced/limits.md
@@ -33,6 +34,7 @@ redirects:
   docs/enterprise/server/setup: ./enterprise/overview.md
   docs/enterprise/server/upgrades: ./enterprise/server/upgrades.md
   docs/enterprise/usage/sending-data: ./enterprise/sending-data.md
+  docs/faq: ./overview/company-faq.md
   docs/frameworks/catalyst: ./library/integrations/catalyst.md
   docs/frameworks/examples: ./library/example-projects.md
   docs/frameworks/fastai: ./library/frameworks/fastai.md
@@ -79,6 +81,7 @@ redirects:
   docs/wandb/log: ./library/python/log.md
   docs/wandb/restore: ./library/python/restore.md
   docs/wandb/save: ./library/python/save.md
+  en/help: ./README.md
   enterprise/about: ./enterprise/overview.md
   enterprise/cloud/about: ./enterprise/cloud.md
   enterprise/server/about: ./enterprise/overview.md
