@@ -64,6 +64,7 @@ redirects:
   docs/integrations/sagemaker: ./library/integrations/sagemaker.md
   docs/integrations/tensorboard: ./library/integrations/tensorboard.md
   docs/log: ./library/python/log.md
+  docs/logs: ./library/python/log.md
   ? "docs/log#summary-metrics"
   : "./library/python/log#summary-metrics.md"
   docs/overview/company-faq: ./overview/company-faq.md
