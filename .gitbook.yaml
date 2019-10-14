@@ -13,7 +13,6 @@ redirects:
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   docs/: ./README.md
-  docs/automated: ./advanced/environment-variables.md
   docs/advanced/automated: ./library/advanced/environment-variables.md
   docs/advanced/grouping: ./library/advanced/grouping.md
   docs/advanced/limits: ./library/advanced/limits.md
@@ -25,7 +24,7 @@ redirects:
   docs/api/project: ./library/api/README.md
   docs/api/run: ./library/api/README.md
   docs/artifacts: ./library/python/init.md
-  docs/examples: ./library/example-projects/README.md
+  docs/automated: ./advanced/environment-variables.md
   docs/cli/overview: ./library/cli.md
   docs/cli/restoring: ./library/cli.md
   docs/config: ./library/python/config.md
@@ -36,6 +35,7 @@ redirects:
   docs/enterprise/server/setup: ./enterprise/overview.md
   docs/enterprise/server/upgrades: ./enterprise/server/upgrades.md
   docs/enterprise/usage/sending-data: ./enterprise/sending-data.md
+  docs/examples: ./library/example-projects/README.md
   docs/faq: ./overview/company-faq.md
   docs/frameworks/catalyst: ./library/integrations/catalyst.md
   docs/frameworks/examples: ./library/example-projects.md
@@ -66,9 +66,9 @@ redirects:
   docs/integrations/sagemaker: ./library/integrations/sagemaker.md
   docs/integrations/tensorboard: ./library/integrations/tensorboard.md
   docs/log: ./library/python/log.md
-  docs/logs: ./library/python/log.md
   ? "docs/log#summary-metrics"
   : "./library/python/log#summary-metrics.md"
+  docs/logs: ./library/python/log.md
   docs/overview/company-faq: ./overview/company-faq.md
   docs/overview/getting-help: ./overview/getting-help.md
   docs/overview/overview: ./overview.md
