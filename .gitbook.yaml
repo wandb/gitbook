@@ -13,6 +13,18 @@ redirects:
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   docs/: ./README.md
+  docs/advanced/automated: ./library/advanced/environment-variables.md
+  docs/advanced/grouping: ./library/advanced/grouping.md
+  docs/advanced/limits: ./library/advanced/limits.md
+  docs/advanced/resuming: ./library/advanced/resuming.md
+  docs/advanced/security: ./library/advanced/security.md
+  docs/alerts/slack: ./app/features/alerts.md
+  docs/api: ./library/api/README.md
+  docs/api/overview: ./library/api/README.md
+  docs/api/project: ./library/api/README.md
+  docs/api/run: ./library/api/README.md
+  docs/cli/overview: ./library/cli.md
+  docs/cli/restoring: ./library/cli.md
   "docs/log#summary-metrics": ./library/python/log#summary-metrics.md
   docs/integrations/jupyter: ./library/integrations/jupyter.md
   docs/config: ./library/python/config.md
@@ -20,6 +32,52 @@ redirects:
   docs/log: ./library/python/log.md
   docs/save: ./library/python/save.md
   docs/restore: ./library/python/restore.md
+  docs/enterprise/about: ./enterprise/overview.md
+  docs/enterprise/cloud/about: ./enterprise/cloud.md
+  docs/enterprise/server/about: ./enterprise/overview.md
+  docs/enterprise/server/config: ./enterprise/server/configuration.md
+  docs/enterprise/server/setup: ./enterprise/overview.md
+  docs/enterprise/server/upgrades: ./enterprise/server/upgrades.md
+  docs/enterprise/usage/sending-data: ./enterprise/sending-data.md
+  docs/frameworks/catalyst: ./library/integrations/catalyst.md
+  docs/frameworks/examples: ./library/example-projects.md
+  docs/frameworks/fastai: ./library/frameworks/fastai.md
+  docs/frameworks/fastai-example: ./library/example-projects/fastai.md
+  docs/frameworks/jax-example: ./library/example-projects/jax.md
+  docs/frameworks/keras: ./library/frameworks/keras.md
+  docs/frameworks/keras-example: ./library/example-projects/keras.md
+  docs/frameworks/numpy-example: ./library/example-projects/numpy.md
+  docs/frameworks/pytorch: ./library/frameworks/pytorch.md
+  docs/frameworks/pytorch-example: ./library/example-projects/pytorch.md
+  docs/frameworks/scikit: ./library/frameworks/scikit.md
+  docs/frameworks/scikit-example: ./library/example-projects/scikit.md
+  docs/frameworks/tensorflow: ./library/frameworks/tensorflow.md
+  docs/frameworks/tensorflow-example: ./library/example-projects/tensorflow.md
+  docs/frameworks/xgboost: ./library/frameworks/xgboost.md
+  docs/frameworks/xgboost-example: ./library/example-projects/xgboost.md
+  docs/getting-started: ./quickstart.md
+  docs/"integrations/api": ./library/api/README.md
+  docs/"integrations/api#special-methods": ./library/api/README.md
+  docs/integrations/databricks: ./library/integrations/databricks.md
+  docs/integrations/docker: ./library/integrations/docker.md
+  docs/integrations/jupyter: ./library/integrations/jupyter.md
+  docs/integrations/kubeflow: ./library/integrations/kubeflow.md
+  docs/integrations/ray: ./library/integrations/ray.md
+  docs/integrations/sagemaker: ./library/integrations/sagemaker.md
+  docs/integrations/tensorboard: ./library/integrations/tensorboard.md
+  docs/overview/company-faq: ./overview/company-faq.md
+  docs/overview/getting-help: ./overview/getting-help.md
+  docs/overview/overview: ./overview.md
+  docs/overview/technical-faq: ./overview/technical-faq.md
+  docs/sweeps/configuration: ./library/sweeps/configuration.md
+  docs/sweeps/local: ./library/sweeps/local-controller.md
+  docs/sweeps/overview: ./library/sweeps.md
+  docs/sweeps/python: ./library/sweeps/python-api.md
+  docs/wandb/config: ./library/python/config.md
+  docs/wandb/init: ./library/python/init.md
+  docs/wandb/log: ./library/python/log.md
+  docs/wandb/restore: ./library/python/restore.md
+  docs/wandb/save: ./library/python/save.md
   enterprise/about: ./enterprise/overview.md
   enterprise/cloud/about: ./enterprise/cloud.md
   enterprise/server/about: ./enterprise/overview.md
