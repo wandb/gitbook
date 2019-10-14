@@ -1,4 +1,4 @@
-# Reference
+# index
 
 ## Api
 
@@ -10,7 +10,7 @@ W&B Public API Used for querying the wandb server. Initialize with wandb.Api\(\)
 
 **Arguments**:
 
-* `overrides` _`dict`, optional_ - You can set defaults such as
+* `overrides` _dict_ - You can set defaults such as
 
   entity, project, and run here as well as which api server to use.
 
@@ -20,7 +20,7 @@ W&B Public API Used for querying the wandb server. Initialize with wandb.Api\(\)
 Api.flush(self)
 ```
 
-Clear the local cache
+Api keeps a local cache of runs, so if the state of the run may change while executing your script you must clear the local cache with api.flush\(\) to get the latest values associated with the run.
 
 ### projects
 
@@ -38,11 +38,33 @@ Api.runs(self, path='', filters={}, order='-created_at', per_page=None)
 
 Return a set of runs from a project that match the filters provided. You can filter by config._, summary._, state, entity, createdAt, etc.
 
-The filters use the same query language as MongoDB:
+**Arguments**:
 
-[https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)
+* `path` _str_ - path to project, should be in the form: "entity/project"
+* `filters` _dict_ - queries for specific runs using the MongoDB query language.
 
-Order can be created\_at, heartbeat\_at, config._.value, or summary._. By default the order is descending, if you prepend order with a + order becomes ascending.
+  Reference for the language is at  [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)
+
+  You can filter by run properties such as config, summary, state, entity, createdAt
+
+  For example: {"config.experiment\_name": "foo"} would find runs with a config entry
+
+  of experiment name set to "foo"
+
+  You can compose operations to make more complicated queries like:
+
+* `{"$or"` - \[{"config.experiment\_name": "foo"}, {"config.experiment\_name": "bar"}
+* `order` _str_ - Order can be created\_at, heartbeat\_at, config._.value, or summary._.
+
+  If you prepend order with a + order is ascending.
+
+  If you prepend order with a - order is descending \(default\).
+
+  The dafault order is run.created\_at from newest to oldest.
+
+**Returns**:
+
+A Runs object, which is an iterable set of Run objects.
 
 ### run
 
@@ -50,7 +72,39 @@ Order can be created\_at, heartbeat\_at, config._.value, or summary._. By defaul
 Api.run(self, path='')
 ```
 
-Returns a run by parsing path in the form entity/project/run, if defaults were set on the Api, only overrides what's passed. I.E. you can just pass run\_id if you set entity and project on the Api
+Returns a single run by parsing path in the form entity/project/run\_id.
+
+**Arguments**:
+
+* `path` _str_ - path to run in the form entity/project/run\_id.  If api.entity
+
+  is set, this can be in the form project/run\_id and if api.project is set
+
+  this can just be the run\_id.
+
+**Returns**:
+
+A `Run` object.
+
+### sweep
+
+```python
+Api.sweep(self, path='')
+```
+
+Returns a sweep by parsing path in the form entity/project/sweep\_id.
+
+**Arguments**:
+
+* `path` _str_ - path to sweep in the form entity/project/sweep\_id.  If api.entity
+
+  is set, this can be in the form project/sweep\_id and if api.project is set
+
+  this can just be the sweep\_id.
+
+**Returns**:
+
+A `Sweep` object.
 
 ## Projects
 
@@ -82,14 +136,14 @@ An iterable set of runs associated with a project and optional filter.
 Run(self, client, entity, project, run_id, attrs={})
 ```
 
-A single run associated with a user and project
+A single run associated with an entity and project
 
 **Attributes**:
 
 tags \(list\(str\)\): a list of tags associated with the run
 
 * `url` _str_ - the url of this run
-* `id` _str_ - unique identifier for the run
+* `id` _str_ - unique identifier for the run \(defaults to eight characters\)
 * `name` _str_ - the name of the run
 * `state` _str_ - one of: running, finished, crashed, aborted
 * `config` _dict_ - a dict of hyperparameters associated with the run
@@ -100,12 +154,14 @@ tags \(list\(str\)\): a list of tags associated with the run
   Calling update will persist any changes.
 
 * `project` _str_ - the project associated with the run
-* `entity` _str_ - the entity associated with the run
-* `user` _str_ - the User who created the run
+* `entity` _str_ - the name of the entity associated with the run
+* `user` _str_ - the name of the user who created the run
 * `path` _str_ - Unique identifier \[entity\]/\[project\]/\[run\_id\]
 * `notes` _str_ - Notes about the run
-* `read_only` _boolean_ - Is the run editable
-* `history_keys` _str_ - Metrics that have been logged with wandb.log\(\)
+* `read_only` _boolean_ - Whether the run is editable
+* `history_keys` _str_ - Keys of the history metrics that have been logged
+
+  with wandb.log\({key: value}\)
 
 ### storage\_id
 
@@ -150,7 +206,7 @@ Run.file(self, name)
 
 **Arguments**:
 
-* `name` _string_ - name of requested file.
+* `name` _str_ - name of requested file.
 
   Returns File
 
@@ -194,9 +250,9 @@ A set of runs associated with a sweep Instantiate with: api.sweep\(sweep\_path\)
 **Attributes**:
 
 * `runs` _Runs_ - list of runs
-* `id` _string_ - sweep id
-* `project` _string_ - name of project
-* `config` _string_ - dictionary of sweep configuration
+* `id` _str_ - sweep id
+* `project` _str_ - name of project
+* `config` _str_ - dictionary of sweep configuration
 
 ## Files
 

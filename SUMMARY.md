@@ -18,7 +18,7 @@
 * [Command Line Interface](library/cli.md)
 * [API](library/api/README.md)
   * [Examples](library/api/examples.md)
-  * [Reference](library/api/reference.md)
+  * [index](library/api/reference.md)
 * [Frameworks](library/frameworks/README.md)
   * [PyTorch](library/frameworks/pytorch.md)
   * [Keras](library/frameworks/keras.md)
