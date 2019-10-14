@@ -57,8 +57,8 @@ wandb.Histogram(np_histogram=hist)
 
 | argument | type | usage |
 | :--- | :--- | :--- |
-| bins | float | edges of bins |
-| histogram | int | number of elements falling in each bin |
+| **bins** | float | edges of bins |
+| **histogram** | int | number of elements falling in each bin |
 
 ## [Table](https://github.com/wandb/client/blob/feature/docs/wandb/data_types.py#L117)
 
@@ -70,8 +70,10 @@ This is a table designed to display small sets of records.
 
 ### **Arguments**
 
-* `columns` _\[str\]_ - Names of the columns in the table. Defaults to \["Input", "Output", "Expected"\].
-* `data` _array_ - 2D Array of values that will be displayed as strings.
+| argument | type | usage |
+| :--- | :--- | :--- |
+| **columns** | \[str\] | Names of the columns in the table. Defaults to \["Input", "Output", "Expected"\]. |
+| **data** | array | 2D Array of values that will be displayed as strings. |
 
 ## [Media](https://github.com/wandb/client/blob/feature/docs/wandb/data_types.py#L150)
 
@@ -103,9 +105,11 @@ Wandb class for audio clips.
 
 ### **Arguments**
 
-* `data_or_path` _string or numpy array_ - A path to an audio file or a numpy array of audio data.
-* `sample_rate` _int_ - Sample rate, required when passing in raw numpy array of audio data.
-* `caption` _string_ - Caption to display with audio.
+| **argument** | type | usage |
+| :--- | :--- | :--- |
+| **data\_or\_path** | string or numpy array | A path to an audio file or a numpy array of audio data. |
+| **sample\_rate** | int | Sample rate, required when passing in raw numpy array of audio data. |
+| **caption** | string | Caption to display with audio. |
 
 ## [Object3D](https://github.com/wandb/client/blob/feature/docs/wandb/data_types.py#L352)
 
@@ -139,8 +143,10 @@ Wandb class for arbitrary html
 
 ### **Arguments**
 
-* `data` _string or io object_ - HTML to display in wandb
-* `inject` _boolean_ - Add a stylesheet to the HTML object. If set to False the HTML will pass through unchanged.
+| **argument** | type | usage |
+| :--- | :--- | :--- |
+| **data** | string or io object | HTML to display in wandb |
+| **inject** | boolean | Add a stylesheet to the HTML object. If set to False the HTML will pass through unchanged. |
 
 ## [Video](https://github.com/wandb/client/blob/feature/docs/wandb/data_types.py#L524)
 
