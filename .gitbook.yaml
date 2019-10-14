@@ -13,7 +13,12 @@ redirects:
   cli/restoring: ./library/cli.md
   docs/: ./
   "docs/log#summary-metrics": ./library/python/log#summary-metrics.md
+  docs/integrations/jupyter: ./library/integrations/jupyter.md
   docs/config: ./library/python/config.md
+  docs/init: ./library/python/init.md
+  docs/log: ./library/python/log.md
+  docs/save: ./library/python/save.md
+  docs/restore: ./library/python/restore.md
   enterprise/about: ./enterprise/overview.md
   enterprise/cloud/about: ./enterprise/cloud.md
   enterprise/server/about: ./enterprise/overview.md
