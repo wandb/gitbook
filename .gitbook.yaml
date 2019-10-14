@@ -11,6 +11,7 @@ redirects:
   api/run: ./library/api.md
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
+  docs: ./
   enterprise/about: ./enterprise/overview.md
   enterprise/cloud/about: ./enterprise/cloud.md
   enterprise/server/about: ./enterprise/overview.md
