@@ -13,7 +13,7 @@ redirects:
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   docs/: ./README.md
-  docs/advanced/automated: ./library/advanced/environment-variables.md
+  docs/advanced/automated: ./library/advanced/automated.md
   docs/advanced/grouping: ./library/advanced/grouping.md
   docs/advanced/limits: ./library/advanced/limits.md
   docs/advanced/resuming: ./library/advanced/resuming.md
@@ -24,7 +24,7 @@ redirects:
   docs/api/project: ./library/api/README.md
   docs/api/run: ./library/api/README.md
   docs/artifacts: ./library/python/init.md
-  docs/automated: ./advanced/environment-variables.md
+  docs/automated: ./advanced/automated.md
   docs/cli/overview: ./library/cli.md
   docs/cli/restoring: ./library/cli.md
   docs/config: ./library/python/config.md
