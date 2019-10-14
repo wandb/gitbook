@@ -24,6 +24,8 @@ redirects:
   docs/api/overview: ./library/api/README.md
   docs/api/project: ./library/api/README.md
   docs/api/run: ./library/api/README.md
+  docs/artifacts: ./library/python/init.md
+  docs/examples: ./library/example-projects/README.md
   docs/cli/overview: ./library/cli.md
   docs/cli/restoring: ./library/cli.md
   docs/config: ./library/python/config.md
