@@ -2,7 +2,7 @@
 description: Useful ways to use the wandb API.
 ---
 
-# Examples
+# API Examples
 
 ### Read Metrics from a Run
 
