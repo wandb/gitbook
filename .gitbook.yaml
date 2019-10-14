@@ -7,7 +7,7 @@ redirects:
   advanced/security: ./library/advanced/security.md
   alerts/slack: ./app/features/alerts.md
   api: ./quickstart.md
-  "api/overview": ./quickstart.md
+  "api/overview": ./library/api.md
   "api/project": ./library/api.md
   "api/run": ./library/api.md
   cli/overview: ./library/cli.md
