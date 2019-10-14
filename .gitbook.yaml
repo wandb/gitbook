@@ -12,7 +12,7 @@ redirects:
   api/run: ./library/api/README.md
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
-  docs/: ./
+  docs/: ./README.md
   "docs/log#summary-metrics": ./library/python/log#summary-metrics.md
   docs/integrations/jupyter: ./library/integrations/jupyter.md
   docs/config: ./library/python/config.md
