@@ -32,9 +32,9 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
-### Export metrics from a single run to a csv file
+### Export metrics from a single run to a CSV file
 
-This script finds all the metrics saved for a single run and saves them to a csv
+This script finds all the metrics saved for a single run and saves them to a CSV.
 
 ```python
 import wandb
@@ -61,13 +61,13 @@ history = run.scan_history()
 losses = [row["Loss"] for row in history]
 ```
 
-### Export metrics from all runs in a project to a csv file
+### Export metrics from all runs in a project to a CSV file
 
 This script finds a project and outputs a CSV of runs with name, configs and summary stats.
 
 ```python
 import wandb
-api - wandb.Api()
+api = wandb.Api()
 
 # Change oreilly-class/cifar to <entity/project-name>
 runs = api.runs("oreilly-class/cifar")
