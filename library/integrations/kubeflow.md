@@ -2,7 +2,7 @@
 
 ### Kubeflow Integration
 
-Using certain features require additional dependencies. Install all kubeflow dependencies by running `pip install wandb[kubeflow]`.
+Using certain features require additional dependencies. Install all Kubeflow dependencies by running `pip install wandb[kubeflow]`.
 
 #### Training Jobs
 

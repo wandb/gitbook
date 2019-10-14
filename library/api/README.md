@@ -1,6 +1,6 @@
 # API
 
-Wandb provides an API to give users direct access to wandb's database. This can be useful for automated systems to asynchronously add extra data to a completed run or to export data for custom analysis. For complete documentation refer to [Reference](reference.md).
+Wandb provides an API to give users direct access to wandb's database. This can be useful for automated systems to asynchronously add extra data to a completed run or to export data for custom analysis. For complete documentation refer to [Reference]().
 
 ### Authentication
 

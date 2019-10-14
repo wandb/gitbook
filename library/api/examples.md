@@ -2,7 +2,7 @@
 description: Useful ways to use the wandb API.
 ---
 
-# Examples
+# API Examples
 
 ### Read Metrics from a Run
 
@@ -32,9 +32,9 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
-### Export metrics from a single run to a csv file
+### Export metrics from a single run to a CSV file
 
-This script finds all the metrics saved for a single run and saves them to a csv
+This script finds all the metrics saved for a single run and saves them to a CSV.
 
 ```python
 import wandb
@@ -48,13 +48,26 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 ```
 
-### Export metrics from all runs in a project to a csv file
+### Export metrics from a large single run without sampling
+
+The default history method samples the metrics to a fixed number of samples \(the default is  500, you can change this with the _samples_ argument\).  If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method.  This script loads all of the loss metrics into a variable losses for a longer run.
+
+```text
+import wandb
+api = wandb.Api()
+
+run = api.run("l2k2/examples-numpy-boston/i0wt6xua")
+history = run.scan_history()
+losses = [row["Loss"] for row in history]
+```
+
+### Export metrics from all runs in a project to a CSV file
 
 This script finds a project and outputs a CSV of runs with name, configs and summary stats.
 
 ```python
 import wandb
-api - wandb.Api()
+api = wandb.Api()
 
 # Change oreilly-class/cifar to <entity/project-name>
 runs = api.runs("oreilly-class/cifar")
@@ -78,6 +91,5 @@ name_df = pd.DataFrame({'name': name_list})
 all_df = pd.concat([name_df, config_df,summary_df], axis=1)
 
 all_df.to_csv("project.csv")
-
 ```
 
