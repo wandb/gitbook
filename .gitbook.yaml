@@ -12,7 +12,7 @@ redirects:
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   docs: ./
-  docs/config: ./library/python/config
+  docs/config: ./library/python/config.md
   enterprise/about: ./enterprise/overview.md
   enterprise/cloud/about: ./enterprise/cloud.md
   enterprise/server/about: ./enterprise/overview.md
