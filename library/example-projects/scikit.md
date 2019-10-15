@@ -1,12 +1,6 @@
----
-description: An example of sklearn with wandb
----
-
 # Scikit Example
 
-This example project shows how to use wandb with sklearn. 
-
-I set up a [Google Colab](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ) where you can run this example and see results in the [open project page](https://app.wandb.ai/wandb/iris).
+Here's a simple example project where we used wandb with sklearn. Try running [the example notebook](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ) and see results on the [open project page](https://app.wandb.ai/wandb/iris).
 
 ![](../../.gitbook/assets/docs-example-colab-of-wandb-sklearn.png)
 
