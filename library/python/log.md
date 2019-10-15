@@ -213,3 +213,39 @@ for epoch in range(1, args.epochs + 1):
   wandb.log({"loss": train_loss, "val_loss": test_loss})
 ```
 
+## FAQ
+
+### **How do I log images from different epochs and compare them?**
+
+Each time you log images from a step, we save them to show in the UI. Pin the image panel, and use the **step slider** to look at images from different steps. This makes it easy to compare how a model's output changes over training.
+
+### **How do you log a PNG?**
+
+If you're logging images with wandb.log, we'll log a PNG with:
+
+```text
+wandb.log({"example": wandb.Image(...)})
+```
+
+### **How do you log a JPEG?**
+
+We'll save a JPEG if you call:
+
+```text
+wandb.log({"example": [wandb.Image(...) for i in images]})
+```
+
+### **Can you log a video?**
+
+Yes. Click on a run page, and you'll see the file tab on the left sidebar. Click on the file tab to see the files you uploaded in association with your run. If you log videos, you'll be able to find them here. You can also view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
+
+### **Can you pass multiple images through each epoch?**  
+
+```text
+wandb.log (image)
+```
+
+### **How do you visualize training every N \(500\) iterations?**
+
+I.E. log loss every 500 batches, and log validation images every 2500 batches
+

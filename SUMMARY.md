@@ -58,8 +58,6 @@
   * [Numpy Example](library/example-projects/numpy.md)
   * [XGBoost Example](library/example-projects/xgboost.md)
   * [JAX Example](library/example-projects/jax.md)
-* [Library FAQ](library/faq/README.md)
-  * [Rich Media](library/faq/rich-media.md)
 
 ## Web App <a id="app"></a>
 
@@ -68,13 +66,13 @@
     * [Sidebar](app/pages/project-page/sidebar.md)
   * [Report Page](app/pages/reports.md)
 * [Features](app/features/README.md)
-  * [Run Colors](app/features/run-colors.md)
   * [Tags](app/features/tags.md)
+  * [Visualizations](app/features/visualizations/README.md)
+    * [Run Colors](app/features/visualizations/run-colors.md)
+    * [Line Plot](app/features/visualizations/compare-metrics.md)
   * [Notes](app/features/notes.md)
   * [Sweeps](app/features/sweeps.md)
   * [Alerts](app/features/alerts.md)
-* [Web App FAQ](app/faq/README.md)
-  * [Compare Metrics](app/faq/compare-metrics.md)
 
 ## Enterprise
 
