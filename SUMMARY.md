@@ -67,10 +67,10 @@
   * [Report Page](app/pages/reports.md)
 * [Features](app/features/README.md)
   * [Tags](app/features/tags.md)
+  * [Notes](app/features/notes.md)
   * [Visualizations](app/features/visualizations/README.md)
     * [Run Colors](app/features/visualizations/run-colors.md)
     * [Line Plot](app/features/visualizations/compare-metrics.md)
-  * [Notes](app/features/notes.md)
   * [Sweeps](app/features/sweeps.md)
   * [Alerts](app/features/alerts.md)
 
