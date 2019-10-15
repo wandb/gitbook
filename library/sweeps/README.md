@@ -1,11 +1,10 @@
 # Sweeps
 
-Use W&B to manage hyperparameter sweeps. Sweeps are useful for efficiently finding the best version of your model. 
-This feature is not currently supported on Windows.
+Use W&B to manage hyperparameter sweeps. Sweeps are useful for efficiently finding the best version of your model. This feature is not currently supported on Windows.
 
-### Getting Started
+## Getting Started
 
-#### Initialize the project
+### Initialize the project
 
 In your project repo, initialize your project from the command line:
 
@@ -13,7 +12,7 @@ In your project repo, initialize your project from the command line:
 wandb init
 ```
 
-#### Create a sweep configuration
+### Create a sweep configuration
 
 The sweep configuration file specifies your training script, parameter ranges, search strategy and stopping criteria.
 
@@ -33,7 +32,7 @@ parameters:
     values: ["adam", "sgd"]
 ```
 
-#### Initialize the sweep
+### Initialize the sweep
 
 Run this from the command line to get a SWEEP\_ID and a URL to track all your runs.
 
@@ -41,15 +40,13 @@ Run this from the command line to get a SWEEP\_ID and a URL to track all your ru
 wandb sweep sweep.yaml # prints out SWEEP_ID.
 ```
 
-#### Run agent\(s\)
+### Run agent\(s\)
 
 Run one or more wandb agents with the SWEEP\_ID. Agents will request parameters from the parameter server and launch your training script.
 
 ```text
 wandb agent SWEEP_ID
 ```
-
-
 
 {% page-ref page="configuration.md" %}
 

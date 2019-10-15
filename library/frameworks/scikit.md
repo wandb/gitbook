@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 
 # Initialize wandb
 wandb.init(project="iris")
-  
+
 # set and save hyperparameters         
 wandb.config.gamma = 0.1
 wandb.config.C = 1.0
