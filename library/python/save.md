@@ -19,19 +19,19 @@ If you want to sync files as they're being written, you can specify a filename o
 
 Save a model file from the current directory:
 
-```text
+```python
 wandb.save('model.h5')
 ```
 
 Save all files that currently exist containing the substring "ckpt":
 
-```text
+```python
 wandb.save('../logs/*ckpt*')
 ```
 
 Save any files starting with "checkpoint" as they're written to:
 
-```text
+```python
 wandb.save(os.path.join(wandb.run.dir, "checkpoint*"))
 ```
 
@@ -43,7 +43,7 @@ W&B's local run directories are by default inside the ./wandb directory relative
 
 The file "model.h5" is saved into the wandb.run.dir and will be uploaded at the end of training.
 
-```text
+```python
 import wandb
 wandb.init()
 

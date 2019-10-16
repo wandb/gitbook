@@ -12,7 +12,7 @@ Get started logging machine learning experiments in 3 quick steps.
 
 Install our library in an environment using Python 3.
 
-```text
+```bash
 pip install wandb
 ```
 
@@ -24,7 +24,7 @@ If you are training models in an automated environment where it's inconvenient t
 
 Sign up for a free account in your shell or go to our [sign up page](https://app.wandb.ai/login?signup=true).
 
-```text
+```bash
 wandb login
 ```
 
@@ -40,7 +40,7 @@ Weights and Biases is framework agnostic, but if you are using a common ML frame
 
 Initialize `wandb` at the beginning of your script right after the imports.
 
-```text
+```python
 # Inside my model training code
 import wandb
 wandb.init(project="my-project")
@@ -52,7 +52,7 @@ We automatically create the project for you if it doesn't exist. \(See the [wand
 
 It's easy to save hyperparameters with the [wandb.config](library/python/config.md) object.
 
-```text
+```python
 wandb.config.dropout = 0.2
 wandb.config.hidden_layer_size = 128
 ```
@@ -63,7 +63,7 @@ Log metrics like loss or accuracy as your model trains or log more complicated t
 
 Then log a few metrics:
 
-```text
+```python
 def my_train_loop():
     for epoch in range(10):
         loss = 0 # change as appropriate :)
@@ -74,15 +74,12 @@ def my_train_loop():
 
 Anything saved in the `wandb.run.dir` directory will be uploaded to W&B and saved along with your run when it completes. This is especially convenient for saving the literal weights and biases in your model:
 
-```text
+```python
 model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 ```
 
 Great! Now run your script normally and we'll sync logs in a background process. Your terminal logs, metrics, and files will be synced to the cloud along with a record of your git state if you're running from a git repo.
 
 {% hint style="info" %}
-If you're testing and want to disable wandb syncing, set the [environment variable](library/advanced/environment-variables.md) WANDB\_MODE=dryrun
+If you're testing and want to disable wandb syncing, set the [environment variable](library/advanced/environment-variables.md) WANDB_MODE=dryrun
 {% endhint %}
-
-
-

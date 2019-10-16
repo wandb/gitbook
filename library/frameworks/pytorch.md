@@ -6,7 +6,7 @@ description: How to integrate a PyTorch script to log metrics to W&B
 
 W&B provides first class support for PyTorch. To automatically log gradients and store the network topology, you can call `watch` and pass in your PyTorch model.
 
-```text
+```python
 import wandb
 wandb.init(config=args)
 
@@ -34,4 +34,3 @@ By default the hook only logs gradients. If you want to log histograms of parame
 ### Images
 
 You can pass PyTorch tensors with image data into `wandb.Image` and torchvision utils will be used to log them automatically.
-

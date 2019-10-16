@@ -20,7 +20,7 @@ Another common use is to restore the model file from a previous run.
 
 ### Example
 
-```text
+```python
 if args.restore:
     wandb.restore('model.h5') # restore from a checkpoint, resuming must be configured
 weights = wandb.restore('best.h5', run_path="vanpelt/html/a1b2c3d")

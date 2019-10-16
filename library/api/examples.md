@@ -52,7 +52,7 @@ metrics_dataframe.to_csv("metrics.csv")
 
 The default history method samples the metrics to a fixed number of samples \(the default is  500, you can change this with the _samples_ argument\).  If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method.  This script loads all of the loss metrics into a variable losses for a longer run.
 
-```text
+```python
 import wandb
 api = wandb.Api()
 

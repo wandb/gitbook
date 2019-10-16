@@ -10,7 +10,7 @@ For the most part, you can use W&B Enterprise the same way as our Software-as-a-
 
 You'll need to fetch your API key from your W&B Server instead of `wandb.ai` with one of the following methods. W&B Enterprise Server API keys have a dedicated prefix to avoid confusion between the SaaS system and your private installation.
 
-```text
+```bash
 # Save a wandb settings file in the `wandb` subfolder of your python path.
 mkdir -p ~/.config/wandb
 echo -e "[default]\nbase_url = http://your-server-ip-or-host" > ~/.config/wandb/settings
@@ -26,7 +26,7 @@ WANDB_BASE_URL=http://your-server-ip-or-host python your-training-script.py
 
 In jupyter notebooks, simply set the environment variable `WANDB_BASE_URL` to the host or IP address of the server running W&B enterprise. For example:
 
-```text
+```python
 import os
 os.environ['WANDB_BASE_URL'] = 'http://your-server-ip-or-host'
 
@@ -34,4 +34,3 @@ os.environ['WANDB_BASE_URL'] = 'http://your-server-ip-or-host'
 import wandb
 wandb.init()
 ```
-

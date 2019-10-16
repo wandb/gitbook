@@ -14,9 +14,9 @@ Your server supports any authentication provider supported by [Auth0](https://au
 
 After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
 
-* Set the Callback URL to `http(s)://YOUR-W&B-SERVER-HOST`
-* Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
-* Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
+- Set the Callback URL to `http(s)://YOUR-W&B-SERVER-HOST`
+- Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
+- Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
 
 ![Auth0 Settings](https://docs.wandb.com/img/auth0-1.png)
 
@@ -52,7 +52,7 @@ Then, create an S3 bucket. Under the bucket properties page in the console, in t
 
 Enable CORS access: your CORS configuration should look like the following:
 
-```text
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
 <CORSRule>
@@ -67,9 +67,9 @@ Enable CORS access: your CORS configuration should look like the following:
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
-* **File Storage Bucket**: `s3://<bucket-name>`
-* **File Storage Region**: `<region>`
-* **Notification Subscription**: `sqs://<queue-name>`
+- **File Storage Bucket**: `s3://<bucket-name>`
+- **File Storage Region**: `<region>`
+- **Notification Subscription**: `sqs://<queue-name>`
 
 ![AWS file storage settings](https://docs.wandb.com/img/aws-filestore.png)
 
@@ -93,7 +93,7 @@ Navigate to Storage &gt; Browser in the GCP Console, and click "Create bucket". 
 
 Creating a notification stream from the Storage Bucket to the Pubsub Topic can unfortunately only be done in the console. Make sure you have `gsutil` installed, and logged into the correct GCP Project, then run the following:
 
-```text
+```bash
 gcloud pubsub topics list  # list names of topics for reference
 gsutil ls                  # list names of buckets for reference
 
@@ -107,11 +107,10 @@ gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
-* **File Storage Bucket**: `gs://<bucket-name>`
-* **File Storage Region**: blank
-* **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
+- **File Storage Bucket**: `gs://<bucket-name>`
+- **File Storage Region**: blank
+- **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
 ![AWS file storage settings](https://docs.wandb.com/img/gcloud-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
-

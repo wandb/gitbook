@@ -14,10 +14,10 @@ Before you begin, make sure you have access to our AMI. You'll need to send us y
 
 Go to EC2 &gt; Images &gt; AMIs in the AWS Console, select "Private images" in the search type dropdown, and search for "wandb". Select the last created image that appears, and click "Launch".
 
-* **Choose Instance Type**: Make sure to select a `m5.2xlarge` instance or larger. W&B requires at least 4 cores and 16GB of memory.
-* **Configure Instance**: If you plan to use a cloud file backend \(this is optional\), make sure your instance has an IAM role that allows it to access S3 and subscribe to SQS.
-* **Add Storage**: If you plan on using the instance disk for file storage, be sure to provision the EBS disk with enough storage. The default is 300GB.
-* **Configure Security Group**: Ensure that port 80 on your instance is accessible to any machine from which you want to run machine learning jobs, or to any IP range from which you plan to use the W&B web interface.
+- **Choose Instance Type**: Make sure to select a `m5.2xlarge` instance or larger. W&B requires at least 4 cores and 16GB of memory.
+- **Configure Instance**: If you plan to use a cloud file backend \(this is optional\), make sure your instance has an IAM role that allows it to access S3 and subscribe to SQS.
+- **Add Storage**: If you plan on using the instance disk for file storage, be sure to provision the EBS disk with enough storage. The default is 300GB.
+- **Configure Security Group**: Ensure that port 80 on your instance is accessible to any machine from which you want to run machine learning jobs, or to any IP range from which you plan to use the W&B web interface.
 
 After launching your instance, wait for it to boot. Your instance will spin up and be accessible at port 80 at its public IP.
 
@@ -41,9 +41,9 @@ Before you begin, make sure you have access to our Compute Image.
 
 Go to Compute Engine &gt; Images in the GCP console, and find the W&B image. Click "Create Instance".
 
-* **Machine Type**: Make sure to select an `n2-standard-4` instance or larger. W&B requires at least 4 cores and 16GB of memory.
-* **Identity and API Access**: If you plan on using a cloud file backend, be sure your instance service account has access to Google Storage and Pubsub.
-* **Firewall**: Enable "Allow HTTP traffic".
+- **Machine Type**: Make sure to select an `n2-standard-4` instance or larger. W&B requires at least 4 cores and 16GB of memory.
+- **Identity and API Access**: If you plan on using a cloud file backend, be sure your instance service account has access to Google Storage and Pubsub.
+- **Firewall**: Enable "Allow HTTP traffic".
 
 After creating your instance, wait for it to boot. It will spin up and be accessible at port 80 at its public IP.
 
@@ -67,7 +67,7 @@ First, you'll need to gain access to our shared image gallery through the "Weigh
 
 CLI instructions:
 
-```text
+```bash
 # First, install the azure CLI (`brew install azure-cli` on a Mac).
 
 # Log in
@@ -82,35 +82,35 @@ open "https://login.microsoftonline.com/$TENANT_ID/oauth2/authorize?client_id=af
 
 Manual instructions:
 
-* Navigate to [Portal.azure.com](http://portal.azure.com/) &gt; Azure Active Directory &gt; Properties. The directory ID it shows there is your Tenant ID. 
+- Navigate to [Portal.azure.com](http://portal.azure.com/) &gt; Azure Active Directory &gt; Properties. The directory ID it shows there is your Tenant ID.
 
 ![](../../.gitbook/assets/image%20%283%29.png)
 
-* Then, navigate to https://login.microsoftonline.com/&lt;Your Tenant ID&gt;/oauth2/authorize?client\_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response\_type=code&redirect\_uri=https%3A%2F%2Fwww.microsoft.com%2F
+- Then, navigate to https://login.microsoftonline.com/&lt;Your Tenant ID&gt;/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F
 
 ```text
 https://login.microsoftonline.com/<Your Tenant ID>/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F
 ```
 
-* `https://login.microsoftonline.com/<Your Tenant ID>/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F`
-* Grant permissions. You'll be redirected to microsoft.com, at which point you can close the browser page.
+- `https://login.microsoftonline.com/<Your Tenant ID>/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F`
+- Grant permissions. You'll be redirected to microsoft.com, at which point you can close the browser page.
 
 #### Grant W&B App Permissions to your Resource Group
 
 Then create a resource group and give this app permission to create a VM in that resource group.
 
-* Create a Resource Group.
-* Navigate to that Resource Group and then select Access control \(IAM\).
-* Under Add role assignment select Add. Under Role, type Contributor.
-* Under Assign access to:, leave this as Azure AD user, group, or service principal.
-* Under Select, type "Weights And Biases On-Premises Images" then select it when it shows up in the list.
-* When you are done, select Save.
+- Create a Resource Group.
+- Navigate to that Resource Group and then select Access control \(IAM\).
+- Under Add role assignment select Add. Under Role, type Contributor.
+- Under Assign access to:, leave this as Azure AD user, group, or service principal.
+- Under Select, type "Weights And Biases On-Premises Images" then select it when it shows up in the list.
+- When you are done, select Save.
 
 #### Launch your VM
 
 On Azure launching a VM from another tenant can only be done through the Azure CLI. \([See Microsoft's docs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/share-images-across-tenants)\)
 
-```text
+```bash
 WB_IMAGES_APP_ID=af76df2c-ffe4-4f95-b71c-1558ed8afae1
 WB_TENANT_ID=af722783-84b6-4adc-9c49-c792786eab4a
 
@@ -133,7 +133,7 @@ az account get-access-token
 
 # Log in as service principle for your tenant
 az login --service-principal -u $WB_IMAGES_APP_ID -p $WB_IMAGES_SECRET --tenant $YOUR_TENANT_ID
-az account get-access-token 
+az account get-access-token
 
 # Create the VM! You can customize this command per your requirements.
 az vm create \
@@ -177,4 +177,3 @@ Your W&B Server will be ready to use from moments of it booting up!
 Once your VM is created, go to Settings &gt; Network &gt; Advanced &gt; Port Forwarding to forward port 80 on the guest machine to any desired port on the host.
 
 For advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/server/config)
-
