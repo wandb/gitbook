@@ -27,7 +27,8 @@ WandbCallback(self,
               output_type=None,
               log_evaluation=False,
               validation_steps=None,
-              class_colors=None)
+              class_colors=None,
+              log_batch_frequency=None)
 ```
 WandbCallback automatically integrates keras with wandb.
 
@@ -64,5 +65,5 @@ callbacks=[WandbCallback()])
 - `output_type` _string_ - type of the model output to help visualziation. can be one of: ("image", "images", "segmentation_mask").
 - `log_evaluation` _boolean_ - if True save a dataframe containing the full validation results at the end of training.
 - `class_colors` - ([float, float, float]) if the input or output is a segmentation mask, an array containing an rgb tuple (range 0-1) for each class.
- 
+- `log_batch_frequency` - integer or None if None, callback will log every epoch if integer, callback will log training metrics every log_batch_frequency batches.
  
