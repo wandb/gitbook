@@ -27,10 +27,11 @@ for batch_idx, (data, target) in enumerate(train_loader):
 
 See this [Colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/pytorch-intro/intro.ipynb) for an end to end example of integrating wandb with PyTorch. You can also find more examples in our [example projects](../example-projects/) section.
 
-#### Options
+### Options
 
 By default the hook only logs gradients. If you want to log histograms of parameter values as well, you can specify `wandb.watch(model, log="all")`. Valid options for the log argument are: "gradients", "parameters", "all", or None.
 
-### Images
+## Images
 
 You can pass PyTorch tensors with image data into `wandb.Image` and torchvision utils will be used to log them automatically.
+

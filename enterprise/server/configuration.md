@@ -6,7 +6,7 @@ description: How to configure the W&B Enterprise Server installation
 
 Your W&B Enterprise Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/vm-settings` page on your server once it's up and running.
 
-### Authentication
+## Authentication
 
 By default, a W&B Enterprise Server runs in "single-user mode": right from booting up, you can log in and start sending data to your server. However, to unlock the full sharing functionality of W&B, you should configure authentication.
 
@@ -14,9 +14,9 @@ Your server supports any authentication provider supported by [Auth0](https://au
 
 After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
 
-- Set the Callback URL to `http(s)://YOUR-W&B-SERVER-HOST`
-- Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
-- Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
+* Set the Callback URL to `http(s)://YOUR-W&B-SERVER-HOST`
+* Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
+* Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
 
 ![Auth0 Settings](https://docs.wandb.com/img/auth0-1.png)
 
@@ -30,11 +30,11 @@ Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-se
 
 Finally, press "Update settings and restart W&B".
 
-### File Storage
+## File Storage
 
 By default, a W&B Enterprise Server saves files to a local data disk with a capacity that you set when you provision your instance. To support limitless file storage, you may configure your server to use an external cloud file storage bucket with an S3-compatible API.
 
-#### Amazon Web Services
+### Amazon Web Services
 
 To use an AWS S3 bucket as the file storage backend for W&B, you'll need to create a bucket, along with an SQS queue configured to receive object creation notifications from that bucket. Your instance will need permissions to read from this queue.
 
@@ -52,7 +52,7 @@ Then, create an S3 bucket. Under the bucket properties page in the console, in t
 
 Enable CORS access: your CORS configuration should look like the following:
 
-```xml
+```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
 <CORSRule>
@@ -67,15 +67,15 @@ Enable CORS access: your CORS configuration should look like the following:
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
-- **File Storage Bucket**: `s3://<bucket-name>`
-- **File Storage Region**: `<region>`
-- **Notification Subscription**: `sqs://<queue-name>`
+* **File Storage Bucket**: `s3://<bucket-name>`
+* **File Storage Region**: `<region>`
+* **Notification Subscription**: `sqs://<queue-name>`
 
 ![AWS file storage settings](https://docs.wandb.com/img/aws-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
 
-#### Google Cloud Platform
+### Google Cloud Platform
 
 To use a GCP Storage bucket as a file storage backend for W&B, you'll need to create a bucket, along with a pubsub topic and subscription configured to receive object creation messages from that bucket.
 
@@ -107,10 +107,11 @@ gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
-- **File Storage Bucket**: `gs://<bucket-name>`
-- **File Storage Region**: blank
-- **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
+* **File Storage Bucket**: `gs://<bucket-name>`
+* **File Storage Region**: blank
+* **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
 ![AWS file storage settings](https://docs.wandb.com/img/gcloud-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
+

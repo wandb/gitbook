@@ -6,7 +6,7 @@ description: >-
 
 # wandb.restore
 
-### Overview
+## Overview
 
 Calling `wandb.restore(filename)` will restore a file into your run. It returns a local file object open for reading.
 
@@ -18,7 +18,7 @@ A common use case is resuming from a checkpoint in the case of failure.
 
 Another common use is to restore the model file from a previous run.
 
-### Example
+## Example
 
 ```python
 if args.restore:
@@ -27,5 +27,5 @@ weights = wandb.restore('best.h5', run_path="vanpelt/html/a1b2c3d")
 model.load(weights.name)
 ```
 
-> If you don't specify a run\_path, you'll need to configure [resuming](../advanced/resuming.md) for your run. If you want access to files programmatically outside of training, use the [Run API]().
+> If you don't specify a run\_path, you'll need to configure [resuming](../advanced/resuming.md) for your run. If you want access to files programmatically outside of training, use the [Run API](restore.md).
 

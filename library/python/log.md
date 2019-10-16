@@ -239,7 +239,7 @@ wandb.log({"example": [wandb.Image(...) for i in images]})
 
 Yes. Click on a run page, and you'll see the file tab on the left sidebar. Click on the file tab to see the files you uploaded in association with your run. If you log videos, you'll be able to find them here. You can also view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
 
-### **Can you pass multiple images through each epoch?**  
+### **Can you pass multiple images through each epoch?**
 
 ```python
 wandb.log (image)

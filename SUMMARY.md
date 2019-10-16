@@ -4,7 +4,9 @@
 * [Overview](overview/README.md)
   * [Company FAQ](overview/company-faq.md)
   * [Technical FAQ](overview/technical-faq.md)
-  * [Getting Help](overview/getting-help.md)
+  * [Beginner FAQ](overview/beginner-faq.md)
+  * [Teacher FAQ](overview/teacher-faq.md)
+  * [Support](overview/getting-help.md)
 * [Quickstart](quickstart.md)
 
 ## Library

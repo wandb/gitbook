@@ -4,7 +4,7 @@ description: Useful ways to use the wandb API.
 
 # API Examples
 
-### Read Metrics from a Run
+## Read Metrics from a Run
 
 This example outputs timestamp and accuracy saved with `wandb.log({"accuracy": acc})` for a run saved to `<entity>/<project>/<run_id>`.
 
@@ -15,10 +15,10 @@ api = wandb.Api()
 run = api.run("<entity>/<project>/<run_id>")
 if run.state == "finished":
    for k in run.history():
-       print(k["_timestamp"], k["accuracy"]) 
+       print(k["_timestamp"], k["accuracy"])
 ```
 
-### Update Metrics in a Run
+## Update Metrics in a Run
 
 This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_arry
 
@@ -32,7 +32,7 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
-### Export metrics from a single run to a CSV file
+## Export metrics from a single run to a CSV file
 
 This script finds all the metrics saved for a single run and saves them to a CSV.
 
@@ -48,9 +48,9 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 ```
 
-### Export metrics from a large single run without sampling
+## Export metrics from a large single run without sampling
 
-The default history method samples the metrics to a fixed number of samples \(the default is  500, you can change this with the _samples_ argument\).  If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method.  This script loads all of the loss metrics into a variable losses for a longer run.
+The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. This script loads all of the loss metrics into a variable losses for a longer run.
 
 ```python
 import wandb
@@ -61,7 +61,7 @@ history = run.scan_history()
 losses = [row["Loss"] for row in history]
 ```
 
-### Export metrics from all runs in a project to a CSV file
+## Export metrics from all runs in a project to a CSV file
 
 This script finds a project and outputs a CSV of runs with name, configs and summary stats.
 
@@ -80,7 +80,7 @@ for run in runs:
 
     # run.config is the input metrics.  We remove special values that start with _.
     config_list.append({k:v for k,v in run.config.items() if not k.startswith('_')}) 
-    
+
     # run.name is the name of the run.
     name_list.append(run.name)       
 

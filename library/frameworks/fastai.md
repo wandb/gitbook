@@ -34,11 +34,11 @@ Custom parameters can also be given at that stage.
 learn.fit(epochs, callbacks=WandbCallback(learn, input_type='images'))
 ```
 
-#### Example Code
+## Example Code
 
 Check out our [Example GitHub Repo](https://github.com/wandb/examples) for complete example code.
 
-#### Options
+## Options
 
 `WandbCallback()` class supports a number of options:
 
