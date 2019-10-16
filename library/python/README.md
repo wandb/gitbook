@@ -1,6 +1,12 @@
+---
+description: Overview of our client library.
+---
+
 # Python Library
 
 Use our python library to instrument your machine learning model and track experiments. Setup should only take a few lines of code. If you're using a popular framework, we have a number of integrations to make setting up wandb easy.
+
+We have more detailed docs generated from the code in [Reference](../reference/).
 
 {% page-ref page="../frameworks/" %}
 

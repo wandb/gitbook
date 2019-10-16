@@ -1,3 +1,7 @@
+---
+description: Object for saving hyperparameters.
+---
+
 # wandb.config
 
 ## Overview
