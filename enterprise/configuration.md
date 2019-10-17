@@ -18,15 +18,15 @@ After creating an Auth0 app, you'll need to configure your Auth0 callbacks to th
 * Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
 * Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
 
-![Auth0 Settings](.gitbook/assets/enterprise/auth0-1.png)
+![Auth0 Settings](../.gitbook/assets/enterprise/auth0-1.png)
 
 Save the Client ID and domain from your Auth0 app.
 
-![Auth0 Settings](.gitbook/assets/enterprise/auth0-2.png)
+![Auth0 Settings](../.gitbook/assets/enterprise/auth0-2.png)
 
 Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Customize Authentication with Auth0" option, and fill in the Client ID and domain from your Auth0 app.
 
-![Enterprise authentication settings](.gitbook/assets/enterprise/enterprise-auth.png)
+![Enterprise authentication settings](../.gitbook/assets/enterprise/enterprise-auth.png)
 
 Finally, press "Update settings and restart W&B".
 
@@ -42,13 +42,13 @@ To use an AWS S3 bucket as the file storage backend for W&B, you'll need to crea
 
 First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage` and `ReceiveMessage` actions. \(If you like you can further lock this down using an advancd policy document.\)
 
-![Enterprise file storage settings](.gitbook/assets/enterprise/sqs-perms.png)
+![Enterprise file storage settings](../.gitbook/assets/enterprise/sqs-perms.png)
 
 **Create an S3 Bucket and Bucket Notifications**
 
 Then, create an S3 bucket. Under the bucket properties page in the console, in the "Events" section of "Advanced Settings", click "Add notification", and configure all object creation events to be sent to the SQS Queue you configured earlier.
 
-![Enterprise file storage settings](.gitbook/assets/enterprise/s3-notification.png)
+![Enterprise file storage settings](../.gitbook/assets/enterprise/s3-notification.png)
 
 Enable CORS access: your CORS configuration should look like the following:
 
@@ -71,7 +71,7 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm
 * **File Storage Region**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![AWS file storage settings](.gitbook/assets/enterprise/aws-filestore.png)
+![AWS file storage settings](../.gitbook/assets/enterprise/aws-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
 
@@ -111,7 +111,7 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![AWS file storage settings](.gitbook/assets/enterprise/gcloud-filestore.png)
+![AWS file storage settings](../.gitbook/assets/enterprise/gcloud-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
 
