@@ -85,9 +85,13 @@ Navigate to Pub/Sub &gt; Topics in the GCP Console, and click "Create topic". Ch
 
 Then click "Create subscription" in the subscriptions table at the bottom of the page. Choose a name, and make sure Delivery Type is set to "Pull". Click "Create".
 
+Make sure the service account or account that your instance is running as has access to this subscription.
+
 **Create Storage Bucket**
 
 Navigate to Storage &gt; Browser in the GCP Console, and click "Create bucket". Make sure to choose "Standard" storage class.
+
+Make sure the service account or account that your instance is running as has access to this bucket.
 
 **Create Pubsub Notification**
 
@@ -103,6 +107,10 @@ gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 
 [Further reference is available on the Cloud Storage website.](https://cloud.google.com/storage/docs/reporting-changes)
 
+**Add Signing Permissions**
+
+To create signed file URLs, your W&B instance also needs the `iam.serviceAccounts.signBlob` permission in GCP. You can add it by adding the `Service Account Token Creator` role to the service account or IAM member that your instance is running as.
+
 **Configure W&B Server**
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
@@ -111,7 +119,7 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![AWS file storage settings](../.gitbook/assets/enterprise/gcloud-filestore.png)
+![GCP file storage settings](../.gitbook/assets/enterprise/gcloud-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
 
