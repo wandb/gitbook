@@ -41,3 +41,7 @@ There's two ways to turn off code logging:
 
 Calling **wandb.log** writes a line to a local file; it does not block on any network calls. When you call wandb.init we launch a new process on the same machine that listens for filesystem changes and talks to our web service asynchronously from your training process.
 
+### What forumla do you use for your smoothing algorithm?
+
+We use the same exponential moving average formula as tensorbaord.  You can find an explanation at [https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar).
+
