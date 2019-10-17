@@ -79,10 +79,10 @@
 
 ## Enterprise
 
-* [Enterprise Overview](enterprise/overview.md)
-* [Enterprise Cloud](enterprise/cloud.md)
+* [Overview](enterprise/overview.md)
+* [Setup](enterprise/setup.md)
+* [Configuration](enterprise/configuration.md)
+* [Upgrades](enterprise/upgrades.md)
 * [Sending Data](enterprise/sending-data.md)
-* [Enterprise Server](enterprise/server/README.md)
-  * [Enterprise Server Configuration](enterprise/server/configuration.md)
-  * [Enterprise Server Upgrades](enterprise/server/upgrades.md)
+* [Cloud](enterprise/cloud.md)
 

@@ -28,13 +28,13 @@ redirects:
   docs/cli/overview: ./library/cli.md
   docs/cli/restoring: ./library/cli.md
   docs/config: ./library/python/config.md
+  docs/enterprise: ./enterprise/overview.md
   docs/enterprise/about: ./enterprise/overview.md
-  docs/enterprise/cloud/about: ./enterprise/cloud.md
-  docs/enterprise/server/about: ./enterprise/overview.md
-  docs/enterprise/server/config: ./enterprise/server/configuration.md
-  docs/enterprise/server/setup: ./enterprise/overview.md
-  docs/enterprise/server/upgrades: ./enterprise/server/upgrades.md
-  docs/enterprise/usage/sending-data: ./enterprise/sending-data.md
+  docs/enterprise/cloud: ./enterprise/cloud.md
+  docs/enterprise/setup: ./enterprise/setup.md
+  docs/enterprise/config: ./enterprise/configuration.md
+  docs/enterprise/upgrades: ./enterprise/upgrades.md
+  docs/enterprise/sending-data: ./enterprise/sending-data.md
   docs/examples: ./library/example-projects/README.md
   docs/faq: ./overview/company-faq.md
   docs/frameworks/catalyst: ./library/integrations/catalyst.md
@@ -86,13 +86,13 @@ redirects:
   docs/wandb/restore: ./library/python/restore.md
   docs/wandb/save: ./library/python/save.md
   en/help: ./README.md
+  enterprise: ./enterprise/overview.md
   enterprise/about: ./enterprise/overview.md
-  enterprise/cloud/about: ./enterprise/cloud.md
-  enterprise/server/about: ./enterprise/overview.md
-  enterprise/server/config: ./enterprise/server/configuration.md
-  enterprise/server/setup: ./enterprise/overview.md
-  enterprise/server/upgrades: ./enterprise/server/upgrades.md
-  enterprise/usage/sending-data: ./enterprise/sending-data.md
+  enterprise/cloud: ./enterprise/cloud.md
+  enterprise/config: ./enterprise/configuration.md
+  enterprise/setup: ./enterprise/setup.md
+  enterprise/upgrades: ./enterprise/upgrades.md
+  enterprise/sending-data: ./enterprise/sending-data.md
   frameworks/catalyst: ./library/integrations/catalyst.md
   frameworks/examples: ./library/example-projects.md
   frameworks/fastai: ./library/frameworks/fastai.md

@@ -148,7 +148,7 @@ Your W&B Server will be ready to use from moments of it booting up!
 
 In the Azure console, you can now make sure port 80 on your instance is exposed to the network from which you'd like to access W&B.
 
-For advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/server/config)
+For advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/config)
 
 ## VMWare
 
@@ -162,7 +162,7 @@ Your W&B Server will be ready to use from moments of it booting up!
 
 In your VMWare Network preferences, make sure port 80 on your instance is exposed to the network from which you'd like to access W&B.
 
-For advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/server/config)
+For advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/config)
 
 ## Virtualbox
 
@@ -176,5 +176,5 @@ Your W&B Server will be ready to use from moments of it booting up!
 
 Once your VM is created, go to Settings &gt; Network &gt; Advanced &gt; Port Forwarding to forward port 80 on the guest machine to any desired port on the host.
 
-For advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/server/config)
+For advanced options, [you may now proceed to configuring your instance.](https://docs.wandb.com/enterprise/config)
 
