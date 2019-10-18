@@ -1,22 +1,26 @@
 ---
-description: How you can help us
+description: Do you like using wandb? Here are some ways to share our tools with the world.
 ---
 
 # Spread the Word
 
-### 1\) Give us a shout out.
+If you're enjoying our tools, please share wandb with your friends! We'd love to become the default tool for experiment tracking.
 
-We want more people to user our tool and most of our users say they find out about our tool from a colleague. 
+### Shout-Outs
 
-Please give [@weights\_biases](https://twitter.com/weights_biases) a shoutout on twitter, leave a review on [product hunt](https://www.producthunt.com/posts/weights-biases), comment on [reddit's machine learning experiments](https://www.reddit.com/r/MachineLearning/comments/ba6c7g/discussion_how_do_you_manage_and_keep_track_of/) thread.  It really helps us out.
+* \*\*\*\*[**Twitter**](https://twitter.com/weights_biases): tweet at us, our handle is @weights\_biases
+* \*\*\*\*[**Product Hunt**](https://www.producthunt.com/posts/weights-biases): a review helps other people find our product
+* \*\*\*\*[**Reddit**](https://www.reddit.com/r/MachineLearning/comments/bx0apm/d_how_do_you_manage_your_machine_learning/): a post or comment on r/MachineLearning goes a long way
+  * Thread 1: [Experiment management](https://www.reddit.com/r/MachineLearning/comments/bx0apm/d_how_do_you_manage_your_machine_learning/)
+  * Thread 2: [Experiment workflows](https://www.reddit.com/r/MachineLearning/comments/cf97z8/d_current_state_of_experiment_management_tools/)
 
-### 2\) Write a blog post on what you're doing
+### Blog Posts
 
-We love blog posts written by users.  If you do something cool with wandb, please tell us about it.
+If you have a cool project or an insightful perspective you'd like to share, we love to amplify the work of our users. We can tweet about your blog post or host a post on [our own blog](https://wandb.com/articles). Please reach out at contact@wandb.com. 
 
-### 3\) Send us product feedback
+### Product Feedback
 
-File a github issue at [github.com/wandb/client](https://github.com/wandb/client), we love feedback and we try hard to implement what out users are asking for. 
+File an issue in our open source GitHub repo: [github.com/wandb/client](https://github.com/wandb/client). We love feedback, and we try hard to implement what users are asking for.
 
 
 
