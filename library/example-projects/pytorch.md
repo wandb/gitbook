@@ -60,7 +60,7 @@ def test(args, model, device, test_loader):
             test_loss += F.nll_loss(output, target, reduction='sum').item() # sum up batch loss
             pred = output.max(1, keepdim=True)[1] # get the index of the max log-probability
             correct += pred.eq(target.view_as(pred)).sum().item()
-            # Save the first inbput tensor in each test batch as an example image
+            # Save the first input tensor in each test batch as an example image
             example_images.append(wandb.Image(data[0], caption="Pred: {} Truth: {}".format(pred[0].item(), target[0])))
 
     test_loss /= len(test_loader.dataset)
