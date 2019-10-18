@@ -7,6 +7,7 @@
   * [Beginner FAQ](overview/beginner-faq.md)
   * [Teacher FAQ](overview/teacher-faq.md)
   * [Support](overview/getting-help.md)
+  * [Spread the Word](overview/love-wandb.md)
 * [Quickstart](quickstart.md)
 
 ## Library
