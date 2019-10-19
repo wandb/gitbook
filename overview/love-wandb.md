@@ -4,7 +4,7 @@ description: Do you like using wandb? Here are some ways to share our tools with
 
 # Spread the Word
 
-If you're enjoying our tools, please share wandb with your friends! We'd love to become the default tool for experiment tracking.
+If you're enjoying our tools, please share wandb with your friends! We'd love for more people to use us.
 
 ### Shout-Outs
 
