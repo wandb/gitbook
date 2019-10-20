@@ -66,10 +66,10 @@
 ## Web App <a id="app"></a>
 
 * [Pages](app/pages/README.md)
-  * [Project Page](app/pages/project-page/README.md)
-    * [Table](app/pages/project-page/sidebar.md)
+  * [Project Page](app/pages/project-page.md)
   * [Report Page](app/pages/reports.md)
 * [Features](app/features/README.md)
+  * [Table](app/features/sidebar.md)
   * [Tags](app/features/tags.md)
   * [Notes](app/features/notes.md)
   * [Sweeps](app/features/sweeps.md)

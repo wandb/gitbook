@@ -32,5 +32,5 @@ To move runs from one project to another:
 2. Click the checkbox next to the runs  you want to move
 3. Click move and select the destination project
 
-![](../../../.gitbook/assets/howto-move-runs.gif)
+![](../../.gitbook/assets/howto-move-runs.gif)
 
