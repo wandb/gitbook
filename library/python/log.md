@@ -245,7 +245,7 @@ Yes. Click on a run page, and you'll see the file tab on the left sidebar. Click
 
 ### Set a custom x-axis
 
-By default, we increment the global step every time you call wandb.log. If you'd like, you can log a global step and then select it as a custom x-axis on your graphs.
+By default, we increment the global step every time you call wandb.log. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
 
 For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
 
