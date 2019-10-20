@@ -243,13 +243,9 @@ wandb.log({"example": [wandb.Image(...) for i in images]})
 
 Yes. Click on a run page, and you'll see the file tab on the left sidebar. Click on the file tab to see the files you uploaded in association with your run. If you log videos, you'll be able to find them here. You can also view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
 
-### **Can you pass multiple images through each epoch?**
+### Set a custom x-axis
 
-```python
-wandb.log (image)
-```
+By default, we increment the global step every time you call wandb.log. If you'd like, you can log a global step and then select it as a custom x-axis on your graphs.
 
-### **How do you visualize training every N \(500\) iterations?**
-
-I.E. log loss every 500 batches, and log validation images every 2500 batches
+For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
 
