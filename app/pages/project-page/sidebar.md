@@ -1,8 +1,8 @@
 ---
-description: How to use the sidebar on the project page
+description: How to use the sidebar and table on the project page
 ---
 
-# Sidebar
+# Table
 
 On the project page, we show runs in a sidebar. Expand the sidebar to view a table of  hyperparameters and summary metrics across runs.
 
@@ -23,4 +23,14 @@ On the project page, we show runs in a sidebar. To show more columns:
 Here's a screen capture. I expand the table, pin two columns, collapse the table, then resize the sidebar.
 
 ![](https://downloads.intercomcdn.com/i/o/152951680/cf8cbc6b35e923be2551ba20/howto+-+pin+rows+in+table.gif)
+
+## Move runs between projects
+
+To move runs from one project to another:
+
+1. Expand the table
+2. Click the checkbox next to the runs  you want to move
+3. Click move and select the destination project
+
+![](../../../.gitbook/assets/howto-move-runs.gif)
 

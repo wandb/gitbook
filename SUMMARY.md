@@ -67,7 +67,7 @@
 
 * [Pages](app/pages/README.md)
   * [Project Page](app/pages/project-page/README.md)
-    * [Sidebar](app/pages/project-page/sidebar.md)
+    * [Table](app/pages/project-page/sidebar.md)
   * [Report Page](app/pages/reports.md)
 * [Features](app/features/README.md)
   * [Tags](app/features/tags.md)
