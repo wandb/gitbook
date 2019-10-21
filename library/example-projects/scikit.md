@@ -1,10 +1,8 @@
 # Scikit Example
 
+Here's a simple example project where we used wandb with sklearn. Try running [the example notebook](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ) and see results on the [open project page](https://app.wandb.ai/wandb/iris).
 
-
-This is a complete example of scikit code that trains an SVM and saves to W&B.
-
-You can find this example on [GitHub](https://github.com/wandb/examples/blob/master/scikit-iris/train.py) and see the results on [W&B](https://app.wandb.ai/l2k2/iris).
+![](../../.gitbook/assets/docs-example-colab-of-wandb-sklearn.png)
 
 ```python
 import numpy as np
@@ -14,8 +12,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 import wandb
 
-wandb.init(project="iris", 
-           config={"gamma":0.1, "C":1.0, "test_size": 0.3, "seed": 0})
+
+# Initialize wandb
+# In this example we're sending runs to an open project I set up at
+# app.wandb.ai/wandb/iris
+wandb.init(entity="wandb", project="iris")
+
+# Set and save hyperparameters         
+wandb.config.gamma = 0.5
+wandb.config.C = 1.8
+wandb.config.test_size = 0.3
+wandb.config.seed = 0
 
 iris = datasets.load_iris()
 
@@ -33,12 +40,15 @@ X_test_std = sc.transform(X_test)
 X_combined_std = np.vstack((X_train_std, X_test_std))
 y_combined = np.hstack((y_train, y_test))
 
+# Fit model
 svm = SVC(kernel='rbf', random_state=wandb.config.seed, gamma=wandb.config.gamma, C=wandb.config.C)
 svm.fit(X_train_std, y_train)
 
+# Save metrics
 wandb.log({"Train Accuracy": svm.score(X_train_std, y_train), 
            "Test Accuracy": svm.score(X_test_std, y_test)})
 
+# Create a matplotlib custom plot to save 
 def plot_data():
     from matplotlib.colors import ListedColormap
     import matplotlib.pyplot as plt

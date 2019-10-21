@@ -2,7 +2,7 @@
 
 For scripts using fast.ai, we have a callback that can automatically log model topology, losses, metrics, weights, gradients, sample predictions and best trained model.
 
-```text
+```python
 import wandb
 from wandb.fastai import WandbCallback
 
@@ -16,7 +16,7 @@ learn.fit(epochs)
 
 Requested logged data is configurable through the callback constructor.
 
-```text
+```python
 from functools import partial
 
 learn = cnn_learner(data, model, callback_fns=partial(WandbCallback, input_type='images'))
@@ -24,21 +24,21 @@ learn = cnn_learner(data, model, callback_fns=partial(WandbCallback, input_type=
 
 It is also possible to use WandbCallback only when starting training. In this case it must be instantiated.
 
-```text
+```python
 learn.fit(epochs, callbacks=WandbCallback(learn))
 ```
 
 Custom parameters can also be given at that stage.
 
-```text
+```python
 learn.fit(epochs, callbacks=WandbCallback(learn, input_type='images'))
 ```
 
-#### Example Code
+## Example Code
 
 Check out our [Example GitHub Repo](https://github.com/wandb/examples) for complete example code.
 
-#### Options
+## Options
 
 `WandbCallback()` class supports a number of options:
 

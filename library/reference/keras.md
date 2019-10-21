@@ -4,11 +4,11 @@ description: wandb.keras
 
 # Keras Reference
 
-[source](https://github.com/wandb/client/blob/feature/docs/wandb/keras/__init__.py#L0)
+[source](https://github.com/wandb/client/blob/master/wandb/keras/__init__.py#L0)
 
 ## WandbCallback
 
-[source](https://github.com/wandb/client/blob/feature/docs/wandb/keras/__init__.py#L134)
+[source](https://github.com/wandb/client/blob/master/wandb/keras/__init__.py#L134)
 
 ```python
 WandbCallback(self,
@@ -29,7 +29,8 @@ WandbCallback(self,
               output_type=None,
               log_evaluation=False,
               validation_steps=None,
-              class_colors=None)
+              class_colors=None,
+              log_batch_frequency=None)
 ```
 
 WandbCallback automatically integrates keras with wandb.
@@ -66,4 +67,5 @@ WandbCallback can optionally save training and validation data for wandb to visu
 * `output_type` _string_ - type of the model output to help visualziation. can be one of: \("image", "images", "segmentation\_mask"\).
 * `log_evaluation` _boolean_ - if True save a dataframe containing the full validation results at the end of training.
 * `class_colors` - \(\[float, float, float\]\) if the input or output is a segmentation mask, an array containing an rgb tuple \(range 0-1\) for each class.
+* `log_batch_frequency` - integer or None if None, callback will log every epoch if integer, callback will log training metrics every log\_batch\_frequency batches.
 

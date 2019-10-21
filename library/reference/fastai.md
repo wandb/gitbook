@@ -4,7 +4,7 @@ description: wandb.fastai
 
 # Fast.ai Reference
 
-[source](https://github.com/wandb/client/blob/feature/docs/wandb/fastai/__init__.py#L0)
+[source](https://github.com/wandb/client/blob/master/wandb/fastai/__init__.py#L0)
 
 This module hooks fast.ai Learners to Weights & Biases through a callback. Requested logged data can be configured through the callback constructor.
 
@@ -43,7 +43,7 @@ learn.fit(..., callbacks=WandbCallback(learn, ...))
 
 ## WandbCallback
 
-[source](https://github.com/wandb/client/blob/feature/docs/wandb/fastai/__init__.py#L51)
+[source](https://github.com/wandb/client/blob/master/wandb/fastai/__init__.py#L51)
 
 ```python
 WandbCallback(self,
@@ -74,7 +74,7 @@ Automatically saves model topology, losses & metrics. Optionally logs weights, g
 
 ### WandbCallback.on\_train\_begin
 
-[source](https://github.com/wandb/client/blob/feature/docs/wandb/fastai/__init__.py#L110)
+[source](https://github.com/wandb/client/blob/master/wandb/fastai/__init__.py#L110)
 
 ```python
 WandbCallback.on_train_begin(self, **kwargs)
@@ -84,7 +84,7 @@ Call watch method to log model topology, gradients & weights
 
 ### WandbCallback.on\_epoch\_end
 
-[source](https://github.com/wandb/client/blob/feature/docs/wandb/fastai/__init__.py#L123)
+[source](https://github.com/wandb/client/blob/master/wandb/fastai/__init__.py#L123)
 
 ```python
 WandbCallback.on_epoch_end(self, epoch, smooth_loss, last_metrics, **kwargs)
@@ -94,7 +94,7 @@ Logs training loss, validation loss and custom metrics & log prediction samples 
 
 ### WandbCallback.on\_train\_end
 
-[source](https://github.com/wandb/client/blob/feature/docs/wandb/fastai/__init__.py#L205)
+[source](https://github.com/wandb/client/blob/master/wandb/fastai/__init__.py#L205)
 
 ```python
 WandbCallback.on_train_end(self, **kwargs)

@@ -1,6 +1,10 @@
+---
+description: Method for logging to wandb
+---
+
 # wandb.log
 
-Calling `wandb.log(dict)` logs the keys and values of the dictionary passed in and associates the values with a _step_. Wandb.log can log histograms and custom matplotlib objects and rich media.
+Calling `wandb.log(dict)` logs the keys and values of the dictionary passed in and associates the values with a _step_. Wandb.log can log histograms and custom matplotlib objects and rich media.  For a complete list of supported data types see our [Data Types ](../reference/data_types.md)reference.
 
 `wandb.log(dict)` accepts a few keyword arguments:
 
@@ -11,7 +15,7 @@ Calling `wandb.log(dict)` logs the keys and values of the dictionary passed in a
 
 Any time you call `wandb.log` and pass in a dictionary of keys and values, it will be saved as a new time step for plots in the W&B app.
 
-```text
+```python
 wandb.log({'accuracy': 0.9, 'epoch': 5})
 ```
 
@@ -19,7 +23,7 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 
 If you want to log to a single history step from lots of different places in your code you can pass a step index to `wandb.log()` as follows:
 
-```text
+```python
 wandb.log({'loss': 0.2}, step=step)
 ```
 
@@ -27,7 +31,7 @@ As long as you keep passing the same value for `step`, W&B will collect the keys
 
 You can also set **commit=False** in `wandb.log` to accumulate metrics, just be sure to call `wandb.log` without the **commit** flag to persist the metrics.
 
-```text
+```python
 wandb.log({'loss': 0.2}, commit=False)
 # Somewhere else when I'm ready to report this step:
 wandb.log({'accuracy': 0.8})
@@ -47,7 +51,7 @@ If you pass a numpy array, pytorch tensor or tensorflow tensor to `wandb.log` we
 
 #### Logging Plots
 
-```text
+```python
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
 plt.ylabel('some interesting numbers')
@@ -58,7 +62,7 @@ You can pass a `matplotlib` pyplot or figure object into `wandb.log`. By default
 
 #### Logging Images
 
-```text
+```python
 wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})
 ```
 
@@ -68,7 +72,7 @@ On the W&B runs page, you should edit your graphs and choose "Image Viewer" to s
 
 #### Logging Video
 
-```text
+```python
 wandb.log({"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
 ```
 
@@ -78,7 +82,7 @@ On the W&B runs page, you will see your videos in the Media section.
 
 #### Logging Audio
 
-```text
+```python
 wandb.log({"examples": [wandb.Audio(numpy_array, caption="Nice", sample_rate=32)]})
 ```
 
@@ -86,7 +90,7 @@ The maximum number of audio clips that can be logged per step is 100.
 
 #### Logging Text / Tables
 
-```text
+```python
 # Method 1
 data = [["I love my phone", "1", "1"],["My phone sucks", "0", "-1"]]
 wandb.log({"examples": wandb.Table(data=data, columns=["Text", "Predicted Label", "True Label"])})
@@ -102,20 +106,20 @@ By default, the column headers are `["Input", "Output", "Expected"]`. The maximu
 
 #### Logging HTML
 
-```text
+```python
 wandb.log({"custom_file": wandb.Html(open("some.html"))})
 wandb.log({"custom_string": wandb.Html('<a href="https://mysite">Link</a>')})
 ```
 
 Custom html can be logged at any key, this exposes an HTML panel on the run page. By default we inject default styles, you can disable default styles by passing `inject=False`.
 
-```text
+```python
 wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
 ```
 
 #### Logging Histograms
 
-```text
+```python
 wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
 wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
 ```
@@ -126,7 +130,7 @@ If histograms are in your summary they will appear as sparklines on the individu
 
 #### Logging 3D Objects
 
-```text
+```python
 wandb.log({"generated_samples":
            [wandb.Object3D(open("sample.obj")),
             wandb.Object3D(open("sample.gltf")),
@@ -137,7 +141,7 @@ Wandb supports logging 3D file types of in three different formats: glTF, glb, o
 
 #### Logging Point Clouds
 
-```text
+```python
 point_cloud = np.array([[0, 0, 0, COLOR...], ...])
 
 wandb.log({"point_cloud": wandb.Object3D(point_cloud)})
@@ -155,7 +159,7 @@ Supported numpy shapes include three different color schemes:
 
 The summary statistics are used to track single metrics per model. If a summary metric is modified, only the updated state is saved. We automatically set summary to the last history row added unless you modify it manually. If you change a summary metric, we only persist the last value it was set to.
 
-```text
+```python
 wandb.init(config=args)
 
 best_accuracy = 0
@@ -168,7 +172,7 @@ for epoch in range(1, args.epochs + 1):
 
 You may want to store evaluation metrics in a runs summary after training has completed. Summary can handle numpy arrays, pytorch tensors or tensorflow tensors. When a value is one of these types we persist the entire tensor in a binary file and store high level metrics in the summary object such as min, mean, variance, 95% percentile, etc.
 
-```text
+```python
 api = wandb.Api()
 run = api.run("username/project/run_id")
 run.summary["tensor"] = np.random.random(1000)
@@ -181,7 +185,7 @@ The history object is used to track metrics logged by _wandb.log_. You can acces
 
 #### Tensorflow Example
 
-```text
+```python
 wandb.init(config=flags.FLAGS)
 
 # Start tensorflow training
@@ -200,7 +204,7 @@ with tf.Session() as sess:
 
 #### PyTorch Example
 
-```text
+```python
 # Start pytorch training
 wandb.init(config=args)
 
@@ -212,4 +216,36 @@ for epoch in range(1, args.epochs + 1):
 
   wandb.log({"loss": train_loss, "val_loss": test_loss})
 ```
+
+## FAQ
+
+### **How do I log images from different epochs and compare them?**
+
+Each time you log images from a step, we save them to show in the UI. Pin the image panel, and use the **step slider** to look at images from different steps. This makes it easy to compare how a model's output changes over training.
+
+### **How do you log a PNG?**
+
+If you're logging images with wandb.log, we'll log a PNG with:
+
+```python
+wandb.log({"example": wandb.Image(...)})
+```
+
+### **How do you log a JPEG?**
+
+We'll save a JPEG if you call:
+
+```python
+wandb.log({"example": [wandb.Image(...) for i in images]})
+```
+
+### **Can you log a video?**
+
+Yes. Click on a run page, and you'll see the file tab on the left sidebar. Click on the file tab to see the files you uploaded in association with your run. If you log videos, you'll be able to find them here. You can also view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
+
+### Set a custom x-axis
+
+By default, we increment the global step every time you call wandb.log. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
+
+For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
 

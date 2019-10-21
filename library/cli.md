@@ -6,7 +6,7 @@ description: >-
 
 # Command Line Interface
 
-After running `pip install wandb` you should have a new command available, **wandb**. 
+After running `pip install wandb` you should have a new command available, **wandb**.
 
 The following sub-commands are available:
 
@@ -33,9 +33,9 @@ The following sub-commands are available:
 
 Use `restore` to return to the state of your code when you ran a given run.
 
-#### Example
+### Example
 
-```text
+```python
 # creates a branch and restores the code to the state it was in when run $RUN_ID was executed
 wandb restore $RUN_ID
 ```

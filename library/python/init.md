@@ -8,7 +8,7 @@ description: >-
 
 ### Overview
 
-Calling `wandb.init()` returns a **run** object. You can also access the **run** object anywhere in your code by importing wandb and calling `wandb.run` _\(as long as wandb.init\(\) has already been called\)_.
+Calling `wandb.init()` returns a [**run**](../reference/wandb_api.md#run) object. You can also access the **run** calling `wandb.run`.
 
 You should generally call `wandb.init()` once at the start of your training script.
 

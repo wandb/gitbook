@@ -1,4 +1,4 @@
-# Enterprise Cloud
+# Cloud
 
 A W&B Enterprise Cloud is a fully scalable cloud environment provisioned on your private AWS or GCP account and the region of your choosing. The environment can be provisioned by us or by your company, using a toolset comprised of Terraform and Kubernetes.
 
