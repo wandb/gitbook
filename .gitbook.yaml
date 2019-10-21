@@ -86,6 +86,7 @@ redirects:
   docs/wandb/restore: ./library/python/restore.md
   docs/wandb/save: ./library/python/save.md
   en/help: ./README.md
+  examples: ./library/example-projects/README.md
   enterprise/about: ./enterprise/overview.md
   enterprise/cloud/about: ./enterprise/cloud.md
   enterprise/server/about: ./enterprise/overview.md
