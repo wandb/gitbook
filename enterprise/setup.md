@@ -86,13 +86,7 @@ Manual instructions:
 
 ![](../.gitbook/assets/image%20%283%29.png)
 
-* Then, navigate to [https://login.microsoftonline.com/&lt;Your](https://login.microsoftonline.com/<Your) Tenant ID&gt;/oauth2/authorize?client\_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response\_type=code&redirect\_uri=https%3A%2F%2Fwww.microsoft.com%2F
-
-```text
-https://login.microsoftonline.com/<Your Tenant ID>/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F
-```
-
-* `https://login.microsoftonline.com/<Your Tenant ID>/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F`
+* Then, navigate to https://login.microsoftonline.com/YOUR-TENANT-ID/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com
 * Grant permissions. You'll be redirected to microsoft.com, at which point you can close the browser page.
 
 ### Grant W&B App Permissions to your Resource Group
@@ -121,7 +115,7 @@ WB_IMAGES_SECRET=(Get this from the W&B Team)
 YOUR_TENANT_ID="$(az account show --query tenantId -o tsv)"
 RESOURCE_GROUP_NAME="$(az group list --query '[0].name' -o tsv)"
 VM_NAME="wandb-$(date +%Y-%m-%d)"
-VM_IMAGE_RESOURCE_ID="/subscriptions/636d899d-58b4-4d7b-9e56-7a984388b4c8/resourceGroups/wandb-onprem-vm/providers/Microsoft.Compute/galleries/WandbAzureImages/images/WeightsAndBiasesOnPrem/versions/2019.9.25"
+VM_IMAGE_RESOURCE_ID="/subscriptions/636d899d-58b4-4d7b-9e56-7a984388b4c8/resourceGroups/wandb-onprem-vm/providers/Microsoft.Compute/galleries/WandbAzureImages/images/WeightsAndBiasesOnPrem/versions/1.1.0"
 VM_SSH_ADMIN_USERNAME="azureadmin"
 
 # Clear old credentials
