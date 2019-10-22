@@ -20,7 +20,7 @@ WANDB_PROJECT=$project
 os.environ['WANDB_MODE'] = 'dryrun'
 ```
 
-## Environment Variables
+## Optional Environment Variables
 
 Use these optional environment variables to do things like set up authentication on remote machines.
 
