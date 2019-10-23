@@ -103,7 +103,7 @@ The parameters dictionary specifies the ranges of configuration parameters.
 
 | Values | Meaning |
 | :--- | :--- |
-| distribution: \(distribution\) | A distribution from the distrbution table below. If not specified, the sweep will set to uniform is max and min are set, categorical if values are set and constant if value is set. |
+| distribution: \(distribution\) | A distribution from the distrbution table below. If not specified, the sweep will set to uniform if max and min are set, categorical if values are set and constant if value is set. |
 | min: \(float\) max: \(float\) | Continuous values between min and max |
 | min: \(int\) max: \(int\) | Integers between min and max |
 | values: \[\(float\), \(float\), ...\] | Discrete values |
