@@ -1,25 +1,25 @@
 ---
-description: Object for saving hyperparameters.
+description: Dictionary-like object to save your experiment configuration
 ---
 
 # wandb.config
 
 ## Overview
 
-Use `wandb.config` to save hyperparameters and other training inputs. This is useful for comparing runs and reproducing your work. You can use config to save anything that you know about the setup for the run— things like the name of your dataset, the type of model.
-
-You'll be able to group by config values in the web interface, comparing the settings of different runs and seeing how they affected the out
+Use `wandb.config` to save your training config:  hyperparameters, input settings like dataset name or model type, and any other independent variables for your experiments. This is useful for analyzing your experiments and reproducing your work in the future. You'll be able to group by config values in the web interface, comparing the settings of different runs and seeing how these affect the output. Note that output metrics or dependent variables \(like loss and accuracy\) should be saved with `wandb.log`instead.
 
 ## Simple Example
 
 ```python
-wandb.config.epochs = 4   # config variable named epochs is saved with the model
+wandb.config.epochs = 4
 wandb.config.batch_size = 32
+# you can also initialize your run with a config
+wandb.init(config={"epochs": 4})
 ```
 
-## Batch Inititialization
+## Efficient Initialization
 
-You can initialize configs in batches
+You can treat `wandb.config` as a dictionary, updating multiple values at a time.
 
 ```python
 wandb.init(config={"epochs": 4, "batch_size": 32})
@@ -33,24 +33,24 @@ You can pass TensorFlow flags into the config object.
 
 ```python
 wandb.init()
-wandb.config.epochs = 4  # config variables are saved to the cloud
+wandb.config.epochs = 4
 
 flags = tf.app.flags
 flags.DEFINE_string('data_dir', '/tmp/data')
 flags.DEFINE_integer('batch_size', 128, 'Batch size.')
-wandb.config.update(flags.FLAGS)  # adds all of the tensorflow flags as config variables
+wandb.config.update(flags.FLAGS)  # adds all of the tensorflow flags as config
 ```
 
 ## Argparse Flags
 
-You can pass in an argparse
+You can pass in the arguments dictionary from argparse. This is convenient for quickly testing different hyperparameter values from the command line.
 
 ```python
 wandb.init()
-wandb.config.epochs = 4  # config variables are saved to the cloud
+wandb.config.epochs = 4
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--batch-size', type=int, default=8, metavar='N',
+parser.add_argument('-b', '--batch-size', type=int, default=8, metavar='N',
                      help='input batch size for training (default: 8)')
 args = parser.parse_args()
 wandb.config.update(args) # adds all of the arguments as config variables
@@ -58,10 +58,10 @@ wandb.config.update(args) # adds all of the arguments as config variables
 
 ## File-Based Configs
 
-You can create a file called _config-defaults.yaml_ and it will automatically be loaded into the config variable.
+You can create a file called _config-defaults.yaml,_ and it will automatically be loaded into `wandb.config`
 
 ```yaml
-# sample config-defaults file
+# sample config defaults file
 epochs:
   desc: Number of epochs to train over
   value: 100
