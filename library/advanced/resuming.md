@@ -25,9 +25,9 @@ model.fit(np.random.rand(100, 32), np.random.rand(100, 10),
     callbacks=[WandbCallback(save_model=True, monitor="loss")])
 ```
 
-Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set a globally unique string \(per project\) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
+Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set the **WANDB\_RUN\_ID**: a globally unique string \(per project\) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
 
-If you set **WANDB\_RESUME** equal to "allow" you can always set **WANDB\_RUN\_ID** to a unique string and restarts of the process will automatically be handled. You can also pass a unique string when calling init i.e. `wandb.init(resume="run-32")`. If you set **WANDB\_RESUME** equal to "must", wandb will throw an error if a run does not exist instead of auto-creating.
+If you set **WANDB\_RESUME** equal to "allow", you can always set **WANDB\_RUN\_ID** to a unique string and restarts of the process will be handled automatically. You can also pass a unique string when calling init, e.g. `wandb.init(resume="run-32")`. If you set **WANDB\_RESUME** equal to "must", wandb will throw an error if the run to be resumed does not exist yet instead of auto-creating a new run.
 
 | Method | Syntax | Never Resume \(default\) | Always Resume | Resume specifying run id | Resume from same directory |
 | :--- | :--- | :--- | :--- | :--- | :--- |
