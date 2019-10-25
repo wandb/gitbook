@@ -45,3 +45,14 @@ Calling **wandb.log** writes a line to a local file; it does not block on any ne
 
 We use the same exponential moving average formula as tensorbaord.  You can find an explanation at [https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar).
 
+### How is wandb different from tensorboard?
+
+First of all, we use and love tensorboard and you can easily integrate wandb with tensorboard \(see [Tensorboard](../library/integrations/tensorboard.md)\).
+
+Wandb is designed to be a central repository of every training run you or your organization does.  Some of the difference that come from that are:
+
+* We scale up to saving and comparing thousands or millionts of runs. 
+* We also make it easy to log things at any point in your code with wandb.log\(\)
+* We have visualizations lioke scatterplots and parallel coordinates charts designed to compare many ML runs at once
+* We make it easy to build and share reports with colleagues
+
