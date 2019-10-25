@@ -4,7 +4,7 @@ description: Useful ways to use the wandb API.
 
 # API Examples
 
-## Read Metrics from a Run
+## Read metrics from a run
 
 This example outputs timestamp and accuracy saved with `wandb.log({"accuracy": acc})` for a run saved to `<entity>/<project>/<run_id>`.
 
@@ -18,7 +18,7 @@ if run.state == "finished":
        print(k["_timestamp"], k["accuracy"])
 ```
 
-## Update Metrics in a Run
+## Update metrics for a run \(after run finished\)
 
 This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_arry
 
@@ -91,5 +91,24 @@ name_df = pd.DataFrame({'name': name_list})
 all_df = pd.concat([name_df, config_df,summary_df], axis=1)
 
 all_df.to_csv("project.csv")
+```
+
+## Download a file from a run
+
+```text
+import wandb
+api = wandb.Api()
+run = api.run("oreilly-class/cifar/uxte44z7")
+run.file("model-best.h5").download()
+```
+
+## Download all files from a run
+
+```text
+import wandb
+api = wandb.Api()
+run = api.run("oreilly-class/cifar/uxte44z7")
+for file in run.files():
+    file.download()
 ```
 
