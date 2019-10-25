@@ -22,5 +22,13 @@ If you have a cool project or an insightful perspective you'd like to share, we 
 
 File an issue in our open source GitHub repo: [github.com/wandb/client](https://github.com/wandb/client). We love feedback, and we try hard to implement what users are asking for.
 
+## Thank You
 
+We're so grateful to our users who have helped us improve the product and spread the word about Weights & Biases.
+
+| Who | Where | Links |
+| :--- | :--- | :--- |
+| Whitman Bohorquez | Venezuela  | [DeepBay](https://github.com/ElPapi42/DeepBay) - plug-n-play deep learning models |
+| Boris Dayma | Houston, Texas | [CycleGAN](https://www.wandb.com/articles/horses-zebras-cyclegan) - using deep learning to turn horses into zebras  |
+| Séb Arnold | USC, California | [Cherry](http://cherry-rl.net) - an RL framework built on top of PyTorch |
 
