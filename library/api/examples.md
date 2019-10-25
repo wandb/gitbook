@@ -95,7 +95,9 @@ all_df.to_csv("project.csv")
 
 ## Download a file from a run
 
-```text
+This finds the file "model-best.h5" associated with my runwith run ID uxte44z7 in the cifar project and saves it locally.
+
+```python
 import wandb
 api = wandb.Api()
 run = api.run("oreilly-class/cifar/uxte44z7")
@@ -104,7 +106,9 @@ run.file("model-best.h5").download()
 
 ## Download all files from a run
 
-```text
+This finds all files associated with run ID uxte44z7 and saves them locally.
+
+```python
 import wandb
 api = wandb.Api()
 run = api.run("oreilly-class/cifar/uxte44z7")
