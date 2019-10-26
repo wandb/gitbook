@@ -75,9 +75,9 @@ Anything saved in the `wandb.run.dir` directory will be uploaded to W&B and save
 ```python
 # by default, this will save to a new subfolder for files associated
 # with your run, created in wandb.run.dir (which is ./wandb by default)
-model.save("mymodel.h5")
+wandb.save("mymodel.h5")
 
-# to set the path explicitly
+# you can pass the full path to the Keras model API
 model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 ```
 
