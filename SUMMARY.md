@@ -8,7 +8,6 @@
   * [Teacher FAQ](overview/teacher-faq.md)
   * [Support](overview/getting-help.md)
   * [Spread the Word](overview/love-wandb.md)
-  * [Thanks](overview/thanks.md)
 * [Quickstart](quickstart.md)
 
 ## Library

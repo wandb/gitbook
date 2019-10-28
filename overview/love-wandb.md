@@ -31,4 +31,5 @@ We're so grateful to our users who have helped us improve the product and spread
 | Whitman Bohorquez | Venezuela  | [DeepBay](https://github.com/ElPapi42/DeepBay) - plug-n-play deep learning models |
 | Boris Dayma | Houston, Texas | [CycleGAN](https://www.wandb.com/articles/horses-zebras-cyclegan) - using deep learning to turn horses into zebras  |
 | Séb Arnold | USC, California | [Cherry](http://cherry-rl.net) - an RL framework built on top of PyTorch |
+| Ryan Lee | Princeton, NJ | [End to End](https://www.endtoend.ai) - a blog for machine learning projects |
 
