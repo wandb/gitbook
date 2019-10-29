@@ -11,7 +11,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
-| Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/clarence-n-huang/color-best-looking/reports) | [Github Repo](https://github.com/clarencenhuang/dl-colorize) |
+| Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/clarence-n-huang/color-best-looking/reports?view=carey%2FColorizing%20Images) | [Github Repo](https://github.com/clarencenhuang/dl-colorize) |
 | Yolo-2 Bounding Box | [W&B Dashboard](https://app.wandb.ai/l2k2/darknet) | [Github Repo](https://github.com/lukas/pytorch-yolo2) |
 | Reinforcement Learning | [W&B Dashboard](https://app.wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://app.wandb.ai/wandb/catz/runs/qfsbxd3r) |
 | char-RNN to forecast text | [W&B Dashboard](https://app.wandb.ai/borisd13/char-RNN) | [Github Repo](https://github.com/borisdayma/char-RNN) |
@@ -20,7 +20,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
-| Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/borisd13/colorizer/reports?view=Private%20User%2FColorizer%20Project) | [Github Repo](https://github.com/borisd13/colorizer) |
+| Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/borisd13/colorizer/reports?view=carey%2FColorizing%20Black%20and%20White%20Images) | [Github Repo](https://github.com/borisd13/colorizer) |
 | CNN Face emotion classifier | [W&B Dashboard](https://app.wandb.ai/wandb/face-emotion) | [Github Repo](https://github.com/lukas/face_classification) |
 | Mask RCNN semantic segmentation | [W&B Dashboard](https://app.wandb.ai/trentwatson1/mask-rcnn/reports?view=%2FNew%20Report...) | [Github Repo](https://github.com/connorhough/mask_rcnn) |
 | Fine-tuning CNN on iNaturalist data | [W&B Dashboard](https://app.wandb.ai/stacey/keras_finetune?workspace=user-l2k2) | [Github Repo](https://github.com/wandb/examples/tree/master/keras-cnn-nature) |
