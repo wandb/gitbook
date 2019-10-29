@@ -2,9 +2,10 @@
 
 ### Example Repository
 
-We have a public example repository you can find at [https://github.com/wandb/examples](https://github.com/wandb/examples).
+We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Below are some examples of projects using wandb to track training. 
 
-Below are other projects that use wandb. The W&B dashboard is the result of running the code with wandb. We also include GitHub links to the original code.
+* **Public Dashboard**: These are public reports in our web app, showing results of training a model that was instrumented with wandb. 
+* **Code**: A link to model code that produced the visualized results.
 
 ### PyTorch
 
