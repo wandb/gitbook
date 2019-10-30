@@ -29,7 +29,7 @@ We're so grateful to our users who have helped us improve the product and spread
 | Who | Where | Links |
 | :--- | :--- | :--- |
 | Amir Abdi  | UBC, Canada  | [Disentanglement Challenge](https://github.com/amir-abdi/disentanglement-pytorch) - the 3rd place repo 1st stage of the Disentanglement challenge of NeurIPS 2019 |
-| Sergey Kolesnikov | Russia | [Catalyst Repo](https://github.com/catalyst-team/catalyst) - a wildly popular framework |
+| Sergey Kolesnikov | Moscow, Russia | [Catalyst Repo](https://github.com/catalyst-team/catalyst) - high-level PyTorch API for DL & RL research |
 | Whitman Bohorquez | Venezuela  | [DeepBay](https://github.com/ElPapi42/DeepBay) - plug-n-play deep learning models |
 | Boris Dayma | Houston, Texas | [CycleGAN](https://www.wandb.com/articles/horses-zebras-cyclegan) - using deep learning to turn horses into zebras  |
 | Séb Arnold | USC, California | [Cherry](http://cherry-rl.net) - an RL framework built on top of PyTorch |
