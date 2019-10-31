@@ -6,7 +6,7 @@
   * [Technical FAQ](overview/technical-faq.md)
   * [Beginner FAQ](overview/beginner-faq.md)
   * [Classes and Teachers](overview/classes/README.md)
-    * [Conference Talks](overview/classes/conference-talks.md)
+    * [Conference Talks](overview/classes/talks.md)
   * [Support](overview/getting-help.md)
   * [Spread the Word](overview/love-wandb.md)
 * [Quickstart](quickstart.md)
