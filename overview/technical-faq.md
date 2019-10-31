@@ -56,3 +56,7 @@ Wandb is designed to be a central repository of every training run you or your o
 * We have visualizations lioke scatterplots and parallel coordinates charts designed to compare many ML runs at once
 * We make it easy to build and share reports with colleagues
 
+### How can i configure the name of the run in my training code?
+
+Call `wandb.init(name="MY_NAME")`
+
