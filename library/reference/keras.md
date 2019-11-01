@@ -7,7 +7,7 @@ description: wandb.keras
 
 
 ## WandbCallback
-[source](https://github.com/wandb/client/blob/HEAD/client/wandb/keras/__init__.py#L134)
+[source](https://github.com/wandb/client/blob/HEAD/client/wandb/keras/__init__.py#L137)
 ```python
 WandbCallback(self,
               monitor='val_loss',
