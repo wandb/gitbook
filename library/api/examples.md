@@ -18,6 +18,34 @@ if run.state == "finished":
        print(k["_timestamp"], k["accuracy"])
 ```
 
+## Compare two runs
+
+This will output the config parameters that are different between run1 and run2.
+
+```python
+import wandb
+api = wandb.Api()
+
+# replace with your <entity_name>/<project_name>/<run_id>
+run1 = api.run("stacey/keras_finetune/d9u2iaok")
+run2 = api.run("stacey/keras_finetune/7jdf890a")
+
+import pandas as pd
+df = pd.DataFrame([run1.config, run2.config]).transpose()
+
+df.columns = [run1.name, run2.name]
+print(df[df[run1.name] != df[run2.name]])
+```
+
+Outputs:
+
+```text
+              c_10_sgd_0.025_0.01_long_switch base_adam_4_conv_2fc
+batch_size                                 32                   16
+n_conv_layers                               5                    4
+optimizer                             rmsprop                 adam
+```
+
 ## Update metrics for a run \(after run finished\)
 
 This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_arry
