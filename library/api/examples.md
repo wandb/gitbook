@@ -134,7 +134,7 @@ run.file("model-best.h5").download()
 
 ## Download all files from a run
 
-This finds all files associated with run ID uxte44z7 and saves them locally.
+This finds all files associated with run ID uxte44z7 and saves them locally.  \(Note: you can also accomplish this by running wandb restore &lt;RUN\_ID&gt; from the command line.\)
 
 ```python
 import wandb
