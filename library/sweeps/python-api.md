@@ -4,7 +4,7 @@ description: Run sweeps from Jupyter notebooks
 
 # Jupyter & Python API
 
-### Initialize a sweep
+## Initialize a sweep
 
 ```python
 import wandb
@@ -22,7 +22,7 @@ sweep_config = {
 sweep_id = wandb.sweep(sweep_config)
 ```
 
-### Run an agent
+## Run an agent
 
 When running an agent from python, the agent runs a specified function instead of using the `program` key from the sweep configuration file.
 
@@ -46,7 +46,7 @@ Quick overview: [Run in colab](https://colab.research.google.com/github/wandb/ex
 
 Complete walkthrough of using sweeps in a project: [Run in colab](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt)
 
-### Run a local controller
+## Run a local controller
 
 If you want to develop your own parameter search algorithms you can run your controller from python.
 

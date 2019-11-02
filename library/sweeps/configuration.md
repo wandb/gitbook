@@ -90,12 +90,50 @@ We support these stopping algorithms:
 | hyperband | Use the [hyperband method](https://arxiv.org/abs/1603.06560) |
 | envelope | Use an envelope method for early termination |
 
-**Example**
+#### **Hyperband parameters**
 
+Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program.  Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged -- if the metric is logged every epoch, then there are epoch iterations\).
+
+In order to specify the bracket schedule either`min_iter` or `max_iter` needs to be defined. 
+
+| `early_terminate` sub-key | Meaning |
+| :--- | :--- |
+| min\_iter | specify the iteration for the first bracket |
+| max\_iter | specify the maximum number of iterations for the program |
+| s | specify the total number of brackets \(required for `max_iter`\) |
+| eta | specify the bracket multiplier schedule \(default: 3\) |
+
+**Examples**
+
+{% tabs %}
+{% tab title="Hyperband \(min\_iter\)" %}
+```text
+early_terminate:
+  type: hyperband
+  min_iter: 3
+```
+
+Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\) 
+{% endtab %}
+
+{% tab title="Hyperband \(max\_iter\)" %}
+```text
+early_terminate:
+  type: hyperband
+  max_iter: 27
+  s: 2
+```
+
+Brackets: 9 \(27/eta\), 3 \(9/eta\)
+{% endtab %}
+
+{% tab title="Envelope" %}
 ```text
 early_terminate:
   type: envelope
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Parameters
 
