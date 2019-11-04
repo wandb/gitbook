@@ -30,6 +30,7 @@ We're so grateful to our users who have helped us improve the product and spread
 | :--- | :--- | :--- |
 | Amir Abdi  | UBC, Canada  | [Disentanglement Challenge](https://github.com/amir-abdi/disentanglement-pytorch) - the 3rd place repo 1st stage of the Disentanglement challenge of NeurIPS 2019 |
 | Sergey Kolesnikov | Moscow, Russia | [Catalyst ](https://github.com/catalyst-team/catalyst)- a high-level PyTorch API for DL & RL research |
+| Sayak Paul | Kolkata, India | [Generating Categories from ArXiv Paper Titles](https://github.com/sayakpaul/Generating-categories-from-arXiv-paper-titles) - a TensorFlow project  |
 | Josh Tobin | San Francisco, California  | [FSDL](https://fullstackdeeplearning.com/) - a hands on course to bridge the gap from training machine learning models to deploying AI systems in the real world \(We highly recommend!\)  |
 | Whitman Bohorquez | Venezuela  | [DeepBay](https://github.com/ElPapi42/DeepBay) - plug-n-play deep learning models |
 | Boris Dayma | Houston, Texas | [CycleGAN](https://www.wandb.com/articles/horses-zebras-cyclegan) - using deep learning to turn horses into zebras  |
