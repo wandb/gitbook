@@ -19,7 +19,8 @@ wandb
 If you're using an estimator that's running Python 2, you'll need to install psutil directly from a [wheel](https://wheels.galaxyproject.org/packages) before installing wandb:
 
 ```text
-https://wheels.galaxyproject.org/packages/psutil-5.4.8-cp27-cp27mu-manylinux1_x86_64.whlwandb
+https://wheels.galaxyproject.org/packages/psutil-5.4.8-cp27-cp27mu-manylinux1_x86_64.whl
+wandb
 ```
 
 A complete example is available on [GitHub](https://github.com/wandb/examples/tree/master/pytorch-cifar10-sagemaker) and you can read more on our [blog](https://www.wandb.com/blog/running-sweeps-with-sagemaker).

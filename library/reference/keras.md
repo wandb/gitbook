@@ -11,7 +11,26 @@ description: wandb.keras
 [source](https://github.com/wandb/client/blob/HEAD/client/wandb/keras/__init__.py#L137)
 
 ```python
-WandbCallback(self,              monitor='val_loss',              verbose=0,              mode='auto',              save_weights_only=False,              log_weights=False,              log_gradients=False,              save_model=True,              training_data=None,              validation_data=None,              labels=[],              data_type=None,              predictions=36,              generator=None,              input_type=None,              output_type=None,              log_evaluation=False,              validation_steps=None,              class_colors=None,              log_batch_frequency=None)
+WandbCallback(self,
+              monitor='val_loss',
+              verbose=0,
+              mode='auto',
+              save_weights_only=False,
+              log_weights=False,
+              log_gradients=False,
+              save_model=True,
+              training_data=None,
+              validation_data=None,
+              labels=[],
+              data_type=None,
+              predictions=36,
+              generator=None,
+              input_type=None,
+              output_type=None,
+              log_evaluation=False,
+              validation_steps=None,
+              class_colors=None,
+              log_batch_frequency=None)
 ```
 
 WandbCallback automatically integrates keras with wandb.
@@ -19,7 +38,8 @@ WandbCallback automatically integrates keras with wandb.
 **Examples**:
 
 ```python
-model.fit(X_train, y_train,  validation_data=(X_test, y_test),callbacks=[WandbCallback()])
+model.fit(X_train, y_train,  validation_data=(X_test, y_test),
+callbacks=[WandbCallback()])
 ```
 
 WandbCallback will automatically log history data from any metrics collected by keras: loss and anything passed into keras\_model.compile\(\)

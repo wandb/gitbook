@@ -13,7 +13,9 @@ The most common use of wandb's API is to export data from a past or running run.
 This can be used for ad-hoc data analysis or taking action in automated environments using custom logic.  
 
 ```python
-import wandbapi = wandb.Api()run = api.run("<entity>/<project>/<run_id>")
+import wandb
+api = wandb.Api()
+run = api.run("<entity>/<project>/<run_id>")
 ```
 
 The most commonly used attributes of a run object are:
@@ -33,7 +35,8 @@ By default a single instance of an api object will cache all network requests.  
 The W&B API also provides a way for you to query across runs in a project with api.runs\(\). The most common use case is exporting runs data for custom analysis.  The query interface is the same as the one [MongoDB uses](https://docs.mongodb.com/manual/reference/operator/query).
 
 ```python
-runs = api.runs("username/project", {"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})print("Found %i" % len(runs))
+runs = api.runs("username/project", {"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
+print("Found %i" % len(runs))
 ```
 
 Calling `api.runs(...)` returns a **Runs** object that is iterable and acts like a list. The object loads 50 runs at a time in sequence as required, you can change the number loaded per page with the **per\_page** keyword argument.

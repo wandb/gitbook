@@ -3,13 +3,56 @@
 Sergey Kolesnikov, creator of [Catalyst](https://github.com/catalyst-team/catalyst), has built an awesome W&B integration. If you are using Catalyst, we have a runner that can automatically log all hyperparameters, metrics, TensorBoard, the best trained model, and all `stdout` during training.
 
 ```python
-import torchfrom catalyst.dl import SupervisedWandbRunner# experiment setuplogdir = "./logdir"num_epochs = 42# dataloaders = {"train": ..., "valid": ...}# model, criterion, optimizermodel = Net()criterion = torch.nn.CrossEntropyLoss()optimizer = torch.optim.Adam(model.parameters())scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)# model runnerrunner = SupervisedWandbRunner()# model trainingrunner.train(    model=model,    criterion=criterion,    optimizer=optimizer,    scheduler=scheduler,    loaders=loaders,    logdir=logdir,    num_epochs=num_epochs,    verbose=True)
+import torch
+from catalyst.dl import SupervisedWandbRunner
+
+# experiment setup
+logdir = "./logdir"
+num_epochs = 42
+
+# data
+loaders = {"train": ..., "valid": ...}
+
+# model, criterion, optimizer
+model = Net()
+criterion = torch.nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters())
+scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)
+
+# model runner
+runner = SupervisedWandbRunner()
+
+# model training
+runner.train(
+    model=model,
+    criterion=criterion,
+    optimizer=optimizer,
+    scheduler=scheduler,
+    loaders=loaders,
+    logdir=logdir,
+    num_epochs=num_epochs,
+    verbose=True
+)
 ```
 
 Custom parameters can also be given at that stage.
 
 ```python
-# model trainingrunner.train(    model=model,    criterion=criterion,    optimizer=optimizer,    scheduler=scheduler,    loaders=loaders,    logdir=logdir,    num_epochs=num_epochs,    verbose=True,    monitoring_params={        "project": "my-research-project",        "group": "finetuning"    })
+# model training
+runner.train(
+    model=model,
+    criterion=criterion,
+    optimizer=optimizer,
+    scheduler=scheduler,
+    loaders=loaders,
+    logdir=logdir,
+    num_epochs=num_epochs,
+    verbose=True,
+    monitoring_params={
+        "project": "my-research-project",
+        "group": "finetuning"
+    }
+)
 ```
 
 Check out our [classification tutorial](https://github.com/catalyst-team/catalyst/blob/master/examples/notebooks/classification-tutorial-wandb.ipynb)[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/catalyst-team/catalyst/blob/master/examples/notebooks/classification-tutorial-wandb.ipynb)for complete example code.

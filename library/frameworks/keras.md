@@ -9,7 +9,14 @@ Use the Keras callback to automatically save all the metrics and the loss values
 {% tabs %}
 {% tab title="example.py" %}
 ```python
-import wandbfrom wandb.keras import WandbCallbackwandb.init(config={"hyper": "parameter"})# Magicmodel.fit(X_train, y_train,  validation_data=(X_test, y_test),          callbacks=[WandbCallback()])
+import wandb
+from wandb.keras import WandbCallback
+wandb.init(config={"hyper": "parameter"})
+
+# Magic
+
+model.fit(X_train, y_train,  validation_data=(X_test, y_test),
+          callbacks=[WandbCallback()])
 
 ```
 {% endtab %}

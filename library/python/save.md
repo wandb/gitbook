@@ -44,7 +44,12 @@ W&B's local run directories are by default inside the ./wandb directory relative
 The file "model.h5" is saved into the wandb.run.dir and will be uploaded at the end of training.
 
 ```python
-import wandbwandb.init()model.fit(X_train, y_train,  validation_data=(X_test, y_test),    callbacks=[wandb.keras.WandbCallback()])model.save(os.path.join(wandb.run.dir, "model.h5"))
+import wandb
+wandb.init()
+
+model.fit(X_train, y_train,  validation_data=(X_test, y_test),
+    callbacks=[wandb.keras.WandbCallback()])
+model.save(os.path.join(wandb.run.dir, "model.h5"))
 ```
 
 ## Ignoring certain files

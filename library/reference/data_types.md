@@ -47,7 +47,8 @@ wandb.Histogram([1,2,3])
 Efficiently initialize from np.histogram.
 
 ```python
-hist = np.histogram(data)wandb.Histogram(np_histogram=hist)
+hist = np.histogram(data)
+wandb.Histogram(np_histogram=hist)
 ```
 
 **Arguments**:
@@ -135,7 +136,9 @@ The file types supported are obj, gltf, babylon, stl. You can pass a path to a f
 The shape of the numpy array must be one of either:
 
 ```python
-[[x y z],       ...] nx3[x y z c],     ...] nx4 where c is a category with supported range [1, 14][x y z r g b], ...] nx4 where is rgb is color
+[[x y z],       ...] nx3
+[x y z c],     ...] nx4 where c is a category with supported range [1, 14]
+[x y z r g b], ...] nx4 where is rgb is color
 ```
 
 ## Html
@@ -220,7 +223,16 @@ Graph.from_keras(keras_model)
 [source](https://github.com/wandb/client/blob/HEAD/client/wandb/data_types.py#L972)
 
 ```python
-Node(self,     id=None,     name=None,     class_name=None,     size=None,     parameters=None,     output_shape=None,     is_output=None,     num_parameters=None,     node=None)
+Node(self,
+     id=None,
+     name=None,
+     class_name=None,
+     size=None,
+     parameters=None,
+     output_shape=None,
+     is_output=None,
+     num_parameters=None,
+     node=None)
 ```
 
 Node used in [`Graph`](data_types.md#graph)

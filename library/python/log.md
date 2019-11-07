@@ -32,7 +32,9 @@ As long as you keep passing the same value for `step`, W&B will collect the keys
 You can also set **commit=False** in `wandb.log` to accumulate metrics, just be sure to call `wandb.log` without the **commit** flag to persist the metrics.
 
 ```python
-wandb.log({'loss': 0.2}, commit=False)# Somewhere else when I'm ready to report this step:wandb.log({'accuracy': 0.8})
+wandb.log({'loss': 0.2}, commit=False)
+# Somewhere else when I'm ready to report this step:
+wandb.log({'accuracy': 0.8})
 ```
 
 ### Logging Objects
@@ -50,7 +52,10 @@ If you pass a numpy array, pytorch tensor or tensorflow tensor to `wandb.log` we
 #### Logging Plots
 
 ```python
-import matplotlib.pyplot as pltplt.plot([1, 2, 3, 4])plt.ylabel('some interesting numbers')wandb.log({"chart": plt})
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel('some interesting numbers')
+wandb.log({"chart": plt})
 ```
 
 You can pass a `matplotlib` pyplot or figure object into `wandb.log`. By default we'll convert the plot into a [plotly](https://plot.ly/) plot. If you want to explictly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging plotly charts.
@@ -86,7 +91,15 @@ The maximum number of audio clips that can be logged per step is 100.
 #### Logging Text / Tables
 
 ```python
-# Method 1data = [["I love my phone", "1", "1"],["My phone sucks", "0", "-1"]]wandb.log({"examples": wandb.Table(data=data, columns=["Text", "Predicted Label", "True Label"])})# Method 2table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])})table.add_data("I love my phone", "1", "1")table.add_data("My phone sucks", "0", "-1")wandb.log({"examples": table})
+# Method 1
+data = [["I love my phone", "1", "1"],["My phone sucks", "0", "-1"]]
+wandb.log({"examples": wandb.Table(data=data, columns=["Text", "Predicted Label", "True Label"])})
+
+# Method 2
+table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])})
+table.add_data("I love my phone", "1", "1")
+table.add_data("My phone sucks", "0", "-1")
+wandb.log({"examples": table})
 ```
 
 By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 300.
@@ -94,7 +107,8 @@ By default, the column headers are `["Input", "Output", "Expected"]`. The maximu
 #### Logging HTML
 
 ```python
-wandb.log({"custom_file": wandb.Html(open("some.html"))})wandb.log({"custom_string": wandb.Html('<a href="https://mysite">Link</a>')})
+wandb.log({"custom_file": wandb.Html(open("some.html"))})
+wandb.log({"custom_string": wandb.Html('<a href="https://mysite">Link</a>')})
 ```
 
 Custom html can be logged at any key, this exposes an HTML panel on the run page. By default we inject default styles, you can disable default styles by passing `inject=False`.
@@ -106,7 +120,8 @@ wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
 #### Logging Histograms
 
 ```python
-wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
+wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
+wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
 ```
 
 If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from `np.histogram` to the **np\_histogram** keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional **num\_bins** keyword argument when passing a sequence to override the default of 64 bins.
@@ -116,7 +131,10 @@ If histograms are in your summary they will appear as sparklines on the individu
 #### Logging 3D Objects
 
 ```python
-wandb.log({"generated_samples":           [wandb.Object3D(open("sample.obj")),            wandb.Object3D(open("sample.gltf")),            wandb.Object3D(open("sample.glb"))]})
+wandb.log({"generated_samples":
+           [wandb.Object3D(open("sample.obj")),
+            wandb.Object3D(open("sample.gltf")),
+            wandb.Object3D(open("sample.glb"))]})
 ```
 
 Wandb supports logging 3D file types of in three different formats: glTF, glb, obj. The 3D files will be viewable on the run page upon completion of your run.
@@ -124,7 +142,9 @@ Wandb supports logging 3D file types of in three different formats: glTF, glb, o
 #### Logging Point Clouds
 
 ```python
-point_cloud = np.array([[0, 0, 0, COLOR...], ...])wandb.log({"point_cloud": wandb.Object3D(point_cloud)})
+point_cloud = np.array([[0, 0, 0, COLOR...], ...])
+
+wandb.log({"point_cloud": wandb.Object3D(point_cloud)})
 ```
 
 Numpy arrays logged via wandb.Object3D will be rendered as 3D point clouds.
@@ -140,13 +160,23 @@ Supported numpy shapes include three different color schemes:
 The summary statistics are used to track single metrics per model. If a summary metric is modified, only the updated state is saved. We automatically set summary to the last history row added unless you modify it manually. If you change a summary metric, we only persist the last value it was set to.
 
 ```python
-wandb.init(config=args)best_accuracy = 0for epoch in range(1, args.epochs + 1):  test_loss, test_accuracy = test()  if (test_accuracy > best_accuracy):    wandb.run.summary["best_accuracy"] = test_accuracy    best_accuracy = test_accuracy
+wandb.init(config=args)
+
+best_accuracy = 0
+for epoch in range(1, args.epochs + 1):
+  test_loss, test_accuracy = test()
+  if (test_accuracy > best_accuracy):
+    wandb.run.summary["best_accuracy"] = test_accuracy
+    best_accuracy = test_accuracy
 ```
 
 You may want to store evaluation metrics in a runs summary after training has completed. Summary can handle numpy arrays, pytorch tensors or tensorflow tensors. When a value is one of these types we persist the entire tensor in a binary file and store high level metrics in the summary object such as min, mean, variance, 95% percentile, etc.
 
 ```python
-api = wandb.Api()run = api.run("username/project/run_id")run.summary["tensor"] = np.random.random(1000)run.summary.update()
+api = wandb.Api()
+run = api.run("username/project/run_id")
+run.summary["tensor"] = np.random.random(1000)
+run.summary.update()
 ```
 
 ### Accessing Logs Directly
@@ -156,13 +186,35 @@ The history object is used to track metrics logged by _wandb.log_. You can acces
 #### Tensorflow Example
 
 ```python
-wandb.init(config=flags.FLAGS)# Start tensorflow trainingwith tf.Session() as sess:  sess.run(init)  for step in range(1, run.config.num_steps+1):      batch_x, batch_y = mnist.train.next_batch(run.config.batch_size)      # Run optimization op (backprop)      sess.run(train_op, feed_dict={X: batch_x, Y: batch_y})      # Calculate batch loss and accuracy      loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})      wandb.log({'acc': acc, 'loss':loss}) # log accuracy and loss
+wandb.init(config=flags.FLAGS)
+
+# Start tensorflow training
+with tf.Session() as sess:
+  sess.run(init)
+
+  for step in range(1, run.config.num_steps+1):
+      batch_x, batch_y = mnist.train.next_batch(run.config.batch_size)
+      # Run optimization op (backprop)
+      sess.run(train_op, feed_dict={X: batch_x, Y: batch_y})
+      # Calculate batch loss and accuracy
+      loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
+
+      wandb.log({'acc': acc, 'loss':loss}) # log accuracy and loss
 ```
 
 #### PyTorch Example
 
 ```python
-# Start pytorch trainingwandb.init(config=args)for epoch in range(1, args.epochs + 1):  train_loss = train(epoch)  test_loss, test_accuracy = test()  torch.save(model.state_dict(), 'model')  wandb.log({"loss": train_loss, "val_loss": test_loss})
+# Start pytorch training
+wandb.init(config=args)
+
+for epoch in range(1, args.epochs + 1):
+  train_loss = train(epoch)
+  test_loss, test_accuracy = test()
+
+  torch.save(model.state_dict(), 'model')
+
+  wandb.log({"loss": train_loss, "val_loss": test_loss})
 ```
 
 ## FAQ

@@ -13,13 +13,20 @@ This module hooks fast.ai Learners to Weights & Biases through a callback. Reque
 WandbCallback can be used when initializing the Learner::
 
 ```python
-from wandb.fastai import WandbCallback[...]learn = Learner(data, ..., callback_fns=WandbCallback)learn.fit(epochs)
+from wandb.fastai import WandbCallback
+[...]
+learn = Learner(data, ..., callback_fns=WandbCallback)
+learn.fit(epochs)
 ```
 
 Custom parameters can be given using functools.partial::
 
 ```python
-from wandb.fastai import WandbCallbackfrom functools import partial[...]learn = Learner(data, ..., callback_fns=partial(WandbCallback, ...))learn.fit(epochs)
+from wandb.fastai import WandbCallback
+from functools import partial
+[...]
+learn = Learner(data, ..., callback_fns=partial(WandbCallback, ...))
+learn.fit(epochs)
 ```
 
 Finally, it is possible to use WandbCallback only when starting training. In this case it must be instantiated::
@@ -39,7 +46,16 @@ learn.fit(..., callbacks=WandbCallback(learn, ...))
 [source](https://github.com/wandb/client/blob/HEAD/client/wandb/fastai/__init__.py#L51)
 
 ```python
-WandbCallback(self,              learn,              log='gradients',              save_model=True,              monitor=None,              mode='auto',              input_type=None,              validation_data=None,              predictions=36,              seed=12345)
+WandbCallback(self,
+              learn,
+              log='gradients',
+              save_model=True,
+              monitor=None,
+              mode='auto',
+              input_type=None,
+              validation_data=None,
+              predictions=36,
+              seed=12345)
 ```
 
 Automatically saves model topology, losses & metrics. Optionally logs weights, gradients, sample predictions and best trained model.

@@ -5,7 +5,8 @@
 W&B supports patching TensorBoard or [TensorboardX](https://github.com/lanpa/tensorboardX) to automatically log all summaries.
 
 ```python
-import wandbwandb.init(sync_tensorboard=True)
+import wandb
+wandb.init(sync_tensorboard=True)
 ```
 
 Under the hood the patch tries to guess which version of TensorBoard to patch. We support TensorBoard with all versions of TensorFlow. If you're using TensorBoard with another framework W&B supports tensorboard &gt; 1.14 with PyTorch as well as TensorboardX.
@@ -21,7 +22,9 @@ If you want more control over how TensorBoard is patched you can call `wandb.ten
 By default we also sync the tfevents files and any \*.pbtxt files. This enables us to launch a TensorBoard instance on your behalf. You will see a [TensorBoard tab](https://www.wandb.com/articles/hosted-tensorboard) on the run page. This behavior can be disabled by ~~~~passing `save=False` to `wandb.tensorboard.patch`
 
 ```python
-import wandbwandb.init()wandb.tensorboard.patch(save=False, tensorboardX=True)
+import wandb
+wandb.init()
+wandb.tensorboard.patch(save=False, tensorboardX=True)
 ```
 
 ### Syncing Previous TensorBoard Runs

@@ -26,13 +26,16 @@ Specify the metric to optimize. This metric should be logged by your training sc
 {% tabs %}
 {% tab title="Maximize" %}
 ```text
-metric:  name: val_loss  goal: maximize
+metric:
+  name: val_loss
+  goal: maximize
 ```
 {% endtab %}
 
 {% tab title="Minimize" %}
 ```text
-metric:  name: val_loss
+metric:
+  name: val_loss
 ```
 {% endtab %}
 {% endtabs %}
@@ -64,7 +67,10 @@ method: grid
 
 {% tab title="Bayes search" %}
 ```text
-method: bayesmetric:  name: val_loss  goal: minimize
+method: bayes
+metric:
+  name: val_loss
+  goal: minimize
 ```
 {% endtab %}
 {% endtabs %}
@@ -102,7 +108,9 @@ In order to specify the bracket schedule either`min_iter` or `max_iter` needs to
 {% tabs %}
 {% tab title="Hyperband \(min\_iter\)" %}
 ```text
-early_terminate:  type: hyperband  min_iter: 3
+early_terminate:
+  type: hyperband
+  min_iter: 3
 ```
 
 Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\) 
@@ -110,7 +118,10 @@ Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\)
 
 {% tab title="Hyperband \(max\_iter\)" %}
 ```text
-early_terminate:  type: hyperband  max_iter: 27  s: 2
+early_terminate:
+  type: hyperband
+  max_iter: 27
+  s: 2
 ```
 
 Brackets: 9 \(27/eta\), 3 \(9/eta\)
@@ -118,7 +129,8 @@ Brackets: 9 \(27/eta\), 3 \(9/eta\)
 
 {% tab title="Envelope" %}
 ```text
-early_terminate:  type: envelope
+early_terminate:
+  type: envelope
 ```
 {% endtab %}
 {% endtabs %}
@@ -157,6 +169,9 @@ The parameters dictionary specifies the ranges of configuration parameters.
 Example
 
 ```text
-parameters:  my-parameter:    min: 1    max: 20
+parameters:
+  my-parameter:
+    min: 1
+    max: 20
 ```
 

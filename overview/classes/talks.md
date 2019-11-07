@@ -12,6 +12,8 @@ Try our free tools for experiment tracking with this [5 minute example →](http
 
 ## Deep Learning in the Real World
 
+Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf).  If you want to join our Machine Learning community, join our [forum](https://bit.ly/wandb-forum).
+
 If you're curious to learn more about some of the things I referenced in my talk, check out these resources:
 
 1. IBM over promises and under delivers with Watson for cancer detection —[https://www.statnews.com/2017/09/05/watson-ibm-cancer/](https://www.statnews.com/2017/09/05/watson-ibm-cancer/)
@@ -32,11 +34,12 @@ If you're curious to learn more about some of the things I referenced in my talk
 ### Natural Language Examples
 
 1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
-2. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
-3. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
-4. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
-5. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
-6. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
+2. [TalkToTransformer.com](https://talktotransformer.com): try GPT 2
+3. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
+4. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
+5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
+6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
+7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
 
 
 

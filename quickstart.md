@@ -41,7 +41,9 @@ Weights and Biases is framework agnostic, but if you are using a common ML frame
 Initialize `wandb` at the beginning of your script right after the imports.
 
 ```python
-# Inside my model training codeimport wandbwandb.init(project="my-project")
+# Inside my model training code
+import wandb
+wandb.init(project="my-project")
 ```
 
 We automatically create the project for you if it doesn't exist. Runs of the training script above will sync to a project named "my-project". See the [wandb.init](library/python/init.md) documentation for more initialization options.
@@ -51,7 +53,8 @@ We automatically create the project for you if it doesn't exist. Runs of the tra
 It's easy to save hyperparameters with the [wandb.config](library/python/config.md) object.
 
 ```python
-wandb.config.dropout = 0.2wandb.config.hidden_layer_size = 128
+wandb.config.dropout = 0.2
+wandb.config.hidden_layer_size = 128
 ```
 
 ### Log Metrics
@@ -59,7 +62,10 @@ wandb.config.dropout = 0.2wandb.config.hidden_layer_size = 128
 Log metrics like loss or accuracy as your model trains \(in many cases we provide framework-specific defaults\). Log more complicated output or results like histograms, graphs, or images with [wandb.log](library/python/log.md).
 
 ```python
-def my_train_loop():    for epoch in range(10):        loss = 0 # change as appropriate :)        wandb.log({'epoch': epoch, 'loss': loss})
+def my_train_loop():
+    for epoch in range(10):
+        loss = 0 # change as appropriate :)
+        wandb.log({'epoch': epoch, 'loss': loss})
 ```
 
 ### Save Files
@@ -67,7 +73,12 @@ def my_train_loop():    for epoch in range(10):        loss = 0 # change as appr
 Anything saved in the `wandb.run.dir` directory will be uploaded to W&B and saved along with your run when it completes. This is especially convenient for saving the literal weights and biases in your model:
 
 ```python
-# by default, this will save to a new subfolder for files associated# with your run, created in wandb.run.dir (which is ./wandb by default)wandb.save("mymodel.h5")# you can pass the full path to the Keras model APImodel.save(os.path.join(wandb.run.dir, "mymodel.h5"))
+# by default, this will save to a new subfolder for files associated
+# with your run, created in wandb.run.dir (which is ./wandb by default)
+wandb.save("mymodel.h5")
+
+# you can pass the full path to the Keras model API
+model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 ```
 
 Great! Now run your script normally and we'll sync the logs in a background process. Your terminal output, metrics, and files will be synced to the cloud, along with a record of your git state if you're running from a git repo.

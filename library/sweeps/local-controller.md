@@ -15,7 +15,8 @@ The local controller feature allows the user to run search and stopping algorith
 To enable the local controller, add the following to the sweep configuration file:
 
 ```text
-controller:  type: local
+controller:
+  type: local
 ```
 
 ### Running the local controller

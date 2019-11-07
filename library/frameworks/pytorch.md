@@ -7,7 +7,20 @@ description: How to integrate a PyTorch script to log metrics to W&B
 W&B provides first class support for PyTorch. To automatically log gradients and store the network topology, you can call `watch` and pass in your PyTorch model.
 
 ```python
-import wandbwandb.init(config=args)# Magicwandb.watch(model)model.train()for batch_idx, (data, target) in enumerate(train_loader):    output = model(data)    loss = F.nll_loss(output, target)    loss.backward()    optimizer.step()    if batch_idx % args.log_interval == 0:        wandb.log({"loss": loss})
+import wandb
+wandb.init(config=args)
+
+# Magic
+wandb.watch(model)
+
+model.train()
+for batch_idx, (data, target) in enumerate(train_loader):
+    output = model(data)
+    loss = F.nll_loss(output, target)
+    loss.backward()
+    optimizer.step()
+    if batch_idx % args.log_interval == 0:
+        wandb.log({"loss": loss})
 ```
 
 > Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward and backward pass.

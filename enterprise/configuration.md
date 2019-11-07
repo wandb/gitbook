@@ -53,7 +53,14 @@ Then, create an S3 bucket. Under the bucket properties page in the console, in t
 Enable CORS access: your CORS configuration should look like the following:
 
 ```markup
-<?xml version="1.0" encoding="UTF-8"?><CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><CORSRule>    <AllowedOrigin>http://YOUR-W&B-SERVER-IP</AllowedOrigin>    <AllowedMethod>GET</AllowedMethod>    <AllowedHeader>*</AllowedHeader></CORSRule></CORSConfiguration>
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+<CORSRule>
+    <AllowedOrigin>http://YOUR-W&B-SERVER-IP</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedHeader>*</AllowedHeader>
+</CORSRule>
+</CORSConfiguration>
 ```
 
 **Configure W&B Server**
@@ -91,7 +98,11 @@ Make sure the service account or account that your instance is running as has ac
 Creating a notification stream from the Storage Bucket to the Pubsub Topic can unfortunately only be done in the console. Make sure you have `gsutil` installed, and logged into the correct GCP Project, then run the following:
 
 ```bash
-gcloud pubsub topics list  # list names of topics for referencegsutil ls                  # list names of buckets for reference# create bucket notificationgsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
+gcloud pubsub topics list  # list names of topics for reference
+gsutil ls                  # list names of buckets for reference
+
+# create bucket notification
+gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 ```
 
 [Further reference is available on the Cloud Storage website.](https://cloud.google.com/storage/docs/reporting-changes)

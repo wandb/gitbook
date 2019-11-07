@@ -100,7 +100,8 @@ api.runs(path="my_entity/my_project", {"config.experiment_name": "foo"})
 Find runs in my\_project config.experiment\_name has been set to "foo" or "bar"
 
 ```python
-api.runs(path="my_entity/my_project",{"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
+api.runs(path="my_entity/my_project",
+{"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
 ```
 
 Find runs in my\_project sorted by ascending loss
@@ -272,7 +273,12 @@ A [`File`](wandb_api.md#file) matching the name argument.
 [source](https://github.com/wandb/client/blob/HEAD/client/wandb/apis/public.py#L820)
 
 ```python
-Run.history(self,            samples=500,            keys=None,            x_axis='_step',            pandas=True,            stream='default')
+Run.history(self,
+            samples=500,
+            keys=None,
+            x_axis='_step',
+            pandas=True,
+            stream='default')
 ```
 
 Returns sampled history metrics for a run. This is simpler and faster if you are ok with the history records being sampled.
@@ -304,7 +310,9 @@ Returns an iterable collection of all history records for a run.
 Export all the loss values for an example run
 
 ```python
-run = api.run("l2k2/examples-numpy-boston/i0wt6xua")history = run.scan_history(keys=["Loss"])losses = [row["Loss"] for row in history]
+run = api.run("l2k2/examples-numpy-boston/i0wt6xua")
+history = run.scan_history(keys=["Loss"])
+losses = [row["Loss"] for row in history]
 ```
 
 **Arguments**:
@@ -348,7 +356,14 @@ Returns the best run sorted by the metric defined in config or the order passed 
 [source](https://github.com/wandb/client/blob/HEAD/client/wandb/apis/public.py#L1006)
 
 ```python
-Sweep.get(client,          entity=None,          project=None,          sid=None,          withRuns=True,          order=None,          query=None,          **kwargs)
+Sweep.get(client,
+          entity=None,
+          project=None,
+          sid=None,
+          withRuns=True,
+          order=None,
+          query=None,
+          **kwargs)
 ```
 
 Execute a query against the cloud backend
