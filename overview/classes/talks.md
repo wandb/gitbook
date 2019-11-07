@@ -1,6 +1,12 @@
-# Conference Talks
+---
+description: Links and resources from our live presentations and talks
+---
 
-Thanks for joining our in-person talks! Try our tools for experiment tracking with this [5 minute example →](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
+# Presentations
+
+## Experiment Tracking
+
+Try our free tools for experiment tracking with this [5 minute example →](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
 
 ![](../../.gitbook/assets/image%20%2811%29.png)
 
