@@ -46,3 +46,12 @@ We really hope that wandb encourages ML teams to collaborate more productively.
 
 If you want to learn more about how teams use wandb, we've recorded interviews with our technical users at [OpenAI](https://www.wandb.com/articles/why-experiment-tracking-is-crucial-to-openai) and [Toyota Research](https://www.youtube.com/watch?v=CaQCw-DKiO8).
 
+## Teams
+
+If you're working on a machine learning project with collaborators, we make it easy to share results.
+
+* [Enterprise Teams](https://www.wandb.com/pricing): Learn more about our teams on our pricing page. We support small startups and large enterprise teams like OpenAI and Toyota Research Institute. We have flexible pricing options to fit your team's needs, and we support hosted cloud, private cloud, and on-prem installations.
+* [Academic Teams](https://www.wandb.com/academic): We are dedicated to supporting the academic transparent and collaborative research. If you're an academic, we will grant you access to free teams to share your research in private projects.
+
+If you'd like to share a project with people outside a team, click on the project privacy settings in the navigation bar and set the project to "Public." Anyone you share a link with will be able to see your public project results.
+
