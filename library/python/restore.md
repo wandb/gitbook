@@ -24,15 +24,7 @@ Common use cases:
 ## Examples
 
 ```python
-# restore a model file from a specific run by user "vanpelt" in "my-project"
-best_model = wandb.restore('best-model.h5', run_path="vanpelt/my-project/a1b2c3d")
-
-# restore a weights file from a checkpoint
-# (NOTE: resuming must be configured if run_path is not provided)
-weights_file = wandb.restore('weights.h5')
-# use the "name" attribute of the returned object
-# if your framework expects a filename, e.g. as in Keras
-my_predefined_model.load_weights(weights_file.name)
+# restore a model file from a specific run by user "vanpelt" in "my-project"best_model = wandb.restore('best-model.h5', run_path="vanpelt/my-project/a1b2c3d")# restore a weights file from a checkpoint# (NOTE: resuming must be configured if run_path is not provided)weights_file = wandb.restore('weights.h5')# use the "name" attribute of the returned object# if your framework expects a filename, e.g. as in Kerasmy_predefined_model.load_weights(weights_file.name)
 ```
 
 > If you don't specify a run\_path, you'll need to configure [resuming](../advanced/resuming.md) for your run. If you want access to files programmatically outside of training, use the [Run API](restore.md).

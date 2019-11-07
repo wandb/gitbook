@@ -3,21 +3,15 @@
 When you're running a script in an automated environment, you can control **wandb** with environment variables set before the script runs or within the script.
 
 ```bash
-# This is secret and shouldn't be checked into version control
-WANDB_API_KEY=$YOUR_API_KEY
-# Description is optional
-WANDB_DESCRIPTION="$SHORT_MESSAGE"
+# This is secret and shouldn't be checked into version controlWANDB_API_KEY=$YOUR_API_KEY# Description is optionalWANDB_DESCRIPTION="$SHORT_MESSAGE"
 ```
 
 ```bash
-# Only needed if you don't checkin the wandb/settings file
-WANDB_ENTITY=$username
-WANDB_PROJECT=$project
+# Only needed if you don't checkin the wandb/settings fileWANDB_ENTITY=$usernameWANDB_PROJECT=$project
 ```
 
 ```python
-# If you don't want your script to sync to the cloud
-os.environ['WANDB_MODE'] = 'dryrun'
+# If you don't want your script to sync to the cloudos.environ['WANDB_MODE'] = 'dryrun'
 ```
 
 ## Optional Environment Variables

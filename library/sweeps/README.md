@@ -19,17 +19,7 @@ The sweep configuration file specifies your training script, parameter ranges, s
 Here's an example config file:
 
 ```text
-program: train.py
-method: bayes
-metric:
-  name: val_loss
-  goal: minimize
-parameters:
-  learning-rate:
-    min: 0.001
-    max: 0.1
-  optimizer:
-    values: ["adam", "sgd"]
+program: train.pymethod: bayesmetric:  name: val_loss  goal: minimizeparameters:  learning-rate:    min: 0.001    max: 0.1  optimizer:    values: ["adam", "sgd"]
 ```
 
 ### Initialize the sweep

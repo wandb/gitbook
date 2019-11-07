@@ -36,8 +36,7 @@ Use `restore` to return to the state of your code when you ran a given run.
 ### Example
 
 ```python
-# creates a branch and restores the code to the state it was in when run $RUN_ID was executed
-wandb restore $RUN_ID
+# creates a branch and restores the code to the state it was in when run $RUN_ID was executedwandb restore $RUN_ID
 ```
 
 **How do we capture the state of the code?**

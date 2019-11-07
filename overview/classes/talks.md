@@ -23,5 +23,14 @@ If you're curious to learn more about some of the things I referenced in my talk
 13. Explainable time series predictions — [https://www.ijcai.org/proceedings/2019/0932.pdf](https://www.ijcai.org/proceedings/2019/0932.pdf)
 14. The reproducibility crisis — [https://www.wired.com/story/artificial-intelligence-confronts-reproducibility-crisis/](https://www.wired.com/story/artificial-intelligence-confronts-reproducibility-crisis/)
 
+### Natural Language Examples
+
+1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
+2. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
+3. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
+4. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
+5. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
+6. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
+
 
 

@@ -3,26 +3,7 @@
 You can have wandb automatically resume runs by passing `resume=True` to `wandb.init()`. If your process doesn't exit successfully, the next time you run it wandb will start logging from the last step. Below is a simple example in Keras:
 
 ```python
-import keras
-import numpy as np
-import wandb
-from wandb.keras import WandbCallback
-wandb.init(project="preemptable", resume=True)
-
-if wandb.run.resumed:
-    # restore the best model
-    model = keras.models.load_model(wandb.restore("model-best.h5").name)
-else:
-    a = keras.layers.Input(shape=(32,))
-    b = keras.layers.Dense(10)(a)
-    model = keras.models.Model(input=a,output=b)
-
-model.compile("adam", loss="mse")
-model.fit(np.random.rand(100, 32), np.random.rand(100, 10),
-    # set the resumed epoch
-    initial_epoch=wandb.run.step, epochs=300,
-    # save the best model if it improved each epoch
-    callbacks=[WandbCallback(save_model=True, monitor="loss")])
+import kerasimport numpy as npimport wandbfrom wandb.keras import WandbCallbackwandb.init(project="preemptable", resume=True)if wandb.run.resumed:    # restore the best model    model = keras.models.load_model(wandb.restore("model-best.h5").name)else:    a = keras.layers.Input(shape=(32,))    b = keras.layers.Dense(10)(a)    model = keras.models.Model(input=a,output=b)model.compile("adam", loss="mse")model.fit(np.random.rand(100, 32), np.random.rand(100, 10),    # set the resumed epoch    initial_epoch=wandb.run.step, epochs=300,    # save the best model if it improved each epoch    callbacks=[WandbCallback(save_model=True, monitor="loss")])
 ```
 
 Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set the **WANDB\_RUN\_ID**: a globally unique string \(per project\) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
