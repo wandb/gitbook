@@ -18,7 +18,7 @@ You can pass a SHA or other unique identifier to `wandb.config.update(...)` to a
 
 ### How often are system metrics collected?
 
-By default metrics are collected every 2 seconds and averaged over a 30 second period. If you need higher resolution metrics, email us a [contact@wandb.com](mailto:contact@wandb.com).
+By default, metrics are collected every 2 seconds and averaged over a 30 second period. If you need higher resolution metrics, email us a [contact@wandb.com](mailto:contact@wandb.com).
 
 ### Does this only work for Python?
 
@@ -41,9 +41,9 @@ There's two ways to turn off code logging:
 
 Calling **wandb.log** writes a line to a local file; it does not block on any network calls. When you call wandb.init we launch a new process on the same machine that listens for filesystem changes and talks to our web service asynchronously from your training process.
 
-### What forumla do you use for your smoothing algorithm?
+### What formula do you use for your smoothing algorithm?
 
-We use the same exponential moving average formula as tensorbaord.  You can find an explanation at [https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar).
+We use the same exponential moving average formula as tensorboard.  You can find an explanation at [https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar).
 
 ### How is wandb different from tensorboard?
 
@@ -51,12 +51,12 @@ First of all, we use and love tensorboard and you can easily integrate wandb wit
 
 Wandb is designed to be a central repository of every training run you or your organization does.  Some of the difference that come from that are:
 
-* We scale up to saving and comparing thousands or millionts of runs. 
+* We scale up to saving and comparing thousands or millions of runs. 
 * We also make it easy to log things at any point in your code with wandb.log\(\)
-* We have visualizations lioke scatterplots and parallel coordinates charts designed to compare many ML runs at once
+* We have visualizations like scatterplots and parallel coordinates charts designed to compare many ML runs at once
 * We make it easy to build and share reports with colleagues
 
-### How can i configure the name of the run in my training code?
+### How can I configure the name of the run in my training code?
 
 Call `wandb.init(name="MY_NAME")`
 
