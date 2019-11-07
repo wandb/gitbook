@@ -22,7 +22,7 @@ The most commonly used attributes of a run object are:
 | :--- | :--- |
 | run.config | A dictionary meant to store inputs to the model such as hyperparameters. |
 | run.summary | A dictionary of outputs which can contain everything from scalars such as accuracy or loss to large files.  The command wandb.log\(\) updates this obejct.  It can also be set directly. |
-| run.history | A list of dictionaries meant to store values that change while the model is training such as loss.  The command wandb.log\(\) appends to this object. |
+| run.history() | A list of dictionaries meant to store values that change while the model is training such as loss.  The command wandb.log\(\) appends to this object. |
 
 You can also modify or update the data of past runs.  
 
