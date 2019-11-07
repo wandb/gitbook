@@ -2,7 +2,7 @@
 description: Links and resources from our live presentations and talks
 ---
 
-# Presentations
+# Talks
 
 ## Experiment Tracking
 
