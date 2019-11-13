@@ -22,6 +22,14 @@ sweep_config = {
 sweep_id = wandb.sweep(sweep_config)
 ```
 
+{% hint style="info" %}
+The wandb.sweep\(\) method requires entity and an already created project to be specified.  Entity and project can be specified with:
+
+* Arguments to wandb.sweep\(\) For example: `wandb.sweep(sweep_config, entity="user", project="my_project")`
+* [Environment Variables](../advanced/environment-variables.md) `WANDB_ENTITY` and `WANDB_PROJECT`
+* [Command Line Interface](../cli.md) using the `wandb init` command
+{% endhint %}
+
 ## Run an agent
 
 When running an agent from python, the agent runs a specified function instead of using the `program` key from the sweep configuration file.
