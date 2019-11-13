@@ -8,7 +8,13 @@ Use reports to describe your process developing models. Report sections each hav
 
 ![](https://downloads.intercomcdn.com/i/o/142935299/e49a7b19a392df6dd0ab3501/image.png)
 
-## Add visualizations and markdown
+## Add markdown
+
+Click **Add a visualization** and select **Markdown** to add a text panel to a report.
+
+![](../../.gitbook/assets/bug-markdown.gif)
+
+## Add visualizations
 
 Click the "Add a visualization" button to add a new graph.
 
@@ -22,6 +28,7 @@ There are plenty of settings to customize your line plot. Select a metric to com
 
 ## Sections
 
-If you'd like to compare a different set of runs, create a new section. Each section's graphs are controlled by the table in that section.  
+If you'd like to compare a different set of runs, create a new section. Each section's graphs are controlled by the table in that section.
+
 ![](https://downloads.intercomcdn.com/i/o/142935919/23983a0d2d1190260e48fb2c/image.png)
 
