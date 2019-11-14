@@ -35,3 +35,11 @@ By default the hook only logs gradients. If you want to log histograms of parame
 
 You can pass PyTorch tensors with image data into `wandb.Image` and torchvision utils will be used to log them automatically.
 
+To log images and view them in the Media panel, you can use the following syntax:
+
+```python
+wandb.log({"examples" : [wandb.Image(i) for i in images]})
+```
+
+
+
