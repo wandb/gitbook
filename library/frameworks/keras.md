@@ -6,8 +6,7 @@ description: How to integrate a Keras script to log metrics to W&B
 
 Use the Keras callback to automatically save all the metrics and the loss values tracked in `model.fit`.
 
-{% tabs %}
-{% tab title="example.py" %}
+{% code title="example.py" %}
 ```python
 import wandb
 from wandb.keras import WandbCallback
@@ -19,8 +18,7 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
           callbacks=[WandbCallback()])
 
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 See our [example projects](../example-projects/) for a complete script example.
 
