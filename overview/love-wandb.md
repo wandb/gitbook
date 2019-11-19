@@ -37,5 +37,7 @@ We're so grateful to our users who have helped us improve the product and spread
 | Séb Arnold | USC, California | [Cherry](http://cherry-rl.net) - an RL framework built on top of PyTorch |
 | Ryan Lee | Princeton, New Jersey  | [End to End](https://www.endtoend.ai) - a blog for machine learning projects |
 | Róbert Csordás | IDSA, Switzerland | [W&B Profile](https://app.wandb.ai/csordas) -  a published paper to come soon! :\)  |
-|  |  |  |
+| Peter Welinder | San Francisco |  |
+
+
 
