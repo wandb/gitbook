@@ -11,6 +11,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
+| Intro to PyTorch with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/pytorch-intro) | [Colab Notebook](https://colab.research.google.com/github/wandb/examples/blob/master/pytorch-intro/intro.ipynb) |
 | Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/clarence-n-huang/color-best-looking/reports?view=carey%2FColorizing%20Images) | [Github Repo](https://github.com/clarencenhuang/dl-colorize) |
 | Yolo-2 Bounding Box | [W&B Dashboard](https://app.wandb.ai/l2k2/darknet) | [Github Repo](https://github.com/lukas/pytorch-yolo2) |
 | Reinforcement Learning | [W&B Dashboard](https://app.wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://app.wandb.ai/wandb/catz/runs/qfsbxd3r) |
@@ -20,6 +21,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
+| Intro to Keras with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/keras-intro) | [Colab Notebook](https://colab.research.google.com/drive/1pMcNYctQpRoBKD5Z0iXeFWQD8hIDgzCV) |
 | Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/borisd13/colorizer/reports?view=carey%2FColorizing%20Black%20and%20White%20Images) | [Github Repo](https://github.com/borisd13/colorizer) |
 | CNN Face emotion classifier | [W&B Dashboard](https://app.wandb.ai/wandb/face-emotion) | [Github Repo](https://github.com/lukas/face_classification) |
 | Mask RCNN semantic segmentation | [W&B Dashboard](https://app.wandb.ai/trentwatson1/mask-rcnn/reports?view=%2FNew%20Report...) | [Github Repo](https://github.com/connorhough/mask_rcnn) |
@@ -38,6 +40,12 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 | :--- | :--- | :--- |
 | Classifying Simpson's characters | [W&B Dashboard](https://app.wandb.ai/borisd13/simpsons-fastai) | [Github Repo](https://github.com/borisdayma/simpsons-fastai) |
 | Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/semantic-segmentation/?workspace=user-borisd13) | [Github Repo](https://github.com/borisdayma/semantic-segmentation/blob/master/src/train.py) |
+
+### Sweeps
+
+| Description | Public Dashboard | Code |
+| :--- | :--- | :--- |
+| Intro to Sweeps with W&B | [W&B Dashboard](https://app.wandb.ai/sweep/simpsons?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt) |
 
 ### Have a public project to share?
 
