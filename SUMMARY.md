@@ -78,6 +78,7 @@
   * [Visualizations](app/features/visualizations/README.md)
     * [Run Colors](app/features/visualizations/run-colors.md)
     * [Line Plot](app/features/visualizations/compare-metrics.md)
+    * [Run Comparer](app/features/visualizations/run-comparer.md)
   * [Alerts](app/features/alerts.md)
 
 ## Enterprise
