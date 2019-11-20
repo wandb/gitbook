@@ -22,6 +22,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
 | Intro to Keras with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/keras-intro) | [Colab Notebook](https://colab.research.google.com/drive/1pMcNYctQpRoBKD5Z0iXeFWQD8hIDgzCV) |
+| Intro to Convolutional Neural Networks with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/cnn-intro) | [Colab Notebook](https://colab.research.google.com/drive/1S8SJvH4bqhPvurG4gjh3-t-XulX4S8JX) |
 | Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/borisd13/colorizer/reports?view=carey%2FColorizing%20Black%20and%20White%20Images) | [Github Repo](https://github.com/borisd13/colorizer) |
 | CNN Face emotion classifier | [W&B Dashboard](https://app.wandb.ai/wandb/face-emotion) | [Github Repo](https://github.com/lukas/face_classification) |
 | Mask RCNN semantic segmentation | [W&B Dashboard](https://app.wandb.ai/trentwatson1/mask-rcnn/reports?view=%2FNew%20Report...) | [Github Repo](https://github.com/connorhough/mask_rcnn) |
