@@ -83,14 +83,11 @@ Early Termination speeds up hyperparameter search by killing off pooly performin
 | :--- | :--- |
 | type | specify the stopping algorithm |
 
-We support these stopping algorithms:
+We support the following stopping algorithm\(s\):
 
 | `type` | Meaning |
 | :--- | :--- |
 | hyperband | Use the [hyperband method](https://arxiv.org/abs/1603.06560) |
-| envelope | Use an envelope method for early termination |
-
-#### **Hyperband parameters**
 
 Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program.  Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged -- if the metric is logged every epoch, then there are epoch iterations\).
 
@@ -125,13 +122,6 @@ early_terminate:
 ```
 
 Brackets: 9 \(27/eta\), 3 \(9/eta\)
-{% endtab %}
-
-{% tab title="Envelope" %}
-```text
-early_terminate:
-  type: envelope
-```
 {% endtab %}
 {% endtabs %}
 
