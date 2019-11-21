@@ -27,7 +27,8 @@ Use these optional environment variables to do things like set up authentication
 | Variable name | Usage |
 | :--- | :--- |
 | **WANDB\_API\_KEY** | Sets the authentication key associated with your account. You can find your key on [your settings page](https://app.wandb.ai/settings). This must be set if `wandb login` hasn't been run on the remote machine. |
-| **WANDB\_DESCRIPTION** | Description associated with a run. This will become the name of your run in the UI. If not set it will be randomly generated for you |
+| **WANDB\_NAME** | The human-readable name of your run. If not set it will be randomly generated for you |
+| **WANDB\_NOTES** | Longer notes about your run.  Markdown is allowed and you can edit this later in the UI. |
 | **WANDB\_ENTITY** | The entity associated with your run. If you have run `wandb init` in the directory of your training script, it will create a directory named _wandb_ and will save a default entity which can be checked into source control. If you don't want to create that file or want to override the file you can use the environmental variable. |
 | **WANDB\_USERNAME** | The username of a member of your team associated with the run. This can be used along with a service account API key to enable attribution of automated runs to members of your team. |
 | **WANDB\_PROJECT** | The project associated with your run. This can also be set with `wandb init`, but the environmental variable will override the value. |
