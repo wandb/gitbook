@@ -5,8 +5,9 @@ When you're running a script in an automated environment, you can control **wand
 ```bash
 # This is secret and shouldn't be checked into version control
 WANDB_API_KEY=$YOUR_API_KEY
-# Description is optional
-WANDB_DESCRIPTION="$SHORT_MESSAGE"
+# Name and notes optional
+WANDB_NAME="My first run"
+WANDB_NOTES="Smaller learning rate, more regularization."
 ```
 
 ```bash
