@@ -64,3 +64,14 @@ W&B is designed to be a central repository of every training run you or your org
 
 At the top of your training script when you call wandb.init, pass in an experiment name, like this: `wandb.init(name="my awesome run")`
 
+### Is there an anaconda package?
+
+We don't have an anaconda package but you should be able to install wandb using:
+
+```text
+conda activate myenv
+pip install wandb
+```
+
+If you run into issues with this install, please let us know.  The anaconda managing package resource at [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) may be helpful.
+
