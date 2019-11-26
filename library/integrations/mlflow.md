@@ -16,7 +16,7 @@ When mirroring data to both a wandb and mlflow tracking backend, the following c
 
 | MLflow | W&B |
 | :--- | :--- |
-| [Experiment](https://www.mlflow.org/docs/latest/tracking.html#organizing-runs-in-experiments) | [Project](../../app/pages/project-page.md) |
+| [Experiment](https://www.mlflow.org/docs/latest/tracking.html#organizing-runs-in-experiments) | [Project](../../app/pages/project-page/) |
 | [mlflow.start\_run](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [wandb.init](../python/init.md) |
 | [mlflow.log\_params](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_param) | [wandb.config](../python/config.md) |
 | [mlflow.log\_metrics](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_metric) | [wandb.log](../python/log.md) |

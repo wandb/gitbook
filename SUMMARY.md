@@ -9,6 +9,7 @@
     * [Talks](overview/classes/talks.md)
   * [Support](overview/getting-help.md)
   * [Spread the Word](overview/love-wandb.md)
+  * [Example Projects](overview/example-projects.md)
 * [Quickstart](quickstart.md)
 
 ## Library
@@ -68,7 +69,8 @@
 ## Web App <a id="app"></a>
 
 * [Pages](app/pages/README.md)
-  * [Project Page](app/pages/project-page.md)
+  * [Project Page](app/pages/project-page/README.md)
+    * [Overview Tab](app/pages/project-page/overview-tab.md)
   * [Report Page](app/pages/reports.md)
 * [Features](app/features/README.md)
   * [Table](app/features/sidebar.md)
