@@ -1,5 +1,7 @@
 ---
-description: Useful ways to use the wandb API.
+description: >-
+  Here are some common use cases for pulling down data from W&B using our Python
+  API.
 ---
 
 # API Examples
