@@ -6,7 +6,7 @@ Use W&B to manage hyperparameter sweeps. Sweeps are useful for efficiently findi
 
 ### Initialize the project
 
-In your project repo, initialize your project from the command line:
+In your project repo, initialize your project from the command line. This allows you to select the project you want to save runs into.
 
 ```text
 wandb init
@@ -14,9 +14,9 @@ wandb init
 
 ### Create a sweep configuration
 
-The sweep configuration file specifies your training script, parameter ranges, search strategy and stopping criteria.
+Specify your training script, parameter ranges, search strategy and stopping criteria in a YAML file.
 
-Here's an example config file:
+Here's an example configuration **sweep.yaml**:
 
 ```text
 program: train.py
