@@ -26,3 +26,11 @@ In the **Y variables** field, select a few metrics you'd like to compare. They'l
 
 ![](https://downloads.intercomcdn.com/i/o/146033909/899fc05e30795a1d7699dc82/Screen+Shot+2019-09-04+at+9.10.52+AM.png)
 
+## Visualize on different x axes
+
+If you'd like to see the absolute time that an experiment has taken, or see what day an experiment ran, you can switch the x axis. Here's an example of switching from steps to relative time and then to wall time.
+
+![](../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
+
+
+
