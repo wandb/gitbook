@@ -217,13 +217,13 @@ for epoch in range(1, args.epochs + 1):
   wandb.log({"loss": train_loss, "val_loss": test_loss})
 ```
 
-## FAQ
+## Common Questions
 
-### **How do I log images from different epochs and compare them?**
+### **Compare images from different epochs**
 
 Each time you log images from a step, we save them to show in the UI. Pin the image panel, and use the **step slider** to look at images from different steps. This makes it easy to compare how a model's output changes over training.
 
-### **How do you log a PNG?**
+### **Log a PNG**
 
 If you're logging images with wandb.log, we'll log a PNG with:
 
@@ -231,7 +231,7 @@ If you're logging images with wandb.log, we'll log a PNG with:
 wandb.log({"example": wandb.Image(...)})
 ```
 
-### **How do you log a JPEG?**
+### **Log a JPEG**
 
 We'll save a JPEG if you call:
 
@@ -239,13 +239,19 @@ We'll save a JPEG if you call:
 wandb.log({"example": [wandb.Image(...) for i in images]})
 ```
 
-### **Can you log a video?**
+### **Log a Video**
 
 Yes. Click on a run page, and you'll see the file tab on the left sidebar. Click on the file tab to see the files you uploaded in association with your run. If you log videos, you'll be able to find them here. You can also view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
 
-### Set a custom x-axis
+### Custom x-axis
 
 By default, we increment the global step every time you call wandb.log. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
 
 For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
+
+### Nothing shows up in the graphs
+
+If you're seeing "No visualization data logged yet" that means that we haven't gotten the first wandb.log call from your script yet. This could be because your run takes a long time to finish a step. You could log a few times each epoch to see data stream in more quickly.
+
+
 
