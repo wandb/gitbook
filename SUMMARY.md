@@ -9,7 +9,6 @@
     * [Talks](overview/classes/talks.md)
   * [Support](overview/getting-help.md)
   * [Spread the Word](overview/love-wandb.md)
-  * [Example Projects](overview/example-projects.md)
 * [Quickstart](quickstart.md)
 
 ## Library
