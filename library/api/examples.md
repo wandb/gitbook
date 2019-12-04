@@ -159,3 +159,14 @@ runs[0].file("model-best.h5").download(replace=True)
 print("Best model saved to model-best.h5")
 ```
 
+## Get runs from a specific sweep
+
+```python
+import wandb
+api = wandb.Api()
+sweep = api.sweep("your-entity/your-project/your-sweep-id")
+print(sweep.runs)
+```
+
+
+
