@@ -34,6 +34,8 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
 | GAN to predict video frames | [W&B Dashboard](https://app.wandb.ai/wandb/catz/runs/qfsbxd3r) | [Github Repo](https://github.com/sirebellum/catz_contest) |
+| Tracking TensorFlow model performance |  | [Github Repo](https://github.com/wandb/examples/blob/master/tf-estimator-mnist/mnist.py) |
+| Training distributed TensorFlow models |  | [Github Repo](https://github.com/wandb/examples/blob/master/tf-distributed-mnist/train.py) |
 
 ### Fast.ai
 
@@ -46,7 +48,17 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
-| Intro to Sweeps with W&B | [W&B Dashboard](https://app.wandb.ai/sweep/simpsons?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt) |
+| Intro to sweeps with W&B | [W&B Dashboard](https://app.wandb.ai/sweep/simpsons?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt) |
+| Running sweeps in python scripts |  | [Github Repo](https://github.com/wandb/examples/blob/master/sweeps-python/sweep.py) |
+| Using sweeps with MPI frameworks |  | [Github Repo](https://github.com/wandb/examples/tree/master/sweeps-mpi-wrappers) |
+
+### Scikit Learn
+
+| Description | Public Dashboard | Code |
+| :--- | :--- | :--- |
+| Using W&B with XGBoost |  | [Github Repo](https://github.com/wandb/examples/tree/master/xgboost-dermatology) |
+
+### Have a public project to share?
 
 ### Have a public project to share?
 
