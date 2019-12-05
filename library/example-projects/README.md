@@ -57,8 +57,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
 | Using W&B with XGBoost |  | [Github Repo](https://github.com/wandb/examples/tree/master/xgboost-dermatology) |
-
-### Have a public project to share?
+| Using W&B with an SVM |  | [Github Repo](https://github.com/wandb/examples/tree/master/scikit-iris) |
 
 ### Have a public project to share?
 
