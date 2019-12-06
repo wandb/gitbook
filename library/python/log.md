@@ -267,5 +267,5 @@ If you'd like all the original data, you can use our [data API](https://docs.wan
 
 **Guidelines**
 
-I'd recommend that you try to log less than 10,000 points per metric. If you have more than 500 columns of config and summary metrics, we'll only show 500 in the table. If you log more than 1 million points in a line, it will take us while to load the page.
+We recommend that you try to log less than 10,000 points per metric. If you have more than 500 columns of config and summary metrics, we'll only show 500 in the table. If you log more than 1 million points in a line, it will take us while to load the page.
 
