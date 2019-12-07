@@ -60,7 +60,7 @@ wandb.config.update(args) # adds all of the arguments as config variables
 
 ## File-Based Configs
 
-You can create a file called _config-defaults.yaml,_ and it will automatically be loaded into `wandb.config`
+You can create a file called **config-defaults.yaml,** __and it will automatically be loaded into `wandb.config`
 
 ```yaml
 # sample config defaults file
