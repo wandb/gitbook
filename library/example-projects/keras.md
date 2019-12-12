@@ -10,28 +10,31 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dropout, Dense, Flatten
 from keras.utils import np_utils
 from keras.optimizers import SGD
-from keras.callbacks import TensorBoard
 
 import wandb
 from wandb.keras import WandbCallback
 
-wandb.init() # Initializes wandb
-config = wandb.config # Config is a variable that holds and saves hyperparameters and inputs
-config.dropout = 0.2
-config.hidden_layer_size = 128
-config.layer_1_size  = 16
-config.layer_2_size = 32
-config.learn_rate = 0.01
-config.decay = 1e-6
-config.momentum = 0.9
-config.epochs = 25
+config_defaults = dict(
+    dropout = 0.2,
+    hidden_layer_size = 128,
+    layer_1_size = 16,
+    layer_2_size = 32,
+    learn_rate = 0.01,
+    decay = 1e-6,
+    momentum = 0.9,
+    epochs = 25,
+    )
+# Initializes wandb
+wandb.init(config=config_defaults) 
+# Config is a variable that holds and saves hyperparameters and inputs
+config = wandb.config
 
 (X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()
-labels=["T-shirt/top","Trouser","Pullover","Dress","Coat",
-        "Sandal","Shirt","Sneaker","Bag","Ankle boot"]
+labels = ["T-shirt/top","Trouser","Pullover","Dress","Coat",
+          "Sandal","Shirt","Sneaker","Bag","Ankle boot"]
 
-img_width=28
-img_height=28
+img_width = 28
+img_height = 28
 
 X_train = X_train.astype('float32')
 X_train /= 255.

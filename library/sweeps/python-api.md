@@ -23,7 +23,7 @@ sweep_id = wandb.sweep(sweep_config)
 ```
 
 {% hint style="info" %}
-The wandb.sweep\(\) method requires entity and an already created project to be specified.  Entity and project can be specified with:
+Use the following methods in order to specify the entity or project for the sweep:
 
 * Arguments to wandb.sweep\(\) For example: `wandb.sweep(sweep_config, entity="user", project="my_project")`
 * [Environment Variables](../advanced/environment-variables.md) `WANDB_ENTITY` and `WANDB_PROJECT`
@@ -93,7 +93,6 @@ If you want to specify your sweep entirely with code you can do something like t
 import wandb
 from wandb.sweeps import GridSearch,RandomSearch,BayesianSearch
 from wandb.sweeps import HyperbandEarlyTerminate
-from wandb.sweeps import EnvelopeEarlyTerminate
 
 sweep = wandb.controller()
 sweep.configure_search(GridSearch)
