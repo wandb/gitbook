@@ -77,11 +77,11 @@
   * [Notes](app/features/notes.md)
   * [Sweeps](app/features/sweeps.md)
   * [Alerts](app/features/alerts.md)
-* [Visualizations](visualizations/README.md)
-  * [Line Plot](visualizations/compare-metrics/README.md)
-    * [Reference](visualizations/compare-metrics/reference.md)
-  * [Run Colors](visualizations/run-colors.md)
-  * [Run Comparer](visualizations/run-comparer.md)
+* [Visualizations](app/visualizations/README.md)
+  * [Line Plot](app/visualizations/compare-metrics/README.md)
+    * [Reference](app/visualizations/compare-metrics/reference.md)
+  * [Run Colors](app/visualizations/run-colors.md)
+  * [Run Comparer](app/visualizations/run-comparer.md)
 
 ## Enterprise
 
