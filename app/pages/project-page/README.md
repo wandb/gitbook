@@ -4,7 +4,7 @@ The project page gives you a place to compare experiments. Run different version
 
 {% page-ref page="overview-tab.md" %}
 
-![](../../../.gitbook/assets/image%20%2812%29.png)
+![](../../../.gitbook/assets/image%20%2813%29.png)
 
 
 

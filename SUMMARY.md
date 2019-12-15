@@ -76,11 +76,12 @@
   * [Tags](app/features/tags.md)
   * [Notes](app/features/notes.md)
   * [Sweeps](app/features/sweeps.md)
-  * [Visualizations](app/features/visualizations/README.md)
-    * [Run Colors](app/features/visualizations/run-colors.md)
-    * [Line Plot](app/features/visualizations/compare-metrics.md)
-    * [Run Comparer](app/features/visualizations/run-comparer.md)
   * [Alerts](app/features/alerts.md)
+* [Visualizations](visualizations/README.md)
+  * [Line Plot](visualizations/compare-metrics/README.md)
+    * [Reference](visualizations/compare-metrics/reference.md)
+  * [Run Colors](visualizations/run-colors.md)
+  * [Run Comparer](visualizations/run-comparer.md)
 
 ## Enterprise
 

@@ -6,11 +6,11 @@ If you have several different experiments and you'd like to see the average of t
 
 Here is what the graph looks like before averaging:
 
-![](../../../.gitbook/assets/demo-precision-lines.png)
+![](../../.gitbook/assets/demo-precision-lines.png)
 
 Here I have grouped the lines to see the average value across runs.
 
-![](../../../.gitbook/assets/demo-average-precision-lines%20%281%29.png)
+![](../../.gitbook/assets/demo-average-precision-lines%20%281%29.png)
 
 ## Compare two metrics on one chart
 
@@ -30,7 +30,7 @@ In the **Y variables** field, select a few metrics you'd like to compare. They'l
 
 If you'd like to see the absolute time that an experiment has taken, or see what day an experiment ran, you can switch the x axis. Here's an example of switching from steps to relative time and then to wall time.
 
-![](../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
+![](../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
 
 
 
