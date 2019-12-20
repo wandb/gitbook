@@ -121,14 +121,17 @@ redirects:
   integrations/ray: ./library/integrations/ray.md
   integrations/sagemaker: ./library/integrations/sagemaker.md
   integrations/tensorboard: ./library/integrations/tensorboard.md
+  library/sweeps: ./sweeps/overview.md
+  library/sweeps/configuration: ./sweeps/configuration.md
+  library/sweeps/advanced: ./sweeps/ray-tune.md
+  library/sweeps/local-controller: ./sweeps/local-controller.md
+  library/sweeps/python-api: ./sweeps/python-api.md
   overview/company-faq: ./overview/company-faq.md
   overview/getting-help: ./overview/getting-help.md
   overview/overview: ./overview.md
   overview/technical-faq: ./overview/technical-faq.md
-  sweeps/configuration: ./library/sweeps/configuration.md
-  sweeps/local: ./library/sweeps/local-controller.md
-  sweeps/overview: ./library/sweeps/README.md
-  sweeps/python: ./library/sweeps/python-api.md
+  sweeps/local: ./sweeps/local-controller.md
+  sweeps/python: ./sweeps/python-api.md
   wandb/config: ./library/python/config.md
   wandb/init: ./library/python/init.md
   wandb/log: ./library/python/log.md
