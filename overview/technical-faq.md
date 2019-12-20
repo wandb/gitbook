@@ -75,3 +75,19 @@ pip install wandb
 
 If you run into issues with this install, please let us know.  The anaconda managing package resource at [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) may be helpful.
 
+### How do I stop wandb from writing to my terminal or my jupyter notebook output?
+
+Set the environmental variable [WANDB\_SILENT](../library/advanced/environment-variables.md). 
+
+In a notebook: 
+
+```
+%env WANDB_SILENT true
+```
+
+In a python script:
+
+```text
+os.environ["WANDB_SILENT"] = "true"
+```
+
