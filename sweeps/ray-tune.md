@@ -6,7 +6,9 @@ description: ✨BETA✨ support for Ray Tune sweep search and scheduler API
 
 [Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) is a scalable hyperparameter tuning library. We're adding support for Tune to W&B Sweeps, which makes it easy to launch runs on many machines and visualize results in a central place.
 
-This feature is in beta! We love feedback, and we really appreciate hearing from folks who are experimenting with our Sweeps product.
+{% hint style="info" %}
+This feature is in beta! We love feedback, and we really appreciate hearing from folks who are experimenting with our Sweeps product. 
+{% endhint %}
 
 Here's a quick example:
 
