@@ -53,6 +53,7 @@
   * [Limits](library/advanced/limits.md)
 * [Sweeps](library/sweeps/README.md)
   * [Configuration](library/sweeps/configuration.md)
+  * [Advanced](library/sweeps/advanced.md)
   * [Local Controller](library/sweeps/local-controller.md)
   * [Jupyter & Python API](library/sweeps/python-api.md)
 * [Examples](library/example-projects/README.md)
