@@ -1,6 +1,6 @@
 # Sweeps
 
-Use the [sweep docs](../../library/sweeps/) to create a YAML file and run sweeps from the command line.
+Use the [sweep docs](../../sweeps/overview.md) to create a YAML file and run sweeps from the command line.
 
 ![](https://downloads.intercomcdn.com/i/o/146037524/72377a59652df4df916ef61e/sweep.png)
 

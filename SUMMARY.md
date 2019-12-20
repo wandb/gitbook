@@ -51,11 +51,6 @@
   * [Resuming](library/advanced/resuming.md)
   * [Security](library/advanced/security.md)
   * [Limits](library/advanced/limits.md)
-* [Sweeps](library/sweeps/README.md)
-  * [Configuration](library/sweeps/configuration.md)
-  * [Advanced](library/sweeps/advanced.md)
-  * [Local Controller](library/sweeps/local-controller.md)
-  * [Jupyter & Python API](library/sweeps/python-api.md)
 * [Examples](library/example-projects/README.md)
   * [PyTorch Example](library/example-projects/pytorch.md)
   * [Keras Example](library/example-projects/keras.md)
@@ -65,6 +60,14 @@
   * [Numpy Example](library/example-projects/numpy.md)
   * [XGBoost Example](library/example-projects/xgboost.md)
   * [JAX Example](library/example-projects/jax.md)
+
+## Sweeps
+
+* [Sweeps Overview](sweeps/overview.md)
+* [Configuration](sweeps/configuration.md)
+* [Jupyter & Python API](sweeps/python-api.md)
+* [Local Controller](sweeps/local-controller.md)
+* [Ray Tune Sweeps](sweeps/ray-tune.md)
 
 ## Web App <a id="app"></a>
 

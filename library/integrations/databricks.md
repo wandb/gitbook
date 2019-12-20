@@ -57,7 +57,7 @@ os.environ['WANDB_PROJECT'] = "my-project-that-exists"
 
 We cover more details of how to run a sweep in a notebook here:
 
-{% page-ref page="../sweeps/python-api.md" %}
+{% page-ref page="../../sweeps/python-api.md" %}
 
 
 

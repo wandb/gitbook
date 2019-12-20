@@ -1,11 +1,9 @@
 # Examples
 
-### Example Repository
+We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and here are some examples of projects using Weights & Biases.
 
-We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Below are some examples of projects using wandb to track training. 
-
-* **Public Dashboard**: These are public reports in our web app, showing results of training a model that was instrumented with wandb. 
-* **Code**: A link to model code that produced the visualized results.
+* **Public Dashboard**: reports in our web app which show results of training a model
+* **Code**: a link to model code that produced the visualized results
 
 ### PyTorch
 
@@ -52,7 +50,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 | Running sweeps in python scripts |  | [Github Repo](https://github.com/wandb/examples/blob/master/sweeps-python/sweep.py) |
 | Using sweeps with MPI frameworks |  | [Github Repo](https://github.com/wandb/examples/tree/master/sweeps-mpi-wrappers) |
 
-### Scikit Learn
+### Scikit-learn
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -61,5 +59,5 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples. Bel
 
 ### Have a public project to share?
 
-Contact us at **contact@wandb.com** if you'd like us to add one of your projects to our featured list of examples.
+Reach out to us at **contact@wandb.com** if you'd like us to add one of your projects to our featured list of examples.
 

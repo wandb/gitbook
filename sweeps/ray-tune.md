@@ -1,10 +1,14 @@
 ---
-description: Support for Ray/Tune sweep search/scheduler API *BETA*
+description: ✨BETA✨ support for Ray Tune sweep search and scheduler API
 ---
 
-# Advanced
+# Ray Tune Sweeps
 
-## Example
+[Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) is a scalable hyperparameter tuning library. It's challenging to set up properly, so we're adding support for Tune to W&B Sweeps.
+
+This feature is in beta! We love feedback, and we really appreciate hearing from folks who are experimenting with our Sweeps product.
+
+Here's a quick example:
 
 ```python
 import wandb
@@ -30,8 +34,7 @@ tune_config.save("sweep-hyperopt.yaml")
 wandb.sweep(tune_config) 
 ```
 
-Example with Tensorflow/Keras:  
-[https://github.com/wandb/examples/tree/master/keras-cnn-fashion](https://github.com/wandb/examples/tree/master/keras-cnn-fashion)
+[See full example on GitHub →](https://github.com/wandb/examples/tree/master/keras-cnn-fashion)
 
 ## Feature Compatibility
 
@@ -41,15 +44,15 @@ Example with Tensorflow/Keras:
 
 | Search Algorithm | Support |
 | :--- | :--- |
+| [HyperOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#hyperopt-search-tree-structured-parzen-estimators) | **Supported** |
 | [Grid Search and Random Search](https://ray.readthedocs.io/en/latest/tune-searchalg.html#variant-generation-grid-search-random-search) | Partial |
 | [BayesOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bayesopt-search) | Planned |
-| [HyperOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#hyperopt-search-tree-structured-parzen-estimators) | Supported |
 | [Nevergrad](https://ray.readthedocs.io/en/latest/tune-searchalg.html#nevergrad-search) | Planned |
 | [Scikit-Optimize](https://ray.readthedocs.io/en/latest/tune-searchalg.html#scikit-optimize-search) | Planned |
 | [Ax](https://ray.readthedocs.io/en/latest/tune-searchalg.html#ax-search) | Planned |
 | [BOHB](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bohb) | Planned |
 
-#### HyperOpt
+### HyperOpt
 
 | HyperOpt Feature | Support |
 | :--- | :--- |
@@ -66,9 +69,9 @@ Example with Tensorflow/Keras:
 | hp.lognormal | Planned |
 | hp.qlognormal | Planned |
 
-### Trial Schedulers
+### Tune Schedulers
 
-[Ray/Tune Schedulers](https://ray.readthedocs.io/en/latest/tune-schedulers.html)
+By default, Tune schedules runs in serial order. You can also specify a custom scheduling algorithm that can stop runs early or perturb parameters. Read more in the [Tune docs →](https://ray.readthedocs.io/en/latest/tune-schedulers.html)
 
 | Scheduler | Support |
 | :--- | :--- |
