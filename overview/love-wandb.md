@@ -11,8 +11,8 @@ If you're enjoying our tools, please share wandb with your friends! We'd love fo
 * \*\*\*\*[**Twitter**](https://twitter.com/weights_biases): tweet at us, our handle is @weights\_biases
 * \*\*\*\*[**Product Hunt**](https://www.producthunt.com/posts/weights-biases): a review helps other people find our product
 * \*\*\*\*[**Reddit**](https://www.reddit.com/r/MachineLearning/comments/bx0apm/d_how_do_you_manage_your_machine_learning/): a post or comment on r/MachineLearning goes a long way
-  * Thread 1: [Experiment management](https://www.reddit.com/r/MachineLearning/comments/bx0apm/d_how_do_you_manage_your_machine_learning/)
-  * Thread 2: [Experiment workflows](https://www.reddit.com/r/MachineLearning/comments/cf97z8/d_current_state_of_experiment_management_tools/)
+  * Thread 1: [Experiment workflows](https://www.reddit.com/r/MachineLearning/comments/cf97z8/d_current_state_of_experiment_management_tools/)
+  * Thread 2: [ML framework](https://www.reddit.com/r/MachineLearning/comments/ecvmsr/d_looking_for_a_ml_framework_for_production_like/)
 
 ### Blog Posts
 
