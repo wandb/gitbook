@@ -81,6 +81,7 @@
   * [Notes](app/features/notes.md)
   * [Sweeps](app/features/sweeps.md)
   * [Alerts](app/features/alerts.md)
+  * [Teams](app/features/teams.md)
 * [Visualizations](app/visualizations/README.md)
   * [Line Plot](app/visualizations/compare-metrics/README.md)
     * [Reference](app/visualizations/compare-metrics/reference.md)
