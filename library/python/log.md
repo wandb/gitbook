@@ -223,6 +223,10 @@ for epoch in range(1, args.epochs + 1):
 
 Each time you log images from a step, we save them to show in the UI. Pin the image panel, and use the **step slider** to look at images from different steps. This makes it easy to compare how a model's output changes over training.
 
+```python
+wandb.log({'epoch': epoch, 'val_acc': 0.94})
+```
+
 ### **Log a PNG**
 
 If you're logging images with wandb.log, we'll log a PNG with:

@@ -74,3 +74,11 @@ batch_size:
 
 You can tell wandb to load different config files with the command line argument `--configs special-configs.yaml` which will load parameters from the file special-configs.yaml.
 
+## Dataset Identifier 
+
+You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking for tracking it as input to your experiment using `wandb.config` 
+
+```yaml
+wandb.config.update({'dataset':'ab131'}) 
+```
+
