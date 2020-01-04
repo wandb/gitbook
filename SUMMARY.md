@@ -63,8 +63,11 @@
 
 ## Sweeps
 
-* [Sweeps Overview](sweeps/overview.md)
+* [Sweeps Overview](sweeps/overview/README.md)
+  * [Getting started](sweeps/overview/getting-started.md)
+  * [Add Sweeps to existing project](sweeps/overview/add-sweeps-to-existing-project.md)
 * [Configuration](sweeps/configuration.md)
+* [Common Issues](sweeps/common-issues.md)
 * [Jupyter & Python API](sweeps/python-api.md)
 * [Local Controller](sweeps/local-controller.md)
 * [Ray Tune Sweeps](sweeps/ray-tune.md)

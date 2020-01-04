@@ -1,10 +1,16 @@
+---
+description: Use W&B to manage hyperparameter searches
+---
+
 # Sweeps Overview
 
-Use W&B to manage hyperparameter sweeps. Sweeps are useful for efficiently finding the best version of your model.
+Hyperparameter sweeps can help you optimally tune an existing model or efficiently sample a model configuration space for promising regions and ideas.
 
 ## Getting Started
 
 ### Initialize the project
+
+Instead of manually tracking variables and results, write a short config for the hyperparameter ranges of interest and the search strategy \(grid, random, or Bayes\). Start the sweep in two commands, with optional early stopping. Our Python API will schedule, run, store, and visualize all the relevant details of your experiments.
 
 In your project repo, initialize your project from the command line. This allows you to select the project you want to save runs into.
 
@@ -13,6 +19,8 @@ wandb init
 ```
 
 ### Create a sweep configuration
+
+This feature is not currently supported on Windows. 
 
 Specify your training script, parameter ranges, search strategy and stopping criteria in a YAML file.
 
@@ -44,15 +52,19 @@ wandb sweep sweep.yaml # prints out SWEEP_ID.
 
 Run one or more wandb agents with the SWEEP\_ID. Agents will request parameters from the parameter server and launch your training script.
 
+{% page-ref page="getting-started.md" %}
+
+{% page-ref page="add-sweeps-to-existing-project.md" %}
+
 ```text
 wandb agent SWEEP_ID
 ```
 
-{% page-ref page="configuration.md" %}
+{% page-ref page="../configuration.md" %}
 
-{% page-ref page="local-controller.md" %}
+{% page-ref page="../local-controller.md" %}
 
-{% page-ref page="python-api.md" %}
+{% page-ref page="../python-api.md" %}
 
 ## Common **Issues**
 

@@ -1,20 +1,31 @@
+---
+description: >-
+  Syntax to set the hyperparameter ranges, search strategy, and other aspects of
+  your sweep.
+---
+
 # Configuration
 
 Use these configuration fields to customize your sweep.
 
 | Top-level key | Meaning |
 | :--- | :--- |
-| name | The name of the sweep displayed in the W&B UI |
-| description | Text description of the sweep |
-| program | Training script \(required\) |
+| name | The name of the sweep, displayed in the W&B UI |
+| description | Text description of the sweep \(notes\) |
+| program | Training script to run \(required\) |
 | metric | Specify the metric to optimize \(used by some search strategies and stopping criteria\) |
 | method | Specify the [search strategy](configuration.md#search-strategy) \(required\) |
-| early\_terminate | Specify the [stopping critera](configuration.md#stopping-criteria) |
+| early\_terminate | Specify the [stopping criteria](configuration.md#stopping-criteria) |
 | parameters | Specify [parameters](configuration.md#parameters) bounds to search \(required\) |
 
 ### Metric
 
-Specify the metric to optimize. This metric should be logged by your training script.
+Specify the metric to optimize. This metric should be logged explicitly to W&B by your training script. For example, if you want to minimize the validation loss of your model:
+
+```python
+# [model training code that returns validation loss as valid_loss]
+wandb.log({"val_loss" : valid_loss})
+```
 
 | `metric` sub-key | Meaning |
 | :--- | :--- |
@@ -42,12 +53,12 @@ metric:
 
 ### Search Strategy
 
-Specify the search strategy with the `method` key in the sweep configuration file.
+Specify the search strategy with the `method` key in the sweep configuration.
 
 | `method` | Meaning |
 | :--- | :--- |
-| grid | Grid Search iterates over all possible sets of parameter values. |
-| random | Random Search chooses random sets of values. |
+| grid | Grid search iterates over all possible combinations of parameter values. |
+| random | Random search chooses random sets of values. |
 | bayes | Bayesian Optimization uses a gaussian process to model the function and then chooses parameters to optimize probability of improvement. This strategy requires a metric key to be specified. |
 
 **Examples**
@@ -77,7 +88,7 @@ metric:
 
 ### Stopping Criteria
 
-Early Termination speeds up hyperparameter search by killing off pooly performing runs.
+Early Termination speeds up hyperparameter search by stopping any poorly-performing runs.
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
@@ -91,7 +102,7 @@ We support the following stopping algorithm\(s\):
 
 Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program.  Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged -- if the metric is logged every epoch, then there are epoch iterations\).
 
-In order to specify the bracket schedule either`min_iter` or `max_iter` needs to be defined. 
+In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined. 
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
@@ -127,11 +138,11 @@ Brackets: 9 \(27/eta\), 3 \(9/eta\)
 
 ### Parameters
 
-The parameters dictionary specifies the ranges of configuration parameters.
+Describe the hyperparameters to explore. For each hyperparameter, specify the name and the possible values as a list of constants or a range with a certain distribution.
 
 | Values | Meaning |
 | :--- | :--- |
-| distribution: \(distribution\) | A distribution from the distrbution table below. If not specified, the sweep will set to uniform if max and min are set, categorical if values are set and constant if value is set. |
+| distribution: \(distribution\) | A distribution from the distribution table below. If not specified, the sweep will set to uniform if max and min are set, categorical if values are set and constant if value is set. |
 | min: \(float\) max: \(float\) | Continuous values between min and max |
 | min: \(int\) max: \(int\) | Integers between min and max |
 | values: \[\(float\), \(float\), ...\] | Discrete values |
@@ -156,7 +167,7 @@ The parameters dictionary specifies the ranges of configuration parameters.
 | log\_normal | Log normal distribution. Value is chosen from log normal distribution. Can set mean mu \(default 0\) and std dev sigma \(default 1\). |
 | q\_log\_normal | Quantized log normal distribution. Returns round\(X / q\) \* q where X is log\_normal. Q defaults to 1. |
 
-Example
+**Example**
 
 ```text
 parameters:
