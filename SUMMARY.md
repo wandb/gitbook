@@ -64,8 +64,8 @@
 ## Sweeps
 
 * [Sweeps Overview](sweeps/overview/README.md)
-  * [Getting started](sweeps/overview/getting-started.md)
-  * [Add Sweeps to existing project](sweeps/overview/add-sweeps-to-existing-project.md)
+  * [Sweeps Quickstart](sweeps/overview/getting-started.md)
+  * [Add Sweeps to an existing project](sweeps/overview/add-sweeps-to-existing-project.md)
 * [Configuration](sweeps/configuration.md)
 * [Common Issues](sweeps/common-issues.md)
 * [Jupyter & Python API](sweeps/python-api.md)

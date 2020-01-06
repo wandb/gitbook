@@ -2,7 +2,7 @@
 description: How to use sweeps in a new project
 ---
 
-# Getting started
+# Sweeps Quickstart
 
 Note: If you're already using W&B and want to add sweeps to an existing project, see Adding Sweeps to W&B. Otherwise, use p
 
