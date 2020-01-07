@@ -96,7 +96,7 @@ data = [["I love my phone", "1", "1"],["My phone sucks", "0", "-1"]]
 wandb.log({"examples": wandb.Table(data=data, columns=["Text", "Predicted Label", "True Label"])})
 
 # Method 2
-table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])})
+table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])
 table.add_data("I love my phone", "1", "1")
 table.add_data("My phone sucks", "0", "-1")
 wandb.log({"examples": table})
