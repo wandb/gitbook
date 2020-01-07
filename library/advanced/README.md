@@ -1,4 +1,4 @@
-# Advanced Features
+# Advanced
 
 For distributed training or launching automated jobs, we have a few features to help you log to wandb in an organized way.
 
