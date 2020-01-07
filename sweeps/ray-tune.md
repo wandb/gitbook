@@ -26,7 +26,7 @@ tune_config = tune.run(
             height=hp.uniform("height", -100, 100),
             activation=hp.choice("activation", ["relu", "tanh"])),
         metric="mean_loss",
-        mode="min),
+        mode="min"),
     num_samples=10)
 
 # Save sweep as yaml config file
