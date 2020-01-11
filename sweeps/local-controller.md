@@ -10,6 +10,10 @@ By default the hyper-parameter controller is hosted by W&B as a cloud service. W
 
 The local controller feature allows the user to run search and stopping algorithms locally. The local controller gives the user the ability to inspect and instrument the code in order to debug issues as well as develop new features which can be incorporated into the cloud service.
 
+{% hint style="info" %}
+The local controller is currently limited to running a single agent.
+{% endhint %}
+
 ### Local controller configuration
 
 To enable the local controller, add the following to the sweep configuration file:
@@ -30,6 +34,6 @@ wandb controller SWEEP_ID
 Alternatively you can launch a controller when you initialize the sweep:
 
 ```text
-wandb --controller sweep.yaml
+wandb sweep --controller sweep.yaml
 ```
 

@@ -64,13 +64,14 @@
 ## Sweeps
 
 * [Sweeps Overview](sweeps/overview/README.md)
-  * [Sweeps Quickstart](sweeps/overview/getting-started.md)
-  * [Add Sweeps to an existing project](sweeps/overview/add-sweeps-to-existing-project.md)
+  * [Sweeps Quickstart](sweeps/overview/quickstart.md)
+  * [Add Sweeps to Existing W&B Project](sweeps/overview/add-to-existing.md)
 * [Configuration](sweeps/configuration.md)
 * [Common Issues](sweeps/common-issues.md)
 * [Jupyter & Python API](sweeps/python-api.md)
 * [Local Controller](sweeps/local-controller.md)
 * [Ray Tune Sweeps](sweeps/ray-tune.md)
+* [Visualize Sweep Results](sweeps/visualize-sweep-results.md)
 
 ## Web App <a id="app"></a>
 
@@ -85,9 +86,11 @@
   * [Sweeps](app/features/sweeps.md)
   * [Alerts](app/features/alerts.md)
   * [Teams](app/features/teams.md)
+  * [System Metrics](app/features/system-metrics.md)
 * [Visualizations](app/visualizations/README.md)
   * [Line Plot](app/visualizations/compare-metrics/README.md)
     * [Reference](app/visualizations/compare-metrics/reference.md)
+  * [Parameter Importance](app/visualizations/parameter-importance.md)
   * [Run Colors](app/visualizations/run-colors.md)
   * [Run Comparer](app/visualizations/run-comparer.md)
 

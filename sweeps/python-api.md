@@ -39,12 +39,11 @@ import wandb
 import time
 
 def train():
-    wandb.init()
-    print ("config:", dict(wandb.config.user_items()))
-    parameter1 = wandb.config.get("parameter1", 0)
-    for x in range(35):
-        print("running", x)
-        wandb.log({"dog": parameter1, "cat": x})
+    run = wandb.init()
+    print("config:", dict(run.config))
+    for epoch in range(35):
+        print("running", epoch)
+        wandb.log({"metric": run.config.param1, "epoch": epoch})
         time.sleep(1)
 
 wandb.agent(sweep_id, function=train)
