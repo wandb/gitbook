@@ -52,7 +52,7 @@ If you're specifying a metric to optimize, your script must log it to W&B:
 wandb.log({"val_loss" : valid_loss})
 ```
 
-### Setup the sweep
+### Create sweep
 
 Set up the sweep from the command line. This returns a unique identifier for the sweep \(SWEEP\_ID\) and a URL to track all your runs.
 
@@ -60,7 +60,7 @@ Set up the sweep from the command line. This returns a unique identifier for the
 wandb sweep sweep.yaml # prints out SWEEP_ID and tracking URL
 ```
 
-### Launch agent\(s\)
+### Launch agent\(s\) to run sweep
 
 Launch one or more W&B agents with the given SWEEP\_ID. Multiple agents can be launched in parallel. Each agent will request parameters from our parameter server and use these to launch your training script in your environment. Once an agent is launched, go to the tracking URL to see live updates of the configuration settings and the results of different runs in your sweep. You can optionally stop the agent from the browser.
 
