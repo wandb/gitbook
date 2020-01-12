@@ -4,7 +4,11 @@ This panel surfaces which of your hyperparameters were the best predictors of, a
 
 ![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578795733856_image.png)
 
-The idea for this panel was inspired by a conversation with [Jeremy Howard](https://twitter.com/jeremyphoward) who has pioneered the use of random forest feature importances to explore hyperparameter spaces at [Fast.ai](http://Fast.ai). We highly recommend you check out his phenomenal [lecture](http://course18.fast.ai/lessonsml1/lesson4.html) \(and these [notes](https://forums.fast.ai/t/wiki-lesson-thread-lesson-4/7540)\) to learn more about the motivation behind this analysis.
+**Correlation** is the correlation between the hyperparameter and the chosen metric \(in this vase val\_loss\), so a high correlation means that when the hyperparameter has a higher value, the metric also has higher values and vice versa.  Correlation is a great metric to look at but it can’t capture second order interactions between inputs and it can get messy to compare inputs with wildly different ranges.  
+
+Therefore we also calculate an **importance** metric where we train a random forest with the hyperparameters as inputs and the metric as the target output and report the feature importance values for the random forest.   
+
+The idea for this technique was inspired by a conversation with [Jeremy Howard](https://twitter.com/jeremyphoward) who has pioneered the use of random forest feature importances to explore hyperparameter spaces at [Fast.ai](http://Fast.ai). We highly recommend you check out his phenomenal [lecture](http://course18.fast.ai/lessonsml1/lesson4.html) \(and these [notes](https://forums.fast.ai/t/wiki-lesson-thread-lesson-4/7540)\) to learn more about the motivation behind this analysis.
 
 This hyperparameter importance panel untangles the complicated interactions between highly correlated hyperparameters. In doing so, it helps you fine tune your hyperparameter searches by showing you which of your hyperparameters matter the most in terms of predicting model performance.
 
