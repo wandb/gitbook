@@ -38,8 +38,8 @@ parameters:
 This configuration will use the Bayes optimization method to choose sets of hyperparameter values with which to call your program. It will launch experiments with the following syntax:
 
 ```text
-python train.py --learning-rate 0.005 --optimizer adam
-python train.py --learning-rate 0.03 --optimizer sgd
+python train.py --learning-rate=0.005 --optimizer=adam
+python train.py --learning-rate=0.03 --optimizer=sgd
 ...
 ```
 
