@@ -28,6 +28,7 @@
   * [TensorFlow](library/frameworks/tensorflow.md)
   * [Fast.ai](library/frameworks/fastai.md)
   * [XGBoost](library/frameworks/xgboost.md)
+  * [LightGBM](library/frameworks/lightgbm.md)
   * [Scikit](library/frameworks/scikit.md)
 * [Reference](library/reference/README.md)
   * [API Reference](library/reference/wandb_api.md)
