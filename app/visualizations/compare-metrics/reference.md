@@ -2,7 +2,7 @@
 
 ### X-Axis
 
-![Selecting X-Axis](../../../.gitbook/assets/image%20%285%29.png)
+![Selecting X-Axis](../../../.gitbook/assets/image%20%286%29.png)
 
 You can set the X-Axis of a line plot to any value that you have logged with wandb.log as long as it's always logged as a number. 
 
