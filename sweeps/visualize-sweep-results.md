@@ -10,3 +10,7 @@ Parallel coordinates plots map hyperparameter values to model metrics. They're u
 
 The hyperparameter importance plot surfaces which hyperparameters were the best predictors of, and highly correlated to desirable values for your metrics.
 
+**Correlation** is the linear correlation between the hyperparameter and the chosen metric \(in this case val\_loss\). So a high correlation means that when the hyperparameter has a higher value, the metric also has higher values and vice versa.  Correlation is a great metric to look at but it can’t capture second order interactions between inputs and it can get messy to compare inputs with wildly different ranges.  
+
+Therefore we also calculate an **importance** metric where we train a random forest with the hyperparameters as inputs and the metric as the target output and report the feature importance values for the random forest.
+

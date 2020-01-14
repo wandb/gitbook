@@ -4,7 +4,7 @@ This panel surfaces which of your hyperparameters were the best predictors of, a
 
 ![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578795733856_image.png)
 
-**Correlation** is the correlation between the hyperparameter and the chosen metric \(in this vase val\_loss\), so a high correlation means that when the hyperparameter has a higher value, the metric also has higher values and vice versa.  Correlation is a great metric to look at but it can’t capture second order interactions between inputs and it can get messy to compare inputs with wildly different ranges.  
+**Correlation** is the linear correlation between the hyperparameter and the chosen metric \(in this case val\_loss\). So a high correlation means that when the hyperparameter has a higher value, the metric also has higher values and vice versa.  Correlation is a great metric to look at but it can’t capture second order interactions between inputs and it can get messy to compare inputs with wildly different ranges.  
 
 Therefore we also calculate an **importance** metric where we train a random forest with the hyperparameters as inputs and the metric as the target output and report the feature importance values for the random forest.   
 
@@ -14,7 +14,7 @@ This hyperparameter importance panel untangles the complicated interactions betw
 
 ### Creating A Hyperparameter Importance Panel
 
-Go to your Weights & Project. If you don’t have one, you can use [this project](https://app.wandb.ai/sweep/simpsons).
+Go to your Weights & Biases Project. If you don’t have one, you can use [this project](https://app.wandb.ai/sweep/simpsons).
 
 From your project page, click **Add Visualization**.  
 ![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578795570241_image.png)
