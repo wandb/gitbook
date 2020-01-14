@@ -227,7 +227,7 @@ Each time you log images from a step, we save them to show in the UI. Pin the im
 wandb.log({'epoch': epoch, 'val_acc': 0.94})
 ```
 
-### Standardize x-axis with different steps in each epoch
+### Standardize x-axis with different steps
 
 If you'd like to log certain metrics in every batch and standardize plots, you can log x axis values that you want to plot with your metrics
 
