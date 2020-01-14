@@ -34,7 +34,9 @@ Most people training machine learning models are trying lots and lots of version
 
 You can create projects to keep all of your runs in a single place. You can visualize performance metrics across lots of runs and filter, group, and tag them any way you like.
 
-A good public example of a project is our friend Bingbin's [crossing project](https://app.wandb.ai/bingbin/crossing?workspace=user-l2k2). She ran and tagged a few hundred experiments. If you click on the icon next to the word "Runs" it will expand her table of runs. You can sort by accuracy, loss, or anything else.
+A good example project is Stacey's [estuary project](https://app.wandb.ai/stacey/estuary). In the sidebar you can turn on and off runs to show on the graphs, or click one run to dive deeper. All your runs get saved and organized in a unified workspace for you.
+
+![](../.gitbook/assets/image%20%2812%29.png)
 
 ### 3. Share your results
 
