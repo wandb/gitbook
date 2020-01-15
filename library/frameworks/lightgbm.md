@@ -18,5 +18,3 @@ gbm = lgb.train(params,
 
 You can find a complete example in our [examples repo](https://github.com/wandb/examples/tree/master/lightgbm-regression), or as a [colab](https://colab.research.google.com/drive/1R6_vcVM90Ephyu0HDFlPAZa0SgEC_3bE) notebook.
 
-![](../../.gitbook/assets/image%20%285%29.png)
-
