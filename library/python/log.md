@@ -227,12 +227,12 @@ Each time you log images from a step, we save them to show in the UI. Pin the im
 wandb.log({'epoch': epoch, 'val_acc': 0.94})
 ```
 
-### Standardize x-axis with different steps
+### Batch logging
 
-If you'd like to log certain metrics in every batch and standardize plots, you can log x axis values that you want to plot with your metrics
+If you'd like to log certain metrics in every batch and standardize plots, you can log x axis values that you want to plot with your metrics. Then in the custom plots, click edit and select the custom x-axis.
 
 ```python
-wandb.log{epoch': 1, 'loss':3}
+wandb.log{'batch': 1, 'loss': 0.3}
 ```
 
  
