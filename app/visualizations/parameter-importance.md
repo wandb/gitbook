@@ -1,3 +1,9 @@
+---
+description: >-
+  Visualize the relationships between your model's hyperparameters and output
+  metrics
+---
+
 # Parameter Importance
 
 This panel surfaces which of your hyperparameters were the best predictors of, and highly correlated to desirable values of your metrics.
@@ -17,12 +23,16 @@ This hyperparameter importance panel untangles the complicated interactions betw
 Go to your Weights & Biases Project. If you don’t have one, you can use [this project](https://app.wandb.ai/sweep/simpsons).
 
 From your project page, click **Add Visualization**.  
+
+
 ![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578795570241_image.png)
 
   
 Then choose **Parameter Importance**.  
-![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578795636072_image.png)  
+  
 You don’t need to write any new code, other than [integrating Weights & Biases](https://docs.wandb.com/quickstart) into your project.
+
+![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578795636072_image.png)
 
 ### Interpreting A Hyperparameter Importance Panel
 
