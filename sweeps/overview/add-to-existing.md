@@ -4,7 +4,7 @@ description: >-
   project, start here!
 ---
 
-# Sweep UI
+# Create Sweep from existing W&B project
 
 ## Create a sweep from the UI
 
