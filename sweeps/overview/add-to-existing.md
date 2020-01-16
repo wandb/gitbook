@@ -30,7 +30,7 @@ parameters:
 
 This configuration will use the Bayes optimization method to choose sets of hyperparameter values with which to call your program. 
 
-#### Log your result metric
+### Log your result metric
 
 If you're specifying a metric to optimize, your script must log it to W&B:
 
@@ -44,7 +44,7 @@ wandb.log({"val_loss" : valid_loss})
 Set up the sweep from the command line. This returns a unique identifier for the sweep \(SWEEP\_ID\) and a URL to track all your runs.
 
 ```python
-wandb sweep sweep.yaml # prints out SWEEP_ID and tracking URL
+wandb sweep sweep.yaml # prints out SWEEP_ID
 ```
 
 ### Run agent\(s\)
