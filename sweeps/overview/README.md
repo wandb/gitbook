@@ -19,7 +19,7 @@ Automate hyperparameter optimization and exploration with Sweeps.
 
 ### Approach
 
-1. **Add wandb**: In your Python script, add a couple lines of code to log hyperparameters and output metrics from your script. [Read more →](https://docs.wandb.com/quickstart)
+1. **Add wandb**: In your Python script, add a couple lines of code to log hyperparameters and output metrics from your script. [Quickstart →](quickstart.md)
 2.  **Write config**: Define the variables and ranges to sweep over. Pick a search strategy— we support grid, random, and Bayesian search, as well as early stopping.
 3. **Start sweep**: Launch the sweep server. We host this central controller and coordinate between the agents that execute the sweep.
 4. **Start agent\(s\)**: Run this command on each machine you'd like to use to train models in the sweep. The agents ask the central sweep server what hyperparameters to try next, and then they execute the runs.
