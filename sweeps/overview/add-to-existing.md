@@ -6,6 +6,11 @@ description: >-
 
 # Create Sweep from existing W&B project
 
+If you have an existing Weights & Biases project, our interface makes it easy to create and edit a new sweep configuration file. In this doc we'll cover
+
+1. How to create a sweep from the UI
+2. How to feed in existing runs to seed a new sweep
+
 ## Create a sweep from the UI
 
 If you have an existing W&B project, it’s easy to start optimizing your models with hyperparameter sweeps. I’ll talk through each step— you can open my [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion) and [example code](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion) to follow along.
