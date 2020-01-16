@@ -2,7 +2,7 @@
 description: Run sweeps from Jupyter notebooks
 ---
 
-# Jupyter & Python API
+# Sweep from Jupyter Notebook
 
 ## Initialize a sweep
 

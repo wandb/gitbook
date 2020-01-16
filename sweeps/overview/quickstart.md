@@ -56,8 +56,8 @@ Here are some config resources:
 1. [Example YAML](https://github.com/wandb/examples/blob/master/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): a code example of a script and YAML file to do a sweep
 2. [Configuration](../configuration.md): full specs to set up your sweep config
 3. [Jupyter Notebook](../python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
-4. Generate config from UI: next page link
-5. Feed in prior runs: next page link
+4. [Generate config from UI](add-to-existing.md): take an existing W&B project and generate a config file
+5. [Feed in prior runs](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
 
 Here's an example sweep config YAML file called **sweep.yaml**:
 
