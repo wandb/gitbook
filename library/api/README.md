@@ -47,3 +47,7 @@ Calling `api.runs(...)` returns a **Runs** object that is iterable and acts like
 
 If errors occur while talking to W&B servers a `wandb.CommError` will be raised. The original exception can be introspected via the **exc** attribute.
 
+### 'Git' state of a run through the API
+
+You can see the git commit through the UI under the information tab. It is also available by the files api, stored in: "wandb-metadata.json" so you can use the public api to grab that file then parse the json file. 
+
