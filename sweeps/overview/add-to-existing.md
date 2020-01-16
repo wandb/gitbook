@@ -6,24 +6,24 @@ description: >-
 
 # Create Sweep from existing W&B project
 
-If you have an existing Weights & Biases project, our interface makes it easy to create and edit a new sweep configuration file. In this doc we'll cover
+If you have an existing W&B project, it’s easy to start exploring models with hyperparameter sweeps. In this doc we'll cover:
 
 1. How to create a sweep from the UI
 2. How to feed in existing runs to seed a new sweep
 
 ## Create a sweep from the UI
 
-If you have an existing W&B project, it’s easy to start optimizing your models with hyperparameter sweeps. I’ll talk through each step— you can open my [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion) and [example code](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion) to follow along.
+It's fast and easy to start a new sweep from the project page. Open the [example project](https://app.wandb.ai/carey/pytorch-cnn-fashion) and [example code](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion) to follow along with this tutorial.
 
-I open my project page. Here are a couple of runs I’ve done already.
+Start from the project page. Here you can see a couple of previous runs that I trained manually.
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579062396185_image.png)
 
-I open the sweep tab and click “Create sweep” in the upper right corner.
+Open the sweep tab and click “Create sweep” in the upper right corner.
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579062673820_image.png)
 
-These steps take me through running my first sweep. To make sure I have the latest version of **wandb** I run **pip install** **--upgrade** **wandb** first.
+These steps take me through running my first sweep. To make sure I have the latest version of `wandb` I run `pip install --upgrade wandb` first.
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579062719835_image.png)
 
@@ -35,7 +35,7 @@ I move the generated config file to my training script repo.
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1578430062927_sweep+yaml+move.png)
 
-I run **wandb sweep sweep.yaml** to start a sweep on the W&B server. This is a centralized service sends out the next set of hyperparameters to agents that I run on my own machines.
+I run `wandb sweep sweep.yaml` to start a sweep on the W&B server. This is a centralized service sends out the next set of hyperparameters to agents that I run on my own machines.
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579063801261_image.png)
 
