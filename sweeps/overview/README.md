@@ -1,14 +1,33 @@
 ---
-description: Use W&B Sweeps to manage hyperparameter searches
+description: Use W&B Sweeps to manage hyperparameter search and hyperparameter optimization
 ---
 
 # Sweeps Overview
 
-Hyperparameter sweeps can help you optimally tune an existing model or efficiently sample a model configuration space for promising regions and ideas. 
+Automate hyperparameter optimization and exploration with Sweeps.
 
-Instead of manually tracking variables, launch commands, and results, write a short config for the hyperparameter ranges of interest \(as a YAML file or Python dictionary\). Pick a search strategy \(grid, random, or Bayes\) and start the sweep in two commands, with optional early stopping. Our Python API will automatically schedule, launch, and store all the runs in your sweep. As the sweep runs, we'll visualize the relative importance of different hyperparameters and organize all the details of your experiments in your browser.
+### Benefits of using W&B Sweeps 
+
+1. **Quick setup**: With just a few lines of code you can run W&B sweeps.
+2.  **Transparent**: We cite all the algorithms we're using, and [our code is open source](https://github.com/wandb/client/tree/master/wandb/sweeps).
+3. **Powerful**: Our sweeps are completely customizable and configurable. You can launch a sweep across dozens of machines, and it's just as easy as starting a sweep on your laptop.
+
+### Common Use Cases
+
+1. **Explore**: Efficiently sample the space of hyperparameter combinations to discover promising regions and build an intuition about your model.
+2. **Optimize**:  Use sweeps to achieve the next level of model performance.
+
+### Approach
+
+1. **Add wandb**: In your Python script, add a couple lines of code to log hyperparameters and output metrics from your script. [Read more →](https://docs.wandb.com/quickstart)
+2.  **Write config**: Define the variables and ranges to sweep over. Pick a search strategy— we support grid, random, and Bayesian search. Set early stopping to automatically kill off poorly performing runs.
+3. **Start sweep**: Launch the sweep server. We host this central controller and coordinate between the agents that execute the sweep.
+4. **Start agent\(s\)**: Run this command on each machine you'd like to use to train models in the sweep. The agents ask the central sweep server what hyperparameters to try next, and then they execute the runs.
+5. **Visualize results**: Open our live dashboard to see all your results in one central place.
 
 ![](../../.gitbook/assets/central-sweep-server-3%20%281%29.png)
+
+## Sweep Commands
 
 ### Step 1: Launch a new sweep
 
@@ -34,9 +53,11 @@ You can run wandb agent on multiple machines or in multiple processes on the sam
 
 ### Step 3: View results
 
-Open your project in our web interface to see your live results in the sweep dashboard.
+Open your project to see your live results in the sweep dashboard.
 
 ![](../../.gitbook/assets/image%20%2823%29.png)
+
+## Sweep Resources
 
 {% page-ref page="quickstart.md" %}
 
