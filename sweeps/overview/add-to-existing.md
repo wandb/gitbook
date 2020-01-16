@@ -1,57 +1,54 @@
 ---
-description: Assumes you're already using wandb.config
+description: >-
+  If you're already using wandb.init, wandb.config, and wandb.log in your
+  project, start here!
 ---
 
-# Add Sweeps to Existing W&B Project
+# Sweep UI
 
-If you already have a script integrated with W&B, you're probably using wandb.config to manage your experiment  settings—this is how you set and track different hyperparameter values over time. In Sweeps, W&B will choose hyperparameter values for you and pass them in through the config.
+## Create a sweep from the UI
 
-### Create a sweep configuration
+If you have an existing W&B project, it’s easy to start optimizing your models with hyperparameter sweeps. I’ll talk through each step— you can open my [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion) and [example code](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion) to follow along.
 
-Specify your training script, parameter ranges, search strategy, and stopping criteria in a YAML file. 
+I open my project page. Here are a couple of runs I’ve done already.
 
-Specify your training script, parameter ranges, search strategy, and stopping criteria in a YAML file. W&B will pass the parameter names and their values by setting them as key-value pairs in the wandb.config object for each run of your training script. Make sure your script can parse these correctly—explicitly read the parameters in from wandb.config after the wandb.init\(\) call and before using them in your script.
+![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579062396185_image.png)
 
-See the [Configuration section ](../configuration.md)for full specs. Here's an example configuration **sweep.yaml**:
+I open the sweep tab and click “Create sweep” in the upper right corner.
 
-```text
-program: train.py
-method: bayes
-metric:
-  name: val_loss
-  goal: minimize
-parameters:
-  learning-rate:
-    min: 0.001
-    max: 0.1
-  optimizer:
-    values: ["adam", "sgd"]
-```
+![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579062673820_image.png)
 
-This configuration will use the Bayes optimization method to choose sets of hyperparameter values with which to call your program. 
+These steps take me through running my first sweep. To make sure I have the latest version of **wandb** I run **pip install** **--upgrade** **wandb** first.
 
-### Log your result metric
+![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579062719835_image.png)
 
-If you're specifying a metric to optimize, your script must log it to W&B:
+The auto-generated config guesses values to sweep over based on the runs I’ve done already. In the “Parameters” tab, I remove **channels\_one** and **channels\_two** from my sweep config. I don’t want to sweep over those hyperparameters. Once I’m happy with the ranges of parameters to sweep over, I download the file.
 
-```python
-# [model training code that outpus validation loss as, e.g., valid_loss]
-wandb.log({"val_loss" : valid_loss})
-```
+![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579062904325_image.png)
 
-### Initialize the sweep
+I move the generated config file to my training script repo.
 
-Set up the sweep from the command line. This returns a unique identifier for the sweep \(SWEEP\_ID\) and a URL to track all your runs.
+![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1578430062927_sweep+yaml+move.png)
 
-```python
-wandb sweep sweep.yaml # prints out SWEEP_ID
-```
+I run **wandb sweep sweep.yaml** to start a sweep on the W&B server. This is a centralized service sends out the next set of hyperparameters to agents that I run on my own machines.
 
-### Run agent\(s\)
+![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579063801261_image.png)
 
-Run one or more W&B agents with the given SWEEP\_ID. Multiple agents can be run in parallel. Each agent will request parameters from our parameter server and use these to launch your training script in your environment. Once an agent is running, go to the tracking URL to see live updates of the configuration settings and the results of different runs in your sweep. You can optionally stop the agent from the browser.
+Next I launch an agent locally. I can launch dozens of agents in parallel if I want to distribute the work and finish the sweep more quickly. The agent will print out the set of parameters it’s trying next.
 
-```text
-wandb agent SWEEP_ID
-```
+![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579063895733_image.png)
+
+That’s it! Now I’m running a sweep. Here’s what [my dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q) looks like as the sweep begins to explore the space of hyperparameters.
+
+![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579066494222_image.png)
+
+## Seed a new sweep with existing runs
+
+Launch a new sweep using existing runs that you've previously logged.
+
+1. Open your project table.
+2. Select the runs you want to use with checkboxes on the left side of the table.
+3. Click the dropdown to create a new sweep.
+
+![](../../.gitbook/assets/image%20%2811%29.png)
 

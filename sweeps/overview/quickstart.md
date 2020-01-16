@@ -2,7 +2,7 @@
 
 Start from any machine learning model and get a hyperparameter sweep running in minutes. Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
 
-![](../../.gitbook/assets/image%20%2815%29.png)
+![](../../.gitbook/assets/image%20%2816%29.png)
 
 {% hint style="info" %}
 Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](add-to-existing.md)
@@ -51,11 +51,15 @@ wandb.log(metrics)
 
 Specify your training script, parameter ranges, search strategy, and stopping criteria in a YAML file. W&B will pass these parameters and their values as command line arguments to your training script. Make sure your script can parse these arguments correctly—directly from the command line for use in your script.
 
-See [Configuration ](../configuration.md)for full specs. If you're using a notebook, check our [Jupyter sweeps page](../python-api.md).
+Here are some config resources:
 
-If you'd like to see a real config and script in a project, check out our [example code →](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion)
+1. [Example YAML](https://github.com/wandb/examples/blob/master/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): a code example of a script and YAML file to do a sweep
+2. [Configuration](../configuration.md): full specs to set up your sweep config
+3. [Jupyter Notebook](../python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
+4. Generate config from UI: next page link
+5. Feed in prior runs: next page link
 
-Here's an example configuration YAML file called **sweep.yaml**:
+Here's an example sweep config YAML file called **sweep.yaml**:
 
 ```text
 program: train.py
@@ -116,7 +120,7 @@ Open your project to see your live results in the sweep dashboard.
 
 [Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../../.gitbook/assets/image%20%2824%29.png)
+![](../../.gitbook/assets/image%20%2825%29.png)
 
 ## 
 
