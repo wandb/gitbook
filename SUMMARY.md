@@ -97,6 +97,7 @@
 
 ## Enterprise
 
+* [Local](enterprise/local.md)
 * [Overview](enterprise/overview.md)
 * [Setup](enterprise/setup.md)
 * [Configuration](enterprise/configuration.md)
