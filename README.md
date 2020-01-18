@@ -6,9 +6,13 @@ description: 'Track machine learning experiments, visualize metrics, and share r
 
 Weights & Biases helps you keep track of your machine learning experiments. Use our tool to log hyperparameters and output metrics from your runs, then visualize and compare results and quickly share findings with your colleagues. 
 
-![](.gitbook/assets/image%20%2824%29.png)
+![](.gitbook/assets/ml-workflow-diagram-10.png)
+
+Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, Azure, and on-prem machines.
 
 Here's a sample screenshot from a [Species Identification project](https://app.wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification) in W&B.
+
+![](.gitbook/assets/image%20%2824%29.png)
 
 ## Getting Started
 
