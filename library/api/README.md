@@ -1,17 +1,10 @@
----
-description: We make it easy to export data you've logged to W&B
----
-
 # API
 
-Use the W&B API to export data for custom analysis. If you're using automated systems to train your models, you can also use the API to asynchronously add data to a completed run. For complete documentation refer to our [API Reference](../reference/wandb_api.md).
+Wandb provides an API to give users direct access to wandb's database. This can be useful for automated systems to asynchronously add extra data to a completed run or to export data for custom analysis. For complete documentation refer to our [API Reference](../reference/wandb_api.md).
 
 ### Authentication
 
-Authenticate your machine with your API key from the [settings page](https://app.wandb.ai/settings). You can set your API key in two ways:
-
-1. Run `wandb login`  on the command line and paste in your API key.
-2. Set the **WANDB\_API\_KEY** environment variable to your API key.
+Before using the API you need to store your key locally by running `wandb login` or set the **WANDB\_API\_KEY** environment variable.
 
 ### Querying Runs
 
@@ -57,10 +50,4 @@ If errors occur while talking to W&B servers a `wandb.CommError` will be raised.
 ### 'Git' state of a run through the API
 
 You can see the git commit through the UI under the information tab. It is also available by the files api, stored in: "wandb-metadata.json" so you can use the public api to grab that file then parse the json file. 
-
-## Common Questions
-
-### Is there an easy way of exporting to seaborn?
-
-Sure, check out our [API examples](examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
 
