@@ -62,5 +62,5 @@ You can see the git commit through the UI under the information tab. It is also 
 
 ### Is there an easy way of exporting to seaborn?
 
-Sure, check out our [API examples](examples.md) for some common export patterns.
+Sure, check out our [API examples](examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
 
