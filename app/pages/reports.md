@@ -32,3 +32,7 @@ If you'd like to compare a different set of runs, create a new section. Each sec
 
 ![](https://downloads.intercomcdn.com/i/o/142935919/23983a0d2d1190260e48fb2c/image.png)
 
+Duplicate a section to copy the settings from your first section.
+
+![](../../.gitbook/assets/howto-duplicate-section%20%281%29.gif)
+
