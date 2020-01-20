@@ -1,8 +1,44 @@
 # Security
 
-For simplicity W&B uses API keys for authorization when accessing the API. You can find your API keys in your [profile](https://app.wandb.ai/profile). Your API key should be stored securely and never checked into version control. In addition to personal API keys, you can add Service Account users to your team.
+## Topics
 
-### Key Rotation
+For distributed training or launching automated jobs, we have a few features to help you log to wandb in an organized way.
 
-Both personal and service account keys can be rotated or revoked. Simply create a new API Key or Service Account user and reconfigure your scripts to use the new key. Once all processes are reconfigured, you can remove the old API key from your profile or team.
+{% page-ref page="environment-variables.md" %}
+
+{% page-ref page="grouping.md" %}
+
+{% page-ref page="resuming.md" %}
+
+For sensitive and large-scale projects, here are details about how we manage security and limits. If you'd like more information or have concerns, [we'd love to talk to you](../../overview/getting-help.md)!
+
+{% page-ref page="security.md" %}
+
+{% page-ref page="limits.md" %}
+
+## Common Questions
+
+### How do I launch multiple runs from one script?
+
+If you're trying to start multiple runs from one script, add two things to your code:
+
+1. wandb.init\(**reinit=True**\): Use this setting to allow reinitializing runs
+2. **wandb.join\(\)**: Use this at the end of your run to finish logging for that run
+
+Here's a simple example:
+
+```python
+import wandb
+for x in range(10):
+	wandb.init(project="runs-from-for-loop", reinit=True)
+	for y in range (100):
+		wandb.log({"metric": x+y})
+	wandb.join()
+```
+
+If you're launching many runs, you might also be interested in our Sweeps tool for hyperparameter optimization, tuning, and model search.
+
+{% page-ref page="../../sweeps/overview/" %}
+
+
 
