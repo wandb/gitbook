@@ -36,3 +36,12 @@ Duplicate a section to copy the settings from your first section.
 
 ![](../../.gitbook/assets/howto-duplicate-section%20%281%29.gif)
 
+## Static and dynamic run sets
+
+* **Dynamic run sets**: If you start from "Visualize all" and filter or deselect runs to visualize, the run set will automatically update to show any new runs that match the filters.
+* **Static run sets**: If you start from "Visualize none" and select the runs you want to include in your run set, you will only ever get those runs in the run set. No new runs will be added.
+
+Here's a gif of me clicking "Visualize none" and then selecting the runs I want to include in the run set. This run set will not update as I add more runs to my project.
+
+![](../../.gitbook/assets/no-auto-refresh-on-the-run-sets.gif)
+
