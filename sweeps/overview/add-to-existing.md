@@ -35,7 +35,7 @@ I move the generated config file to my training script repo.
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1578430062927_sweep+yaml+move.png)
 
-I run `wandb sweep sweep.yaml` to start a sweep on the W&B server. This is a centralized service sends out the next set of hyperparameters to agents that I run on my own machines.
+I run `wandb sweep sweep.yaml` to start a sweep on the W&B server. This is a centralized service which sends out the next set of hyperparameters to agents that I run on my own machines.
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579063801261_image.png)
 
