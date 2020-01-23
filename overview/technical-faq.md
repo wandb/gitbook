@@ -14,7 +14,10 @@ Wandb should have negligible effect on your training performance if you use it n
 
 ### Can I run wandb offline?
 
-You can always set the environment variable `WANDB_MODE=dryrun`.  This will prevent any metrics from being streamed to the wandb cloud servers.  You can then run `wandb sync YOUR_RUN_DIRECTORY` to push the metrics to our cloud service after the run completes.
+If you're training on an offline machine and want to upload your results to our servers afterwards, we have a feature for you! 
+
+1. Set the environment variable `WANDB_MODE=dryrun` to save the metrics locally, no internet required.
+2. When you're ready, run `wandb sync YOUR_RUN_DIRECTORY` on the command line to push the metrics to our cloud service and see your results in our hosted web app.
 
 ### Does your tool track or store training data?
 
