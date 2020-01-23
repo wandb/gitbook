@@ -20,7 +20,7 @@ Easily add our package, `wandb`, to your model script.
 
 * [Quickstart](quickstart.md)
 * [Keras integration](library/frameworks/keras.md)
-* [PyTorch integration](library/frameworks/pytorch.md)
+* [PyTorch integration](library/frameworks/pytorch/)
 * [TensorFlow integration](library/frameworks/tensorflow.md)
 
 ## Examples
