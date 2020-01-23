@@ -25,7 +25,7 @@ for batch_idx, (data, target) in enumerate(train_loader):
 
 > Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward and backward pass.
 
-See this [Colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/pytorch-intro/intro.ipynb) for an end to end example of integrating wandb with PyTorch. You can also find more examples in our [example projects](../../example-projects/) section.
+See this [Colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/pytorch-intro/intro.ipynb) for an end to end example of integrating wandb with PyTorch. You can also find more examples in our [example projects](../example-projects/) section.
 
 ### Options
 

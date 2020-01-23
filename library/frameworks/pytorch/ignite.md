@@ -4,7 +4,10 @@ description: Use wandb with PyTorch Ignite
 
 # Ignite
 
-It's easy to integrate Weights & Biases with PyTorch Ignite. View an [example on GitHub →](https://gist.github.com/lukas/6f4c9db080af2fbe152f1d820d7ae664)
+It's easy to integrate Weights & Biases with PyTorch Ignite.
+
+* See the resulting visualizations in this [example W&B report →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
+* Try running the code yourself in this [example hosted notebook →](https://colab.research.google.com/drive/1I1FC5tkn0c3I47DObVTDCmtgOQsVHWdB)
 
 ```python
 from argparse import ArgumentParser
