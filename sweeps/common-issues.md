@@ -1,4 +1,4 @@
-# Common Issues
+# Common Questions
 
 ### **Sweeps agents stop after the first runs finish**
 
@@ -11,4 +11,8 @@ One common reason for this is that the metric your are optimizing in your config
 Your **entity** needs to be set to an existing team or username, and your **project** is the destination where your runs will be logged. If you're getting this error, please run `wandb login` on the machine where you're training your model.
 
 Another option is to set the environment variables **WANDB\_ENTITY** and **WANDB\_PROJECT**.
+
+### Run a sweep on Slurm
+
+We recommend running `wandb agent --count 1 SWEEP_ID` which will run a single training job and then exit.
 
