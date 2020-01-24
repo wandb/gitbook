@@ -40,11 +40,29 @@ Most of these settings can also be controlled via [Environment Variables](../adv
 
 ## Common Questions
 
-### Permission denied
+### How do I launch multiple runs from one script?
+
+If you're trying to start multiple runs from one script, add two things to your code:
+
+1. wandb.init\(**reinit=True**\): Use this setting to allow reinitializing runs
+2. **wandb.join\(\)**: Use this at the end of your run to finish logging for that run
+
+```python
+import wandb
+for x in range(10):
+	wandb.init(project="runs-from-for-loop", reinit=True)
+	for y in range (100):
+		wandb.log({"metric": x+y})
+	wandb.join()
+```
+
+### LaunchError: Permission denied
 
 If you're getting a **LaunchError: Launch exception: Permission denied** error, you don't have permissions to log to the project you're trying to send runs to. This might be for a few different reasons.
 
 1. You aren't logged in on this machine. Run `wandb login` on the command line.
 2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
 3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
+
+
 
