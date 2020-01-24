@@ -40,5 +40,12 @@ If you're launching many runs, you might also be interested in our Sweeps tool f
 
 {% page-ref page="../../sweeps/overview/" %}
 
+### Switching between accounts
 
+If you have two W&B accounts working from the same machine, you'll need a nice way to switch between your different API keys. You can store both API keys in a file on your machine then add code like the following to your repos. This is to avoid checking your secret key into a source control system, which is potentially dangerous.
+
+```text
+if os.path.exists("~/keys.json"):
+   os.environ["WANDB_API_KEY"] = json.loads("~/keys.json")["work_account"]
+```
 
