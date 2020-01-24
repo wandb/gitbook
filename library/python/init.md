@@ -56,6 +56,17 @@ for x in range(10):
 	wandb.join()
 ```
 
+Alternatively you can use a python context manager which will automatically finish logging:
+
+```python
+import wandb
+for x in range(10:
+    run = wandb.init(reinit=True)
+    with run:
+        for y in range(100):
+            run.log({"metric": x+y})
+```
+
 ### LaunchError: Permission denied
 
 If you're getting a **LaunchError: Launch exception: Permission denied** error, you don't have permissions to log to the project you're trying to send runs to. This might be for a few different reasons.
