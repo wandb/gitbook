@@ -12,9 +12,7 @@ You can view and change your privacy settings in your projects.
 
 ## Delete Projects
 
-You can delete your project by clicking the three dots on the right.
+You can delete your project by clicking the three dots on the right of the overview tab.
 
-![](../../../.gitbook/assets/screen-shot-2019-11-26-at-11.43.59-am.png)
-
-
+![](../../../.gitbook/assets/howto-delete-project.gif)
 

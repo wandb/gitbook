@@ -23,7 +23,7 @@
 * [API](library/api/README.md)
   * [API Examples](library/api/examples.md)
 * [Frameworks](library/frameworks/README.md)
-  * [PyTorch](library/frameworks/pytorch.md)
+  * [PyTorch](library/frameworks/pytorch/README.md)
     * [Ignite](library/frameworks/pytorch/ignite.md)
   * [Keras](library/frameworks/keras.md)
   * [TensorFlow](library/frameworks/tensorflow.md)
