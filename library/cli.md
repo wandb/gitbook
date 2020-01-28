@@ -22,7 +22,7 @@ The following sub-commands are available:
 | projects | List projects |
 | pull | Pull files for a run from W&B |
 | restore | Restore code and config state for a run |
-| run | Launch a job, required on Windows |
+| run | Launch a non-python program, for python use wandb.init\(\) |
 | runs | List runs in a project |
 | sync | Sync a local directory containing tfevents or previous runs files |
 | status | List current directory status |
