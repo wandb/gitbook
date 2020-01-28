@@ -141,19 +141,84 @@ Wandb supports logging 3D file types of in three different formats: glTF, glb, o
 
 #### Logging Point Clouds
 
+Point Clouds logging has currently has two modes.  Logging a single set of points representing an object , useful for representing datasets like [ShapeNet\(Example Report\)](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Semantic-Segmentation-of-3D-Point-Clouds--VmlldzoxMDk3OA). Along with a new beta release lidar scene renderer. 
+
+Logging a set of points is as simple as passing in a numpy array containing your coordinates and the desired colors for the points
+
 ```python
 point_cloud = np.array([[0, 0, 0, COLOR...], ...])
 
 wandb.log({"point_cloud": wandb.Object3D(point_cloud)})
 ```
 
-Numpy arrays logged via wandb.Object3D will be rendered as 3D point clouds.
+Three different shapes of numpy arrays are supported for flexible color schemes, supporting common ML us
 
-Supported numpy shapes include three different color schemes:
+* `[[x, y, z], ...]` `nx3`
+* `[[x, y, z, c], ...]` `nx4` `| c is a category` in the range `[1, 14]` \(Useful for segmentation\)
+* `[[x, y, z, r, g, b], ...]` `nx6 | r,g,b` are values in the range `[0,255]`for red, green, and blue color channels.
 
-* `[[x, y, z], ...]` nx3
-* `[[x, y, z, c], ...]` nx4 \| c is a category with supported range \[1, 14\]\(Useful for segmentation\)
-* `[[x, y, z, r, g, b], ...]` nx6 \| r,g,b are values in the range \[0,255\] for Red, Green, and Blue color channels.
+```python
+# Log points and boxes in W&B
+wandb.log(
+        {
+            "point_scene": wandb.Object3D(
+                {
+                    "type": "lidar/beta",
+                    "points": np.array(
+                        [
+                            [0.4, 1, 1.3], 
+                            [1, 1, 1], 
+                            [1.2, 1, 1.2]
+                        ]
+                    ),
+                    "boxes": np.array(
+                        [
+                            {
+                                "corners": [
+                                    [0,0,0],
+                                    [0,1,0],
+                                    [0,0,1],
+                                    [1,0,0],
+                                    [1,1,0],
+                                    [0,1,1],
+                                    [1,0,1],
+                                    [1,1,1]
+                                ],
+                                "label": "Box",
+                                "color": [123,321,111],
+                            },
+                            {
+                                "corners": [
+                                    [0,0,0],
+                                    [0,2,0],
+                                    [0,0,2],
+                                    [2,0,0],
+                                    [2,2,0],
+                                    [0,2,2],
+                                    [2,0,2],
+                                    [2,2,2]
+                                ],
+                                "label": "Box-2",
+                                "color": [111,321,0],
+                            }
+                        ]
+                    ),
+                }
+            )
+        }
+    )
+
+
+```
+
+* `points`is a numpy array with the same format as the simple point cloud renderer shown above.
+* `boxes` is a numpy array of python dictionaries with three attributes:
+  * `corners`- a list of eight corners
+  * `label`- a string representing the label to be rendered on the box \(Optional\)
+  * `color`- rgb values representing the color of the box 
+* `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
+
+More scene types will be added in the future. If there is a type of 3d scene you would like to log in Weights & Biases reach out and let us know! We love feedback.
 
 ### Summary Metrics
 
