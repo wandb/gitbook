@@ -58,6 +58,7 @@ Enable CORS access: your CORS configuration should look like the following:
 <CORSRule>
     <AllowedOrigin>http://YOUR-W&B-SERVER-IP</AllowedOrigin>
     <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>PUT</AllowedMethod>
     <AllowedHeader>*</AllowedHeader>
 </CORSRule>
 </CORSConfiguration>
