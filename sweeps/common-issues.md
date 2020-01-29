@@ -16,3 +16,7 @@ Another option is to set the environment variables **WANDB\_ENTITY** and **WANDB
 
 We recommend running `wandb agent --count 1 SWEEP_ID` which will run a single training job and then exit.
 
+### Rerun grid search
+
+If you exhaust a grid search but want to rerun some of the runs, you can delete the ones you want to rerun, then hit the resume button on the sweep control page, then start new agents for that sweep ID.
+
