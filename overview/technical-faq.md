@@ -94,3 +94,7 @@ In a python script:
 os.environ["WANDB_SILENT"] = "true"
 ```
 
+### How do I kill a job with wandb?
+
+Press ctrl+D on your keyboard to stop a script that is instrumented with wandb.
+
