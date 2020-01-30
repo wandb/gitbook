@@ -87,3 +87,19 @@ Great! Now run your script normally and we'll sync the logs in a background proc
 If you're testing and want to disable wandb syncing, set the [environment variable](library/advanced/environment-variables.md) WANDB\_MODE=dryrun
 {% endhint %}
 
+## Next Steps
+
+Now you've got the instrumentation working, here's a quick overview of cool features:
+
+1. **Project Page**: Compare lots of different experiments in a project dashboard. Every time you run a model in a project, a new line appears in the graphs and in the table. Click the table icon on the left sidebar to expand the table and see all your hyperparameters and metrics. Create multiple projects to organize your runs, and use the table to add tags and notes to your runs.
+2. **Custom Visualizations**: Add parallel coordinates charts, scatter plots, and other advanced visualizations to explore your results.
+3. **Reports**: Add a Markdown panel to describe your research results alongside your live graphs and tables. Reports make it easy to share a snapshot of your project with collaborators, your professor, or your boss!
+4. **Frameworks**: We have special integrations for popular [frameworks](library/frameworks/) like PyTorch, Keras, and XGBoost.
+5. **Showcase**: Interested in sharing your research? We're always working on blog posts to highlight the amazing work of our community. Message us at contact@wandb.com.
+
+[See a live example report →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
+
+[Contact us with questions →](overview/getting-help.md)
+
+![](.gitbook/assets/image%20%2830%29.png)
+
