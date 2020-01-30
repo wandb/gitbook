@@ -45,3 +45,7 @@ Here's a gif of me clicking "Visualize none" and then selecting the runs I want 
 
 ![](../../.gitbook/assets/no-auto-refresh-on-the-run-sets.gif)
 
+## Exporting reports
+
+Click the download button to export your report as a LaTeX zip file. Check the README.md in your downloaded folder to find instructions on how to convert this file to PDF. It's easy to upload the zip file to [Overleaf](https://www.overleaf.com/) to edit the LaTeX.
+
