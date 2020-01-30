@@ -95,6 +95,7 @@
   * [Parameter Importance](app/visualizations/parameter-importance.md)
   * [Run Colors](app/visualizations/run-colors.md)
   * [Run Comparer](app/visualizations/run-comparer.md)
+  * [Scatter Plot](app/visualizations/scatter-plot.md)
 
 ## Enterprise
 
