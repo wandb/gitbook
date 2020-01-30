@@ -60,7 +60,7 @@ Alternatively you can use a python context manager which will automatically fini
 
 ```python
 import wandb
-for x in range(10:
+for x in range(10):
     run = wandb.init(reinit=True)
     with run:
         for y in range(100):

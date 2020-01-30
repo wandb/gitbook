@@ -18,7 +18,17 @@ There are a lot of excellent online resources for learning machine learning.  Pl
 * [deep learning book](http://www.deeplearningbook.org) - Detailed book available for free online.
 * [Stanford CS229](https://see.stanford.edu/Course/CS229) - Lectures from a great class available online.
 
+## Looking for bias in models
 
+If you're training a machine learning model, you want to be able to visualize how it performs on different inputs. A common problem, especially when you're getting started, is that it's hard to get those visualizations set up. That's where Weights & Biases comes in. We make it easy to get metrics to understand your model performance.
+
+Here's a hypothetical example— you're training a model to identify objects on the road. Your dataset is a bunch of labeled images with cars, pedestrians, bicycles, trees, buildings, etc. As you train your model, you can visualize the different class accuracies. That means you can see if your model is great at finding cars but bad at finding pedestrians. This could be a dangerous bias, especially in a self-driving car model.
+
+Interested in seeing a live example? Here's a report that compares the model's accuracy on identifying images of different types of plants and animals— birds, mammals, fungi etc. The Weights & Biases graphs make it easy to see how each version of the model \(each line on the graph\) performs on different classes.
+
+[See the report in W&B →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
+
+![](../.gitbook/assets/image%20%283%29.png)
 
 
 
