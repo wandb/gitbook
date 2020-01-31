@@ -34,6 +34,7 @@ wandb.log({"val_loss" : valid_loss})
 | :--- | :--- |
 | name | Name of the metric to optimize |
 | goal | `minimize` or `maximize` \(Default is `minimize`\) |
+| target | Value that you'd like to achieve for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to "Finished." This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
 
 **Examples**
 
@@ -50,6 +51,15 @@ metric:
 ```text
 metric:
   name: val_loss
+```
+{% endtab %}
+
+{% tab title="Target" %}
+```
+metric:
+  name: val_loss
+  goal: maximize
+  target: 0.1
 ```
 {% endtab %}
 {% endtabs %}
