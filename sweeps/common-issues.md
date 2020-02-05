@@ -20,3 +20,13 @@ We recommend running `wandb agent --count 1 SWEEP_ID` which will run a single tr
 
 If you exhaust a grid search but want to rerun some of the runs, you can delete the ones you want to rerun, then hit the resume button on the sweep control page, then start new agents for that sweep ID.
 
+### Error uploading
+
+If you're seeing **ERROR Error uploading &lt;file&gt;: CommError, Run does not exist**, you might be setting an ID for your run, `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, it will throw and error. In the sweeps context, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
+
+If you're trying to get a nice name to show up in the table and on the graphs, we recommend using **name** instead of **id**. For example:
+
+```python
+wandb.init(name="a helpful readable run name")
+```
+
