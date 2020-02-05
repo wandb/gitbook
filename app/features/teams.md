@@ -38,5 +38,3 @@ Here's what the settings look like. In this screenshot the toggle is on, which m
 
 ![](../../.gitbook/assets/image%20%288%29.png)
 
-
-
