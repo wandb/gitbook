@@ -30,3 +30,26 @@ If you're trying to get a nice name to show up in the table and on the graphs, w
 wandb.init(name="a helpful readable run name")
 ```
 
+### Sweep with custom commands
+
+If you normally run training with a command and arguments, for example:
+
+```text
+edflow -b <your-training-config> --batch_size 8 --lr 0.0001
+```
+
+You can convert this to a sweeps config like so:
+
+```text
+program:
+  edflow
+command:
+  - ${env}
+  - python
+  - ${program}
+  - "-b"
+  - your-training-config
+```
+
+
+
