@@ -24,6 +24,12 @@ Here's a screen capture. I expand the table, pin two columns, collapse the table
 
 ![](https://downloads.intercomcdn.com/i/o/152951680/cf8cbc6b35e923be2551ba20/howto+-+pin+rows+in+table.gif)
 
+## Bulk select runs
+
+Delete multiple runs at once, or tag a group of runs— bulk selection makes it easier to keep the runs table organized.
+
+![](../../.gitbook/assets/howto-bulk-select.gif)
+
 ## Move runs between projects
 
 To move runs from one project to another:
@@ -33,6 +39,4 @@ To move runs from one project to another:
 3. Click move and select the destination project
 
 ![](../../.gitbook/assets/howto-move-runs.gif)
-
-
 
