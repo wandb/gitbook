@@ -22,6 +22,14 @@ If you have a cool project or an insightful perspective you'd like to share, we 
 
 File an issue in our open source GitHub repo: [github.com/wandb/client](https://github.com/wandb/client). We love feedback, and we try hard to implement what users are asking for.
 
+## Kind words from users
+
+**Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
+
+"I didn’t think we’d be even considering abandoning TensorBoard at this point. The biggest advantage of wandb viz over TensorBoard for us is the ability to modify viz and sweep reports more easily after the runs have already started. We’ve been using this a lot especially with long runs and sweeps where we realize midway through there’s another way to think about the data/problem. It’s also been super helpful for communicating with an increasing number of remote collaborators and researchers. 
+
+We’re mocking out sweeps as a placeholder for things like “Figure 3” in a potential paper before running it, but with a little cleanup we could turn those sweep visualizations into the Figure 3 in the paper! It’s great to not have to go to a separate notebook for this, and have one place where multiple people can analyze and contribute."
+
 ## Thank You
 
 We're so grateful to our users who have helped us improve the product and spread the word about Weights & Biases.
