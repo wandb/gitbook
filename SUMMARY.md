@@ -2,6 +2,7 @@
 
 * [Weights & Biases](README.md)
 * [Overview](overview/README.md)
+  * [Testimonials](overview/testimonials.md)
   * [Company FAQ](overview/company-faq.md)
   * [Technical FAQ](overview/technical-faq.md)
   * [Beginner FAQ](overview/beginner-faq.md)
