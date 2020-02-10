@@ -22,3 +22,9 @@ Calling `wandb docker --jupyter` will launch a docker container, mount your code
 
 If your project is private, viewers of your notebook will be prompted to login to view results.
 
+## Common Questions
+
+### Notebook name
+
+If you're seeing the error message "Failed to query for notebook name, you can set it manually with the WANDB\_NOTEBOOK\_NAME environment variable," you can solve this by setting the environment variable from your script like so: `os.environ['WANDB_NOTEBOOK_NAME'] = 'some text here'`
+
