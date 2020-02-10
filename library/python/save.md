@@ -52,15 +52,23 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 model.save(os.path.join(wandb.run.dir, "model.h5"))
 ```
 
-## Ignoring certain files
+## Common Questions
+
+### Ignoring certain files
 
 You can edit the `wandb/settings` file and set ignore\_globs equal to a comma separated list of [globs](https://en.wikipedia.org/wiki/Glob*%28programming%29). You can also set the **WANDB\_IGNORE\_GLOBS** environment variable. A common use case is to prevent the git patch that we automatically create from being uploaded i.e. **WANDB\_IGNORE\_GLOBS=\*.patch**
 
-## Sync files before the end of the run
+### Sync files before the end of the run
 
 If you have a long run, you might want to see files like model checkpoints uploaded to the cloud before the end of the run. By default, we wait to upload most files until the end of the run. You can add a `wandb.save('*.pth')` or just `wandb.save('latest.pth')` in your script to upload those files whenever they are written or updated.
 
-## Get the run name
+### Change directory for saving files
+
+If you default to saving files in AWS S3 or Google Cloud Storage, you might get this error:`events.out.tfevents.1581193870.gpt-tpu-finetune-8jzqk-2033426287 is a cloud storage url, can't save file to wandb.`
+
+To change the log directory for TensorBoard events files or other files you'd like us to sync, save your files to the wandb.run.dir so they're synced to our cloud.
+
+### Get the run name
 
 If you'd like to use the run name from within your script, you can use `wandb.run.name` and you'll get the run name— "blissful-waterfall-2" for example.
 
