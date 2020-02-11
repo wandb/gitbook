@@ -49,3 +49,13 @@ Here's a gif of me clicking "Visualize none" and then selecting the runs I want 
 
 Click the download button to export your report as a LaTeX zip file. Check the README.md in your downloaded folder to find instructions on how to convert this file to PDF. It's easy to upload the zip file to [Overleaf](https://www.overleaf.com/) to edit the LaTeX.
 
+## Cross-project reports
+
+Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
+
+![](../../.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
+
+The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
+
+If you really need to compare runs from two projects and the columns aren't working, add a tag to the runs in one project and then move those runs to the other project. You'll still be able to filter to just the runs from each project, but you'll have all the columns for both sets of runs available in the report.
+
