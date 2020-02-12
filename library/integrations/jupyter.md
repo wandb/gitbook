@@ -18,6 +18,16 @@ We have a nice extra integration with Google Colab. The first time you call `wan
 
 Calling `wandb docker --jupyter` will launch a docker container, mount your code in it, ensure jupyter is installed and launch it on port 8888.
 
+### Disable info messages from wandb
+
+This is not recommended as you may miss important information. If you'd like to disable info messages you can run the following in one of your cells 
+
+```text
+import logging
+logger = logging.getLogger("wandb")
+logger.setLevel(logging.ERROR)
+```
+
 ### Sharing Notebooks
 
 If your project is private, viewers of your notebook will be prompted to login to view results.
