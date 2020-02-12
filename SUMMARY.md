@@ -82,6 +82,8 @@
   * [Project Page](app/pages/project-page/README.md)
     * [Overview Tab](app/pages/project-page/overview-tab.md)
   * [Report Page](app/pages/reports.md)
+  * [Run Page](app/pages/run-page/README.md)
+    * [Run Page Tabs](app/pages/run-page/run-page-tabs.md)
 * [Features](app/features/README.md)
   * [Table](app/features/sidebar.md)
   * [Tags](app/features/tags.md)
