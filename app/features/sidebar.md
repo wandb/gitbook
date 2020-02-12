@@ -40,3 +40,11 @@ To move runs from one project to another:
 
 ![](../../.gitbook/assets/howto-move-runs.gif)
 
+### See active runs
+
+Look for a green dot next to the name of runs— this indicates they're active in the table and on the graph legends. 
+
+![](../../.gitbook/assets/image%20%287%29.png)
+
+
+
