@@ -2,7 +2,7 @@
 description: Use W&B Sweeps to manage hyperparameter search and hyperparameter optimization
 ---
 
-# Sweeps Overview
+# Sweeps
 
 Automate hyperparameter optimization and exploration with Sweeps.
 
@@ -25,15 +25,15 @@ Automate hyperparameter optimization and exploration with Sweeps.
 4. **Launch agent\(s\)**: Run this command on each machine you'd like to use to train models in the sweep. The agents ask the central sweep server what hyperparameters to try next, and then they execute the runs.
 5. **Visualize results**: Open our live dashboard to see all your results in one central place.
 
-![](../../.gitbook/assets/central-sweep-server-3%20%281%29.png)
+![](../.gitbook/assets/central-sweep-server-3%20%281%29.png)
 
 {% page-ref page="quickstart.md" %}
 
 {% page-ref page="add-to-existing.md" %}
 
-{% page-ref page="../configuration.md" %}
+{% page-ref page="configuration.md" %}
 
-{% page-ref page="../local-controller.md" %}
+{% page-ref page="local-controller.md" %}
 
-{% page-ref page="../python-api.md" %}
+{% page-ref page="python-api.md" %}
 

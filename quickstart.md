@@ -46,11 +46,11 @@ import wandb
 wandb.init(project="my-project")
 ```
 
-We automatically create the project for you if it doesn't exist. Runs of the training script above will sync to a project named "my-project". See the [wandb.init](library/python/init.md) documentation for more initialization options.
+We automatically create the project for you if it doesn't exist. Runs of the training script above will sync to a project named "my-project". See the [wandb.init](library/init.md) documentation for more initialization options.
 
 ### Declare Hyperparameters
 
-It's easy to save hyperparameters with the [wandb.config](library/python/config.md) object.
+It's easy to save hyperparameters with the [wandb.config](library/config.md) object.
 
 ```python
 wandb.config.dropout = 0.2
@@ -59,7 +59,7 @@ wandb.config.hidden_layer_size = 128
 
 ### Log Metrics
 
-Log metrics like loss or accuracy as your model trains \(in many cases we provide framework-specific defaults\). Log more complicated output or results like histograms, graphs, or images with [wandb.log](library/python/log.md).
+Log metrics like loss or accuracy as your model trains \(in many cases we provide framework-specific defaults\). Log more complicated output or results like histograms, graphs, or images with [wandb.log](library/log.md).
 
 ```python
 def my_train_loop():
@@ -99,7 +99,7 @@ Now you've got the instrumentation working, here's a quick overview of cool feat
 
 [See a live example report →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
 
-[Contact us with questions →](overview/getting-help.md)
+[Contact us with questions →](resources/getting-help.md)
 
-![](.gitbook/assets/image%20%2832%29.png)
+![](.gitbook/assets/image%20%2838%29.png)
 

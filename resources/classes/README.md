@@ -2,7 +2,7 @@
 description: Resources for people teaching machine learning
 ---
 
-# Classes and Teachers
+# Classes and Talks
 
 We love seeing wandb used in classrooms!  When everyone in a class uses wandb it's easy for everyone to see each others work, which can help learning and collaboration.  We've also seen wandb help teachers by making grading more systematic.  
 

@@ -1,15 +1,21 @@
 ---
 description: >-
-  Each experiment has its own page. You can see your model running and watch
-  default charts update in real time. You can reference your model metrics at a
-  later date!
+  Each training run of your model gets a dedicated page, organized within the
+  larger project
 ---
 
 # Run Page
 
-{% page-ref page="run-page-tabs.md" %}
+Use the run page to explore detailed information about a single version of your model.
 
-![](../../../.gitbook/assets/screen-shot-2020-02-11-at-4.39.37-pm.png)
+## Overview Tab
 
+* Run name, description, and tags
+* Host name, operating system, python version, and command that launched the run
+* List of config parameters saved with [wandb.config](../../../library/config.md)
+* List of summary parameters saved with [wandb.log\(\)](../../../library/log.md), by default set to the last value logged
 
+![Run page, overview tab](../../../.gitbook/assets/image%20%2810%29.png)
+
+![Run page, overview tab](../../../.gitbook/assets/image%20%285%29.png)
 
