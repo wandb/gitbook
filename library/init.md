@@ -1,7 +1,7 @@
 ---
 description: >-
-  Call wandb.init each time you start a new run, before the training loop where
-  you log model metrics.
+  Call wandb.init() each time you start a new run, before the training loop
+  where you log model metrics
 ---
 
 # wandb.init\(\)

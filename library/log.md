@@ -1,5 +1,5 @@
 ---
-description: Method for logging to wandb
+description: 'Keep track of metrics, video, custom plots, and more'
 ---
 
 # wandb.log\(\)
