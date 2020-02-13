@@ -4,7 +4,7 @@ description: >-
   access in your script
 ---
 
-# wandb.restore
+# wandb.restore\(\)
 
 ## Overview
 

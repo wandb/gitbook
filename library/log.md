@@ -2,7 +2,7 @@
 description: Method for logging to wandb
 ---
 
-# wandb.log
+# wandb.log\(\)
 
 Calling `wandb.log(dict)` logs the keys and values of the dictionary passed in and associates the values with a _step_. Wandb.log can log histograms and custom matplotlib objects and rich media. For a complete list of supported data types see our [Data Types ](reference/data_types.md)reference.
 

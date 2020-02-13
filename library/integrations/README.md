@@ -1,6 +1,6 @@
 # Integrations
 
-We integrate with a number of popular tools. [Reach out](../../resources/getting-help.md) if you'd like to see another tool integrated, or if you would like to contribute your own integration to our [open source client](https://github.com/wandb/client).
+We integrate with a number of popular tools. [Reach out](../../overview/getting-help.md) if you'd like to see another tool integrated, or if you would like to contribute your own integration to our [open source client](https://github.com/wandb/client).
 
 {% page-ref page="tensorboard.md" %}
 

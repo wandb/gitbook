@@ -17,15 +17,15 @@ When mirroring data to both a wandb and mlflow tracking backend, the following c
 | MLflow | W&B |
 | :--- | :--- |
 | [Experiment](https://www.mlflow.org/docs/latest/tracking.html#organizing-runs-in-experiments) | [Project](../../app/pages/project-page/) |
-| [mlflow.start\_run](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [wandb.init](../init.md) |
-| [mlflow.log\_params](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_param) | [wandb.config](../config.md) |
-| [mlflow.log\_metrics](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_metric) | [wandb.log](../log.md) |
-| [mlflow.log\_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact) | [wandb.save](../save.md) |
+| [mlflow.start\_run](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [wandb.init](../python/init.md) |
+| [mlflow.log\_params](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_param) | [wandb.config](../python/config.md) |
+| [mlflow.log\_metrics](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_metric) | [wandb.log](../python/log.md) |
+| [mlflow.log\_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact) | [wandb.save](../python/save.md) |
 | [mlflow.start\_run\(nested=True\)](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [Grouping](../advanced/grouping.md) |
 
 ### Logging rich metrics
 
-If you want to log rich media like Images, Video, or Plots you can call [wandb.log](../log.md) in your code as well.  Be sure to pass a step argument to your calls to log so they can be aligned with the metrics you're logging with mlflow.
+If you want to log rich media like Images, Video, or Plots you can call [wandb.log](../python/log.md) in your code as well.  Be sure to pass a step argument to your calls to log so they can be aligned with the metrics you're logging with mlflow.
 
 ### Advanced configuration
 

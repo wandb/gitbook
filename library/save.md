@@ -2,7 +2,7 @@
 description: Save a file to the cloud to associate the current run
 ---
 
-# wandb.save
+# wandb.save\(\)
 
 There are two ways to save a file to associate with a run.
 

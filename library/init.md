@@ -4,7 +4,7 @@ description: >-
   you log model metrics.
 ---
 
-# wandb.init
+# wandb.init\(\)
 
 ### Overview
 

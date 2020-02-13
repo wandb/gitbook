@@ -1,4 +1,4 @@
-# Resources
+# Overview
 
 ### What is wandb?
 
