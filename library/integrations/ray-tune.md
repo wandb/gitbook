@@ -13,5 +13,5 @@ tune.run("PG", loggers=[WandbLogger], config={
                "wandb": {"project": "my-project-name", "monitor_gym": True}}})
 ```
 
-The "wandb" dictionary of env\_config will be passed to `wandb.init` when training starts. See the [wandb.init](../python/init.md) docs for all available options.
+The "wandb" dictionary of env\_config will be passed to `wandb.init` when training starts. See the [wandb.init](../init.md) docs for all available options.
 
