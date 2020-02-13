@@ -15,7 +15,9 @@ Use the run page to explore detailed information about a single version of your 
 * List of config parameters saved with [wandb.config](../../../library/config.md)
 * List of summary parameters saved with [wandb.log\(\)](../../../library/log.md), by default set to the last value logged
 
-![Run page, overview tab](../../../.gitbook/assets/image%20%2810%29.png)
+[View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q/overview)
 
-![Run page, overview tab](../../../.gitbook/assets/image%20%285%29.png)
+![](../../../.gitbook/assets/image%20%2810%29.png)
+
+![](../../../.gitbook/assets/image%20%285%29.png)
 
