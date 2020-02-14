@@ -64,6 +64,8 @@ Output printed on the command line, the stdout and stderr from the machine train
 * Keep model checkpoints, validation set examples, and more
 * Use the diff.patch to [restore](../../library/restore.md) the exact version of your code
 
+[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
+
 ![](../../.gitbook/assets/image%20%281%29.png)
 
 
