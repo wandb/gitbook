@@ -74,6 +74,23 @@ batch_size:
 
 You can tell wandb to load different config files with the command line argument `--configs special-configs.yaml` which will load parameters from the file special-configs.yaml.
 
+One example use case: you have a YAML file with some metadata for the run, and then a dictionary of hyperparameters in your Python script. You can save both in the nested config object:
+
+```python
+hyperparameter_defaults = dict(
+    dropout = 0.5,
+    batch_size = 100,
+    learning_rate = 0.001,
+    )
+
+config_dictionary = dict(
+    yaml=my_yaml_file,
+    params=hyperparameter_defaults,
+    )
+    
+wandb.init(config=config_dictionary)
+```
+
 ## Dataset Identifier 
 
 You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking for tracking it as input to your experiment using `wandb.config` 
@@ -81,4 +98,6 @@ You can add a unique identifier \(like a hash or other identifier\) in your run'
 ```yaml
 wandb.config.update({'dataset':'ab131'}) 
 ```
+
+
 
