@@ -17,9 +17,9 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q/overview)
 
-![](../../.gitbook/assets/image%20%2810%29.png)
+![](../../.gitbook/assets/image%20%2811%29.png)
 
-![](../../.gitbook/assets/image%20%285%29.png)
+![](../../.gitbook/assets/image%20%286%29.png)
 
 ## Graphs Tab
 
@@ -31,7 +31,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](../../.gitbook/assets/image%20%2820%29.png)
+![](../../.gitbook/assets/image%20%2822%29.png)
 
 ## System Tab
 
@@ -40,7 +40,31 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
 
-![](../../.gitbook/assets/image%20%2845%29.png)
+![](../../.gitbook/assets/image%20%2848%29.png)
+
+## Model Tab
+
+* See the layers of your model, the number of parameters, and the output shape of each layer
+
+[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
+
+![](../../.gitbook/assets/image%20%2820%29.png)
+
+## Logs Tab 
+
+Output printed on the command line, the stdout and stderr from the machine training the model
+
+[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
+
+![](../../.gitbook/assets/image%20%2838%29.png)
+
+## Files Tab
+
+* Save files to sync with the run using [wandb.save\(\)](../../library/save.md) — _we're Dropbox for AI_
+* Keep model checkpoints, validation set examples, and more
+* Use the diff.patch to [restore](../../library/restore.md) the exact version of your code
+
+![](../../.gitbook/assets/image%20%281%29.png)
 
 
 
