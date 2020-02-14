@@ -14,6 +14,10 @@ We’re mocking out sweeps as a placeholder for things like “Figure 3” in a 
 
 Effortless python usage, and excellent visualization of my experiments. Minimal hassle, maximum benefit.
 
+### [Ivan Oršolić](https://www.linkedin.com/in/ivanorsolic), University of Zagreb
+
+Your tool is very easy to set up \(well documented!\) and works great.
+
 ### Apoorve, Frost Labs
 
 WANDB has made experimentation just so much more easy! I cannot express how much I love WANDB and how dependent our team has become on this wonderful tool. Love from India!
