@@ -10,6 +10,10 @@ description: Kind messages from Weights & Biases users
 
 We’re mocking out sweeps as a placeholder for things like “Figure 3” in a potential paper before running it, but with a little cleanup we could turn those sweep visualizations into the Figure 3 in the paper! It’s great to not have to go to a separate notebook for this, and have one place where multiple people can analyze and contribute."
 
+### [Matthew Clapp](https://itsayellow.com/), PhD from Johns Hopkins
+
+Effortless python usage, and excellent visualization of my experiments. Minimal hassle, maximum benefit.
+
 ### Apoorve, Frost Labs
 
 WANDB has made experimentation just so much more easy! I cannot express how much I love WANDB and how dependent our team has become on this wonderful tool. Love from India!
