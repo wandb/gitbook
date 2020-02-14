@@ -52,7 +52,7 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 model.save(os.path.join(wandb.run.dir, "model.h5"))
 ```
 
-Here's a public example page from a NeurIPS demo. You can see on the files tab, there's the model-best.h5. That's automatically saved by default by the Keras integration, but you can save a checkpoint manually and we'll store it for you in association with your run. 
+Here's a public example page. You can see on the files tab, there's the model-best.h5. That's automatically saved by default by the Keras integration, but you can save a checkpoint manually and we'll store it for you in association with your run. 
 
 [See the live example →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
 
