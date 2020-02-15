@@ -9,7 +9,7 @@
   * [Company FAQ](resources/company-faq.md)
   * [Technical FAQ](resources/technical-faq.md)
   * [Beginner FAQ](resources/beginner-faq.md)
-  * [Classes and Talks](resources/classes/README.md)
+  * [Classes](resources/classes/README.md)
     * [Talks](resources/classes/talks.md)
 * [Python Library](library/README.md)
   * [wandb.init\(\)](library/init.md)
