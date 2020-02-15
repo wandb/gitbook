@@ -39,6 +39,7 @@ Here are some excellent videos, notes, and slides from around the web. These are
 1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support
 2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models
 3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu/): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
+4. [MIT Intro to Deep Learning](http://introtodeeplearning.com/):  Accessible introduction taught by Alexander Amini and Ava Soleimany
 
 ### Slide decks
 
