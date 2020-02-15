@@ -1,5 +1,5 @@
 ---
-description: Resources for people teaching machine learning
+description: Resources for teaching machine learning and deep learning
 ---
 
 # Classes
@@ -14,7 +14,7 @@ Request an [academic team](https://www.wandb.com/academic) to get started having
 
 **Reports**
 
-Ask your students to submit reports so you can explore their results and compare new projects against previous baselines.
+Ask your students to submit reports so you can explore their results and compare new projects against previous baselines. Reports make it easy to describe intermediate results and show progress, and all the graphs are connected to real model results that you can reproduce. [View an example report →](https://app.wandb.ai/stacey/keras_finetune/reports/Curriculum-Learning-in-Nature--Vmlldzo1MjcxNw)
 
 **Competitions**
 
@@ -24,15 +24,34 @@ Create a project in your academic team, and have your students compete to achiev
 
 ## Resources
 
-[**Video Tutorials**](https://www.wandb.com/tutorials): Lukas and Chris have built a library of short tutorial projects with notes on each class section. Reach out to vanpelt@wandb.com with questions.
+### **Tutorials**
+
+Lukas and Chris have built a library of short tutorial projects with notes on each class section. Reach out to vanpelt@wandb.com with questions. 
+
+[View the tutorials →](https://www.wandb.com/tutorials)
 
 ![](../../.gitbook/assets/image%20%2839%29.png)
 
+### Favorite free classes
+
+Here are some excellent resources for building up your course material.
+
+1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support.
+2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models.
 
 
 
+### Natural language examples
 
-If you create a project and set its privacy to "open" then students can all submit to a single place. You are also welcome to use our [GitHub repo](https://github.com/lukas/ml-class) full of example code for teaching.
+1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
+2. [TalkToTransformer.com](https://talktotransformer.com): try GPT 2
+3. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
+4. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
+5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
+6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
+7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
+
+
 
 If you are teaching a class, we would love to support you. Please reach out to us at support@wandb.com.
 
