@@ -34,10 +34,15 @@ Lukas and Chris have built a library of short tutorial projects with notes on ea
 
 ### Favorite free classes
 
-Here are some excellent resources for building up your course material.
+Here are some excellent videos, notes, and slides for building up your course material.
 
-1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support.
-2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models.
+1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support
+2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models
+3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu/): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
+
+### Slide decks
+
+1. [Troubleshooting Deep Neural Networks](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): Josh Tobin's excellent slide deck on debugging models
 
 
 
