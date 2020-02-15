@@ -39,12 +39,13 @@ Here are some excellent videos, notes, and slides from around the web. These are
 1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support
 2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models
 3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu/): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
-4. 
+
 ### Slide decks
 
 1. [Troubleshooting Deep Neural Networks](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): Josh Tobin's excellent slide deck on debugging models
 2. [Sequence to sequence models](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf): Slides from Stanford's computational linguistics class
-3. 
+3. [Transfer and multi-task learning](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_15_multi_task_learning.pdf): Sergey Levine from Berkeley
+4. 
 ## Topics
 
 ### Seq2Seq
@@ -62,6 +63,7 @@ Here are some excellent videos, notes, and slides from around the web. These are
 5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
 6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
 7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
+8. [Zero-shot transfer learning + LSTMs](https://www.media.mit.edu/publications/zero-shot-transfer-learning-to-enhance-communication-for-minimally-verbal-individuals-with-autism-using-naturalistic-data/): Enhancing translation technology for minimally verbal individuals
 
 
 
