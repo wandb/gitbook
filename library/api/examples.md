@@ -6,7 +6,7 @@ description: >-
 
 # API Examples
 
-### Read metrics from a run
+## Read metrics from a run
 
 This example outputs timestamp and accuracy saved with `wandb.log({"accuracy": acc})` for a run saved to `<entity>/<project>/<run_id>`.
 
@@ -20,7 +20,7 @@ if run.state == "finished":
        print(k["_timestamp"], k["accuracy"])
 ```
 
-### Compare two runs
+## Compare two runs
 
 This will output the config parameters that are different between run1 and run2.
 
@@ -48,7 +48,7 @@ n_conv_layers                               5                    4
 optimizer                             rmsprop                 adam
 ```
 
-### Update metrics for a run \(after run finished\)
+## Update metrics for a run \(after run finished\)
 
 This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_arry
 
@@ -62,7 +62,7 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
-### Export metrics from a single run to a CSV file
+## Export metrics from a single run to a CSV file
 
 This script finds all the metrics saved for a single run and saves them to a CSV.
 
@@ -78,7 +78,7 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 ```
 
-### Export metrics from a large single run without sampling
+## Export metrics from a large single run without sampling
 
 The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. This script loads all of the loss metrics into a variable losses for a longer run.
 
@@ -91,7 +91,7 @@ history = run.scan_history()
 losses = [row["Loss"] for row in history]
 ```
 
-### Export metrics from all runs in a project to a CSV file
+## Export metrics from all runs in a project to a CSV file
 
 This script finds a project and outputs a CSV of runs with name, configs and summary stats.
 
@@ -123,7 +123,7 @@ all_df = pd.concat([name_df, config_df,summary_df], axis=1)
 all_df.to_csv("project.csv")
 ```
 
-### Download a file from a run
+## Download a file from a run
 
 This finds the file "model-best.h5" associated with with run ID uxte44z7 in the cifar project and saves it locally.
 
@@ -134,7 +134,7 @@ run = api.run("oreilly-class/cifar/uxte44z7")
 run.file("model-best.h5").download()
 ```
 
-### Download all files from a run
+## Download all files from a run
 
 This finds all files associated with run ID uxte44z7 and saves them locally.  \(Note: you can also accomplish this by running wandb restore &lt;RUN\_ID&gt; from the command line.\)
 
@@ -146,7 +146,7 @@ for file in run.files():
     file.download()
 ```
 
-### Download the best model file
+## Download the best model file
 
 ```python
 import wandb
@@ -159,23 +159,13 @@ runs[0].file("model-best.h5").download(replace=True)
 print("Best model saved to model-best.h5")
 ```
 
-### Get runs from a specific sweep
+## Get runs from a specific sweep
 
 ```python
 import wandb
 api = wandb.Api()
 sweep = api.sweep("your-entity/your-project/your-sweep-id")
 print(sweep.runs)
-```
-
-### Get the human readable run name
-
-```python
-import wandb
-api = wandb.Api()
-run = api.run("oreilly-class/cifar/uxte44z7")
-for file in run.files():
-    file.download()
 ```
 
 
