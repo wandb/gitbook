@@ -32,19 +32,26 @@ Lukas and Chris have built a library of short tutorial projects with notes on ea
 
 ![](../../.gitbook/assets/image%20%2839%29.png)
 
-### Favorite free classes
+### Free classes
 
-Here are some excellent videos, notes, and slides for building up your course material.
+Here are some excellent videos, notes, and slides from around the web. These are great additions to any curriculum on machine learning.
 
 1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support
 2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models
 3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu/): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
-
+4. 
 ### Slide decks
 
 1. [Troubleshooting Deep Neural Networks](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): Josh Tobin's excellent slide deck on debugging models
+2. [Sequence to sequence models](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf): Slides from Stanford's computational linguistics class
+3. 
+## Topics
 
+### Seq2Seq
 
+1. [Keras intro to seq2seq](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html): A fast intro from the Keras team
+2. [Original paper](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf): Ilya Sutskever and colleagues from Google
+3. [Berkeley slides](https://courses.d2l.ai/berkeley-stat-157/units/seq2seq.html): Encoder-decoder, seq2seq, and machine translation
 
 ### Natural language examples
 
