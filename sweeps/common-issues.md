@@ -12,6 +12,12 @@ Your **entity** needs to be set to an existing team or username, and your **proj
 
 Another option is to set the environment variables **WANDB\_ENTITY** and **WANDB\_PROJECT**.
 
+### Set a number of runs to try
+
+Random search will run forever until you stop the sweep from the UI, in the sweep controls tab. You can set a target to automatically stop the sweep when it achieves a certain value for a metric, or you can specify the number of runs an agent should try:  `wandb agent --count NUM SWEEPID`
+
+wandb agent --count NUM SWEEPID
+
 ### Run a sweep on Slurm
 
 We recommend running `wandb agent --count 1 SWEEP_ID` which will run a single training job and then exit.
