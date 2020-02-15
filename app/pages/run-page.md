@@ -52,7 +52,8 @@ Use the run page to explore detailed information about a single version of your 
 
 ## Logs Tab 
 
-Output printed on the command line, the stdout and stderr from the machine training the model
+* Output printed on the command line, the stdout and stderr from the machine training the model
+* We show the last 1000 lines. After the run has finished, if you'd like to download the full log file, click the download button in the upper right corner.
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
