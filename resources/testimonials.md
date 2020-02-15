@@ -14,7 +14,7 @@ We’re mocking out sweeps as a placeholder for things like “Figure 3” in a 
 
 Effortless python usage, and excellent visualization of my experiments. Minimal hassle, maximum benefit.
 
-### [Ivan Oršolić](https://www.linkedin.com/in/ivanorsolic), University of Zagreb
+### Ivan Oršolić, [Ori Codes](https://ori.codes/)
 
 Your tool is very easy to set up \(well documented!\) and works great.
 
