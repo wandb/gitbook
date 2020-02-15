@@ -45,7 +45,8 @@ Here are some excellent videos, notes, and slides from around the web. These are
 1. [Troubleshooting Deep Neural Networks](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): Josh Tobin's excellent slide deck on debugging models
 2. [Sequence to sequence models](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf): Slides from Stanford's computational linguistics class
 3. [Transfer and multi-task learning](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_15_multi_task_learning.pdf): Sergey Levine from Berkeley
-4. 
+4. [Transfomer models](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/lectures/lecture12.pdf): Richard Socher from Stanford
+
 ## Topics
 
 ### Seq2Seq
