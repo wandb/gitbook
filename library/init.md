@@ -75,7 +75,7 @@ If you're getting a **LaunchError: Launch exception: Permission denied** error, 
 2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
 3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
 
-### Get run display name
+### Get the readable run name
 
 Get the nice, readable name for your run.
 
