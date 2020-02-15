@@ -17,7 +17,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q/overview)
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../.gitbook/assets/image%20%2812%29.png)
 
 ![](../../.gitbook/assets/image%20%286%29.png)
 
@@ -31,7 +31,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](../../.gitbook/assets/image%20%2822%29.png)
+![](../../.gitbook/assets/image%20%2823%29.png)
 
 ## System Tab
 
@@ -40,7 +40,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
 
-![](../../.gitbook/assets/image%20%2848%29.png)
+![](../../.gitbook/assets/image%20%2849%29.png)
 
 ## Model Tab
 
@@ -48,7 +48,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
-![](../../.gitbook/assets/image%20%2820%29.png)
+![](../../.gitbook/assets/image%20%2821%29.png)
 
 ## Logs Tab 
 
@@ -57,7 +57,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
-![](../../.gitbook/assets/image%20%2838%29.png)
+![](../../.gitbook/assets/image%20%2839%29.png)
 
 ## Files Tab
 
