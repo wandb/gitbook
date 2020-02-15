@@ -18,6 +18,10 @@ Effortless python usage, and excellent visualization of my experiments. Minimal 
 
 Your tool is very easy to set up \(well documented!\) and works great.
 
+### Dongwhan Jang, Seoul National University
+
+Awesome UI for logging. Cross-platform\(library\) support. Excellent customer service. Free for an academic use. Easy for beginners etc..
+
 ### Apoorve, Frost Labs
 
 WANDB has made experimentation just so much more easy! I cannot express how much I love WANDB and how dependent our team has become on this wonderful tool. Love from India!
