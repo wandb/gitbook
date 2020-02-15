@@ -14,7 +14,7 @@ Another option is to set the environment variables **WANDB\_ENTITY** and **WANDB
 
 ### Set a number of runs to try
 
-Random search will run forever until you stop the sweep from the UI, in the sweep controls tab. You can set a target to automatically stop the sweep when it achieves a certain value for a metric, or you can specify the number of runs an agent should try:  `wandb agent --count NUM SWEEPID`
+Random search will run forever until you stop the sweep. You can set a target to automatically stop the sweep when it achieves a certain value for a metric, or you can specify the number of runs an agent should try:  `wandb agent --count NUM SWEEPID`
 
 wandb agent --count NUM SWEEPID
 
