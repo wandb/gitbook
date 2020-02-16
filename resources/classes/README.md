@@ -20,9 +20,17 @@ Ask your students to submit reports so you can explore their results and compare
 
 Create a project in your academic team, and have your students compete to achieve the best accuracy on a shared task. Here's a screenshot of an example competition. Each row is a different experiment, and users are competing for the highest accuracy. [View the project →](https://app.wandb.ai/wandb/feb8-emotion)
 
-![](../../.gitbook/assets/image%20%2836%29.png)
+![](../../.gitbook/assets/image%20%2837%29.png)
 
 ## Resources
+
+### Example scripts
+
+We've built up a set of working examples of deep learning projects in different frameworks.
+
+[View the code →](https://github.com/wandb/examples)
+
+![](../../.gitbook/assets/image%20%2826%29.png)
 
 ### **Tutorials**
 
@@ -30,7 +38,7 @@ Lukas and Chris have built a library of short tutorial projects with notes on ea
 
 [View the tutorials →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2839%29.png)
+![](../../.gitbook/assets/image%20%2840%29.png)
 
 ### Free classes
 

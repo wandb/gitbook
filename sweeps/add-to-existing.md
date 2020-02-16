@@ -59,9 +59,9 @@ Launch a new sweep using existing runs that you've previously logged.
 
 Your sweep will now be set up on our server. All you need to do is launch one or more agent to start running runs.
 
-![](../.gitbook/assets/image%20%2826%29.png)
+![](../.gitbook/assets/image%20%2827%29.png)
 
 Before you launch the run you can still edit the config. Scroll down in the Sweep Overview tab to see the config, and you can click the link to download your configuration file and save it locally in your project directory. Then you need to run the `wandb sweep --update SWEEP_ID sweep.yaml` command to update the sweep config on our server, so when your agents ask for the next set of hyperparameters we're giving them the right ones.
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
