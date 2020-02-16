@@ -98,3 +98,11 @@ os.environ["WANDB_SILENT"] = "true"
 
 Press ctrl+D on your keyboard to stop a script that is instrumented with wandb.
 
+### How do I deal with network issues?
+
+If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), entering retry loop.` you can try a couple of different approaches to solving this issue:
+
+1. Upgrade your SSL certificate. If you're running the script on an Ubuntu server, run `update-ca-certificates`  We can't sync training logs without a valid SSL certificate because it's a security vulnerability.
+2. If your network is flakey, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
+3. Try running [W&B Local](../enterprise/local.md), which operates on your machine and doesn't sync files to our cloud servers.
+
