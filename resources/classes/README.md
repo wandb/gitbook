@@ -24,13 +24,19 @@ Create a project in your academic team, and have your students compete to achiev
 
 ## Resources
 
-### Example scripts
+### Example script repo
 
 We've built up a set of working examples of deep learning projects in different frameworks.
 
-[View the code →](https://github.com/wandb/examples)
+[View the GitHub repo →](https://github.com/wandb/examples)
 
 ![](../../.gitbook/assets/image%20%2826%29.png)
+
+We also created some hosted notebooks with models that your students can start training for free with the click of a button.
+
+* [PyTorch](http://bit.ly/wandb-pytorch-intro) introduction with screenshots
+* [Keras ](http://bit.ly/wandb-keras-colab)MNIST example
+* [TensorFlow 2](http://bit.ly/wandb-tf-colab) convolutional neural network
 
 ### **Tutorials**
 
