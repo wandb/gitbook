@@ -8,6 +8,12 @@ Use our private teams feature to collaborate on private projects. If you'd like 
 
 ## Common Questions
 
+### Get access to private teams
+
+If you're at a company, we have enterprise plans. Check the [pricing page](https://www.wandb.com/pricing) for more details. 
+
+If you're an academic, we offer free private teams. Check the [academic page](https://www.wandb.com/academic) to apply for an account upgrade.
+
 ### Move runs to a team
 
 It's easy to move runs between projects you have access to. On the project page:
