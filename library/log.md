@@ -102,7 +102,7 @@ table.add_data("My phone sucks", "0", "-1")
 wandb.log({"examples": table})
 ```
 
-By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 300.
+By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 1000.
 
 #### Logging HTML
 
