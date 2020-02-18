@@ -17,7 +17,8 @@ Wandb should have negligible effect on your training performance if you use it n
 If you're training on an offline machine and want to upload your results to our servers afterwards, we have a feature for you! 
 
 1. Set the environment variable `WANDB_MODE=dryrun` to save the metrics locally, no internet required.
-2. When you're ready, run `wandb init` on the command line to set the project name. Then run `wandb sync YOUR_RUN_DIRECTORY` to push the metrics to our cloud service and see your results in our hosted web app.
+2. When you're ready, run `wandb init` in your directory to set the project name.
+3. Run `wandb sync YOUR_RUN_DIRECTORY` to push the metrics to our cloud service and see your results in our hosted web app.
 
 ### Does your tool track or store training data?
 
