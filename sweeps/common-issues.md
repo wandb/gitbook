@@ -55,6 +55,7 @@ command:
   - ${program}
   - "-b"
   - your-training-config
+  - ${args}
 ```
 
 
