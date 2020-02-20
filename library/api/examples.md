@@ -168,15 +168,3 @@ sweep = api.sweep("your-entity/your-project/your-sweep-id")
 print(sweep.runs)
 ```
 
-### Get the human readable run name
-
-```python
-import wandb
-api = wandb.Api()
-run = api.run("oreilly-class/cifar/uxte44z7")
-for file in run.files():
-    file.download()
-```
-
-
-
