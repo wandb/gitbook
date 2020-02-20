@@ -40,3 +40,12 @@ Keras `WandbCallback()` class supports a number of options:
 | predictions | 36 | the number of predictions to make if data\_type is specified. Max is 100. |
 | generator | None | if using data augmentation and data\_type you can specify a generator to make predictions with. |
 
+## Common Questions
+
+### **Use Keras multiprocessing with wandb**
+
+If you're setting `use_multiprocessing=True`  and seeing the error `Error('You must call wandb.init() before wandb.config.batch_size')`  then try this:
+
+1. In the Sequence class init, add: `wandb.init(group='...')` 
+2. In your main program, make sure you're using `if __name__ == "__main__":` and then put the rest of your script logic inside that.
+
