@@ -28,7 +28,7 @@ Interested in seeing a live example? Here's a report that compares the model's a
 
 [See the report in W&B →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%285%29.png)
 
 
 

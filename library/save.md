@@ -56,7 +56,7 @@ Here's a public example page. You can see on the files tab, there's the model-be
 
 [See the live example →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image%20%2827%29.png)
 
 ## Common Questions
 

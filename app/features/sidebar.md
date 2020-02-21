@@ -44,7 +44,7 @@ To move runs from one project to another:
 
 Look for a green dot next to the name of runs— this indicates they're active in the table and on the graph legends. 
 
-![](../../.gitbook/assets/image%20%289%29.png)
+![](../../.gitbook/assets/image%20%2810%29.png)
 
 
 

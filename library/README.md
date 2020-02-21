@@ -70,7 +70,7 @@ wandb.init(
 
 Here's what this looks like on the run page and project page:
 
-![Example overview tab on the run page](../.gitbook/assets/image%20%2811%29.png)
+![Example overview tab on the run page](../.gitbook/assets/image%20%2812%29.png)
 
-![Example table on the project page](../.gitbook/assets/image%20%2831%29.png)
+![Example table on the project page](../.gitbook/assets/image%20%2833%29.png)
 

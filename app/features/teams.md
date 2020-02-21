@@ -46,5 +46,5 @@ app.wandb.ai/teams/&lt;your-team-here&gt;
 
 Here's what the settings look like. In this screenshot the toggle is on, which means all projects in the team are only visible to the team.
 
-![](../../.gitbook/assets/image%20%2813%29.png)
+![](../../.gitbook/assets/image%20%2814%29.png)
 

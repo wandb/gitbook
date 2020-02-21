@@ -2,7 +2,7 @@
 
 ### X-Axis
 
-![Selecting X-Axis](../../../.gitbook/assets/image%20%2810%29.png)
+![Selecting X-Axis](../../../.gitbook/assets/image%20%2811%29.png)
 
 You can set the X-Axis of a line plot to any value that you have logged with wandb.log as long as it's always logged as a number. 
 
@@ -46,7 +46,21 @@ Ignore outliers makes the graph set the yaxis min and max to the 5th and 95th pe
 
 Expression lets you plot values derived from metrics like 1-accuracy.  It currently only works if you are plotting a single metric.  You can do simple arithmetic expressions, +, -, \*, / and % as well as \*\* for powers.
 
+### Plot style
 
+Select a style for your line plot.
+
+**Line plot:**
+
+![](../../../.gitbook/assets/image%20%282%29.png)
+
+**Area plot:**
+
+![](../../../.gitbook/assets/image%20%2820%29.png)
+
+**Percentage area plot:**
+
+![](../../../.gitbook/assets/image%20%2835%29.png)
 
 
 
