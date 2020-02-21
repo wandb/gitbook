@@ -12,6 +12,10 @@ Here's an example of a parallel coordinates plot. In this case I've chosen four 
 
 ![](../../.gitbook/assets/docs-parallel-coordinates-plot.gif)
 
+Deselect a selection on the parallel coordinates chart by clicking outside the selected region on an axis. Here's an example:
+
+![](../../.gitbook/assets/2020-02-21-10.25.47.gif)
+
 ## Common Questions
 
 ### **I select dimensions on a parallel coordinates plot and it disappears**
