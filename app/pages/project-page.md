@@ -31,16 +31,19 @@ Project page tabs:
 
 ## Workspace Tab
 
-* **Runs Sidebar**: list of all the runs in your project
-  * **Dot menu**: hover over a row in the sidebar to see the menu appear on the left side. Use this menu to rename a run, delete a run, or stop and active run.
-  * **Visibility icon**: click the eye to turn on and off runs on graphs
-  * **Color**: change the run color to another one of our presets or a custom color
-  * **Search**: search runs by name. This also filters visible runs in the plots.
-  * **Filter**: use the sidebar filter to narrow down the set of runs visible
-  * **Group**: select a config column to dynamically group your runs, for example by architecture. Grouping makes plots show up with a line along the mean value, and a shaded region for the variance of points on the graph.
-  * **Sort**: pick a value to sort your runs by, for example runs with the lowest loss or highest accuracy. Sorting will affect which runs show up on the graphs.
-  * **Expand button**: expand the sidebar into the full table
-  * **Run count**: the number in parentheses at the top is the total number of runs in the project. The number \(N visualized\) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
+**Runs Sidebar**: list of all the runs in your project
+
+* **Dot menu**: hover over a row in the sidebar to see the menu appear on the left side. Use this menu to rename a run, delete a run, or stop and active run.
+* **Visibility icon**: click the eye to turn on and off runs on graphs
+* **Color**: change the run color to another one of our presets or a custom color
+* **Search**: search runs by name. This also filters visible runs in the plots.
+* **Filter**: use the sidebar filter to narrow down the set of runs visible
+* **Group**: select a config column to dynamically group your runs, for example by architecture. Grouping makes plots show up with a line along the mean value, and a shaded region for the variance of points on the graph.
+* **Sort**: pick a value to sort your runs by, for example runs with the lowest loss or highest accuracy. Sorting will affect which runs show up on the graphs.
+* **Expand button**: expand the sidebar into the full table
+* **Run count**: the number in parentheses at the top is the total number of runs in the project. The number \(N visualized\) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
+
+**Panels layout**: use this scratch space to explore results, add and remove charts, and compare versions of your models based on different metrics
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
