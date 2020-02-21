@@ -107,3 +107,13 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 2. If your network is flakey, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
 3. Try running [W&B Local](../enterprise/local.md), which operates on your machine and doesn't sync files to our cloud servers.
 
+### How is W&B different from TensorBoard?
+
+We're TensorBoard 2.0. When the cofounders started working on W&B, they were inspired by frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
+
+1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible. If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
+2. **Fast, flexible integration**: It's easy to add TensorBoard to any project, whether or not you're using TensorFlow. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
+3. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
+4. **Powerful table**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
+5. **Tools for collaboration**: Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+6. 
