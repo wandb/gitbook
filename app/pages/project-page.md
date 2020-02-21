@@ -36,9 +36,13 @@ Project page tabs:
   * **Visibility icon**: click the eye to turn on and off runs on graphs
   * **Color**: change the run color to another one of our presets or a custom color
   * **Search**: search runs by name. This also filters visible runs in the plots.
-  * **Filter**: 
+  * **Filter**: use the sidebar filter to narrow down the set of runs visible
+  * **Group**: select a config column to dynamically group your runs, for example by architecture. Grouping makes plots show up with a line along the mean value, and a shaded region for the variance of points on the graph.
+  * **Sort**: pick a value to sort your runs by, for example runs with the lowest loss or highest accuracy. Sorting will affect which runs show up on the graphs.
+  * **Expand button**: expand the sidebar into the full table
+  * **Run count**: the number in parentheses at the top is the total number of runs in the project. The number \(N visualized\) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
 
-View a live example →
+[View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
 ![](../../.gitbook/assets/image%20%2823%29.png)
 
@@ -47,8 +51,6 @@ View a live example →
 Search for a run by name:
 
 ![](../../.gitbook/assets/2020-02-21-13.51.26.gif)
-
-
 
 
 
@@ -68,7 +70,7 @@ See all the snapshots of results in one place, and share findings with your team
 
 ## Sweeps Tab
 
-
+Start a new sweep from your project.
 
 ## Common Questions
 
