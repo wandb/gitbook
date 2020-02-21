@@ -25,7 +25,7 @@ Project page tabs:
 * **Last active**: see when the most recent data was logged to this project
 * **Total compute**: we add up all the run times in your project to get this total
 
-View a live example →
+[View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
 ![](../../.gitbook/assets/image%20%2820%29.png)
 
@@ -54,13 +54,19 @@ Search for a run by name:
 
 Run different versions of your model and compare metrics. Use a parallel coordinates chart to visualize how changing hyperparameters can affect output metrics.
 
-![](../../.gitbook/assets/image%20%2855%29.png)
+![](../../.gitbook/assets/image%20%2856%29.png)
 
-### Overview Tab
 
-View the metadata of your project, and write a quick description of the goals of the project.
 
-![](../../.gitbook/assets/screen-shot-2019-11-26-at-11.32.26-am.png)
+## Table Tab
+
+Use the table to filter, group, and sort your results.
+
+## Reports Tab
+
+See all the snapshots of results in one place, and share findings with your team.
+
+## Sweeps Tab
 
 
 
@@ -82,5 +88,5 @@ You can delete your project by clicking the three dots on the right of the overv
 
 Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
 
-![](../../.gitbook/assets/screen-shot-2019-11-26-at-11.39.05-am.png)
+![](../../.gitbook/assets/image%20%2854%29.png)
 

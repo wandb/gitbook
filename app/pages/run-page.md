@@ -40,7 +40,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
 
-![](../../.gitbook/assets/image%20%2859%29.png)
+![](../../.gitbook/assets/image%20%2860%29.png)
 
 ## Model Tab
 
