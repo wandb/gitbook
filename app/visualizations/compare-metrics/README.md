@@ -32,5 +32,9 @@ If you'd like to see the absolute time that an experiment has taken, or see what
 
 ![](../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
 
+## Zoom
 
+Click and drag a rectangle to zoom vertically and horizontally at the same time.
+
+![](../../../.gitbook/assets/2020-02-24-08.46.53.gif)
 
