@@ -26,7 +26,7 @@ In a Jupyter Notebook, calling `wandb.init()` will create a new run.
 * **job\_type** — the type of job you are logging, e.g. eval, worker, ps \(_default: training_\)
 * **group** — a string by which to group other runs; see [Grouping](advanced/grouping.md)
 * **reinit** — whether to allow multiple calls to wandb.init in the same process \(_default: False_\)
-* **id** — A unique id for this run primarily used for resuming; see [Resuming](advanced/resuming.md), **must be globally unique within a project**
+* **id** — A unique id for this run primarily used for resuming; see [Resuming](advanced/resuming.md), **must be globally unique within a project.** If you have a descriptive name for your run, we suggest you use the "name" field. The ID needs to not use special characters.
 * **resume** — if set to True, the run auto resumes; can also be a unique string for manual resuming; see [Resuming](advanced/resuming.md) \(_default: False_\)
 * **anonymous** — can be "allow", "never", or "must". This enables or explicitly disables anonymous logging. \(_default: None_\)
 * **force** — whether to force a user to be logged into wandb when running a script \(_default: False_\)
