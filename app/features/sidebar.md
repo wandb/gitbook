@@ -30,6 +30,12 @@ Delete multiple runs at once, or tag a group of runs— bulk selection makes it 
 
 ![](../../.gitbook/assets/howto-bulk-select.gif)
 
+## Select all runs in table
+
+Click the checkbox in the upper left corner of the table, and click "Select all runs" to select every run that matches the current set of filters.
+
+![](../../.gitbook/assets/all-runs-select.gif)
+
 ## Move runs between projects
 
 To move runs from one project to another:
