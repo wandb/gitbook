@@ -18,10 +18,6 @@ Great interface. Does what I want it to do without much effort.
 
 10/10. It's really great software. Helps me a ton with my work. Also, sweeps handle a lot of my work.
 
-### **Rajesh, Nokia**
-
-10/10. It is purely awesome!
-
 ### [Matthew Clapp](https://itsayellow.com/), PhD from Johns Hopkins
 
 Effortless python usage, and excellent visualization of my experiments. Minimal hassle, maximum benefit.
@@ -32,7 +28,11 @@ Your tool is very easy to set up \(well documented!\) and works great.
 
 ### Dongwhan Jang, Seoul National University
 
-Awesome UI for logging. Cross-platform\(library\) support. Excellent customer service. Free for an academic use. Easy for beginners etc..
+Awesome UI for logging. Cross-platform\(library\) support. Excellent customer service. Free for an academic use. Easy for beginners etc.
+
+### **Rajesh, Nokia**
+
+10/10. It is purely awesome!
 
 ### Apoorve, Frost Labs
 
