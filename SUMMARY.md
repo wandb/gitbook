@@ -89,7 +89,7 @@
     * [Run Colors](app/visualizations/run-colors.md)
     * [Run Comparer](app/visualizations/run-comparer.md)
     * [Scatter Plot](app/visualizations/scatter-plot.md)
-* [Enterprise](enterprise/README.md)
+* [On Prem](enterprise/README.md)
   * [Local](enterprise/local.md)
   * [Overview](enterprise/overview.md)
   * [Setup](enterprise/setup.md)
