@@ -28,7 +28,7 @@ In a Jupyter Notebook, calling `wandb.init()` will create a new run.
 * **reinit** — whether to allow multiple calls to wandb.init in the same process \(_default: False_\)
 * **id** — A unique id for this run primarily used for resuming; see [Resuming](advanced/resuming.md), **must be globally unique within a project.** If you have a descriptive name for your run, we suggest you use the "name" field. The ID needs to not use special characters.
 * **resume** — if set to True, the run auto resumes; can also be a unique string for manual resuming; see [Resuming](advanced/resuming.md) \(_default: False_\)
-* **anonymous** — can be "allow", "never", or "must". This enables or explicitly disables anonymous logging. \(_default: None_\)
+* **anonymous** — can be "allow", "never", or "must". This enables or explicitly disables anonymous logging. \(_default: never_\)
 * **force** — whether to force a user to be logged into wandb when running a script \(_default: False_\)
 * **magic** — \(bool, dict, or str, optional\): magic configuration as bool, dict, json string, yaml filename. If set to True will attempt to auto-instrument your script. \(_default: None_\)
 * **sync\_tensorboard** — A boolean indicating whether or not copy all tensorboard logs wandb; see [Tensorboard](integrations/tensorboard.md) \(_default: False_\)
