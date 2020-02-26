@@ -64,7 +64,7 @@
   * [Sweeps Quickstart](sweeps/quickstart.md)
   * [Create Sweep from existing W&B project](sweeps/add-to-existing.md)
   * [Configuration](sweeps/configuration.md)
-  * [Common Questions](sweeps/common-issues.md)
+  * [Common Questions](sweeps/faq.md)
   * [Sweep from Jupyter Notebook](sweeps/python-api.md)
   * [Local Controller](sweeps/local-controller.md)
   * [Ray Tune Sweeps](sweeps/ray-tune.md)
