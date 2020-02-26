@@ -58,9 +58,5 @@ command:
   - ${args}
 ```
 
-### Bayesian optimization details
 
-The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/tree/master/wandb/sweeps). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
-
-We use a [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) which is a generalization of RBF— defined in our open source code [here](https://github.com/wandb/client/blob/541d760c5cb8776b1ad5fcf1362d7382811cbc61/wandb/sweeps/bayes_search.py#L30).
 

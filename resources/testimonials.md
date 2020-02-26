@@ -10,6 +10,10 @@ description: Kind messages from Weights & Biases users
 
 We’re mocking out sweeps as a placeholder for things like “Figure 3” in a potential paper before running it, but with a little cleanup we could turn those sweep visualizations into the Figure 3 in the paper! It’s great to not have to go to a separate notebook for this, and have one place where multiple people can analyze and contribute."
 
+### Mohamed Raga, PhD student at NTU, Singapore 
+
+I am impressed daily by wandb and their amazing visualization tools. Now I present all my works and experiments through wandb— no more slides. I also, send progress report to my supervisor using wandb. The synchronization with TensorBoard helps me to further use embedding projector. So far, I have explored all the wandb tools, but I can't wait to explore more.
+
 ### Henry Howard, [iBRAN](https://www.monash.edu/medicine/ccs/neuroscience/research/law-group), Alfred Hospital
 
 Great interface. Does what I want it to do without much effort.
