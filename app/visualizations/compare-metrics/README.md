@@ -32,6 +32,12 @@ If you'd like to see the absolute time that an experiment has taken, or see what
 
 ![](../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
 
+## Area plots
+
+In the line plot settings, in the advanced tab, click on different plot styles to get an area plot or a percentage area plot.
+
+![](../../../.gitbook/assets/2020-02-27-10.49.10.gif)
+
 ## Zoom
 
 Click and drag a rectangle to zoom vertically and horizontally at the same time.
