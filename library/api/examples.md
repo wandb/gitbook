@@ -6,6 +6,10 @@ description: >-
 
 # API Examples
 
+### Find the run path
+
+To use the public API, you'll often need the **Run Path** which is `"<entity>/<project>/<run_id>"`  In the app, open a run and click on the **Overview** tab to see the run path for any run.
+
 ### Read metrics from a run
 
 This example outputs timestamp and accuracy saved with `wandb.log({"accuracy": acc})` for a run saved to `<entity>/<project>/<run_id>`.
@@ -29,8 +33,8 @@ import wandb
 api = wandb.Api()
 
 # replace with your <entity_name>/<project_name>/<run_id>
-run1 = api.run("stacey/keras_finetune/d9u2iaok")
-run2 = api.run("stacey/keras_finetune/7jdf890a")
+run1 = api.run("<entity>/<project>/<run_id>")
+run2 = api.run("<entity>/<project>/<run_id>")
 
 import pandas as pd
 df = pd.DataFrame([run1.config, run2.config]).transpose()
@@ -71,7 +75,7 @@ import wandb
 api = wandb.Api()
 
 # run is specified by <entity>/<project>/<run id>
-run = api.run("oreilly-class/cifar/uxte44z7")
+run = api.run("<entity>/<project>/<run_id>")
 
 # save the metrics for the run to a csv file
 metrics_dataframe = run.history()
@@ -86,7 +90,7 @@ The default history method samples the metrics to a fixed number of samples \(th
 import wandb
 api = wandb.Api()
 
-run = api.run("l2k2/examples-numpy-boston/i0wt6xua")
+run = api.run("<entity>/<project>/<run_id>")
 history = run.scan_history()
 losses = [row["Loss"] for row in history]
 ```
@@ -100,7 +104,7 @@ import wandb
 api = wandb.Api()
 
 # Change oreilly-class/cifar to <entity/project-name>
-runs = api.runs("oreilly-class/cifar")
+runs = api.runs("<entity>/<project>")
 summary_list = [] 
 config_list = [] 
 name_list = [] 
@@ -130,7 +134,7 @@ This finds the file "model-best.h5" associated with with run ID uxte44z7 in the 
 ```python
 import wandb
 api = wandb.Api()
-run = api.run("oreilly-class/cifar/uxte44z7")
+run = api.run("<entity>/<project>/<run_id>")
 run.file("model-best.h5").download()
 ```
 
@@ -141,7 +145,7 @@ This finds all files associated with run ID uxte44z7 and saves them locally.  \(
 ```python
 import wandb
 api = wandb.Api()
-run = api.run("oreilly-class/cifar/uxte44z7")
+run = api.run("<entity>/<project>/<run_id>")
 for file in run.files():
     file.download()
 ```
@@ -151,7 +155,7 @@ for file in run.files():
 ```python
 import wandb
 api = wandb.Api()
-sweep = api.sweep("your-entity/your-project/your-sweep-id")
+sweep = api.sweep("<entity>/<project>/<sweep_id>")
 runs = sorted(sweep.runs, key=lambda run: run.summary.get("val_acc", 0), reverse=True)
 val_acc = runs[0].summary.get("val_acc", 0)
 print("Best run {runs[0].name} with {val_acc}% validation accuracy")
@@ -164,7 +168,18 @@ print("Best model saved to model-best.h5")
 ```python
 import wandb
 api = wandb.Api()
-sweep = api.sweep("your-entity/your-project/your-sweep-id")
+sweep = api.sweep("<entity>/<project>/<sweep_id>")
 print(sweep.runs)
+```
+
+### Download system metrics data
+
+This gives you a dataframe with all your system metrics for a run.
+
+```python
+import wandb
+api = wandb.Api()
+run = api.run("<entity>/<project>/<run_id>")
+system_metrics = run.history(stream = 'events')
 ```
 
