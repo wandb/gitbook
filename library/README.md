@@ -68,9 +68,3 @@ wandb.init(
 3. **Notes**: A quick commit message to yourself, the note can be set from your script and is editable in the table. We suggest using the notes field instead of overwriting the generated run name.
 4. **Tags**: Identify baseline runs and favorite runs. You can filter runs using tags, and they're editable in the table.
 
-Here's what this looks like on the run page and project page:
-
-![Example overview tab on the run page](../.gitbook/assets/image%20%2812%29.png)
-
-![Example table on the project page](../.gitbook/assets/image%20%2836%29.png)
-
