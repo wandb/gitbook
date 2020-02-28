@@ -107,6 +107,12 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 2. If your network is flakey, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
 3. Try running [W&B Local](../self-hosted/local.md), which operates on your machine and doesn't sync files to our cloud servers.
 
+### Problem with corporate network policy
+
+**SSL CERTIFICATE\_VERIFY\_FAILED:** this error could be due to your company's firewall. You can set up local CAs and then use:
+
+`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
+
 ## How is W&B different from TensorBoard?
 
 We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
