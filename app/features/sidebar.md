@@ -6,13 +6,13 @@ description: How to use the sidebar and table on the project page
 
 On the project page, we show runs in a sidebar. Expand the sidebar to view a table of  hyperparameters and summary metrics across runs.
 
-## Resize the sidebar
+### Resize the sidebar
 
 Would you like to make more space for the graphs on the project page? Click and drag the edge of the column header to resize the sidebar. You'll still be able to click on the eye icon to turn on and off runs on the graphs.
 
 ![](https://downloads.intercomcdn.com/i/o/153755378/d54ae70fb8155657a87545b1/howto+-+resize+column.gif)
 
-## Add sidebar columns
+### Add sidebar columns
 
 On the project page, we show runs in a sidebar. To show more columns:
 
@@ -24,19 +24,19 @@ Here's a screen capture. I expand the table, pin two columns, collapse the table
 
 ![](https://downloads.intercomcdn.com/i/o/152951680/cf8cbc6b35e923be2551ba20/howto+-+pin+rows+in+table.gif)
 
-## Bulk select runs
+### Bulk select runs
 
 Delete multiple runs at once, or tag a group of runs— bulk selection makes it easier to keep the runs table organized.
 
 ![](../../.gitbook/assets/howto-bulk-select.gif)
 
-## Select all runs in table
+### Select all runs in table
 
 Click the checkbox in the upper left corner of the table, and click "Select all runs" to select every run that matches the current set of filters.
 
 ![](../../.gitbook/assets/all-runs-select.gif)
 
-## Move runs between projects
+### Move runs between projects
 
 To move runs from one project to another:
 
@@ -51,6 +51,16 @@ To move runs from one project to another:
 Look for a green dot next to the name of runs— this indicates they're active in the table and on the graph legends. 
 
 ![](../../.gitbook/assets/image%20%2810%29.png)
+
+### Hide uninteresting runs
+
+Do you want to hide crashed runs? Are short runs filling up your table? Do you want to only see your work in a group project? Hide the noise with a filter. Some filters we recommend:
+
+* **Show only my work** filters down to runs under your username
+* **Hide crashed runs** filters out any runs marked crashed from the table
+* **Duration**: add a new filter and select "duration" to hide short runs
+
+![](../../.gitbook/assets/image%20%2812%29.png)
 
 
 
