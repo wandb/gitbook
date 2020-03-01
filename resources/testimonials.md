@@ -18,7 +18,7 @@ I am impressed daily by wandb and the amazing visualization tools. Now I present
 
 Great interface. Does what I want it to do without much effort.
 
-### Michael Oblak, [Sheetsu](https://sheetsu.com/)
+### Michael Oblak, COO at SmartLunch
 
 10/10. It's really great software. Helps me a ton with my work. Also, sweeps handle a lot of my work.
 
