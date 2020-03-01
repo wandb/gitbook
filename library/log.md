@@ -348,3 +348,16 @@ We recommend that you try to log less than 10,000 points per metric. If you have
 
 We store metrics in a case-insensitive fashion, so make sure you don't have two metrics with the same name like "My-Metric" and "my-metric".
 
+### Control image uploading
+
+"I want to integrate W&B in my project, but I don't want to upload any images"
+
+Our integration doesn't automatically upload images— you specify any files you'd like to upload explicitly. Here's a quick example I made for PyTorch where I explicitly log images: [http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)
+
+```python
+wandb.log({
+        "Examples": example_images,
+        "Test Accuracy": 100. * correct / len(test_loader.dataset),
+        "Test Loss": test_loss})
+```
+
