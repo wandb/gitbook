@@ -2,7 +2,7 @@
 
 ### X-Axis
 
-![Selecting X-Axis](../../../.gitbook/assets/image%20%2811%29.png)
+![Selecting X-Axis](../../../.gitbook/assets/image%20%2813%29.png)
 
 You can set the X-Axis of a line plot to any value that you have logged with wandb.log as long as it's always logged as a number. 
 
@@ -52,15 +52,15 @@ Select a style for your line plot.
 
 **Line plot:**
 
-![](../../../.gitbook/assets/image%20%282%29.png)
+![](../../../.gitbook/assets/image%20%283%29.png)
 
 **Area plot:**
 
-![](../../../.gitbook/assets/image%20%2822%29.png)
+![](../../../.gitbook/assets/image%20%2825%29.png)
 
 **Percentage area plot:**
 
-![](../../../.gitbook/assets/image%20%2839%29.png)
+![](../../../.gitbook/assets/image%20%2842%29.png)
 
 
 
