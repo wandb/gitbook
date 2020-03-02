@@ -2,6 +2,8 @@
 
 ### **Sweeps agents stop after the first runs finish**
 
+`wandb: ERROR Error while calling W&B API: anaconda 400 error: {"code":400,"message":"TypeError: bad operand type for unary -: 'NoneType'"}`
+
 One common reason for this is that the metric your are optimizing in your configuration YAML file is not a metric that you are logging. For example, you could be optimizing the metric **f1**, but logging **validation\_f1**. Double check that you're logging the exact metric name that you're optimizing.
 
 ### Entity and project name not set
@@ -62,11 +64,5 @@ command:
 
 The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/tree/master/wandb/sweeps). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
 
-We use a [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) which is a generalization of RBF— defined in our open source code [here](https://github.com/wandb/client/blob/541d760c5cb8776b1ad5fcf1362d7382811cbc61/wandb/sweeps/bayes_search.py#L30).
-
-### Error when starting agent
-
-`wandb: ERROR Error while calling W&B API: anaconda 400 error: {"code":400,"message":"TypeError: bad operand type for unary -: 'NoneType'"}`
-
-This error shows up when you're not logging the metric you are optimizing. For example, you might have `wandb.log({"acc": accuracy})`in your script, but in your sweep config you have **accuracy** instead of **acc**.  
+We use a [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) which is a generalization of RBF— defined in our open source code [here](https://github.com/wandb/client/blob/541d760c5cb8776b1ad5fcf1362d7382811cbc61/wandb/sweeps/bayes_search.py#L30). 
 
