@@ -11,5 +11,3 @@ Try a[ live code example **→**](http://bit.ly/wandb-xgboost)\*\*\*\*
 
 ![](../../.gitbook/assets/image%20%2810%29.png)
 
-Check out our [GitHub repo](https://github.com/wandb/examples) for complete example code.
-
