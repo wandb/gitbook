@@ -4,6 +4,10 @@ description: Kind messages from Weights & Biases users
 
 # Testimonials
 
+### André Aquilina, Computer Vision Engineer at Dysis Medical
+
+Between architecture, hyper parameters and general problem approach, I always found myself going in circles trying to keep track of results, configs and the code version I was using in an experiment. After looking around for a tool/dashboard to help with experiment management I landed on WandB. With one init line I could track many of the metrics I was interested in. Wandb one of the few tools that makes it so easy that it’s a no brainer to try for yourself.
+
 ### **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
 
 "I didn’t think we’d be even considering abandoning TensorBoard at this point. The biggest advantage of wandb viz over TensorBoard for us is the ability to modify viz and sweep reports more easily after the runs have already started. We’ve been using this a lot especially with long runs and sweeps where we realize midway through there’s another way to think about the data/problem. It’s also been super helpful for communicating with an increasing number of remote collaborators and researchers. 
