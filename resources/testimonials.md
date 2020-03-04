@@ -4,7 +4,11 @@ description: Kind messages from Weights & Biases users
 
 # Testimonials
 
-### André Aquilina, Computer Vision Engineer at Dysis Medical
+### Ken Tsui, [Apoidea AI](https://apoidea.ai/)
+
+My team enjoys using this helpful tool. ML is always experimental in nature, in industry and in research and wandb is like a diary to record the whole ML development journey from the baseline to the SOTA. And the best thing is that you can share the journey with others.
+
+### André Aquilina, [Dysis Medical](https://dysismedical.com/)
 
 Between architecture, hyper parameters and general problem approach, I always found myself going in circles trying to keep track of results, configs and the code version I was using in an experiment. After looking around for a tool/dashboard to help with experiment management I landed on WandB. With one init line I could track many of the metrics I was interested in. Wandb one of the few tools that makes it so easy that it’s a no brainer to try for yourself.
 
