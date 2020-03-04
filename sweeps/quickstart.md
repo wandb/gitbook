@@ -120,7 +120,7 @@ Open your project to see your live results in the sweep dashboard.
 
 [Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../.gitbook/assets/image%20%2860%29.png)
+![](../.gitbook/assets/image%20%2861%29.png)
 
 ## 
 
