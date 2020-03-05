@@ -61,7 +61,17 @@ Run different versions of your model and compare metrics. Use a parallel coordin
 
 ![](../../.gitbook/assets/image%20%2862%29.png)
 
+### Add a section of panels
 
+![](../../.gitbook/assets/add-section.gif)
+
+### Move panels between sections
+
+![](../../.gitbook/assets/move-panel.gif)
+
+### Resize panels
+
+![](../../.gitbook/assets/resize-panel.gif)
 
 ## Table Tab
 
