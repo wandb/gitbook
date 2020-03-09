@@ -59,7 +59,15 @@ Search for a run by name in the sidebar. You can use regex to filter down your v
 
 Click the section dropdown menu and click "Add section" to create a new section for panels. You can rename sections, drag them to reorganize them, and expand and collapse sections.
 
-* **Switch to custom layout**: The custom layout allo
+Each section has options in the upper right corner:
+
+* **Switch to custom layout**: The custom layout allows you to resize panels individually.
+* **Switch to standard layout**: The standard layout lets you resize all panels in the section at once, and gives you pagination.
+* **Add section**: Add a section above or below from the dropdown menu, or click the button at the bottom of the page to add a new section.
+* **Rename section**: Change the title for your section.
+* **Export section to report**: Save this section of panels to a new report.
+* **Delete section**: Remove the whole section and all the charts. This can be undone with the undo button at the bottom of the page in the workspace bar.
+* **Add panel**: Click the plus button to add a panel to the section. 
 
 ![](../../.gitbook/assets/add-section.gif)
 
