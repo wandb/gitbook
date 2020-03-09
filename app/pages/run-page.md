@@ -40,7 +40,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
 
-![](../../.gitbook/assets/image%20%2868%29.png)
+![](../../.gitbook/assets/image%20%2872%29.png)
 
 ## Model Tab
 
@@ -57,7 +57,7 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
-![](../../.gitbook/assets/image%20%2856%29.png)
+![](../../.gitbook/assets/image%20%2860%29.png)
 
 ## Files Tab
 
