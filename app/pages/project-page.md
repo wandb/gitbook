@@ -49,17 +49,11 @@ Project page tabs:
 
 ![](../../.gitbook/assets/image%20%2827%29.png)
 
-### Workspace interactions
+### Search for runs
 
-Search for a run by name:
+Search for a run by name in the sidebar. You can use regex to filter down your visible runs. The search box affects which runs are shown on the graph. Here's an example:
 
 ![](../../.gitbook/assets/2020-02-21-13.51.26.gif)
-
-
-
-Run different versions of your model and compare metrics. Use a parallel coordinates chart to visualize how changing hyperparameters can affect output metrics.
-
-![](../../.gitbook/assets/image%20%2862%29.png)
 
 ### Add a section of panels
 
