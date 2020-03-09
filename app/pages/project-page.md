@@ -57,6 +57,10 @@ Search for a run by name in the sidebar. You can use regex to filter down your v
 
 ### Add a section of panels
 
+Click the section dropdown menu and click "Add section" to create a new section for panels. You can rename sections, drag them to reorganize them, and expand and collapse sections.
+
+* **Switch to custom layout**: The custom layout allo
+
 ![](../../.gitbook/assets/add-section.gif)
 
 ### Move panels between sections
@@ -64,6 +68,9 @@ Search for a run by name in the sidebar. You can use regex to filter down your v
 ![](../../.gitbook/assets/move-panel.gif)
 
 ### Resize panels
+
+* **Standard layout**: All panels maintain the same size, and there are pages of panels. You can resize the panels by clicking and dragging the lower right corner. Resize the section by clicking and dragging the lower right corner of the section. 
+* **Custom layout**: All panels are sized individually, and there are no pages. 
 
 ![](../../.gitbook/assets/resize-panel.gif)
 
