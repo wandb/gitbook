@@ -27,7 +27,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](../../.gitbook/assets/image%20%2824%29.png)
+![](../../.gitbook/assets/image%20%2825%29.png)
 
 ## Workspace Tab
 
@@ -47,7 +47,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](../../.gitbook/assets/image%20%2827%29.png)
+![](../../.gitbook/assets/image%20%2828%29.png)
 
 ### Search for runs
 
@@ -73,6 +73,8 @@ Each section has options in the upper right corner:
 
 ### Move panels between sections
 
+Drag and drop panels to reorder and organize into sections. You can also click the "Move" button in the upper right corner of a panel to select a section to move the panel to.
+
 ![](../../.gitbook/assets/move-panel.gif)
 
 ### Resize panels
@@ -86,13 +88,21 @@ Each section has options in the upper right corner:
 
 Use the table to filter, group, and sort your results.
 
+[View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
+
+![](../../.gitbook/assets/image%20%2866%29.png)
+
 ## Reports Tab
 
 See all the snapshots of results in one place, and share findings with your team.
 
+![](../../.gitbook/assets/reports-tab.png)
+
 ## Sweeps Tab
 
 Start a new sweep from your project.
+
+![](../../.gitbook/assets/sweeps-tab.png)
 
 ## Common Questions
 
@@ -112,11 +122,11 @@ You can delete your project by clicking the three dots on the right of the overv
 
 Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
 
-![](../../.gitbook/assets/image%20%2860%29.png)
+![](../../.gitbook/assets/image%20%2861%29.png)
 
 ### Delete an empty project
 
 Delete a project with no runs by clicking the dropdown menu and selecting "Delete project".
 
-![](../../.gitbook/assets/image%20%2850%29.png)
+![](../../.gitbook/assets/image%20%2851%29.png)
 
