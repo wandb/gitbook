@@ -4,6 +4,14 @@ description: Kind messages from Weights & Biases users
 
 # Testimonials
 
+### Jeffrey Wardman, Applied AI Scientist at [Harrison.ai](https://www.harrison.ai/)
+
+WandB is absolute heaven.
+
+With next to no modification of my code, I'm able to visualize metrics in real time when training my models on multiple systems and can look at their performance relative to each other, and previous runs, anytime on any device. Sweeps also allows me to train my models with different parameter settings on multiple systems in unison via a Bayesian approach to optimally test a range of input arguments and find the best solution.
+
+I can't imagine going back to how I did things before.
+
 ### Ken Tsui, [Apoidea AI](https://apoidea.ai/)
 
 My team enjoys using this helpful tool. ML is always experimental in nature, in industry and in research and wandb is like a diary to record the whole ML development journey from the baseline to the SOTA. And the best thing is that you can share the journey with others.
