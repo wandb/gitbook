@@ -49,7 +49,7 @@ wandb.log(metrics)
 
 ## 2. Sweep Config
 
-Specify your training script, parameter ranges, search strategy, and stopping criteria in a YAML file. W&B will pass these parameters and their values as command line arguments to your training script. Make sure your script can parse these arguments correctly—directly from the command line for use in your script.
+Set up a **YAML file** to specify your training script, parameter ranges, search strategy, and stopping criteria. W&B will pass these parameters and their values as command line arguments to your training script, and we'll automatically parse them with the config object you set up in [Step 1](quickstart.md#set-up-your-python-training-script).
 
 Here are some config resources:
 
@@ -81,7 +81,7 @@ If you specify a metric to optimize, make sure you're logging it. In this exampl
 `wandb.log({"val_loss": validation_loss})`
 {% endhint %}
 
-This example configuration will use the Bayes optimization method to choose sets of hyperparameter values with which to call your program. It will launch experiments with the following syntax:
+Under the hood, this example configuration will use the Bayes optimization method to choose sets of hyperparameter values with which to call your program. It will launch experiments with the following syntax:
 
 ```text
 python train.py --learning_rate=0.005 --optimizer=adam
@@ -89,7 +89,7 @@ python train.py --learning_rate=0.03 --optimizer=sgd
 ```
 
 {% hint style="info" %}
-If you're using argparse, we recommend that you use underscores in your variable names instead of hyphens.
+If you're using argparse in your script, we recommend that you use underscores in your variable names instead of hyphens.
 {% endhint %}
 
 ## 3. Initialize a sweep
