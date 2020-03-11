@@ -14,6 +14,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Yolo-2 Bounding Box | [W&B Dashboard](https://app.wandb.ai/l2k2/darknet) | [Github Repo](https://github.com/lukas/pytorch-yolo2) |
 | Reinforcement Learning | [W&B Dashboard](https://app.wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://app.wandb.ai/wandb/catz/runs/qfsbxd3r) |
 | char-RNN to forecast text | [W&B Dashboard](https://app.wandb.ai/borisd13/char-RNN) | [Github Repo](https://github.com/borisdayma/char-RNN) |
+| Exploring Resnet | [Article](https://www.wandb.com/articles/exploring-resnets-with-w-b) | [Colab Notebook](http://bit.ly/wandb-resnet-colab) |
 
 ### Keras
 

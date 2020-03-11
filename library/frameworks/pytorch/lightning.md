@@ -46,7 +46,7 @@ log_metrics(metrics, step=None)
 
 Record metrics.
 
-Parameters:	
+Parameters:
 
 * **metric** \(float\) – Dictionary with metric names as keys and measured quantities as values
 * **step** \(int\|None\) – Step number at which the metrics should be recorded
@@ -60,3 +60,4 @@ Save log data.
 ```python
 watch(model, log='gradients', log_freq=100)
 ```
+

@@ -15,11 +15,9 @@ Use the run page to explore detailed information about a single version of your 
 * List of config parameters saved with [wandb.config](../../library/config.md)
 * List of summary parameters saved with [wandb.log\(\)](../../library/log.md), by default set to the last value logged
 
-[View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q/overview)
+[View a live example →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
 
-![](../../.gitbook/assets/image%20%2816%29.png)
-
-![](../../.gitbook/assets/image%20%288%29.png)
+![](../../.gitbook/assets/run-page-overview-tab.png)
 
 ## Graphs Tab
 
