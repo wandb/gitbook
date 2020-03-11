@@ -7,7 +7,7 @@ description: Visualize PyTorch Lightning models with W&B
 PyTorch Lightning provides a very simple template for organizing your PyTorch code, and we have a nice integration to visualize your results.
 
 ```python
-from pytorch_lightning.logging.wandb import WandbLogger
+from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning import Trainer
 
 wandb_logger = WandbLogger()
@@ -19,7 +19,7 @@ trainer = Trainer(logger=wandb_logger)
 * **name** \([_str_](https://docs.python.org/3/library/stdtypes.html#str)\) – display name for the run.
 * **save\_dir** \([_str_](https://docs.python.org/3/library/stdtypes.html#str)\) – path where data is saved.
 * **offline** \([_bool_](https://docs.python.org/3/library/functions.html#bool)\) – run offline \(data can be streamed later to wandb servers\).
-* **or version** \(_id_\) – sets the version, mainly used to resume a previous run.
+* **version** \(_id_\) – sets the version, mainly used to resume a previous run.
 * **anonymous** \([_bool_](https://docs.python.org/3/library/functions.html#bool)\) – enables or explicitly disables anonymous logging.
 * **project** \([_str_](https://docs.python.org/3/library/stdtypes.html#str)\) – the name of the project to which this run will belong.
 * **tags** \(_list of str_\) – tags associated with this run.
@@ -60,30 +60,3 @@ Save log data.
 ```python
 watch(model, log='gradients', log_freq=100)
 ```
-
-```python
-_abc_impl = <_ABC_DATA OBJECT>
-```
-
-```text
-experiment
-```
-
-Actual wandb object. To use wandb features do the following.
-
-Example: `self.logger.experiment.some_wandb_function()`
-
-```text
-name
-```
-
-Return the experiment name.
-
-```text
-version
-```
-
-Return the experiment version.
-
-
-
