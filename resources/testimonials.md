@@ -14,7 +14,9 @@ I can't imagine going back to how I did things before.
 
 ### Daniel Bourke, ML engineer and [Youtube star](https://youtu.be/83s-OEFMgVY)
 
-[Watch his video tutorial here →](https://www.youtube.com/watch?v=83s-OEFMgVY)
+Since machine learning is a very experimental process, meaning you try something, see if it works and if not you try something else. I plan on building a number of different models to see which one works best. To track the results of each different model, I set up Weights & Biases, a tool for tracking deep learning experiments.
+
+[Watch the video here →](https://www.youtube.com/watch?v=83s-OEFMgVY)
 
 ![Every model I build has to answer 1 simple question \| Airbnb Machine Learning Project Part 5](../.gitbook/assets/fan-video.png)
 
