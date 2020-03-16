@@ -12,6 +12,12 @@ With next to no modification of my code, I'm able to visualize metrics in real t
 
 I can't imagine going back to how I did things before.
 
+### Daniel Bourke, ML engineer and [Youtube star](https://youtu.be/83s-OEFMgVY)
+
+[Watch his video tutorial here →](https://www.youtube.com/watch?v=83s-OEFMgVY)
+
+![Every model I build has to answer 1 simple question \| Airbnb Machine Learning Project Part 5](../.gitbook/assets/fan-video.png)
+
 ### Ken Tsui, [Apoidea AI](https://apoidea.ai/)
 
 My team enjoys using this helpful tool. ML is always experimental in nature, in industry and in research and wandb is like a diary to record the whole ML development journey from the baseline to the SOTA. And the best thing is that you can share the journey with others.
