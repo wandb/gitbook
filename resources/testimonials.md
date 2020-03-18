@@ -12,6 +12,10 @@ With next to no modification of my code, I'm able to visualize metrics in real t
 
 I can't imagine going back to how I did things before.
 
+### **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
+
+Wandb has become the critical tool for us in bringing together the work of remote researchers across several continents. On a recent paper, we started using a wandb report as the central hub for collaboration, where everyone could see the most recent experimental results and essentially the latest draft of the paper. The flexibility and clarity of wand reports have enabled us to collaborate in ways that used to only be possible in person.
+
 ### Daniel Bourke, ML engineer and [Youtube star](https://youtu.be/83s-OEFMgVY)
 
 Since machine learning is a very experimental process, meaning you try something, see if it works and if not you try something else. I plan on building a number of different models to see which one works best. To track the results of each different model, I set up Weights & Biases, a tool for tracking deep learning experiments.
@@ -27,12 +31,6 @@ My team enjoys using this helpful tool. ML is always experimental in nature, in 
 ### André Aquilina, [Dysis Medical](https://dysismedical.com/)
 
 Between architecture, hyper parameters and general problem approach, I always found myself going in circles trying to keep track of results, configs and the code version I was using in an experiment. After looking around for a tool/dashboard to help with experiment management I landed on WandB. With one init line I could track many of the metrics I was interested in. Wandb one of the few tools that makes it so easy that it’s a no brainer to try for yourself.
-
-### **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
-
-"I didn’t think we’d be even considering abandoning TensorBoard at this point. The biggest advantage of wandb viz over TensorBoard for us is the ability to modify viz and sweep reports more easily after the runs have already started. We’ve been using this a lot especially with long runs and sweeps where we realize midway through there’s another way to think about the data/problem. It’s also been super helpful for communicating with an increasing number of remote collaborators and researchers. 
-
-We’re mocking out sweeps as a placeholder for things like “Figure 3” in a potential paper before running it, but with a little cleanup we could turn those sweep visualizations into the Figure 3 in the paper! It’s great to not have to go to a separate notebook for this, and have one place where multiple people can analyze and contribute."
 
 ### Mohamed Raga, PhD student at NTU, Singapore 
 
