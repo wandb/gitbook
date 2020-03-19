@@ -1,6 +1,6 @@
 # Sweeps Examples
 
-See [example code](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion) for a working sweep.
+Here's [example code](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
 
-![](../.gitbook/assets/image%20%2854%29.png)
+![](../.gitbook/assets/demo-sweep-dash.png)
 
