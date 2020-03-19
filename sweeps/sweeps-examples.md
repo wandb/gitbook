@@ -1,4 +1,4 @@
-# Sweeps Examples
+# Example Sweep
 
 Here's [example code](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
 

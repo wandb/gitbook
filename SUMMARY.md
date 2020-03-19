@@ -63,7 +63,7 @@
     * [Data Types](library/reference/data_types.md)
 * [Sweeps](sweeps/README.md)
   * [Sweeps Quickstart](sweeps/quickstart.md)
-  * [Sweeps Examples](sweeps/sweeps-examples.md)
+  * [Example Sweep](sweeps/sweeps-examples.md)
   * [Create Sweep from existing W&B project](sweeps/add-to-existing.md)
   * [Configuration](sweeps/configuration.md)
   * [Common Questions](sweeps/faq.md)
