@@ -4,7 +4,7 @@ description: Visualize PyTorch Lightning models with W&B
 
 # Lightning
 
-PyTorch Lightning provides a very simple template for organizing your PyTorch code, and we have a nice integration to visualize your results.
+PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily add advanced features such as distributed training and 16-bit precising. We have a nice integration to visualize your results.
 
 ```python
 from pytorch_lightning.loggers import WandbLogger
@@ -24,40 +24,45 @@ trainer = Trainer(logger=wandb_logger)
 * **project** \([_str_](https://docs.python.org/3/library/stdtypes.html#str)\) – the name of the project to which this run will belong.
 * **tags** \(_list of str_\) – tags associated with this run.
 
-```python
-finalize(status='success')
-```
 
-Do any processing that is necessary to finalize an experiment.
+**Log model topology and gradients**
 
-Parameters: **status** – Status that the experiment finished with \(e.g. success, failed, aborted\)
+Log model topology as well as optionally gradients and weights.
 
 ```python
-log_hyperparams(params)
+wandb_logger.watch(model, log='gradients', log_freq=100)
 ```
+
+Parameters:
+
+* **model** \(nn.Module\) – Model to be logged
+* **log** \(str\) – Can be "gradients" (default), "parameters", "all" or None.
+* **log_freq** \(int\) – Step number at which the metrics should be recorded
+
+
+**Hyperparameters**
 
 Record hyperparameters.
 
-Parameters: **params** – argparse.Namespace containing the hyperparameters
+*Note: this function is called automatically*
 
 ```python
-log_metrics(metrics, step=None)
+wandb_logger.log_hyperparams(params)
 ```
+Parameters: **params** – argparse.Namespace containing the hyperparameters (should be a dict).
+
+
+**Metrics**
 
 Record metrics.
+
+*Note: this function is called automatically*
+
+```python
+wandb_logger.log_metrics(metrics, step=None)
+```
 
 Parameters:
 
 * **metric** \(float\) – Dictionary with metric names as keys and measured quantities as values
 * **step** \(int\|None\) – Step number at which the metrics should be recorded
-
-```python
-save()
-```
-
-Save log data.
-
-```python
-watch(model, log='gradients', log_freq=100)
-```
-
