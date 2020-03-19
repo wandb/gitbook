@@ -37,3 +37,7 @@ Automate hyperparameter optimization and exploration with Sweeps.
 
 {% page-ref page="python-api.md" %}
 
+{% page-ref page="sweeps-examples.md" %}
+
+
+
