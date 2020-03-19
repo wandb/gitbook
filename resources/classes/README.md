@@ -44,7 +44,7 @@ Lukas and Chris have built a library of short tutorial projects with notes on ea
 
 [View the tutorials →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2857%29.png)
+![](../../.gitbook/assets/image%20%2858%29.png)
 
 ### Free classes
 

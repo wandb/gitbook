@@ -6,7 +6,7 @@ description: app.wandb.ai interface
 
 Visualize system metrics across all the machines training a model.
 
-![](../.gitbook/assets/image%20%2861%29.png)
+![](../.gitbook/assets/image%20%2862%29.png)
 
 ## Common Questions
 

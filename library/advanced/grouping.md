@@ -13,7 +13,7 @@ If you'd like to specify grouping before you launch experiments, you have a coup
 
 This is how grouping appears in the table:
 
-![](../../.gitbook/assets/image%20%2856%29.png)
+![](../../.gitbook/assets/image%20%2857%29.png)
 
 Expand a grouped row in the dropdown menu to see the runs in that group.
 
