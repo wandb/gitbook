@@ -30,7 +30,9 @@ It's easy to move runs between projects you have access to. On the project page:
 
 1. Click the table tab to expand the runs table
 2. Click the checkbox to select all runs
-3. Click "Move" to select the destination project. This can be in your personal account or any team that you're a member of.
+3. Click **Move**: the destination project can be in your personal account or any team that you're a member of.
+
+![](../../.gitbook/assets/demo-move-runs.gif)
 
 ### Send new runs to a team
 
@@ -50,7 +52,7 @@ app.wandb.ai/teams/&lt;your-team-here&gt;
 You can see the privacy settings of all team projects on the team settings page:  
 app.wandb.ai/teams/&lt;your-team-here&gt;
 
-Here's what the settings look like. In this screenshot the toggle is on, which means all projects in the team are only visible to the team.
+Here's what the team settings page looks like. In this screenshot the privacy toggle is on, which means all projects in the team are only visible to the team.
 
-![](../../.gitbook/assets/image%20%2818%29.png)
+![](../../.gitbook/assets/demo-team-settings.png)
 
