@@ -1,18 +1,24 @@
 ---
-description: Collaborate with your colleagues using our private teams
+description: >-
+  Collaborate with your colleagues, share results, and track all the experiments
+  across your team
 ---
 
 # Teams
 
-Use our private teams feature to collaborate on private projects. If you'd like to set up a private team, please message us at contact@wandb.com. 
+Use Weights & Biases as a central repository for your machine learning team.
+
+* **Track all the experiments** your team has tried so you never duplicate work. Just a few lines of instrumentation give you fast, reliable tracking of model performance metrics, predictions, GPU usage, and the version of the code that trained the model.
+* **Save, restore and reproduce** previously trained models.
+* **Share progress** and results with your boss and collaborators.
+* **Catch regressions** and immediately get alerted when performance drops.
+* **Benchmark model performance** and customize queries to compare your model versions.
 
 ## Common Questions
 
 ### Get access to private teams
 
-If you're at a company, we have enterprise plans. Check the [pricing page](https://www.wandb.com/pricing) for more details. 
-
-If you're an academic, we offer free private teams. Check the [academic page](https://www.wandb.com/academic) to apply for an account upgrade.
+If you're at a company, we have enterprise plans. Check the [pricing page](https://www.wandb.com/pricing) for more details. We offer free private teams for academics working on open source projects. Check the [academic page](https://www.wandb.com/academic) to apply for an upgrade.
 
 ### Create a new team
 
