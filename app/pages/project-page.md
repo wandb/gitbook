@@ -90,7 +90,7 @@ Use the table to filter, group, and sort your results.
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
 
-![](../../.gitbook/assets/image%20%2871%29.png)
+![](../../.gitbook/assets/image%20%2872%29.png)
 
 ## Reports Tab
 

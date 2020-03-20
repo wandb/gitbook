@@ -4,7 +4,7 @@
 
 Wandb is an experiment tracking tool for machine learning. We make it easy for anyone doing machine learning to keep track of experiments and share results with colleagues and their future self.
 
-Here's a 1 minute overview video.
+Here's a 1 minute overview video. [View an example project →](https://app.wandb.ai/stacey/estuary)
 
 {% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" %}
 
@@ -36,7 +36,7 @@ You can create projects to keep all of your runs in a single place. You can visu
 
 A good example project is Stacey's [estuary project](https://app.wandb.ai/stacey/estuary). In the sidebar you can turn on and off runs to show on the graphs, or click one run to dive deeper. All your runs get saved and organized in a unified workspace for you.
 
-![](../.gitbook/assets/image%20%2831%29.png)
+![](../.gitbook/assets/image%20%2870%29.png)
 
 ### 3. Share your results
 
