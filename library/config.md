@@ -99,5 +99,17 @@ You can add a unique identifier \(like a hash or other identifier\) in your run'
 wandb.config.update({'dataset':'ab131'}) 
 ```
 
+### Update Config Files
+
+You can use the public API to update your config file 
+
+```yaml
+import wandb
+api = wandb.Api()
+run = api.run("username/project/run_id")
+run.config["foo"] = 32
+run.update()
+```
+
 
 
