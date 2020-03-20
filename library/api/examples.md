@@ -183,3 +183,13 @@ run = api.run("<entity>/<project>/<run_id>")
 system_metrics = run.history(stream = 'events')
 ```
 
+### Update Summary Metrics
+
+You can pass your dictionary to update summary metrics
+
+```python
+summary.update({“key”: val})
+```
+
+
+
