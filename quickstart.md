@@ -101,5 +101,5 @@ Now you've got the instrumentation working, here's a quick overview of cool feat
 
 [Contact us with questions →](resources/getting-help.md)
 
-![](.gitbook/assets/image%20%2869%29.png)
+![](.gitbook/assets/demo-report-page.png)
 
