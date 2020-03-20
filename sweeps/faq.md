@@ -60,6 +60,12 @@ command:
   - ${args}
 ```
 
+The ${args} key expands to all the parameters in the sweep configuration file, expanded so they can be parsed by argparse: --param1 value1 --param2 value2
+
+If you have extra args that you dont want to specify with argparse you can use:  
+parser = argparse.ArgumentParser\(\)  
+args, unknown = parser.parse\_known\_args\(\)
+
 ### Bayesian optimization details
 
 The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/tree/master/wandb/sweeps). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
