@@ -13,3 +13,9 @@ Here’s an example of validation accuracy of different models over a couple of 
 
 ![](https://paper-attachments.dropbox.com/s_9D642C56E99751C2C061E55EAAB63359266180D2F6A31D97691B25896D2271FC_1579031258748_image.png)
 
+## Common Questions
+
+### Is it possible to plot the max of a metric rather than plot step by step?
+
+The best way to do this is to create a Scatter Plot of the metric, go into the Edit menu, and select Annotations. From there you can plot the running max of the values
+
