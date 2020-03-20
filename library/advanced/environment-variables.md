@@ -54,3 +54,9 @@ Use these optional environment variables to do things like set up authentication
 
 If you're running batch jobs in AWS, it's easy to authenticate your machines with your W&B credentials. Get your API key from your [settings page](https://app.wandb.ai/settings), and set the WANDB\_API\_KEY environment variable in the [AWS batch job spec](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters).
 
+## Common Questions
+
+### Do environment variables overwrite the parameters passed to `wandb.init()`
+
+Arguments passed to `wandb.init`  take precedence over the environment.  You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
+
