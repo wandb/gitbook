@@ -1,31 +1,33 @@
+---
+description: Group training and evaluation runs into larger experiments
+---
+
 # Grouping
 
-W&B provides the ability to group runs up to two levels. This is useful for distributed training or combining multiple process types. 
+If your experiments are made up of smaller pieces like training and evaluation steps, you can group runs together in the UI. Our grouping feature is useful for distributed training or combining multiple process types into one experiment.
 
-After you've run a run, our web interface lets you select any **config** variable and group runs that share the same value in that column. 
+There are a few ways to set up grouping:
 
-If you'd like to specify grouping before you launch experiments, you have a couple options.
+1. **In your script**: You can optionally give your runs a group ID and a job type when you call wandb.init\(\). For example:`wandb.init(group="experiment_1" job_type="eval")`
+2. \*\*\*\*[**Environment Variable**](environment-variables.md): Set`WANDB_RUN_GROUP`
+3. **In the UI**: You can dynamically group by any config column. For example, if you use `wandb.config` to log batch size or learning rate, you can then group by those hyperparameters dynamically in the web app. 
 
-1. [Environment Variable](environment-variables.md): Use the`WANDB_RUN_GROUP` environment variable
-2. Pass arguments to [wandb.init](../init.md):
-   * For a single level of grouping, set the **group** argument
-   * For a second level of grouping, set the **job\_type** argument
+If you set grouping in your script, we will group the runs by default in the table in the UI. You can toggle this on and off by clicking the **Group** button at the top of the table. Here's an example of grouping on the project page.
 
-This is how grouping appears in the table:
+* **Sidebar**: Runs are grouped by the number of epochs.
+* **Graphs**: Each line represents the mean of the group, and the shading indicates the variance.
 
-![](../../.gitbook/assets/image%20%2857%29.png)
+![](../../.gitbook/assets/demo-grouping.png)
 
-Expand a grouped row in the dropdown menu to see the runs in that group.
+### Turn off grouping
 
-![](../../.gitbook/assets/image%20%2834%29.png)
+I can click the grouping button and clear group fields at any time, which returns the table and graphs to their ungrouped state.
 
-Here's the project page with the sidebar collapsed. Runs appear as grouped lines on the graphs, defaulting to showing a line for the group mean and a shaded region for the variance.
+![](../../.gitbook/assets/demo-no-grouping.png)
 
-![](../../.gitbook/assets/image%20%2840%29.png)
+### Grouping graph settings
 
-Click the edit button in the upper right corner of the graph and select the **Advanced** tab to change the line and shading. You can select the mean, minimum, or maximum value to for the line in each group. For the shading, you can turn off shading, show the min and max, the standard deviation, and the standard error.
+Click the edit button in the upper right corner of a graph and select the **Advanced** tab to change the line and shading. You can select the mean, minimum, or maximum value to for the line in each group. For the shading, you can turn off shading, show the min and max, the standard deviation, and the standard error.
 
-![](../../.gitbook/assets/image%20%2835%29.png)
-
-
+![](../../.gitbook/assets/demo-grouping-settings.png)
 
