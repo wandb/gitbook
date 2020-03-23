@@ -41,5 +41,7 @@ To log images and view them in the Media panel, you can use the following syntax
 wandb.log({"examples" : [wandb.Image(i) for i in images]})
 ```
 
+## Multiple Models
 
+If you need to track multiple models in the same script, you can wall wandb.watch\(\) on each model separately.
 
