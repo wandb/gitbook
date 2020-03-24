@@ -16,6 +16,9 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Reinforcement Learning | [W&B Dashboard](https://app.wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://github.com/kairproject/kair_algorithms_draft) |
 | char-RNN to forecast text | [W&B Dashboard](https://app.wandb.ai/borisd13/char-RNN) | [Github Repo](https://github.com/borisdayma/char-RNN) |
 | Exploring Resnet | [Article](https://www.wandb.com/articles/exploring-resnets-with-w-b) | [Colab Notebook](http://bit.ly/wandb-resnet-colab) |
+| Use Pytorch Lightning with Weights & Biases | [W&B Dashboard](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) | [Colab Notebook](https://colab.research.google.com/drive/1GHWwfzAsWx_Q1paw73hngAvA7-U9QHi-) |
+| Exploring ResNets With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/resnet/reports/Exploring-ResNets-With-W%26B--Vmlldzo2NDc4NA) | [Colab Notebook](https://colab.research.google.com/drive/1s62r_nK4RNd3PIyrAd2H72gvrMElX3hN) |
+| Exploring Neural Style Transfer Paper With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/neural-style/reports/Exploring-Neural-Style-Transfer-Paper-With-W%26B--VmlldzozNTU1Mw) | [Github Repo](https://github.com/AyushExel/Neural-Style-Transfer) |
 
 ### Keras
 
@@ -28,6 +31,11 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Mask RCNN semantic segmentation | [W&B Dashboard](https://app.wandb.ai/trentwatson1/mask-rcnn/reports?view=%2FNew%20Report...) | [Github Repo](https://github.com/connorhough/mask_rcnn) |
 | Fine-tuning CNN on iNaturalist data | [W&B Dashboard](https://app.wandb.ai/stacey/keras_finetune?workspace=user-l2k2) | [Github Repo](https://github.com/wandb/examples/tree/master/keras-cnn-nature) |
 | Semantic segmentation with U-Net | [W&B Dashboard](https://app.wandb.ai/gabesmed/witness) | [Github Repo](https://github.com/wandb/witness) |
+| Effects of Weight Initialization on Neural Networks | [W&B Dashboard](https://app.wandb.ai/sayakpaul/weight-initialization-tb/reports/Effects-of-Weight-Initialization-on-Neural-Networks--Vmlldzo2ODY0NA) | [Colab Notebook](https://colab.research.google.com/drive/1Faqy6QaOkG-5G31MrYmvcmm079XbfKSv) |
+| Can Neural Image Generators Be Detected? | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/cnndetection/reports/Can-Neural-Image-Generators-Be-Detected%3F--Vmlldzo2MTU1Mw) |  |
+| Visualize Model Predictions | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/visualizing-model-performance-with-w-b) |
+| Track Model Performance | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-models/reports/Track-Model-Performance--Vmlldzo1NTk2MA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/better-models-faster-with-weights-biases) |
+| Visualize models in TensorBoard with Weights and Biases | [W&B Dashboard](https://app.wandb.ai/sayakpaul/tensorboard-integration-partII/reports/Visualize-models-in-TensorBoard-with-Weights-and-Biases--Vmlldzo2MzE2Mg) | [Colab Notebook](https://colab.research.google.com/gist/sayakpaul/5b31ed03725cc6ae2af41848d4acee45/demo_tensorboard.ipynb) |
 
 ### TensorFlow
 
@@ -56,6 +64,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
+| Visualize Scikit Models | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-sklearn/reports/Visualize-Scikit-Models--Vmlldzo0ODIzNg) | [Colab Notebook](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7) |
 | Using W&B with XGBoost |  | [Github Repo](https://github.com/wandb/examples/tree/master/xgboost-dermatology) |
 | Using W&B with an SVM |  | [Github Repo](https://github.com/wandb/examples/tree/master/scikit-iris) |
 
