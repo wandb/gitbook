@@ -13,7 +13,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | PyTorch MNIST Colab | [W&B Dashboard](https://app.wandb.ai/wandb/pytorch-mnist) | [Colab Notebook](http://bit.ly/pytorch-mnist-colab) |
 | Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/clarence-n-huang/color-best-looking/reports?view=carey%2FColorizing%20Images) | [Github Repo](https://github.com/clarencenhuang/dl-colorize) |
 | Yolo-2 Bounding Box | [W&B Dashboard](https://app.wandb.ai/l2k2/darknet) | [Github Repo](https://github.com/lukas/pytorch-yolo2) |
-| Reinforcement Learning | [W&B Dashboard](https://app.wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://app.wandb.ai/wandb/catz/runs/qfsbxd3r) |
+| Reinforcement Learning | [W&B Dashboard](https://app.wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://github.com/kairproject/kair_algorithms_draft) |
 | char-RNN to forecast text | [W&B Dashboard](https://app.wandb.ai/borisd13/char-RNN) | [Github Repo](https://github.com/borisdayma/char-RNN) |
 | Exploring Resnet | [Article](https://www.wandb.com/articles/exploring-resnets-with-w-b) | [Colab Notebook](http://bit.ly/wandb-resnet-colab) |
 
