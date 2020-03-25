@@ -60,3 +60,7 @@ If you're running batch jobs in AWS, it's easy to authenticate your machines wit
 
 Arguments passed to `wandb.init`  take precedence over the environment.  You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
 
+### If I have multiple projects inside the same folder, how to use wandb off to indicate which project I want to stop sync?
+
+wandb off sets an envinronmental variable so it turns off all syncing for that session
+
