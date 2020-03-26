@@ -78,3 +78,9 @@ The Gaussian process model that's used for Bayesian optimization is defined in o
 
 We use a [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) which is a generalization of RBF— defined in our open source code [here](https://github.com/wandb/client/blob/541d760c5cb8776b1ad5fcf1362d7382811cbc61/wandb/sweeps/bayes_search.py#L30). 
 
+### Pausing sweeps vs. Stopping Sweeps wandb.agent 
+
+Is there anyway to get `wandb agent` to terminate when there are no more jobs available because I've paused a sweep?
+
+If you stop the sweep instead of pausing it, then the agents will exit. For pause we want the agents to stay running so that the sweep can be restarted without having to launch agents again.
+
