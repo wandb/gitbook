@@ -128,6 +128,18 @@ If a sequence is provided as the first argument, we will bin the histogram autom
 
 If histograms are in your summary they will appear as sparklines on the individual run pages. If they are in your history, we plot a heatmap of bins over time.
 
+#### Logging Molecular Data
+
+```python
+wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
+```
+
+Logging molecular data in wandb is supported via 10 different file types: 
+
+`'pdb', 'pqr', 'mmcif', 'mcif', 'cif', 'sdf', 'sd', 'gro', 'mol2', 'mmtf'`
+
+Logging any of these file types  will provide you with a 3D molecular structure that is viewable  upon file completion.
+
 #### Logging 3D Objects
 
 ```python
