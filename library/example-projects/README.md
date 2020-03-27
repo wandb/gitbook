@@ -13,6 +13,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Visualize Model Predictions | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/visualizing-model-performance-with-w-b) |
 | Saving and Restoring Models | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw) | [Colab Notebook](https://colab.research.google.com/drive/1pVlV6Ua4C695jVbLoG-wtc50wZ9OOjnC?authuser=1#scrollTo=0LB6j3O-jIsd) |
 | Compare System Metrics | [W&B Dashboard](https://app.wandb.ai/stacey/estuary/reports/System-metrics-for-model-comparison--Vmlldzo1NzI5Mg) |  |
+| Hyperparameter Sweeps | [W&B Dashboard](https://app.wandb.ai/sweep/sweeps-tutorial/workspace?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/1gKixa6hNUB8qrn1CfHirOfTEQm0qLCSS) |
 
 ### PyTorch
 
