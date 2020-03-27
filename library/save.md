@@ -17,21 +17,16 @@ If you want to sync files as they're being written, you can specify a filename o
 
 ## Examples of wandb.save
 
-Save a model file from the current directory:
+See [this report](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw) for a complete working example.
 
 ```python
+# Save a model file from the current directory
 wandb.save('model.h5')
-```
 
-Save all files that currently exist containing the substring "ckpt":
-
-```python
+# Save all files that currently exist containing the substring "ckpt"
 wandb.save('../logs/*ckpt*')
-```
 
-Save any files starting with "checkpoint" as they're written to:
-
-```python
+# Save any files starting with "checkpoint" as they're written to
 wandb.save(os.path.join(wandb.run.dir, "checkpoint*"))
 ```
 

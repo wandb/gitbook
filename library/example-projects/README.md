@@ -5,6 +5,15 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 * **Public Dashboard**: reports in our web app which show results of training a model
 * **Code**: a link to model code that produced the visualized results
 
+### Getting Started with W&B
+
+| Description | Public Dashboard | Code |
+| :--- | :--- | :--- |
+| Track Model Performance | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-models/reports/Track-Model-Performance--Vmlldzo1NTk2MA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/better-models-faster-with-weights-biases) |
+| Visualize Model Predictions | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/visualizing-model-performance-with-w-b) |
+| Saving and Restoring Models | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw) | [Colab Notebook](https://colab.research.google.com/drive/1pVlV6Ua4C695jVbLoG-wtc50wZ9OOjnC?authuser=1#scrollTo=0LB6j3O-jIsd) |
+| Compare System Metrics | [W&B Dashboard](https://app.wandb.ai/stacey/estuary/reports/System-metrics-for-model-comparison--Vmlldzo1NzI5Mg) |  |
+
 ### PyTorch
 
 | Description | Public Dashboard | Code |
