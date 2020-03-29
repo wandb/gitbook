@@ -62,6 +62,12 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Classifying Simpson's characters | [W&B Dashboard](https://app.wandb.ai/borisd13/simpsons-fastai) | [Github Repo](https://github.com/borisdayma/simpsons-fastai) |
 | Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/semantic-segmentation/?workspace=user-borisd13) | [Github Repo](https://github.com/borisdayma/semantic-segmentation/blob/master/src/train.py) |
 
+### Pytorch-Lightning
+
+| Description | Public Dashboard | Code |
+| :--- | :--- | :--- |
+| Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw) | [Github Repo](https://github.com/borisdayma/lightning-kitti) |
+
 ### Sweeps
 
 | Description | Public Dashboard | Code |
@@ -81,4 +87,3 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 ### Have a public project to share?
 
 Reach out to us at **contact@wandb.com** if you'd like us to add one of your projects to our featured list of examples.
-
