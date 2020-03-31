@@ -8,7 +8,7 @@ Use framework integrations to get a wandb integration up and running quickly. He
 
 {% page-ref page="pytorch/" %}
 
-{% page-ref page="pytorch/pytorch-lightning.md" %}
+{% page-ref page="pytorch/lightning.md" %}
 
 {% page-ref page="pytorch/ignite.md" %}
 

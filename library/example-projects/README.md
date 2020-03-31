@@ -26,7 +26,6 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Reinforcement Learning | [W&B Dashboard](https://app.wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://github.com/kairproject/kair_algorithms_draft) |
 | char-RNN to forecast text | [W&B Dashboard](https://app.wandb.ai/borisd13/char-RNN) | [Github Repo](https://github.com/borisdayma/char-RNN) |
 | Exploring Resnet | [Article](https://www.wandb.com/articles/exploring-resnets-with-w-b) | [Colab Notebook](http://bit.ly/wandb-resnet-colab) |
-| Use Pytorch Lightning with Weights & Biases | [W&B Dashboard](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) | [Colab Notebook](https://colab.research.google.com/drive/1GHWwfzAsWx_Q1paw73hngAvA7-U9QHi-) |
 | Exploring ResNets With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/resnet/reports/Exploring-ResNets-With-W%26B--Vmlldzo2NDc4NA) | [Colab Notebook](https://colab.research.google.com/drive/1s62r_nK4RNd3PIyrAd2H72gvrMElX3hN) |
 | Exploring Neural Style Transfer Paper With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/neural-style/reports/Exploring-Neural-Style-Transfer-Paper-With-W%26B--VmlldzozNTU1Mw) | [Github Repo](https://github.com/AyushExel/Neural-Style-Transfer) |
 
@@ -67,6 +66,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
 | Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw) | [Github Repo](https://github.com/borisdayma/lightning-kitti) |
+| Use Pytorch Lightning with Weights & Biases | [W&B Dashboard](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) | [Colab Notebook](https://colab.research.google.com/drive/1GHWwfzAsWx_Q1paw73hngAvA7-U9QHi-) |
 
 ### Sweeps
 
