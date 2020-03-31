@@ -20,7 +20,7 @@
   * [Command Line Interface](library/cli.md)
   * [Frameworks](library/frameworks/README.md)
     * [PyTorch](library/frameworks/pytorch/README.md)
-      * [Lightning](library/frameworks/pytorch/lightning.md)
+      * [Pytorch-Lightning](library/frameworks/pytorch/lightning.md)
       * [Ignite](library/frameworks/pytorch/ignite.md)
     * [Keras](library/frameworks/keras.md)
     * [TensorFlow](library/frameworks/tensorflow.md)
