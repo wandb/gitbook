@@ -5,7 +5,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 * **Public Dashboard**: reports in our web app which show results of training a model
 * **Code**: a link to model code that produced the visualized results
 
-### Getting Started with W&B
+## Getting Started with W&B
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -15,7 +15,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Compare System Metrics | [W&B Dashboard](https://app.wandb.ai/stacey/estuary/reports/System-metrics-for-model-comparison--Vmlldzo1NzI5Mg) |  |
 | Hyperparameter Sweeps | [W&B Dashboard](https://app.wandb.ai/sweep/sweeps-tutorial/workspace?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/1gKixa6hNUB8qrn1CfHirOfTEQm0qLCSS) |
 
-### PyTorch
+## PyTorch
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -29,7 +29,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Exploring ResNets With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/resnet/reports/Exploring-ResNets-With-W%26B--Vmlldzo2NDc4NA) | [Colab Notebook](https://colab.research.google.com/drive/1s62r_nK4RNd3PIyrAd2H72gvrMElX3hN) |
 | Exploring Neural Style Transfer Paper With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/neural-style/reports/Exploring-Neural-Style-Transfer-Paper-With-W%26B--VmlldzozNTU1Mw) | [Github Repo](https://github.com/AyushExel/Neural-Style-Transfer) |
 
-### Keras
+## Keras
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -46,7 +46,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Track Model Performance | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-models/reports/Track-Model-Performance--Vmlldzo1NTk2MA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/better-models-faster-with-weights-biases) |
 | Visualize models in TensorBoard with Weights and Biases | [W&B Dashboard](https://app.wandb.ai/sayakpaul/tensorboard-integration-partII/reports/Visualize-models-in-TensorBoard-with-Weights-and-Biases--Vmlldzo2MzE2Mg) | [Colab Notebook](https://colab.research.google.com/gist/sayakpaul/5b31ed03725cc6ae2af41848d4acee45/demo_tensorboard.ipynb) |
 
-### TensorFlow
+## TensorFlow
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -54,21 +54,21 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Tracking TensorFlow model performance |  | [Github Repo](https://github.com/wandb/examples/blob/master/tf-estimator-mnist/mnist.py) |
 | Training distributed TensorFlow models |  | [Github Repo](https://github.com/wandb/examples/blob/master/tf-distributed-mnist/train.py) |
 
-### Fast.ai
+## Fast.ai
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
 | Classifying Simpson's characters | [W&B Dashboard](https://app.wandb.ai/borisd13/simpsons-fastai) | [Github Repo](https://github.com/borisdayma/simpsons-fastai) |
 | Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/semantic-segmentation/?workspace=user-borisd13) | [Github Repo](https://github.com/borisdayma/semantic-segmentation/blob/master/src/train.py) |
 
-### Pytorch-Lightning
+## Pytorch-Lightning
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
 | Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw) | [Github Repo](https://github.com/borisdayma/lightning-kitti) |
 | Use Pytorch Lightning with Weights & Biases | [W&B Dashboard](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) | [Colab Notebook](https://colab.research.google.com/drive/1GHWwfzAsWx_Q1paw73hngAvA7-U9QHi-) |
 
-### Sweeps
+## Sweeps
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -76,7 +76,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Running sweeps in python scripts |  | [Github Repo](https://github.com/wandb/examples/blob/master/sweeps-python/sweep.py) |
 | Using sweeps with MPI frameworks |  | [Github Repo](https://github.com/wandb/examples/tree/master/sweeps-mpi-wrappers) |
 
-### Scikit-learn
+## Scikit-learn
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -84,6 +84,7 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 | Using W&B with XGBoost |  | [Github Repo](https://github.com/wandb/examples/tree/master/xgboost-dermatology) |
 | Using W&B with an SVM |  | [Github Repo](https://github.com/wandb/examples/tree/master/scikit-iris) |
 
-### Have a public project to share?
+## Have a public project to share?
 
 Reach out to us at **contact@wandb.com** if you'd like us to add one of your projects to our featured list of examples.
+
