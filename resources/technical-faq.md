@@ -66,11 +66,11 @@ W&B is designed to be a central repository of every training run you or your org
 * We have visualizations like scatter plots and parallel coordinates charts designed to compare many ML runs at once
 * We make it easy to build and share reports with colleagues
 
-## How can I configure the name of the run in my training code?
+### How can I configure the name of the run in my training code?
 
 At the top of your training script when you call wandb.init, pass in an experiment name, like this: `wandb.init(name="my awesome run")`
 
-## Is there an anaconda package?
+### Is there an anaconda package?
 
 We don't have an anaconda package but you should be able to install wandb using:
 
@@ -79,9 +79,9 @@ conda activate myenv
 pip install wandb
 ```
 
-If you run into issues with this install, please let us know. The anaconda managing package resource at [https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) may be helpful.
+If you run into issues with this install, please let us know. This Anaconda [doc on managing packages](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) has some helpful guidance.
 
-## How do I stop wandb from writing to my terminal or my jupyter notebook output?
+### How do I stop wandb from writing to my terminal or my jupyter notebook output?
 
 Set the environmental variable [WANDB\_SILENT](../library/advanced/environment-variables.md).
 
