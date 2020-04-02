@@ -84,3 +84,12 @@ Is there anyway to get `wandb agent` to terminate when there are no more jobs av
 
 If you stop the sweep instead of pausing it, then the agents will exit. For pause we want the agents to stay running so that the sweep can be restarted without having to launch agents again.
 
+### Recommended way to set up config parameters in a sweep
+
+`wandb.init(config=config_dict_that_could_have_params_set_by_sweep)`    
+or:  
+`experiment = wandb.init()  
+experiment.config.setdefaults(config_dict_that_could_have_params_set_by_sweep)` 
+
+The advantage of doing this is that it will ignore setting any key that has already been set by the sweep.
+
