@@ -93,7 +93,7 @@ wandb.init(config=config_dictionary)
 
 ## Dataset Identifier 
 
-You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking for tracking it as input to your experiment using `wandb.config` 
+You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking it as input to your experiment using `wandb.config` 
 
 ```yaml
 wandb.config.update({'dataset':'ab131'}) 
