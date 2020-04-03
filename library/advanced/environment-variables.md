@@ -62,5 +62,11 @@ Arguments passed to `wandb.init`  take precedence over the environment.  You cou
 
 ### If I have multiple projects inside the same folder, how to use wandb off to indicate which project I want to stop sync?
 
-wandb off sets an envinronmental variable so it turns off all syncing for that session
+wandb off sets an environmental variable so it turns off all syncing for that session
+
+### How can I can turn off logging? 
+
+You can set WANDB\_MODE = dryrun to turn off logging 
+
+
 
