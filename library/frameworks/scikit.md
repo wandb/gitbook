@@ -18,7 +18,7 @@ wandb.init(project="visualize-sklearn")
 
 ```python
 # Visualize single plot
-wandb.sklearn.plot_confusion_matrix(y_true, y_probas, labels)
+wandb.sklearn.plot_confusion_matrix(y_true, y_pred, labels)
 ```
 
 #### Or visualize all plots at once:
@@ -133,10 +133,10 @@ For more details, check out [sklearn's docs](https://scikit-learn.org/stable/aut
 
 Computes the confusion matrix to evaluate the accuracy of a classification. It's useful for assessing the quality of model predictions and finding patterns in the predictions the model gets wrong. The diagonal represents the predictions the model got right, i.e. where the actual label is equal to the predicted label.
 
-`wandb.sklearn.plot_confusion_matrix(y_true, y_probas, labels)`
+`wandb.sklearn.plot_confusion_matrix(y_true, y_pred, labels)`
 
 * y\_true \(arr\): Test set labels.
-* y\_probas \(arr\): Test set predicted probabilities.
+* y\_pred \(arr\): Test set predicted labels.
 * labels \(list\): Named labels for target varible \(y\).
 
 
