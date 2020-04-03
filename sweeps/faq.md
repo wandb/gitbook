@@ -93,3 +93,7 @@ experiment.config.setdefaults(config_dict_that_could_have_params_set_by_sweep)`
 
 The advantage of doing this is that it will ignore setting any key that has already been set by the sweep.
 
+### Is there a way to add an extra categorical value to a sweep, or do I need to start a new one?
+
+Once a sweep has started you cannot change the sweep configuration, But you can go to any table view, and use the checkboxes to select runs, then use the "create sweep" menu option to a create a new sweep using prior runs
+
