@@ -56,21 +56,11 @@ If you're running batch jobs in AWS, it's easy to authenticate your machines wit
 
 ## Common Questions
 
-### Do environment variables overwrite the parameters passed to `wandb.int?` 
+### Do environment variables overwrite the parameters passed to `wandb.init()`
 
 Arguments passed to `wandb.init`  take precedence over the environment.  You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
 
 ### If I have multiple projects inside the same folder, how to use wandb off to indicate which project I want to stop sync?
 
-wandb off sets an environmental variable so it turns off all syncing for that session
-
-### How can I can turn off logging? 
-
-You can set WANDB\_MODE = dryrun to turn off logging 
-
-### WANDB\_MODE=dryrun ./run.sh will only stop the sync on run.sh, right? 
-
-Correct, only for python processes that are in the same environment as run.sh.
-
-
+wandb off sets an envinronmental variable so it turns off all syncing for that session
 

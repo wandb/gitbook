@@ -31,3 +31,7 @@ wandb.tensorboard.patch(save=False, tensorboardX=True)
 
 If you have existing experiments you would like to import into wandb, you can run `wandb sync log_dir` where log\_dir is a local directory containing the tfevents files.
 
+### Google Colab and Tensorboard 
+
+ To run commands from the command line in Colab, you must run `!wandb sync directoryname` .  Currently tensorboard syncing does not work in a notebook environment for Tensorflow 2.1+.  You can have your colab use an earlier version of tensorboard, or run a script from the commandline with `!python your_script.py` 
+
