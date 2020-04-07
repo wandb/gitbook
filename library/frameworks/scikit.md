@@ -49,8 +49,6 @@ Trains model on datasets of varying lengths and generates a plot of cross valida
 * X \(arr\): Dataset features.
 * y \(arr\): Dataset labels.
 
-#### 
-
 #### ROC
 
 ![](../../.gitbook/assets/screen-shot-2020-02-26-at-2.48.02-am.png)
@@ -63,8 +61,6 @@ ROC curves plot true positive rate \(y-axis\) vs false positive rate \(x-axis\).
 * y\_probas \(arr\): Test set predicted probabilities.
 * labels \(list\): Named labels for target varible \(y\).
 
-#### 
-
 #### Class Proportions
 
 ![](../../.gitbook/assets/screen-shot-2020-02-26-at-2.48.46-am.png)
@@ -76,8 +72,6 @@ Plots the distribution of target classes in training and test sets. Useful for d
 * y\_train \(arr\): Training set labels.
 * y\_test \(arr\): Test set labels.
 * labels \(list\): Named labels for target varible \(y\).
-
-
 
 #### Precision Recall Curve
 
@@ -93,8 +87,6 @@ High scores for both show that the classifier is returning accurate results \(hi
 * y\_probas \(arr\): Test set predicted probabilities.
 * labels \(list\): Named labels for target varible \(y\).
 
-
-
 #### Feature Importances
 
 ![](../../.gitbook/assets/screen-shot-2020-02-26-at-2.48.31-am.png)
@@ -105,8 +97,6 @@ Evaluates and plots the importance of each feature for the classification task. 
 
 * model \(clf\): Takes in a fitted classifier.
 * feature\_names \(list\): Names for features. Makes plots easier to read by replacing feature indexes with corresponding names.
-
-
 
 #### Calibration Curve
 
@@ -125,8 +115,6 @@ For more details, check out [sklearn's docs](https://scikit-learn.org/stable/aut
 * y \(arr\): Training set labels.
 * model\_name \(str\): Model name. Defaults to 'Classifier'
 
-
-
 #### Confusion Matrix
 
 ![](../../.gitbook/assets/screen-shot-2020-02-26-at-2.49.11-am.png)
@@ -138,8 +126,6 @@ Computes the confusion matrix to evaluate the accuracy of a classification. It's
 * y\_true \(arr\): Test set labels.
 * y\_pred \(arr\): Test set predicted labels.
 * labels \(list\): Named labels for target varible \(y\).
-
-
 
 #### Summary Metrics
 
@@ -155,8 +141,6 @@ Calculates summary metrics \(like f1, accuracy, precision and recall for classif
   * X\_test \(arr\): Test set features.
 * y\_test \(arr\): Test set labels.
 
-
-
 #### Elbow Plot
 
 ![](../../.gitbook/assets/screen-shot-2020-02-26-at-2.52.21-am.png)
@@ -167,8 +151,6 @@ Measures and plots the percentage of variance explained as a function of the num
 
 * model \(clusterer\): Takes in a fitted clusterer.
 * X \(arr\): Training set features.
-
-
 
 #### Silhouette Plot
 
@@ -186,8 +168,6 @@ In general we want all silhouette cluster scores to be above average \(past the 
 * X \(arr\): Training set features.
   * cluster\_labels \(list\): Names for cluster labels. Makes plots easier to read by replacing cluster indexes with corresponding names.
 
-
-
 #### Outlier Candidates Plot
 
 ![](../../.gitbook/assets/screen-shot-2020-02-26-at-2.52.34-am.png)
@@ -199,8 +179,6 @@ Measures a datapoint's influence on regression model via cook's distance. Instan
 * model \(regressor\): Takes in a fitted classifier.
 * X \(arr\): Training set features.
 * y \(arr\): Training set labels.
-
-
 
 #### Residuals Plot
 

@@ -19,6 +19,10 @@ Use the run page to explore detailed information about a single version of your 
 
 ![](../../.gitbook/assets/run-page-overview-tab.png)
 
+The Python details are private, even if you make the page itself public. Here is an example of my run page in incognito on the left and my account on the right.
+
+![](../../.gitbook/assets/screen-shot-2020-04-07-at-7.46.39-am.png)
+
 ## Graphs Tab
 
 * Search, group, and arrange visualizations
