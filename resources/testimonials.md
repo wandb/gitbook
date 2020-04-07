@@ -73,7 +73,13 @@ WANDB has made experimentation just so much more easy! I cannot express how much
 
 I really like the visualizations and it's very easy to integrate with the pipeline.
 
+### Tiago Manual,  PhD student at [Cambridge](https://www.cl.cam.ac.uk/research/ai/)
 
+Great tool! Still a lot to improve but looks like you have an entire team fully working on that!
+
+### Michael, a wonderful user! 
+
+It's just amazing, you guys are doing an amazing job over there! I'm telling about it to all my friends, everyone should use wandb!
 
 
 
