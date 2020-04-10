@@ -125,7 +125,9 @@ Computes the confusion matrix to evaluate the accuracy of a classification. It's
 
 * y\_true \(arr\): Test set labels.
 * y\_pred \(arr\): Test set predicted labels.
-* labels \(list\): Named labels for target varible \(y\).
+* labels \(list\): Named labels for target variable \(y\).
+
+
 
 #### Summary Metrics
 

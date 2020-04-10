@@ -232,6 +232,17 @@ wandb.log(
 
 More scene types will be added in the future. If there is a type of 3d scene you would like to log in Weights & Biases reach out and let us know! We love feedback.
 
+### Log Confusion Matrix
+
+`wandb.log({'confusion_matrix': wandb.plots.HeatMap(x_labels, y_labels, matrix_values, show_text=False)})`
+
+where:
+
+* matrix\_values \(arr\): 2D dataset of shape x\_labels \* y\_labels, containing   heatmap values that can be coerced into an ndarray.
+* x\_labels  \(list\): Named labels for rows \(x\_axis\).
+* y\_labels  \(list\): Named labels for columns \(y\_axis\).
+* show\_text \(bool\): Show text values in heatmap cells.
+
 ### Summary Metrics
 
 The summary statistics are used to track single metrics per model. If a summary metric is modified, only the updated state is saved. We automatically set summary to the last history row added unless you modify it manually. If you change a summary metric, we only persist the last value it was set to.
