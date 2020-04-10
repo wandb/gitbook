@@ -232,7 +232,7 @@ wandb.log(
 
 More scene types will be added in the future. If there is a type of 3d scene you would like to log in Weights & Biases reach out and let us know! We love feedback.
 
-### Log Confusion Matrix
+### Logging a Confusion Matrix
 
 `wandb.log({'confusion_matrix': wandb.plots.HeatMap(x_labels, y_labels, matrix_values, show_text=False)})`
 
