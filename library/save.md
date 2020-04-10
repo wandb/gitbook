@@ -73,6 +73,14 @@ To change the log directory for TensorBoard events files or other files you'd li
 
 If you'd like to use the run name from within your script, you can use `wandb.run.name` and you'll get the run name— "blissful-waterfall-2" for example.
 
+ you need to call save on the run before being able to access the display name:
+
+```text
+run = wandb.init(...)
+run.save()
+print(run.name) 
+```
+
 ### Push all saved files to wandb
 
 Call  `wandb.save("*.pt")`  once at the top of your script after wandb.init, then all files that match that pattern will save immediately once they're written to wandb.run.dir.
