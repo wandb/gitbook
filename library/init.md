@@ -103,3 +103,47 @@ When wandb.init\(\) is called in your script, we automatically look for git info
 
 The git commit and command used to run the experiment are visible to you but are hidden to external users, so if you have a public project, these details will remain private.
 
+### Save logs offline
+
+By default, wandb.init\(\) starts a process that syncs metrics in real time to our cloud hosted app. If your machine is offline or you don't have internet access, here's how to run wandb using the offline mode and sync later.
+
+Set two environment variables:
+
+1. **WANDB\_API\_KEY**: Set this to your account's API key, on your [settings page](https://app.wandb.ai/settings)
+2. **WANDB\_MODE**: dryrun
+
+Here's a sample of what this would look like in your script:
+
+```python
+import wandb
+import os
+
+os.environ["WANDB_API_KEY"] = YOUR_KEY_HERE
+os.environ["WANDB_MODE"] = "dryrun"
+
+config = {
+  "dataset": "CIFAR10",
+  "machine": "offline cluster",
+  "model": "CNN",
+  "learning_rate": 0.01,
+  "batch_size": 128,
+}
+
+wandb.init(project="offline-demo")
+
+for i in range(100):
+  wandb.log({"accuracy": i})
+```
+
+Here's a sample terminal output:
+
+![](../.gitbook/assets/image%20%2869%29.png)
+
+And once I have internet, I run a sync command to send that folder to the cloud.
+
+`wandb sync wandb/dryrun-folder-name`
+
+![](../.gitbook/assets/image%20%2832%29.png)
+
+
+
