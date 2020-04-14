@@ -70,6 +70,37 @@ If a numpy array is supplied we assume it's gray scale if the last dimension is 
 
 In the web app, click "Create Visualization" to customize the image gallery.
 
+#### Logging Image Masks \(Semantic Segmentation\)
+
+```python
+# masks_data is a two dimensional numpy array containing
+# an integer class label for each pixel
+mask_data = np.array([[1, 2, 2, ... , 2, 2, 1], ...])
+
+# class_label is a dictionary mapping the classs number values in mask_data
+# to string value representing the class label
+class_labels = {
+  1: "tree",
+  2: "car",
+  3: "road"
+}
+                      
+mask_img = wandb.Image(image, masks={
+  "predictions": {
+    "mask_data": mask_data,
+    "class_labels": class_labels
+  },
+  "groud_truth": {
+    ...
+  },
+  ...
+})
+```
+
+Logging multiple masks is supported by logging a mask dictionary with many keys.
+
+Adding mask data to your wandb.Image  calls will render the masks over your images allowing you to debug the results of your image masks with interactive toggles to vary the opacity of each mask or class individually.
+
 #### Logging Video
 
 ```python
