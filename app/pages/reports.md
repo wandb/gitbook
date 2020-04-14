@@ -59,3 +59,9 @@ The visualizations in the section pull columns from the first active runset. If 
 
 If you really need to compare runs from two projects and the columns aren't working, add a tag to the runs in one project and then move those runs to the other project. You'll still be able to filter to just the runs from each project, but you'll have all the columns for both sets of runs available in the report.
 
+## Collaborate on reports
+
+Collaborative reports are live! You can make a report collaborative by hitting the Share icon in the header of a report. This changes the editing flow of reports a bit. When you hit edit, you'll actually be editing a draft copy of the report that you can merge in by hitting "Save to report". If someone else has merged into the report in the meantime, you'll get a warning to help you resolve the potential conflict.
+
+![](../../.gitbook/assets/collaborative-reports.gif)
+
