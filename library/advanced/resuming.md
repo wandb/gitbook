@@ -27,7 +27,17 @@ model.fit(np.random.rand(100, 32), np.random.rand(100, 10),
 
 Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set the **WANDB\_RUN\_ID**: a globally unique string \(per project\) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
 
-If you set **WANDB\_RESUME** equal to "allow", you can always set **WANDB\_RUN\_ID** to a unique string and restarts of the process will be handled automatically. You can also pass a unique string when calling init, e.g. `wandb.init(resume="run-32")`. If you set **WANDB\_RESUME** equal to "must", wandb will throw an error if the run to be resumed does not exist yet instead of auto-creating a new run.
+```python
+# store this id to use it later when resuming
+id = wandb.util.generate_id()
+wandb.init(id=id, resume="allow")
+# or via environment variables
+os.environ["WANDB_RESUME"] = "allow"
+os.environ["WANDB_RUN_ID"] = wandb.util.generate_id()
+wandb.init()
+```
+
+If you set **WANDB\_RESUME** equal to "allow", you can always set **WANDB\_RUN\_ID** to a unique string and restarts of the process will be handled automatically. If you set **WANDB\_RESUME** equal to "must", wandb will throw an error if the run to be resumed does not exist yet instead of auto-creating a new run.
 
 | Method | Syntax | Never Resume \(default\) | Always Resume | Resume specifying run id | Resume from same directory |
 | :--- | :--- | :--- | :--- | :--- | :--- |
