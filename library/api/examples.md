@@ -66,6 +66,18 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
+### Update config in a run
+
+This examples updates one of your configuration settings
+
+```python
+import wandb
+api = wandb.Api()
+run = api.run("<entity>/<project>/<run_id>")
+run.config["key"] = 10
+run.update()
+```
+
 ### Export metrics from a single run to a CSV file
 
 This script finds all the metrics saved for a single run and saves them to a CSV.
