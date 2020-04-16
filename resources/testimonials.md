@@ -32,6 +32,10 @@ My team enjoys using this helpful tool. ML is always experimental in nature, in 
 
 Between architecture, hyper parameters and general problem approach, I always found myself going in circles trying to keep track of results, configs and the code version I was using in an experiment. After looking around for a tool/dashboard to help with experiment management I landed on WandB. With one init line I could track many of the metrics I was interested in. Wandb one of the few tools that makes it so easy that it’s a no brainer to try for yourself.
 
+### Samuel Boulanger, [Intel AI](https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html)
+
+Helpful. Easy to use. Integrates cleanly.
+
 ### Mohamed Raga, PhD student at NTU, Singapore 
 
 I am impressed daily by wandb and the amazing visualization tools. Now I present all my works and experiments through wandb— no more slides. I also, send progress report to my supervisor using wandb. The synchronization with TensorBoard helps me to further use embedding projector. So far, I have explored all the wandb tools, but I can't wait to explore more.
