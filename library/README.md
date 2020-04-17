@@ -66,7 +66,13 @@ wandb.init(
 3. **Notes**: A quick commit message to yourself, the note can be set from your script and is editable in the table. We suggest using the notes field instead of overwriting the generated run name.
 4. **Tags**: Identify baseline runs and favorite runs. You can filter runs using tags, and they're editable in the table.
 
-### Dashboard links
+### What is the difference between  .log\(\) and .summary\(\)?  
 
-When your 
+The summary is the value that shows in the table while log will save all the values for plotting later.  
+
+For example you might want to call `wandb.log` every time the accuracy changes.   Usually you can just use .log.  `wandb.log()` will also update the summary value by default unless you have set summary manually for that metric
+
+The scatterplot and parallel coordinate plots will also use the summary value while the line plot plots all of the values set by .log
+
+The reason we have both is that some people like to set the summary manually because they want the summary to reflect for example the optimal accuracy instead of the last accuracy logged.
 
