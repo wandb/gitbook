@@ -31,8 +31,6 @@ wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})
 
 If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. You can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
 
-In the web app, click "Create Visualization" to customize the image gallery.
-
 #### Segmentation Masks
 
 If you have images with masks for semantic segmentation, you can log the masks and toggle them on and off in the UI. To log multiple masks, log a mask dictionary with multiple keys. Here's an example:
