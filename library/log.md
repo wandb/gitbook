@@ -152,39 +152,36 @@ If histograms are in your summary they will appear as sparklines on the individu
 
 {% tabs %}
 {% tab title="Matplotlib" %}
-```
-import matplotlib.pyplot as plt
-```
-
 ```python
+import matpotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
 plt.ylabel('some interesting numbers')
 wandb.log({"chart": plt})
 ```
 
-You can pass a `matplotlib` pyplot or figure object into `wandb.log`. By default we'll convert the plot into a [Plotly](https://plot.ly/) plot. If you want to explicitly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging Plotly charts.
+You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default we'll convert the plot into a [Plotly](https://plot.ly/) plot. If you want to explicitly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging Plotly charts.
 {% endtab %}
 
 {% tab title="ROC" %}
 [See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
 
-```text
-wandb.log({'roc': wandb.plots.ROC(y_test, y_probas, nb.classes_)})
-```
+`wandb.log({'roc': wandb.plots.ROC(y_test, y_probas, nb.classes_)})`
 
 * y\_true \(arr\): Test set labels
 * y\_probas \(arr\): Test set predicted probabilities
 * labels \(list\): Named labels for target variable \(y\)
 
-ROC curves plot true positive rate \(y-axis\) vs false positive rate \(x-axis\). The ideal score is a TPR = 1 and FPR = 0, which is the point on the top left. Typically we calculate the area under the ROC curve \(AUC-ROC\), and the greater the AUC-ROC the better.
-
-Here we can see our model is slightly better at predicting the class Negative emotion, as evidenced by the larger area under the ROC.
-
-![](../.gitbook/assets/docs-roc.png)
+![](../.gitbook/assets/docs-roc2.png)
 {% endtab %}
 
 {% tab title="PR" %}
-_Coming soon_
+`wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, nb.classes_)})`
+
+* y\_true \(array\): Test set labels
+* y\_probas \(array\): Test set predicted probabilities
+* labels \(list\): Named labels for target variable \(y\)
+
+![](../.gitbook/assets/docs-pr2.png)
 {% endtab %}
 
 {% tab title="Confusion Matrix" %}
@@ -200,8 +197,6 @@ _Coming soon_
 _Coming soon_
 {% endtab %}
 {% endtabs %}
-
-
 
 ### 3D Visualizations
 
