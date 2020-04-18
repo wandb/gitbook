@@ -53,7 +53,7 @@ If a numpy array is supplied we assume it's gray scale if the last dimension is 
 
 In the web app, click "Create Visualization" to customize the image gallery.
 
-#### Image Masks
+#### Segmentation Masks
 
 If you have images with masks for semantic segmentation, you can log the masks and toggle them on and off in the UI. To log multiple masks, log a mask dictionary with multiple keys. Here's an example:
 
