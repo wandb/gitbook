@@ -128,19 +128,23 @@ If histograms are in your summary they will appear as sparklines on the individu
 {% endtab %}
 
 {% tab title="Molecule" %}
+[See a live example →](https://app.wandb.ai/nbaryd/Corona-Virus/reports/Visualizing-Molecular-Structure-with-Weights-%26-Biases--Vmlldzo2ODA0Mw)
+
 ```python
 wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
 ```
 
-Log molecular data in any of 10 file types:
+Log molecular data in any of 10 file types: 
 
 `'pdb', 'pqr', 'mmcif', 'mcif', 'cif', 'sdf', 'sd', 'gro', 'mol2', 'mmtf'`
 
-When your run finishes, you will be able to see the data visualized in the UI.
+When your run finishes, you'll be able to interact with 3D visualizations of your molecules in the UI. 
 
 ![](../.gitbook/assets/docs-molecule.png)
 {% endtab %}
 {% endtabs %}
+
+
 
 ### Custom Plots
 
@@ -157,13 +161,13 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 {% endtab %}
 
 {% tab title="ROC" %}
-[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
-
 `wandb.log({'roc': wandb.plots.ROC(y_test, y_probas, nb.classes_)})`
 
 * y\_true \(arr\): Test set labels
 * y\_probas \(arr\): Test set predicted probabilities
 * labels \(list\): Named labels for target variable \(y\)
+
+[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
 
 [Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
 
@@ -171,13 +175,13 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 {% endtab %}
 
 {% tab title="PR" %}
-[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
-
 `wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, nb.classes_)})`
 
 * y\_true \(array\): Test set labels
 * y\_probas \(array\): Test set predicted probabilities
 * labels \(list\): Named labels for target variable \(y\)
+
+[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
 
 [Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
 
