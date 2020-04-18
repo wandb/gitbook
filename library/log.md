@@ -4,37 +4,17 @@ description: 'Keep track of metrics, video, custom plots, and more'
 
 # wandb.log\(\)
 
-Calling `wandb.log(dict)` logs the keys and values of the dictionary passed in and associates the values with a _step_. Wandb.log can log histograms and custom matplotlib objects and rich media. For a complete list of supported data types see our [Data Types ](reference/data_types.md)reference.
+Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a step. By default we increment the step each time, so you'll see outputs of your model over time in graphs and rich visualizations.
 
-`wandb.log(dict)` accepts a few keyword arguments:
+Keyword arguments:
 
-* **step** — Step to associate the log with \(see [Incremental Logging](log.md#incremental-logging)\)
-* **commit** — If true, increments the step associated with the log\(_default: true_\)
+* **step** — Which time step to associate the logs with \(see [Incremental Logging](log.md#incremental-logging)\)
+* **commit** — By default commit=true, which means we increment the step each time you call wandb.log. Set commit=false to have multiple sequential wandb.log\(\) commands save data to the same step.
 
-### Example
-
-Any time you call `wandb.log` and pass in a dictionary of keys and values, it will be saved as a new time step for plots in the W&B app.
+Example usage:
 
 ```python
 wandb.log({'accuracy': 0.9, 'epoch': 5})
-```
-
-### Incremental Logging
-
-If you want to log to a single history step from lots of different places in your code you can pass a step index to `wandb.log()` as follows:
-
-```python
-wandb.log({'loss': 0.2}, step=step)
-```
-
-As long as you keep passing the same value for `step`, W&B will collect the keys and values from each call in one unified dictionary. As soon you call `wandb.log()` with a different value for `step` than the previous one, W&B will write all the collected keys and values to the history, and start collection over again. Note that this means you should only use this with consecutive values for `step`: 0, 1, 2, .... This feature doesn't let you write to absolutely any history step that you'd like, only the "current" one and the "next" one.
-
-You can also set **commit=False** in `wandb.log` to accumulate metrics, just be sure to call `wandb.log` without the **commit** flag to persist the metrics.
-
-```python
-wandb.log({'loss': 0.2}, commit=False)
-# Somewhere else when I'm ready to report this step:
-wandb.log({'accuracy': 0.8})
 ```
 
 ## Logging Objects
@@ -310,7 +290,23 @@ wandb.log(
 {% endtab %}
 {% endtabs %}
 
+## Incremental Logging
 
+If you want to log to a single history step from lots of different places in your code you can pass a step index to `wandb.log()` as follows:
+
+```python
+wandb.log({'loss': 0.2}, step=step)
+```
+
+As long as you keep passing the same value for `step`, W&B will collect the keys and values from each call in one unified dictionary. As soon you call `wandb.log()` with a different value for `step` than the previous one, W&B will write all the collected keys and values to the history, and start collection over again. Note that this means you should only use this with consecutive values for `step`: 0, 1, 2, .... This feature doesn't let you write to absolutely any history step that you'd like, only the "current" one and the "next" one.
+
+You can also set **commit=False** in `wandb.log` to accumulate metrics, just be sure to call `wandb.log` without the **commit** flag to persist the metrics.
+
+```python
+wandb.log({'loss': 0.2}, commit=False)
+# Somewhere else when I'm ready to report this step:
+wandb.log({'accuracy': 0.8})
+```
 
 ## Summary Metrics
 
