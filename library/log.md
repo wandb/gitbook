@@ -171,15 +171,21 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 * y\_probas \(arr\): Test set predicted probabilities
 * labels \(list\): Named labels for target variable \(y\)
 
+[Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
+
 ![](../.gitbook/assets/docs-roc2.png)
 {% endtab %}
 
 {% tab title="PR" %}
+[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
+
 `wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, nb.classes_)})`
 
 * y\_true \(array\): Test set labels
 * y\_probas \(array\): Test set predicted probabilities
 * labels \(list\): Named labels for target variable \(y\)
+
+[Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
 
 ![](../.gitbook/assets/docs-pr2.png)
 {% endtab %}
