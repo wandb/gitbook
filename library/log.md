@@ -37,31 +37,14 @@ wandb.log({'loss': 0.2}, commit=False)
 wandb.log({'accuracy': 0.8})
 ```
 
-### Logging Objects
+## Logging Objects
 
-Wandb handles a variety of common objects that you might want to log.
+We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
 
-#### Logging Tensors
+### Rich Media
 
-If you pass a numpy array, pytorch tensor or tensorflow tensor to `wandb.log` we automatically convert it as follows:
-
-1. If the object has a size of 1 just log the scalar value
-2. If the object has a size of 32 or less, convert the tensor to json
-3. If the object has a size greater than 32, log a histogram of the tensor
-
-#### Logging Plots
-
-```python
-import matplotlib.pyplot as plt
-plt.plot([1, 2, 3, 4])
-plt.ylabel('some interesting numbers')
-wandb.log({"chart": plt})
-```
-
-You can pass a `matplotlib` pyplot or figure object into `wandb.log`. By default we'll convert the plot into a [plotly](https://plot.ly/) plot. If you want to explictly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging plotly charts.
-
-#### Logging Images
-
+{% tabs %}
+{% tab title="Image" %}
 ```python
 wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})
 ```
@@ -70,7 +53,9 @@ If a numpy array is supplied we assume it's gray scale if the last dimension is 
 
 In the web app, click "Create Visualization" to customize the image gallery.
 
-#### Logging Image Masks \(Semantic Segmentation\)
+#### Image Masks
+
+If you have images with masks for semantic segmentation, you can log the masks and toggle them on and off in the UI. To log multiple masks, log a mask dictionary with multiple keys. Here's an example:
 
 ```python
 # masks_data is a two dimensional numpy array containing
@@ -96,30 +81,34 @@ mask_img = wandb.Image(image, masks={
   ...
 })
 ```
+{% endtab %}
 
-Logging multiple masks is supported by logging a mask dictionary with many keys.
-
-Adding mask data to your wandb.Image  calls will render the masks over your images allowing you to debug the results of your image masks with interactive toggles to vary the opacity of each mask or class individually.
-
-#### Logging Video
-
-```python
-wandb.log({"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
-```
-
-If a numpy array is supplied we assume the dimensions are: time,channels,width,height. By default we create a 4 fps gif image \(ffmpeg and the moviepy python library is required when passing numpy objects\). Supported formats are "gif", "mp4", "webm", and "ogg". If you pass a string to `wandb.Video` we assert the file exists and is a supported format before uploading to wandb. Passing a BytesIO object will create a tempfile with the specified format as the extension.
-
-On the W&B runs page, you will see your videos in the Media section.
-
-#### Logging Audio
-
+{% tab title="Audio" %}
 ```python
 wandb.log({"examples": [wandb.Audio(numpy_array, caption="Nice", sample_rate=32)]})
 ```
 
 The maximum number of audio clips that can be logged per step is 100.
+{% endtab %}
 
-#### Logging Text / Tables
+{% tab title="Video" %}
+```python
+wandb.log({"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
+```
+
+If a numpy array is supplied we assume the dimensions are: time, channels, width, height. By default we create a 4 fps gif image \(ffmpeg and the moviepy python library is required when passing numpy objects\). Supported formats are "gif", "mp4", "webm", and "ogg". If you pass a string to `wandb.Video` we assert the file exists and is a supported format before uploading to wandb. Passing a BytesIO object will create a tempfile with the specified format as the extension.
+
+On the W&B runs page, you will see your videos in the Media section.
+{% endtab %}
+
+{% tab title="Tensor" %}
+If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. You can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
+
+In the web app, click "Create Visualization" to customize the image gallery.
+{% endtab %}
+
+{% tab title="Text Table" %}
+Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 1000.
 
 ```python
 # Method 1
@@ -132,11 +121,9 @@ table.add_data("I love my phone", "1", "1")
 table.add_data("My phone sucks", "0", "-1")
 wandb.log({"examples": table})
 ```
+{% endtab %}
 
-By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 1000.
-
-#### Logging HTML
-
+{% tab title="HTML" %}
 ```python
 wandb.log({"custom_file": wandb.Html(open("some.html"))})
 wandb.log({"custom_string": wandb.Html('<a href="https://mysite">Link</a>')})
@@ -147,9 +134,9 @@ Custom html can be logged at any key, this exposes an HTML panel on the run page
 ```python
 wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
 ```
+{% endtab %}
 
-#### Logging Histograms
-
+{% tab title="Histogram" %}
 ```python
 wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
 wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
@@ -158,9 +145,63 @@ wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram
 If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from `np.histogram` to the **np\_histogram** keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional **num\_bins** keyword argument when passing a sequence to override the default of 64 bins.
 
 If histograms are in your summary they will appear as sparklines on the individual run pages. If they are in your history, we plot a heatmap of bins over time.
+{% endtab %}
+{% endtabs %}
 
-#### Logging Molecular Data
+### Custom Plots
 
+{% tabs %}
+{% tab title="Matplotlib" %}
+```
+import matplotlib.pyplot as plt
+```
+
+```python
+plt.plot([1, 2, 3, 4])
+plt.ylabel('some interesting numbers')
+wandb.log({"chart": plt})
+```
+
+You can pass a `matplotlib` pyplot or figure object into `wandb.log`. By default we'll convert the plot into a [Plotly](https://plot.ly/) plot. If you want to explicitly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging Plotly charts.
+{% endtab %}
+
+{% tab title="ROC" %}
+_Coming soon_
+{% endtab %}
+
+{% tab title="PR" %}
+_Coming soon_
+{% endtab %}
+
+{% tab title="Confusion Matrix" %}
+`wandb.log({'confusion_matrix': wandb.plots.HeatMap(x_labels, y_labels, matrix_values, show_text=False)})`
+
+* matrix\_values \(arr\): 2D dataset of shape x\_labels \* y\_labels, containing heatmap values that can be coerced into an ndarray
+* x\_labels  \(list\): Named labels for rows \(x\_axis\)
+* y\_labels  \(list\): Named labels for columns \(y\_axis\)
+* show\_text \(bool\): Show text values in heatmap cells
+{% endtab %}
+
+{% tab title="Heat Map" %}
+_Coming soon_
+{% endtab %}
+{% endtabs %}
+
+### 3D Visualizations
+
+{% tabs %}
+{% tab title="3D Object" %}
+Log files in the formats `obj`, `gltf`, or `glb`, and we will render them in the UI when your run finishes. 
+
+```python
+wandb.log({"generated_samples":
+           [wandb.Object3D(open("sample.obj")),
+            wandb.Object3D(open("sample.gltf")),
+            wandb.Object3D(open("sample.glb"))]})
+```
+{% endtab %}
+
+{% tab title="Molecule" %}
 ```python
 wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
 ```
@@ -170,20 +211,9 @@ Logging molecular data in wandb is supported via 10 different file types:
 `'pdb', 'pqr', 'mmcif', 'mcif', 'cif', 'sdf', 'sd', 'gro', 'mol2', 'mmtf'`
 
 Logging any of these file types  will provide you with a 3D molecular structure that is viewable  upon file completion.
+{% endtab %}
 
-#### Logging 3D Objects
-
-```python
-wandb.log({"generated_samples":
-           [wandb.Object3D(open("sample.obj")),
-            wandb.Object3D(open("sample.gltf")),
-            wandb.Object3D(open("sample.glb"))]})
-```
-
-Wandb supports logging 3D file types of in three different formats: glTF, glb, obj. The 3D files will be viewable on the run page upon completion of your run.
-
-#### Logging Point Clouds
-
+{% tab title="Point Clouds" %}
 Point Clouds logging has currently has two modes.  Logging a single set of points representing an object , useful for representing datasets like [ShapeNet\(Example Report\)](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Semantic-Segmentation-of-3D-Point-Clouds--VmlldzoxMDk3OA). Along with a new beta release lidar scene renderer. 
 
 Logging a set of points is as simple as passing in a numpy array containing your coordinates and the desired colors for the points
@@ -194,11 +224,20 @@ point_cloud = np.array([[0, 0, 0, COLOR...], ...])
 wandb.log({"point_cloud": wandb.Object3D(point_cloud)})
 ```
 
-Three different shapes of numpy arrays are supported for flexible color schemes, supporting common ML us
+Three different shapes of numpy arrays are supported for flexible color schemes.
 
 * `[[x, y, z], ...]` `nx3`
 * `[[x, y, z, c], ...]` `nx4` `| c is a category` in the range `[1, 14]` \(Useful for segmentation\)
 * `[[x, y, z, r, g, b], ...]` `nx6 | r,g,b` are values in the range `[0,255]`for red, green, and blue color channels.
+
+Here's an example of logging code below:
+
+* `points`is a numpy array with the same format as the simple point cloud renderer shown above.
+* `boxes` is a numpy array of python dictionaries with three attributes:
+  * `corners`- a list of eight corners
+  * `label`- a string representing the label to be rendered on the box \(Optional\)
+  * `color`- rgb values representing the color of the box 
+* `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
 
 ```python
 # Log points and boxes in W&B
@@ -250,31 +289,13 @@ wandb.log(
             )
         }
     )
-
-
 ```
+{% endtab %}
+{% endtabs %}
 
-* `points`is a numpy array with the same format as the simple point cloud renderer shown above.
-* `boxes` is a numpy array of python dictionaries with three attributes:
-  * `corners`- a list of eight corners
-  * `label`- a string representing the label to be rendered on the box \(Optional\)
-  * `color`- rgb values representing the color of the box 
-* `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
 
-More scene types will be added in the future. If there is a type of 3d scene you would like to log in Weights & Biases reach out and let us know! We love feedback.
 
-### Logging a Confusion Matrix
-
-`wandb.log({'confusion_matrix': wandb.plots.HeatMap(x_labels, y_labels, matrix_values, show_text=False)})`
-
-where:
-
-* matrix\_values \(arr\): 2D dataset of shape x\_labels \* y\_labels, containing   heatmap values that can be coerced into an ndarray.
-* x\_labels  \(list\): Named labels for rows \(x\_axis\).
-* y\_labels  \(list\): Named labels for columns \(y\_axis\).
-* show\_text \(bool\): Show text values in heatmap cells.
-
-### Summary Metrics
+## Summary Metrics
 
 The summary statistics are used to track single metrics per model. If a summary metric is modified, only the updated state is saved. We automatically set summary to the last history row added unless you modify it manually. If you change a summary metric, we only persist the last value it was set to.
 
