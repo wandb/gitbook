@@ -8,7 +8,7 @@ description: An overview of the different pages in app.wandb.ai
 
 Browse all your runs and projects. The home page pulls in projects from your personal account, as well as any projects you've contributed to in teams. 
 
-![](../../.gitbook/assets/image%20%2860%29.png)
+![](../../.gitbook/assets/image%20%2861%29.png)
 
 ## Project Page
 

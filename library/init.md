@@ -135,7 +135,7 @@ for i in range(100):
 
 Here's a sample terminal output:
 
-![](../.gitbook/assets/image%20%2869%29.png)
+![](../.gitbook/assets/image%20%2870%29.png)
 
 And once I have internet, I run a sync command to send that folder to the cloud.
 
