@@ -194,10 +194,6 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 * y\_labels  \(list\): Named labels for columns \(y\_axis\)
 * show\_text \(bool\): Show text values in heatmap cells
 {% endtab %}
-
-{% tab title="Heat Map" %}
-_Coming soon_
-{% endtab %}
 {% endtabs %}
 
 ### 3D Visualizations
