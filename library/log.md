@@ -142,8 +142,6 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 {% endtab %}
 {% endtabs %}
 
-
-
 ### Custom Plots
 
 {% tabs %}
