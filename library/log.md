@@ -187,12 +187,38 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 {% endtab %}
 
 {% tab title="Confusion Matrix" %}
-`wandb.log({'confusion_matrix': wandb.plots.HeatMap(x_labels, y_labels, matrix_values, show_text=False)})`
+`wandb.sklearn.plot_confusion_matrix(y_test, y_pred, nb.classes_)`
+
+* y\_true \(arr\): Test set labels
+* y\_probas \(arr\): Test set predicted probabilities
+* labels \(list\): Named labels for target variable \(y\)
+
+[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
+
+[Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
+
+This feature the confusion matrix to evaluate the accuracy of a classification. It's useful for assessing the quality of model predictions and finding patterns in the predictions the model gets wrong.
+
+The diagonal represents the predictions the model got right, i.e. where the actual label is equal to the predicted label.
+
+![](../.gitbook/assets/docs-confusion-matrix.png)
+{% endtab %}
+
+{% tab title="Heatmap" %}
+`wandb.log({'heatmap_with_text': wandb.plots.HeatMap(x_labels, y_labels, matrix_values, show_text=False)})`
 
 * matrix\_values \(arr\): 2D dataset of shape x\_labels \* y\_labels, containing heatmap values that can be coerced into an ndarray
-* x\_labels  \(list\): Named labels for rows \(x\_axis\)
-* y\_labels  \(list\): Named labels for columns \(y\_axis\)
+* x\_labels \(list\): Named labels for rows \(x\_axis\)
+* y\_labels \(list\): Named labels for columns \(y\_axis\)
 * show\_text \(bool\): Show text values in heatmap cells
+
+[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
+
+[Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
+
+Here's an example of the attention maps for a Neural Machine Translation model that converts from English to French. We draw attention maps at the 2nd, 20th epochs and 100th. Here we can see that the model starts out by not knowing which words to pay attention to \(and uses `<res>` to predict all words, and slowly learns which ones to pay attention to over the course of the next 100 epochs.
+
+![](../.gitbook/assets/docs-heatmaps.png)
 {% endtab %}
 {% endtabs %}
 
