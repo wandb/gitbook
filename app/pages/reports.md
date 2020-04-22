@@ -61,7 +61,11 @@ If you really need to compare runs from two projects and the columns aren't work
 
 ## Collaborate on reports
 
-Collaborative reports are live! You can make a report collaborative by hitting the Share icon in the header of a report. This changes the editing flow of reports a bit. When you hit edit, you'll actually be editing a draft copy of the report that you can merge in by hitting "Save to report". If someone else has merged into the report in the meantime, you'll get a warning to help you resolve the potential conflict.
+Once you've saved a report, you can click the **Share** button to collaborate. Make sure the visibility settings on your project allow your collaborators to access the report— you'll need an open project or a team project to share a report that you can edit together.
+
+When you press edit, you'll be editing a draft copy of the report. This draft auto-saves, and when you press **Save to report** you'll be publishing your changes to the shared report.
+
+If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
 
 ![](../../.gitbook/assets/collaborative-reports.gif)
 
