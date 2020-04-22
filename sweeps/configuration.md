@@ -20,6 +20,8 @@ Use these configuration fields to customize your sweep. There are two ways to sp
 | method | Specify the [search strategy](configuration.md#search-strategy) \(required\) |
 | early\_terminate | Specify the [stopping criteria](configuration.md#stopping-criteria) |
 | parameters | Specify [parameters](configuration.md#parameters) bounds to search \(required\) |
+| project | Specify the project for this sweep |
+| entity | Specify the entity for this sweep |
 
 ### Metric
 
