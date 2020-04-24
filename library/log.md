@@ -239,7 +239,7 @@ wandb.log({"generated_samples":
             wandb.Object3D(open("sample.glb"))]})
 ```
 
-![](../.gitbook/assets/image%20%2862%29.png)
+![Ground truth and prediction of a headphones point cloud](../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
 
 [See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
