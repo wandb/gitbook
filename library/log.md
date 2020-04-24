@@ -241,9 +241,7 @@ wandb.log({"generated_samples":
 {% endtab %}
 
 {% tab title="Point Clouds" %}
-Point Clouds logging has currently has two modes.  Logging a single set of points representing an object , useful for representing datasets like [ShapeNet\(Example Report\)](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Semantic-Segmentation-of-3D-Point-Clouds--VmlldzoxMDk3OA). Along with a new beta release lidar scene renderer. 
-
-Logging a set of points is as simple as passing in a numpy array containing your coordinates and the desired colors for the points
+Log 3D point clouds and Lidar scenes with bounding boxes. Pass in a numpy array containing coordinates and colors for the points to render.
 
 ```python
 point_cloud = np.array([[0, 0, 0, COLOR...], ...])
