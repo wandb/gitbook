@@ -230,7 +230,7 @@ Here's an example of the attention maps for a Neural Machine Translation model t
 
 {% tabs %}
 {% tab title="3D Object" %}
-Log files in the formats `obj`, `gltf`, or `glb`, and we will render them in the UI when your run finishes. 
+Log files in the formats `obj`, `gltf`, or `glb`, and we will render them in the UI when your run finishes.
 
 ```python
 wandb.log({"generated_samples":
@@ -238,6 +238,10 @@ wandb.log({"generated_samples":
             wandb.Object3D(open("sample.gltf")),
             wandb.Object3D(open("sample.glb"))]})
 ```
+
+![](../.gitbook/assets/image%20%2862%29.png)
+
+[See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
 
 {% tab title="Point Clouds" %}
