@@ -59,6 +59,12 @@ mask_img = wandb.Image(image, masks={
   ...
 })
 ```
+
+[See a live example →](https://app.wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)
+
+[Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
+
+![](../.gitbook/assets/image%20%2850%29.png)
 {% endtab %}
 
 {% tab title="Audio" %}
