@@ -64,7 +64,15 @@ You can see the git commit through the UI under the information tab. It is also 
 
 Sure, check out our [API examples](examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
 
-### How can I get the run\_id through the python api?
+### How can I get the randomized run\_id through the python api?
 
-When a training script is running you can call wandb.run.id
+When a training script is running you can call `wandb.run.id`
+
+### How can I get the run name from my code in python api? 
+
+Run name: `wandb.run.name`
+
+Run ID \(8 Characters\): `wandb.run.id`
+
+
 
