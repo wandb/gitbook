@@ -84,7 +84,7 @@ Manual instructions:
 
 * Navigate to [Portal.azure.com](http://portal.azure.com/) &gt; Azure Active Directory &gt; Properties. The directory ID it shows there is your Tenant ID.
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](../.gitbook/assets/image%20%2824%29.png)
 
 * Then, navigate to [https://login.microsoftonline.com/YOUR-TENANT-ID/oauth2/authorize?client\_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response\_type=code&redirect\_uri=https%3A%2F%2Fwww.microsoft.com](https://login.microsoftonline.com/YOUR-TENANT-ID/oauth2/authorize?client_id=af76df2c-ffe4-4f95-b71c-1558ed8afae1&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com)
 * Grant permissions. You'll be redirected to microsoft.com, at which point you can close the browser page.

@@ -64,7 +64,53 @@ mask_img = wandb.Image(image, masks={
 
 [Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
 
-![](../.gitbook/assets/image%20%2850%29.png)
+![semantic segmentation of self-driving car scenes](../.gitbook/assets/image%20%2852%29.png)
+
+#### Bounding Boxes 
+
+If you have bounding boxes with your images you can log the bounding boxes then filter and toggle them with the UI. To log multiple box groups, log a dictionary of boxes.
+
+```python
+class_id_to_label = {
+    1: "car",
+    2: "road",
+    3: "building",
+    ....
+}
+
+img = wandb.Image(image, boxes={
+    "predictions": {
+        "box_data": [{
+            "position": {
+                "minX": 0.1,
+                "maxX": 0.2,
+                "minY": 0.3,
+                "maxY": 0.4,
+            },
+            "class_id" : 2,
+            "box_caption": "minMax(pixel)",
+            "scores" : {
+                "acc": 0.1,
+                "loss": 1.2
+            },
+        }, 
+        # Log as many boxes as needed
+        ...
+        ],
+        "class_labels": class_id_to_label
+    },
+    "ground_truth": {
+    # You may logged as many groups of boxes
+    # as needed with diferent key names
+    # for each group
+    ...
+    }
+})
+
+wandb.log({"driving_scene": img})
+```
+
+![bounding boxes for a self-driving car scene](../.gitbook/assets/image%20%2836%29.png)
 {% endtab %}
 
 {% tab title="Audio" %}
