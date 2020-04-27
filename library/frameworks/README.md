@@ -22,3 +22,5 @@ Use framework integrations to get a wandb integration up and running quickly. He
 
 {% page-ref page="lightgbm.md" %}
 
+{% page-ref page="scikit.md" %}
+
