@@ -50,7 +50,7 @@ To move runs from one project to another:
 
 Look for a green dot next to the name of runs— this indicates they're active in the table and on the graph legends. 
 
-![](../../.gitbook/assets/image%20%2812%29.png)
+![](../../.gitbook/assets/image%20%2813%29.png)
 
 ### Hide uninteresting runs
 
@@ -60,7 +60,7 @@ Do you want to hide crashed runs? Are short runs filling up your table? Do you w
 * **Hide crashed runs** filters out any runs marked crashed from the table
 * **Duration**: add a new filter and select "duration" to hide short runs
 
-![](../../.gitbook/assets/image%20%2814%29.png)
+![](../../.gitbook/assets/image%20%2815%29.png)
 
 
 

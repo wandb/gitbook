@@ -64,7 +64,7 @@ mask_img = wandb.Image(image, masks={
 
 [Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
 
-![semantic segmentation of self-driving car scenes](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/semantic-segmentation-uuid-923.png)
 
 #### Bounding Boxes 
 
@@ -107,10 +107,26 @@ img = wandb.Image(image, boxes={
     }
 })
 
-wandb.log({"driving_scene": img})
+wandb.log({"driving_scene": img}
 ```
 
-![bounding boxes for a self-driving car scene](../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/bounding-box-uuid-123.png)
+
+Optional Parameters
+
+`class_labels` An optional argument mapping your class\_ids to string values. By default we will generate class\_labels `class_0`, `class_1`, etc...
+
+Boxes - Each box passed into box\_data can be defined with different coordinate systems.
+
+`position` 
+
+* Option 1: `{minX, maxX, minY, maxY}` Provide a set of coordinates defining the upper and lower bounds of each box dimension.
+* Option 2: `{middle, width, height}`  Provide a set of coordinates specifying the middle coordinates as `[x,y]`, and `width`, and `height` as scalars 
+
+`domain` Change the domain of your position values based on your data representation
+
+* `percentage` \(Default\) A relative value representing the percent of the image as distance
+* `pixel`An absolute pixel value
 {% endtab %}
 
 {% tab title="Audio" %}
