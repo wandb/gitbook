@@ -85,6 +85,7 @@
     * [Teams](app/features/teams.md)
     * [System Metrics](app/features/system-metrics.md)
   * [Visualizations](app/visualizations/README.md)
+    * [Parallel Coordinates](app/visualizations/parallel-coordinates.md)
     * [Line Plot](app/visualizations/compare-metrics/README.md)
       * [Reference](app/visualizations/compare-metrics/reference.md)
     * [Parameter Importance](app/visualizations/parameter-importance.md)
