@@ -21,27 +21,24 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 
 We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
 
-### Rich Media
+### Images and Overlays
 
 {% tabs %}
 {% tab title="Image" %}
-```python
-wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})
-```
+`wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})`
 
 If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. You can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
+{% endtab %}
 
-#### Segmentation Masks
-
+{% tab title="Segmentation Mask" %}
 If you have images with masks for semantic segmentation, you can log the masks and toggle them on and off in the UI. To log multiple masks, log a mask dictionary with multiple keys. Here's an example:
 
+* **mask\_data**: a 2D numpy array containing an integer class label for each pixel
+* **class\_labels**: a dictionary mapping the numbers from **mask\_data** to readable labels
+
 ```python
-# masks_data is a two dimensional numpy array containing
-# an integer class label for each pixel
 mask_data = np.array([[1, 2, 2, ... , 2, 2, 1], ...])
 
-# class_label is a dictionary mapping the classs number values in mask_data
-# to string value representing the class label
 class_labels = {
   1: "tree",
   2: "car",
@@ -64,11 +61,11 @@ mask_img = wandb.Image(image, masks={
 
 [Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
 
-![](../.gitbook/assets/semantic-segmentation-uuid-923.png)
+![](../.gitbook/assets/semantic-segmentation.gif)
+{% endtab %}
 
-#### Bounding Boxes 
-
-If you have bounding boxes with your images you can log the bounding boxes then filter and toggle them with the UI. To log multiple box groups, log a dictionary of boxes.
+{% tab title="Bounding Box" %}
+Log bounding boxes with images, and use filters and toggles to dynamically visualize different sets of boxes in the UI.
 
 ```python
 class_id_to_label = {
@@ -100,17 +97,13 @@ img = wandb.Image(image, boxes={
         "class_labels": class_id_to_label
     },
     "ground_truth": {
-    # You may logged as many groups of boxes
-    # as needed with diferent key names
-    # for each group
+    # Log each group of boxes with a unique key name
     ...
     }
 })
 
 wandb.log({"driving_scene": img}
 ```
-
-![](../.gitbook/assets/bounding-box-uuid-123.png)
 
 Optional Parameters
 
@@ -127,8 +120,16 @@ Boxes - Each box passed into box\_data can be defined with different coordinate 
 
 * `percentage` \(Default\) A relative value representing the percent of the image as distance
 * `pixel`An absolute pixel value
-{% endtab %}
 
+[See a live example →](https://app.wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ)
+
+![](../.gitbook/assets/bb-docs.jpeg)
+{% endtab %}
+{% endtabs %}
+
+### Media
+
+{% tabs %}
 {% tab title="Audio" %}
 ```python
 wandb.log({"examples": [wandb.Audio(numpy_array, caption="Nice", sample_rate=32)]})
