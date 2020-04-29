@@ -22,6 +22,7 @@ Use these configuration fields to customize your sweep. There are two ways to sp
 | parameters | Specify [parameters](configuration.md#parameters) bounds to search \(required\) |
 | project | Specify the project for this sweep |
 | entity | Specify the entity for this sweep |
+| command | Specify command line for how the training script should be run |
 
 ### Metric
 
@@ -190,4 +191,76 @@ parameters:
     min: 1
     max: 20
 ```
+
+### Command Line
+
+The sweep agent constructs a command line in the following format by default:
+
+```text
+/usr/bin/env python train.py --param1=value1 --param2=value2
+```
+
+{% hint style="info" %}
+On Windows machines the /usr/bin/env will be omitted.  On UNIX systems it ensures the right python interpreter is chosen based on the environment.
+{% endhint %}
+
+This command line can be modified by specifying a `command` key in the configuration file.
+
+By default the command is defined as:
+
+```text
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args}
+```
+
+| Command Macro | Expansion |
+| :--- | :--- |
+| ${env} | /usr/bin/env on UNIX systems, omitted on Windows |
+| ${interpreter\| | Expands to "python". |
+| ${program} | Training script specified by the sweep configuration `program` key |
+| ${args} | Expanded arguments in the form --param1=value1 --param2=value2 |
+
+ Examples:
+
+{% tabs %}
+{% tab title="Set python interpreter" %}
+In order to hardcode the python interpreter you can can specify the interpreter explicitly:
+
+```text
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+```
+{% endtab %}
+
+{% tab title="Add extra parameters" %}
+Add extra command line arguments not specified by sweep configuration parameters:
+
+```text
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - "-config"
+  - your-training-config
+  - ${args}
+```
+{% endtab %}
+
+{% tab title="Omit arguments" %}
+If your program does not use argument parsing you can avoid passing arguments all together and take advantage of `wandb.init()` picking up sweep parameters automatically:
+
+```text
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+```
+{% endtab %}
+{% endtabs %}
 
