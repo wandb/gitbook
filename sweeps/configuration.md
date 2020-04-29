@@ -22,7 +22,7 @@ Use these configuration fields to customize your sweep. There are two ways to sp
 | parameters | Specify [parameters](configuration.md#parameters) bounds to search \(required\) |
 | project | Specify the project for this sweep |
 | entity | Specify the entity for this sweep |
-| command | Specify command line for how the training script should be run |
+| command | Specify [command line](configuration.md#command) for how the training script should be run |
 
 ### Metric
 
