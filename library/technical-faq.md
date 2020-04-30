@@ -43,7 +43,7 @@ By default, we don't log any of your dataset examples. You can explicitly turn t
 There's two ways to turn off code logging:
 
 1. Set **WANDB\_DISABLE\_CODE** to **true** to turn off all code tracking. We won't pick up the git SHA or the diff patch.
-2. Set **WANDB\_IGNORE\_GLOBS** to **\*.patch** to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](../library/cli.md#restore-the-state-of-your-code) command.
+2. Set **WANDB\_IGNORE\_GLOBS** to **\*.patch** to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](cli.md#restore-the-state-of-your-code) command.
 
 ### Does logging block my training? 
 
@@ -57,7 +57,7 @@ We use the same exponential moving average formula as TensorBoard. You can find 
 
 ### How is wandb different from TensorBoard?
 
-First of all, we use and love TensorBoard and you can easily integrate wandb with TensorBoard \(see [TensorBoard](../library/integrations/tensorboard.md)\).
+First of all, we use and love TensorBoard and you can easily integrate wandb with TensorBoard \(see [TensorBoard](integrations/tensorboard.md)\).
 
 W&B is designed to be a central repository of every training run you or your organization does. Some of the difference that come from that are:
 
@@ -83,7 +83,7 @@ If you run into issues with this install, please let us know. This Anaconda [doc
 
 ### How do I stop wandb from writing to my terminal or my jupyter notebook output?
 
-Set the environmental variable [WANDB\_SILENT](../library/advanced/environment-variables.md).
+Set the environmental variable [WANDB\_SILENT](advanced/environment-variables.md).
 
 In a notebook:
 

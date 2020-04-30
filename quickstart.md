@@ -99,7 +99,7 @@ Now you've got the instrumentation working, here's a quick overview of cool feat
 
 [See a live example report →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
 
-[Contact us with questions →](resources/getting-help.md)
+[Contact us with questions →](company/getting-help.md)
 
 ![](.gitbook/assets/demo-report-page.png)
 

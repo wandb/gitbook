@@ -1,4 +1,4 @@
-# Resources
+# Company
 
 ### What is wandb?
 
