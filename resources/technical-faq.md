@@ -113,3 +113,9 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 
 `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
 
+### wandb requires login during API usage. What happens if internet connection is lost while I'm training a model? 
+
+if our library is unable to connect to the internet it will enter a retry loop and keep attempting to stream metrics until the network is restored.  During this time your program is able to continue running.  If you need to run on a machine without internet, you can set WANDB\_MODE=dryrun to only have metrics stored locally on your harddrive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
+
+
+
