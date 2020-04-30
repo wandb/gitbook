@@ -99,5 +99,6 @@
   * [Configuration](self-hosted/configuration.md)
   * [Upgrades](self-hosted/upgrades.md)
   * [Sending Data](self-hosted/sending-data.md)
+  * [Local Common Questions](self-hosted/local-common-questions.md)
   * [Cloud](self-hosted/cloud.md)
 
