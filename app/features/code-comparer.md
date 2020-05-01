@@ -1,6 +1,6 @@
 # Code Comparer
 
-Experimenting with a machine learning model means making lots of quick changes to the code. If you’re training in a git repository, we’ve always captured the latest commit and a patch file containing any uncommitted changes. Today, I’m excited to announce two new features that will help you see exactly what code changed between machine learning experiments: the Code Comparer and Jupyter Session History.
+Experimenting with a machine learning model means making lots of quick changes to the code. If you’re training in a git repository, we’ve always captured the latest commit and a patch file containing any uncommitted changes. Today, I’m excited to announce two new features that will help you see exactly what code changed between machine learning experiments: the Code Comparer and Jupyter Session History. To disable this feature, set the environment variable WANDB\_DISABLE\_CODE=true.
 
 ### Code Comparer
 
