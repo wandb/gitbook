@@ -35,7 +35,23 @@ You should generally call `wandb.init()` once at the start of your training scri
 
 Most of these settings can also be controlled via [Environment Variables](advanced/environment-variables.md). This is often useful when you're running jobs on a cluster.
 
-## Common Questions
+### Code Comparer
+
+Starting with **wandb** version 0.8.28, our library now saves the code from your main training file where you call **wandb.init\(\)**. When you add a new custom panel to your workspace or report, you’ll now find Code Comparer as an option. Diff any two experiments in your project and see exactly which lines of code changed. Here’s an example:
+
+![](../.gitbook/assets/image%20%2852%29.png)
+
+### Jupyter Session History
+
+Startin with **wandb** version 0.8.34, our library does Jupyter session saving. When you call **wandb.init\(\)** inside of Jupyter, we add a hook to automatically save a Jupyter notebook containing the history of code executed in your current session. You can find this session history in a runs file browser under the code directory:
+
+![](../.gitbook/assets/code2.png)
+
+Clicking on this file will display the cells that were executed in your session along with any outputs created by calling iPython’s display method. This enables you to see exactly what code was run within Jupyter in a given run. When possible we also save the most recent version of the notebook which you would find in the code directory as well.
+
+![](../.gitbook/assets/code1.png)
+
+## Common Question
 
 ### How do I launch multiple runs from one script?
 
@@ -135,13 +151,13 @@ for i in range(100):
 
 Here's a sample terminal output:
 
-![](../.gitbook/assets/image%20%2877%29.png)
+![](../.gitbook/assets/image%20%2880%29.png)
 
 And once I have internet, I run a sync command to send that folder to the cloud.
 
 `wandb sync wandb/dryrun-folder-name`
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2835%29.png)
 
 
 

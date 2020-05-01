@@ -72,6 +72,7 @@
     * [Table](app/features/sidebar.md)
     * [Tags](app/features/tags.md)
     * [Notes](app/features/notes.md)
+    * [Code Comparer](app/features/code-comparer.md)
     * [Sweeps](app/features/sweeps.md)
     * [Alerts](app/features/alerts.md)
     * [Teams](app/features/teams.md)

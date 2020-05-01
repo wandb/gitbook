@@ -33,7 +33,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](../../.gitbook/assets/image%20%2835%29.png)
+![](../../.gitbook/assets/image%20%2836%29.png)
 
 ## System Tab
 
@@ -42,7 +42,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
 
-![](../../.gitbook/assets/image%20%2884%29.png)
+![](../../.gitbook/assets/image%20%2887%29.png)
 
 ## Model Tab
 
@@ -50,7 +50,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
-![](../../.gitbook/assets/image%20%2832%29.png)
+![](../../.gitbook/assets/image%20%2833%29.png)
 
 ## Logs Tab 
 
@@ -59,7 +59,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
-![](../../.gitbook/assets/image%20%2870%29.png)
+![](../../.gitbook/assets/image%20%2873%29.png)
 
 ## Files Tab
 
@@ -69,7 +69,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
 
-![](../../.gitbook/assets/image%20%282%29.png)
+![](../../.gitbook/assets/image%20%283%29.png)
 
 
 
