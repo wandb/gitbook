@@ -70,6 +70,10 @@ W&B is designed to be a central repository of every training run you or your org
 
 At the top of your training script when you call wandb.init, pass in an experiment name, like this: `wandb.init(name="my awesome run")`
 
+### How do I get the random run name in my script?
+
+Call `wandb.run.save()` and then get the name with `wandb.run.name` .
+
 ### Is there an anaconda package?
 
 We don't have an anaconda package but you should be able to install wandb using:
