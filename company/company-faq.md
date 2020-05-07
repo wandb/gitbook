@@ -1,12 +1,12 @@
 # Company FAQ
 
-### How do I pronounce "wandb"?
+### Pricing and Account Plans
 
-You can pronounce it w-and-b \(as we originally intended\), wand-b \(because it's magic like a wand\), or wan-db \(because it saves things like a database\).
+W&B is free for individuals and academic teams. We are committed to staying free to support the advancement of machine learning, and we make it easy to export data with our [Export API](../library/api/).
 
-### How much does this thing cost?
-
-W&B is free as long as your projects are public or you are working on an academic or open source project. We are committed to staying free for academic and open source projects and making it easy to export data.
+* [Pricing Page](https://www.wandb.com/pricing): Accounts for individuals, startups, teams, and enterprises
+* [Academics](https://www.wandb.com/academic): Apply for access to academic teams to share results with collaborators
+* On-prem: 
 
 If you want to host private projects for a company, email us at [contact@wandb.com](mailto:contact@wandb.com).
 
@@ -38,4 +38,8 @@ We hope to discover and share high level patterns to move the field of machine l
 At Weights & Biases our mission is to build the best tools for machine learning. Our experienced technical cofounders built Figure Eight, and our tools are being used by cutting-edge machine learning teams including OpenAI and Toyota. We enjoy making useful tools, and the best part of our day is interacting with people who are building real models using our product. 
 
 ![](../.gitbook/assets/image%20%2855%29.png)
+
+### How do I pronounce "wandb"?
+
+You can pronounce it w-and-b \(as we originally intended\), wand-b \(because it's magic like a wand\), or wan-db \(because it saves things like a database\).
 
