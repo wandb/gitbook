@@ -10,7 +10,7 @@ W&B Enterprise is the on-prem version of [Weights & Biases](https://docs.wandb.c
 
 Most enterprise customers will use a [W&B Enterprise Server](https://docs.wandb.com/enterprise/setup). This is a single virtual machine containing all of W&B's systems and storage. You can provision a W&B server on any cloud environment or local hardware or virtual server.
 
-We also offer [W&B Enterprise Cloud](https://docs.wandb.com/enterprise/cloud), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system can scale to any level of usage.
+We also offer [W&B Enterprise Cloud](cloud.md), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system can scale to any level of usage.
 
 ## Features
 
