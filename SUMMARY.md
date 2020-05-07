@@ -88,7 +88,6 @@
     * [Scatter Plot](app/visualizations/scatter-plot.md)
 * [Self Hosted](self-hosted/README.md)
   * [Local](self-hosted/local.md)
-  * [Overview](self-hosted/overview.md)
   * [Setup](self-hosted/setup.md)
   * [Configuration](self-hosted/configuration.md)
   * [Upgrades](self-hosted/upgrades.md)
