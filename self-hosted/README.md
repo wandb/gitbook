@@ -32,3 +32,21 @@ We support the following environments:
 
 The W&B Enterprise server requires a virtual machine with at least 4 cores and 16GB memory.
 
+## On-Prem Resources
+
+{% page-ref page="local.md" %}
+
+{% page-ref page="setup.md" %}
+
+{% page-ref page="configuration.md" %}
+
+{% page-ref page="upgrades.md" %}
+
+{% page-ref page="sending-data.md" %}
+
+{% page-ref page="local-common-questions.md" %}
+
+{% page-ref page="cloud.md" %}
+
+
+
