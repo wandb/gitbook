@@ -102,4 +102,5 @@
   * [Beginner FAQ](company/beginner-faq.md)
   * [Classes](company/classes/README.md)
     * [Talks](company/classes/talks.md)
+* [Hugging Face](hugging-face.md)
 
