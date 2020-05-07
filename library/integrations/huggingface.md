@@ -1,28 +1,59 @@
 ---
-description: W&B integration with Hugging Face - Transformers
+description: >-
+  W&B integration with the awesome NLP library Hugging Face, which has
+  pre-trained models, scripts, and datasets
 ---
 
-# Hugging Face - Transformers
+# Hugging Face
 
-[Hugging Face - Transformers](https://huggingface.co/transformers/) provides general-purpose architectures for Natural Language Understanding (NLU) and Natural Language Generation (NLG) with pretrained models in 100+ languages and deep interoperability between TensorFlow 2.0 and PyTorch.
+[Hugging Face Transformers](https://huggingface.co/transformers/) provides general-purpose architectures for Natural Language Understanding \(NLU\) and Natural Language Generation \(NLG\) with pretrained models in 100+ languages and deep interoperability between TensorFlow 2.0 and PyTorch.
 
-Training is automatically logged on Weights & Biases when `wandb` is installed and user is logged in.
+To get training logged automatically, just install the library and log in:
 
-```
+```text
 pip install transformers
-
 pip install wandb
 wandb login
 ```
 
-The `Trainer` will automatically log losses, evaluation metrics, model topology & gradients.
+The `Trainer` will automatically log losses, evaluation metrics, model topology and gradients.
 
-Logging can be customized by overriding following environment parameters.
+Customize logging with these optional environment variables:
 
-**Parameters**
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Environment Variables</th>
+      <th style="text-align:left">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">WANDB_WATCH</td>
+      <td style="text-align:left">
+        <ul>
+          <li><b>gradients</b> (default): Log histograms of the gradients</li>
+          <li><b>all</b>: Log hisograms of gradients and parameters</li>
+          <li><b>false</b>: No gradient or parameter logging</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">WANDB_PROJECT</td>
+      <td style="text-align:left"><em><b>string</b>:</em> Set the project name. By default it&apos;s &quot;huggingface&quot;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">WANDB_DISABLED</td>
+      <td style="text-align:left"><em><b>boolean</b>:  </em>Set to <b>true</b> to disable logging entirely</td>
+    </tr>
+  </tbody>
+</table>### Examples
 
-* **WANDB_WATCH** (_Optional: ["gradients", "all", "false"]_) - "gradients" by default, set to "false" to disable gradient logging or "all" to log gradients and parameters
-* **WANDB_PROJECT** (_Optional: str_) - "huggingface" by default, set this to a custom string to store results in a different project
-* **WANDB_DISABLED** (_Optional: bool_) - defaults to false, set to "true" to disable wandb entirely
+We created a demo notebook in Google Colab. Use it to see how the integration works:
 
-Experiment with our demo notebook and share your results with us!
+[Try a notebook example →](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8?usp=sharing)
+
+### Feedback
+
+We'd love to hear feedback and we're excited to improve this integration. [Contact us](../../company/getting-help.md) with any questions or suggestions. 
+

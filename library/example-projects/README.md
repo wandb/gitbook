@@ -5,10 +5,6 @@ We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and
 * **Public Dashboard**: reports in our web app which show results of training a model
 * **Code**: a link to model code that produced the visualized results
 
-### Have a public project to share?
-
-Reach out to us at **contact@wandb.com** if you'd like us to add one of your projects to our featured list of examples.
-
 ### Getting Started with W&B
 
 | Description | Public Dashboard | Code |
@@ -93,12 +89,11 @@ Reach out to us at **contact@wandb.com** if you'd like us to add one of your pro
 | Template for COVID-19 Research | [Report](https://app.wandb.ai/cayush/covid-19-scans/reports/COVID-19-research-using-PyTorch-and-W%26B--Vmlldzo2OTQ5OA) |
 | Depth Maps from Videos for Self-Driving Car | [Report](https://app.wandb.ai/stacey/sfmlearner/reports/See-3D-from-Video%3A-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw) |
 | Effects of Weight Initialization on Neural Networks | [Report](https://app.wandb.ai/sayakpaul/weight-initialization-tb/reports/Effects-of-Weight-Initialization-on-Neural-Networks--Vmlldzo2ODY0NA) |
+|  |  |
 
-### Features
+### 
 
-| Title | Link |
-| :--- | :--- |
-| Hugging Face Integration | [Jupyter Notebook](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8) |
+### Have a public project to share?
 
-
+Reach out to us at **contact@wandb.com** if you'd like us to add one of your projects to our featured list of examples.
 
