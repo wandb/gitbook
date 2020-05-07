@@ -34,7 +34,6 @@ If you have existing experiments you would like to import into wandb, you can ru
 You can also run `wandb sync directory_with_tf_event_file` 
 
 ```python
- no_image_import.py
 """This script will import a directory of tfevents files into a single W&B run.
 You must install wandb from a special branch until this feature is merged into the mainline: 
 ```bash
