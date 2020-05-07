@@ -20,6 +20,7 @@
     * [XGBoost](library/frameworks/xgboost.md)
     * [LightGBM](library/frameworks/lightgbm.md)
   * [Integrations](library/integrations/README.md)
+    * [Hugging Face](library/integrations/huggingface.md)
     * [TensorBoard](library/integrations/tensorboard.md)
     * [SageMaker](library/integrations/sagemaker.md)
     * [Kubeflow](library/integrations/kubeflow.md)
@@ -102,5 +103,4 @@
   * [Beginner FAQ](company/beginner-faq.md)
   * [Classes](company/classes/README.md)
     * [Talks](company/classes/talks.md)
-* [Hugging Face](huggingface.md)
 
