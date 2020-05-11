@@ -264,3 +264,9 @@ command:
 {% endtab %}
 {% endtabs %}
 
+## Common Questions
+
+### Nested Config
+
+Right now, sweeps do not support nested values, but we plan on supporting this in the near future.
+
