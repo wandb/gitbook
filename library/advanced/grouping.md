@@ -9,6 +9,7 @@ If your experiments are made up of smaller pieces like training and evaluation s
 There are a few ways to use grouping:
 
 1. **In your script**: You can optionally give your runs a group ID and a job type when you call wandb.init\(\). For example:`wandb.init(group="experiment_1", job_type="eval")`
+   1. **group** should be unique within your project and shared by all runs in the group.  You can use `wandb.util.generate_id()` to generate a unique 8 character string to use in all your processes.  i.e. `os.environ["WANDB_RUN_GROUP"] = "experiment-" + wandb.util.generate_id()`
 2. \*\*\*\*[**Environment Variable**](environment-variables.md): Set`WANDB_RUN_GROUP`
 3. **In the UI**: You can dynamically group by any config column. For example, if you use `wandb.config` to log batch size or learning rate, you can then group by those hyperparameters dynamically in the web app. 
 
