@@ -97,6 +97,7 @@
 * [Company](company/README.md)
   * [Testimonials](company/testimonials.md)
   * [Support](company/getting-help.md)
+  * [Data and Privacy](company/data-and-privacy.md)
   * [Spread the Word](company/love-wandb.md)
   * [Company FAQ](company/company-faq.md)
   * [Beginner FAQ](company/beginner-faq.md)
