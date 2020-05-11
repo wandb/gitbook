@@ -67,7 +67,14 @@ wandb off sets an environmental variable so it turns off all syncing for that se
 
 ### How can I can turn off logging? 
 
-You can set WANDB\_MODE = dryrun to turn off logging 
+You can set WANDB\_MODE = dryrun to turn off logging. To prevent any log messages:
+
+```python
+python
+import logging
+logger = logging.getLogger("wandb")
+logger.setLevel(logging.WARNING)
+```
 
 ### WANDB\_MODE=dryrun ./run.sh will only stop the sync on run.sh, right? 
 
