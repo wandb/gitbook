@@ -33,7 +33,7 @@ Customize logging with these optional environment variables:
       <td style="text-align:left">
         <ul>
           <li><b>gradients</b> (default): Log histograms of the gradients</li>
-          <li><b>all</b>: Log hisograms of gradients and parameters</li>
+          <li><b>all</b>: Log histograms of gradients and parameters</li>
           <li><b>false</b>: No gradient or parameter logging</li>
         </ul>
       </td>
