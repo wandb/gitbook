@@ -54,6 +54,14 @@ Quick overview: [Run in colab](https://colab.research.google.com/github/wandb/ex
 
 Complete walkthrough of using sweeps in a project: [Run in colab](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt)
 
+{% hint style="danger" %}
+Using wandb.agent\(\) with jupyter notebook environments can hang when using GPUs.  
+  
+There can be a bad interaction between wandb.agent\(\) and jupyter environments due to how GPU/CUDA resources are initialized by frameworks.  
+  
+A temporary workaround \(until we can fix these interactions\) is to avoid using the python interface for running the agent.  Instead, use the command line interface by setting the `program` key in the sweep configuration, and execute: `!wandb agent SWEEP_ID` in your notebook.
+{% endhint %}
+
 ## Run a local controller
 
 If you want to develop your own parameter search algorithms you can run your controller from python.
