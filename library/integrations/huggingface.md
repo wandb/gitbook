@@ -63,7 +63,7 @@ Explore your results dynamically in the W&B Dashboard. It's easy to look across 
 
 ![](../../.gitbook/assets/hf-gif-15%20%281%29.gif)
 
-Here's an example from BERT— it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations.
+Here's an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations.
 
 ![](../../.gitbook/assets/gif-for-comparing-bert.gif)
 
