@@ -20,8 +20,9 @@ Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, 
 
 ### [Sweeps](sweeps/)
 
-* Model search and hyperparameter tuning
+* Hyperparameter search and tuning
 * Model optimization
+* Automating jobs
 
 ### [Artifacts](artifacts.md)
 
