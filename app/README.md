@@ -2,7 +2,7 @@
 description: app.wandb.ai interface
 ---
 
-# Dashboard
+# App UI
 
 Visualize system metrics across all the machines training a model.
 
