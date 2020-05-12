@@ -137,13 +137,13 @@ for i in range(100):
 
 Here's a sample terminal output:
 
-![](../.gitbook/assets/image%20%2880%29.png)
+![](../.gitbook/assets/image%20%2881%29.png)
 
 And once I have internet, I run a sync command to send that folder to the cloud.
 
 `wandb sync wandb/dryrun-folder-name`
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 
 

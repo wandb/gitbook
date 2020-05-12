@@ -10,20 +10,20 @@ Weights & Biases helps you keep track of your machine learning experiments. Use 
 
 Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, Azure, and on-prem machines.
 
-## Products
+## Tools
 
-{% page-ref page="app/" %}
+### [Dashboard](app/)
 
 * Machine learning experiment tracking
 * Visualize metrics, compare results
 * Share findings with collaborators in reports
 
-{% page-ref page="sweeps/" %}
+### [Sweeps](sweeps/)
 
 * Model search and hyperparameter tuning
 * Model optimization
 
-{% page-ref page="artifacts.md" %}
+### [Artifacts](artifacts.md)
 
 * Dataset versioning
 * Model management
@@ -40,7 +40,7 @@ Easily add our package, `wandb`, to your model script.
 
 Here's a sample screenshot from a [Species Identification project](https://app.wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification) in W&B.
 
-![](.gitbook/assets/image%20%2872%29.png)
+![](.gitbook/assets/image%20%2873%29.png)
 
 ## Examples
 

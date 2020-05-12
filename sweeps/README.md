@@ -1,10 +1,10 @@
 ---
-description: Use W&B Sweeps to manage hyperparameter search and hyperparameter optimization
+description: Hyperparameter search and model optimization
 ---
 
 # Sweeps
 
-Automate hyperparameter optimization and exploration with Sweeps.
+Use Weights & Biases Sweeps to automate hyperparameter optimization and explore the space of possible models.
 
 ### Benefits of using W&B Sweeps 
 
