@@ -57,3 +57,15 @@ We created a demo notebook in Google Colab. Use it to see how the integration wo
 
 We'd love to hear feedback and we're excited to improve this integration. [Contact us](../../company/getting-help.md) with any questions or suggestions. 
 
+## Visualize Results
+
+Explore your results dynamically in the W&B Dashboard. It's easy to look across dozens of experiments, zoom in on interesting findings, and visualize highly dimensional data.
+
+![](../../.gitbook/assets/hf-gif-15%20%281%29.gif)
+
+Here's an example from BERT— it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations.
+
+![](../../.gitbook/assets/gif-for-comparing-bert.gif)
+
+
+
