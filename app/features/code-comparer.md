@@ -1,9 +1,5 @@
 # Code Comparer
 
-Experimenting with a machine learning model means making lots of quick changes to the code. If you’re training in a git repository, we’ve always captured the latest commit and a patch file containing any uncommitted changes. Today, I’m excited to announce two new features that will help you see exactly what code changed between machine learning experiments: the Code Comparer and Jupyter Session History. To disable this feature, set the environment variable WANDB\_DISABLE\_CODE=true.
-
-### Code Comparer
-
 Starting with **wandb** version 0.8.28, our library now saves the code from your main training file where you call **wandb.init\(\)**. When you add a new custom panel to your workspace or report, you’ll now find Code Comparer as an option. Diff any two experiments in your project and see exactly which lines of code changed. Here’s an example:
 
 ![](../../.gitbook/assets/cc1.png)
