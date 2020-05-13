@@ -509,6 +509,10 @@ By default, we increment the global step every time you call wandb.log. If you'd
 
 For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
 
+### Navigating and zooming in point clouds 
+
+You can hold control and use the mouse to move around inside the space
+
 ### Nothing shows up in the graphs
 
 If you're seeing "No visualization data logged yet" that means that we haven't gotten the first wandb.log call from your script yet. This could be because your run takes a long time to finish a step. If you're logging at the end of each epoch, you could log a few times per epoch to see data stream in more quickly.
