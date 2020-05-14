@@ -226,7 +226,7 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 {% endtab %}
 
 {% tab title="ROC" %}
-`wandb.log({'roc': wandb.plots.ROC(y_test, y_probas, nb.classes_)})`
+`wandb.log({'roc': wandb.plots.ROC(y_test, y_probas, labels)})`
 
 * y\_true \(arr\): Test set labels
 * y\_probas \(arr\): Test set predicted probabilities
@@ -240,7 +240,7 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 {% endtab %}
 
 {% tab title="PR" %}
-`wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, nb.classes_)})`
+`wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, labels)})`
 
 * y\_true \(array\): Test set labels
 * y\_probas \(array\): Test set predicted probabilities
@@ -254,7 +254,7 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 {% endtab %}
 
 {% tab title="Confusion Matrix" %}
-`wandb.sklearn.plot_confusion_matrix(y_test, y_pred, nb.classes_)`
+`wandb.sklearn.plot_confusion_matrix(y_test, y_pred, labels)`
 
 * y\_true \(arr\): Test set labels
 * y\_probas \(arr\): Test set predicted probabilities
