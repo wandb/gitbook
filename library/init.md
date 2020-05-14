@@ -22,6 +22,7 @@ You should generally call `wandb.init()` once at the start of your training scri
 * **dir** — the path to a directory where artifacts will be written \(_default: ./wandb_\)
 * **entity** — the team posting this run \(_default: your username or your default team_\)
 * **job\_type** — the type of job you are logging, e.g. eval, worker, ps \(_default: training_\)
+* **save\_code** — save the main python or notebook file to wandb to enable diffing \(_default: editable from your_ [_settings_](https://app.wandb.ai/settings) _page_\)
 * **group** — a string by which to group other runs; see [Grouping](advanced/grouping.md)
 * **reinit** — whether to allow multiple calls to wandb.init in the same process \(_default: False_\)
 * **id** — A unique id for this run primarily used for resuming; see [Resuming](advanced/resuming.md), **must be globally unique within a project.** If you have a descriptive name for your run, we suggest you use the "name" field. The ID needs to not use special characters.
