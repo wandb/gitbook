@@ -81,6 +81,14 @@ I really like the visualizations and it's very easy to integrate with the pipeli
 
 Great tool! Still a lot to improve but looks like you have an entire team fully working on that!
 
+### **Seonil Simon Son,** NLP lover at Seoul National University
+
+ -Dumb-easy api really helped. Developing with tensorboardx which I had experience before was more trickier than learning this from the scratch.
+
+-Summarizing all the loggings on the cloud helps me keep focused on important things.
+
+-Sweep: plug-n-play version of hyperparam tuning methodologies
+
 ### Michael, a wonderful user! 
 
 It's just amazing, you guys are doing an amazing job over there! I'm telling about it to all my friends, everyone should use wandb!
