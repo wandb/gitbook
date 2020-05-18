@@ -12,6 +12,10 @@ With next to no modification of my code, I'm able to visualize metrics in real t
 
 I can't imagine going back to how I did things before.
 
+### Francisco J. Peña, [Postdoc](https://www.linkedin.com/in/franciscojp) at University College Dublin
+
+I went from storing all of my experiment results in JSON files and plotting them with matplotlib and seaborn, to have all the work taken care by W&B. Viewing the results so fast has helped me to identify bugs in my code at an early stage, it's a game changer. Thank you!
+
 ### **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
 
 Wandb has become the critical tool for us in bringing together the work of remote researchers across several continents. On a recent paper, we started using a wandb report as the central hub for collaboration, where everyone could see the most recent experimental results and essentially the latest draft of the paper. The flexibility and clarity of wand reports have enabled us to collaborate in ways that used to only be possible in person.
