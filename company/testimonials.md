@@ -85,7 +85,7 @@ I really like the visualizations and it's very easy to integrate with the pipeli
 
 Great tool! Still a lot to improve but looks like you have an entire team fully working on that!
 
-### **Seonil Simon Son,** NLP lover at Seoul National University
+### **Seonil Simon Son,** NLP lover at Seoul National University, [Project](https://dramaqa.snu.ac.kr/)
 
  -Dumb-easy api really helped. Developing with tensorboardx which I had experience before was more trickier than learning this from the scratch.
 
