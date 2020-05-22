@@ -24,10 +24,13 @@ Project page tabs:
 * **Project privacy**: edit who can view runs and reports— click the lock icon
 * **Last active**: see when the most recent data was logged to this project
 * **Total compute**: we add up all the run times in your project to get this total
+* **Undelete runs**: Click the dropdown menu and click "Undelete all runs" to recover deleted runs in your project.
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
 ![](../../.gitbook/assets/image%20%2829%29.png)
+
+![](../../.gitbook/assets/undelete.png)
 
 ## Workspace Tab
 
