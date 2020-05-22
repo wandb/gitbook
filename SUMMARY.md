@@ -79,7 +79,7 @@
 * [Sweeps](sweeps/README.md)
   * [Sweeps Quickstart](sweeps/quickstart.md)
   * [Example Sweep](sweeps/sweeps-examples.md)
-  * [Create Sweep from existing W&B project](sweeps/add-to-existing.md)
+  * [Sweep from an existing project](sweeps/add-to-existing.md)
   * [Configuration](sweeps/configuration.md)
   * [Common Questions](sweeps/faq.md)
   * [Sweep from Jupyter Notebook](sweeps/python-api.md)
