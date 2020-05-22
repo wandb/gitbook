@@ -54,25 +54,27 @@ Calling `api.runs(...)` returns a **Runs** object that is iterable and acts like
 
 If errors occur while talking to W&B servers a `wandb.CommError` will be raised. The original exception can be introspected via the **exc** attribute.
 
-### 'Git' state of a run through the API
+### Get the latest git commit through the API
 
-You can see the git commit through the UI under the information tab. It is also available by the files api, stored in: "wandb-metadata.json" so you can use the public api to grab that file then parse the json file. 
+In the UI, click on a run and then click the Overview tab on the run page to see the latest git commit. It's also in the file `wandb-metadata.json` . Using the public API, you can get the git hash with **run.commit**.
 
 ## Common Questions
 
-### Is there an easy way of exporting to seaborn?
+### Export data to visualize in matplotlib or seaborn
 
-Sure, check out our [API examples](examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
+Check out our [API examples](examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
 
-### How can I get the randomized run\_id through the python api?
+### Get the random run ID and run name from your script
 
-When a training script is running you can call `wandb.run.id`
+After calling `wandb.init()`  you can access the random run ID or the human readable run name from your script like this:
 
-### How can I get the run name from my code in python api? 
+* Unique run ID \(8 character hash\): `wandb.run.id`
+* Random run name \(human readable\): `wandb.run.name`
 
-Run name: `wandb.run.name`
+ If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
 
-Run ID \(8 Characters\): `wandb.run.id`
-
-
+* **Run ID**: leave it as the generated hash. This needs to be unique across runs in your project.
+* **Run name**: This should be something short, readable, and preferably unique so that you can tell the difference between different lines on your charts.
+* **Run notes**: This is a great place to put a quick description of what you're doing in your run. You can set this with `wandb.init(notes="your notes here")` 
+* **Run tags**: Track things dynamically in run tags, and use filters in the UI to filter your table down to just the runs you care about. You can set tags from your script and then edit them in the UI, both in the runs table and the overview tab of the run page.
 
