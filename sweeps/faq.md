@@ -4,10 +4,10 @@
 
 When you run the command to start a sweep, you have to give that command a project and entity. If you want a different one it can be specified in 4 ways:
 
-1. command line --project --entity
-2. wandb settings file
-3. sweep config file
-4. environment variables WANDB\_PROJECT WANDB\_ENTITY
+1. command line arguments to `wandb sweep` \(`--project` and `--entity` arguments\)
+2. wandb settings file \(`project` and `entity` keys\)
+3. [sweep configuration](configuration.md) \(`project` and `entity` keys\) 
+4. [environment variables](../library/advanced/environment-variables.md) \(`WANDB_PROJECT` and `WANDB_ENTITY` variables\)
 
 ### **Sweeps agents stop after the first runs finish**
 
