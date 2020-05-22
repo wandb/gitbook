@@ -1,5 +1,14 @@
 # Common Questions
 
+### Setting the project and entity
+
+When you run the command to start a sweep, you have to give that command a project and entity. If you want a different one it can be specified in 4 ways:
+
+1. command line --project --entity
+2. wandb settings file
+3. sweep config file
+4. environment variables WANDB\_PROJECT WANDB\_ENTITY
+
 ### **Sweeps agents stop after the first runs finish**
 
 `wandb: ERROR Error while calling W&B API: anaconda 400 error: {"code":400,"message":"TypeError: bad operand type for unary -: 'NoneType'"}`
