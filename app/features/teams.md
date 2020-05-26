@@ -56,3 +56,7 @@ Here's what the team settings page looks like. In this screenshot the privacy to
 
 ![](../../.gitbook/assets/demo-team-settings.png)
 
+### Removing members from teams
+
+When a team member leaves, it's easy to remove them. Team admins can open the team settings page and click the delete button next to the departing member's name. just click the delete button next to their name in the team settings page. Any runs that they logged to your team 
+
