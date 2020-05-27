@@ -93,13 +93,17 @@ Great tool! Still a lot to improve but looks like you have an entire team fully 
 
 -Sweep: plug-n-play version of hyperparam tuning methodologies
 
-### Michael, a wonderful user! 
+### Michael, wonderful user! 
 
 It's just amazing, you guys are doing an amazing job over there! I'm telling about it to all my friends, everyone should use wandb!
 
-### Shivam,  a kaggle wiz!
+### Shivam, kaggle wiz!
 
 I just love how we can make reports and share our work. I use this for kaggle mainly and I know how difficult was it for me to compile my results for the team.
+
+### Larry, new W&B user 
+
+My reason: Incredibly easy to use right out of the gate, with lots of headroom to grow with the product.
 
 
 
