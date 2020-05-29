@@ -16,7 +16,7 @@ The maximum file size for new accounts is 2GB. A single run is allowed to store 
 
 #### Metrics
 
-Metrics are sampled to 1500 data points by default before displaying in the UI. Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. For scalars, you can have tens of thousands of step and hundreds of metrics. If you have histograms, we recommend limiting to thousands of steps.
+Metrics are sampled to 1500 data points by default before displaying in the UI. Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. For scalars, you can have tens of thousands of step and hundreds of metrics. If you have histograms, we recommend limiting to thousands of steps. If you send us more that that, your data will be saved and tracked, but the query performance will be slowed down. 
 
 #### Logs
 
