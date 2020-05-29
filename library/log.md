@@ -257,7 +257,7 @@ You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default
 `wandb.sklearn.plot_confusion_matrix(y_test, y_pred, labels)`
 
 * y\_true \(arr\): Test set labels
-* y\_probas \(arr\): Test set predicted probabilities
+* y\_pred \(arr\): Test set predicted probabilities
 * labels \(list\): Named labels for target variable \(y\)
 
 [See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
