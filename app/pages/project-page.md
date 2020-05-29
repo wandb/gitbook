@@ -87,6 +87,12 @@ Drag and drop panels to reorder and organize into sections. You can also click t
 
 ![](../../.gitbook/assets/resize-panel.gif)
 
+### Search for metrics 
+
+Use the search box in the workspace to filter down the panels. This search matches the panel titles, which are by default the name of the metrics visualized.
+
+![](../../.gitbook/assets/search-in-the-workspace.png)
+
 ## Table Tab
 
 Use the table to filter, group, and sort your results.

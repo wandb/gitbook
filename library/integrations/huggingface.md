@@ -47,7 +47,9 @@ Customize logging with these optional environment variables:
       <td style="text-align:left"><em><b>boolean</b>:  </em>Set to <b>true</b> to disable logging entirely</td>
     </tr>
   </tbody>
-</table>### Examples
+</table>
+
+### Examples
 
 We created a demo notebook in Google Colab. Use it to see how the integration works:
 
