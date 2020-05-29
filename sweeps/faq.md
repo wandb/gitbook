@@ -73,6 +73,22 @@ If you have extra args that you dont want to specify with argparse you can use:
 parser = argparse.ArgumentParser\(\)  
 args, unknown = parser.parse\_known\_args\(\)
 
+**Running Sweeps with Python 3**
+
+If you're having an issue where the sweep is trying to use Python 2, it's easy to specify that it should use Python 3 instead. Just add this to your sweep config YAML file:
+
+```text
+program:
+  script.py
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+```
+
+\*\*\*\*
+
 ### Bayesian optimization details
 
 The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/tree/master/wandb/sweeps). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
