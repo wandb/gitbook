@@ -114,7 +114,7 @@ from wandb.sweeps import HyperbandEarlyTerminate
 sweep = wandb.controller()
 sweep.configure_search(GridSearch)
 sweep.configure_program('train-dummy.py')
-sweep.configure_stopping(EnvelopeEarlyTerminate)
+sweep.configure_stopping(HyperbandEarlyTerminate)
 sweep.configure_controller(type="local")
 sweep.configure_parameter('param1', value=3)
 sweep.create()
