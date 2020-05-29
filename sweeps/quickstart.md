@@ -47,6 +47,8 @@ metrics = {'accuracy': accuracy, 'loss': loss}
 wandb.log(metrics)
 ```
 
+[See a full code example →](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion)
+
 ## 2. Sweep Config
 
 Set up a **YAML file** to specify your training script, parameter ranges, search strategy, and stopping criteria. W&B will pass these parameters and their values as command line arguments to your training script, and we'll automatically parse them with the config object you set up in [Step 1](quickstart.md#set-up-your-python-training-script).
