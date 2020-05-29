@@ -28,6 +28,26 @@ We have more detailed docs generated from the code in [Reference](reference/).
 
 {% page-ref page="restore.md" %}
 
+## What gets uploaded
+
+All the data logged from your script is saved locally to your machine in a **wandb** directory, then sync'd to the cloud.
+
+### **Logged Automatically**
+
+* **System metrics**: CPU and GPU utilization, network, etc. These come from [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) and are shown in the System tab on the run page.
+* **Command line**: The stdout and stderr are picked up and show in the logs tab on the run page.
+* **Git commit**: We pick up the latest git commit and show it on the overview tab of the run page.
+* **Files**: The requirements.txt file and any files you save to the **wandb** directory for the run will be uploaded and shown on the files tab of the run page.
+
+### Logged with specific calls
+
+Where data and model metrics are concerned, you get to decide exactly what you want to log.
+
+* **Dataset**: You have to specifically log images or other dataset samples for them to stream to W&B.
+* **PyTorch gradients**: Add wandb.watch\(model\) to see gradients of the weights as histograms in the UI.
+* **Config**: Log hyperparameters, a link to your dataset, or the name of the architecture you're using as config parameters, passed in like this: wandb.init\(config=your\_config\_dictionary\).
+* **Metrics**: Use wandb.log\(\) to see metrics from your model. If you log metrics like accuracy and loss from inside your training loop, you'll get live updating graphs in the UI.
+
 ## Common Questions
 
 ### Multiple wandb users on shared machines
