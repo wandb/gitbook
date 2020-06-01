@@ -39,3 +39,17 @@ At Weights & Biases our mission is to build the best tools for machine learning.
 
 You can pronounce it w-and-b \(as we originally intended\), wand-b \(because it's magic like a wand\), or wan-db \(because it saves things like a database\).
 
+### How do I cite Weights & Biases in a paper?
+
+We wrote a [white paper](https://www.dropbox.com/s/0ipub9ewwkml8jf/Experiment%20Tracking%20with%20Weights%20%26%20Biases.pdf?dl=1), and if you're writing a paper or article about a project that used our tools, we'd love it if you cited us. Here's a generated BibTeX citation for our website that will help point people to our tools.
+
+```text
+@misc{wandb, 
+title = {Experiment Tracking with Weights and Biases}, 
+year = {2020}, 
+note = {Software available from wandb.com}, 
+url={https://www.wandb.com/}, 
+author = {Biewald, Lukas},
+}
+```
+
