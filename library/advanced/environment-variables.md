@@ -50,6 +50,8 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_NOTEBOOK\_NAME** | If you're running in jupyter you can set the name of the notebook with this variable. We attempt to auto detect this. |
 | **WANDB\_HOST** | Set this to the hostname you want to see in the wandb interface if you don't want to use the system provided hostname |
 | **WANDB\_SILENT** | Set this to **true** to silence wandb log statements. If this is set all logs will be written to **WANDB\_DIR**/debug.log |
+| **WANDB\_GROUP** | Specify the experiment name to automatically group runs together. See [grouping](grouping.md) for more info. |
+| **WANDB\_JOB\_TYPE** | Specify the job type, like "training" or "evaluation" to indicate different types of runs. See [grouping](grouping.md) for more info. |
 
 ## Running on AWS
 
