@@ -105,5 +105,15 @@ I just love how we can make reports and share our work. I use this for kaggle ma
 
 My reason: Incredibly easy to use right out of the gate, with lots of headroom to grow with the product.
 
+### Dinis Rodrigues, [INESC](https://www.inesc-id.pt/), student at [Técnico Lisboa](https://tecnico.ulisboa.pt/pt/)
 
+Awesome, easy to use and intuitive!
+
+### Khel Kim, [Mojitok](http://mojitok.com/)
+
+I love you guys. Your system is awesome! Please, keep your service. Thank you guys.
+
+### Rohit P N, student at Ramaiah Institute of Technology, Bangalore
+
+This platform is absolutely amazing, makes life so much easier. Thank you so much to the developers of this platform!
 
