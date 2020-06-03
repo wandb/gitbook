@@ -11,7 +11,6 @@ description: >-
 To get training logged automatically, just install the library and log in:
 
 ```text
-pip install git+https://github.com/huggingface/transformers.git
 pip install wandb
 wandb login
 ```
