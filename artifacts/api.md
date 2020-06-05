@@ -66,12 +66,12 @@ For example, if you want your training script to always pull the most recent ver
 artifact = run.use_artifact(type='dataset', name='bike-dataset:latest')
 ```
 
-You can also apply a custom alias to an artifact version. For example, if you want to mark which model is in production, you could add the string **production** as an alias when you log the model artifact.
+You can also apply a custom alias to an artifact version. For example, if you want to mark which model checkpoint is the best on the metric AP-50, you could add the string **best-ap50** as an alias when you log the model artifact.
 
 ```python
 artifact = wandb.Artifact(type='model', name='bike-model')
 artifact.add_file('model.h5')
-run.log_artifact(artifact, aliases=['production'])
+run.log_artifact(artifact, aliases=['latest','best-ap50'])
 ```
 
 ## Files and references
