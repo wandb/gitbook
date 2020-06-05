@@ -216,7 +216,7 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 {% tabs %}
 {% tab title="Matplotlib" %}
 ```python
-import matpotlib.pyplot as plt
+import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
 plt.ylabel('some interesting numbers')
 wandb.log({"chart": plt})
