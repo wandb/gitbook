@@ -2,10 +2,6 @@
 
 Here's a quick overview of how to get started with W&B Artifacts for dataset tracking and model versioning.
 
-1. Initialize a run
-2. Create an artifact
-3. Use an artifact
-
 ## 1. Initialize a run
 
 To track a step of your pipeline, initialize a run in your script. Specify a string for **job\_type** to differentiate different pipeline steps— preprocessing, training, evaluation, etc. If you've never instrumented a run with W&B, we have more detailed guidance for experiment tracking in our [Python Library](../library/) docs.
@@ -24,7 +20,7 @@ When you call **log\_artifact**, we check to see if the contents of the artifact
 artifact = wandb.Artifact(type='dataset', name='bike dataset')
 
 # Add a file to the artifact's contents
-artifact.add_file('./bicycle-data.h5')
+artifact.add_file('bicycle-data.h5')
 
 # Mark this artifact version as the output of this run
 run.log_artifact(artifact)
@@ -46,7 +42,7 @@ artifact_dir = artifact.download()
 You can also construct an artifact object and pass it to **use\_artifact**. We check if the artifact already exists in W&B, and if not it creates a new artifact. This is idempotent— you can pass an artifact to use\_artifact as many times as you like, and we'll deduplicate it as long as the contents stay the same.
 
 ```python
-artifact = wandb.Artifact(type='dataset', name='bike model')
+artifact = wandb.Artifact(type='model', name='bike model')
 artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
@@ -55,10 +51,18 @@ run.use_artifact(artifact)
 
 When you log an artifact for the first time, we create version **v0**. When you log again to the same artifact, we checksum the contents, and if the artifact has changed we save a new version **v1**. Each time you log a new artifact version, we update the alias **latest** to point to the most recent version of that artifact. 
 
-For example, if you want your training script to always pull the most recent version of a dataset:
+For example, if you want your training script to always pull the most recent version of a dataset, specify **latest** when you use that artifact.
 
 ```python
 artifact = run.use_artifact(type='dataset', name='bike dataset:latest')
+```
+
+You can also apply a custom alias to an artifact version. For example, if you want to mark which model is in production, you could add the string **production** as an alias when you log the model artifact.
+
+```python
+artifact = wandb.Artifact(type='model', name='bike model')
+artifact.add_file('model.h5')
+run.log_artifact(artifact, aliases=['production'])
 ```
 
 
