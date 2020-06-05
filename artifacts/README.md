@@ -12,7 +12,7 @@ Think of an artifact as "a versioned folder of data". You can store entire datas
 
  Using our Artifacts API, you can log artifacts as outputs of W&B runs, or use artifacts as input to runs.
 
-![](../.gitbook/assets/simple-artifact-diagram.png)
+![](../.gitbook/assets/simple-artifact-diagram-2.png)
 
 Since a run can use another run’s output artifact as input, artifacts and runs together form a directed graph. You don’t need to define pipelines ahead of time. Just use and log artifacts, and we’ll stitch everything together.
 
