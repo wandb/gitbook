@@ -1,6 +1,6 @@
 # Artifacts API
 
-Use W&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. Artifacts can track files or external URIs.
+Use W&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. You can use artifacts to track and save files, or track external URIs.
 
 ## 1. Initialize a run
 
