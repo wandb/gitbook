@@ -88,6 +88,7 @@
   * [Visualize Sweep Results](sweeps/visualize-sweep-results.md)
 * [Artifacts](artifacts/README.md)
   * [Artifacts API](artifacts/api.md)
+  * [Examples](artifacts/examples.md)
 * [Self Hosted](self-hosted/README.md)
   * [Local](self-hosted/local.md)
   * [Setup](self-hosted/setup.md)
