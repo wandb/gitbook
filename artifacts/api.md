@@ -74,9 +74,21 @@ artifact.add_file('model.h5')
 run.log_artifact(artifact, aliases=['latest','best-ap50'])
 ```
 
-## Files and references
+## Constructing artifacts
 
-Track external URIs or files in the contents of artifacts. Use **name** to specify an optional file name, or a file path prefix if you're adding a directory. 
+An artifact is like a folder of data. Each entry is either an actual file stored in the artifact, or a reference to an external URI. You can nest folders inside an artifact just like a regular filesystem. Construct new artifacts by initializing the wandb.Artifact\(\) class.
+
+You can pass the following fields to an Artifact\(\) constructor, or set them directly on an artifact object:
+
+* **type:** Should be ‘dataset’, ‘model’, or ‘result’
+* **description**: Freeform text that will be displayed in the UI.
+* **metadata**: A dictionary that can contain any structured data. You’ll be able to use this data for querying and making plots. E.g. you may choose to store the class distribution for a dataset artifact as metadata.
+
+```python
+artifact = wandb.Artifact(type='dataset', name='furniture dataset')
+```
+
+Use **name** to specify an optional file name, or a file path prefix if you're adding a directory. 
 
 ```python
 # Add a single file
@@ -145,6 +157,14 @@ project-directory
     </tr>
   </tbody>
 </table>
+
+### Adding references
+
+You can add references to external URIs to artifacts, instead of actual files.  If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility.
+
+```python
+artifact.add_reference(uri, name=None)
+```
 
 
 
