@@ -160,11 +160,55 @@ project-directory
 
 ### Adding references
 
-You can add references to external URIs to artifacts, instead of actual files.  If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility.
-
 ```python
 artifact.add_reference(uri, name=None)
 ```
 
+* You can add references to external URIs to artifacts, instead of actual files.  If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility.
 
+## Using and downloading artifacts
+
+```python
+run.use_artifact(artifact=None, name=None, type=None)
+```
+
+* Marks an artifact as input to your run.
+
+There are two patterns for using artifacts. You can use an artifact that is explicitly stored in W&B, or you can construct an artifact object and pass it in to be deduplicated as necessary.
+
+### Use artifact stored in W&B
+
+```python
+artifact = run.use_artifact(name='bike-dataset:latest', type='dataset')
+```
+
+* **type** is required in this pattern
+
+You can call the following methods on the returned artifact:
+
+```python
+datadir = artifact.download()
+```
+
+* Download all of the artifact’s contents that aren't currently present. This returns a path to a directory containing the artifact’s contents.
+
+```python
+path = artifact.get_path(name)
+```
+
+* Returns an Entry object with the following methods:
+  * **Entry.download\(\)**: Downloads the single file from path
+  * **Entry.ref\(\)**: If the entry was stored as a reference using add\_reference, this returns the URI
+
+References that have schemes that W&B knows how to handle can be downloaded just like artifact files. The consumer API is the same.
+
+### Construct and use an artifact
+
+You can also construct an artifact object and pass it to use\_artifact. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, you can do it as many times as you like. The artifact will only be created once, as long as the contents of the model.h5 remain remain the same.
+
+```python
+artifact = wandb.Artifact(type='dataset', name='reference model')
+artifact.add_file('model.h5')
+run.use_artifact(artifact)
+```
 

@@ -44,7 +44,7 @@ class_labels = {
   2: "car",
   3: "road"
 }
-                      
+
 mask_img = wandb.Image(image, masks={
   "predictions": {
     "mask_data": mask_data,
@@ -111,7 +111,7 @@ Optional Parameters
 
 Boxes - Each box passed into box\_data can be defined with different coordinate systems.
 
-`position` 
+`position`
 
 * Option 1: `{minX, maxX, minY, maxY}` Provide a set of coordinates defining the upper and lower bounds of each box dimension.
 * Option 2: `{middle, width, height}`  Provide a set of coordinates specifying the middle coordinates as `[x,y]`, and `width`, and `height` as scalars 
@@ -199,11 +199,11 @@ If histograms are in your summary they will appear as sparklines on the individu
 wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
 ```
 
-Log molecular data in any of 10 file types: 
+Log molecular data in any of 10 file types:
 
 `'pdb', 'pqr', 'mmcif', 'mcif', 'cif', 'sdf', 'sd', 'gro', 'mol2', 'mmtf'`
 
-When your run finishes, you'll be able to interact with 3D visualizations of your molecules in the UI. 
+When your run finishes, you'll be able to interact with 3D visualizations of your molecules in the UI.
 
 [See a live example →](https://app.wandb.ai/nbaryd/Corona-Virus/reports/Visualizing-Molecular-Structure-with-Weights-%26-Biases--Vmlldzo2ODA0Mw)
 
@@ -509,7 +509,7 @@ By default, we increment the global step every time you call wandb.log. If you'd
 
 For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
 
-### Navigating and zooming in point clouds 
+### Navigating and zooming in point clouds
 
 You can hold control and use the mouse to move around inside the space
 
