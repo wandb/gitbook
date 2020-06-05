@@ -12,14 +12,14 @@ run = wandb.init(job_type='train')
 
 ## 2. Create an artifact
 
-An artifact is like a folder of data, with contents that are actual files stored in the artifact or references to external URIs. To create an artifact, log it as the output of a run. Specify a string for **type** to differentiate different artifacts— dataset, model, result etc. Give this artifact a **name**, like `bike dataset`, to help you remember what is inside the artifact. In a later step of your pipeline, you can use this name along with a version like `bike dataset:v1`  to download this artifact.
+An artifact is like a folder of data, with contents that are actual files stored in the artifact or references to external URIs. To create an artifact, log it as the output of a run. Specify a string for **type** to differentiate different artifacts— dataset, model, result etc. Give this artifact a **name**, like `bike-dataset`, to help you remember what is inside the artifact. In a later step of your pipeline, you can use this name along with a version like `bike-dataset:v1`  to download this artifact.
 
 When you call **log\_artifact**, we check to see if the contents of the artifact has changed, and if so we automatically create a new version of the artifact: v0, v1, v2 etc. The most recent version of an artifact can be accessed with `artifact-name:latest`. 
 
 **wandb.Artifact\(\)**
 
-* **type \(str\)**: differentiate kinds of artifacts like dataset, model, result
-* **name \(str\)**: give your artifact a unique name, used when you reference the artifact elsewhere
+* **type \(str\)**: Differentiate kinds of artifacts like dataset, model, result
+* **name \(str\)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, and dashes in the name.
 * **description \(str, optional\)**: Free text displayed next to the artifact version in the UI
 * **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
 
@@ -35,7 +35,7 @@ run.log_artifact(artifact)
 
 ## 3. Use an artifact
 
-You can use an artifact as input to a run. For example, we could take `bike dataset:latest` , the most recently logged version of `bike dataset`, and use it in the next script in our pipeline. When you call **use\_artifact**, your script queries W&B to find that named artifact and marks it as input to the run.
+You can use an artifact as input to a run. For example, we could take `bike-dataset:latest` , the most recently logged version of `bike-dataset`, and use it in the next script in our pipeline. When you call **use\_artifact**, your script queries W&B to find that named artifact and marks it as input to the run.
 
 ```python
 # Query W&B for an artifact and mark it as input to this run
