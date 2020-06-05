@@ -16,6 +16,13 @@ An artifact is like a folder of data, with contents that are actual files stored
 
 When you call **log\_artifact**, we check to see if the contents of the artifact has changed, and if so we automatically create a new version of the artifact: v0, v1, v2 etc. The most recent version of an artifact can be accessed with `artifact-name:latest`. 
 
+**wandb.Artifact\(\)**
+
+* **type \(str\)**: differentiate kinds of artifacts like dataset, model, result
+* **name \(str\)**: give your artifact a unique name, used when you reference the artifact elsewhere
+* **description \(str, optional\)**: Free text displayed next to the artifact version in the UI
+* **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
+
 ```python
 artifact = wandb.Artifact(type='dataset', name='bike dataset')
 
@@ -24,21 +31,6 @@ artifact.add_file('bicycle-data.h5')
 
 # Mark this artifact version as the output of this run
 run.log_artifact(artifact)
-```
-
-### **Adding files**
-
-There are three ways to add files to the contents of an artifact— add a single file, recursively add a directory, or create a writeable file-like object that will be saved to the artifact. Use **name** to specify an optional file name, or a file path prefix if you're adding a directory.
-
-```python
-# Add a single file
-artifact.add_file(path, name='optional-name')
-
-# Recursively add a directory
-artifact.add_dir(path, name='optional-prefix')
-
-# Return a writeable file-like object, stored as <name> in the artifact
-artifact.new_file(name)
 ```
 
 ## 3. Use an artifact
@@ -80,5 +72,79 @@ artifact.add_file('model.h5')
 run.log_artifact(artifact, aliases=['production'])
 ```
 
+## Files and references
 
+Track external URIs or files in the contents of artifacts. Use **name** to specify an optional file name, or a file path prefix if you're adding a directory. 
+
+```python
+# Add a URI reference to an artifact
+artifact.add_reference(uri, name='optional-name')
+
+# Add a single file
+artifact.add_file(path, name='optional-name')
+
+# Recursively add a directory
+artifact.add_dir(path, name='optional-prefix')
+
+# Return a writeable file-like object, stored as <name> in the artifact
+artifact.new_file(name)
+```
+
+### Examples of using artifact file names
+
+For the following examples, assume we have a project directory with these files:
+
+```text
+project-directory
+|-- images
+|   |-- cat.png
+|   +-- dog.png
+|-- tmp
+    +-- model.h5
+|-- model.h5
+```
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">API call</th>
+      <th style="text-align:left">Resulting artifact contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">artifact.add_file(&apos;model.h5&apos;)</td>
+      <td style="text-align:left">model.h5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.add_file(&apos;/tmp/model.h5&apos;)</td>
+      <td style="text-align:left">model.h5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.add_file(&apos;model.h5&apos;, name=&apos;models/mymodel.h5&apos;)</td>
+      <td
+      style="text-align:left">models/mymodel.h5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.add_dir(&apos;images&apos;)</td>
+      <td style="text-align:left">1.png2.png</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.add_dir(&apos;images&apos;, name=&apos;images&apos;)</td>
+      <td
+      style="text-align:left">
+        <p>images/1.png</p>
+        <p>images/2.png</p>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.new_file(&apos;hello.txt&apos;)</td>
+      <td style="text-align:left">hello.txt</td>
+    </tr>
+  </tbody>
+</table>
+
+### Adding references
+
+Pass 
 
