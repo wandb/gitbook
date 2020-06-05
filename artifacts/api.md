@@ -24,7 +24,7 @@ When you call **log\_artifact**, we check to see if the contents of the artifact
 * **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
 
 ```python
-artifact = wandb.Artifact(type='dataset', name='bike dataset')
+artifact = wandb.Artifact(type='dataset', name='bike-dataset')
 
 # Add a file to the artifact's contents
 artifact.add_file('bicycle-data.h5')
@@ -39,7 +39,7 @@ You can use an artifact as input to a run. For example, we could take `bike data
 
 ```python
 # Query W&B for an artifact and mark it as input to this run
-artifact = run.use_artifact(type='dataset', name='bike dataset:latest')
+artifact = run.use_artifact(type='dataset', name='bike-dataset:latest')
 
 # Download the artifact's contents
 artifact_dir = artifact.download()
@@ -51,7 +51,7 @@ artifact_dir = artifact.download()
 You can also construct an artifact object and pass it to **use\_artifact**. We check if the artifact already exists in W&B, and if not it creates a new artifact. This is idempotent— you can pass an artifact to use\_artifact as many times as you like, and we'll deduplicate it as long as the contents stay the same.
 
 ```python
-artifact = wandb.Artifact(type='model', name='bike model')
+artifact = wandb.Artifact(type='model', name='bike-model')
 artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
@@ -63,13 +63,13 @@ When you log an artifact for the first time, we create version **v0**. When you 
 For example, if you want your training script to always pull the most recent version of a dataset, specify **latest** when you use that artifact.
 
 ```python
-artifact = run.use_artifact(type='dataset', name='bike dataset:latest')
+artifact = run.use_artifact(type='dataset', name='bike-dataset:latest')
 ```
 
 You can also apply a custom alias to an artifact version. For example, if you want to mark which model is in production, you could add the string **production** as an alias when you log the model artifact.
 
 ```python
-artifact = wandb.Artifact(type='model', name='bike model')
+artifact = wandb.Artifact(type='model', name='bike-model')
 artifact.add_file('model.h5')
 run.log_artifact(artifact, aliases=['production'])
 ```
