@@ -101,7 +101,7 @@ project-directory
 |-- images
 |   |-- cat.png
 |   +-- dog.png
-|-- tmp
+|-- checkpoints
     +-- model.h5
 |-- model.h5
 ```
@@ -119,7 +119,7 @@ project-directory
       <td style="text-align:left">model.h5</td>
     </tr>
     <tr>
-      <td style="text-align:left">artifact.add_file(&apos;/tmp/model.h5&apos;)</td>
+      <td style="text-align:left">artifact.add_file(&apos;checkpoints/model.h5&apos;)</td>
       <td style="text-align:left">model.h5</td>
     </tr>
     <tr>
