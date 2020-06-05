@@ -6,7 +6,9 @@ description: 'Versioned data, models and results across your pipelines'
 
 Artifacts is the latest addition to the Weights & Biases toolkit. We're iteratively building this new product with feedback from our users. Reach out in the [W&B Forum](http://bit.ly/wandb-forum) with questions or suggestions.
 
-Artifacts are used to store and keep track of all the datasets, models, and evaluation results across machine learning pipelines. Each artifact is a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems.
+Artifacts are used to store and keep track of all the datasets, models, and evaluation results across machine learning pipelines.
+
+Think of an artifact as "a versioned folder of data". You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems.
 
  Using our Artifacts API, you can log artifacts as outputs of W&B runs, or use artifacts as input to runs.
 
