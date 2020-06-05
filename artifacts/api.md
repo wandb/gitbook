@@ -19,7 +19,7 @@ When you call **log\_artifact**, we check to see if the contents of the artifact
 **wandb.Artifact\(\)**
 
 * **type \(str\)**: Differentiate kinds of artifacts like dataset, model, result
-* **name \(str\)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, and dashes in the name.
+* **name \(str\)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, and hyphens in the name.
 * **description \(str, optional\)**: Free text displayed next to the artifact version in the UI
 * **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
 
