@@ -10,9 +10,9 @@ W&B Artifacts track and version the **data objects** used across your ML pipelin
   
 Artifacts are general and flexible: you can store data directly in them, or store **references** to data in other systems. Using our Artifacts API, you can log artifacts as outputs of W&B runs, or use artifacts as input to runs.
 
-![](.gitbook/assets/artifact1%20%281%29.png)
+![](../.gitbook/assets/artifact1%20%281%29.png)
 
 Since a run can use another run’s output artifact as input, artifacts and runs together form a directed graph. You don’t need to define pipelines ahead of time. Just use and log artifacts, and we’ll stitch everything together.
 
-![](.gitbook/assets/artifact2.png)
+![](../.gitbook/assets/artifact2.png)
 

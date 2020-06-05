@@ -24,7 +24,7 @@ Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, 
 * Model optimization
 * Automating jobs
 
-### [Artifacts](artifacts.md)
+### [Artifacts](artifacts/)
 
 * Dataset versioning
 * Model management
