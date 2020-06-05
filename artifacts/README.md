@@ -4,7 +4,7 @@ description: Dataset versioning and model management
 
 # Artifacts
 
-Artifacts is the latest addition to the Weights & Biases toolkit, focusing on dataset versioning, pipeline tracking, and model management. Users reached out after trying solutions like DVC and Pachyderm, asking for a way to neatly integrate with W&B. We're iteratively building this new product with feedback from our users. Reach out in the [W&B Forum](http://bit.ly/wandb-forum) with questions or suggestions.
+Artifacts is the latest addition to the Weights & Biases toolkit, focusing on dataset versioning, pipeline tracking, and model management. We're iteratively building this new product with feedback from our users. Reach out in the [W&B Forum](http://bit.ly/wandb-forum) with questions or suggestions.
 
 Use Artifacts to keep track of all the dataset versions, models, and evaluation results used and generated in machine learning projects. You can think of a W&B artifact as an immutable folder of data. An artifact’s contents are carefully checksummed and verified to ensure reproducibility.  
   
