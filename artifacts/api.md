@@ -12,7 +12,7 @@ run = wandb.init(job_type='train')
 
 ## 2. Create an artifact
 
-To create an artifact, log it as the output of a run. Specify a string for **type** to differentiate different artifacts— dataset, model, result etc. Give this artifact a **name**, like `bike dataset`, to help you remember what is inside the artifact. In a later step of your pipeline, you can use this name along with a version like `bike dataset:v1`  to download this artifact.
+An artifact is like a folder of data, with contents that are actual files stored in the artifact or references to external URIs. To create an artifact, log it as the output of a run. Specify a string for **type** to differentiate different artifacts— dataset, model, result etc. Give this artifact a **name**, like `bike dataset`, to help you remember what is inside the artifact. In a later step of your pipeline, you can use this name along with a version like `bike dataset:v1`  to download this artifact.
 
 When you call **log\_artifact**, we check to see if the contents of the artifact has changed, and if so we automatically create a new version of the artifact: v0, v1, v2 etc. The most recent version of an artifact can be accessed with `artifact-name:latest`. 
 
@@ -24,6 +24,21 @@ artifact.add_file('bicycle-data.h5')
 
 # Mark this artifact version as the output of this run
 run.log_artifact(artifact)
+```
+
+### **Adding files**
+
+There are three ways to add files to the contents of an artifact— add a single file, recursively add a directory, or create a writeable file-like object that will be saved to the artifact. Use **name** to specify an optional file name, or a file path prefix if you're adding a directory.
+
+```python
+# Add a single file
+artifact.add_file(path, name='optional-name')
+
+# Recursively add a directory
+artifact.add_dir(path, name='optional-prefix')
+
+# Return a writeable file-like object, stored as <name> in the artifact
+artifact.new_file(name)
 ```
 
 ## 3. Use an artifact
