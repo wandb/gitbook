@@ -1,6 +1,6 @@
 # Artifacts API
 
-Here's a quick overview of how to get started with W&B Artifacts for dataset tracking and model versioning.
+Use W&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. Artifacts can track files or external URIs.
 
 ## 1. Initialize a run
 
@@ -43,6 +43,8 @@ artifact = run.use_artifact(type='dataset', name='bike dataset:latest')
 
 # Download the artifact's contents
 artifact_dir = artifact.download()
+
+# Path
 ```
 
 **Using an artifact that has not been logged**  
@@ -144,7 +146,5 @@ project-directory
   </tbody>
 </table>
 
-### Adding references
 
-Pass 
 
