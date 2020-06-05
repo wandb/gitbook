@@ -111,5 +111,8 @@ run.config["foo"] = 32
 run.update()
 ```
 
+### Key Val Pairs 
+
+ou can log any key val pairs into wandb.config.  They will be different for every type of model you are training.  i.e. `wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`  
 
 
