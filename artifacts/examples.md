@@ -1,21 +1,17 @@
 ---
-description: Artifacts examples
+description: Example code for trying W&B Artifacts
 ---
 
-# Examples
+# Artifacts Examples
 
-**Artifacts demo colab**
+Try a quick example in Google Colab to see how Weights & Biases Artifacts work.
 
-[https://colab.research.google.com/drive/13J2B9E7U764-D7Qw3C34ZOLFdzFaMS5S\#scrollTo=J3JeRwj\_2oG-](https://colab.research.google.com/drive/13J2B9E7U764-D7Qw3C34ZOLFdzFaMS5S#scrollTo=J3JeRwj_2oG-)
+[Try the notebook →](https://bit.ly/wandb-artifacts-colab)
 
-**Examples repo**
+For a more in-depth example, try our two GitHub demo projects:
 
-\*\*\*\*[https://github.com/wandb/artifacts-examples](https://github.com/wandb/artifacts-examples)
-
-This repo contains two examples currently:
-
-* detectron2: End-to-end image segmentation using FAIR's detectron2. Fully integrated with W&B Artifacts to train on datasets stored in W&B, save output models as artifacts, track detectron2 model zoo models, fine-tune on your own models, and save prediction results.
-* dataset-versioning: Example of versioning an external bucket for dataset management.
+1. \*\*\*\*[**Dataset versioning**](https://github.com/wandb/artifacts-examples/tree/master/dataset-versioning)**:** An end-to-end example of how to version datasets with W&B artifacts.
+2. \*\*\*\*[**Detectron 2**](https://github.com/wandb/artifacts-examples/tree/master/detectron2): Image segmentation and bounding box prediction— visualize training metrics and predictions in real time, store and organize trained models, automatically track model fine-tuning, and save results
 
 \*\*\*\*
 
