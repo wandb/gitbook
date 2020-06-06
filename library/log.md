@@ -485,23 +485,32 @@ wandb.log({'batch': 1, 'loss': 0.3})
 
 ### **Log a PNG**
 
-If you're logging images with wandb.log, we'll log a PNG with:
+wandb.Image converts numpy arrays or instances of PILImage to PNG's by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
+# Or multiple images
+wandb.lig({"example": [wandb.Image(...) for img in images]})
 ```
 
 ### **Log a JPEG**
 
-We'll save a JPEG if you call:
+To save a JPEG you can pass a path to a file:
 
 ```python
-wandb.log({"example": [wandb.Image(...) for i in images]})
+im = PIL.fromarray(...)
+rgb_im = im.convert('RGB')
+rgb_im.save('myimage.jpg')
+wandb.log({"example": wandb.Image("myimage.jpg")})
 ```
 
 ### **Log a Video**
 
-Yes. Click on a run page, and you'll see the file tab on the left sidebar. Click on the file tab to see the files you uploaded in association with your run. If you log videos, you'll be able to find them here. You can also view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
+```python
+wandb.log({"example": wandb.Video("myvideo.mp4")})
+```
+
+Now you can view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
 
 ### Custom x-axis
 
