@@ -21,6 +21,17 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 
 We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
 
+### Histograms
+
+```python
+wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
+wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
+```
+
+If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from np.histogram to the np\_histogram keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional num\_bins keyword argument when passing a sequence to override the default of 64 bins.
+
+If histograms are in your summary they will appear as sparklines on the individual run pages. If they are in your history, we plot a heatmap of bins over time.
+
 ### Images and Overlays
 
 {% tabs %}
@@ -148,12 +159,6 @@ If a numpy array is supplied we assume the dimensions are: time, channels, width
 On the W&B runs page, you will see your videos in the Media section.
 {% endtab %}
 
-{% tab title="Tensor" %}
-If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. You can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
-
-In the web app, click "Create Visualization" to customize the image gallery.
-{% endtab %}
-
 {% tab title="Text Table" %}
 Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 1000.
 
@@ -181,17 +186,6 @@ Custom html can be logged at any key, this exposes an HTML panel on the run page
 ```python
 wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
 ```
-{% endtab %}
-
-{% tab title="Histogram" %}
-```python
-wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
-wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
-```
-
-If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from `np.histogram` to the **np\_histogram** keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional **num\_bins** keyword argument when passing a sequence to override the default of 64 bins.
-
-If histograms are in your summary they will appear as sparklines on the individual run pages. If they are in your history, we plot a heatmap of bins over time.
 {% endtab %}
 
 {% tab title="Molecule" %}
