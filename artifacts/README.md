@@ -22,3 +22,5 @@ Since a run can use another run’s output artifact as input, artifacts and runs
 
 ![](../.gitbook/assets/artifact2.png)
 
+To learn how to use Artifacts, check out the [Artifacts API Docs →](https://docs.wandb.com/artifacts/api)
+
