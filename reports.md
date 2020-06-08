@@ -4,7 +4,9 @@ description: 'Take notes about your research with markdown, visualizations, and 
 
 # Reports
 
-Use reports to describe your process developing models. Report sections each have their own run sets, so you can show comparisons of different runs from different projects in the same page. Panels in reports include visualizations, markdown, and images. Here's an [example report](https://app.wandb.ai/stacey/estuary/reports?view=stacey%2FDistributed%20Training) on distributed training.
+Reports are a tool to capture visualizations, describe your findings, and share updates with collaborators.
+
+Use reports to describe your process developing models. Report sections each have their own set of runs, so you can dive in to individual pieces of your project and describe run sets, so you can show comparisons of different runs from different projects in the same page. Panels in reports include visualizations, markdown, and images. Here's an [example report](https://app.wandb.ai/stacey/estuary/reports?view=stacey%2FDistributed%20Training) on distributed training.
 
 ![](https://downloads.intercomcdn.com/i/o/142935299/e49a7b19a392df6dd0ab3501/image.png)
 
