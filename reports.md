@@ -12,7 +12,7 @@ Use reports to describe your process developing models. Report sections each hav
 
 Click **Add a visualization** and select **Markdown** to add a text panel to a report.
 
-![](../../.gitbook/assets/bug-markdown.gif)
+![](.gitbook/assets/bug-markdown.gif)
 
 ## Add visualizations
 
@@ -34,7 +34,7 @@ If you'd like to compare a different set of runs, create a new section. Each sec
 
 Duplicate a section to copy the settings from your first section.
 
-![](../../.gitbook/assets/howto-duplicate-section%20%281%29.gif)
+![](.gitbook/assets/howto-duplicate-section%20%281%29.gif)
 
 ## Static and dynamic run sets
 
@@ -43,7 +43,7 @@ Duplicate a section to copy the settings from your first section.
 
 Here's a gif of me clicking "Visualize none" and then selecting the runs I want to include in the run set. This run set will not update as I add more runs to my project.
 
-![](../../.gitbook/assets/no-auto-refresh-on-the-run-sets.gif)
+![](.gitbook/assets/no-auto-refresh-on-the-run-sets.gif)
 
 ## Exporting reports
 
@@ -53,7 +53,7 @@ Click the download button to export your report as a LaTeX zip file. Check the R
 
 Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
 
-![](../../.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
+![](.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
 
 The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
 
@@ -67,7 +67,7 @@ When you press edit, you'll be editing a draft copy of the report. This draft au
 
 If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
 
-![](../../.gitbook/assets/collaborative-reports.gif)
+![](.gitbook/assets/collaborative-reports.gif)
 
 ### Upload a CSV to a report 
 

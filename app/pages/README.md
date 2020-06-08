@@ -8,23 +8,23 @@ description: An overview of the different pages in app.wandb.ai
 
 Browse all your runs and projects. The home page pulls in projects from your personal account, as well as any projects you've contributed to in teams. 
 
-![](../../.gitbook/assets/image%20%2872%29.png)
+![](../../.gitbook/assets/home-page.png)
 
 ## Project Page
 
-Compare models with different architectures and hyperparameters on the same set of metrics.
+Compare models with different architectures and hyperparameters on the same set of metrics. 
 
-![](../../.gitbook/assets/image%20%2849%29.png)
+![](../../.gitbook/assets/project-page.png)
 
 ## Run Page
 
 Visualize the metrics and dataset examples from a single run.
 
-![](../../.gitbook/assets/image%20%2828%29.png)
+![](../../.gitbook/assets/screen-shot-2020-06-08-at-9.00.04-am.png)
 
 ## Report Page
 
 Compare results and describe your findings, then share links with colleagues.
 
-![](../../.gitbook/assets/image%20%2852%29.png)
+![](../../.gitbook/assets/example-report-for-molecules.png)
 
