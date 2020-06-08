@@ -75,7 +75,7 @@
     * [Run Colors](app/panels/run-colors.md)
     * [Run Comparer](app/panels/run-comparer.md)
     * [Scatter Plot](app/panels/scatter-plot.md)
-* [Report Page](reports.md)
+* [Reports](reports.md)
 * [Sweeps](sweeps/README.md)
   * [Sweeps Quickstart](sweeps/quickstart.md)
   * [Example Sweep](sweeps/sweeps-examples.md)
