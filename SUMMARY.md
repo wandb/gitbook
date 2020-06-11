@@ -30,6 +30,7 @@
     * [Databricks](library/integrations/databricks.md)
     * [Ray Tune](library/integrations/ray-tune.md)
     * [Catalyst](library/integrations/catalyst.md)
+    * [Skorch](library/integrations/skorch.md)
     * [OpenAI Gym](library/integrations/openai-gym.md)
   * [Advanced](library/advanced/README.md)
     * [Environment Variables](library/advanced/environment-variables.md)

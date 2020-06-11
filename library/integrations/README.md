@@ -18,3 +18,5 @@ We integrate with a number of popular tools. [Reach out](../../company/getting-h
 
 {% page-ref page="catalyst.md" %}
 
+{% page-ref page="./" %}
+
