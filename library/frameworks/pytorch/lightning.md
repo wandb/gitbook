@@ -65,3 +65,13 @@ Parameters:
 * **metric** \(float\) – Dictionary with metric names as keys and measured quantities as values
 * **step** \(int\|None\) – Step number at which the metrics should be recorded
 
+## Example Code
+
+We've created a few examples for you to see how the integration works:
+
+* [Colab](https://colab.research.google.com/drive/1GHWwfzAsWx_Q1paw73hngAvA7-U9QHi-): A simple demo to try the integration
+* [A step by step guide](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw): to tracking your Lightning model performance
+* [Semantic Segmentation with Lightning](https://app.wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw): optimize neural networks for self-driving cars
+
+\*\*\*\*
+
