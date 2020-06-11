@@ -50,9 +50,11 @@ Customize logging with these optional environment variables:
 
 ### Examples
 
-We created a demo notebook in Google Colab. Use it to see how the integration works:
+We've created a few examples for you to see how the integration works:
 
-[Try a notebook example →](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8?usp=sharing)
+* [Run in colab](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8?usp=sharing): A simple notebook example to get you started
+* [A step by step guide: ](https://app.wandb.ai/jxmorris12/huggingface-demo/reports/A-Step-by-Step-Guide-to-Tracking-Hugging-Face-Model-Performance--VmlldzoxMDE2MTU)track your Hugging Face model performance
+* [Does model size matter?](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) A comparison of BERT and DistilBERT
 
 ### Feedback
 
