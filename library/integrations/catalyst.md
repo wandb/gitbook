@@ -4,8 +4,8 @@ Sergey Kolesnikov, creator of [Catalyst](https://github.com/catalyst-team/cataly
 
 ```python
 import torch
-from catalyst.dl import SupervisedWandbRunner
-
+from catalyst.dl.supervised import SupervisedRunner
+from catalyst.contrib.dl.callbacks import WandbLogger
 # experiment setup
 logdir = "./logdir"
 num_epochs = 42
@@ -20,7 +20,7 @@ optimizer = torch.optim.Adam(model.parameters())
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)
 
 # model runner
-runner = SupervisedWandbRunner()
+runner = SupervisedRunner()
 
 # model training
 runner.train(
@@ -29,52 +29,64 @@ runner.train(
     optimizer=optimizer,
     scheduler=scheduler,
     loaders=loaders,
+    callbacks=[WandbLogger(project="Project Name",name= 'Run Name')],
     logdir=logdir,
     num_epochs=num_epochs,
     verbose=True
 )
 ```
 
-Custom parameters can also be given at that stage.
-
+Custom parameters can also be given at that stage. Forward and backward passes alsong with the handling of data batches can also be customized by extending the `runner` class. Following is a custom runner used to train a MNIST classifier.
 ```python
-# model training
+from catalyst import dl
+from catalyst.utils import metrics
+model = torch.nn.Linear(28*28, 10)
+
+class CustomRunner(dl.Runner):
+    def _handle_batch(self, batch):
+        x, y = batch
+        y_hat = self.model(x.view(x.size(0), -1))
+        loss = F.cross_entropy(y_hat, y)
+        accuracy = metrics.accuracy(y_hat, y)
+        
+        #Set custom metric to be logged
+        self.batch_metrics = {
+            "loss": loss,
+            "accuracy": accuracy[0],
+           
+        }
+        
+        if self.is_train_loader:
+            loss.backward()
+            self.optimizer.step()
+            self.optimizer.zero_grad()
+runner = CustomRunner()     
+
 runner.train(
     model=model,
     criterion=criterion,
     optimizer=optimizer,
     scheduler=scheduler,
     loaders=loaders,
-    logdir=logdir,
     num_epochs=num_epochs,
+    callbacks=[WandbLogger(project="catalyst",name= 'Example')],
     verbose=True,
-    monitoring_params={
-        "project": "my-research-project",
-        "group": "finetuning"
-    }
-)
+    timeit=False)
+
 ```
 
-Check out our [classification tutorial](https://github.com/catalyst-team/catalyst/blob/master/examples/notebooks/classification-tutorial-wandb.ipynb)[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/catalyst-team/catalyst/blob/master/examples/notebooks/classification-tutorial-wandb.ipynb)for complete example code.
 
 #### Options
 
-`monitoring_params` supports a number of options:
+`logging_params`:  any parameters of function `wandb.init`
+                except `reinit` which is automatically set to `True`
+                and `dir` which is set to `<logdir>`
 
-| Keyword argument | Default | Description |
-| :--- | :--- | :--- |
-| job\_type | None | The type of job running, defaults to 'train' |
-| config | None | The hyper parameters to store with the run |
-| project | None | The project to push metrics to |
-| entity | None | The entity to push metrics to |
-| dir | None | An absolute path to a directory where metadata will be stored |
-| group | None | A unique string shared by all runs in a given group |
-| tags | None | A list of tags to apply to the run |
-| id | None | A globally unique \(per project\) identifier for the run |
-| name | None | A display name which does not have to be unique |
-| notes | None | A multiline string associated with the run |
-| reinit | None | Allow multiple calls to init in the same process |
-| resume | False | Automatically resume this run if run from the same machine, you can also pass a unique run\_id |
-| sync\_tensorboard | False | Synchronize wandb logs to TensorBoard or TensorboardX |
-| force | False | Force authentication with wandb |
+```python
 
+runner.train(...,
+             ...,
+             callbacks=[WandbLogger(project="catalyst",name= 'Example'),logging_params={params}],
+             ...)
+             
+ ```
