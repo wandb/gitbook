@@ -93,7 +93,7 @@
 * [Self Hosted](self-hosted/README.md)
   * [Local](self-hosted/local.md)
   * [Setup](self-hosted/setup.md)
-  * [Configuration](self-hosted/configuration.md)
+  * [Advanced Configuration](self-hosted/configuration.md)
   * [Local FAQ](self-hosted/local-common-questions.md)
   * [Cloud](self-hosted/cloud.md)
 * [Company](company/README.md)
