@@ -10,5 +10,5 @@ W&B Enterprise Cloud requires the following cloud resources in your account.
 
 * A Kubernetes cluster \(EKS or GKE\)
 * A SQL database \(RDS or Google Cloud SQL\)
-* A columnar store \(HBase or BigTable\)
+* A object store \(S3, GCS, or Azure Blob Store\)
 

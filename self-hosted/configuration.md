@@ -1,14 +1,25 @@
 ---
-description: How to configure the W&B Enterprise Server installation
+description: How to configure the W&B Local Server installation
 ---
 
 # Configuration
 
-Your W&B Enterprise Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/vm-settings` page on your server once it's up and running.
+Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/admin-settings` page on your server once it's up and running.    You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams. 
+
+## Configuration as code
+
+All configuration settings can be set via the UI however if you would like to manage these configuration options via code you can set the following environment variables:
+
+**LICENSE** - Your wandb/local licenseMYSQL - The MySQL connection string  
+**BUCKET** - S3 bucket for storing dataBUCKET\_QUEUE - The SQS queue for object creation events  
+**REGION** - The AWS Region where your bucket lives  
+**HOST** - The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net/)  
+**AUTH0\_DOMAIN** - The Auth0 domain of your tenant  
+**AUTH0\_CLIENT\_ID** - The Auth0 Client ID of application
 
 ## Authentication
 
-By default, a W&B Enterprise Server runs in "single-user mode": right from booting up, you can log in and start sending data to your server. However, to unlock the full sharing functionality of W&B, you should configure authentication.
+By default, a W&B Local Server run with manual user management enabling up to 4 users.  Licensed versions of _wandb/local_ also unlock SSO using Auth0.
 
 Your server supports any authentication provider supported by [Auth0](https://auth0.com/). You should set up your own Auth0 domain and application that will be under your teams' control.
 
@@ -24,7 +35,7 @@ Save the Client ID and domain from your Auth0 app.
 
 ![Auth0 Settings](../.gitbook/assets/auth0-2.png)
 
-Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Customize Authentication with Auth0" option, and fill in the Client ID and domain from your Auth0 app.
+Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Customize Authentication with Auth0" option, and fill in the Client ID and domain from your Auth0 app.
 
 ![Enterprise authentication settings](../.gitbook/assets/enterprise-auth.png)
 
@@ -66,7 +77,7 @@ Enable CORS access: your CORS configuration should look like the following:
 
 **Configure W&B Server**
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
 * **File Storage Bucket**: `s3://<bucket-name>`
 * **File Storage Region**: `<region>`
@@ -114,7 +125,7 @@ To create signed file URLs, your W&B instance also needs the `iam.serviceAccount
 
 **Configure W&B Server**
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/vm-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
 * **File Storage Bucket**: `gs://<bucket-name>`
 * **File Storage Region**: blank

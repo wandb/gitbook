@@ -94,8 +94,6 @@
   * [Local](self-hosted/local.md)
   * [Setup](self-hosted/setup.md)
   * [Configuration](self-hosted/configuration.md)
-  * [Upgrades](self-hosted/upgrades.md)
-  * [Sending Data](self-hosted/sending-data.md)
   * [Local FAQ](self-hosted/local-common-questions.md)
   * [Cloud](self-hosted/cloud.md)
 * [Company](company/README.md)
