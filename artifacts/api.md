@@ -214,3 +214,7 @@ artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
 
+## Data privacy
+
+Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
+
