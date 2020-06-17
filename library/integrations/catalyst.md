@@ -37,6 +37,7 @@ runner.train(
 ```
 
 Custom parameters can also be given at that stage. Forward and backward passes alsong with the handling of data batches can also be customized by extending the `runner` class. Following is a custom runner used to train a MNIST classifier.
+
 ```python
 from catalyst import dl
 from catalyst.utils import metrics
@@ -48,14 +49,14 @@ class CustomRunner(dl.Runner):
         y_hat = self.model(x.view(x.size(0), -1))
         loss = F.cross_entropy(y_hat, y)
         accuracy = metrics.accuracy(y_hat, y)
-        
+
         #Set custom metric to be logged
         self.batch_metrics = {
             "loss": loss,
             "accuracy": accuracy[0],
-           
+
         }
-        
+
         if self.is_train_loader:
             loss.backward()
             self.optimizer.step()
@@ -72,21 +73,16 @@ runner.train(
     callbacks=[WandbLogger(project="catalyst",name= 'Example')],
     verbose=True,
     timeit=False)
-
 ```
 
+## Options
 
-#### Options
-
-`logging_params`:  any parameters of function `wandb.init`
-                except `reinit` which is automatically set to `True`
-                and `dir` which is set to `<logdir>`
+`logging_params`: any parameters of function `wandb.init` except `reinit` which is automatically set to `True` and `dir` which is set to `<logdir>`
 
 ```python
-
 runner.train(...,
              ...,
              callbacks=[WandbLogger(project="catalyst",name= 'Example'),logging_params={params}],
              ...)
-             
- ```
+```
+

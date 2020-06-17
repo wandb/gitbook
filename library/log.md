@@ -512,6 +512,8 @@ By default, we increment the global step every time you call wandb.log. If you'd
 
 For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
 
+`wandb.log({“acc”:1,”batch”:10}, step=epoch)` would enable you to choose “batch” as an x axis in addition to the default step axis
+
 ### Navigating and zooming in point clouds
 
 You can hold control and use the mouse to move around inside the space
