@@ -28,7 +28,7 @@ Use these optional environment variables to do things like set up authentication
 | Variable name | Usage |
 | :--- | :--- |
 | **WANDB\_API\_KEY** | Sets the authentication key associated with your account. You can find your key on [your settings page](https://app.wandb.ai/settings). This must be set if `wandb login` hasn't been run on the remote machine. |
-| **WANDB\_BASE\_URL** | If you're using [wandb/local](../../self-hosted/) you should set this environment variable to `http://YOUR_UP:YOUR_PORT` |
+| **WANDB\_BASE\_URL** | If you're using [wandb/local](../self-hosted/) you should set this environment variable to `http://YOUR_UP:YOUR_PORT` |
 | **WANDB\_NAME** | The human-readable name of your run. If not set it will be randomly generated for you |
 | **WANDB\_NOTES** | Longer notes about your run.  Markdown is allowed and you can edit this later in the UI. |
 | **WANDB\_ENTITY** | The entity associated with your run. If you have run `wandb init` in the directory of your training script, it will create a directory named _wandb_ and will save a default entity which can be checked into source control. If you don't want to create that file or want to override the file you can use the environmental variable. |
@@ -45,13 +45,13 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_DOCKER** | Set this to a docker image digest to enable restoring of runs. This is set automatically with the wandb docker command. You can obtain an image digest by running `wandb docker my/image/name:tag --digest` |
 | **WANDB\_DISABLE\_CODE** | Set this to true to prevent wandb from storing a reference to your source code |
 | **WANDB\_ANONYMOUS** | Set this to "allow", "never", or "must" to let users create anonymous runs with secret urls. |
-| **WANDB\_CONFIG\_PATHS** | Comma separated list of yaml files to load into wandb.config.  See [config](../config.md#file-based-configs). |
+| **WANDB\_CONFIG\_PATHS** | Comma separated list of yaml files to load into wandb.config.  See [config](config.md#file-based-configs). |
 | **WANDB\_CONFIG\_DIR** | This defaults to ~/.config/wandb, you can override this location with this environment variable |
 | **WANDB\_NOTEBOOK\_NAME** | If you're running in jupyter you can set the name of the notebook with this variable. We attempt to auto detect this. |
 | **WANDB\_HOST** | Set this to the hostname you want to see in the wandb interface if you don't want to use the system provided hostname |
 | **WANDB\_SILENT** | Set this to **true** to silence wandb log statements. If this is set all logs will be written to **WANDB\_DIR**/debug.log |
-| **WANDB\_RUN\_GROUP** | Specify the experiment name to automatically group runs together. See [grouping](grouping.md) for more info. |
-| **WANDB\_JOB\_TYPE** | Specify the job type, like "training" or "evaluation" to indicate different types of runs. See [grouping](grouping.md) for more info. |
+| **WANDB\_RUN\_GROUP** | Specify the experiment name to automatically group runs together. See [grouping](advanced/grouping.md) for more info. |
+| **WANDB\_JOB\_TYPE** | Specify the job type, like "training" or "evaluation" to indicate different types of runs. See [grouping](advanced/grouping.md) for more info. |
 
 ## Running on AWS
 

@@ -10,7 +10,7 @@ description: >-
 
 For distributed training or launching automated jobs, we have a few features to help you log to wandb in an organized way.
 
-{% page-ref page="environment-variables.md" %}
+{% page-ref page="../environment-variables.md" %}
 
 {% page-ref page="grouping.md" %}
 

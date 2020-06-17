@@ -89,7 +89,7 @@ If you run into issues with this install, please let us know. This Anaconda [doc
 
 ### How do I stop wandb from writing to my terminal or my jupyter notebook output?
 
-Set the environmental variable [WANDB\_SILENT](advanced/environment-variables.md).
+Set the environmental variable [WANDB\_SILENT](environment-variables.md).
 
 In a notebook:
 

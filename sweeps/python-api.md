@@ -26,7 +26,7 @@ sweep_id = wandb.sweep(sweep_config)
 Use the following methods in order to specify the entity or project for the sweep:
 
 * Arguments to wandb.sweep\(\) For example: `wandb.sweep(sweep_config, entity="user", project="my_project")`
-* [Environment Variables](../library/advanced/environment-variables.md) `WANDB_ENTITY` and `WANDB_PROJECT`
+* [Environment Variables](../library/environment-variables.md) `WANDB_ENTITY` and `WANDB_PROJECT`
 * [Command Line Interface](../library/cli.md) using the `wandb init` command
 * [Sweep configuration ](configuration.md)using the keys "entity" and "project"
 {% endhint %}
