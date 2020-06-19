@@ -49,3 +49,7 @@ If you set **WANDB\_RESUME** equal to "allow", you can always set **WANDB\_RUN\_
 If multiple processes use the same run\_id concurrently unexpected results will be recorded and rate limiting will occur.
 {% endhint %}
 
+{% hint style="info" %}
+If you resume a run and you have **notes** specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
+{% endhint %}
+
