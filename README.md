@@ -12,33 +12,14 @@ Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, 
 
 ## Tools
 
-### [Dashboard](app/)
-
-* Machine learning experiment tracking
-* Visualize metrics, compare results
-* Share findings with collaborators in reports
-
-### [Reports](reports.md)
-
-* Keep interactive notes of your progress
-* Share findings with colleagues
-* Save interactive dashboards
-
-### [Sweeps](sweeps/)
-
-* Hyperparameter search and tuning
-* Model optimization
-* Automating jobs
-
-### [Artifacts](artifacts/)
-
-* Dataset versioning
-* Model management
-* Pipeline tracking
+1. \*\*\*\*[**Dashboard**](app/): Track experiments, visualize results
+2. \*\*\*\*[**Reports**](reports.md): Save and share reproducible findings
+3. \*\*\*\*[**Sweeps**](sweeps/): Optimize models with hyperparameter tuning
+4. \*\*\*\*[**Artifacts**](artifacts/): Dataset and model versioning, pipeline tracking
 
 ## Getting Started
 
-Easily add our package, `wandb`, to your model script.
+Easily add our Python library `wandb` to your machine learning script.
 
 * [Quickstart](quickstart.md)
 * [Keras integration](library/frameworks/keras.md)
