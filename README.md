@@ -6,7 +6,7 @@ description: 'Track machine learning experiments, visualize metrics, and share r
 
 Weights & Biases helps you keep track of your machine learning experiments. Use our tool to log hyperparameters and output metrics from your runs, then visualize and compare results and quickly share findings with your colleagues.
 
-![](.gitbook/assets/ml-workflow-diagram-10.png)
+![](.gitbook/assets/workflow-june-2020-v1.png)
 
 Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, Azure, and on-prem machines.
 
@@ -17,6 +17,12 @@ Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, 
 * Machine learning experiment tracking
 * Visualize metrics, compare results
 * Share findings with collaborators in reports
+
+### [Reports](reports.md)
+
+* Keep interactive notes of your progress
+* Share findings with colleagues
+* Save interactive dashboards
 
 ### [Sweeps](sweeps/)
 
