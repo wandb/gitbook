@@ -4,9 +4,11 @@ description: 'Visualize metrics, customize axes, and compare multiple lines on t
 
 # Line Plot
 
+Line plots show up by default when you plot metrics over time with **wandb.log\(\)**. Customize with chart settings to compare multiple lines on the same plot, calculate custom axes, and rename labels.
+
+![](../../../.gitbook/assets/line-plot-example.png)
+
 ### Settings
-
-
 
 **Data**
 
