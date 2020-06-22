@@ -1,5 +1,37 @@
 # Line Plot
 
+### Settings
+
+**Data**
+
+* **X axis**: Select default x-axes including Step and Relative Time, or select a custom x-axis. If you'd like to use a custom x-axis, make sure it's logged in the same call to `wandb.log()` that you use to log the y-axis.
+* **Y axes**: Select y-axes from the logged values, including metrics and hyperparameters that change over time.
+* **Min, max, and log scale**: Minimum, maximum, and log scale settings for x axis and y axis in line plots
+* **Smoothing and exclude outliers**: Change the smoothing on the line plot or rescale to exclude outliers from the default plot min and max scale
+* **Max runs to show**: Show more lines on the line plot at once by increasing this number, which defaults to 10 runs. You'll see the message "Showing first 10 runs" on the top of the chart if there are more than 10 runs available but the chart is constraining the number visible.
+* **Chart type**: Change between a line plot, an area plot, and a percentage area plot
+
+**Grouping**
+
+* Turn on grouping to see settings for visualizing averaged values.
+* **Group key**: Select a column, and all the runs with the same value in that column will be grouped together.
+* **Agg**: Aggregation— the value of the line on the graph. The options are mean, median, min, and max of the group.
+* **Range**: Switch the behavior for the shaded area behind the grouped curve. None means there is no shaded area. Min/Max shows a shaded region that covers the whole range of points in the group. Std Dev shows the standard deviation of values in the group. Std Err shows the standard error as the shaded area.
+* **Sampled runs**: If you have hundreds of runs selected, we default to only sampling the first 100. You can select to have all your runs included in the grouping calculation, but it might slow things down in the UI.
+
+**Legend**
+
+* **Title**: Add a custom title for line plot, which shows up at the top of the chart
+* **X-Axis title**: Add a custom title for the x-axis of the line plot, which shows up in the lower right corner of the chart.
+* **Y-Axis title**: Add a custom title for the y-axis of the line plot, which shows up in the upper left corner of the chart.
+* **Legend**: Select field that you want to see in the legend of the plot for each line. You could, for example, show the name of the run and the learning rate. 
+* **Legend template**: Fully customizable, this powerful template allows you to specify exactly what text and variables you want to show up in the template at the top of the line plot as well as the legend that appears when you hover your mouse over the plot.
+
+**Expressions**
+
+* **Y Axis Expressions**: Add calculated metrics to your graph. You can use any of the logged metrics as well as configuration values like hyperparameters to calculate custom lines.
+* **X Axis Expressions**: Rescale the x-axis to use calculated values using custom expressions. Useful variables include**\_step** for the default x-axis, and the syntax for referencing summary values is `${summary:value}`
+
 ### Visualize average values on a plot
 
 If you have several different experiments and you'd like to see the average of their values on a plot, you can use the Grouping feature in the table. Click "Group" above the run table and select "All" to show averaged values in your graphs.
