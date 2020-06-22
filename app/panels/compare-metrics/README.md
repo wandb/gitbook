@@ -1,6 +1,12 @@
+---
+description: 'Visualize metrics, customize axes, and compare multiple lines on the same plot'
+---
+
 # Line Plot
 
 ### Settings
+
+
 
 **Data**
 
@@ -10,6 +16,10 @@
 * **Smoothing and exclude outliers**: Change the smoothing on the line plot or rescale to exclude outliers from the default plot min and max scale
 * **Max runs to show**: Show more lines on the line plot at once by increasing this number, which defaults to 10 runs. You'll see the message "Showing first 10 runs" on the top of the chart if there are more than 10 runs available but the chart is constraining the number visible.
 * **Chart type**: Change between a line plot, an area plot, and a percentage area plot
+
+{% hint style="info" %}
+Pick **multiple y-axes** in the line plot settings to compare different metrics on the same chart, like accuracy and validation accuracy for example.
+{% endhint %}
 
 **Grouping**
 
