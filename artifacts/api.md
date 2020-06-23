@@ -87,7 +87,7 @@ You can pass the following fields to an Artifact\(\) constructor, or set them di
 * **metadata**: A dictionary that can contain any structured data. You’ll be able to use this data for querying and making plots. E.g. you may choose to store the class distribution for a dataset artifact as metadata.
 
 ```python
-artifact = wandb.Artifact(type='dataset', name='furniture dataset')
+artifact = wandb.Artifact(type='dataset', name='bike-dataset')
 ```
 
 Use **name** to specify an optional file name, or a file path prefix if you're adding a directory. 
