@@ -58,5 +58,13 @@ Here's what the team settings page looks like. In this screenshot the privacy to
 
 ### Removing members from teams
 
-When a team member leaves, it's easy to remove them. Team admins can open the team settings page and click the delete button next to the departing member's name. just click the delete button next to their name in the team settings page. Any runs that they logged to your team 
+When a team member leaves, it's easy to remove them. Team admins can open the team settings page and click the delete button next to the departing member's name. Any runs that they logged to the team will remain after a user is removed.
+
+### Account types
+
+Invite colleagues to join the team, and select from these options:
+
+* **Member**: A regular member of your team, invited by email
+* **Admin**: A team member who can add and remove other admins and members
+* **Service**: A service worker, an API key useful for using W&B with your run automation tools. If you use the API key from a service account for your team, make sure to set the environment variable **WANDB\_USERNAME** to attribute runs to the correct user.
 
