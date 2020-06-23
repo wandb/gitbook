@@ -27,7 +27,7 @@ See [this report](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Sa
 
 ```python
 # restore a model file from a specific run by user "vanpelt" in "my-project"
-best_model = wandb.restore('best-model.h5', run_path="vanpelt/my-project/a1b2c3d")
+best_model = wandb.restore('model-best.h5', run_path="vanpelt/my-project/a1b2c3d")
 
 # restore a weights file from a checkpoint
 # (NOTE: resuming must be configured if run_path is not provided)
