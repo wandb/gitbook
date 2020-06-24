@@ -68,6 +68,10 @@ Your tool is very easy to set up \(well documented!\) and works great.
 
 Awesome UI for logging. Cross-platform\(library\) support. Excellent customer service. Free for an academic use. Easy for beginners etc.
 
+### Bowei Hou, PhD candidate at Waseda University
+
+It helps me a lot to collaborate with my co-workers in different countries. They can easily find the running experiments and the logs. It's so cool that we can get rid of the tedious terminal loss.
+
 ### **Rajesh, Nokia**
 
 10/10. It is purely awesome!
