@@ -2,7 +2,7 @@
 description: On-prem installations for projects with sensitive data
 ---
 
-# Self Hosted
+# On Prem
 
 W&B Enterprise is the on-prem version of [Weights & Biases](https://docs.wandb.com/enterprise/app.wandb.ai). It makes collaborative experiment tracking possible for enterprise machine learning teams, giving you a way to keep all training data and metadata within your organization's network.
 
