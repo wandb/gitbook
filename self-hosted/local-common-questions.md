@@ -28,3 +28,7 @@ A single instance of _wandb/local_ without an external MySQL store will scale to
 
 If you're unable to connect to your instance you can put it in restore mode by setting the LOCAL\_RESTORE environment variable when you start local.  If you're starting wandb local using our cli you can do so with `wandb local -e LOCAL_RESTORE=true` Look at the logs printed on startup for a temporary username / password to access the instance.
 
+### How can I switch back to the cloud after using local? 
+
+To restore a machine to reporting metrics to our cloud hosted solution, run `wandb login --host=https://api.wandb.ai`.
+
