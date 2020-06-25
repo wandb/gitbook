@@ -78,16 +78,16 @@ run.log_artifact(artifact, aliases=['latest','best-ap50'])
 
 ## Constructing artifacts
 
-An artifact is like a folder of data. Each entry is either an actual file stored in the artifact, or a reference to an external URI. You can nest folders inside an artifact just like a regular filesystem. Construct new artifacts by initializing the wandb.Artifact\(\) class.
+An artifact is like a folder of data. Each entry is either an actual file stored in the artifact, or a reference to an external URI. You can nest folders inside an artifact just like a regular filesystem. Construct new artifacts by initializing the `wandb.Artifact()` class.
 
-You can pass the following fields to an Artifact\(\) constructor, or set them directly on an artifact object:
+You can pass the following fields to an `Artifact()` constructor, or set them directly on an artifact object:
 
 * **type:** Should be ‘dataset’, ‘model’, or ‘result’
 * **description**: Freeform text that will be displayed in the UI.
 * **metadata**: A dictionary that can contain any structured data. You’ll be able to use this data for querying and making plots. E.g. you may choose to store the class distribution for a dataset artifact as metadata.
 
 ```python
-artifact = wandb.Artifact(type='dataset', name='bike-dataset')
+artifact = wandb.Artifact('bike-dataset', type='dataset')
 ```
 
 Use **name** to specify an optional file name, or a file path prefix if you're adding a directory. 
@@ -171,17 +171,17 @@ artifact.add_reference(uri, name=None)
 ## Using and downloading artifacts
 
 ```python
-run.use_artifact(artifact=None, name=None, type=None)
+run.use_artifact(artifact=None, type=None)
 ```
 
-* Marks an artifact as input to your run.
+* Marks an artifact as an input to your run.
 
-There are two patterns for using artifacts. You can use an artifact that is explicitly stored in W&B, or you can construct an artifact object and pass it in to be deduplicated as necessary.
+There are two patterns for using artifacts. You can use an artifact name that is explicitly stored in W&B, or you can construct an artifact object and pass it in to be deduplicated as necessary.
 
-### Use artifact stored in W&B
+### Use an artifact stored in W&B
 
 ```python
-artifact = run.use_artifact(name='bike-dataset:latest', type='dataset')
+artifact = run.use_artifact('bike-dataset:latest', type='dataset')
 ```
 
 * **type** is required in this pattern
@@ -206,10 +206,10 @@ References that have schemes that W&B knows how to handle can be downloaded just
 
 ### Construct and use an artifact
 
-You can also construct an artifact object and pass it to use\_artifact. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, you can do it as many times as you like. The artifact will only be created once, as long as the contents of the model.h5 remain remain the same.
+You can also construct an artifact object and pass it to **use\_artifact**. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, so you can do it as many times as you like. The artifact will only be created once, as long as the contents of `model.h5` remain the same.
 
 ```python
-artifact = wandb.Artifact(type='dataset', name='reference model')
+artifact = wandb.Artifact('reference model', type='dataset')
 artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
