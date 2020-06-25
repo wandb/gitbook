@@ -9,15 +9,10 @@ Reports let you organize visualizations, describe your findings, and share updat
 ### Use Cases
 
 1. **Notes**: Add a graph with a quick note to yourself.
-2. Collaboration: Share findings with your colleagues using interactive graphs and descriptive text.
-3. **Work log**: Track what you've tried, the ideas you had along the way, and next steps for your ML project.
-4. **Snapshots**: Capture the runs and graphs you have selected on the project page by clicking "Export to report" in the section menu.
+2. **Collaboration**: Share findings with your colleagues.
+3. **Work log**: Track what you've tried, and plan next steps.
 
 ### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
-
-![](.gitbook/assets/screen-shot-2020-06-25-at-1.30.50-am.png)
-
-## Overview
 
 Use reports to describe your process developing models. Report sections each have their own set of runs, so you can dive in to individual pieces of your project and describe run sets, so you can show comparisons of different runs from different projects in the same page. 
 
