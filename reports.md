@@ -6,10 +6,12 @@ description: Project management and collaboration tools for machine learning pro
 
 Reports let you organize visualizations, describe your findings, and share updates with collaborators.
 
+![](.gitbook/assets/reports.png)
+
 ### Use Cases
 
 1. **Notes**: Add a graph with a quick note to yourself.
-2. **Collaboration**: Share findings with your colleagues using interactive graphs and descriptive text.
+2. Collaboration: Share findings with your colleagues using interactive graphs and descriptive text.
 3. **Work log**: Track what you've tried, the ideas you had along the way, and next steps for your ML project.
 4. **Snapshots**: Capture the runs and graphs you have selected on the project page by clicking "Export to report" in the section menu.
 
