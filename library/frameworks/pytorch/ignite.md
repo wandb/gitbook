@@ -10,7 +10,7 @@ description: Use wandb with PyTorch Ignite
 Ignite supports Weights & Biases handler to log metrics, model/optimizer parameters, gradients during training and validation. It can also be used to log model checkpoints to the Weights & Biases cloud.
 This class is also a wrapper for the wandb module. This means that you can call any wandb function using this wrapper. See examples on how to save model parameters and gradients.
 
-### The basic pytorch model setup
+### The basic pytorch setup
 
 ```python
 from argparse import ArgumentParser
@@ -61,7 +61,7 @@ def get_data_loaders(train_batch_size, val_batch_size):
 ```
 
 Using WandBLogger in ignite is a 2-step modular process:
-First, you need to create a WandbLogger object. Then it can be attached to any trainer or evaluator to automatically log the metrics. 
+First, you need to create a WandBLogger object. Then it can be attached to any trainer or evaluator to automatically log the metrics. 
 We'll do the following tasks sequentially:
 1) Create a WandBLogger object
 2) Attach the Object to the output handlers to:
