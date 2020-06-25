@@ -1,20 +1,27 @@
 ---
-description: 'Take notes about your research with markdown, visualizations, and images'
+description: Project management and collaboration tools for machine learning projects
 ---
 
 # Reports
 
-Reports are a tool to capture visualizations, describe your findings, and share updates with collaborators.
+Reports let you organize visualizations, describe your findings, and share updates with collaborators.
+
+### Use Cases
+
+1. **Notes**: Add a graph with a quick note to yourself.
+2. **Collaboration**: Share findings with your colleagues using interactive graphs and descriptive text.
+3. **Work log**: Track what you've tried, the ideas you had along the way, and next steps for your ML project.
+4. **Snapshots**: Capture the runs and graphs you have selected on the project page by clicking "Export to report" in the section menu.
+
+### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
+
+![](.gitbook/assets/screen-shot-2020-06-25-at-1.30.50-am.png)
 
 Use reports to describe your process developing models. Report sections each have their own set of runs, so you can dive in to individual pieces of your project and describe run sets, so you can show comparisons of different runs from different projects in the same page. Panels in reports include visualizations, markdown, and images. Here's an [example report](https://app.wandb.ai/stacey/estuary/reports?view=stacey%2FDistributed%20Training) on distributed training.
 
 ![](https://downloads.intercomcdn.com/i/o/142935299/e49a7b19a392df6dd0ab3501/image.png)
 
-## Add markdown
 
-Click **Add a visualization** and select **Markdown** to add a text panel to a report.
-
-![](.gitbook/assets/bug-markdown.gif)
 
 ## Add visualizations
 
