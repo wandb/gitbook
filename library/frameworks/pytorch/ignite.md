@@ -4,10 +4,13 @@ description: Use wandb with PyTorch Ignite
 
 # Ignite
 
-It's easy to integrate Weights & Biases with PyTorch Ignite.
-
 * See the resulting visualizations in this [example W&B report →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
-* Try running the code yourself in this [example hosted notebook →](https://colab.research.google.com/drive/1I1FC5tkn0c3I47DObVTDCmtgOQsVHWdB)
+* Try running the code yourself in this [example hosted notebook →](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)
+
+Ignite supports Weights & Biases handler to log metrics, model/optimizer parameters, gradients during training and validation. It can also be used to log model checkpoints to the Weights & Biases cloud.
+This class is also a wrapper for the wandb module. This means that you can call any wandb function using this wrapper. See examples on how to save model parameters and gradients.
+
+### The basic pytorch model setup
 
 ```python
 from argparse import ArgumentParser
@@ -55,11 +58,23 @@ def get_data_loaders(train_batch_size, val_batch_size):
                             batch_size=val_batch_size, shuffle=False)
     return train_loader, val_loader
 
+```
 
+Using WandBLogger in ignite is a 2-step modular process:
+First, you need to create a WandbLogger object. Then it can be attached to any trainer or evaluator to automatically log the metrics. 
+We'll do the following tasks sequentially:
+1) Create a WandBLogger object
+2) Attach the Object to the output handlers to:
+   * Log training loss - attach to trainer object
+   * Log validation loss - attach to evaluator
+   * Log optional Parameters - Say, learning rate
+   * Watch the model
+   
+```python
+from ignite.contrib.handlers.wandb_logger import *
 def run(train_batch_size, val_batch_size, epochs, lr, momentum, log_interval):
     train_loader, val_loader = get_data_loaders(train_batch_size, val_batch_size)
     model = Net()
-    wandb.watch(model)
     device = 'cpu'
 
     if torch.cuda.is_available():
@@ -77,12 +92,46 @@ def run(train_batch_size, val_batch_size, epochs, lr, momentum, log_interval):
         initial=0, leave=False, total=len(train_loader),
         desc=desc.format(0)
     )
+    #WandBlogger Object Creation
+    wandb_logger = WandBLogger(
+    project="pytorch-ignite-integration",
+    name="cnn-mnist",
+    config={"max_epochs": epochs,"batch_size":train_batch_size},
+    tags=["pytorch-ignite", "minst"]
+    )
+    
+    wandb_logger.attach_output_handler(
+    trainer,
+    event_name=Events.ITERATION_COMPLETED,
+    tag="training",
+    output_transform=lambda loss: {"loss": loss}
+    )
 
+    wandb_logger.attach_output_handler(
+    evaluator,
+    event_name=Events.EPOCH_COMPLETED,
+    tag="training",
+    metric_names=["nll", "accuracy"],
+    global_step_transform=lambda *_: trainer.state.iteration,
+    )
+
+    wandb_logger.attach_opt_params_handler(
+    trainer,
+    event_name=Events.ITERATION_STARTED,
+    optimizer=optimizer,
+    param_name='lr'  # optional
+    )
+
+    wandb_logger.watch(model)
+
+```
+Optionally, we can also utilize ignite `EVENTS` to log the metrics directly to the terminal
+
+```python
     @trainer.on(Events.ITERATION_COMPLETED(every=log_interval))
     def log_training_loss(engine):
         pbar.desc = desc.format(engine.state.output)
         pbar.update(log_interval)
-        wandb.log({"train loss": engine.state.output})
 
     @trainer.on(Events.EPOCH_COMPLETED)
     def log_training_results(engine):
@@ -107,10 +156,6 @@ def run(train_batch_size, val_batch_size, epochs, lr, momentum, log_interval):
             .format(engine.state.epoch, avg_accuracy, avg_nll))
 
         pbar.n = pbar.last_print_n = 0
-        wandb.log({"validation loss": engine.state.metrics['nll']})
-        wandb.log({"validation accuracy": engine.state.metrics['accuracy']})
-
-
 
     trainer.run(train_loader, max_epochs=epochs)
     pbar.close()
@@ -132,7 +177,21 @@ if __name__ == "__main__":
                         help='how many batches to wait before logging training status')
 
     args = parser.parse_args()
-    wandb.init(config=args)
     run(args.batch_size, args.val_batch_size, args.epochs, args.lr, args.momentum, args.log_interval)
 ```
+We get these visualizations on running the above code:
 
+<div align="center">
+  <img src="https://i.imgur.com/CoBDShx.png" /><br><br>
+</div>
+<div align="center">
+  <img src="https://i.imgur.com/Fr6Dqd0.png" /><br><br>
+</div>
+<div align="center">
+  <img src="https://i.imgur.com/Fr6Dqd0.png" /><br><br>
+</div>
+<div align="center">
+  <img src="https://i.imgur.com/rHNPyw3.png" /><br><br>
+</div>
+
+Refer [Ignite Docs](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger) for more detailed documentation
