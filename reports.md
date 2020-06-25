@@ -14,7 +14,7 @@ Reports let you organize visualizations, describe your findings, and share updat
 
 ### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
 
-Use reports to describe your process developing models. Report sections each have their own set of runs, so you can dive in to individual pieces of your project and describe run sets, so you can show comparisons of different runs from different projects in the same page. 
+Once you have [experiments in W&B](quickstart.md), easily visualize results in reports. Here's a quick overview video.
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" %}
 
