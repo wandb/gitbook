@@ -97,9 +97,9 @@ Now you've got the instrumentation working, here's a quick overview of cool feat
 4. **Frameworks**: We have special integrations for popular [frameworks](library/frameworks/) like PyTorch, Keras, and XGBoost.
 5. **Showcase**: Interested in sharing your research? We're always working on blog posts to highlight the amazing work of our community. Message us at contact@wandb.com.
 
-[See a live example report →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
+### [Contact us with questions →](company/getting-help.md)
 
-[Contact us with questions →](company/getting-help.md)
+### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
 
-![](.gitbook/assets/demo-report-page.png)
+![](.gitbook/assets/image%20%2891%29.png)
 
