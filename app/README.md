@@ -6,6 +6,8 @@ description: Machine learning experiment tracking and visualizations
 
 Use the Weights & Biases Dashboard as a central place to organize and visualize results from your machine learning models. 
 
+{% embed url="https://youtu.be/gnD8BFuyVUA" %}
+
 ### **Persistent and Centralized**
 
 Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying outputs from your terminal into a spreadsheet or organizing TensorBoard files from different machines.
