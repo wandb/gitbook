@@ -29,7 +29,33 @@ See this [Colab notebook](https://colab.research.google.com/github/wandb/example
 
 ### Options
 
-By default the hook only logs gradients. If you want to log histograms of parameter values as well, you can specify `wandb.watch(model, log="all")`. Valid options for the log argument are: "gradients", "parameters", "all", or None.
+By default the hook only logs gradients.
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Arguments</th>
+      <th style="text-align:left">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">log</td>
+      <td style="text-align:left">
+        <ul>
+          <li>all: log histograms of gradients and parameters</li>
+          <li>gradients (default)</li>
+          <li>parameters</li>
+          <li>None</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">log_freq</td>
+      <td style="text-align:left">integer (default 100): The number of steps between logging gradients</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Images
 
