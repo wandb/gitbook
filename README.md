@@ -17,7 +17,7 @@ Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, 
 3. \*\*\*\*[**Sweeps**](sweeps/): Optimize models with hyperparameter tuning
 4. \*\*\*\*[**Artifacts**](artifacts/): Dataset and model versioning, pipeline tracking
 
-{% embed url="https://www.youtube.com/watch?v=91HhNtmb0B4" %}
+{% embed url="https://youtu.be/gnD8BFuyVUA" %}
 
 ## Getting Started
 
