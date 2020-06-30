@@ -22,3 +22,9 @@ Metrics are sampled to 1500 data points by default before displaying in the UI. 
 
 While a run is in progress we tail the last 5000 lines of your log for you in the UI. After a run is completed the entire log is archived and can be downloaded from an individual run page.
 
+### Logging Guidance
+
+Here are some additional guidelines for logging data to W&B.
+
+* **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
+
