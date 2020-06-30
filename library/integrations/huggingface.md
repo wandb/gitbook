@@ -17,7 +17,9 @@ wandb login
 
 The `Trainer` will automatically log losses, evaluation metrics, model topology and gradients.
 
-Customize logging with these optional environment variables:
+Advanced configuration is possible through [wandb environment variables](https://docs.wandb.com/library/environment-variables).
+
+Additional variables are available with transformers:
 
 <table>
   <thead>
@@ -36,10 +38,6 @@ Customize logging with these optional environment variables:
           <li><b>false</b>: No gradient or parameter logging</li>
         </ul>
       </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">WANDB_PROJECT</td>
-      <td style="text-align:left"><em><b>string</b>:</em> Set the project name. By default it&apos;s &quot;huggingface&quot;.</td>
     </tr>
     <tr>
       <td style="text-align:left">WANDB_DISABLED</td>
