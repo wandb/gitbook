@@ -41,7 +41,7 @@ Additional variables are available with transformers:
     </tr>
     <tr>
       <td style="text-align:left">WANDB_DISABLED</td>
-      <td style="text-align:left"><em><b>boolean</b>:  </em>Set to <b>true</b> to disable logging entirely</td>
+      <td style="text-align:left"><em><b>boolean</b>:</em> Set to <b>true</b> to disable logging entirely</td>
     </tr>
   </tbody>
 </table>
@@ -56,7 +56,7 @@ We've created a few examples for you to see how the integration works:
 
 ### Feedback
 
-We'd love to hear feedback and we're excited to improve this integration. [Contact us](../../company/getting-help.md) with any questions or suggestions. 
+We'd love to hear feedback and we're excited to improve this integration. [Contact us](../../company/getting-help.md) with any questions or suggestions.
 
 ## Visualize Results
 
@@ -67,6 +67,4 @@ Explore your results dynamically in the W&B Dashboard. It's easy to look across 
 Here's an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations.
 
 ![](../../.gitbook/assets/gif-for-comparing-bert.gif)
-
-
 
