@@ -41,7 +41,7 @@ You can use an artifact as input to a run. For example, we could take `bike-data
 
 ```python
 # Query W&B for an artifact and mark it as input to this run
-artifact = run.use_artifact('bike-dataset:v0', type='dataset')
+artifact = run.use_artifact('bike-dataset:v0')
 
 # Download the artifact's contents
 artifact_dir = artifact.download()
@@ -65,7 +65,7 @@ You can use aliases as pointers to specific versions. By default, run.log\_artif
 You can fetch an artifact using an alias. For example, if you want your training script to always pull the most recent version of a dataset, specify **latest** when you use that artifact.
 
 ```python
-artifact = run.use_artifact('bike-dataset:latest', type='dataset')
+artifact = run.use_artifact('bike-dataset:latest')
 ```
 
 You can also apply a custom alias to an artifact version. For example, if you want to mark which model checkpoint is the best on the metric AP-50, you could add the string **best-ap50** as an alias when you log the model artifact.
@@ -171,7 +171,7 @@ artifact.add_reference(uri, name=None)
 ## Using and downloading artifacts
 
 ```python
-run.use_artifact(artifact=None, type=None)
+run.use_artifact(artifact=None)
 ```
 
 * Marks an artifact as an input to your run.
@@ -181,7 +181,7 @@ There are two patterns for using artifacts. You can use an artifact name that is
 ### Use an artifact stored in W&B
 
 ```python
-artifact = run.use_artifact('bike-dataset:latest', type='dataset')
+artifact = run.use_artifact('bike-dataset:latest')
 ```
 
 * **type** is required in this pattern
@@ -209,7 +209,7 @@ References that have schemes that W&B knows how to handle can be downloaded just
 You can also construct an artifact object and pass it to **use\_artifact**. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, so you can do it as many times as you like. The artifact will only be created once, as long as the contents of `model.h5` remain the same.
 
 ```python
-artifact = wandb.Artifact('reference model', type='dataset')
+artifact = wandb.Artifact('reference model')
 artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
