@@ -68,3 +68,9 @@ If you filter down the table to just the ones you want to delete, you can select
 
 ![](../../.gitbook/assets/2020-05-13-19.14.13.gif)
 
+### Export runs table to CSV
+
+Export the table of all your runs, hyperparameters, and summary metrics to a CSV with the download button.
+
+![](../../.gitbook/assets/2020-07-06-11.51.01.gif)
+
