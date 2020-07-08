@@ -15,7 +15,7 @@ pip install wandb
 wandb login
 ```
 
-The `Trainer` will automatically log losses, evaluation metrics, model topology and gradients.
+The `Trainer` or `TFTrainer` will automatically log losses, evaluation metrics, model topology and gradients.
 
 Advanced configuration is possible through [wandb environment variables](https://docs.wandb.com/library/environment-variables).
 
