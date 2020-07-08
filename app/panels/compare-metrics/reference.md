@@ -30,6 +30,12 @@ By default you will only plot 10 runs or groups of runs.   The runs will be take
 
 You can control the legend of your chart to show for any run any config value that you logged and meta data from the runs such as the created at time or the user who created the run.
 
+Example: 
+
+${config:x} will insert the config value of x for a run or group. 
+
+You can set \[\[$x: $y\]\] to display point specific values in the crosshair 
+
 ### Grouping
 
 You can aggregate all of the runs by turning on grouping, or group over an individual variable.  You can also turn on grouping by grouping inside the table and the groups will automatically populate into the graph.
