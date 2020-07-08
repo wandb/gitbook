@@ -8,8 +8,6 @@ Use our python library to instrument your machine learning model and track exper
 
 We have more detailed docs generated from the code in [Reference](reference/).
 
-{% page-ref page="frameworks/" %}
-
 ### **Instrumenting a model**
 
 * wandb.init — initialize a new run at the top of your training script
