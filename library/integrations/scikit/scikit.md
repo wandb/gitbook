@@ -2,7 +2,7 @@
 
 Here's a simple example project where we used wandb with sklearn. Try running [the example notebook](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ) and see results on the [open project page](https://app.wandb.ai/wandb/iris).
 
-![](../../.gitbook/assets/docs-example-colab-of-wandb-sklearn.png)
+![](../../../.gitbook/assets/docs-example-colab-of-wandb-sklearn.png)
 
 ```python
 import numpy as np

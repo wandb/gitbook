@@ -20,7 +20,7 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 ```
 {% endcode %}
 
-See our [example projects](../example-projects/) for a complete script example.
+See our [example projects](../../example-projects/) for a complete script example.
 
 #### Options
 

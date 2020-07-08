@@ -2,7 +2,7 @@
 description: Visualize PyTorch Lightning models with W&B
 ---
 
-# Pytorch-Lightning
+# PyTorch Lightning
 
 PyTorch-Lightning provides a lightweight wrapper for organizing your PyTorch code and easily add advanced features such as distributed training and 16-bit precising. We have a nice integration to visualize your results.
 
