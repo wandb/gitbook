@@ -161,6 +161,7 @@ On the W&B runs page, you will see your videos in the Media section.
 
 {% tab title="Text Table" %}
 Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 1000.
+You can also pass a pandas `DataFrame` object.
 
 ```python
 # Method 1
@@ -172,6 +173,9 @@ table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])
 table.add_data("I love my phone", "1", "1")
 table.add_data("My phone sucks", "0", "-1")
 wandb.log({"examples": table})
+
+# For pandas Dataframe
+table = wandb.Table(dataframe=my_dataframe)
 ```
 {% endtab %}
 
