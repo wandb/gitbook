@@ -4,6 +4,10 @@ We do not assert any limits beyond rate limiting. Our Python client will automat
 
 For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds.
 
+### Best Practices for Fast Page Loading
+
+Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. For scalars, you can have tens of thousands of step and hundreds of metrics. If you have histograms, we recommend limiting to thousands of steps. If you send us more that that, your data will be saved and tracked, but the query performance will be slowed down. 
+
 ### Rate Limits
 
 The W&B API is rate limited by IP and API key. New accounts are restricted to 200 requests per minute. This rate allows you to run approximately 15 processes in parallel and have them report without being throttled. If the **wandb** client detects it's being limited, it will backoff and retry sending the data in the future. If you need to run more than 15 processes in parallel send an email to [contact@wandb.com](mailto:contact@wandb.com).
@@ -14,9 +18,9 @@ The W&B API is rate limited by IP and API key. New accounts are restricted to 20
 
 The maximum file size for new accounts is 2GB. A single run is allowed to store 10 GB of data. If you need to store larger files or more data per run, contact us at [contact@wandb.com](mailto:contact@wandb.com).
 
-#### Metrics and Histograms
+#### Metrics
 
-Metrics are sampled to 1500 data points by default before displaying in the UI. Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. For scalars, you can have tens of thousands of step and hundreds of metrics. If you have histograms, we recommend limiting to thousands of steps. If you send us more that that, your data will be saved and tracked, but the query performance will be slowed down. 
+Metrics are sampled to 1500 data points by default before displaying in the UI. 
 
 #### Logs
 
