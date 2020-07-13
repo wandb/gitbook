@@ -96,7 +96,7 @@ Great tool! Still a lot to improve but looks like you have an entire team fully 
 
 It's just amazing, you guys are doing an amazing job over there! I'm telling about it to all my friends, everyone should use wandb!
 
-### Shivam, a kaggle wiz!
+### [Shivam Kaushik](https://www.kaggle.com/mythrex/competitions), Kaggle User 
 
 I just love how we can make reports and share our work. I use this for kaggle mainly and I know how difficult was it for me to compile my results for the team.
 
