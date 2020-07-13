@@ -1,12 +1,17 @@
 # Limits
 
-We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line.
-
-For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds.
-
 ### Best Practices for Fast Page Loading
 
-Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. For scalars, you can have tens of thousands of step and hundreds of metrics. If you have histograms, we recommend limiting to thousands of steps. If you send us more that that, your data will be saved and tracked, but the query performance will be slowed down. 
+For fast page loading in the W&B UI, we recommend keeping logged data amounts within these bounds.
+
+* **Scalars**: ****you can have tens of thousands of steps and hundreds of metrics
+* **Histograms**: we recommend limiting to thousands of steps
+
+If you send us more that that, your data will be saved and tracked, but pages may load more slowly.
+
+### Python Script Performance
+
+Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds. 
 
 ### Rate Limits
 
