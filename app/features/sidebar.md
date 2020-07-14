@@ -8,7 +8,7 @@ On the project page, we show runs in a sidebar. Expand the sidebar to view a tab
 
 ### Search run names
 
-We support full [regex](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) in the table. When you search over the names of runs, that will filter down the visible runs in the graphs on the workspace.
+We support full [regex](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) search on run names in the table. When you type a query in the search box, that will filter down the visible runs in the graphs on the workspace as well as filtering the rows of the table.
 
 ### Resize the sidebar
 
