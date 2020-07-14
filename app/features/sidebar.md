@@ -6,6 +6,10 @@ description: How to use the sidebar and table on the project page
 
 On the project page, we show runs in a sidebar. Expand the sidebar to view a table of  hyperparameters and summary metrics across runs.
 
+### Search run names
+
+We support full [regex](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) in the table. When you search over the names of runs, that will filter down the visible runs in the graphs on the workspace.
+
 ### Resize the sidebar
 
 Would you like to make more space for the graphs on the project page? Click and drag the edge of the column header to resize the sidebar. You'll still be able to click on the eye icon to turn on and off runs on the graphs.
