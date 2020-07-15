@@ -143,14 +143,17 @@ project-directory
     </tr>
     <tr>
       <td style="text-align:left">artifact.add_dir(&apos;images&apos;)</td>
-      <td style="text-align:left">1.png2.png</td>
+      <td style="text-align:left">
+        <p>cat.png</p>
+        <p>dog.png</p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">artifact.add_dir(&apos;images&apos;, name=&apos;images&apos;)</td>
       <td
       style="text-align:left">
-        <p>images/1.png</p>
-        <p>images/2.png</p>
+        <p>images/cat.png</p>
+        <p>images/dog.png</p>
         </td>
     </tr>
     <tr>
