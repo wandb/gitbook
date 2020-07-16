@@ -59,6 +59,12 @@ If you're running batch jobs in AWS, it's easy to authenticate your machines wit
 
 ## Common Questions
 
+### Automated runs and service accounts
+
+If you have automated tests or internal tools that launch runs logging to W&B, create a **Service Account** on your team settings page. This will allow you to use a service API key for your automated jobs. If you want to attribute service account jobs to a specific user, you can use the WANDB\_USER\_NAME or WANDB\_USER\_EMAIL environment variables.
+
+![Create a service account on your team settings page for automated jobs](../.gitbook/assets/image%20%2892%29.png)
+
 ### Do environment variables overwrite the parameters passed to wandb.init\(\)?
 
 Arguments passed to `wandb.init`  take precedence over the environment.  You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
