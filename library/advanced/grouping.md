@@ -4,14 +4,15 @@ description: Group training and evaluation runs into larger experiments
 
 # Grouping
 
-If your experiments are made up of smaller pieces like training and evaluation steps, you can group runs together in the UI. Our grouping feature is useful for distributed training or combining multiple process types into one experiment.
+Group individual runs into experiments by passing a unique **group** name to **wandb.init\(\)**.
 
-There are a few ways to use grouping:
+### **Use Cases**
 
-1. **In your script**: You can optionally give your runs a group ID and a job type when you call wandb.init\(\). For example:`wandb.init(group="experiment_1", job_type="eval")`
-   1. **group** should be unique within your project and shared by all runs in the group.  You can use `wandb.util.generate_id()` to generate a unique 8 character string to use in all your processes.  i.e. `os.environ["WANDB_RUN_GROUP"] = "experiment-" + wandb.util.generate_id()`
-2. \*\*\*\*[**Environment Variable**](../environment-variables.md): Set`WANDB_RUN_GROUP`
-3. **In the UI**: You can dynamically group by any config column. For example, if you use `wandb.config` to log batch size or learning rate, you can then group by those hyperparameters dynamically in the web app. 
+1. **Distributed training:** Use grouping if your experiments are split up into different pieces with separate training and evaluation scripts that should be viewed as parts of a larger whole.
+2. **Multiple processes**: Group multiple smaller processes together into an experiment.
+3. **K-fold cross-validation**: Group together runs with different random seeds to see a larger experiment.
+
+### What it looks like
 
 If you set grouping in your script, we will group the runs by default in the table in the UI. You can toggle this on and off by clicking the **Group** button at the top of the table. Here's an example of grouping on the project page.
 
@@ -20,9 +21,23 @@ If you set grouping in your script, we will group the runs by default in the tab
 
 ![](../../.gitbook/assets/demo-grouping.png)
 
+There are a few ways to use grouping:
+
+**Setting a group in your script**
+
+Pass an optional group and job\_type to wandb.init\(\). For example:`wandb.init(group="experiment_1", job_type="eval")`**. Group** should be unique within your project and shared by all runs in the group.  You can use `wandb.util.generate_id()` to generate a unique 8 character string to use in all your processes— for example:`os.environ["WANDB_RUN_GROUP"] = "experiment-" + wandb.util.generate_id()`
+
+**Set a group environment variable**
+
+Use `WANDB_RUN_GROUP` to specify a group for your runs as an environment variable. For more on this, check our docs for [**Environment Variables**](../environment-variables.md)**.**
+
+**Toggle grouping in the UI**
+
+You can dynamically group by any config column. For example, if you use `wandb.config` to log batch size or learning rate, you can then group by those hyperparameters dynamically in the web app. 
+
 ### Turn off grouping
 
-I can click the grouping button and clear group fields at any time, which returns the table and graphs to their ungrouped state.
+Click the grouping button and clear group fields at any time, which returns the table and graphs to their ungrouped state.
 
 ![](../../.gitbook/assets/demo-no-grouping.png)
 
