@@ -176,7 +176,7 @@ Describe the hyperparameters to explore. For each hyperparameter, specify the na
 | int\_uniform | Uniform integer. Must specify max and min as integers. |
 | uniform | Uniform continuous. Must specify max and min as floats. |
 | q\_uniform | Quantized uniform. Returns round\(X / q\) \* q where X is uniform. Q defaults to 1. |
-| log\_uniform | Log uniform. Number between exp\(min\) and exp\(max\) so that the logarithm of the return value is uniformly distributed. |
+| log\_uniform | Log uniform. Number between **exp\(**min**\)** and **exp\(**max**\)** so that the logarithm of the return value is uniformly distributed. |
 | q\_log\_uniform | Quantized log uniform. Returns round\(X / q\) \* q where X is log\_uniform. Q defaults to 1. |
 | normal | Normal distribution. Value is chosen from normal distribution. Can set mean mu \(default 0\) and std dev sigma \(default 1\). |
 | q\_normal | Quantized normal distribution. Returns round\(X / q\) \* q where X is normal. Q defaults to 1. |
