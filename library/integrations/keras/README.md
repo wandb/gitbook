@@ -49,3 +49,7 @@ If you're setting `use_multiprocessing=True`  and seeing the error `Error('You m
 1. In the Sequence class init, add: `wandb.init(group='...')` 
 2. In your main program, make sure you're using `if __name__ == "__main__":` and then put the rest of your script logic inside that.
 
+## Example
+We've created a few examples for you to see how the integration works:
+* [Example on Github](https://github.com/wandb/examples/blob/master/keras-cnn-fashion/train.py):  Fashion MNIST example
+* [Wandb Dashboard](https://app.wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs): View result on W&B
