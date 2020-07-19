@@ -125,5 +125,9 @@ Here are some minimal examples
 ```
 Refer [simpletransformers on github](https://github.com/ThilinaRajapakse/simpletransformers) for more detailed documentation
 
-Checkout [this Weights and Baises report](https://app.wandb.ai/cayush/simpletransformers/reports/Using-simpleTransformer-on-common-NLP-applications---Vmlldzo4Njk2NA) that covers training transformers on some the most popular GLUE benchmark datasets.
-Try it out yourself on colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1oXROllqMqVvBFcPgTKJRboTq96uWuqSz?usp=sharing)
+## Example
+We've created a few examples for you to see how the integration works:
+
+* Run in Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1oXROllqMqVvBFcPgTKJRboTq96uWuqSz?usp=sharing) : A simple notebook to get you started
+* [Wandb Dashboard](https://app.wandb.ai/cayush/simpletransformers): View on W&B
+* Checkout [this Weights and Baises report](https://app.wandb.ai/cayush/simpletransformers/reports/Using-simpleTransformer-on-common-NLP-applications---Vmlldzo4Njk2NA) that covers training transformers on some the most popular GLUE benchmark datasets.
