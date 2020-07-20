@@ -195,8 +195,10 @@ Generally, the residuals of a well-fit model should be randomly distributed beca
 * model \(regressor\): Takes in a fitted classifier.
 * X \(arr\): Training set features.
 * y \(arr\): Training set labels.
-
-## [Try an example →](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)
-
 If you have any questions, we'd love to answer them in our [slack community](http://bit.ly/wandb-forum).
+
+## Example
+* [Run in colab](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ): A simple notebook to get you started
+* [Wandb Dashboard](https://app.wandb.ai/wandb/iris): View result on W&B
+
 

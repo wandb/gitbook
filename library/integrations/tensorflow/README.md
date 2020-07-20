@@ -56,3 +56,9 @@ We were inspired to improve experiment tracking tools for everyone. When the cof
 
 Get started with a [free personal account →](http://app.wandb.ai/)
 
+## Example
+We've created a few examples for you to see how the integration works:
+* [Example on Github](https://github.com/wandb/examples/blob/master/tf-estimator-mnist/mnist.py): MNIST example Using Tensorflow Estimators
+* [Example on Github](https://github.com/wandb/examples/blob/master/tf-cnn-fashion/train.py): Fashion MNIST example Using Raw Tensorflow
+* [Wandb Dashboard](https://app.wandb.ai/l2k2/examples-tf-estimator-mnist/runs/p0ifowcb): View result on W&B
+
