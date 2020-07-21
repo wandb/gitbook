@@ -72,7 +72,9 @@ wandb.log({"examples" : [wandb.Image(i) for i in images]})
 If you need to track multiple models in the same script, you can wall wandb.watch\(\) on each model separately.
 
 ## Example
+
 We've created a few examples for you to see how the integration works:
+
 * [Run in colab](https://colab.research.google.com/github/wandb/examples/blob/master/pytorch-intro/intro.ipynb): A simple notebook example to get you started
 * [Example on Github](https://github.com/wandb/examples/blob/master/pytorch-cnn-mnist/main.py): MNIST example
 * [Wandb Dashboard](https://app.wandb.ai/wandb/pytorch-mnist/runs/): View result on W&B

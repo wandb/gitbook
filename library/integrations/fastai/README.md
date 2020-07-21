@@ -65,6 +65,9 @@ We've created a few examples for you to see how the integration works:
 | seed | 12345 | initialize random generator for sample predictions if input\_type is set and validation\_data is None. |
 
 ## Example
+
 We've created a few examples for you to see how the integration works:
+
 * [Example on Github](https://github.com/wandb/examples/blob/master/tf-estimator-mnist/mnist.py): U-Net segmentation example
 * [Wandb Dashboard](https://app.wandb.ai/wandb/witness/runs/uy25i7te?workspace=user-cayush): View result on W&B
+

@@ -127,8 +127,6 @@ Computes the confusion matrix to evaluate the accuracy of a classification. It's
 * y\_pred \(arr\): Test set predicted labels.
 * labels \(list\): Named labels for target variable \(y\).
 
-
-
 #### Summary Metrics
 
 ![](../../../.gitbook/assets/screen-shot-2020-02-26-at-2.49.28-am.png)
@@ -195,10 +193,11 @@ Generally, the residuals of a well-fit model should be randomly distributed beca
 * model \(regressor\): Takes in a fitted classifier.
 * X \(arr\): Training set features.
 * y \(arr\): Training set labels.
-If you have any questions, we'd love to answer them in our [slack community](http://bit.ly/wandb-forum).
+
+  If you have any questions, we'd love to answer them in our [slack community](http://bit.ly/wandb-forum).
 
 ## Example
+
 * [Run in colab](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ): A simple notebook to get you started
 * [Wandb Dashboard](https://app.wandb.ai/wandb/iris): View result on W&B
-
 
