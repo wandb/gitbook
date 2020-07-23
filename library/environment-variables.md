@@ -71,24 +71,17 @@ This is useful for continuous integration and tools like TravisCI or CircleCI if
 
 Arguments passed to `wandb.init`  take precedence over the environment.  You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
 
-### Wandb Off
+### Turn off logging
 
-The command `wandb off` sets an environment variable. If you have multiple projects, they will all stop syncing logged data to W&B servers.
+The command `wandb off` sets an environment variable, `WANDB_MODE=dryrun` . This stops any data from syncing from your machine to the remote wandb server. If you have multiple projects, they will all stop syncing logged data to W&B servers.
 
-### How can I can turn off logging? 
-
-You can set WANDB\_MODE = dryrun to turn off logging. To prevent any log messages:
+To quiet the warning messages:
 
 ```python
-python
 import logging
 logger = logging.getLogger("wandb")
 logger.setLevel(logging.WARNING)
 ```
-
-### WANDB\_MODE=dryrun ./run.sh will only stop the sync on run.sh, right? 
-
-Correct, only for python processes that are in the same environment as run.sh.
 
 
 
