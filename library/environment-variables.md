@@ -65,6 +65,8 @@ If you have automated tests or internal tools that launch runs logging to W&B, c
 
 ![Create a service account on your team settings page for automated jobs](../.gitbook/assets/image%20%2892%29.png)
 
+This is useful for continuous integration and tools like TravisCI or CircleCI if you're setting up automated unit tests.
+
 ### Do environment variables overwrite the parameters passed to wandb.init\(\)?
 
 Arguments passed to `wandb.init`  take precedence over the environment.  You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
