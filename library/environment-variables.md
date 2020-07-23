@@ -71,9 +71,9 @@ This is useful for continuous integration and tools like TravisCI or CircleCI if
 
 Arguments passed to `wandb.init`  take precedence over the environment.  You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
 
-### If I have multiple projects inside the same folder, how to use wandb off to indicate which project I want to stop sync?
+### Wandb Off
 
-wandb off sets an environmental variable so it turns off all syncing for that session
+The command `wandb off` sets an environment variable. If you have multiple projects, they will all stop syncing logged data to W&B servers.
 
 ### How can I can turn off logging? 
 
