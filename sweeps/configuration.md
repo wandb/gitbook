@@ -39,6 +39,29 @@ wandb.log({"val_loss" : valid_loss})
 | goal | `minimize` or `maximize` \(Default is `minimize`\) |
 | target | Value that you'd like to achieve for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to "Finished." This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
 
+{% hint style="danger" %}
+The metric specified needs to be a "top level" metric:  
+  
+This will **NOT** work:  
+Sweep configuration:  
+metric:  
+   name: my\_metric.nested  
+Code:  
+`nested_metrics = {"nested": 4}  
+wandb.log({"my_metric", nested_metrics}`  
+  
+To work around this limitation the script should log the nested metric at the top level like this:  
+Sweep configuration:  
+metric:  
+  name: my\_metric\_nested  
+Code:  
+`nested_metrics = {"nested": 4}  
+wandb.log{{"my_metric", nested_metric}  
+wandb.log({"my_metric_nested", nested_metric["nested"]})`
+{% endhint %}
+
+
+
 **Examples**
 
 {% tabs %}
