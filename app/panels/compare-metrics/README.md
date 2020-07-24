@@ -13,11 +13,20 @@ Line plots show up by default when you plot metrics over time with **wandb.log\(
 **Data**
 
 * **X axis**: Select default x-axes including Step and Relative Time, or select a custom x-axis. If you'd like to use a custom x-axis, make sure it's logged in the same call to `wandb.log()` that you use to log the y-axis.
+  * **Relative Time \(Wall\)** is clock time since the process started, so if you started a run and resumed it a day later and logged something that would be plotted a 24hrs.
+  * **Relative Time \(Process\)** is time inside the running process, so if you started a run and ran for 10 seconds and resumed a day later that point would be plotted at 10s
+  * **Wall Time** is minutes elapsed since the start of the first run on the graph
+  * **Step** increments by default each time `wandb.log()` is called, and is supposed to reflect the number of training steps you've logged from your model
 * **Y axes**: Select y-axes from the logged values, including metrics and hyperparameters that change over time.
 * **Min, max, and log scale**: Minimum, maximum, and log scale settings for x axis and y axis in line plots
 * **Smoothing and exclude outliers**: Change the smoothing on the line plot or rescale to exclude outliers from the default plot min and max scale
 * **Max runs to show**: Show more lines on the line plot at once by increasing this number, which defaults to 10 runs. You'll see the message "Showing first 10 runs" on the top of the chart if there are more than 10 runs available but the chart is constraining the number visible.
 * **Chart type**: Change between a line plot, an area plot, and a percentage area plot
+
+**X Axis Settings**  
+The x-axis can be set at the graph level, as well as globally for the project page or report page. Here's what the global settings look like:
+
+![](../../../.gitbook/assets/x-axis-global-settings.png)
 
 {% hint style="info" %}
 Pick **multiple y-axes** in the line plot settings to compare different metrics on the same chart, like accuracy and validation accuracy for example.
