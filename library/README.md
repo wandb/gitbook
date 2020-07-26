@@ -52,6 +52,8 @@ Where data and model metrics are concerned, you get to decide exactly what you w
 
 If you're using a shared machine and another person is a wandb user, it's easy to make sure your runs are always logged to the proper account. Set the [WANDB\_API\_KEY environment variable](environment-variables.md) to authenticate. If you source it in your env, when you log in you'll have the right credentials, or you can set the environment variable from your script.
 
+Run this command `export WANDB_API_KEY=X` where X is your API key. When you're logged in, you can find your API key at [wandb.ai/authorize](https://app.wandb.ai/authorize). 
+
 ### Organization best practices <a id="best-practices"></a>
 
 We provide a very flexible and customizable tool. You're free to use our tools however you'd like, but here are some guidelines for how to think about our tools.
