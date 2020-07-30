@@ -59,6 +59,12 @@ The visualizations in the section pull columns from the first active runset. If 
 
 If you really need to compare runs from two projects and the columns aren't working, add a tag to the runs in one project and then move those runs to the other project. You'll still be able to filter to just the runs from each project, but you'll have all the columns for both sets of runs available in the report.
 
+### View-only report links
+
+Share a view-only link to a report that is in a private project or team project.
+
+![](.gitbook/assets/share-view-only-link.gif)
+
 ## Reports FAQ
 
 ### Upload a CSV to a report 
