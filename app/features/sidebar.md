@@ -54,8 +54,6 @@ To move runs from one project to another:
 
 Look for a green dot next to the name of runs— this indicates they're active in the table and on the graph legends. 
 
-![](../../.gitbook/assets/image%20%2814%29.png)
-
 ### Hide uninteresting runs
 
 Do you want to hide crashed runs? Are short runs filling up your table? Do you want to only see your work in a group project? Hide the noise with a filter. Some filters we recommend:
