@@ -1,0 +1,10 @@
+{
+  "plugins": ["scripts"],
+  "pluginsConfig": {
+    "scripts": {
+      "files": [
+        "./test.js"
+      ]
+    }
+  }
+}
