@@ -208,12 +208,53 @@ Describe the hyperparameters to explore. For each hyperparameter, specify the na
 
 **Example**
 
+{% tabs %}
+{% tab title="constant" %}
 ```text
-parameters:
-  my-parameter:
-    min: 1
-    max: 20
+parameter_name:
+  distribution: constant
+  value: 2.71828
 ```
+{% endtab %}
+
+{% tab title="categorical" %}
+```text
+parameter_name:
+  distribution: categorical
+  values:
+  - elu
+  - celu
+  - gelu
+  - selu
+  - relu
+  - prelu
+  - lrelu
+  - rrelu
+  - relu6
+```
+{% endtab %}
+
+{% tab title="uniform" %}
+```
+parameter_name:
+  distribution: uniform
+  min: 0
+  max: 1
+```
+{% endtab %}
+
+{% tab title="q\_uniform" %}
+```
+parameter_name:
+  distribution: q_uniform
+  min: 0
+  max: 256
+  q: 1
+```
+{% endtab %}
+{% endtabs %}
+
+### Search Strategy
 
 ### Command Line <a id="command"></a>
 
