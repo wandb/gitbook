@@ -203,7 +203,7 @@ Describe the hyperparameters to explore. For each hyperparameter, specify the na
 | q\_log\_uniform | Quantized log uniform. Returns round\(X / q\) \* q where X is log\_uniform. Q defaults to 1. |
 | normal | Normal distribution. Value is chosen from normal distribution. Can set mean mu \(default 0\) and std dev sigma \(default 1\). |
 | q\_normal | Quantized normal distribution. Returns round\(X / q\) \* q where X is normal. Q defaults to 1. |
-| log\_normal | Log normal distribution. Value is chosen from log normal distribution. Can set mean mu \(default 0\) and std dev sigma \(default 1\). |
+| log\_normal | Log normal distribution. Value is chosen from log normal distribution such that \(natural\) log\(X\) is normally distributed with mean mu \(default 0\) and standard deviation sigma \(default 1\). |
 | q\_log\_normal | Quantized log normal distribution. Returns round\(X / q\) \* q where X is log\_normal. Q defaults to 1. |
 
 **Example**
