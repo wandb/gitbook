@@ -30,7 +30,7 @@ Easily add our Python library `wandb` to your machine learning script.
 
 Here's a sample screenshot from a [Species Identification project](https://app.wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification) in W&B.
 
-![](.gitbook/assets/image%20%2873%29.png)
+![](.gitbook/assets/screen-shot-2020-08-07-at-1.16.16-pm.png)
 
 ## Examples
 
