@@ -4,18 +4,20 @@ W&B integrates with [Ray](https://github.com/ray-project/ray) by providing a log
 
 The "wandb" dictionary of `env\_config` will be passed to `wandb.init` when training starts. See the `wandb.init` docs for all available options.
 
-Ray Tune currently offers two lightweight integrations for Weights & Biases. One is the `WandbLogger`, which automatically logs metrics reported to Tune to the Wandb API.
-The other one is the `@wandb_mixin` decorator, which can be used with the function API. It automatically initializes the Wandb API with Tune’s training information. You can just use the Wandb API like you would normally do, e.g. using `wandb.log()` to log your training process.
+Ray Tune currently offers two lightweight integrations for Weights & Biases. One is the `WandbLogger`, which automatically logs metrics reported to Tune to the Wandb API. The other one is the `@wandb_mixin` decorator, which can be used with the function API. It automatically initializes the Wandb API with Tune’s training information. You can just use the Wandb API like you would normally do, e.g. using `wandb.log()` to log your training process.
 
 ## WandbLogger
+
 ```python
 CLASS  ray.tune.integration.wandb.WandbLogger(config, logdir, trial=None)
 ```
-Wandb configuration is done by passing a wandb key to the config parameter of `tune.run()` (see example below).
+
+Wandb configuration is done by passing a wandb key to the config parameter of `tune.run()` \(see example below\).
 
 The content of the wandb config entry is passed to `wandb.init()` as keyword arguments. The exception are the following settings, which are used to configure the `WandbLogger` itself:
 
 ### Parameters
+
 `api_key_file (str)` – Path to file containing the `Wandb API KEY`.
 
 `api_key (str)` – Wandb API Key. Alternative to setting `api_key_file`.
@@ -25,6 +27,7 @@ The content of the wandb config entry is passed to `wandb.init()` as keyword arg
 `log_config (bool)` – Boolean indicating if the config parameter of the results dict should be logged. This makes sense if parameters will change during training, e.g. with `PopulationBasedTraining`. Defaults to False.
 
 ### Example
+
 ```python
 from ray.tune.logger import DEFAULT_LOGGERS
 from ray.tune.integration.wandb import WandbLogger
@@ -43,13 +46,17 @@ tune.run(
     },
     loggers=DEFAULT_LOGGERS + (WandbLogger, ))
 ```
-## wandb_mixin
+
+## wandb\_mixin
+
 ```python
 ray.tune.integration.wandb.wandb_mixin(func)
 ```
+
 This Ray Tune Trainable `mixin` helps initializing the Wandb API for use with the `Trainable` class or with `@wandb_mixin` for the function API.
 
 For basic usage, just prepend your training function with the `@wandb_mixin` decorator:
+
 ```python
 from ray.tune.integration.wandb import wandb_mixin
 
@@ -57,20 +64,23 @@ from ray.tune.integration.wandb import wandb_mixin
 def train_fn(config):
     wandb.log()
 ```
-Wandb configuration is done by passing a `wandb key` to the `config` parameter of `tune.run()` (see example below).
+
+Wandb configuration is done by passing a `wandb key` to the `config` parameter of `tune.run()` \(see example below\).
 
 The content of the wandb config entry is passed to `wandb.init()` as keyword arguments. The exception are the following settings, which are used to configure the `WandbTrainableMixin` itself:
 
 ### Parameters
+
 `api_key_file (str)` – Path to file containing the Wandb `API KEY`.
 
 `api_key (str)` – Wandb API Key. Alternative to setting `api_key_file`.
 
 Wandb’s `group`, `run_id` and `run_name` are automatically selected by Tune, but can be overwritten by filling out the respective configuration values.
 
-Please see here for all other valid configuration settings: https://docs.wandb.com/library/init
+Please see here for all other valid configuration settings: [https://docs.wandb.com/library/init](https://docs.wandb.com/library/init)
 
 ### Example:
+
 ```python
 from ray import tune
 from ray.tune.integration.wandb import wandb_mixin
@@ -95,7 +105,11 @@ tune.run(
         }
     })
 ```
+
 ## Example Code
+
 We've created a few examples for you to see how the integration works:
+
 * [Colab](https://colab.research.google.com/drive/1an-cJ5sRSVbzKVRub19TmmE4-8PUWyAi?usp=sharing): A simple demo to try the integration
 * [Dashboard](https://app.wandb.ai/authors/rayTune?workspace=user-cayush): View dashboard generated from the example
+

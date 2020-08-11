@@ -100,13 +100,14 @@ artifact.add_file(path, name='optional-name')
 artifact.add_dir(path, name='optional-prefix')
 
 # Return a writeable file-like object, stored as <name> in the artifact
-artifact.new_file(name)
+with artifact.new_file(name) as f:
+    ...  # Write contents into the file 
 
 # Add a URI reference
 artifact.add_reference(uri, name='optional-name')
 ```
 
-### Examples of using artifact file names
+### Adding files and directories
 
 For the following examples, assume we have a project directory with these files:
 
@@ -116,8 +117,8 @@ project-directory
 |   |-- cat.png
 |   +-- dog.png
 |-- checkpoints
-    +-- model.h5
-|-- model.h5
+|   +-- model.h5
++-- model.h5
 ```
 
 <table>
@@ -169,7 +170,62 @@ project-directory
 artifact.add_reference(uri, name=None)
 ```
 
-* You can add references to external URIs to artifacts, instead of actual files.  If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility.
+You can add references to external URIs to artifacts, instead of actual files.  If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility. Artifacts currently support the following URI schemes:
+
+* `s3://`: A path to an object or object prefix in S3. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
+* `gs://`: A path to an object or object prefix in GCS. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
+
+For the following examples, assume we have an S3 bucket with these files:
+
+```text
+s3://my-bucket
+|-- images
+|   |-- cat.png
+|   +-- dog.png
+|-- checkpoints
+|   +-- model.h5
++-- model.h5
+```
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">API call</th>
+      <th style="text-align:left">Resulting artifact contents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/model.h5&apos;)</td>
+      <td style="text-align:left">model.h5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/checkpoints/model.h5&apos;)</td>
+      <td
+      style="text-align:left">model.h5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/model.h5&apos;, name=&apos;models/mymodel.h5&apos;)</td>
+      <td
+      style="text-align:left">models/mymodel.h5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/images&apos;)</td>
+      <td style="text-align:left">
+        <p>cat.png</p>
+        <p>dog.png</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/images&apos;, name=&apos;images&apos;)</td>
+      <td
+      style="text-align:left">
+        <p>images/cat.png</p>
+        <p>images/dog.png</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Using and downloading artifacts
 
@@ -187,23 +243,21 @@ There are two patterns for using artifacts. You can use an artifact name that is
 artifact = run.use_artifact('bike-dataset:latest')
 ```
 
-* **type** is required in this pattern
-
 You can call the following methods on the returned artifact:
 
 ```python
-datadir = artifact.download()
+datadir = artifact.download(root=None)
 ```
 
-* Download all of the artifact’s contents that aren't currently present. This returns a path to a directory containing the artifact’s contents.
+* Download all of the artifact’s contents that aren't currently present. This returns a path to a directory containing the artifact’s contents. You can explicitly specify the download destination by setting **root**.
 
 ```python
 path = artifact.get_path(name)
 ```
 
-* Returns an Entry object with the following methods:
-  * **Entry.download\(\)**: Downloads the single file from path
-  * **Entry.ref\(\)**: If the entry was stored as a reference using add\_reference, this returns the URI
+* Fetches only the file at the path `name`. Returns an `Entry` object with the following methods:
+  * **Entry.download\(\)**: Downloads file from the artifact at path `name`
+  * **Entry.ref\(\)**: If the entry was stored as a reference using `add_reference`, returns the URI
 
 References that have schemes that W&B knows how to handle can be downloaded just like artifact files. The consumer API is the same.
 
