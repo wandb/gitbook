@@ -4,10 +4,15 @@ description: ✨BETA✨ support for Ray Tune sweep search and scheduler API
 
 # Ray Tune Sweeps
 
-[Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) is a scalable hyperparameter tuning library. We're adding support for Tune to W&B Sweeps, which makes it easy to launch runs on many machines and visualize results in a central place.
+[Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) is a scalable hyperparameter tuning library. We're adding support for Ray Tune to W&B Sweeps, which makes it easy to launch runs on many machines and visualize results in a central place.
 
 {% hint style="info" %}
-This feature is in beta! We love feedback, and we really appreciate hearing from folks who are experimenting with our Sweeps product. 
+Also check out [the Ray Tune integrations for W&B](../integrations/ray-tune.md) for a feature complete, out-of-the-box solution for leveraging both Ray Tune and W&B!
+{% endhint %}
+
+
+{% hint style="info" %}
+This feature is in beta! We love feedback, and we really appreciate hearing from folks who are experimenting with our Sweeps product.
 {% endhint %}
 
 Here's a quick example:
@@ -33,7 +38,7 @@ tune_config = tune.run(
 tune_config.save("sweep-hyperopt.yaml")
 
 # Create the sweep
-wandb.sweep(tune_config) 
+wandb.sweep(tune_config)
 ```
 
 [See full example on GitHub →](https://github.com/wandb/examples/tree/master/keras-cnn-fashion)

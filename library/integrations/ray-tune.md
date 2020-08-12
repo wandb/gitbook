@@ -1,15 +1,13 @@
 # Ray Tune
 
-W&B integrates with [Ray](https://github.com/ray-project/ray) by providing a logger for use with RLlib or Tune runs.
+W&B integrates with [Ray](https://github.com/ray-project/ray) by offering two lightweight integrations.
 
-The "wandb" dictionary of `env\_config` will be passed to `wandb.init` when training starts. See the `wandb.init` docs for all available options.
-
-Ray Tune currently offers two lightweight integrations for Weights & Biases. One is the `WandbLogger`, which automatically logs metrics reported to Tune to the Wandb API. The other one is the `@wandb_mixin` decorator, which can be used with the function API. It automatically initializes the Wandb API with Tune’s training information. You can just use the Wandb API like you would normally do, e.g. using `wandb.log()` to log your training process.
+One is the `WandbLogger`, which automatically logs metrics reported to Tune to the Wandb API. The other one is the `@wandb_mixin` decorator, which can be used with the function API. It automatically initializes the Wandb API with Tune’s training information. You can just use the Wandb API like you would normally do, e.g. using `wandb.log()` to log your training process.
 
 ## WandbLogger
 
 ```python
-CLASS  ray.tune.integration.wandb.WandbLogger(config, logdir, trial=None)
+from ray.tune.integration.wandb import WandbLogger
 ```
 
 Wandb configuration is done by passing a wandb key to the config parameter of `tune.run()` \(see example below\).
@@ -90,7 +88,7 @@ def train_fn(config):
     for i in range(10):
         loss = self.config["a"] + self.config["b"]
         wandb.log({"loss": loss})
-    tune.report(loss=loss, done=True)
+        tune.report(loss=loss)
 
 tune.run(
     train_fn,
