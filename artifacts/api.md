@@ -47,6 +47,19 @@ artifact = run.use_artifact('bike-dataset:v0')
 artifact_dir = artifact.download()
 ```
 
+**Using an artifact from a different project**  
+You can freely reference artifacts from any project to which you have access by qualifying the name of the artifact with its project name. You can also reference artifacts across entities by further qualifying the name of the artifact with its entity name.
+
+```python
+# Query W&B for an artifact from another project and mark it
+# as an input to this run.
+artifact = run.use_artifact('my-project/bike-model:v0')
+
+# Use an artifact from another entity and mark it as an input
+# to this run.
+artifact = run.use_artifact('my-entity/my-project/bike-model:v0')
+```
+
 **Using an artifact that has not been logged**  
 You can also construct an artifact object and pass it to **use\_artifact**. We check if the artifact already exists in W&B, and if not we creates a new artifact. This is idempotent— you can pass an artifact to use\_artifact as many times as you like, and we'll deduplicate it as long as the contents stay the same.
 
