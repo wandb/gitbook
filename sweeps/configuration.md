@@ -177,34 +177,68 @@ Brackets: 9 \(27/eta\), 3 \(9/eta\)
 
 ### Parameters
 
-Describe the hyperparameters to explore. For each hyperparameter, specify the name and the possible values as a list of constants or a range with a certain distribution.
+Describe the hyperparameters to explore. For each hyperparameter, specify the name and the possible values as a list of constants \(for any method\) or specify a distribution \(for `random` or `bayes` \).
 
 | Values | Meaning |
 | :--- | :--- |
-| distribution: \(distribution\) | A distribution from the distribution table below. If not specified, the sweep will set to uniform if max and min are set, categorical if values are set and constant if value is set. |
-| min: \(float\) max: \(float\) | Continuous values between min and max |
-| min: \(int\) max: \(int\) | Integers between min and max |
-| values: \[\(float\), \(float\), ...\] | Discrete values |
-| value: \(float\) | A constant |
-| mu: \(float\) | Mean for normal or lognormal distributions |
-| sigma: \(float\) | Standard deviation for normal or lognormal distributions |
-| q: \(float\) | Quantization parameter for quantized distributions |
+| values: \[\(type1\), \(type2\), ...\] | Specifies all valid values for this hyperparameter. Compatible with `grid`. |
+| value: \(type\) | Specifies the single valid value for this hyperparameter. Compatible with `grid`. |
+| distribution: \(distribution\) | Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set.  |
+| min: \(float\) max: \(float\) | Maximum and minimum valid values for `uniform` -distributed hyperparameters. |
+| min: \(int\) max: \(int\) | Maximum and minimum values for `int_uniform` -distributed hyperparameters. |
+| mu: \(float\) | Mean parameter for `normal` - or `lognormal` -distributed hyperparameters. |
+| sigma: \(float\) | Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters. |
+| q: \(float\) | Quantization step size for quantized hyperparameters |
+
+**Example**
+
+{% tabs %}
+{% tab title="grid - single value" %}
+```text
+parameter_name:
+  value: 1.618
+```
+{% endtab %}
+
+{% tab title="grid - multiple values" %}
+```
+parameter_name:
+  values:
+  - 8
+  - 6
+  - 7
+  - 5
+  - 3
+  - 0
+  - 9
+```
+{% endtab %}
+
+{% tab title="random or bayes - normal distribution" %}
+```
+parameter_name:
+  distribution: normal
+  mu: 100
+  sigma: 10
+```
+{% endtab %}
+{% endtabs %}
 
 ### Distributions
 
 | Name | Meaning |
 | :--- | :--- |
-| constant | Constant distribution. Must specify value. |
-| categorical | Categorical distribution. Must specify values. |
-| int\_uniform | Uniform integer. Must specify max and min as integers. |
-| uniform | Uniform continuous. Must specify max and min as floats. |
-| q\_uniform | Quantized uniform. Returns round\(X / q\) \* q where X is uniform. Q defaults to 1. |
-| log\_uniform | Log uniform. Number between **exp\(**min**\)** and **exp\(**max**\)** so that the logarithm of the return value is uniformly distributed. |
-| q\_log\_uniform | Quantized log uniform. Returns round\(X / q\) \* q where X is log\_uniform. Q defaults to 1. |
-| normal | Normal distribution. Value is chosen from normal distribution. Can set mean mu \(default 0\) and std dev sigma \(default 1\). |
-| q\_normal | Quantized normal distribution. Returns round\(X / q\) \* q where X is normal. Q defaults to 1. |
-| log\_normal | Log normal distribution. Value is chosen from log normal distribution such that \(natural\) log\(X\) is normally distributed with mean mu \(default 0\) and standard deviation sigma \(default 1\). |
-| q\_log\_normal | Quantized log normal distribution. Returns round\(X / q\) \* q where X is log\_normal. Q defaults to 1. |
+| constant | Constant distribution. Must specify `value`. |
+| categorical | Categorical distribution. Must specify `values`. |
+| int\_uniform | Discrete uniform distribution on integers. Must specify `max` and `min` as integers. |
+| uniform | Continuous uniform distribution. Must specify `max` and `min` as floats. |
+| q\_uniform | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`. |
+| log\_uniform | Log-uniform distribution. Returns a value between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`. |
+| q\_log\_uniform | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`. |
+| normal | Normal distribution. Return value is normally-distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
+| q\_normal | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1. |
+| log\_normal | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
+| q\_log\_normal | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`. |
 
 **Example**
 
@@ -253,8 +287,6 @@ parameter_name:
 ```
 {% endtab %}
 {% endtabs %}
-
-### Search Strategy
 
 ### Command Line <a id="command"></a>
 
