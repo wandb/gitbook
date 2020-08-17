@@ -14,7 +14,7 @@ You should generally call `wandb.init()` once at the start of your training scri
 
 `wandb.init()` accepts a few keyword arguments:
 
-* **name** — A display name for this run
+* **name** — A display name for this run, which shows up in the UI and is editable, doesn't have to be unique
 * **notes** — A multiline string description associated with the run
 * **config** — a dictionary-like object to set as initial config
 * **project** — the name of the project to which this run will belong
@@ -25,7 +25,7 @@ You should generally call `wandb.init()` once at the start of your training scri
 * **save\_code** — save the main python or notebook file to wandb to enable diffing \(_default: editable from your_ [_settings_](https://app.wandb.ai/settings) _page_\)
 * **group** — a string by which to group other runs; see [Grouping](advanced/grouping.md)
 * **reinit** — whether to allow multiple calls to wandb.init in the same process \(_default: False_\)
-* **id** — A unique id for this run primarily used for resuming; see [Resuming](advanced/resuming.md), **must be globally unique within a project.** If you have a descriptive name for your run, we suggest you use the "name" field. The ID needs to not use special characters.
+* **id** — A _unique_ ID for this run primarily used for [Resuming](advanced/resuming.md). It **must** be globally unique, and if you delete a run you can't reuse the ID. Use the **name** field for a descriptive, useful name for the run. The ID cannot contain special characters.
 * **resume** — if set to True, the run auto resumes; can also be a unique string for manual resuming; see [Resuming](advanced/resuming.md) \(_default: False_\)
 * **anonymous** — can be "allow", "never", or "must". This enables or explicitly disables anonymous logging. \(_default: never_\)
 * **force** — whether to force a user to be logged into wandb when running a script \(_default: False_\)
