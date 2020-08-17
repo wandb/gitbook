@@ -127,7 +127,7 @@ metric:
 
 ### Stopping Criteria
 
-Early Termination speeds up hyperparameter search by stopping any poorly-performing runs. When the early stopping is triggered, the agent stops the current run and gets the next set of hyperparameters to try.
+Early termination is an optional feature that speeds up hyperparameter search by stopping poorly-performing runs. When the early stopping is triggered, the agent stops the current run and gets the next set of hyperparameters to try.
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
