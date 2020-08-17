@@ -125,5 +125,24 @@ If our library is unable to connect to the internet it will enter a retry loop a
 
 If you need to run on a machine without internet, you can set WANDB\_MODE=dryrun to only have metrics stored locally on your harddrive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
 
+### Can I log metrics on two different time scales?  \(For example I want to log training accuracy per batch and validation accuracy per epoch.\)
+
+Yes, you can do this by logging multiple metrics and then setting them a x axis values.  So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`
+
+### How can I log a metric that doesn't change over time such as a final evaluation accuracy?
+
+Using wandb.log\({'final\_accuracy': 0.9} will work fine for this.  By default wandb.log\({'final\_accuracy'}\) will update wandb.settings\['final\_accuracy'\] which is the value shown in the runs table.
+
+### How can I log additional metrics after a run completes?
+
+There are several ways to do this.
+
+For complicated workflows, we recommend using multiple runs and setting group parameter in [wandb.init](init.md) to a unique value in all the processes that are run as part of a single experiment. The [runs table](../app/pages/run-page.md) will automatically group the table by the group ID and the visualizations will behave as expected. This will allow you to run multiple experiments and training runs as separate processes log all the results into a single place.
+
+For simpler workflows, you can call wandb.init with resume=True and id=UNIQUE\_ID and then later call wandb.init with the same id=UNIQUE\_ID. Then you can log normally with [wandb.log](log.md) or wandb.summary and the runs values will update.
+
+At any point you can always use the[ API](api/) to add additional evaluation metrics.
+
+  
 
 
