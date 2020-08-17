@@ -104,7 +104,7 @@ I just love how we can make reports and share our work. I use this for kaggle ma
 
 Awesome, easy to use and intuitive!
 
-### Khel Kim, Engineer at [Mojitok](http://mojitok.com/)
+### Khel Kim, software engineer
 
 I love you guys. Your system is awesome! Please, keep your service. Thank you guys.
 
