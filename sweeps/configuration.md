@@ -18,7 +18,7 @@ Use these configuration fields to customize your sweep. There are two ways to sp
 | program | Training script to run \(required\) |
 | metric | Specify the metric to optimize \(used by some search strategies and stopping criteria\) |
 | method | Specify the [search strategy](configuration.md#search-strategy) \(required\) |
-| early\_terminate | Specify the [stopping criteria](configuration.md#stopping-criteria) |
+| early\_terminate | Specify the [stopping criteria](configuration.md#stopping-criteria) \(optional, defaults to no early stopping\) |
 | parameters | Specify [parameters](configuration.md#parameters) bounds to search \(required\) |
 | project | Specify the project for this sweep |
 | entity | Specify the entity for this sweep |
@@ -127,7 +127,7 @@ metric:
 
 ### Stopping Criteria
 
-Early Termination speeds up hyperparameter search by stopping any poorly-performing runs.
+Early Termination speeds up hyperparameter search by stopping any poorly-performing runs. When the early stopping is triggered, the agent stops the current run and gets the next set of hyperparameters to try.
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
@@ -139,7 +139,7 @@ We support the following stopping algorithm\(s\):
 | :--- | :--- |
 | hyperband | Use the [hyperband method](https://arxiv.org/abs/1603.06560) |
 
-Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program.  Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged -- if the metric is logged every epoch, then there are epoch iterations\).
+Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program.  Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged — if the metric is logged every epoch, then there are epoch iterations\).
 
 In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined. 
 
