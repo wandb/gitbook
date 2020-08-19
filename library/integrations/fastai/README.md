@@ -1,7 +1,7 @@
 # fastai
 
 _Note: this documentation is for the current version of fastai.  
-If you use fastai v1, you should refer to_ [_fastai v1 page_](./)_._
+If you use fastai v1, you should refer to_ [_fastai v1 page_](fastai.md)_._
 
 ## Documentation
 
