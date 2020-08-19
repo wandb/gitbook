@@ -46,11 +46,11 @@ learn = learner(..., cbs=WandbCallback())
         or None. Losses &amp; metrics are always logged.</td>
     </tr>
     <tr>
-      <td style="text-align:left">log_preds (bool)</td>
+      <td style="text-align:left">log_preds</td>
       <td style="text-align:left">whether we want to log prediction samples (default to True).</td>
     </tr>
     <tr>
-      <td style="text-align:left">log_model (bool)</td>
+      <td style="text-align:left">log_model</td>
       <td style="text-align:left">whether we want to log our model (default to True). This also requires
         SaveModelCallback.</td>
     </tr>
