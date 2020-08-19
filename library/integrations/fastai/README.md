@@ -7,6 +7,31 @@ If you use fastai v1, you should refer to_ [_fastai v1 page_](fastai.md)_._
 
 W&B is integrated into fastai through `WandbCallback`.
 
+First install wandb and login.
+
+```text
+pip install wandb
+wandb login
+```
+
+Then you add the callback to your learner or call to fit methods:
+
+```python
+import wandb
+from fastai.callback.wandb import *
+
+# start logging a wandb run
+wandb.init(project='my_project')
+
+# To log only during one training phase
+learn.fit(..., cbs=WandbCallback())
+
+# To log continuously for all training phases
+learn = learner(..., cbs=WandbCallback())
+```
+
+`WandbCallback` accepts the following arguments:
+
 <table>
   <thead>
     <tr>
