@@ -1,6 +1,9 @@
-# Fast.ai
+# fastai v1
 
-For scripts using fast.ai, we have a callback that can automatically log model topology, losses, metrics, weights, gradients, sample predictions and best trained model.
+_Note: this documentation is for fastai v1.  
+If you use the current version of fastai, you should refer to_ [_fastai page_](./)_._
+
+For scripts using fastai v1, we have a callback that can automatically log model topology, losses, metrics, weights, gradients, sample predictions and best trained model.
 
 ```python
 import wandb
@@ -42,11 +45,6 @@ We've created a few examples for you to see how the integration works:
 
 * [Classify Simpsons characters](https://github.com/borisdayma/simpsons-fastai)[: ](https://app.wandb.ai/jxmorris12/huggingface-demo/reports/A-Step-by-Step-Guide-to-Tracking-Hugging-Face-Model-Performance--VmlldzoxMDE2MTU)A simple demo to track and compare Fastai models
 * [Semantic Segmentation with Fastai](https://github.com/borisdayma/semantic-segmentation): Optimize neural networks on self-driving cars
-
-**Fastai v2**
-
-* [Track and compare](https://app.wandb.ai/borisd13/demo_config/reports/Compare-%26-monitor-fastai2-models--Vmlldzo4MzAyNA) Fastai model performance, and visualize results in a live dashboard
-* [Run in colab](https://colab.research.google.com/gist/borisdayma/c3f5576b68c4ec422c41bca304a860ba/fastai2-demo.ipynb): A simple notebook example to get you started
 
 ## Options
 
