@@ -86,6 +86,8 @@ learn = learner(..., cbs=WandbCallback())
   </tbody>
 </table>
 
+W&B integration also includes `log_dataset(path, name=None, medata={})` and `log_model(path, name=None, metadata={})` functions.
+
 Refer to[ fastai report](https://app.wandb.ai/borisd13/demo_config/reports/Compare-monitor-fastai-models--Vmlldzo4MzAyNA) which contains extensive documentation on how to use W&B integration.
 
 ## Examples
