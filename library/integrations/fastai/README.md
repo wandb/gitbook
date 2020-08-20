@@ -92,5 +92,5 @@ Refer to[ fastai report](https://app.wandb.ai/borisd13/demo_config/reports/Compa
 
 ## Examples
 
-* [Image Segmentation on CamVid](https://colab.research.google.com/gist/borisdayma/6b83c8b7078610d71708b036421a3591/fastai-wandbcallback.ipynb)
+* [Image Segmentation on CamVid](http://bit.ly/fastai-wandb)
 
