@@ -97,3 +97,9 @@ Click and drag a rectangle to zoom vertically and horizontally at the same time.
 
 ![](../../../.gitbook/assets/2020-02-24-08.46.53.gif)
 
+### Hide chart legend
+
+Turn off the legend in the line plot with this simple toggle:
+
+![](../../../.gitbook/assets/demo-hide-legend.gif)
+
