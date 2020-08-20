@@ -4,6 +4,12 @@ description: wandb.fastai
 
 # Fast.ai Reference
 
+See the latest Fastai documentation here:
+
+{% page-ref page="../integrations/fastai/" %}
+
+## Auto-generated reference
+
 [source](https://github.com/wandb/client/blob/master/wandb/fastai/__init__.py#L0)
 
 This module hooks fast.ai Learners to Weights & Biases through a callback. Requested logged data can be configured through the callback constructor.
