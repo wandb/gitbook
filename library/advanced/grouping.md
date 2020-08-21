@@ -10,7 +10,7 @@ Group individual runs into experiments by passing a unique **group** name to **w
 
 1. **Distributed training:** Use grouping if your experiments are split up into different pieces with separate training and evaluation scripts that should be viewed as parts of a larger whole.
 2. **Multiple processes**: Group multiple smaller processes together into an experiment.
-3. **K-fold cross-validation**: Group together runs with different random seeds to see a larger experiment.
+3. **K-fold cross-validation**: Group together runs with different random seeds to see a larger experiment. Here's [an example](https://github.com/wandb/examples/tree/master/sweeps-cross-validation) of k-fold cross validation with sweeps and grouping.
 
 ### What it looks like
 
