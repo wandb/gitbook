@@ -65,6 +65,14 @@ Share a view-only link to a report that is in a private project or team project.
 
 ![](.gitbook/assets/share-view-only-link.gif)
 
+### Send a graph to a report
+
+Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
+
+![](.gitbook/assets/demo-export-to-existing-report.gif)
+
+
+
 ## Reports FAQ
 
 ### Upload a CSV to a report 
