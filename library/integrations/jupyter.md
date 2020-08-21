@@ -2,13 +2,13 @@
 
 Use Weights & Biases in your Jupyter notebooks to get interactive visualizations and do custom analysis on training runs.
 
-### **Use Cases for W&B with Jupyter notebooks**
+## **Use Cases for W&B with Jupyter notebooks**
 
 1. **Iterative experimentation**: Run and re-run experiments, tweaking parameters, and have all the runs you do saved automatically to W&B without having to take manual notes along the way.
 2. **Code saving**: When reproducing a model, it's hard to know which cells in a notebook ran, and in which order. Turn on code saving on your [settings page ](https://app.wandb.ai/settings)to save a record of cell execution for each experiment.
 3. **Custom analysis**: Once runs are logged to W&B, it's easy to get a dataframe from the API and do custom analysis, then log those results to W&B to save and share in reports.
 
-### Configuring notebooks
+## Configuring notebooks
 
 Start your notebook with the following code to install W&B and link your account:
 
@@ -49,9 +49,7 @@ wandb.init()
 display(wandb.jupyter.Run())
 ```
 
-### 
-
-### Additional Jupyter features in W&B
+## Additional Jupyter features in W&B
 
 1. **Colab**: When you call `wandb.init()` for the first time in a Colab, we automatically authenticate your runtime if you're currently logged in to W&B in your browser. On the overview tab of your run page, you'll see a link to the Colab. If you turn on code saving in [settings](https://app.wandb.ai/settings), you can also see the cells that were executed to run the experiment, enabling better reproducibility.
 2. **Launch Docker Jupyter**: Call `wandb docker --jupyter` to launch a docker container, mount your code in it, ensure Jupyter is installed, and launch on port 8888.
