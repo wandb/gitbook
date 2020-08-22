@@ -54,7 +54,7 @@ optimizer                             rmsprop                 adam
 
 ### Update metrics for a run \(after run finished\)
 
-This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_arry
+This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_array
 
 ```python
 import wandb
@@ -195,13 +195,22 @@ run = api.run("<entity>/<project>/<run_id>")
 system_metrics = run.history(stream = 'events')
 ```
 
-### Update Summary Metrics
+### Update summary metrics
 
-You can pass your dictionary to update summary metrics
+You can pass your dictionary to update summary metrics.
 
 ```python
 summary.update({“key”: val})
 ```
 
+### Get the command that ran the run
 
+Each run captures the command that launched it on the run overview page. To pull this command down from the API, you can run:
+
+```python
+api = wandb.Api()
+run = api.run("username/project/run_id")
+meta = json.load(run.file("wandb-metadata.json").download())
+program = ["python"] + [meta["program"]] + meta["args"]
+```
 
