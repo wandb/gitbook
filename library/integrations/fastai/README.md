@@ -1,20 +1,15 @@
-# fastai
+# Fast.ai
 
-_Note: this documentation is for the current version of fastai.  
-If you use fastai v1, you should refer to_ [_fastai v1 page_](fastai.md)_._
+If you're using **fastai** to train your models, W&B has an easy integration using the `WandbCallback`.
 
-## Use of WandbCallback in fastai
-
-W&B is integrated into fastai through `WandbCallback`.
-
-First install wandb and login.
+First install Weights & Biases and log in:
 
 ```text
 pip install wandb
 wandb login
 ```
 
-Then you add the callback to your learner or call to fit methods:
+Then add the callback to the `learner` or `fit` method:
 
 ```python
 import wandb
@@ -29,6 +24,10 @@ learn.fit(..., cbs=WandbCallback())
 # To log continuously for all training phases
 learn = learner(..., cbs=WandbCallback())
 ```
+
+{% hint style="info" %}
+If you use version 1 of Fastai, refer to the [Fastai v1 docs](fastai.md).
+{% endhint %}
 
 `WandbCallback` accepts the following arguments:
 
@@ -86,14 +85,13 @@ learn = learner(..., cbs=WandbCallback())
   </tbody>
 </table>
 
-Additionally for custom workflow, you can manually log your datasets and models:
+For custom workflows, you can manually log your datasets and models:
 
 * `log_dataset(path, name=None, medata={})`
 * `log_model(path, name=None, metadata={})` 
 
-Refer to[ fastai report](https://app.wandb.ai/borisd13/demo_config/reports/Compare-monitor-fastai-models--Vmlldzo4MzAyNA) which contains extensive documentation on how to use W&B integration.
-
 ## Examples
 
-* [Image Segmentation on CamVid](http://bit.ly/fastai-wandb)
+* [Visualize, track, and compare Fastai models](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): A thoroughly documented walkthrough
+* [Image Segmentation on CamVid](http://bit.ly/fastai-wandb): A sample use case of the integration
 
