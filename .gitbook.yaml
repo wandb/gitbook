@@ -121,7 +121,7 @@ redirects:
   integrations/ray: ./library/integrations/ray.md
   integrations/sagemaker: ./library/integrations/sagemaker.md
   integrations/tensorboard: ./library/integrations/tensorboard.md
-  library/reference/fastai: ./library/integrations/fastai.md
+  library/reference/fastai: ./library/integrations/fastai/README.md
   library/sweeps: ./sweeps/overview.md
   library/sweeps/configuration: ./sweeps/configuration.md
   library/sweeps/advanced: ./sweeps/ray-tune.md
