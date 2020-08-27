@@ -1,9 +1,12 @@
+---
+description: Tutorial of using the custom charts feature in the Weights & Biases UI
+---
+
 # Custom Charts Walkthrough
 
 ## Custom W&B Plots with Vega
 
-Weights & Biases offers a broad range of built-in visualizations for machine learning research: scatter plots, histograms, parallel coordinates charts, photo/audio/video/3D objects, [and much more](https://docs.wandb.com/library/log#logging-objects). What if I need to log something custom? In this example, I explain how to create a custom visualization type using the W&B query editor and the [Vega visualization grammar](https://vega.github.io/vega/).  
-
+Weights & Biases offers a broad range of built-in visualizations for machine learning research: scatter plots, histograms, parallel coordinates charts, photo/audio/video/3D objects, [and much more](https://docs.wandb.com/library/log#logging-objects). What if I need to log something custom? In this example, I explain how to create a custom visualization type using the W&B query editor and the [Vega visualization grammar](https://vega.github.io/vega/).
 
 ### Log your data to W&B
 
@@ -11,7 +14,6 @@ The first step is to log the data you want to visualize to W&B. You can do this 
 
 ### Start from an existing Vega 2 builtin
 
-  
 Once you’ve logged a run with a wandb.Table, navigate to your project’s workspace \(e.g. mine is here—spoiler alert for the finished product! [https://app.wandb.ai/stacey/custom\_vega\_demo](https://app.wandb.ai/stacey/custom_vega_demo)\) and click on the “+” button in the top right to add a visualization. Select “Vega 2” from the bottom of the left column. You will see a modal that currently looks like this:This scatter plot is close enough to the kind of curves I want to log.  From here, 
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597440887681_Screen+Shot+2020-08-14+at+2.34.33+PM.png)
@@ -30,15 +32,15 @@ This lets me access the columns of my logged wandb.Table as Vega fields.To creat
 * color = projects\_runs\_historyTable\_c \(class label\)
 
 Note: do not set the “size” field as that will misconfigure the plot.  
-to yield something like this:  
-
+to yield something like this:
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597441855957_Screen+Shot+2020-08-14+at+2.50.41+PM.png)
 
 ### Creating your own visualization type
 
-  
-This already looks pretty good, but I want to polish the details and easily reuse this chart type in the future. Hover over the top right corner of the chart and click on the pencil to edit it. Next, hit the edit button to the right of the visualization type dropdown.![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597442115525_Screen+Shot+2020-08-14+at+2.52.24+PM.png)You can now edit the JSON in the Vega spec directly. To make my PR curve prettier, I make the following changes:
+This already looks pretty good, but I want to polish the details and easily reuse this chart type in the future. Hover over the top right corner of the chart and click on the pencil to edit it. Next, hit the edit button to the right of the visualization type dropdown.You can now edit the JSON in the Vega spec directly. To make my PR curve prettier, I make the following changes:
+
+![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597442115525_Screen+Shot+2020-08-14+at+2.52.24+PM.png)
 
 * add custom plot, legend, x-axis, and y-axis titles \(set “title” for each field\)
 * change the value of “mark” from “point” to “line”
