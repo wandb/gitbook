@@ -90,6 +90,8 @@ For custom workflows, you can manually log your datasets and models:
 * `log_dataset(path, name=None, medata={})`
 * `log_model(path, name=None, metadata={})` 
 
+_Note: any subfolder "models" will be ignored._
+
 ## Examples
 
 * [Visualize, track, and compare Fastai models](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): A thoroughly documented walkthrough
