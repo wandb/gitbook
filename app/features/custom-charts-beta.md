@@ -4,12 +4,14 @@ description: Custom visualizations and custom panels using queries
 
 # Custom Charts \[Beta\]
 
-Even the most powerful visualization tool can't encompass all the features you might need to get exactly the right chart. This new feature allows you to fetch any of the data you've logged in a run, and customize how you visualize that in the UI.
+Even the most powerful visualization tool can't encompass all the features you might need to get exactly the right chart. This new feature, **Custom Charts**, allows you to fetch any of the data you've logged in a run, and customize how you visualize that in the UI.
+
+Contact **carey@wandb.com** with questions or suggestions.
 
 ### How it works
 
-* **Custom queries**: Pull in your data with a GraphQL query in the UI.
-* **Custom charts**: Visualize your data with Vega.
+* **Custom queries**: Pull in your data with a [GraphQL](https://graphql.org/) query in the UI.
+* **Custom charts**: Visualize your data with [Vega](https://vega.github.io/vega/), a visualization grammar.
 
 ![](../../.gitbook/assets/pr-roc.png)
 
@@ -34,7 +36,11 @@ wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
 
 ## Custom queries
 
+_Coming soon_
+
 ## Custom charts
+
+_Coming soon_
 
 ## Frequently asked questions
 
