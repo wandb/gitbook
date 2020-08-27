@@ -61,6 +61,7 @@
     * [Alerts](app/features/alerts.md)
     * [Teams](app/features/teams.md)
     * [System Metrics](app/features/system-metrics.md)
+    * [Custom Charts \[Beta\]](app/features/custom-charts-beta.md)
   * [Panels](app/panels/README.md)
     * [Code Saving](app/panels/code.md)
     * [Parallel Coordinates](app/panels/parallel-coordinates.md)
