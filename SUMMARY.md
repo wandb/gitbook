@@ -97,6 +97,7 @@
   * [Spread the Word](company/love-wandb.md)
   * [Company FAQ](company/company-faq.md)
   * [Beginner FAQ](company/beginner-faq.md)
+  * [Academics](company/academics.md)
   * [Classes](company/classes/README.md)
     * [Talks](company/classes/talks.md)
 * [Marketing Site](http://wandb.com/)
