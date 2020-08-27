@@ -4,9 +4,7 @@ description: Tutorial of using the custom charts feature in the Weights & Biases
 
 # Custom Charts Walkthrough
 
-## Custom W&B Plots with Vega
-
-Weights & Biases offers a broad range of built-in visualizations for machine learning research: scatter plots, histograms, parallel coordinates charts, photo/audio/video/3D objects, [and much more](https://docs.wandb.com/library/log#logging-objects). What if I need to log something custom? In this example, I explain how to create a custom visualization type using the W&B query editor and the [Vega visualization grammar](https://vega.github.io/vega/).
+Weights & Biases offers a broad range of built-in visualizations for machine learning research: scatter plots, histograms, parallel coordinates charts, images, 3D point clouds, and much more. What if I need to log something custom? In this example, I explain how to create a custom visualization type using the W&B query editor and the [Vega visualization grammar](https://vega.github.io/vega/).
 
 ### Log your data to W&B
 
