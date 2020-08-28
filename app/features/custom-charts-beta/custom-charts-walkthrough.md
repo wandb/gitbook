@@ -4,15 +4,31 @@ description: Tutorial of using the custom charts feature in the Weights & Biases
 
 # Custom Charts Walkthrough
 
-Weights & Biases offers a broad range of built-in visualizations for machine learning research: scatter plots, histograms, parallel coordinates charts, images, 3D point clouds, and much more. What if I need to log something custom? In this example, I explain how to create a custom visualization type using the W&B query editor and the [Vega visualization grammar](https://vega.github.io/vega/).
+Going beyond the built-in charts in Weights & Biases, use the new **Custom Charts** feature to control the details of exactly what data you're loading in to a panel and how you visualize that data.
 
-### Log your data to W&B
+**Overview**
 
-The first step is to log the data you want to visualize to W&B. You can do this via the standard wandb.log\(\) command. A particularly useful format for custom visualizations is wandb.Table\(\), as this lets you log data as a custom 2D array:`my_custom_data = [[x1, y1, z1], [x2, y2, z2]]wandb.log({“custom_data_table” : wandb.Table(data=my_custom_data,                                 columns = ["x", "y", "z"])})`As a simple example, here is [a demo script in Colab](https://colab.research.google.com/drive/1g-gNGokPWM2Qbc8p1Gofud0_5AoZdoSD?usp=sharing) which logs some per-class metrics \(precision, recall, true/false positive rates\) while transfer learning from an InceptionV3 base trained on ImageNet to a small new dataset of nature photos from [iNaturalist 2017](https://github.com/visipedia/inat_comp). For this demo, I will use this data to log two commonly used visualizations: per-class [precision-recall curves](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html) and [ROC curves](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html), computed via sklearn. Soon I hope to add much more elaborate plots. For your machine learning use cases and data, your imagination is the only limit, aside from the Vega grammar.  We also recommend logging fewer than 10K data points per plot for optimal performance.
+1. Log data to W&B
+2. Customize a Vega chart
+3. Create a new Vega chart
+4. Try a composite histogram
 
-### Start from an existing Vega 2 builtin
+## 1. Log data to W&B
 
-Once you’ve logged a run with a wandb.Table, navigate to your project’s workspace \(e.g. mine is here—spoiler alert for the finished product! [https://app.wandb.ai/stacey/custom\_vega\_demo](https://app.wandb.ai/stacey/custom_vega_demo)\) and click on the “+” button in the top right to add a visualization. Select “Vega 2” from the bottom of the left column. You will see a modal that currently looks like this:This scatter plot is close enough to the kind of curves I want to log.  From here, 
+First, log data in your script. Use [wandb.config](../../../library/config.md) for single points set at the beginning of training, like hyperparameters. Use [wandb.log\(\)](../../../library/log.md) for multiple points over time, and log custom 2D arrays with wandb.Table\(\). We recommend logging up to 10,000 data points per logged key.
+
+```python
+# Logging a custom table of data
+my_custom_data = [[x1, y1, z1], [x2, y2, z2]]
+wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
+                                columns = ["x", "y", "z"])})
+```
+
+[Try a quick example notebook](https://bit.ly/custom-charts-colab) to log the data tables, and in the next step we'll set up custom charts.
+
+## 2. Customize a Vega chart
+
+Once you've logged data to visualize, go to your project page and click the **`+`** button to add a new panel, then select **Custom Chart**. 
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597440887681_Screen+Shot+2020-08-14+at+2.34.33+PM.png)
 
@@ -53,9 +69,11 @@ You can of course keep making your own changes, including to the query itself.He
 
 ### P.S. Bonus: Composite histograms
 
-Histograms can visualize numerical distributions to help us understand larger datasets. Composite histograms show multiple distributions across the same bins, letting us compare two or more metrics across different models or different classes within our model. For a semantic segmentation model detecting objects in driving scenes, we might compare the effectiveness of optimizing for accuracy versus intersection over union or see how different models perform on detecting cars \(large, common regions in the data\) versus traffic signs \(much smaller, less common regions\).![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1598310765041_Screen+Shot+2020-08-24+at+4.09.52+PM.png)![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1598310765047_Screen+Shot+2020-08-24+at+4.08.17+PM.png)  
+Histograms can visualize numerical distributions to help us understand larger datasets. Composite histograms show multiple distributions across the same bins, letting us compare two or more metrics across different models or different classes within our model. For a semantic segmentation model detecting objects in driving scenes, we might compare the effectiveness of optimizing for accuracy versus intersection over union or see how different models perform on detecting cars \(large, common regions in the data\) versus traffic signs \(much smaller, less common regions\).  
 In the demo Colab provided, you can compare the confidence scores for two of the ten classes of living things.   
 To create your own version of the custom composite histogram panel:
+
+![](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.19.47-am.png)
 
 1. Create a new Vega panel in your workspace or report \(by adding a “Vega 2” visualization\). Hit the “Edit” button in the top right  to modify the Vega spec starting from any built-in panel type.
 2. Replace that built-in Vega spec with my [MVP code for a composite histogram in Vega](https://gist.github.com/staceysv/9bed36a2c0c2a427365991403611ce21). You can modify the main title, axis titles, input domain, and any other details directly in this Vega spec [using Vega syntax](https://vega.github.io/) \(you could change the colors or even add a third histogram :\)

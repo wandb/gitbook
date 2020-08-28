@@ -57,6 +57,8 @@ Select a **Type** of visualization to switch between the built in scatter plot, 
 
 Select **Vega fields** below to map the data you're pulling in from the query to the fields in the chart. For example: pull `avg_precision` as a field in the query, and then map that to the x-axis of line plot.
 
+[See live example charts →](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc)
+
 ![Dropdown list of type options](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.00.02-am.png)
 
 ### Editing Vega
