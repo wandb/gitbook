@@ -10,7 +10,7 @@ Create custom charts to visualize your experiment data. This new beta feature al
 
 [See live example charts →](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc)
 
-Contact Carey at c@wandb.com with questions or suggestions.
+Contact Carey \(c@wandb.com\) with questions or suggestions.
 
 ### How it works
 
@@ -57,9 +57,7 @@ Add a new custom chart to get started, then edit the query to select data from y
 
 ## Custom visualizations
 
-Select a **Type** of visualization to switch between the built-ins: scatter plot, bar chart, box plot, histogram, violin plot, and contour plot. 
-
-Select **Vega fields**  to map the data you're pulling in from the query to the corresponding fields in your chart. 
+Select a **Chart** in the upper right corner to start with a default preset. Next, pick **Chart fields**  to map the data you're pulling in from the query to the corresponding fields in your chart. 
 
 * For a built-in bar chart, you could set the Vega field `value` to show "loss" \(displayed as`runSets_summary_loss`\) to see your final training loss across multiple runs. 
 * For the custom chart below, the experimental data for average precision is represented as a series of coordinate points of \(recall, precision\). These are logged to a custom `wandb.Table` under the key `"avg_precision"`, available to the query as a `summaryTable`. Map the Vega field `x-axis` to the recall, or `"r_m"` field, and the Vega field `y-axis` to the precision or `"p_m"` field \(not shown\) to display the average precision curves on this chart.
