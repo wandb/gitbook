@@ -54,9 +54,9 @@ Add a new custom chart to get started, then edit the query to select data from y
 
 ## Custom visualizations
 
-Select a **Type** of visualization to switch between the built in scatter plot, bar chart, box plot, histogram, violin plot, and contour plot. 
+Select a **Type** of visualization to switch between the built-ins: scatter plot, bar chart, box plot, histogram, violin plot, and contour plot. 
 
-Select **Vega fields** below to map the data you're pulling in from the query to the fields in the chart. For example: pull `avg_precision` as a field in the query, and then map that to the x-axis of line plot.
+Select **Vega fields** below to map the data you're pulling in from the query to the fields in the chart. For example: pull `avg_precision` as a field in the query \(specifically, this loads the `summaryTables` named "avg\_precision" logged by earlier runs\). This feeds your data from wandb logs into the right Vega field and displays it in the chart. For example, for a simple bar chart, you could set the Vega field `value` to show "loss" \(displayed as`runSets_summary_loss`\) to see your final training loss across multiple runs. In the example below, average precision is represented as a series of coordinate points of \(recall, precision\), so we map the Vega field `x-axis` to the recall, or `"r_m"` field, and the Vega field `y-axis` to the precision or `"p_m"` field \(not shown\) to display the average precision curves on this chart.
 
 [See live example charts →](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc)
 
