@@ -4,28 +4,33 @@ description: Custom visualizations and custom panels using queries
 
 # Custom Charts \[Beta\]
 
-Even the most powerful visualization tool can't encompass all the features you might need to get exactly the right chart. This new feature, **Custom Charts**, allows you to fetch any of the data you've logged in a run, and customize how you visualize that in the UI.
+Create custom charts to visualize your experiment data. This new beta feature allows you to fetch any of the data you've logged in a run and customize both the query and the visualization.
+
+[Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
 Contact **carey@wandb.com** with questions or suggestions.
 
 ### How it works
 
-* **Custom queries**: Pull in your data with a [GraphQL](https://graphql.org/) query in the UI.
-* **Custom charts**: Visualize your data with [Vega](https://vega.github.io/vega/), a visualization grammar.
+1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as well as custom tables.
+2. **Custom queries**: Pull in your data and do transformations with a [GraphQL](https://graphql.org/) query.
+3. **Custom visualizations**: Visualize your data with [Vega](https://vega.github.io/vega/), a visualization grammar. 
 
 ![](../../../.gitbook/assets/pr-roc.png)
 
-## Logging data
+## Log data
 
 ### **Config and summary data**
 
-* **config**: Settings at the beginning of the run, your independent variables
-* **summary**: Results at the end of your training. By default, if you track a metric in history, we set the summary to the final value of that history key.
-* **table**: If you need to log a list of multiple values, use a `wandb.Table()` to save that data and then query it in your custom panel. The maximum size of these tables is 10,000 rows.
+* **Config**: Settings at the beginning of the run, your independent variables
+* **Summary**: Results at the end of your training. By default, if you track a metric in history with `wandb.log()` we set the summary to the final value of that history key.
+* **Table**: If you need to log a list of multiple values use a `wandb.Table()` to save that data, then query it in your custom panel. 
 
 ### **Log a custom table**
 
-A particularly useful format for custom visualizations is `wandb.Table()`, as this lets you log data as a custom 2D array. You can log these tables at multiple time steps throughout your experiment:
+Use `wandb.Table()` to log data as a custom 2D array. You can log these tables at multiple time steps throughout your experiment. The maximum size of these tables is 10,000 rows. 
+
+[Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
 ```python
 # Logging a custom table of data
@@ -36,13 +41,36 @@ wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
 
 ## Custom queries
 
-_Coming soon_
+Add a new custom chart to get started, then edit the query to select data from your visible runs. The query uses [GraphQL](https://graphql.org/) to fetch data from the config, summary, and history fields in your runs.
 
-## Custom charts
+![Add a new custom chart, then edit the query](../../../.gitbook/assets/2020-08-28-06.42.40.gif)
 
-_Coming soon_
+**Details of query editing**
+
+* **Fold**: Use this to get each of the selected keys as a separate point. An example use case: you have `acc` and `val_acc` in history, and you'd like to display them as two separate lines on a chart, so you use historyFold in the query.
+
+## Custom visualizations
+
+Select a **Type** of visualization to switch between the built in scatter plot, bar chart, box plot, histogram, violin plot, and contour plot. 
+
+Select **Vega fields** below to map the data you're pulling in from the query to the fields in the chart. For example: pull `avg_precision` as a field in the query, and then map that to the x-axis of line plot.
+
+![](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.00.02-am.png)
+
+### Editing Vega
+
+_Coming soon_ 
 
 ## Frequently asked questions
+
+### Coming soon
+
+* **Run colors**: Matching the colors in the charts to the run colors set in the sidebar
+* **Custom fields**: Adding custom string fields outside of the Vega spec
+* **wandb.plot\(\)**: Call from Python to log custom visualizations
+* **Polling**: Auto-refresh of data in the chart
+* **Sampling**: Reducing the total number of points that come in to the panel
+* **Save templates**: Use a Vega chart across different projects without needing to manually copy and paste
 
 ### Gotchas
 
@@ -51,5 +79,5 @@ _Coming soon_
 ### Common use cases
 
 * Overlay histograms of data from two different models
-* Customize bar plots
+* Customize bar plots with error bars
 
