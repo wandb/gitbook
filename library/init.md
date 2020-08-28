@@ -36,7 +36,7 @@ You should generally call `wandb.init()` once at the start of your training scri
 
 Most of these settings can also be controlled via [Environment Variables](environment-variables.md). This is often useful when you're running jobs on a cluster.
 
-We automatically save a copy of the script where you run wandb.init\(\). Learn more about the code comparison feature here: [Code Comparer](../app/panels/code.md). To disable this feature, set the environment variable WANDB\_DISABLE\_CODE=true.
+We automatically save a copy of the script where you run wandb.init\(\). Learn more about the code comparison feature here: [Code Comparer](../app/features/panels/code.md). To disable this feature, set the environment variable WANDB\_DISABLE\_CODE=true.
 
 ## Common Questions
 

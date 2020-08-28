@@ -10,7 +10,7 @@ Create custom charts to visualize your experiment data. This new beta feature al
 
 [See live example charts →](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc)
 
-Contact **carey@wandb.com** with questions or suggestions.
+Contact Carey at c@wandb.com with questions or suggestions.
 
 ### How it works
 

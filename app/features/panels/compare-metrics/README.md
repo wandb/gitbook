@@ -6,7 +6,7 @@ description: 'Visualize metrics, customize axes, and compare multiple lines on t
 
 Line plots show up by default when you plot metrics over time with **wandb.log\(\)**. Customize with chart settings to compare multiple lines on the same plot, calculate custom axes, and rename labels.
 
-![](../../../.gitbook/assets/line-plot-example.png)
+![](../../../../.gitbook/assets/line-plot-example.png)
 
 ### Settings
 
@@ -26,7 +26,7 @@ Line plots show up by default when you plot metrics over time with **wandb.log\(
 **X Axis Settings**  
 The x-axis can be set at the graph level, as well as globally for the project page or report page. Here's what the global settings look like:
 
-![](../../../.gitbook/assets/x-axis-global-settings.png)
+![](../../../../.gitbook/assets/x-axis-global-settings.png)
 
 {% hint style="info" %}
 Pick **multiple y-axes** in the line plot settings to compare different metrics on the same chart, like accuracy and validation accuracy for example.
@@ -59,11 +59,11 @@ If you have several different experiments and you'd like to see the average of t
 
 Here is what the graph looks like before averaging:
 
-![](../../../.gitbook/assets/demo-precision-lines.png)
+![](../../../../.gitbook/assets/demo-precision-lines.png)
 
 Here I have grouped the lines to see the average value across runs.
 
-![](../../../.gitbook/assets/demo-average-precision-lines%20%281%29.png)
+![](../../../../.gitbook/assets/demo-average-precision-lines%20%281%29.png)
 
 ### Compare two metrics on one chart
 
@@ -83,23 +83,23 @@ In the **Y variables** field, select a few metrics you'd like to compare. They'l
 
 If you'd like to see the absolute time that an experiment has taken, or see what day an experiment ran, you can switch the x axis. Here's an example of switching from steps to relative time and then to wall time.
 
-![](../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
+![](../../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
 
 ### Area plots
 
 In the line plot settings, in the advanced tab, click on different plot styles to get an area plot or a percentage area plot.
 
-![](../../../.gitbook/assets/2020-02-27-10.49.10.gif)
+![](../../../../.gitbook/assets/2020-02-27-10.49.10.gif)
 
 ### Zoom
 
 Click and drag a rectangle to zoom vertically and horizontally at the same time. This changes the x-axis and y-axis zoom.
 
-![](../../../.gitbook/assets/2020-02-24-08.46.53.gif)
+![](../../../../.gitbook/assets/2020-02-24-08.46.53.gif)
 
 ### Hide chart legend
 
 Turn off the legend in the line plot with this simple toggle:
 
-![](../../../.gitbook/assets/demo-hide-legend.gif)
+![](../../../../.gitbook/assets/demo-hide-legend.gif)
 
