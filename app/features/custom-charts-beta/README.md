@@ -8,6 +8,8 @@ Create custom charts to visualize your experiment data. This new beta feature al
 
 [Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
+[See live example charts →](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc)
+
 Contact **carey@wandb.com** with questions or suggestions.
 
 ### How it works
@@ -67,7 +69,7 @@ Use the **Data / Signals** tab to debug. This shows you the tables that are avai
 
 ### Saving Charts
 
-Apply this visualization to the specific panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name.  
+Apply this visualization to the specific panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name. 
 
 ## Frequently asked questions
 
