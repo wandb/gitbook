@@ -64,25 +64,25 @@ Select **Vega fields** below to map the data you're pulling in from the query to
 
 ### Editing Vega
 
-Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI.
+Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI. Here you can change any aspect of the chart, from the visual style \(e.g. change the title, pick a different color scheme, show curves as a series of points instead of as connected lines\) to the data itself \(e.g. use a Vega transform to bin an array of values into a histogram\). The panel preview will update interactively, so you can see the effect of your changes as you edit the Vega spec or query. The [Vega documentation and tutorials ](https://vega.github.io/vega/)are an excellent source of inspiration. 
 
 ![Edit the Vega specification on the left and preview the chart on the right](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.04.32-am.png)
 
-Use the **Data / Signals** tab to debug. This shows you the tables that are available to you in the Vega view, coming in from the query.
+You can also use the **Data / Signals** tab to debug. This shows you the tables and formats that are available to you in the Vega view, coming in from the query.
 
 ### Saving Charts
 
-Apply this visualization to the specific panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name. 
+Apply any changes to a specific visualization panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name. 
 
 ## Frequently asked questions
 
 ### Coming soon
 
-* **Run colors**: Matching the colors in the charts to the run colors set in the sidebar
-* **Custom fields**: Adding custom string fields outside of the Vega spec
+* **Run colors**: Matching the colors in the custom charts to the run colors set in the sidebar
+* **Custom user-defined fields**: Adding custom string fields outside of the Vega spec \(like chart titles\)
 * **wandb.plot\(\)**: Call from Python to log custom visualizations
 * **Polling**: Auto-refresh of data in the chart
-* **Sampling**: Reducing the total number of points that come in to the panel
+* **Sampling**: Dynamically adjust the total number of points loaded into the panel for efficiency
 * **Save templates**: Use a Vega chart across different projects without needing to manually copy and paste
 
 ### Gotchas
@@ -91,6 +91,9 @@ Apply this visualization to the specific panel, or save the Vega spec to reuse e
 
 ### Common use cases
 
-* Overlay histograms of data from two different models
 * Customize bar plots with error bars
+* Show model validation metrics which require custom x-y coordinates \(like precision-recall curves\)
+* Overlay data distributions from two different models/experiments as histograms
+* Show changes in a metric via snapshots at multiple points during training
+* Create a unique visualization not yet available in W&B \(and hopefully share it with the world\) 
 
