@@ -15,7 +15,7 @@ Contact **carey@wandb.com** with questions or suggestions.
 ### How it works
 
 1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as well as custom tables.
-2. **Custom queries**: Pull in your data and do transformations with a [GraphQL](https://graphql.org/) query.
+2. **Custom queries**: Pull in your data and transform in with a [GraphQL](https://graphql.org/) query.
 3. **Custom visualizations**: Visualize your data with [Vega](https://vega.github.io/vega/), a visualization grammar. 
 
 ![](../../../.gitbook/assets/pr-roc.png)
@@ -24,13 +24,13 @@ Contact **carey@wandb.com** with questions or suggestions.
 
 ### **Config and summary data**
 
-* **Config**: Settings at the beginning of the run, your independent variables
-* **Summary**: Results at the end of your training. By default, if you track a metric in history with `wandb.log()` we set the summary to the final value of that history key.
-* **Table**: If you need to log a list of multiple values use a `wandb.Table()` to save that data, then query it in your custom panel. 
+* **Config**: Initial settings of your experiment \(your independent variables\)
+* **Summary**: Results at the end of your training. By default, if you track a metric in history with `wandb.log()`we set the summary to the final value of that history key.
+* **Table**: If you need to log a list of multiple values, use a `wandb.Table()` to save that data, then query it in your custom panel. 
 
 ### **Log a custom table**
 
-Use `wandb.Table()` to log data as a custom 2D array. The maximum size of these tables is 10,000 rows. 
+Use `wandb.Table()` to log your data as a custom 2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`\(in the example below, "custom\_data\_table"\), and the individual fields will be accessible via the column names \("x", "y", and "z"\). You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows. 
 
 [Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
@@ -49,6 +49,7 @@ Add a new custom chart to get started, then edit the query to select data from y
 
 **Details of query editing**
 
+* **Named subfields**: Any named fields you've logged as keys to `wandb.config` at the start of your training \(e.g. `wandb.config.learning_rate = 0.0001`\) or to the results summary via `wandb.log` \(e.g. `wandb.log({"val_acc" : 0.8})` will be accessible via those named keys in the custom query \(the subfields "learning\_rate" and "val\_acc"\).
 * **Fold**: Use this to get each of the selected keys as a separate point. An example use case: you have `acc` and `val_acc` in history, and you'd like to display them as two separate lines on a chart, so you use historyFold in the query.
 
 ## Custom visualizations
