@@ -4,7 +4,7 @@ description: Custom visualizations and custom panels using queries
 
 # Custom Charts \[Beta\]
 
-Create custom charts to visualize your experiment data. This new beta feature allows you to fetch any of the data you've logged in a run and customize both the query and the visualization.
+Create custom charts to visualize your experiment data. This new beta feature allows you to fetch any of the data you've logged in a run and customize both the query used to filter and format that data and the visualization used to display it.
 
 [Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
@@ -14,22 +14,31 @@ Contact **carey@wandb.com** with questions or suggestions.
 
 ### How it works
 
-1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as well as custom tables.
-2. **Custom queries**: Pull in your data with a [GraphQL](https://graphql.org/) query.
-3. **Custom visualizations**: Visualize your data with [Vega](https://vega.github.io/vega/), a visualization grammar. 
+1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as you normally would when running with W&B. To visualize a list of multiple values logged at one specific time, use a custom`wandb.Table`
+2. **Custom queries**: Pull in any of this logged data with a [GraphQL](https://graphql.org/) query.
+3. **Custom visualizations**: Visualize the results of your query with [Vega](https://vega.github.io/vega/), a powerful visualization grammar. 
 
 ![](../../../.gitbook/assets/pr-roc.png)
 
 ## Log data
+
+The first step is to get the experiment data you'd like to visualize into Weights & Biases. Any existing experiment logging via `wandb.config`or summary \(single values logged to a named key with `wandb.log`\) will be available to the query. You can also query the full history of summary values logged to a single key. You don't need to make any changes to your existing wandb code to fetch any of this data into a custom chart. To visualize a list of values logged at one point in time, we recommend adding a custom `wandb.Table`.
+
+### **Logged data types available for custom charts**
+
+* **Config**: Initial settings of your experiment \(your independent variables\). This includes any named fields you've logged as keys to `wandb.config` at the start of your training \(e.g. `wandb.config.learning_rate = 0.0001)`
+* **Summary**: Single values logged during training \(your results or dependent variables\), e.g. `wandb.log({"val_acc" : 0.8})`. If you write to this key multiple times during training via `wandb.log()`, the summary is set to the final value of that key 
+* **History**:  The full history of the logged key is available to the query via the `history` field
+* **summaryTable**: If you need to log a list of multiple values, use a `wandb.Table()` to save that data, then query it in your custom panel.
 
 First, log data in your script. [Try a quick example notebook](https://bit.ly/custom-charts-colab) to log the data tables, and see example results in this live W&B[ report](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc).
 
 * Use [wandb.config](../../../library/config.md) for single points set at the beginning of training, like hyperparameters. 
 * Use [wandb.log\(\)](../../../library/log.md) for multiple points over time, and custom tables \(see the next section\)
 
-### **Log a custom table**
+### **How to log a custom table**
 
-Use `wandb.Table()` to log your data as a custom 2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`\(in the example below, "custom\_data\_table"\), and the individual fields will be accessible via the column names \("x", "y", and "z"\). You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows. 
+Use `wandb.Table()` to log your data as a  2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`\("custom\_data\_table" below\), and the individual fields will be accessible via the column names \("x", "y", and "z"\). You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows. 
 
 [Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
@@ -46,15 +55,14 @@ Add a new custom chart to get started, then edit the query to select data from y
 
 ![Add a new custom chart, then edit the query](../../../.gitbook/assets/2020-08-28-06.42.40.gif)
 
-**Details of query editing**
-
-* **Named subfields**: Any named fields you've logged as keys to `wandb.config` at the start of your training \(e.g. `wandb.config.learning_rate = 0.0001`\) or to the results summary via `wandb.log` \(e.g. `wandb.log({"val_acc" : 0.8})` will be accessible via those named keys in the custom query \(the subfields "learning\_rate" and "val\_acc"\).
-
 ## Custom visualizations
 
 Select a **Type** of visualization to switch between the built-ins: scatter plot, bar chart, box plot, histogram, violin plot, and contour plot. 
 
-Select **Vega fields** below to map the data you're pulling in from the query to the fields in the chart. For example: pull `avg_precision` as a field in the query \(specifically, this loads the `summaryTables` named "avg\_precision" logged by earlier runs\). This feeds your data from wandb logs into the right Vega field and displays it in the chart. For example, for a simple bar chart, you could set the Vega field `value` to show "loss" \(displayed as`runSets_summary_loss`\) to see your final training loss across multiple runs. In the example below, average precision is represented as a series of coordinate points of \(recall, precision\), so we map the Vega field `x-axis` to the recall, or `"r_m"` field, and the Vega field `y-axis` to the precision or `"p_m"` field \(not shown\) to display the average precision curves on this chart.
+Select **Vega fields**  to map the data you're pulling in from the query to the corresponding fields in your chart. 
+
+* For a built-in bar chart, you could set the Vega field `value` to show "loss" \(displayed as`runSets_summary_loss`\) to see your final training loss across multiple runs. 
+* For the custom chart below, the experimental data for average precision is represented as a series of coordinate points of \(recall, precision\). These are logged to a custom `wandb.Table` under the key `"avg_precision"`, available to the query as a `summaryTable`. Map the Vega field `x-axis` to the recall, or `"r_m"` field, and the Vega field `y-axis` to the precision or `"p_m"` field \(not shown\) to display the average precision curves on this chart.
 
 [See live example charts →](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc)
 
@@ -62,7 +70,7 @@ Select **Vega fields** below to map the data you're pulling in from the query to
 
 ### Editing Vega
 
-Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI. Here you can change any aspect of the chart, from the visual style \(e.g. change the title, pick a different color scheme, show curves as a series of points instead of as connected lines\) to the data itself \(e.g. use a Vega transform to bin an array of values into a histogram\). The panel preview will update interactively, so you can see the effect of your changes as you edit the Vega spec or query. The [Vega documentation and tutorials ](https://vega.github.io/vega/)are an excellent source of inspiration.
+Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI.  You can change any aspect of the chart, from the visual style \(e.g. change the title, pick a different color scheme, show curves as a series of points instead of as connected lines\) to the data itself \(use a Vega transform to bin an array of values into a histogram, etc.\). The panel preview will update interactively, so you can see the effect of your changes as you edit the Vega spec or query. The [Vega documentation and tutorials ](https://vega.github.io/vega/)are an excellent source of inspiration.
 
 **Field references**
 
