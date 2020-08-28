@@ -30,7 +30,7 @@ Contact **carey@wandb.com** with questions or suggestions.
 
 ### **Log a custom table**
 
-Use `wandb.Table()` to log data as a custom 2D array. You can log these tables at multiple time steps throughout your experiment. The maximum size of these tables is 10,000 rows. 
+Use `wandb.Table()` to log data as a custom 2D array. The maximum size of these tables is 10,000 rows. 
 
 [Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
