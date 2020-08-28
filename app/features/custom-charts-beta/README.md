@@ -55,11 +55,19 @@ Select a **Type** of visualization to switch between the built in scatter plot, 
 
 Select **Vega fields** below to map the data you're pulling in from the query to the fields in the chart. For example: pull `avg_precision` as a field in the query, and then map that to the x-axis of line plot.
 
-![](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.00.02-am.png)
+![Dropdown list of type options](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.00.02-am.png)
 
 ### Editing Vega
 
-_Coming soon_ 
+Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI.
+
+![Edit the Vega specification on the left and preview the chart on the right](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.04.32-am.png)
+
+Use the **Data / Signals** tab to debug. This shows you the tables that are available to you in the Vega view, coming in from the query.
+
+### Saving Charts
+
+Apply this visualization to the specific panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name.  
 
 ## Frequently asked questions
 
