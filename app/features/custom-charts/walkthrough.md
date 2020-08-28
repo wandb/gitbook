@@ -32,8 +32,10 @@ Once you've logged data to visualize, go to your project page and click the **`+
 
 ![A new, blank custom chart ready to be configured](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.41.37-am.png)
 
-* click on the “+” below the name dropdown to add a “createdAt” query filter placeholder
-* from the dropdown on “createdAt”, select “historyTable”
+**Add a query**
+
+1. Click `summary` and select `historyTable` to set up a new query pulling from the run history. 
+
 * enter the key under which you logged the wandb.Table in the previous step as the tableKey: from my code snippet above, this would be “my\_custom\_table”. In my colab example, I use “pr\_curve” and “roc\_curve” as the table keys.
 
   
