@@ -22,19 +22,10 @@ Contact **carey@wandb.com** with questions or suggestions.
 
 ## Log data
 
-First, log data in your script. 
+First, log data in your script. [Try a quick example notebook](https://bit.ly/custom-charts-colab) to log the data tables, and see example results in this live W&B[ report](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc).
 
 * Use [wandb.config](../../../library/config.md) for single points set at the beginning of training, like hyperparameters. 
-* Use [wandb.log\(\)](../../../library/log.md) for multiple points over time, and log custom 2D arrays with wandb.Table\(\). We recommend logging up to 10,000 data points per logged key.
-
-```python
-# Logging a custom table of data
-my_custom_data = [[x1, y1, z1], [x2, y2, z2]]
-wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
-                                columns = ["x", "y", "z"])})
-```
-
-[Try a quick example notebook](https://bit.ly/custom-charts-colab) to log the data tables, and see the results in this [live report](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc).
+* Use [wandb.log\(\)](../../../library/log.md) for multiple points over time, and custom tables \(see the next section\)
 
 ### **Log a custom table**
 
