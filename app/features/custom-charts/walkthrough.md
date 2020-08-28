@@ -30,7 +30,7 @@ wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
 
 Once you've logged data to visualize, go to your project page and click the **`+`** button to add a new panel, then select **Custom Chart**. 
 
-![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597440887681_Screen+Shot+2020-08-14+at+2.34.33+PM.png)
+![A new custom chart](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597440887681_Screen+Shot+2020-08-14+at+2.34.33+PM.png)
 
 * click on the “+” below the name dropdown to add a “createdAt” query filter placeholder
 * from the dropdown on “createdAt”, select “historyTable”
