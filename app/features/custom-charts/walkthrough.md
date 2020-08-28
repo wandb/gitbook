@@ -64,7 +64,7 @@ To save this as a preset that you can use elsewhere in this project, click **Sav
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597442868347_Screen+Shot+2020-08-14+at+3.07.30+PM.png)
 
-Thanks for following along! Message Carey \(carey@wandb.com\) with questions and feedback [😊](https://emojipedia.org/smiling-face-with-smiling-eyes/)
+Thanks for following along! Message Carey \(c@wandb.com\) with questions and feedback [😊](https://emojipedia.org/smiling-face-with-smiling-eyes/)
 
 ## Bonus: Composite Histograms
 
