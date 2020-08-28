@@ -22,7 +22,10 @@ Contact **carey@wandb.com** with questions or suggestions.
 
 ## Log data
 
-First, log data in your script. Use [wandb.config](../../../library/config.md) for single points set at the beginning of training, like hyperparameters. Use [wandb.log\(\)](../../../library/log.md) for multiple points over time, and log custom 2D arrays with wandb.Table\(\). We recommend logging up to 10,000 data points per logged key.
+First, log data in your script. 
+
+* Use [wandb.config](../../../library/config.md) for single points set at the beginning of training, like hyperparameters. 
+* Use [wandb.log\(\)](../../../library/log.md) for multiple points over time, and log custom 2D arrays with wandb.Table\(\). We recommend logging up to 10,000 data points per logged key.
 
 ```python
 # Logging a custom table of data
