@@ -15,7 +15,7 @@ Contact **carey@wandb.com** with questions or suggestions.
 ### How it works
 
 1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as well as custom tables.
-2. **Custom queries**: Pull in your data and transform in with a [GraphQL](https://graphql.org/) query.
+2. **Custom queries**: Pull in your data with a [GraphQL](https://graphql.org/) query.
 3. **Custom visualizations**: Visualize your data with [Vega](https://vega.github.io/vega/), a visualization grammar. 
 
 ![](../../../.gitbook/assets/pr-roc.png)
@@ -50,7 +50,6 @@ Add a new custom chart to get started, then edit the query to select data from y
 **Details of query editing**
 
 * **Named subfields**: Any named fields you've logged as keys to `wandb.config` at the start of your training \(e.g. `wandb.config.learning_rate = 0.0001`\) or to the results summary via `wandb.log` \(e.g. `wandb.log({"val_acc" : 0.8})` will be accessible via those named keys in the custom query \(the subfields "learning\_rate" and "val\_acc"\).
-* **Fold**: Use this to get each of the selected keys as a separate point. An example use case: you have `acc` and `val_acc` in history, and you'd like to display them as two separate lines on a chart, so you use historyFold in the query.
 
 ## Custom visualizations
 
@@ -64,7 +63,11 @@ Select **Vega fields** below to map the data you're pulling in from the query to
 
 ### Editing Vega
 
-Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI. Here you can change any aspect of the chart, from the visual style \(e.g. change the title, pick a different color scheme, show curves as a series of points instead of as connected lines\) to the data itself \(e.g. use a Vega transform to bin an array of values into a histogram\). The panel preview will update interactively, so you can see the effect of your changes as you edit the Vega spec or query. The [Vega documentation and tutorials ](https://vega.github.io/vega/)are an excellent source of inspiration. 
+Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI. Here you can change any aspect of the chart, from the visual style \(e.g. change the title, pick a different color scheme, show curves as a series of points instead of as connected lines\) to the data itself \(e.g. use a Vega transform to bin an array of values into a histogram\). The panel preview will update interactively, so you can see the effect of your changes as you edit the Vega spec or query. The [Vega documentation and tutorials ](https://vega.github.io/vega/)are an excellent source of inspiration.
+
+**Field references**
+
+To pull data into your chart from W&B, add template strings of the form `"${field:<field-name>}"` anywhere in your Vega spec. This will create a dropdown in the **Chart Fields** area on the right side, which users can use to select a query result column to map into Vega.
 
 ![Edit the Vega specification on the left and preview the chart on the right](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.04.32-am.png)
 
