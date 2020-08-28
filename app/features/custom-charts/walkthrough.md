@@ -9,9 +9,8 @@ Going beyond the built-in charts in Weights & Biases, use the new **Custom Chart
 **Overview**
 
 1. Log data to W&B
-2. Customize a Vega chart
-3. Create a new Vega chart
-4. Try a composite histogram
+2. Create a query
+3. Customize the chart
 
 ## 1. Log data to W&B
 
@@ -26,9 +25,9 @@ wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
 
 [Try a quick example notebook](https://bit.ly/custom-charts-colab) to log the data tables, and in the next step we'll set up custom charts. See what the resulting charts look like in the [live report](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc).
 
-## 2. Customize a Vega chart
+## 2. Create a query
 
-Once you've logged data to visualize, go to your project page and click the **`+`** button to add a new panel, then select **Custom Chart**. 
+Once you've logged data to visualize, go to your project page and click the **`+`** button to add a new panel, then select **Custom Chart**. You can follow along in [this workspace](https://app.wandb.ai/demo-team/custom-charts).
 
 ![A new, blank custom chart ready to be configured](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.41.37-am.png)
 
@@ -41,41 +40,41 @@ Once you've logged data to visualize, go to your project page and click the **`+
 
 Now that the query is loading in these columns, they're available as options to select in the Vega fields dropdown menus:
 
-![](../../../.gitbook/assets/query-dropdowns.png)
+![Pulling in columns from the query results to set Vega fields](../../../.gitbook/assets/screen-shot-2020-08-28-at-8.04.39-am.png)
 
-* x-axis = projects\_runs\_historyTable\_r \(recall\)
-* y-axis = projects\_runs\_historyTable\_p \(precision\)
-* color = projects\_runs\_historyTable\_c \(class label\)
+* **x-axis:** runSets\_historyTable\_r \(recall\)
+* **y-axis:** runSets\_historyTable\_p \(precision\)
+* **color:** runSets\_historyTable\_c \(class label\)
 
-Note: do not set the “size” field as that will misconfigure the plot.  
-to yield something like this:
+## 3. Customize the chart
 
-![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597441855957_Screen+Shot+2020-08-14+at+2.50.41+PM.png)
-
-### Creating your own visualization type
-
-This already looks pretty good, but I want to polish the details and easily reuse this chart type in the future. Hover over the top right corner of the chart and click on the pencil to edit it. Next, hit the edit button to the right of the visualization type dropdown.You can now edit the JSON in the Vega spec directly. To make my PR curve prettier, I make the following changes:
+Now that looks pretty good, but I'd like to switch from a scatter plot to a line plot. Click **Edit** to change the Vega spec for this built in chart. Follow along in [this workspace](https://app.wandb.ai/demo-team/custom-charts).
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597442115525_Screen+Shot+2020-08-14+at+2.52.24+PM.png)
+
+I updated the Vega spec to customize the visualization:
 
 * add custom plot, legend, x-axis, and y-axis titles \(set “title” for each field\)
 * change the value of “mark” from “point” to “line”
 * remove the unused “size” field
 
-You can of course keep making your own changes, including to the query itself.Here is my final Vega spec:  
- Now I can hit “Save as…” to make myself a new custom plot type, say “pr\_curve\_per\_class”, which I can reuse throughout this project \(and eventually share beyond the project\). Here it is in all its glory, along with an ROC curve created with the same process:  I hope this helps you create your own custom plots! We’re releasing this as a beta and plan to keep smoothing out the details. We can’t wait to see the collective data-visualizing art of our community. 
+![](../../../.gitbook/assets/customize-vega-spec-for-pr-curve.png)
+
+To save this as a preset that you can use elsewhere in this project, click **Save as** at the top of the page. Here's what the result looks like, along with an ROC curve:
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597442868347_Screen+Shot+2020-08-14+at+3.07.30+PM.png)
 
-![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597442424763_Screen+Shot+2020-08-14+at+2.56.38+PM.png)
+Thanks for following along! Message Carey \(carey@wandb.com\) with questions and feedback [😊](https://emojipedia.org/smiling-face-with-smiling-eyes/)
 
-### P.S. Bonus: Composite histograms
+## Bonus: Composite Histograms
 
 Histograms can visualize numerical distributions to help us understand larger datasets. Composite histograms show multiple distributions across the same bins, letting us compare two or more metrics across different models or different classes within our model. For a semantic segmentation model detecting objects in driving scenes, we might compare the effectiveness of optimizing for accuracy versus intersection over union or see how different models perform on detecting cars \(large, common regions in the data\) versus traffic signs \(much smaller, less common regions\).  
-In the demo Colab provided, you can compare the confidence scores for two of the ten classes of living things.   
-To create your own version of the custom composite histogram panel:
+In the demo Colab provided, you can compare the confidence scores for two of the ten classes of living things. 
 
 ![](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.19.47-am.png)
+
+  
+To create your own version of the custom composite histogram panel:
 
 1. Create a new Vega panel in your workspace or report \(by adding a “Vega 2” visualization\). Hit the “Edit” button in the top right  to modify the Vega spec starting from any built-in panel type.
 2. Replace that built-in Vega spec with my [MVP code for a composite histogram in Vega](https://gist.github.com/staceysv/9bed36a2c0c2a427365991403611ce21). You can modify the main title, axis titles, input domain, and any other details directly in this Vega spec [using Vega syntax](https://vega.github.io/) \(you could change the colors or even add a third histogram :\)
