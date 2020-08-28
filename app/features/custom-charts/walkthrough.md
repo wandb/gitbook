@@ -32,16 +32,16 @@ Once you've logged data to visualize, go to your project page and click the **`+
 
 ![A new, blank custom chart ready to be configured](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.41.37-am.png)
 
-**Add a query**
+### **Add a query**
 
-1. Click `summary` and select `historyTable` to set up a new query pulling from the run history. 
+1. Click `summary` and select `historyTable` to set up a new query pulling data from the run history. 
+2. Type in the key where you logged the **wandb.Table\(\)**. In the code snippet above, it was `my_custom_table` . In the [example notebook](https://bit.ly/custom-charts-colab), they keys are `pr_curve` and `roc_curve`.
 
-* enter the key under which you logged the wandb.Table in the previous step as the tableKey: from my code snippet above, this would be “my\_custom\_table”. In my colab example, I use “pr\_curve” and “roc\_curve” as the table keys.
+### Set Vega fields
 
-  
-This lets me access the columns of my logged wandb.Table as Vega fields.To create a PR curve, I set the following fields using this dropdown:
+Now that the query is loading in these columns, they're available as options to select in the Vega fields dropdown menus:
 
-![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597441569984_Screen+Shot+2020-08-14+at+2.45.34+PM.png)
+![](../../../.gitbook/assets/query-dropdowns.png)
 
 * x-axis = projects\_runs\_historyTable\_r \(recall\)
 * y-axis = projects\_runs\_historyTable\_p \(precision\)
