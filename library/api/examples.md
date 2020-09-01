@@ -214,3 +214,15 @@ meta = json.load(run.file("wandb-metadata.json").download())
 program = ["python"] + [meta["program"]] + meta["args"]
 ```
 
+### Get paginated data from history
+
+If metrics are being fetched slowly on our backend or API requests are timing out, you can try lowering the page size in `scan_history` so that individual requests don't time out. The default page size is 1000, so you can experiment with different sizes to see what works best:
+
+```python
+api = wandb.Api()
+run = api.run("username/project/run_id")
+run.scan_history(keys=sorted(cols), page_size=100)
+```
+
+
+
