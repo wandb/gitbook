@@ -51,7 +51,7 @@ To use an AWS S3 bucket as the file storage backend for W&B, you'll need to crea
 
 **Create an SQS Queue**
 
-First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage` and `ReceiveMessage` actions. \(If you like you can further lock this down using an advancd policy document.\)
+First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage` and `ReceiveMessage` actions as well as `GetQueueUrl` . \(If you like you can further lock this down using an advanced policy document.\)
 
 ![Enterprise file storage settings](../.gitbook/assets/sqs-perms.png)
 
