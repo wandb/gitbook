@@ -60,7 +60,7 @@ from skorch.callbacks import WandbLogger
 # Create a wandb Run
 wandb_run = wandb.init()
 # Alternative: Create a wandb Run without a W&B account
-wandb_run = wandb.init(anonymous="allow)
+wandb_run = wandb.init(anonymous="allow")
 
 # Log hyper-parameters (optional)
 wandb_run.config.update({"learning rate": 1e-3, "batch size": 32})
