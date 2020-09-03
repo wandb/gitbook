@@ -16,7 +16,9 @@ Use W&B Artifacts to store and keep track of datasets, models, and evaluation re
 
 Since a run can use another run’s output artifact as input, artifacts and runs together form a directed graph. You don’t need to define pipelines ahead of time. Just use and log artifacts, and we’ll stitch everything together.
 
-![](../.gitbook/assets/artifact2.png)
+Here's an [example artifact](https://app.wandb.ai/shawn/detectron2-11/artifacts/model/run-1cxg5qfx-model/4a0e3a7c5bff65ff4f91/graph) where you can see the summary view of the DAG, as well as the zoomed-out view of every execution of each step and every artifact version.
+
+![](../.gitbook/assets/2020-09-03-15.59.43.gif)
 
 To learn how to use Artifacts, check out the [Artifacts API Docs →](https://docs.wandb.com/artifacts/api)
 
