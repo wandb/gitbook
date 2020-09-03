@@ -12,7 +12,7 @@ Similar to our Python library, we offer a Java client to instrument your machine
 
 ### Installation
 
-1. Install the latest RC version of the wandb python client.
+1. Install the latest version of the wandb Python client: `pip install wandb --upgrade --pre`
 2. Simply include the Wandb jar file in your Java Project.
 
    **Maven**: this can be included by adding the jar file to your `pom.xml`  file.  
