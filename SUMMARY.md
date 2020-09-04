@@ -57,6 +57,7 @@
     * [Project Page](app/pages/project-page.md)
     * [Run Page](app/pages/run-page.md)
   * [Features](app/features/README.md)
+    * [Anonymous Mode](app/features/anonymous-mode.md)
     * [Table](app/features/sidebar.md)
     * [Tags](app/features/tags.md)
     * [Notes](app/features/notes.md)
