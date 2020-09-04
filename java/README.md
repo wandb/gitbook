@@ -8,7 +8,7 @@ Similar to our Python library, we offer a Java client to instrument your machine
 
 You can find the source code for the Java Client in the [Github repository](https://github.com/wandb/client-ng-java).
 
-{% page-ref page="wandbrun.builder.md" %}
+{% page-ref page="wandbrun-builder.md" %}
 
 {% page-ref page="wandbrun.md" %}
 
