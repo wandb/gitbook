@@ -6,6 +6,8 @@ description: Overview of our Java client library
 
 Similar to our Python library, we offer a Java client to instrument your machine learning model and track experiments. This library consists of two simple classes that are used as a wrapper around the Python Library.
 
+You can find the source code for the Java Client in the [Github repository](https://github.com/wandb/client-ng-java).
+
 {% page-ref page="wandbrun.builder.md" %}
 
 {% page-ref page="wandbrun.md" %}
@@ -16,7 +18,7 @@ Similar to our Python library, we offer a Java client to instrument your machine
 2. Simply include the Wandb jar file in your Java Project.
 
    **Maven**: this can be included by adding the jar file to your `pom.xml`  file.  
-   Using GitHub repository:
+   Using maven repository:
 
    ```markup
    <dependency>
@@ -26,7 +28,7 @@ Similar to our Python library, we offer a Java client to instrument your machine
    </dependency>
    ```
 
-   Or using the jar file directly:
+   Or you can download the jar file directly from the [Github Package](https://github.com/wandb/client-ng-java/packages/381057):
 
    ```markup
    <dependencies>
