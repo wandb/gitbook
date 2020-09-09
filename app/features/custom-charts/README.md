@@ -4,7 +4,13 @@ description: Custom visualizations and custom panels using queries
 
 # Custom Charts \[Beta\]
 
-Create custom charts to visualize your experiment data. This new beta feature allows you to fetch any of the data you've logged in a run and customize both the query used to filter and format that data and the visualization used to display it.
+Create custom charts to visualize your experiment data.
+
+**Why this is cool**
+
+* Create charts that aren't possible right now in the default UI
+* Log arbitrary tables and visualize them, instead of relying on basic time-series metrics
+* Control details of fonts, colors, and tooltips with the power of [Vega](https://vega.github.io/vega/)
 
 [Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
