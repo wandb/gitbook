@@ -12,6 +12,8 @@ Create custom charts to visualize your experiment data. This new beta feature al
 
 Contact Carey \(c@wandb.com\) with questions or suggestions.
 
+![Supported charts from vega.github.io/vega](../../../.gitbook/assets/screen-shot-2020-09-09-at-2.18.17-pm.png)
+
 ### How it works
 
 1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as you normally would when running with W&B. To visualize a list of multiple values logged at one specific time, use a custom`wandb.Table`
