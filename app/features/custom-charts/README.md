@@ -6,7 +6,7 @@ description: Custom visualizations and custom panels using queries
 
 Create custom charts to visualize your experiment data.
 
-**Why this is cool**
+### **Benefits of custom charts**
 
 * Create charts that aren't possible right now in the default UI
 * Log arbitrary tables and visualize them, instead of relying on basic time-series metrics
