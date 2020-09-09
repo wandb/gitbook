@@ -45,7 +45,7 @@ By default the hook only logs gradients.
         <ul>
           <li>all: log histograms of gradients and parameters</li>
           <li>gradients (default)</li>
-          <li>parameters</li>
+          <li>parameters (weights of the model)</li>
           <li>None</li>
         </ul>
       </td>
