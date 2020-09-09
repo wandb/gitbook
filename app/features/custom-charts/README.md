@@ -18,6 +18,8 @@ Contact Carey \(c@wandb.com\) with questions or suggestions.
 2. **Custom queries**: Pull in any of this logged data with a [GraphQL](https://graphql.org/) query.
 3. **Custom visualizations**: Visualize the results of your query with [Vega](https://vega.github.io/vega/), a powerful visualization grammar. 
 
+{% page-ref page="walkthrough.md" %}
+
 ![](../../../.gitbook/assets/pr-roc.png)
 
 ## Log data
