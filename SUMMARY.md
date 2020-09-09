@@ -49,7 +49,7 @@
     * [Keras Reference](library/reference/keras.md)
     * [Data Types](library/reference/data_types.md)
   * [Technical FAQ](library/technical-faq.md)
-* [Java Libary \[Beta\]](java/README.md)
+* [Java Library \[Beta\]](java/README.md)
   * [WandbRun.Builder](java/wandbrun-builder.md)
   * [WandbRun](java/wandbrun.md)
 * [Dashboard](app/README.md)

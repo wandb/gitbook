@@ -2,7 +2,7 @@
 description: Overview of our Java client library
 ---
 
-# Java Libary \[Beta\]
+# Java Library \[Beta\]
 
 Similar to our Python library, we offer a Java client to instrument your machine learning model and track experiments. This library consists of two simple classes that are used as a wrapper around the Python Library.
 
