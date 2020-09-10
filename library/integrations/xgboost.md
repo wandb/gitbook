@@ -11,5 +11,5 @@ bst = xgb.train(param, xg_train, num_round, watchlist,
 
 ## Example
 
-* [Example on Github](https://github.com/wandb/examples/blob/master/xgboost-dermatology/train.py): Multi-class dermatology classification Example
+* [Example on Github](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/xgboost-dermatology): Multi-class dermatology classification example
 

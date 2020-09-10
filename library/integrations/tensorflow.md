@@ -79,8 +79,8 @@ Get started with a [free personal account →](http://app.wandb.ai/)
 
 We've created a few examples for you to see how the integration works:
 
-* [Example on Github](https://github.com/wandb/examples/blob/master/tf-estimator-mnist/mnist.py): MNIST example Using TensorFlow Estimators
-* [Example on Github](https://github.com/wandb/examples/blob/master/tf-cnn-fashion/train.py): Fashion MNIST example Using Raw TensorFlow
+* [Example on Github](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-estimator-mnist/mnist.py): MNIST example Using TensorFlow Estimators
+* [Example on Github](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-cnn-fashion/train.py): Fashion MNIST example Using Raw TensorFlow
 * [Wandb Dashboard](https://app.wandb.ai/l2k2/examples-tf-estimator-mnist/runs/p0ifowcb): View result on W&B
 * Customizing Training Loops in TensorFlow 2 - [Article](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2) \| [Colab Notebook](https://colab.research.google.com/drive/1JCpAbjkCFhYMT7LCQ399y35TS3jlMpvM) \| [Dashboard](https://app.wandb.ai/sayakpaul/custom_training_loops_tf)
 

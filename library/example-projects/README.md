@@ -73,7 +73,7 @@ Reach out to us at **contact@wandb.com** if you'd like us to add one of your pro
 | :--- | :--- | :--- |
 | Intro to sweeps with W&B | [W&B Dashboard](https://app.wandb.ai/sweep/simpsons?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt) |
 | PyTorch Sweeps: Meaning and noise in hyperparameter search | [Report](https://app.wandb.ai/stacey/pytorch_intro/reports/Meaning-and-Noise-in-Hyperparameter-Search--Vmlldzo0Mzk5MQ) |  |
-| Running sweeps in python scripts |  | [Github Repo](https://github.com/wandb/examples/blob/master/sweeps-python/sweep.py) |
+| Running sweeps in python scripts |  | [Github Repo](https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-python/sweep.py) |
 | Using sweeps with MPI frameworks |  | [Github Repo](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-mpi-wrappers) |
 
 ### Scikit-learn

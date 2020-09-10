@@ -2,7 +2,7 @@
 
 This is a complete example of JAX code that trains a MLP and saves to W&B. 
 
-You can find this example on [GitHub](https://github.com/wandb/examples/blob/master/jax-mnist/train.py) and see the results on [W&B](https://app.wandb.ai/l2k2/examples-jax-mnist/runs/g0vgca81).
+You can find this example on [GitHub](https://github.com/wandb/examples/tree/master/examples/jax/jax-mnist) and see the results on [W&B](https://app.wandb.ai/l2k2/examples-jax-mnist/runs/g0vgca81).
 
 ```python
 import time
