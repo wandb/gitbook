@@ -16,7 +16,7 @@ Use Weights & Biases Sweeps to automate hyperparameter optimization and explore 
 
 1. **Explore**: Efficiently sample the space of hyperparameter combinations to discover promising regions and build an intuition about your model.
 2. **Optimize**:  Use sweeps to find a set of hyperparameters with optimal performance.
-3. **K-fold cross validation**: Here's [a brief code example](https://github.com/wandb/examples/tree/master/sweeps-cross-validation) of k-fold cross validation with W&B Sweeps.
+3. **K-fold cross validation**: Here's [a brief code example](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation) of k-fold cross validation with W&B Sweeps.
 
 ### Approach
 
