@@ -40,7 +40,7 @@ tune_config.save("sweep-hyperopt.yaml")
 wandb.sweep(tune_config)
 ```
 
-[See full example on GitHub →](https://github.com/wandb/examples/tree/master/keras-cnn-fashion)
+[See full example on GitHub →](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)
 
 ## Feature Compatibility
 

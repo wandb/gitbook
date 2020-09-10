@@ -23,5 +23,5 @@ https://wheels.galaxyproject.org/packages/psutil-5.4.8-cp27-cp27mu-manylinux1_x8
 wandb
 ```
 
-A complete example is available on [GitHub](https://github.com/wandb/examples/tree/master/pytorch-cifar10-sagemaker) and you can read more on our [blog](https://www.wandb.com/blog/running-sweeps-with-sagemaker).
+A complete example is available on [GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker) and you can read more on our [blog](https://www.wandb.com/blog/running-sweeps-with-sagemaker).
 

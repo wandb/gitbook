@@ -16,5 +16,5 @@ gbm = lgb.train(params,
                 callbacks=[wandb_callback()])
 ```
 
-See a complete code example in our [examples repo](https://github.com/wandb/examples/tree/master/lightgbm-regression), or as a [colab](https://colab.research.google.com/drive/1R6_vcVM90Ephyu0HDFlPAZa0SgEC_3bE) notebook.
+See a complete code example in our [examples repo](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/lightgbm-regression), or as a [colab](https://colab.research.google.com/drive/1R6_vcVM90Ephyu0HDFlPAZa0SgEC_3bE) notebook.
 

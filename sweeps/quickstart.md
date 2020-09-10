@@ -47,7 +47,7 @@ metrics = {'accuracy': accuracy, 'loss': loss}
 wandb.log(metrics)
 ```
 
-[See a full code example →](https://github.com/wandb/examples/tree/master/pytorch-cnn-fashion)
+[See a full code example →](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)
 
 ## 2. Sweep Config
 
