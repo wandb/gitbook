@@ -14,7 +14,7 @@ You can find the source code for the Java Client in the [Github repository](http
 
 ### Installation
 
-1. Install the latest version of the wandb Python client: `pip install wandb --upgrade --pre`
+1. Install the latest version of the wandb Python client: `pip install wandb[grpc] --upgrade --pre`
 2. Simply include the Wandb jar file in your Java Project.
 
    **Maven**: this can be included by adding the jar file to your `pom.xml`  file.  
