@@ -94,7 +94,7 @@ Now you've got the instrumentation working, here's a quick overview of cool feat
 1. **Project Page**: Compare lots of different experiments in a project dashboard. Every time you run a model in a project, a new line appears in the graphs and in the table. Click the table icon on the left sidebar to expand the table and see all your hyperparameters and metrics. Create multiple projects to organize your runs, and use the table to add tags and notes to your runs.
 2. **Custom Visualizations**: Add parallel coordinates charts, scatter plots, and other advanced visualizations to explore your results.
 3. **Reports**: Add a Markdown panel to describe your research results alongside your live graphs and tables. Reports make it easy to share a snapshot of your project with collaborators, your professor, or your boss!
-4. **Frameworks**: We have special integrations for popular [frameworks]() like PyTorch, Keras, and XGBoost.
+4. **Frameworks**: We have special integrations for popular [frameworks](library/integrations/) like PyTorch, Keras, and XGBoost.
 5. **Showcase**: Interested in sharing your research? We're always working on blog posts to highlight the amazing work of our community. Message us at contact@wandb.com.
 
 ### [Contact us with questions →](company/getting-help.md)
