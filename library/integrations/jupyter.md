@@ -53,6 +53,14 @@ display(wandb.jupyter.Run())
 
 1. **Colab**: When you call `wandb.init()` for the first time in a Colab, we automatically authenticate your runtime if you're currently logged in to W&B in your browser. On the overview tab of your run page, you'll see a link to the Colab. If you turn on code saving in [settings](https://app.wandb.ai/settings), you can also see the cells that were executed to run the experiment, enabling better reproducibility.
 2. **Launch Docker Jupyter**: Call `wandb docker --jupyter` to launch a docker container, mount your code in it, ensure Jupyter is installed, and launch on port 8888.
+3. **run.finish\(\)**: By default, we wait until the next time wandb.init\(\) is called to mark a run as finished. That allows you to run individual cells and have them all log to the same run. To mark a run as complete manually in a Jupyter notebook, use the **run.finish\(\)** feature.
+
+```python
+import wandb
+run = wandb.init()
+# Training script and logging goes here
+run.finish()
+```
 
 ### **Silence W&B info messages**
 
