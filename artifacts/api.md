@@ -180,11 +180,16 @@ project-directory
 ### Adding references
 
 ```python
-artifact.add_reference(uri, name=None)
+artifact.add_reference(uri, name=None, checksum=True)
 ```
+
+* **uri \(string\):** The reference URI to track.
+* **name \(string\):** An optional name override. If not provided, a name is inferred from **uri**.
+* **checksum \(bool\):** If true, the reference collects checksum information and metadata from **uri** for validation purposes.
 
 You can add references to external URIs to artifacts, instead of actual files.  If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility. Artifacts currently support the following URI schemes:
 
+* `http(s)://`: A path to a file accessible over HTTP. The artifact will track checksums in the form of etags and size metadata if the HTTP server supports the `ETag` and `Content-Length` response headers.
 * `s3://`: A path to an object or object prefix in S3. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
 * `gs://`: A path to an object or object prefix in GCS. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
 
@@ -282,6 +287,36 @@ You can also construct an artifact object and pass it to **use\_artifact**. This
 artifact = wandb.Artifact('reference model')
 artifact.add_file('model.h5')
 run.use_artifact(artifact)
+```
+
+## Updating artifacts
+
+You can update the `description`, `metadata`, and `aliases` of an artifact by just setting them to the desired values and then calling `save()`.
+
+```python
+api = wandb.Api()
+artifact = api.run('bike-dataset:latest')
+
+# Update the description
+artifact.description = "My new description"
+
+# Selectively update metadata keys
+artifact.metadata["oldKey"] = "new value"
+
+# Replace the metadata entirely
+artifact.metadata = {"newKey": "new value"}
+
+# Add an alias
+artifact.aliases.append('best')
+
+# Remove an alias
+artifact.aliases.remove('latest')
+
+# Completely replace the aliases
+artifact.aliases = ['replaced']
+
+# Persist all artifact modifications
+artifact.save()
 ```
 
 ## Data privacy
