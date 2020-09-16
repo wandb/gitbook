@@ -24,7 +24,7 @@ wandb.Api()
 
 **Arguments**:
 
-* `overrides` _dict_ - You can set `base_url` if you are using a wandb server other than [https://api.wandb.ai](https://api.wandb.ai). You can also set defaults for `entity`, `project`, and `run`.
+* `overrides` _dict_ - You can set `base_url` if you are using a wandb server other than https://api.wandb.ai. You can also set defaults for `entity`, `project`, and `run`.
 
 ### Api.flush
 

@@ -13,7 +13,7 @@ All configuration settings can be set via the UI however if you would like to ma
 **LICENSE** - Your wandb/local licenseMYSQL - The MySQL connection string  
 **BUCKET** - S3 bucket for storing dataBUCKET\_QUEUE - The SQS queue for object creation events  
 **REGION** - The AWS Region where your bucket lives  
-**HOST** - The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net/)  
+**HOST** - The FQD of your instance, i.e. https://my.domain.net  
 **AUTH0\_DOMAIN** - The Auth0 domain of your tenant  
 **AUTH0\_CLIENT\_ID** - The Auth0 Client ID of application
 

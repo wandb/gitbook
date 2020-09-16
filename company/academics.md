@@ -22,7 +22,7 @@ Are you writing an academic paper? Cite Weights & Biases as your experiment trac
 title = {Experiment Tracking with Weights and Biases},   
 year = {2020},   
 note = {Software available from wandb.com},   
-url={[https://www.wandb.com/}](https://www.wandb.com/}),   
+url={[https://www.wandb.com/](https://www.wandb.com/),}   
 author = {Biewald, Lukas},   
 }
 
