@@ -10,8 +10,10 @@ Your W&B Local Server comes up ready-to-use on boot. However, several advanced c
 
 All configuration settings can be set via the UI however if you would like to manage these configuration options via code you can set the following environment variables:
 
-**LICENSE** - Your wandb/local licenseMYSQL - The MySQL connection string  
-**BUCKET** - S3 bucket for storing dataBUCKET\_QUEUE - The SQS queue for object creation events  
+**LICENSE** - Your wandb/local license  
+**MYSQL** - The MySQL connection string  
+**BUCKET** - S3 bucket for storing data  
+**BUCKET\_QUEUE** - The SQS queue for object creation events  
 **REGION** - The AWS Region where your bucket lives  
 **HOST** - The FQD of your instance, i.e. https://my.domain.net  
 **AUTH0\_DOMAIN** - The Auth0 domain of your tenant  
