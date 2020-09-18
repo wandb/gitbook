@@ -53,7 +53,7 @@ for x in range(10):
     run = wandb.init(project="runs-from-for-loop", reinit=True)
     for y in range (100):
         wandb.log({"metric": x+y})
-    run.finish()
+    run.join()
 ```
 
 Alternatively you can use a python context manager which will automatically finish logging:
