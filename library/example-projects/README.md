@@ -23,13 +23,13 @@ Reach out to us at **contact@wandb.com** if you'd like us to add one of your pro
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
-| Intro to PyTorch with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/pytorch-intro) | [Colab Notebook](https://colab.research.google.com/github/wandb/examples/blob/master/pytorch-intro/intro.ipynb) |
+| Intro to PyTorch with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/pytorch-intro) | [Colab Notebook](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-intro/intro.ipynb) |
 | PyTorch MNIST Colab | [W&B Dashboard](https://app.wandb.ai/wandb/pytorch-mnist) | [Colab Notebook](http://bit.ly/pytorch-mnist-colab) |
 | Colorizing CNN transforms B&W images to color | [W&B Dashboard](https://app.wandb.ai/clarence-n-huang/color-best-looking/reports?view=carey%2FColorizing%20Images) | [Github Repo](https://github.com/clarencenhuang/dl-colorize) |
 | Yolo-2 Bounding Box | [W&B Dashboard](https://app.wandb.ai/l2k2/darknet) | [Github Repo](https://github.com/lukas/pytorch-yolo2) |
 | Reinforcement Learning | [W&B Dashboard](https://app.wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://github.com/kairproject/kair_algorithms_draft) |
 | char-RNN to forecast text | [W&B Dashboard](https://app.wandb.ai/borisd13/char-RNN) | [Github Repo](https://github.com/borisdayma/char-RNN) |
-| Exploring ResNets With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/resnet/reports/Exploring-ResNets-With-W%26B--Vmlldzo2NDc4NA) | [Colab Notebook](https://colab.research.google.com/drive/1s62r_nK4RNd3PIyrAd2H72gvrMElX3hN) |
+| Exploring ResNets With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/resnet/reports/Exploring-ResNets-With-W%26B--Vmlldzo2NDc4NA) | [Colab Notebook](https://colab.research.google.com/drive/1s62r_nK4RNd3PIyrAd2H72gvrMElX3hN?usp=sharing) |
 | Exploring Neural Style Transfer Paper With W&B | [W&B Dashboard](https://app.wandb.ai/cayush/neural-style/reports/Exploring-Neural-Style-Transfer-Paper-With-W%26B--VmlldzozNTU1Mw) | [Github Repo](https://github.com/AyushExel/Neural-Style-Transfer) |
 | Debugging Neural Networks with PyTorch | [W&B Report](https://app.wandb.ai/ayush-thakur/debug-neural-nets/reports/Debugging-Neural-Networks-with-PyTorch-and-W%26B--Vmlldzo2OTUzNA) | [GitHub Repo](https://github.com/ayulockin/debugNNwithWandB) |
 | PyTorch Lightning | [W&B Report](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) | [Colab Notebook](https://colab.research.google.com/drive/1GHWwfzAsWx_Q1paw73hngAvA7-U9QHi-) |
@@ -71,7 +71,7 @@ Reach out to us at **contact@wandb.com** if you'd like us to add one of your pro
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
-| Intro to sweeps with W&B | [W&B Dashboard](https://app.wandb.ai/sweep/simpsons?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt) |
+| Intro to Sweeps with W&B | [W&B Dashboard](https://app.wandb.ai/sweep/simpsons?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt) |
 | PyTorch Sweeps: Meaning and noise in hyperparameter search | [Report](https://app.wandb.ai/stacey/pytorch_intro/reports/Meaning-and-Noise-in-Hyperparameter-Search--Vmlldzo0Mzk5MQ) |  |
 | Running sweeps in python scripts |  | [Github Repo](https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-python/sweep.py) |
 | Using sweeps with MPI frameworks |  | [Github Repo](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-mpi-wrappers) |
@@ -98,7 +98,7 @@ Reach out to us at **contact@wandb.com** if you'd like us to add one of your pro
 
 | Title | Link |
 | :--- | :--- |
-| Hugging Face Integration | [Jupyter Notebook](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8) |
+| Hugging Face Integration | [Colab Notebook](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8) |
 
 
 
