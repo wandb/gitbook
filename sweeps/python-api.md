@@ -50,9 +50,8 @@ def train():
 wandb.agent(sweep_id, function=train)
 ```
 
-Quick overview: [Run in colab](https://colab.research.google.com/github/wandb/examples/blob/master/sweeps-python/notebook.ipynb)
-
-Complete walkthrough of using sweeps in a project: [Run in colab](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt)
+* Quick overview: [Run in colab](https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-python/notebook.ipynb)
+* Complete walkthrough of using sweeps in a project: [Run in colab](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt)
 
 ### wandb.agent\(\)
 
