@@ -4,7 +4,7 @@ description: wandb.apis.public
 
 # API Reference
 
-## Api
+## API
 
 [source](https://github.com/wandb/client/blob/master/wandb/apis/public.py#L172)
 

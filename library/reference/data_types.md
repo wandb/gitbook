@@ -4,7 +4,9 @@ description: wandb.data_types
 
 # Data Types
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L0) Wandb has special data types for logging rich visualizations.
+[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L0)
+
+Wandb has special data types for logging rich visualizations.
 
 All of the special data types are subclasses of WBValue. All of the data types serialize to JSON, since that is what wandb uses to save the objects locally and upload them to the W&B server.
 
