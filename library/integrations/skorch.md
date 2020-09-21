@@ -1,9 +1,3 @@
----
-description: >-
-  Skorch is a powerful tool that combines the simplicity of scikit, with the
-  power of PyTorch.
----
-
 # Skorch
 
 You can use Weights & Biases with Skorch to automatically log the model with the best performance – along with all model performance metrics, the model topology and compute resources after each epoch. Every file saved in wandb\_run.dir is automatically logged to W&B servers.
