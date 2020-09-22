@@ -1,3 +1,7 @@
+---
+description: Appropriate limits and guidelines for logging data to Weights & Biases
+---
+
 # Best Practices for Logging
 
 ### Best Practices for Fast Page Loading
