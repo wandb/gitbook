@@ -487,7 +487,7 @@ wandb.Image converts numpy arrays or instances of PILImage to PNG's by default.
 ```python
 wandb.log({"example": wandb.Image(...)})
 # Or multiple images
-wandb.lig({"example": [wandb.Image(...) for img in images]})
+wandb.log({"example": [wandb.Image(...) for img in images]})
 ```
 
 ### **Log a JPEG**
