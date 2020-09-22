@@ -1,4 +1,4 @@
-# Limits
+# Best Practices for Logging
 
 ### Best Practices for Fast Page Loading
 

@@ -38,7 +38,7 @@
     * [Grouping](library/advanced/grouping.md)
     * [Resuming](library/advanced/resuming.md)
     * [Security](library/advanced/security.md)
-    * [Limits](library/advanced/limits.md)
+    * [Best Practices for Logging](library/advanced/limits.md)
   * [API](library/api/README.md)
     * [API Examples](library/api/examples.md)
   * [Examples](library/example-projects/README.md)
