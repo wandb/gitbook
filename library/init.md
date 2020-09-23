@@ -44,8 +44,8 @@ We automatically save a copy of the script where you run wandb.init\(\). Learn m
 
 If you're trying to start multiple runs from one script, add two things to your code:
 
-1. wandb.init\(**reinit=True**\): Use this setting to allow reinitializing runs
-2. **run.join\(\)**: Use this at the end of your run to finish logging for that run
+1. run = wandb.init\(**reinit=True**\): Use this setting to allow reinitializing runs
+2. **run.finish\(\)**: Use this at the end of your run to finish logging for that run
 
 ```python
 import wandb
@@ -53,7 +53,7 @@ for x in range(10):
     run = wandb.init(project="runs-from-for-loop", reinit=True)
     for y in range (100):
         wandb.log({"metric": x+y})
-    run.join()
+    run.finish()
 ```
 
 Alternatively you can use a python context manager which will automatically finish logging:
