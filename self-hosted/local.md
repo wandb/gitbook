@@ -9,13 +9,13 @@ description: Run Weights and Biases on your own machines using Docker
 To run the W&B server locally you'll need to have [Docker](https://www.docker.com/products/docker-desktop) installed.  Then simply run:
 
 ```
-$ wandb local
+wandb local
 ```
 
 Behind the scenes the wandb client library is running the [_wandb/local_](https://hub.docker.com/repository/docker/wandb/local) docker image, forwarding port 8080 to the host, and configuring your machine to send metrics to your local instance instead of our hosted cloud.  If you want to run our local container manually, you can run the following docker command:
 
 ```text
-$ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
+docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
 ### Centralized Hosting
