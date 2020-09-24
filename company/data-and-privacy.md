@@ -15,9 +15,9 @@ Our tool provides the ability to log 4 primary classes of data:
 
 All data is stored encrypted at rest and is encrypted in transit in our cloud offering. We respect all data takedown requests in a timely manner and can ensure it's been wiped from the system.
 
-### On-prem and private cloud
+### Self hosted and private cloud
 
-We follow industry best practices for security and encryption in our cloud-hosted service. We also offer [private cloud and on-prem installations](../self-hosted/) for enterprise customers. [Contact us](getting-help.md) to learn about options for your business.
+We follow industry best practices for security and encryption in our cloud-hosted service. We also offer [private cloud and self hosted installations](../self-hosted/) for enterprise customers. [Contact us](getting-help.md) to learn about options for your business.
 
 For personal use, we have a [local Docker installation](../self-hosted/local.md) that you can run on your own machine.‌
 

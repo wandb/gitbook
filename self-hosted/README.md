@@ -1,14 +1,12 @@
 ---
-description: On-prem installations for projects with sensitive data
+description: Self Hosted installations for projects with sensitive data
 ---
 
-# On Prem
+# Self Hosted
 
-W&B Enterprise is the on-prem version of [Weights & Biases](https://app.wandb.ai). It makes collaborative experiment tracking possible for enterprise machine learning teams, giving you a way to keep all training data and metadata within your organization's network.
+W&B Local is the self hosted version of [Weights & Biases](https://app.wandb.ai). It makes collaborative experiment tracking possible for enterprise machine learning teams, giving you a way to keep all training data and metadata within your organization's network.
 
-[Request a demo to try out W&B Enterprise →](https://www.wandb.com/demo)
-
-Most enterprise customers will use a [W&B Enterprise Server](https://docs.wandb.com/enterprise/setup). This is a single virtual machine containing all of W&B's systems and storage. You can provision a W&B server on any cloud environment or local hardware or virtual server.
+[Request a demo to try out W&B Local →](https://www.wandb.com/demo)
 
 We also offer [W&B Enterprise Cloud](cloud.md), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system can scale to any level of usage.
 
@@ -19,24 +17,13 @@ We also offer [W&B Enterprise Cloud](cloud.md), which runs a completely scalable
 * Integrate with your company's authentication system
 * Premier support by the W&B engineering team
 
-The Enterprise Server consists of a single virtual machine, saved as a bootable image in the format of your cloud platform. Your W&B data is saved on a separate drive from the server software so data can be preserved across VM versions.
-
-We support the following environments:
-
-| **Platform** | **Image Format** |
-| :--- | :--- |
-| Amazon Web Services | AMI |
-| Microsoft Azure | Managed Image |
-| Google Cloud Platform | GCE Image |
-| VMware | OVA |
-| Virtualbox | OVA |
-| Vagrant | Vagrant Box |
+The self hosted server is a single Docker image that is simple to deploy.  Your W&B data is saved on a persistent volume or an external database so data can be preserved across container versions.
 
 ## Server Requirements
 
-The W&B Enterprise server requires a virtual machine with at least 4 cores and 16GB memory.
+The W&B self hosted server requires an instance with at least 4 cores and 8GB memory.
 
-## On-Prem Resources
+## Self Hosted Resources
 
 {% page-ref page="local.md" %}
 
