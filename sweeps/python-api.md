@@ -13,7 +13,7 @@ sweep_config = {
   "name": "My Sweep",
   "method": "grid",
   "parameters": {
-        "parameter1": {
+        "param1": {
             "values": [1, 2, 3]
         }
     }
