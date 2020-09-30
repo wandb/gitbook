@@ -8,7 +8,7 @@ description: >-
 
 Use these configuration fields to customize your sweep. There are two ways to specify your configuration:
 
-1. [YAML file](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config): best for distributed sweeps
+1. [YAML file](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config): best for distributed sweeps. See examples [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
 2. [Python data structure](python-api.md): best for running a sweep from a Jupyter Notebook 
 
 | Top-level key | Meaning |
