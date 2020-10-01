@@ -289,6 +289,14 @@ artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
 
+### Download an artifact outside of a run
+
+```python
+api = wandb.Api()
+artifact = api.artifact('entity/project/artifact:alias')
+artifact.download()
+```
+
 ## Updating artifacts
 
 You can update the `description`, `metadata`, and `aliases` of an artifact by just setting them to the desired values and then calling `save()`.
