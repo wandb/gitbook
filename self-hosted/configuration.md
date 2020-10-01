@@ -12,9 +12,10 @@ All configuration settings can be set via the UI however if you would like to ma
 
 **LICENSE** - Your wandb/local license  
 **MYSQL** - The MySQL connection string  
-**BUCKET** - S3 bucket for storing data  
-**BUCKET\_QUEUE** - The SQS queue for object creation events  
-**REGION** - The AWS Region where your bucket lives  
+**BUCKET** - The S3 / GCS bucket for storing data  
+**BUCKET\_QUEUE** - The SQS / Google PubSub queue for object creation events  
+**NOTIFICATIONS\_QUEUE** - The SQS queue on which to publish run events  
+**AWS\_REGION** - The AWS Region where your bucket lives  
 **HOST** - The FQD of your instance, i.e. https://my.domain.net  
 **AUTH0\_DOMAIN** - The Auth0 domain of your tenant  
 **AUTH0\_CLIENT\_ID** - The Auth0 Client ID of application
