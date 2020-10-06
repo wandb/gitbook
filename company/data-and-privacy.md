@@ -37,3 +37,7 @@ By default, we only pick up the latest git SHA for your code. You can optionally
 
 You can download data saved with Weights & Biases using our [export API](../library/api/). We want to make it easy to do custom analysis in notebooks, back up your data if you'd like to have a local copy, or plug your saved logs into other tools in your ML workflow.
 
+### Linked accounts
+
+If you use Google or GitHub OAuth to create and log in to a Weights & Biases account, we don't read or sync data from your repositories or folders. These connections are purely for authentication purposes. You can log files and code to associate with your runs using W&B [Artifacts](../artifacts/).
+
