@@ -4,7 +4,7 @@ description: How to configure the W&B Local Server installation
 
 # Advanced Configuration
 
-Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/admin-settings` page on your server once it's up and running.    You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams. 
+Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running.    You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams. 
 
 ## Configuration as code
 
