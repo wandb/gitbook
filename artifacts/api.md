@@ -303,7 +303,7 @@ You can update the `description`, `metadata`, and `aliases` of an artifact by ju
 
 ```python
 api = wandb.Api()
-artifact = api.run('bike-dataset:latest')
+artifact = api.artifact('bike-dataset:latest')
 
 # Update the description
 artifact.description = "My new description"
