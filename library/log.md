@@ -21,6 +21,8 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 
 We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
 
+[Try it in Colab ](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK)
+
 ### Histograms
 
 ```python
