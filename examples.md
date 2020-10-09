@@ -4,27 +4,27 @@ description: 'Example projects, walkthroughs, and tutorials of how to use Weight
 
 # Examples
 
-Get started with specific use cases of Weights & Biases:
+Explore examples for using Weights & Biases to:
 
 * Track and visualize machine learning experiments
 * Version datasets and models
 * Instrument models using different frameworks like PyTorch and Scikit
 
-Fork examples from our [GitHub repo](https://github.com/wandb/examples) or explore the direct links here. Contact us at c@wandb.com to contribute an example to the list.
+Fork examples from our [GitHub repo](https://github.com/wandb/examples) or browse the direct links here. Contact us at c@wandb.com to contribute an example to the list.
 
 ### Getting Started with W&B
 
-| Description | Public Dashboard | Code |
+| Description | Dashboard | Code |
 | :--- | :--- | :--- |
-| Track Model Performance | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-models/reports/Track-Model-Performance--Vmlldzo1NTk2MA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/better-models-faster-with-weights-biases) |
-| Visualize Model Predictions | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/visualizing-model-performance-with-w-b) |
-| Saving and Restoring Models | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw) | [Colab Notebook](https://colab.research.google.com/drive/1pVlV6Ua4C695jVbLoG-wtc50wZ9OOjnC?authuser=1#scrollTo=0LB6j3O-jIsd) |
-| Compare System Metrics | [W&B Dashboard](https://app.wandb.ai/stacey/estuary/reports/System-metrics-for-model-comparison--Vmlldzo1NzI5Mg) |  |
-| Hyperparameter Sweeps | [W&B Dashboard](https://app.wandb.ai/sweep/sweeps-tutorial/workspace?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/1gKixa6hNUB8qrn1CfHirOfTEQm0qLCSS) |
+| Track Model Performance | [W&B link](https://app.wandb.ai/lavanyashukla/visualize-models/reports/Track-Model-Performance--Vmlldzo1NTk2MA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/better-models-faster-with-weights-biases) |
+| Visualize Model Predictions | [W&B link](https://app.wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/visualizing-model-performance-with-w-b) |
+| Saving and Restoring Models | [W&B link](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw) | [Colab Notebook](https://colab.research.google.com/drive/1pVlV6Ua4C695jVbLoG-wtc50wZ9OOjnC?authuser=1#scrollTo=0LB6j3O-jIsd) |
+| Compare System Metrics | [W&B link](https://app.wandb.ai/stacey/estuary/reports/System-metrics-for-model-comparison--Vmlldzo1NzI5Mg) |  |
+| Hyperparameter Sweeps | [W&B link](https://app.wandb.ai/sweep/sweeps-tutorial/workspace?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/1gKixa6hNUB8qrn1CfHirOfTEQm0qLCSS) |
 
 ### PyTorch
 
-| Description | Public Dashboard | Code |
+| Description | Dashboard | Code |
 | :--- | :--- | :--- |
 | Intro to PyTorch with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/pytorch-intro) | [Colab Notebook](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-intro/intro.ipynb) |
 | PyTorch MNIST Colab | [W&B Dashboard](https://app.wandb.ai/wandb/pytorch-mnist) | [Colab Notebook](http://bit.ly/pytorch-mnist-colab) |
@@ -40,7 +40,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or explo
 
 ### Keras
 
-| Description | Public Dashboard | Code |
+| Description | Dashboard | Code |
 | :--- | :--- | :--- |
 | Intro to Keras with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/keras-intro) | [Colab Notebook](https://colab.research.google.com/drive/1pMcNYctQpRoBKD5Z0iXeFWQD8hIDgzCV) |
 | Intro to Convolutional Neural Networks with W&B | [W&B Dashboard](https://app.wandb.ai/wandb/cnn-intro) | [Colab Notebook](https://colab.research.google.com/drive/1S8SJvH4bqhPvurG4gjh3-t-XulX4S8JX) |
@@ -57,7 +57,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or explo
 
 ### TensorFlow
 
-| Description | Public Dashboard | Code |
+| Description | Dashboard | Code |
 | :--- | :--- | :--- |
 | GAN to predict video frames | [W&B Dashboard](https://app.wandb.ai/wandb/catz/runs/qfsbxd3r) | [Github Repo](https://github.com/sirebellum/catz_contest) |
 | Tracking TensorFlow model performance |  | [Github Repo](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-estimator-mnist/mnist.py) |
@@ -65,7 +65,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or explo
 
 ### Fast.ai
 
-| Description | Public Dashboard | Code |
+| Description | Dashboard | Code |
 | :--- | :--- | :--- |
 | Classifying Simpson's characters | [W&B Dashboard](https://app.wandb.ai/borisd13/simpsons-fastai) | [Github Repo](https://github.com/borisdayma/simpsons-fastai) |
 | Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/semantic-segmentation/?workspace=user-borisd13) | [Github Repo](https://github.com/borisdayma/semantic-segmentation/blob/master/src/train.py) |
