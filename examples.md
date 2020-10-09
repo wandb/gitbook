@@ -4,14 +4,13 @@ description: 'Example projects, walkthroughs, and tutorials of how to use Weight
 
 # Examples
 
-We have a [GitHub repo](https://github.com/wandb/examples) of code examples, and here are some examples of projects using Weights & Biases.
+Get started with specific use cases of Weights & Biases:
 
-* **Public Dashboard**: reports in our web app which show results of training a model
-* **Code**: a link to model code that produced the visualized results
+* Track and visualize machine learning experiments
+* Version datasets and models
+* Instrument models using different frameworks like PyTorch and Scikit
 
-### Have a public project to share?
-
-Reach out to us at **contact@wandb.com** if you'd like us to add one of your projects to our featured list of examples.
+Fork examples from our [GitHub repo](https://github.com/wandb/examples) or explore the direct links here. Contact us at c@wandb.com to contribute an example to the list.
 
 ### Getting Started with W&B
 
