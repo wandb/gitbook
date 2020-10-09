@@ -127,6 +127,7 @@ redirects:
   library/sweeps/advanced: ./sweeps/ray-tune.md
   library/sweeps/local-controller: ./sweeps/local-controller.md
   library/sweeps/python-api: ./sweeps/python-api.md
+  librar/example-projects: ./examples.md
   overview/company-faq: ./overview/company-faq.md
   overview/getting-help: ./overview/getting-help.md
   overview/overview: ./overview.md
