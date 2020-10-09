@@ -210,6 +210,33 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 ### Custom Plots
 
 {% tabs %}
+{% tab title="Custom Charts" %}
+```python
+data_table = wandb.Table(data=data_as_2d_list,
+                         columns=["col1", "col2", "col3", "col4"])
+fields = {
+    "field1": "col1",
+    "field2": "col2",
+    "field3": "col3",
+    "field4": "col4"
+}
+# optional string fields
+string_fields = {
+    "title": "My Plot Table"
+}
+
+wandb.plot_table(vega_spec_name="my-vega-spec-name",
+                 data_table=data_table,
+                 fields=fields,
+                 string_fields=string_fields)
+```
+
+* vega\_spec\_name: the name of the vega spec you'd like to use
+* data\_table: a `wandb.Table` object containing data and table columns
+* fields: a dictionary mapping the from the vega spec keys to the table columns
+* string\_fields: a dictionary providing values for any string constants the custom visualization needs
+{% endtab %}
+
 {% tab title="Matplotlib" %}
 ```python
 import matplotlib.pyplot as plt
@@ -220,7 +247,11 @@ wandb.log({"chart": plt})
 
 You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default we'll convert the plot into a [Plotly](https://plot.ly/) plot. If you want to explicitly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging Plotly charts.
 {% endtab %}
+{% endtabs %}
 
+### Built-in Plots
+
+{% tabs %}
 {% tab title="ROC" %}
 `wandb.log({'roc': wandb.plots.ROC(y_test, y_probas, labels)})`
 
@@ -283,34 +314,7 @@ Here's an example of the attention maps for a Neural Machine Translation model t
 
 ![](../.gitbook/assets/docs-heatmaps.png)
 {% endtab %}
-
-{% tab title="Custom Charts" %}
-```python
-data_table = wandb.Table(data=data_as_2d_list, columns=["col1", "col2", "col3", "col4"])
-fields = {
-    "field1": "col1",
-    "field2": "col2",
-    "field3": "col3",
-    "field4": "col4
-}
-# optional string fields
-string_fields = {
-    "title": "My Plot Table"
-}
-
-wandb.plot_table(vega_spec_name="my-vega-spec-name", data_table=data_table, fields=fields, string_fields=string_fields)
-```
-* vega_spec_name: the name of the vega spec you'd like to use
-* data_table: a `wandb.Table` object containing data and table keys
-* fields: a dictionary mapping the from the vega spec keys to the table keys
-* string_fields: a dictionary providing values for any string constants the custom visualization needs
-{% endtab %}
-
 {% endtabs %}
-
-
-
-
 
 ### 3D Visualizations
 
