@@ -54,6 +54,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 | Visualize Model Predictions | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/visualizing-model-performance-with-w-b) |
 | Track Model Performance | [W&B Dashboard](https://app.wandb.ai/lavanyashukla/visualize-models/reports/Track-Model-Performance--Vmlldzo1NTk2MA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/better-models-faster-with-weights-biases) |
 | Visualize models in TensorBoard with Weights & Biases | [W&B Dashboard](https://app.wandb.ai/sayakpaul/tensorboard-integration-partII/reports/Visualize-models-in-TensorBoard-with-Weights-and-Biases--Vmlldzo2MzE2Mg) | [Colab Notebook](https://colab.research.google.com/gist/sayakpaul/5b31ed03725cc6ae2af41848d4acee45/demo_tensorboard.ipynb) |
+| Weights & Biases with TPUs |  | [Colab notebook](https://colab.research.google.com/drive/1gXEr0a_8ZbHt5-uO80JdQJxJ_uoYR4qv?usp=sharing) |
 
 ### TensorFlow
 
