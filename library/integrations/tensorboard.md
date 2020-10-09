@@ -1,6 +1,6 @@
 # TensorBoard
 
-W&B supports patching TensorBoard to automatically log all summaries.
+W&B supports patching TensorBoard to automatically log all the metrics from your script into our native charts.
 
 ```python
 import wandb
