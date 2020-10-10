@@ -1,15 +1,15 @@
 ---
-description: Custom visualizations and custom panels using queries
+description: Custom visualizations and custom panels using configurable specs and queries
 ---
 
-# Custom Charts \[Beta\]
+# Customizable Charts
 
-Create custom charts to visualize your experiment data.
+Create custom charts to control the details of how you visualize experiment data.
 
 ### **Benefits of custom charts**
 
-* Create charts that aren't possible right now in the default UI
-* Log arbitrary tables and visualize them, instead of relying on basic time-series metrics
+* Create charts that aren't possible in the default UI
+* Log arbitrary tables and visualize them, beyond basic time-series metrics
 * Control details of fonts, colors, and tooltips with the power of [Vega](https://vega.github.io/vega/)
 
 [Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
@@ -22,7 +22,7 @@ Contact Carey \(c@wandb.com\) with questions or suggestions.
 
 ### How it works
 
-1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as you normally would when running with W&B. To visualize a list of multiple values logged at one specific time, use a custom`wandb.Table`
+1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as you normally would when running with W&B. To visualize a list of multiple values logged at one specific time, use a custom `wandb.Table()`.
 2. **Custom queries**: Pull in any of this logged data with a [GraphQL](https://graphql.org/) query.
 3. **Custom visualizations**: Visualize the results of your query with [Vega](https://vega.github.io/vega/), a powerful visualization grammar. 
 
@@ -48,15 +48,33 @@ First, log data in your script. [Try a quick example notebook](https://bit.ly/cu
 
 ### **How to log a custom table**
 
-Use `wandb.Table()` to log your data as a  2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`\("custom\_data\_table" below\), and the individual fields will be accessible via the column names \("x", "y", and "z"\). You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows. 
+Use `wandb.Table()` to log your data as a  2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`, and the individual fields will be accessible via the column names. You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows.
 
-[Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
+[Try it in a Google Colab →](http://tiny.cc/custom-charts)
+
+* vega\_spec\_name: the name of the Vega spec you'd like to use
+* data\_table: a wandb.Table object containing data and table columns
+* fields: a dictionary mapping the from the Vega spec keys to the table columns
+* string\_fields: a dictionary providing values for any string constants the custom visualization needs
 
 ```python
-# Logging a custom table of data
-my_custom_data = [[x1, y1, z1], [x2, y2, z2]]
-wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
-                                columns = ["x", "y", "z"])})
+data_table = wandb.Table(data=data_as_2d_list,
+                         columns=["col1", "col2", "col3"])
+fields = {
+    "field1": "col1",
+    "field2": "col2",
+    "field3": "col3"
+}
+
+# optional string fields
+string_fields = {
+    "title": "My Plot Table"
+}
+
+wandb.plot_table(vega_spec_name="my-vega-spec-name",
+                 data_table=data_table,
+                 fields=fields,
+                 string_fields=string_fields)
 ```
 
 ## Custom queries
