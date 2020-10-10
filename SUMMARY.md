@@ -58,7 +58,7 @@
     * [Run Page](app/pages/run-page.md)
   * [Features](app/features/README.md)
     * [Anonymous Mode](app/features/anon.md)
-    * [Customizable Charts](app/features/custom-charts/README.md)
+    * [Custom Charts](app/features/custom-charts/README.md)
       * [Custom Charts Walkthrough](app/features/custom-charts/walkthrough.md)
     * [Table](app/features/sidebar.md)
     * [Tags](app/features/tags.md)
