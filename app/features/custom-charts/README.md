@@ -52,11 +52,6 @@ Use `wandb.Table()` to log your data as a  2D array. Typically each row of this 
 
 [Try it in a Google Colab →](http://tiny.cc/custom-charts)
 
-* vega\_spec\_name: the name of the Vega spec you'd like to use
-* data\_table: a wandb.Table object containing data and table columns
-* fields: a dictionary mapping the from the Vega spec keys to the table columns
-* string\_fields: a dictionary providing values for any string constants the custom visualization needs
-
 ```python
 data_table = wandb.Table(data=data_as_2d_list,
                          columns=["col1", "col2", "col3"])
@@ -76,6 +71,11 @@ wandb.plot_table(vega_spec_name="my-vega-spec-name",
                  fields=fields,
                  string_fields=string_fields)
 ```
+
+* **vega\_spec\_name**: the name of the Vega spec you'd like to use
+* **data\_table**: a wandb.Table object containing data and table columns
+* **fields**: a dictionary mapping the from the Vega spec keys to the table columns
+* **string\_fields**: a dictionary providing values for any string constants the custom visualization needs
 
 ## Custom queries
 
