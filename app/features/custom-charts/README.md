@@ -4,6 +4,10 @@ description: Custom visualizations and custom panels using queries
 
 # Custom Charts
 
+## [Announcing the ML Visualization IDE →](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
+
+What's possible for creating charts from your script, and customizing them dynamically. [Read the launch announcement →](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
+
 Create custom charts to visualize your experiment data.
 
 ### **Benefits of custom charts**
