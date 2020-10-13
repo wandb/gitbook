@@ -53,9 +53,9 @@ WandbCallback can optionally save training and validation data for wandb to visu
 * `mode` _str_ - one of {"auto", "min", "max"}. "min" - save model when monitor is minimized "max" - save model when monitor is maximized "auto" - try to guess when to save the model \(default\). save\_model: True - save a model when monitor beats all previous epochs False - don't save models
 * `save_weights_only` _boolean_ - if True, then only the model's weights will be saved \(`model.save_weights(filepath)`\), else the full model is saved \(`model.save(filepath)`\).
 * `log_weights` - \(boolean\) if True save histograms of the model's layer's weights.
-* `log_gradients` - \(boolean\) if True log histograms of the training gradients
+* `log_gradients` - \(boolean\) if True log histograms of the training gradients. The model must define a `total_loss`.
 * `training_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  This is needed for calculating gradients - this is mandatory if `log_gradients` is `True`.
-* `validate_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  A set of data for wandb to visualize.  If this is set, every epoch, wandb will make a small number of predictions and save the results for later visualization.
+* `validation_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  A set of data for wandb to visualize.  If this is set, every epoch, wandb will make a small number of predictions and save the results for later visualization.
 * `generator` _generator_ - a generator that returns validation data for wandb to visualize.  This generator should return tuples \(X,y\).  Either validate\_data or generator should be set for wandb to visualize specific data examples.
 * `validation_steps` _int_ - if `validation_data` is a generator, how many steps to run the generator for the full validation set.
 * `labels` _list_ - If you are visualizing your data with wandb this list of labels will convert numeric output to understandable string if you are building a multiclass classifier.  If you are making a binary classifier you can pass in a list of two labels \["label for false", "label for true"\].  If validate\_data and generator are both false, this won't do anything.
