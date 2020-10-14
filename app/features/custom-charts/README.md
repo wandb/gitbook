@@ -25,7 +25,7 @@ Contact Carey \(c@wandb.com\) with questions or suggestions
 
 ![](../../../.gitbook/assets/pr-roc.png)
 
-## Log charts from the script
+## Log charts from a script
 
 ### Builtin presets
 
@@ -112,7 +112,7 @@ You can use this to log arbitrary histograms. Note that `data` is a list of list
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="PR Curve" %}
+{% tab title="PR curve" %}
 `wandb.plot.pr_curve()`
 
 Log a [Precision-Recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) in one line:
@@ -136,7 +136,7 @@ You can log this whenever your code has access to:
 [Run the code →](https://colab.research.google.com/drive/1mS8ogA3LcZWOXchfJoMrboW3opY1A8BY?usp=sharing)
 {% endtab %}
 
-{% tab title="ROC Curve" %}
+{% tab title="ROC curve" %}
 `wandb.plot.roc_curve()`
 
 Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
