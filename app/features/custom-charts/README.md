@@ -25,7 +25,7 @@ Contact Carey \(c@wandb.com\) with questions or suggestions
 
 ![](../../../.gitbook/assets/pr-roc.png)
 
-## Log charts directly
+## Log charts from the script
 
 ### Builtin presets
 
