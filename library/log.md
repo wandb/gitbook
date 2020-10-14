@@ -207,37 +207,164 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 {% endtab %}
 {% endtabs %}
 
-### Custom Plots
+### Custom Charts
+
+These presets have builtin `wandb.plot` methods that make it fast to log charts directly from your script and see the exact visualizations you're looking for in the UI.
 
 {% tabs %}
-{% tab title="Custom Charts" %}
-```python
-data_table = wandb.Table(data=data_as_2d_list,
-                         columns=["col1", "col2", "col3", "col4"])
-fields = {
-    "field1": "col1",
-    "field2": "col2",
-    "field3": "col3",
-    "field4": "col4"
-}
-# optional string fields
-string_fields = {
-    "title": "My Plot Table"
-}
+{% tab title="Line plot" %}
+`wandb.plot.line()`
 
-wandb.plot_table(vega_spec_name="my-vega-spec-name",
-                 data_table=data_table,
-                 fields=fields,
-                 string_fields=string_fields)
+Log a custom line plot—a list of connected and ordered points \(x,y\) on arbitrary axes x and y.
+
+```python
+data = [[x, y] for (x, y) in zip(x_values, y_values)]
+table = wandb.Table(data=data, columns = ["x", "y"])
+wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom Y vs X Line Plot")
 ```
 
-* vega\_spec\_name: the name of the vega spec you'd like to use
-* data\_table: a `wandb.Table` object containing data and table columns
-* fields: a dictionary mapping the from the vega spec keys to the table columns
-* string\_fields: a dictionary providing values for any string constants the custom visualization needs
+You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
+
+![](../.gitbook/assets/line-plot.png)
+
+[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
+
+[Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Matplotlib" %}
+{% tab title="Scatter plot" %}
+`wandb.plot.scatter()`
+
+Log a custom scatter plot—a list of points \(x, y\) on a pair of arbitrary axes x and y.
+
+```python
+data = [[x, y] for (x, y) in zip(class_x_prediction_scores, class_y_prediction_scores)]
+table = wandb.Table(data=data, columns = ["class_x", "class_y"])
+wandb.log({"my_custom_id" : wandb.plot.scatter(table, "class_x", "class_y")})
+```
+
+You can use this to log scatter points on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
+
+![](../.gitbook/assets/demo-scatter-plot.png)
+
+[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Scatter-Plots--VmlldzoyNjk5NDQ)
+
+[Run the code →](https://tiny.cc/custom-charts)
+{% endtab %}
+
+{% tab title="Bar chart" %}
+`wandb.plot.bar()`
+
+Log a custom bar chart—a list of labeled values as bars—natively in a few lines:
+
+```python
+data = [[label, val] for (label, val) in zip(labels, values)]
+table = wandb.Table(data=data, columns = ["label", "value"])
+wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label", "value", title="Custom Bar Chart")
+```
+
+You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly \(i.e. each data point must have both\).
+
+![](../.gitbook/assets/image%20%2896%29.png)
+
+[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Bar-Charts--VmlldzoyNzExNzk)
+
+[Run the code →](https://tiny.cc/custom-charts)
+{% endtab %}
+
+{% tab title="Histogram" %}
+`wandb.plot.histogram()`
+
+Log a custom histogram—sort list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores \(`scores`\) and want to visualize their distribution:
+
+```python
+data = [[s] for s in scores]
+table = wandb.Table(data=data, columns=["scores"])
+wandb.log({'my_histogram': wandb.plot.histogram(table, "scores", title=None)})
+```
+
+You can use this to log arbitrary histograms. Note that `data` is a list of lists, intended to support a 2D array of rows and columns.
+
+![](../.gitbook/assets/demo-custom-chart-histogram.png)
+
+[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Histograms--VmlldzoyNzE0NzM)
+
+[Run the code →](https://tiny.cc/custom-charts)
+{% endtab %}
+
+{% tab title="PR curve" %}
+`wandb.plot.pr_curve()`
+
+Log a [Precision-Recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) in one line:
+
+```python
+wandb.log({"pr" : wandb.plot.pr_curve(ground_truth, predictions,
+                     labels=None, classes_to_plot=None)})
+```
+
+You can log this whenever your code has access to:
+
+* a model's predicted scores \(`predictions`\) on a set of examples
+* the corresponding ground truth labels \(`ground_truth`\) for those examples
+* \(optionally\) a list of the labels/class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
+* \(optionally\) a subset \(still in list format\) of the labels to visualize in the plot
+
+![](../.gitbook/assets/demo-precision-recall.png)
+
+[See in the app →](https://wandb.ai/wandb/plots/reports/Plot-Precision-Recall-Curves--VmlldzoyNjk1ODY)
+
+[Run the code →](https://colab.research.google.com/drive/1mS8ogA3LcZWOXchfJoMrboW3opY1A8BY?usp=sharing)
+{% endtab %}
+
+{% tab title="ROC curve" %}
+`wandb.plot.roc_curve()`
+
+Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
+
+```text
+wandb.log({"roc" : wandb.plot.roc_curve( ground_truth, predictions, \
+                        labels=None, classes_to_plot=None)})
+```
+
+You can log this whenever your code has access to:
+
+* a model's predicted scores \(`predictions`\) on a set of examples
+* the corresponding ground truth labels \(`ground_truth`\) for those examples
+* \(optionally\) a list of the labels/ class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
+* \(optionally\) a subset \(still in list format\) of these labels to visualize on the plot
+
+![](../.gitbook/assets/demo-custom-chart-roc-curve.png)
+
+[See in the app →](https://wandb.ai/wandb/plots/reports/Plot-ROC-Curves--VmlldzoyNjk3MDE)
+
+[Run the code →](https://colab.research.google.com/drive/1_RMppCqsA8XInV_jhJz32NCZG6Z5t1RO?usp=sharing)
+{% endtab %}
+{% endtabs %}
+
+### **Custom presets**
+
+Tweak a builtin Custom Chart preset, or create a new preset, then save the chart. Use the chart ID to log data to that custom preset directly from your script. 
+
+```python
+# Create a table with the columns to plot
+table = wandb.Table(data=data, columns=["step", "height"])
+
+# Map from the table's columns to the chart's fields
+fields = {"x": "step",
+          "value": "height"}
+
+# Use the table to populate the new custom chart preset
+# To use your own saved chart preset, change the vega_spec_name
+my_custom_chart = wandb.plot_table(vega_spec_name="carey/new_chart",
+              data_table=table,
+              fields=fields,
+              )
+```
+
+[Run the code →](https://tiny.cc/custom-charts)
+
+### Matplotlib
+
 ```python
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
@@ -246,75 +373,6 @@ wandb.log({"chart": plt})
 ```
 
 You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default we'll convert the plot into a [Plotly](https://plot.ly/) plot. If you want to explicitly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging Plotly charts.
-{% endtab %}
-{% endtabs %}
-
-### Built-in Plots
-
-{% tabs %}
-{% tab title="ROC" %}
-`wandb.log({'roc': wandb.plots.ROC(y_test, y_probas, labels)})`
-
-* y\_true \(arr\): Test set labels
-* y\_probas \(arr\): Test set predicted probabilities
-* labels \(list\): Named labels for target variable \(y\)
-
-[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
-
-[Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
-
-![](../.gitbook/assets/docs-roc2.png)
-{% endtab %}
-
-{% tab title="PR" %}
-`wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, labels)})`
-
-* y\_true \(array\): Test set labels
-* y\_probas \(array\): Test set predicted probabilities
-* labels \(list\): Named labels for target variable \(y\)
-
-[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
-
-[Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
-
-![](../.gitbook/assets/docs-pr2.png)
-{% endtab %}
-
-{% tab title="Confusion Matrix" %}
-`wandb.sklearn.plot_confusion_matrix(y_test, y_pred, labels)`
-
-* y\_true \(arr\): Test set labels
-* y\_pred \(arr\): Test set predicted probabilities
-* labels \(list\): Named labels for target variable \(y\)
-
-[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
-
-[Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
-
-This feature the confusion matrix to evaluate the accuracy of a classification. It's useful for assessing the quality of model predictions and finding patterns in the predictions the model gets wrong.
-
-The diagonal represents the predictions the model got right, i.e. where the actual label is equal to the predicted label.
-
-![](../.gitbook/assets/docs-confusion-matrix.png)
-{% endtab %}
-
-{% tab title="Heatmap" %}
-`wandb.log({'heatmap_with_text': wandb.plots.HeatMap(x_labels, y_labels, matrix_values, show_text=False)})`
-
-* matrix\_values \(arr\): 2D dataset of shape x\_labels \* y\_labels, containing heatmap values that can be coerced into an ndarray
-* x\_labels \(list\): Named labels for rows \(x\_axis\)
-* y\_labels \(list\): Named labels for columns \(y\_axis\)
-* show\_text \(bool\): Show text values in heatmap cells
-
-[See a live example →](https://app.wandb.ai/lavanyashukla/vega-plots/reports/Log-ROC%2C-PR-curves-and-Confusion-Matrices-with-W%26B--Vmlldzo3NzQ3MQ)
-
-[Sample code →](https://colab.research.google.com/drive/1959tqn82yyjanOOZmCm4tDUI_iWSFe-W)
-
-Here's an example of the attention maps for a Neural Machine Translation model that converts from English to French. We draw attention maps at the 2nd, 20th epochs and 100th. Here we can see that the model starts out by not knowing which words to pay attention to \(and uses `<res>` to predict all words, and slowly learns which ones to pay attention to over the course of the next 100 epochs.
-
-![](../.gitbook/assets/docs-heatmaps.png)
-{% endtab %}
-{% endtabs %}
 
 ### 3D Visualizations
 
