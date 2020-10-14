@@ -9,6 +9,7 @@ Use **Custom Charts** to create charts that aren't possible right now in the def
 * **What's possible**: Read the[ launch announcement →](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
 * **Code**: Try a live example in a[ hosted notebook →](https://tiny.cc/custom-charts)
 * **Video**: Watch a quick [walkthrough video →](https://www.youtube.com/watch?v=3-N9OV6bkSM)
+* **Example**: Quick Keras and Sklearn [demo notebook →](https://colab.research.google.com/drive/1g-gNGokPWM2Qbc8p1Gofud0_5AoZdoSD?usp=sharing)
 
 Contact Carey \(c@wandb.com\) with questions or suggestions
 
@@ -26,25 +27,18 @@ Contact Carey \(c@wandb.com\) with questions or suggestions
 
 ## Log data
 
-The first step is to get the experiment data you'd like to visualize into Weights & Biases. Any existing experiment logging via `wandb.config`or summary \(single values logged to a named key with `wandb.log`\) will be available to the query. You can also query the full history of summary values logged to a single key. You don't need to make any changes to your existing wandb code to fetch any of this data into a custom chart. To visualize a list of values logged at one point in time, we recommend adding a custom `wandb.Table`.
-
-### **Logged data types available for custom charts**
+Here are the data types you can log from your script and use in a custom chart:
 
 * **Config**: Initial settings of your experiment \(your independent variables\). This includes any named fields you've logged as keys to `wandb.config` at the start of your training \(e.g. `wandb.config.learning_rate = 0.0001)`
-* **Summary**: Single values logged during training \(your results or dependent variables\), e.g. `wandb.log({"val_acc" : 0.8})`. If you write to this key multiple times during training via `wandb.log()`, the summary is set to the final value of that key 
-* **History**:  The full history of the logged key is available to the query via the `history` field
+* **Summary**: Single values logged during training \(your results or dependent variables\), e.g. `wandb.log({"val_acc" : 0.8})`. If you write to this key multiple times during training via `wandb.log()`, the summary is set to the final value of that key.
+* **History**: The full timeseries of the logged scalar is available to the query via the `history` field
 * **summaryTable**: If you need to log a list of multiple values, use a `wandb.Table()` to save that data, then query it in your custom panel.
-
-First, log data in your script. [Try a quick example notebook](https://bit.ly/custom-charts-colab) to log the data tables, and see example results in this live W&B[ report](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc).
-
-* Use [wandb.config](../../../library/config.md) for single points set at the beginning of training, like hyperparameters. 
-* Use [wandb.log\(\)](../../../library/log.md) for multiple points over time, and custom tables \(see the next section\)
 
 ### **How to log a custom table**
 
 Use `wandb.Table()` to log your data as a 2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`\("custom\_data\_table" below\), and the individual fields will be accessible via the column names \("x", "y", and "z"\). You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows. 
 
-[Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
+[Try it in a Google Colab →](https://tiny.cc/custom-charts)
 
 ```python
 # Logging a custom table of data
