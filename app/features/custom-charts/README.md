@@ -4,23 +4,16 @@ description: Custom visualizations and custom panels using queries
 
 # Custom Charts
 
-## [Announcing the ML Visualization IDE](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)  [🎉](https://emojipedia.org/party-popper/)
-
-Today we're launching our newest tool, Custom Charts. Read the [announcement](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg) to see lots of cool examples of what's possible.
-
-\*\*\*\*[**Read the launch announcement →**](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)\*\*\*\*
-
-\*\*\*\*
-
 ### **Benefits of custom charts**
 
 * Create charts that aren't possible right now in the default UI
-* Log arbitrary tables and visualize them, instead of relying on basic time-series metrics
+* Log arbitrary tables and visualize them
 * Control details of fonts, colors, and tooltips with the power of [Vega](https://vega.github.io/vega/)
 
-[Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
+### Resources
 
-[See live example charts →](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc)
+* Try a live example in a[ hosted notebook →](https://tiny.cc/custom-charts)
+* Read the[ launch announcement →](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
 
 Contact Carey \(c@wandb.com\) with questions or suggestions.
 
@@ -54,7 +47,7 @@ First, log data in your script. [Try a quick example notebook](https://bit.ly/cu
 
 ### **How to log a custom table**
 
-Use `wandb.Table()` to log your data as a  2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`\("custom\_data\_table" below\), and the individual fields will be accessible via the column names \("x", "y", and "z"\). You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows. 
+Use `wandb.Table()` to log your data as a 2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`\("custom\_data\_table" below\), and the individual fields will be accessible via the column names \("x", "y", and "z"\). You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows. 
 
 [Try it in a Google Colab →](http://bit.ly/custom-charts-colab)
 
@@ -90,6 +83,10 @@ Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/
 
 To pull data into your chart from W&B, add template strings of the form `"${field:<field-name>}"` anywhere in your Vega spec. This will create a dropdown in the **Chart Fields** area on the right side, which users can use to select a query result column to map into Vega.
 
+**Custom fields with defaults**
+
+To set a default value for a field, use this syntax: `"${field:<field-name>:<placeholder text>}"`
+
 ![Edit the Vega specification on the left and preview the chart on the right](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.04.32-am.png)
 
 You can also use the **Data / Signals** tab to debug. This shows you the tables and formats that are available to you in the Vega view, coming in from the query.
@@ -102,12 +99,8 @@ Apply any changes to a specific visualization panel, or save the Vega spec to re
 
 ### Coming soon
 
-* **Run colors**: Matching the colors in the custom charts to the run colors set in the sidebar
-* **Custom user-defined fields**: Adding custom string fields outside of the Vega spec \(like chart titles\)
-* **wandb.plot\(\)**: Call from Python to log custom visualizations
 * **Polling**: Auto-refresh of data in the chart
 * **Sampling**: Dynamically adjust the total number of points loaded into the panel for efficiency
-* **Save templates**: Use a Vega chart across different projects without needing to manually copy and paste
 
 ### Gotchas
 
