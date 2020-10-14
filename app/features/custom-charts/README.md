@@ -4,26 +4,21 @@ description: Custom visualizations and custom panels using queries
 
 # Custom Charts
 
-### **Benefits of custom charts**
+Use **Custom Charts** to create charts that aren't possible right now in the default UI. Log arbitrary tables of data and visualize them exactly how you want. Control details of fonts, colors, and tooltips with the power of [Vega](https://vega.github.io/vega/).
 
-* Create charts that aren't possible right now in the default UI
-* Log arbitrary tables and visualize them
-* Control details of fonts, colors, and tooltips with the power of [Vega](https://vega.github.io/vega/)
+* **What's possible**: Read the[ launch announcement →](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
+* **Code**: Try a live example in a[ hosted notebook →](https://tiny.cc/custom-charts)
+* **Video**: Watch a quick [walkthrough video →](https://www.youtube.com/watch?v=3-N9OV6bkSM)
 
-### Resources
-
-* Try a live example in a[ hosted notebook →](https://tiny.cc/custom-charts)
-* Read the[ launch announcement →](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
-
-Contact Carey \(c@wandb.com\) with questions or suggestions.
+Contact Carey \(c@wandb.com\) with questions or suggestions
 
 ![Supported charts from vega.github.io/vega](../../../.gitbook/assets/screen-shot-2020-09-09-at-2.18.17-pm.png)
 
 ### How it works
 
 1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as you normally would when running with W&B. To visualize a list of multiple values logged at one specific time, use a custom`wandb.Table`
-2. **Custom queries**: Pull in any of this logged data with a [GraphQL](https://graphql.org/) query.
-3. **Custom visualizations**: Visualize the results of your query with [Vega](https://vega.github.io/vega/), a powerful visualization grammar. 
+2. **Customize the chart**: Pull in any of this logged data with a [GraphQL](https://graphql.org/) query. Visualize the results of your query with [Vega](https://vega.github.io/vega/), a powerful visualization grammar.
+3. **Log the chart**: Call your own preset from your script with `wandb.plot_table()` or use one of our builtins.
 
 {% page-ref page="walkthrough.md" %}
 
