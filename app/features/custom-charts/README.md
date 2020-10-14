@@ -161,7 +161,29 @@ You can log this whenever your code has access to:
 {% endtab %}
 {% endtabs %}
 
-**wandb.plot.line\(\)**
+### **Custom presets**
+
+Tweak a builtin preset, or create a new preset, then save the chart. Use the chart ID to log data to that custom preset directly from your script. 
+
+```python
+# Create a table with the columns to plot
+table = wandb.Table(data=data, columns=["step", "height"])
+
+# Map from the table's columns to the chart's fields
+fields = {"x": "step",
+          "value": "height"}
+
+# Use the table to populate the new custom chart preset
+# To use your own saved chart preset, change the vega_spec_name
+my_custom_chart = wandb.plot_table(vega_spec_name="carey/new_chart",
+              data_table=table,
+              fields=fields,
+              )
+```
+
+[Run the code →](https://tiny.cc/custom-charts)
+
+![](../../../.gitbook/assets/image%20%2897%29.png)
 
 ## Log data
 
