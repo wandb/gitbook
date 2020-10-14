@@ -47,24 +47,21 @@ wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
                                 columns = ["x", "y", "z"])})
 ```
 
-## Custom queries
+## Customize the chart
 
 Add a new custom chart to get started, then edit the query to select data from your visible runs. The query uses [GraphQL](https://graphql.org/) to fetch data from the config, summary, and history fields in your runs.
 
 ![Add a new custom chart, then edit the query](../../../.gitbook/assets/2020-08-28-06.42.40.gif)
 
-## Custom visualizations
+### Custom visualizations
 
-Select a **Chart** in the upper right corner to start with a default preset. Next, pick **Chart fields**  to map the data you're pulling in from the query to the corresponding fields in your chart. 
+Select a **Chart** in the upper right corner to start with a default preset. Next, pick **Chart fields** to map the data you're pulling in from the query to the corresponding fields in your chart. Here's an example of selecting a metric to get from the query, then mapping that into the bar chart fields below.
 
-* For a built-in bar chart, you could set the Vega field `value` to show "loss" \(displayed as`runSets_summary_loss`\) to see your final training loss across multiple runs. 
+![Creating a custom bar chart showing accuracy across runs in a project](../../../.gitbook/assets/demo-make-a-custom-chart-bar-chart.gif)
+
 * For the custom chart below, the experimental data for average precision is represented as a series of coordinate points of \(recall, precision\). These are logged to a custom `wandb.Table` under the key `"avg_precision"`, available to the query as a `summaryTable`. Map the Vega field `x-axis` to the recall, or `"r_m"` field, and the Vega field `y-axis` to the precision or `"p_m"` field \(not shown\) to display the average precision curves on this chart.
 
-[See live example charts →](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc)
-
-![Dropdown list of type options](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.00.02-am.png)
-
-### Editing Vega
+### How to edit Vega
 
 Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI.  You can change any aspect of the chart, from the visual style \(e.g. change the title, pick a different color scheme, show curves as a series of points instead of as connected lines\) to the data itself \(use a Vega transform to bin an array of values into a histogram, etc.\). The panel preview will update interactively, so you can see the effect of your changes as you edit the Vega spec or query. The [Vega documentation and tutorials ](https://vega.github.io/vega/)are an excellent source of inspiration.
 
@@ -72,17 +69,11 @@ Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/
 
 To pull data into your chart from W&B, add template strings of the form `"${field:<field-name>}"` anywhere in your Vega spec. This will create a dropdown in the **Chart Fields** area on the right side, which users can use to select a query result column to map into Vega.
 
-**Custom fields with defaults**
-
 To set a default value for a field, use this syntax: `"${field:<field-name>:<placeholder text>}"`
-
-![Edit the Vega specification on the left and preview the chart on the right](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.04.32-am.png)
-
-You can also use the **Data / Signals** tab to debug. This shows you the tables and formats that are available to you in the Vega view, coming in from the query.
 
 ### Saving Charts
 
-Apply any changes to a specific visualization panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name. 
+Apply any changes to a specific visualization panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name.
 
 ## Frequently asked questions
 
