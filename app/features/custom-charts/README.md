@@ -233,12 +233,6 @@ To set a default value for a field, use this syntax: `"${field:<field-name>:<pla
 
 Apply any changes to a specific visualization panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name.
 
-## 
-
-
-
-\*\*\*\*
-
 ## Frequently asked questions
 
 ### Coming soon
