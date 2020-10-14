@@ -59,8 +59,6 @@ Select a **Chart** in the upper right corner to start with a default preset. Nex
 
 ![Creating a custom bar chart showing accuracy across runs in a project](../../../.gitbook/assets/demo-make-a-custom-chart-bar-chart.gif)
 
-* For the custom chart below, the experimental data for average precision is represented as a series of coordinate points of \(recall, precision\). These are logged to a custom `wandb.Table` under the key `"avg_precision"`, available to the query as a `summaryTable`. Map the Vega field `x-axis` to the recall, or `"r_m"` field, and the Vega field `y-axis` to the precision or `"p_m"` field \(not shown\) to display the average precision curves on this chart.
-
 ### How to edit Vega
 
 Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI.  You can change any aspect of the chart, from the visual style \(e.g. change the title, pick a different color scheme, show curves as a series of points instead of as connected lines\) to the data itself \(use a Vega transform to bin an array of values into a histogram, etc.\). The panel preview will update interactively, so you can see the effect of your changes as you edit the Vega spec or query. The [Vega documentation and tutorials ](https://vega.github.io/vega/)are an excellent source of inspiration.
@@ -74,6 +72,84 @@ To set a default value for a field, use this syntax: `"${field:<field-name>:<pla
 ### Saving Charts
 
 Apply any changes to a specific visualization panel, or save the Vega spec to reuse elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name.
+
+## Log charts from the script
+
+### Builtin presets
+
+{% tabs %}
+{% tab title="Line plot" %}
+Log a custom line plot—a list of connected and ordered points \(x,y\) on arbitrary axes x and y.
+
+```python
+data = [[x, y] for (x, y) in zip(x_values, y_values)]
+table = wandb.Table(data=data, columns = ["x", "y"])
+wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom Y vs X Line Plot")
+```
+
+You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
+
+![](../../../.gitbook/assets/line-plot.png)
+
+[See the interactive report →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
+
+[Try the hosted notebook →](https://tiny.cc/custom-charts)
+{% endtab %}
+
+{% tab title="Scatter plot" %}
+Log a custom scatter plot—a list of points \(x, y\) on a pair of arbitrary axes x and y.
+
+```python
+data = [[x, y] for (x, y) in zip(x_values, y_values)]
+table = wandb.Table(data=data, columns = ["x", "y"])
+wandb.log({"my_custom_plot_id" : wandb.plot.scatter(table, "x", "y", title="Custom Y vs X Scatter Plot")
+```
+
+You can use this to log scatter points on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
+
+![](../../../.gitbook/assets/demo-scatter-plot.png)
+
+
+
+[See the interactive report →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
+
+[Try the hosted notebook →](https://tiny.cc/custom-charts)
+{% endtab %}
+
+{% tab title="Bar chart" %}
+Log a custom bar chart—a list of labeled values as bars—natively in a few lines:
+
+```python
+data = [[label, val] for (label, val) in zip(labels, values)]
+table = wandb.Table(data=data, columns = ["label", "value"])
+wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label", "value", title="Custom Bar Chart")
+```
+
+You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly \(i.e. each data point must have both\).
+
+![](../../../.gitbook/assets/image%20%2896%29.png)
+
+[See the interactive report →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
+
+[Try the hosted notebook →](https://tiny.cc/custom-charts)
+{% endtab %}
+
+{% tab title="Histogram" %}
+
+
+
+
+[See the interactive report →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
+
+[Try the hosted notebook →](https://tiny.cc/custom-charts)
+{% endtab %}
+{% endtabs %}
+
+**wandb.plot.line\(\)**
+
+
+
+\*\*\*\*
 
 ## Frequently asked questions
 
