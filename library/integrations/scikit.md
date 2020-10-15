@@ -1,6 +1,6 @@
 # Scikit
 
-You can use wandb to visualize and compare your scikit-learn models' performance with just a few lines of code. [**Try an example →**](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)\*\*\*\*
+You can use wandb to visualize and compare your scikit-learn models' performance with just a few lines of code. [**Try an example →**](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)
 
 ### Making Plots
 
