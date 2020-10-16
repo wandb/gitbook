@@ -28,7 +28,7 @@ Use these optional environment variables to do things like set up authentication
 | Variable name | Usage |
 | :--- | :--- |
 | **WANDB\_API\_KEY** | Sets the authentication key associated with your account. You can find your key on [your settings page](https://app.wandb.ai/settings). This must be set if `wandb login` hasn't been run on the remote machine. |
-| **WANDB\_BASE\_URL** | If you're using [wandb/local](../self-hosted/) you should set this environment variable to `http://YOUR_UP:YOUR_PORT` |
+| **WANDB\_BASE\_URL** | If you're using [wandb/local](../self-hosted/) you should set this environment variable to `http://YOUR_IP:YOUR_PORT` |
 | **WANDB\_NAME** | The human-readable name of your run. If not set it will be randomly generated for you |
 | **WANDB\_NOTES** | Longer notes about your run.  Markdown is allowed and you can edit this later in the UI. |
 | **WANDB\_ENTITY** | The entity associated with your run. If you have run `wandb init` in the directory of your training script, it will create a directory named _wandb_ and will save a default entity which can be checked into source control. If you don't want to create that file or want to override the file you can use the environmental variable. |
