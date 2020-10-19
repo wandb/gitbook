@@ -115,7 +115,6 @@ This script finds a project and outputs a CSV of runs with name, configs and sum
 import wandb
 api = wandb.Api()
 
-# Change oreilly-class/cifar to <entity/project-name>
 runs = api.runs("<entity>/<project>")
 summary_list = [] 
 config_list = [] 
