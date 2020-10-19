@@ -162,7 +162,7 @@ On the W&B runs page, you will see your videos in the Media section.
 {% endtab %}
 
 {% tab title="Text Table" %}
-Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 1000.
+Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 10,000.
 
 ```python
 # Method 1
