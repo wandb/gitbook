@@ -53,6 +53,10 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_RUN\_GROUP** | Specify the experiment name to automatically group runs together. See [grouping](advanced/grouping.md) for more info. |
 | **WANDB\_JOB\_TYPE** | Specify the job type, like "training" or "evaluation" to indicate different types of runs. See [grouping](advanced/grouping.md) for more info. |
 
+## Singularity Environments
+
+If you're running containers in [Singularity](https://singularity.lbl.gov/index.html) you can pass environment variables by pre-pending the above variables with **SINGULARITYENV\_**.  More details about Singularity environment variables can be found [here](https://singularity.lbl.gov/docs-environment-metadata#environment).
+
 ## Running on AWS
 
 If you're running batch jobs in AWS, it's easy to authenticate your machines with your W&B credentials. Get your API key from your [settings page](https://app.wandb.ai/settings), and set the WANDB\_API\_KEY environment variable in the [AWS batch job spec](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters).
