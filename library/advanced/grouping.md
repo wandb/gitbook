@@ -45,5 +45,7 @@ Click the grouping button and clear group fields at any time, which returns the 
 
 Click the edit button in the upper right corner of a graph and select the **Advanced** tab to change the line and shading. You can select the mean, minimum, or maximum value to for the line in each group. For the shading, you can turn off shading, show the min and max, the standard deviation, and the standard error.
 
-![](../../.gitbook/assets/demo-grouping-settings.png)
+![](../../.gitbook/assets/demo-grouping-options-for-line-plots.gif)
+
+
 
