@@ -28,3 +28,13 @@ Compare results and describe your findings, then share links with colleagues.
 
 ![](../../.gitbook/assets/example-report-for-molecules.png)
 
+
+
+## Common Questions
+
+### I accidentally deleted a panel in W&B, how do I undo it?
+
+To undo a change in your workspace, click the "undo" button at the bottom of the page.
+
+![](../../.gitbook/assets/demo-how-to-undo-deleting-a-panel.gif)
+
