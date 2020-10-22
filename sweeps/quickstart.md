@@ -102,7 +102,7 @@ Our central server coordinates between all agents executing the sweep.  Set up a
 wandb sweep sweep.yaml
 ```
 
-This command will print out a **sweep ID**. Copy that to use in the next step!
+This command will print out a **sweep ID**, which includes the entity name and project name. Copy that to use in the next step!
 
 ## 4. Launch agent\(s\)
 
