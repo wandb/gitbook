@@ -9,6 +9,7 @@
   * [wandb.log\(\)](library/log.md)
   * [wandb.save\(\)](library/save.md)
   * [wandb.restore\(\)](library/restore.md)
+  * [wandb.alert\(\)](library/wandb.alert.md)
   * [Command Line Interface](library/cli.md)
   * [Environment Variables](library/environment-variables.md)
   * [Integrations](library/integrations/README.md)
