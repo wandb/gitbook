@@ -45,6 +45,7 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_DOCKER** | Set this to a docker image digest to enable restoring of runs. This is set automatically with the wandb docker command. You can obtain an image digest by running `wandb docker my/image/name:tag --digest` |
 | **WANDB\_DISABLE\_CODE** | Set this to true to prevent wandb from storing a reference to your source code |
 | **WANDB\_ANONYMOUS** | Set this to "allow", "never", or "must" to let users create anonymous runs with secret urls. |
+| **WANDB\_CONSOLE** | Set this to "off" to disable stdout / stderr logging.  This defaults to "on" in environments that support it. |
 | **WANDB\_CONFIG\_PATHS** | Comma separated list of yaml files to load into wandb.config.  See [config](config.md#file-based-configs). |
 | **WANDB\_CONFIG\_DIR** | This defaults to ~/.config/wandb, you can override this location with this environment variable |
 | **WANDB\_NOTEBOOK\_NAME** | If you're running in jupyter you can set the name of the notebook with this variable. We attempt to auto detect this. |
