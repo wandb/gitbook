@@ -318,6 +318,9 @@ command:
 | ${interpreter\| | Expands to "python". |
 | ${program} | Training script specified by the sweep configuration `program` key |
 | ${args} | Expanded arguments in the form --param1=value1 --param2=value2 |
+| ${args\_no\_hyphens} | Expanded arguments in the form param1=value1 param2=value2 |
+| ${json} | Arguments encoded as JSON |
+| ${json\_file} | The path to a file containing the args encoded as JSON |
 
  Examples:
 
