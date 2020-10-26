@@ -6,6 +6,10 @@ description: Overview of our client library
 
 Use our python library to instrument your machine learning model and track experiments. Setup should only take a few lines of code. If you're using a popular framework, we have a number of integrations to make setting up wandb easy.
 
+When you call wandb.init\(\) in your code, wandb will return a Run object and create a local directory and save logs and files there, which it will stream asynchronously to a wandb server.
+
+A wandb Run corresponds to a single training run and contains a config, a summary and a history object. The config object is a dictionary-like structure that tracks hyperparameters such as a learning rate or a model type.  The summary object is a dictionary-like structure that captures metrics such as accuracy or loss. A history object is an array of dictionary like objects that tracks metrics over time. By default, calling wandb.log\(\) appends to the history object and updates the summary object but you can override this behavior if for example you want your summary metrics to capture the metrics of the optimal model found during training.
+
 We have more detailed docs generated from the code in [Reference](reference/).
 
 ### **Instrumenting a model**
