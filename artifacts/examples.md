@@ -4,9 +4,11 @@ description: Example code for trying W&B Artifacts
 
 # Artifacts Examples
 
-Try a quick example in Google Colab to see how Weights & Biases Artifacts work.
+Walk through an example of Artifacts in a live notebook.
 
-[Try the notebook →](https://bit.ly/wandb-artifacts-colab)
+[**Try the notebook →**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Pipeline_Versioning_with_W%26B_Artifacts.ipynb)\*\*\*\*
+
+![](../.gitbook/assets/artifacts-colab-notebook.png)
 
 For a more in-depth example, try our two GitHub demo projects:
 
