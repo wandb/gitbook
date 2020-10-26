@@ -361,6 +361,18 @@ command:
   - ${program}
 ```
 {% endtab %}
+
+{% tab title="Use with Hydra" %}
+You can change the command to pass arguments they way tools like Hydra expect.
+
+```text
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+  - ${args_no_hyphens}
+```
+{% endtab %}
 {% endtabs %}
 
 ## Common Questions
