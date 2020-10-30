@@ -22,9 +22,9 @@ We have more detailed docs generated from the code in [Reference](reference/).
 
 {% page-ref page="init.md" %}
 
-{% page-ref page="config.md" %}
-
 {% page-ref page="log.md" %}
+
+{% page-ref page="config.md" %}
 
 {% page-ref page="save.md" %}
 

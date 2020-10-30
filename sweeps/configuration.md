@@ -6,18 +6,18 @@ description: >-
 
 # Configuration
 
-Use these configuration fields to customize your sweep. There are two ways to specify your configuration:
+使用这些配置字段来自定义扫描。 有两种方法可以指定您的配置：
 
-1. [YAML file](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config): best for distributed sweeps. See examples [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
-2. [Python data structure](python-api.md): best for running a sweep from a Jupyter Notebook 
+1.  [文件](https://docs.wandb.com/sweeps/quickstart#2-sweep-config)：最适合分布式扫描。 在此[处查](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)看示例。
+2.   [Python数据结构](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/python-api)：最适合从Jupyter Notebook运行扫描
 
-| Top-level key | Meaning |
+| Top-level key | 含义 |
 | :--- | :--- |
-| name | The name of the sweep, displayed in the W&B UI |
-| description | Text description of the sweep \(notes\) |
-| program | Training script to run \(required\) |
-| metric | Specify the metric to optimize \(used by some search strategies and stopping criteria\) |
-| method | Specify the [search strategy](configuration.md#search-strategy) \(required\) |
+| name | 扫描名称，显示在W＆B UI中 |
+| description | 文字说明（注释） |
+| program | 要运行的训练脚本（必需） |
+| metric | 指定要优化的指标（由某些搜索策略和停止条件使用） |
+| method | Specify the [search strategy](configuration.md#search-strategy) \(required\) 指定搜索策略（必填） |
 | early\_terminate | Specify the [stopping criteria](configuration.md#stopping-criteria) \(optional, defaults to no early stopping\) |
 | parameters | Specify [parameters](configuration.md#parameters) bounds to search \(required\) |
 | project | Specify the project for this sweep |
