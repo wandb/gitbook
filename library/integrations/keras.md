@@ -19,7 +19,7 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 ```
 {% endcode %}
 
-See our [example projects](../../examples.md) for a complete script example.
+Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb), complete with [video tutorial](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases), or see our [example projects](../../examples.md) for a complete script example.
 
 #### Options
 
@@ -48,10 +48,11 @@ If you're setting `use_multiprocessing=True` and seeing the error `Error('You mu
 1. In the Sequence class init, add: `wandb.init(group='...')` 
 2. In your main program, make sure you're using `if __name__ == "__main__":` and then put the rest of your script logic inside that.
 
-## Example
+## Examples
 
 We've created a few examples for you to see how the integration works:
 
-* [Example on Github](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py):  Fashion MNIST example
+* [Example on Github](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py):  Fashion MNIST example in a Python script
+* Run in Google Colab: A simple notebook example to get you started
 * [Wandb Dashboard](https://app.wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs): View result on W&B
 
