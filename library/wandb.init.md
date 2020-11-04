@@ -135,13 +135,13 @@ for i in range(100):
 
 下面是终端输出的示例：
 
-![](../../.gitbook/assets/image%20%2881%29.png)
+![](../.gitbook/assets/image%20%2881%29.png)
 
 连上网以后，运行一条同步命令即可把该文件夹发送到云端。
 
 `wandb sync wandb/dryrun-folder-name`
 
-![](../../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 
 

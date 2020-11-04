@@ -26,7 +26,7 @@ description: 机器学习项目的项目管理和协作工具
 
 如果您的协作者之一同时编辑了该报告，则会收到警告，以帮助您解决潜在的编辑冲突。
 
-![](../.gitbook/assets/collaborative-reports.gif)
+![](.gitbook/assets/collaborative-reports.gif)
 
 **上传CSV文件到报告中**
 
@@ -53,7 +53,7 @@ description: 机器学习项目的项目管理和协作工具
 
 将来自两个不同项目的运行与跨项目报告进行比较。 使用运行集表中的项目选择器选择一个项目。
 
-![](../.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
+![](.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
 
 该部分中的可视化对象从第一个活动运行集中取出列数据。 如果在线图中没有找到所需的指标，请确保在该部分中选中的第一个运行集具有该列数据。 此功能支持时间序列上的历史数据，但是我们不支持从不同项目中提取不同的指标——因此，散点图不适用于仅记录在另一个项目中的列数据。
 
@@ -63,13 +63,13 @@ description: 机器学习项目的项目管理和协作工具
 
 共享仅查看链接到私有项目或团队项目中的报告。
 
-![](../.gitbook/assets/share-view-only-link.gif)
+![](.gitbook/assets/share-view-only-link.gif)
 
 **将图形发送到报告**
 
 将图形从工作区发送到报告以跟踪进度。 点击要复制到报告中的图表或面板上的下拉菜单，然后点击添加到报告以选择目标报告。
 
-![](../.gitbook/assets/demo-export-to-existing-report.gif)
+![](.gitbook/assets/demo-export-to-existing-report.gif)
 
 
 

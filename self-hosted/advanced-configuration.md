@@ -40,15 +40,15 @@ description: 如何配置W＆B本地服务器安装
 * 允许的网络来源Allowed Web Origin”设置为`http(s)://YOUR-W&B-SERVER-HOST`
 * 将Logout URL设置为`http（s// YOUR-W＆B-SERVER-HOST`
 
-![Auth0 Settings](../../.gitbook/assets/auth0-1.png)
+![Auth0 Settings](../.gitbook/assets/auth0-1.png)
 
 从您的Auth0应用中保存客户端ID和域。
 
-![Auth0 Settings](../../.gitbook/assets/auth0-2.png)
+![Auth0 Settings](../.gitbook/assets/auth0-2.png)
 
  然后，导航至位于`http(s)://YOUR-W&B-SERVER-HOST/admin-settings`的W＆B设置页面。 启用“Customize Authentication with Auth0”选项，然后从Auth0应用中填写客户端ID和域。
 
-![Enterprise authentication settings](../../.gitbook/assets/enterprise-auth.png)
+![Enterprise authentication settings](../.gitbook/assets/enterprise-auth.png)
 
 最后，按“Update settings and restart W&B”。
 
@@ -64,13 +64,13 @@ description: 如何配置W＆B本地服务器安装
 
  首先，创建一个SQS标准队列。 为`SendMessage`和`ReceiveMessage`操作以及`GetQueueUr`l的所有主体添加权限。 （如果您愿意，可以使用高级策略文档进一步对此进行锁定。）
 
-![Enterprise file storage settings](../../.gitbook/assets/sqs-perms.png)
+![Enterprise file storage settings](../.gitbook/assets/sqs-perms.png)
 
 **创建S3存储桶和存储桶通知**
 
  然后，创建一个S3存储桶。 在控制台的存储桶属性页面下，在“高级设置Advanced Settings”的“事件Events”部分中，单击“添加通知Add notification”，并将所有对象创建事件配置为发送到先前配置的SQS队列。
 
-![Enterprise file storage settings](../../.gitbook/assets/s3-notification.png)
+![Enterprise file storage settings](../.gitbook/assets/s3-notification.png)
 
 启用CORS访问权限：您的CORS配置应如下所示：
 
@@ -94,7 +94,7 @@ description: 如何配置W＆B本地服务器安装
 *  **文件存储区域**: `<region>`
 *  **通知订阅**: `sqs://<queue-name>`
 
-![AWS file storage settings](../../.gitbook/assets/aws-filestore.png)
+![AWS file storage settings](../.gitbook/assets/aws-filestore.png)
 
 按“更新设置并重新启动W＆B\(update settings and restart W&B\)”以应用新设置。
 
@@ -142,7 +142,7 @@ gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 *  **文件存储区域**: blank
 *  **通知订阅**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![GCP file storage settings](../../.gitbook/assets/gcloud-filestore.png)
+![GCP file storage settings](../.gitbook/assets/gcloud-filestore.png)
 
 更新设置并重新启动W＆B \(update settings and restart W&B\)”以应用新设置。
 

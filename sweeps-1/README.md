@@ -26,5 +26,5 @@ description: 超参数搜索和模型优化
 4.  **启动代理：**在要用于扫描中的每台计算机上运行此命令。代理询问中央扫描服务器接下来要尝试哪些超参数，然后执行运行。
 5. **可视化结果**：打开实时仪表板，在一个中央位置查看所有结果。
 
-![](../../.gitbook/assets/central-sweep-server-3%20%281%29.png)
+![](../.gitbook/assets/central-sweep-server-3%20%281%29.png)
 

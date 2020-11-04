@@ -2,11 +2,11 @@
 
 ### Pricing and Account Plans
 
-W&B is free for individuals and academic teams. We are committed to staying free to support the advancement of machine learning, and we make it easy to export data with our [Export API](../library/api/).
+W&B is free for individuals and academic teams. We are committed to staying free to support the advancement of machine learning, and we make it easy to export data with our [Export API]().
 
 * [Pricing Page](https://www.wandb.com/pricing): Accounts for individuals, startups, teams, and enterprises
 * [Academics](https://www.wandb.com/academic): Apply for access to academic teams to share results with collaborators
-* [On-prem](../self-hosted/): We have options for on-prem and private cloud installations
+* [On-prem](): We have options for on-prem and private cloud installations
 * [Contact](getting-help.md): Reach out with any questions
 * [Request a demo](https://www.wandb.com/contact): We're happy to get on a call and talk about custom enterprise plans 
 

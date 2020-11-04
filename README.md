@@ -1,42 +1,44 @@
 ---
-description: 'Track machine learning experiments, visualize metrics, and share results'
+description: 记录机器学习试验过程，将指标可视化，分享成果。
 ---
 
 # Weights & Biases
 
-Weights & Biases helps you keep track of your machine learning projects. Use our tool to log hyperparameters and output metrics from your runs, then visualize and compare results and quickly share findings with your colleagues.
 
-![](.gitbook/assets/workflow-june-2020-v1.png)
 
-Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, Azure, and on-prem machines.
+权阈帮助你记录机器学习项目的过程。利用我们的工具记录运行过程中的超参数和输出指标，然后将结果可视化并做比较，便捷地与同事分享结果。
 
-## Tools
+![](.gitbook/assets/image.jpeg)
 
-1. [**Dashboard**](app/): Track experiments, visualize results
-2. [**Reports**](reports.md): Save and share reproducible findings
-3. [**Sweeps**](sweeps/): Optimize models with hyperparameter tuning
-4. [**Artifacts**](artifacts/): Dataset and model versioning, pipeline tracking
+我们的工具兼容各种机器学习平台：亚马逊AWS、谷歌云、Kubernetes、微软Azure和预置机器。
+
+**工具**
+
+1. \*\*\*\*[**面板**](https://docs.wandb.com/app)：记录实验过程、将结果可视化；
+2. \*\*\*\*[**报告**](https://docs.wandb.com/reports)：保存和分享可复制的成果/结论；
+3. \*\*\*\*[**扫描**](https://docs.wandb.com/sweeps)：通过调谐超参数来优化模型；
+4. \*\*\*\*[**制品**](https://docs.wandb.com/artifacts)：数据集、模型的版本化，跟踪流水线进展。
 
 {% embed url="https://youtu.be/gnD8BFuyVUA" caption="" %}
 
-## Getting Started
+**入门指南**
 
-Easily add our Python library `wandb` to your machine learning script.
+将我们的Python库`wandb`添加到机器学习脚本，很简单。
 
-* [Quickstart](quickstart.md)
-* [Keras integration](library/integrations/keras.md)
-* [PyTorch integration](library/integrations/pytorch.md)
-* [TensorFlow integration](library/integrations/tensorflow.md)
-* [Jupyter notebook integration](library/integrations/jupyter.md)
+*  [快速上手](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/quickstart)
+* [集成Keras](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/keras)
+* [集成PyTorch ](%20https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/pytorch)   
+*  [集成TensorFlow](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/tensorflow)
+* [集成 Jupyter Notebook ](%20https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/jupyter)
 
-Here's a sample screenshot from a [Species Identification project](https://app.wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification) in W&B.
+ 下面的截图样本是权阈中的一个[物种鉴别项目](https://wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification)。
 
 ![](.gitbook/assets/screen-shot-2020-08-07-at-1.16.16-pm.png)
 
-## Examples
+**案例**
 
-If you're interested in example projects, we have a few resources:
+如果你对案例项目感兴趣，我们有些资源：
 
-* [App Gallery](https://app.wandb.ai/gallery): A gallery of featured reports in our web app
-* [Example Projects](examples.md): Code and projects in GitHub and Colab
+*  [应用库](https://wandb.ai/gallery)：该库包含了我们的网络应用精选报告
+*  [项目案例](%20https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/examples)：我们的网络应用Python脚本和成果结论。
 

@@ -28,9 +28,9 @@ sweep_id = wandb.sweep(sweep_config)
 使用以下方法以指定扫描的实体或项目：
 
 * Arguments to wandb.sweep\(\) For example: `wandb.sweep(sweep_config, entity="user", project="my_project")`
-* [Environment Variables](../../library/environment-variables.md) `WANDB_ENTITY` and `WANDB_PROJECT`
-* [Command Line Interface](../../library/cli.md) using the `wandb init` command
-* [Sweep configuration ](../../sweeps/configuration.md)using the keys "entity" and "project"
+* [Environment Variables]() `WANDB_ENTITY` and `WANDB_PROJECT`
+* [Command Line Interface]() using the `wandb init` command
+* [Sweep configuration ]()using the keys "entity" and "project"
 {% endhint %}
 
 ### **运行代理**

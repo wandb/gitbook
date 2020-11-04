@@ -21,11 +21,11 @@ description: 如果您已经在项目中使用wandb.init，wandb.config和wandb.
 
 在项目页面中，打开侧栏中的“扫描”选项卡，然后单击“创建扫描”。
 
-![](../../.gitbook/assets/sweep1.png)
+![](../.gitbook/assets/sweep1.png)
 
 自动生成的配置会根据您已经完成的运行猜测要扫描的值。编辑配置以指定要尝试的超参数范围。当您启动扫描时，它将在我们的W＆B扫描服务器上启动一个新进程。这种集中式服务可以协调代理程序——您正在运行训练作业的机器。
 
-![](../../.gitbook/assets/sweep2.png)
+![](../.gitbook/assets/sweep2.png)
 
 ### **3.启动代理**
 
@@ -33,7 +33,7 @@ description: 如果您已经在项目中使用wandb.init，wandb.config和wandb.
 
 
 
-![](../../.gitbook/assets/sweep3.png)
+![](../.gitbook/assets/sweep3.png)
 
 就是这样简单！现在，您正在进行一次扫描。这是我的示例扫描开始时的仪表板。[查看示例项目页面→](https://wandb.ai/carey/pytorch-cnn-fashion)
 
@@ -49,5 +49,5 @@ description: 如果您已经在项目中使用wandb.init，wandb.config和wandb.
 
 现在，您的扫描将在我们的服务器上进行设置。您需要做的就是启动一个或多个代理以开始运行。
 
-![](../../.gitbook/assets/create-sweep-from-table%20%281%29.png)
+![](../.gitbook/assets/create-sweep-from-table%20%281%29.png)
 

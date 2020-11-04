@@ -1,48 +1,48 @@
 ---
-description: Run Weights and Biases on your own machines using Docker
+description: 使用Docker在自己的机器上运行权阈(W&B)
 ---
 
 # Local
 
-## Starting the server
+### **启动服务器**
 
-To run the W&B server locally you'll need to have [Docker](https://www.docker.com/products/docker-desktop) installed.  Then simply run:
+ 要在本地运行W＆B服务器，您需要安装[Docker](https://www.docker.com/products/docker-desktop)。 然后只需运行：
 
 ```
 wandb local
 ```
 
-Behind the scenes the wandb client library is running the [_wandb/local_](https://hub.docker.com/repository/docker/wandb/local) docker image, forwarding port 8080 to the host, and configuring your machine to send metrics to your local instance instead of our hosted cloud.  If you want to run our local container manually, you can run the following docker command:
+ 在后台，wandb客户端库正在运行[_wandb/local_](https://hub.docker.com/repository/docker/wandb/local)  的docker映像，将端口8080转发到主机，并将您的计算机配置为将指标发送到本地实例而不是我们的托管云。 如果要手动本地运行，可以运行以下docker命令：
 
 ```text
 docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-### Centralized Hosting
+#### **集中托管**
 
-Running wandb on localhost is great for initial testing, but to leverage the collaborative features of _wandb/local_ you should host the service on a central server.   Instructions for setting up a centralized server on various platforms can be found in the [Setup](setup.md) section.
+在localhost上运行wandb非常适合进行初始测试，但是要利用wandb / local的协作功能，您应该将服务托管在中央服务器上。在“[设置](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/self-hosted/setup)”部分中可以找到有关在各种平台上设置集中式服务器的说明。
 
-### Basic Configuration
+### 基本配置
 
-Running `wandb local` configures your local machine to push metrics to http://localhost:8080.  If you want to host local on a different port you can pass the `--port` argument to wandb local.  If you've configure DNS with your local instance you can run: `wandb login --host=http://wandb.myhost.com` on any machines that you want to report metrics from.  You can also set the `WANDB_BASE_URL` environment variable to a host or IP on any machines you wish to report to your local instance.  In automated environment you'll also want to set the `WANDB_API_KEY` environment variable within an api key from your settings page.  To restore a machine to reporting metrics to our cloud hosted solution, run `wandb login --host=https://api.wandb.ai`.
+ 运行`wandb local`会进行您的本地计算机配置——将指标推送到http://localhost:8080。如果要在其他端口上托管本地，则可以将`--port`参数传递给wandb local。如果已使用本地实例配置DNS，则可以在任何计算机上运行：`wandb login --host=http://wandb.myhost.co`\`来报告度量标准。您还可以将WANDB\_BASE\_URL环境变量设置为任何计算机上的主机或IP，他们可以报告给本地实例。在自动化环境中，您还需要从设置页面的api密钥中设置`WANDB_API_KEY`环境变量。要将计算机还原为向我们的云托管报告指标，请运行`wandb login --host = https：//api.wandb.ai`。
 
-### Authentication
+#### 认证方式
 
-The base install of _wandb/local_ starts with a default user local@wandb.com.  The default password is **perceptron**.  The frontend will attempt to login with this user automatically and prompt you to reset your password.  An unlicensed version of wandb will allow you to create up to 4 users.  You can configure users in the User Admin page of _wandb/local_ found at `http://localhost:8080/admin/users`
+ wandb/local的基本安装以默认用户local@wandb.com开始。默认密码是**perceptron**。前端将尝试自动使用该用户登录，并提示您重设密码。未经许可的wandb版本将允许您最多创建4个用户。您可以在位于`http://localhost:8080/admin/users` 的wandb / local的“用户管理”页面中配置用户。
 
-### Persistance
+### **持久性**
 
-All metadata and files sent to W&B are stored in the `/vol` directory.  If you do not mount a persistent volume at this location all data will be lost when the docker process dies.  If you purchase a license for _wandb/local_, you can store metadata in an external MySQL database and files in an external storage bucket removing the need for a stateful container.
+ 发送给W＆B的所有元数据和文件都存储在`/vol`目录中。如果您未在此位置安装持久卷，则当Docker进程终止时，所有数据将丢失。如果您购买了wandb/local的许可证，则可以将元数据存储在外部MySQL数据库中，并将文件存储在外部存储桶中，从而无需有状态容器。
 
-### Upgrades
+**升级**
 
-We are pushing new versions of _wandb/local_ to dockerhub regularly.  To upgrade you can run:
+我们会定期将新版本的wandb/local推送到dockerhub。要升级，您可以运行：
 
 ```text
 $ wandb local --upgrade
 ```
 
-To upgrade your instance manually you can run the following
+ 要手动升级实例，可以运行以下命令
 
 ```text
 $ docker pull wandb/local
@@ -50,7 +50,7 @@ $ docker stop wandb-local
 $ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-### Getting a license
+**取得许可证**
 
-If you're interested in configuring teams, using external storage, or deploying wandb/local to a Kubernetes cluster send us an email at [contact@wandb.com](mailto:contact@wandb.com)
+ 如果您有兴趣配置团队，使用外部存储或将wandb/local部署到Kubernetes集群，请发送电子邮件至[contact@wandb.com](mailto:contact@wandb.com)
 
