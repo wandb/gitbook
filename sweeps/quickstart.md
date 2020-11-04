@@ -5,7 +5,7 @@ Start from any machine learning model and get a hyperparameter sweep running in 
 ![](../.gitbook/assets/image%20%2850%29.png)
 
 {% hint style="info" %}
-Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](add-to-existing.md)
+Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](existing-project.md)
 {% endhint %}
 
 ## 1. Add wandb
@@ -58,7 +58,7 @@ Here are some config resources:
 1. [Example YAML](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): a code example of a script and YAML file to do a sweep
 2. [Configuration](configuration.md): full specs to set up your sweep config
 3. [Jupyter Notebook](python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
-4. [Generate config from UI](add-to-existing.md): take an existing W&B project and generate a config file
+4. [Generate config from UI](existing-project.md): take an existing W&B project and generate a config file
 5. [Feed in prior runs](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
 
 Here's an example sweep config YAML file called **sweep.yaml**:

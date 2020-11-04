@@ -32,7 +32,7 @@ Keras `WandbCallback()` class supports a number of options:
 | save\_weights\_only | False | only save the weights instead of the entire model |
 | save\_model | True | save the model if it's improved at each step |
 | log\_weights | False | log the values of each layers parameters at each epoch |
-| log\_gradients | False | log the gradients of each layers parametres at each epcoh |
+| log\_gradients | False | log the gradients of each layers parametres at each epoch |
 | training\_data | None | tuple \(X,y\) needed for calculating gradients |
 | data\_type | None | the type of data we're saving, currently only "image" is supported |
 | labels | None | only used if data\_type is specified, list of labels to convert numeric output to if you are building classifier. \(supports binary classification\) |

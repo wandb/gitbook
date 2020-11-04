@@ -20,8 +20,8 @@ api = wandb.Api()
 
 run = api.run("<entity>/<project>/<run_id>")
 if run.state == "finished":
-   for k in run.history():
-       print(k["_timestamp"], k["accuracy"])
+   for i, row in run.history().iterrows():
+      print(row["_timestamp"], row["accuracy"])
 ```
 
 ### Compare two runs
