@@ -27,7 +27,7 @@ wandb.tensorboard.patch(save=False, tensorboardX=True)
 
 ### Syncing Previous TensorBoard Runs
 
-If you have existing experiments you would like to import into wandb, you can run `wandb sync log_dir` where log\_dir is a local directory containing the tfevents files.
+If you have existing tfevents files stored locally that were already generated using the wandb library integration and you would like to import them into wandb, you can run `wandb sync log_dir`, where `log_dir` is a local directory containing the tfevents files.
 
 You can also run `wandb sync directory_with_tf_event_file` 
 
