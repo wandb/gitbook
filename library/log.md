@@ -115,7 +115,7 @@ img = wandb.Image(image, boxes={
     }
 })
 
-wandb.log({"driving_scene": img}
+wandb.log({"driving_scene": img})
 ```
 
 Optional Parameters
