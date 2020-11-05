@@ -10,7 +10,9 @@ Send a Slack or email alert, triggered from your Python script.
 2. [Try the code →](http://tiny.cc/wb-alerts)
 3. Check your Slack or email to see the scriptable alerts.
 
-`wandb.alert` accepts a few optional keyword arguments:
+### Arguments
+
+`wandb.alert(title="Low Acc", text="Accuracy is below the expected threshold")`
 
 * **title \(string\)**: A short description of the alert, for example "Low accuracy"
 * **text \(string\)**: A longer, more detailed description of what happened to trigger the alert
