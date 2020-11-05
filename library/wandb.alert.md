@@ -4,27 +4,31 @@ description: Send an alert notification over Slack or email.
 
 # wandb.alert\(\)
 
-### Overview
+Send a Slack or email alert, triggered from your Python script. Set up notifications on your [Settings Page](../app/features/alerts.md#user-level-alerts).
 
-Calling `wandb.alert(title, text)` will send an alert over Slack or email, depending on which notifications you've opted into on your [Settings Page](../app/features/alerts.md#user-level-alerts). The `title` should be a short description of the alert, and `text` should provide more detailed information.
+[Try the code →](http://tiny.cc/wb-alerts)
 
 `wandb.alert` accepts a few optional keyword arguments:
 
-* **level** — the importance of the alert, must be either `INFO`, `WARN`, or `ERROR`
-* **wait\_duration** — the time to wait in seconds before sending another alert with the same title
+* **title \(string\)**: A short description of the alert, for example "Low accuracy"
+* **text \(string\)**: A longer, more detailed description of what happened to trigger the alert
+* **level \(optional\):** How important the alert is — must be either `INFO`, `WARN`, or `ERROR`
+* **wait\_duration \(optional\):** How many seconds to wait before sending another alert with the same **title.** This helps reduce alert spam.
 
-### Examples
+### Example
 
-Let's set up a simple alert that warns us every 5 minutes whenever our accuracy falls below an acceptable threshold:
+This simple alert sends a warning when accuracy falls below a threshold. To avoid spam, it only sends alerts at least 5 minutes apart.
 
-```text
+[Run the code →](http://tiny.cc/wb-alerts)
+
+```python
 from datetime import timedelta
 import wandb
 from wandb import AlertLevel
 
 if acc < threshold:
     wandb.alert(
-        title='Accuracy low', 
+        title='Low accuracy', 
         text=f'Accuracy {acc} is below the acceptable theshold {threshold}',
         level=AlertLevel.WARN,
         wait_duration=timedelta(minutes=5)
