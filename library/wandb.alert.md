@@ -1,12 +1,14 @@
 ---
-description: Send an alert notification over Slack or email.
+description: 'Scriptable alerts triggered from Python, sent to you via Slack or email'
 ---
 
 # wandb.alert\(\)
 
-Send a Slack or email alert, triggered from your Python script. Set up notifications on your [Settings Page](../app/features/alerts.md#user-level-alerts).
+Send a Slack or email alert, triggered from your Python script.
 
-[Try the code →](http://tiny.cc/wb-alerts)
+1. [Set up alerts in your account→](../app/features/alerts.md)
+2. [Try the code →](http://tiny.cc/wb-alerts)
+3. Check your Slack or email to see the scriptable alerts.
 
 `wandb.alert` accepts a few optional keyword arguments:
 
