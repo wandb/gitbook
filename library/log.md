@@ -6,12 +6,12 @@ description: 'Keep track of metrics, video, custom plots, and more'
 
 Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a step. By default we increment the step each time, so you'll see outputs of your model over time in graphs and rich visualizations.
 
-Keyword arguments:
+**Keyword arguments**
 
 * **step** — Which time step to associate the logs with \(see [Incremental Logging](log.md#incremental-logging)\)
 * **commit** — By default commit=true, which means we increment the step each time you call wandb.log. Set commit=false to have multiple sequential wandb.log\(\) commands save data to the same step.
 
-Example usage:
+**Example usage**
 
 ```python
 wandb.log({'accuracy': 0.9, 'epoch': 5})
