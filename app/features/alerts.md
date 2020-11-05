@@ -6,23 +6,25 @@ description: >-
 
 # Alerts
 
-W&B can post alerts on Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
+W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
 
-### Team Level Alerts
+### User Alerts
 
-To receive alerts whenever runs launched by members of your team crash, complete, or call `wandb.alert()`, you can configure a team level alert. Team level alerts apply to all projects the team owns and will trigger whenever any member of the team has a crashed or failed run.
+Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects. 
 
-Team level alerts apply to all projects belonging to the team. In your team settings page under the `Team Slack Integration` section, select the `Connect Slack` button and authorize the channel into which W&B should post alerts. If you need to change the Slack channel into which W&B posts alerts, you can select the `Disconnect Slack` button and then reconnect with Slack using a new channel of your choice. Only team administrators can manage the team's Slack connection.
+In your [User Settings](https://wandb.ai/settings):
 
-Once Slack is connected, team administrators can freely enable and disable alerts.
+* Scroll down to the **Alerts** section
+* Click **Connect Slack** to pick a channel to post alerts. We recommend the **Slackbot** channel because it keeps the alerts private.
+* **Email** will go to the email address you used when you signed up for W&B. We recommend setting up a filter in your email so all these alerts go into a folder and don't fill up your inbox.
 
-### User Level Alerts
+![](../../.gitbook/assets/demo-connect-slack.png)
 
-To receive alerts whenever runs you launch crash, complete, or call `wandb.alert()`, you can configure a user level alert. User level alerts apply to all projects, including team projects, and will trigger whenever the user has a crashed or failed run.
+### Team Alerts
 
-In your user settings page under the `Personal Slack Integration` section, select the `Connect Slack` button and authorize the channel into which W&B should post alerts. The `slackbot` channel is a good choice to keep alerts private. If you need to change the Slack channel into which W&B posts alerts, you can select the `Disconnect Slack` button and then reconnect Slack using the new channel of your choice.
+Team admins can set up alerts for the team on the team settings page: wandb.ai/teams/`your-team`. These alerts apply to everyone on your team. We recommend using the **Slackbot** channel because it keeps the alerts private.
 
-Once Slack is connected, you can freely enable and disable alerts.
+### Changing Slack Channels
 
-You can also receive notifications via email. W&B will use the email associated with your account.
+To change what channel you're posting to, click **Disconnect Slack** and then reconnect, picking a different destination channel.
 
