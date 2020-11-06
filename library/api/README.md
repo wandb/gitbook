@@ -31,6 +31,10 @@ You can also modify or update the data of past runs.
 
 By default a single instance of an api object will cache all network requests.  If your use case requires real time information in a running script, call api.flush\(\) to get updated values.
 
+### Sampling
+
+When you download data from a run, by default we sample the results. You can change the number of samples with the samples parameter on history\(\) or use scan\_history to get all the samples paginated. For more details see the [API Reference](../reference/wandb_api.md).
+
 ### Querying Multiple Runs
 
 {% tabs %}
