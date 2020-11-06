@@ -56,6 +56,7 @@
 * [Dashboard](app/README.md)
   * [Pages](app/pages/README.md)
     * [Project Page](app/pages/project-page.md)
+    * [Workspaces](app/pages/workspaces.md)
     * [Run Page](app/pages/run-page.md)
   * [Features](app/features/README.md)
     * [Anonymous Mode](app/features/anon.md)
