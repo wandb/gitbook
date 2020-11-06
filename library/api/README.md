@@ -1,23 +1,17 @@
----
-description: We make it easy to export data you've logged to W&B
----
+# Data Import/Export API
 
-# API
-
-Use the W&B API to export data for custom analysis. If you're using automated systems to train your models, you can also use the API to asynchronously add data to a completed run. For complete documentation refer to our [API Reference](../reference/wandb_api.md).
+Export a dataframe for custom analysis, or asynchronously add data to a completed run. For more details see the [API Reference](../reference/wandb_api.md).
 
 ### Authentication
 
-Authenticate your machine with your API key from the [settings page](https://app.wandb.ai/settings). You can set your API key in two ways:
+Authenticate your machine with your [API key](https://wandb.ai/authorize) in one of two ways:
 
 1. Run `wandb login`  on the command line and paste in your API key.
 2. Set the **WANDB\_API\_KEY** environment variable to your API key.
 
-### Querying Runs
+### Export Run Data
 
-The most common use of wandb's API is to export data from a past or running run.  
-
-This can be used for ad-hoc data analysis or taking action in automated environments using custom logic.  
+Download data from a finished or active run. Common usage includes downloading a dataframe for custom analysis in a Jupyter notebook, or using custom logic in an automated environment.
 
 ```python
 import wandb
@@ -29,13 +23,13 @@ The most commonly used attributes of a run object are:
 
 | Attribute | Meaning |
 | :--- | :--- |
-| run.config | A dictionary meant to store inputs to the model such as hyperparameters. |
-| run.summary | A dictionary of outputs which can contain everything from scalars such as accuracy or loss to large files.  The command wandb.log\(\) updates this obejct.  It can also be set directly. |
+| run.config | A dictionary for model inputs, such as hyperparameters |
 | run.history\(\) | A list of dictionaries meant to store values that change while the model is training such as loss.  The command wandb.log\(\) appends to this object. |
+| run.summary | A dictionary of outputs. This can be scalars like accuracy and loss, or large files. By default, wandb.log\(\) sets the summary to the final value of a logged timeseries. This can also be set directly. |
 
-You can also modify or update the data of past runs.  
+You can also modify or update the data of past runs.
 
-By default a single instance of an api object will cache all network requests.  If your use case  requires real time information in a running script, call api.flush\(\) to get updated values.
+By default a single instance of an api object will cache all network requests.  If your use case requires real time information in a running script, call api.flush\(\) to get updated values.
 
 ### Querying Multiple Runs
 

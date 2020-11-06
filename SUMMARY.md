@@ -43,7 +43,7 @@
     * [Resuming](library/advanced/resuming.md)
     * [Security](library/advanced/security.md)
     * [Best Practices for Logging](library/advanced/limits.md)
-  * [API](library/api/README.md)
+  * [Data Import/Export API](library/api/README.md)
     * [API Examples](library/api/examples.md)
   * [Reference](library/reference/README.md)
     * [API Reference](library/reference/wandb_api.md)
