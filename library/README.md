@@ -17,6 +17,8 @@ We have more detailed docs generated from the code in [Reference](reference/).
 * wandb.init — initialize a new run at the top of your training script
 * wandb.config — track hyperparameters
 * wandb.log — log metrics over time within your training loop
+  * This creates **History** metrics, which are a timeseries of scalars over steps.
+  * This also creates **Summary** metrics, which are a single value, by default the last logged value.
 * wandb.save — save files in association with your run, like model weights
 * wandb.restore — restore the state of your code when you ran a given run
 
