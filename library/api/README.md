@@ -33,7 +33,7 @@ By default a single instance of an api object will cache all network requests.  
 
 ### Sampling
 
-When you download data from a run, by default we sample the results. You can change the number of samples with the samples parameter on history\(\) or use scan\_history to get all the samples paginated. For more details see the [API Reference](../reference/wandb_api.md).
+The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. For more details see the [API Reference](../reference/wandb_api.md).
 
 ### Querying Multiple Runs
 
