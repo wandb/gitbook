@@ -27,9 +27,7 @@ The most commonly used attributes of a run object are:
 | run.history\(\) | A list of dictionaries meant to store values that change while the model is training such as loss.  The command wandb.log\(\) appends to this object. |
 | run.summary | A dictionary of outputs. This can be scalars like accuracy and loss, or large files. By default, wandb.log\(\) sets the summary to the final value of a logged timeseries. This can also be set directly. |
 
-You can also modify or update the data of past runs.
-
-By default a single instance of an api object will cache all network requests.  If your use case requires real time information in a running script, call api.flush\(\) to get updated values.
+You can also modify or update the data of past runs. By default a single instance of an api object will cache all network requests. If your use case requires real time information in a running script, call api.flush\(\) to get updated values.
 
 ### Sampling
 
