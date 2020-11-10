@@ -1,6 +1,6 @@
 # Data Import/Export API
 
-Export a dataframe for custom analysis, or asynchronously add data to a completed run. For more details see the [API Reference](../public-api.md).
+Export a dataframe for custom analysis, or asynchronously add data to a completed run. For more details see the [API Reference](../api.md).
 
 ### Authentication
 
@@ -31,7 +31,7 @@ You can also modify or update the data of past runs. By default a single instanc
 
 ### Sampling
 
-The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. For more details see the [API Reference](../public-api.md).
+The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. For more details see the [API Reference](../api.md).
 
 ### Querying Multiple Runs
 

@@ -48,12 +48,12 @@ Get projects for a given entity.
 
 **Arguments**:
 
-* `entity` _str_ - Name of the entity requested.  If None will fallback to default entity passed to [`Api`.](public-api.md#api%60.)  If no default entity, will raise a `ValueError`.
+* `entity` _str_ - Name of the entity requested.  If None will fallback to default entity passed to [`Api`.](api.md#api%60.)  If no default entity, will raise a `ValueError`.
 * `per_page` _int_ - Sets the page size for query pagination.  None will use the default size. Usually there is no reason to change this.
 
 **Returns**:
 
-A [`Projects`](public-api.md#projects) object which is an iterable collection of [`Project`](public-api.md#project) objects.
+A [`Projects`](api.md#projects) object which is an iterable collection of [`Project`](api.md#project) objects.
 
 ### Api.reports
 
@@ -75,7 +75,7 @@ WARNING: This api is in beta and will likely change in a future release
 
 **Returns**:
 
-A [`Reports`](public-api.md#reports) object which is an iterable collection of [`BetaReport`](public-api.md#betareport) objects.
+A [`Reports`](api.md#reports) object which is an iterable collection of [`BetaReport`](api.md#betareport) objects.
 
 ### Api.runs
 
@@ -116,7 +116,7 @@ api.runs(path="my_entity/my_project", {"order": "+summary_metrics.loss"})
 
 **Returns**:
 
-A [`Runs`](public-api.md#runs) object, which is an iterable collection of [`Run`](public-api.md#run) objects.
+A [`Runs`](api.md#runs) object, which is an iterable collection of [`Run`](api.md#run) objects.
 
 ### Api.run
 
@@ -134,7 +134,7 @@ Returns a single run by parsing path in the form entity/project/run\_id.
 
 **Returns**:
 
-A [`Run`](public-api.md#run) object.
+A [`Run`](api.md#run) object.
 
 ### Api.sweep
 
@@ -152,7 +152,7 @@ Returns a sweep by parsing path in the form entity/project/sweep\_id.
 
 **Returns**:
 
-A [`Sweep`](public-api.md#sweep) object.
+A [`Sweep`](api.md#sweep) object.
 
 ### Api.artifact
 
@@ -171,7 +171,7 @@ Returns a single artifact by parsing path in the form entity/project/run\_id.
 
 **Returns**:
 
-A [`Artifact`](public-api.md#artifact) object.
+A [`Artifact`](api.md#artifact) object.
 
 ## Projects
 
@@ -181,7 +181,7 @@ A [`Artifact`](public-api.md#artifact) object.
 Projects(self, client, entity, per_page=50)
 ```
 
-An iterable collection of [`Project`](public-api.md#project) objects.
+An iterable collection of [`Project`](api.md#project) objects.
 
 ## Project
 
@@ -201,7 +201,7 @@ A project is a namespace for runs
 Runs(self, client, entity, project, filters={}, order=None, per_page=50)
 ```
 
-An iterable collection of runs associated with a project and optional filter. This is generally used indirectly via the [`Api`.runs](public-api.md#api%60.runs) method
+An iterable collection of runs associated with a project and optional filter. This is generally used indirectly via the [`Api`.runs](api.md#api%60.runs) method
 
 ## Run
 
@@ -267,7 +267,7 @@ Run.files(self, names=[], per_page=50)
 
 **Returns**:
 
-A [`Files`](public-api.md#files) object, which is an iterator over [`File`](public-api.md#file) obejcts.
+A [`Files`](api.md#files) object, which is an iterator over [`File`](api.md#file) obejcts.
 
 ### Run.file
 
@@ -283,7 +283,7 @@ Run.file(self, name)
 
 **Returns**:
 
-A [`File`](public-api.md#file) matching the name argument.
+A [`File`](api.md#file) matching the name argument.
 
 ### Run.history
 
@@ -353,7 +353,7 @@ A set of runs associated with a sweep Instantiate with: api.sweep\(sweep\_path\)
 
 **Attributes**:
 
-* `runs` [_`Runs`_](public-api.md#runs) - list of runs
+* `runs` [_`Runs`_](api.md#runs) - list of runs
 * `id` _str_ - sweep id
 * `project` _str_ - name of project
 * `config` _str_ - dictionary of sweep configuration
@@ -393,7 +393,7 @@ Execute a query against the cloud backend
 Files(self, client, run, names=[], per_page=50, upload=False)
 ```
 
-Files is an iterable collection of [`File`](public-api.md#file) objects.
+Files is an iterable collection of [`File`](api.md#file) objects.
 
 ## File
 
@@ -441,7 +441,7 @@ Downloads a file previously saved by a run from the wandb server.
 Reports(self, client, project, name=None, entity=None, per_page=50)
 ```
 
-Reports is an iterable collection of [`BetaReport`](public-api.md#betareport) objects.
+Reports is an iterable collection of [`BetaReport`](api.md#betareport) objects.
 
 ## QueryGenerator
 
@@ -477,7 +477,7 @@ WARNING: this API will likely change in a future release
 
 * `name` _string_ - report name
 * `description` _string_ - report descirpiton;
-* `user` [_User_](public-api.md#user) - the user that created the report
+* `user` [_User_](api.md#user) - the user that created the report
 * `spec` _dict_ - the spec off the report;
 * `updated_at` _string_ - timestamp of last update
 
@@ -607,5 +607,5 @@ ArtifactVersions(self,
                  per_page=50)
 ```
 
-An iterable collection of artifact versions associated with a project and optional filter. This is generally used indirectly via the [`Api`.artifact\_versions](public-api.md#api%60.artifact_versions) method
+An iterable collection of artifact versions associated with a project and optional filter. This is generally used indirectly via the [`Api`.artifact\_versions](api.md#api%60.artifact_versions) method
 

@@ -45,7 +45,7 @@
   * [Limits](guides/limits.md)
   * [Technical FAQ](guides/technical-faq.md)
 * [API Reference](ref/README.md)
-  * [Public API](ref/public-api.md)
+  * [Public API](ref/api.md)
   * [Keras Reference](ref/keras.md)
   * [Data Types](ref/data-types.md)
   * [Data Import/Export API](ref/export-api/README.md)

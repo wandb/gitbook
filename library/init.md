@@ -8,7 +8,7 @@ description: >-
 
 ### Overview
 
-Calling `wandb.init()` returns a [**run**](../ref/public-api.md#run) object. You can also access the run object by calling `wandb.run`.
+Calling `wandb.init()` returns a [**run**](../ref/api.md#run) object. You can also access the run object by calling `wandb.run`.
 
 You should generally call `wandb.init()` once at the start of your training script. This will create a new run and launch a single background process to sync the data to our cloud. If you want your machine to run offline and upload data later, use [offline mode](../guides/technical-faq.md#does-your-tool-track-or-store-training-data).
 
