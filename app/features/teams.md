@@ -22,7 +22,7 @@ If you're at a company, we have enterprise plans. Check the [pricing page](https
 
 ### Create a new team
 
-Once you have the feature enabled, create a new team on your [Settings](https://app.wandb.ai/settings) page in the app. The name will be used in the URL of all your team projects, so make sure you pick something short and descriptive, since you won't be able to change it later. 
+Once you have the feature enabled, create a new team on your [Settings](https://app.wandb.ai/settings) page in the app. The name will be used in the URL of all your team projects, so make sure you pick something short and descriptive, since you won't be able to change it later.
 
 ### Move runs to a team
 
@@ -36,7 +36,7 @@ It's easy to move runs between projects you have access to. On the project page:
 
 ### Send new runs to a team
 
-In your script, set the entity to your team. "Entity" just means your username or team name. Create an entity \(personal account or team account\) in the web app before sending runs there. 
+In your script, set the entity to your team. "Entity" just means your username or team name. Create an entity \(personal account or team account\) in the web app before sending runs there.
 
 ```python
 wandb.init(entity="example-team")

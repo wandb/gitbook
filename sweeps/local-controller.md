@@ -14,7 +14,7 @@ The local controller feature allows the user to run search and stopping algorith
 The local controller is currently limited to running a single agent.
 {% endhint %}
 
-### Local controller configuration
+## Local controller configuration
 
 To enable the local controller, add the following to the sweep configuration file:
 
@@ -23,7 +23,7 @@ controller:
   type: local
 ```
 
-### Running the local controller
+## Running the local controller
 
 The following command will launch a sweep controller:
 

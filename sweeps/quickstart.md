@@ -96,7 +96,7 @@ If you're using argparse in your script, we recommend that you use underscores i
 
 ## 3. Initialize a sweep
 
-Our central server coordinates between all agents executing the sweep.  Set up a sweep config file and run this command to get started:
+Our central server coordinates between all agents executing the sweep. Set up a sweep config file and run this command to get started:
 
 ```text
 wandb sweep sweep.yaml
@@ -123,6 +123,4 @@ Open your project to see your live results in the sweep dashboard.
 [Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
 ![](../.gitbook/assets/image%20%2880%29.png)
-
-## 
 

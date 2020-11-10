@@ -87,7 +87,7 @@ Drag and drop panels to reorder and organize into sections. You can also click t
 
 ![](../../.gitbook/assets/resize-panel.gif)
 
-### Search for metrics 
+### Search for metrics
 
 Use the search box in the workspace to filter down the panels. This search matches the panel titles, which are by default the name of the metrics visualized.
 
@@ -117,7 +117,7 @@ Start a new sweep from your project.
 
 ### Reset workspace
 
-If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"` 
+If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
 Add **?workspace=clear** to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
 

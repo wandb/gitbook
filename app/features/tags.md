@@ -1,6 +1,6 @@
 # Tags
 
-### How to add tags <a id="how-to-add-tags"></a>
+## How to add tags <a id="how-to-add-tags"></a>
 
 **On the project page**
 
@@ -16,7 +16,7 @@
 * Next to "Tags" is a gray ➕button. Click the plus to add a tag.
 * Type a tag you'd like to add and click "Add" below the text box to add a new tag.
 
-### How to remove tags <a id="how-to-remove-tags"></a>
+## How to remove tags <a id="how-to-remove-tags"></a>
 
 **On the project page**
 

@@ -22,5 +22,3 @@ For sensitive and large-scale projects, here are details about how we manage sec
 
 {% page-ref page="limits.md" %}
 
-
-

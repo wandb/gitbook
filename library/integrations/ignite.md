@@ -177,15 +177,13 @@ if __name__ == "__main__":
 
 We get these visualizations on running the above code:
 
- ![](https://i.imgur.com/CoBDShx.png)  
-  
- ![](https://i.imgur.com/Fr6Dqd0.png)  
-  
- ![](https://i.imgur.com/Fr6Dqd0.png)  
-  
- ![](https://i.imgur.com/rHNPyw3.png)  
-  
+![](https://i.imgur.com/CoBDShx.png)
 
+![](https://i.imgur.com/Fr6Dqd0.png)
+
+![](https://i.imgur.com/Fr6Dqd0.png)
+
+![](https://i.imgur.com/rHNPyw3.png)
 
 Refer [Ignite Docs](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger) for more detailed documentation
 

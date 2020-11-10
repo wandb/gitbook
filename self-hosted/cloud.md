@@ -8,7 +8,7 @@ A W&B Enterprise Cloud is a fully scalable cloud environment provisioned on your
 
 Talk to our sales team for more detailed setup instructions by reaching out to [contact@wandb.com](mailto:contact@wandb.com)
 
-### Requirements
+## Requirements
 
 W&B Enterprise Cloud requires the following cloud resources in your account.
 

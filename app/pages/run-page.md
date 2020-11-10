@@ -52,7 +52,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 ![](../../.gitbook/assets/image%20%2834%29.png)
 
-## Logs Tab 
+## Logs Tab
 
 * Output printed on the command line, the stdout and stderr from the machine training the model
 * We show the last 1000 lines. After the run has finished, if you'd like to download the full log file, click the download button in the upper right corner.
@@ -70,6 +70,4 @@ The Python details are private, even if you make the page itself public. Here is
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
 
 ![](../../.gitbook/assets/image%20%283%29.png)
-
-
 

@@ -56,11 +56,11 @@ wandb.agent(sweep_id, function=train)
 ### wandb.agent\(\)
 
 {% hint style="danger" %}
-Using wandb.agent\(\) with jupyter notebook environments can hang when using GPUs.  
-  
-There can be a bad interaction between wandb.agent\(\) and jupyter environments due to how GPU/CUDA resources are initialized by frameworks.  
-  
-A temporary workaround \(until we can fix these interactions\) is to avoid using the python interface for running the agent.  Instead, use the command line interface by setting the `program` key in the sweep configuration, and execute: `!wandb agent SWEEP_ID` in your notebook.
+Using wandb.agent\(\) with jupyter notebook environments can hang when using GPUs.
+
+There can be a bad interaction between wandb.agent\(\) and jupyter environments due to how GPU/CUDA resources are initialized by frameworks.
+
+A temporary workaround \(until we can fix these interactions\) is to avoid using the python interface for running the agent. Instead, use the command line interface by setting the `program` key in the sweep configuration, and execute: `!wandb agent SWEEP_ID` in your notebook.
 {% endhint %}
 
 **Arguments**

@@ -14,9 +14,9 @@ run = wandb.init(job_type='train')
 
 ## 2. Create an artifact
 
-An artifact is like a folder of data, with contents that are actual files stored in the artifact or references to external URIs. To create an artifact, log it as the output of a run. Specify a string for **type** to differentiate different artifacts— dataset, model, result etc. Give this artifact a **name**, like `bike-dataset`, to help you remember what is inside the artifact. In a later step of your pipeline, you can use this name along with a version like `bike-dataset:v1`  to download this artifact.
+An artifact is like a folder of data, with contents that are actual files stored in the artifact or references to external URIs. To create an artifact, log it as the output of a run. Specify a string for **type** to differentiate different artifacts— dataset, model, result etc. Give this artifact a **name**, like `bike-dataset`, to help you remember what is inside the artifact. In a later step of your pipeline, you can use this name along with a version like `bike-dataset:v1` to download this artifact.
 
-When you call **log\_artifact**, we check to see if the contents of the artifact has changed, and if so we automatically create a new version of the artifact: v0, v1, v2 etc. 
+When you call **log\_artifact**, we check to see if the contents of the artifact has changed, and if so we automatically create a new version of the artifact: v0, v1, v2 etc.
 
 **wandb.Artifact\(\)**
 
@@ -103,7 +103,7 @@ You can pass the following fields to an `Artifact()` constructor, or set them di
 artifact = wandb.Artifact('bike-dataset', type='dataset')
 ```
 
-Use **name** to specify an optional file name, or a file path prefix if you're adding a directory. 
+Use **name** to specify an optional file name, or a file path prefix if you're adding a directory.
 
 ```python
 # Add a single file
@@ -187,7 +187,7 @@ artifact.add_reference(uri, name=None, checksum=True)
 * **name \(string\):** An optional name override. If not provided, a name is inferred from **uri**.
 * **checksum \(bool\):** If true, the reference collects checksum information and metadata from **uri** for validation purposes.
 
-You can add references to external URIs to artifacts, instead of actual files.  If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility. Artifacts currently support the following URI schemes:
+You can add references to external URIs to artifacts, instead of actual files. If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility. Artifacts currently support the following URI schemes:
 
 * `http(s)://`: A path to a file accessible over HTTP. The artifact will track checksums in the form of etags and size metadata if the HTTP server supports the `ETag` and `Content-Length` response headers.
 * `s3://`: A path to an object or object prefix in S3. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.

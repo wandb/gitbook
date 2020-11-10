@@ -6,7 +6,7 @@ description: >-
 
 # WandbRun.Builder
 
-### Overview
+## Overview
 
 The Builder pattern allows us to write readable code to set up a WandbRun. The builder contains a few functions used to help initialize these values.
 
@@ -21,7 +21,7 @@ The Builder pattern allows us to write readable code to set up a WandbRun. The b
 
 Most of these settings can also be controlled via [Environment Variables](../library/environment-variables.md). This is often useful when you're running jobs on a cluster.
 
-### Examples
+## Examples
 
 Initializing a default run
 
@@ -42,8 +42,4 @@ WandbRun run = new WandbRun.Builder()
     .withName("A Java Run")
     .build();
 ```
-
- 
-
-
 

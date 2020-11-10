@@ -55,7 +55,7 @@ wandb.config.update(flags.FLAGS) # adds all absl flags to config
 
 ## File-Based Configs
 
-You can create a file called **config-defaults.yaml,** __and it will automatically be loaded into `wandb.config`
+You can create a file called **config-defaults.yaml,** \_\_and it will automatically be loaded into `wandb.config`
 
 ```yaml
 # sample config defaults file
@@ -82,21 +82,21 @@ config_dictionary = dict(
     yaml=my_yaml_file,
     params=hyperparameter_defaults,
     )
-    
+
 wandb.init(config=config_dictionary)
 ```
 
-## Dataset Identifier 
+## Dataset Identifier
 
-You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking it as input to your experiment using `wandb.config` 
+You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking it as input to your experiment using `wandb.config`
 
 ```yaml
-wandb.config.update({'dataset':'ab131'}) 
+wandb.config.update({'dataset':'ab131'})
 ```
 
 ### Update Config Files
 
-You can use the public API to update your config file 
+You can use the public API to update your config file
 
 ```yaml
 import wandb
@@ -106,9 +106,9 @@ run.config["foo"] = 32
 run.update()
 ```
 
-### Key Value Pairs 
+### Key Value Pairs
 
-You can log any key value pairs into wandb.config.  They will be different for every type of model you are training.  i.e. `wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`
+You can log any key value pairs into wandb.config. They will be different for every type of model you are training. i.e. `wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`
 
 ## TensorFlow Flags \(deprecated in tensorflow v2\)
 

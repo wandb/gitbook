@@ -32,8 +32,6 @@ The auto-generated config guesses values to sweep over based on the runs you've 
 
 Next, launch an agent locally. You can launch dozens of agents on different machines in parallel if you want to distribute the work and finish the sweep more quickly. The agent will print out the set of parameters it’s trying next.
 
-
-
 ![](../.gitbook/assets/sweep3.png)
 
 That’s it! Now you're running a sweep. Here’s what the dashboard looks like as my example sweep gets started. [View an example project page →](https://app.wandb.ai/carey/pytorch-cnn-fashion)

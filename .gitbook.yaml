@@ -121,13 +121,28 @@ redirects:
   integrations/ray: ./library/integrations/ray.md
   integrations/sagemaker: ./library/integrations/sagemaker.md
   integrations/tensorboard: ./library/integrations/tensorboard.md
+  java: ./ref/java/README.md
+  java/wandbrun-builder: ./ref/java/wandbrun-builder.md
+  java/wandbrun: ./ref/java/wandbrun.md
+  library/advanced: ./guides/README.md
+  library/advanced/grouping: ./guides/grouping.md
+  library/advanced/resuming: ./guides/resuming.md
+  library/advanced/security: ./guides/security.md
+  library/advanced/limits: ./guides/limits.md
+  library/api: ./ref/export-api/README.md
+  library/api/examples: ./ref/export-api/examples.md
+  library/reference: ./ref/README.md
+  library/reference/wandb_api: ./ref/api.md
+  library/reference/keras: ./ref/keras.md
+  library/reference/data_types: ./ref/data-types.md
+  library/technical-faq: ./guides/technical-faq.md
   library/reference/fastai: ./library/integrations/fastai/README.md
   library/sweeps: ./sweeps/overview.md
   library/sweeps/configuration: ./sweeps/configuration.md
   library/sweeps/advanced: ./sweeps/ray-tune.md
   library/sweeps/local-controller: ./sweeps/local-controller.md
   library/sweeps/python-api: ./sweeps/python-api.md
-  librar/example-projects: ./examples.md
+  library/example-projects: ./examples.md
   overview/company-faq: ./overview/company-faq.md
   overview/getting-help: ./overview/getting-help.md
   overview/overview: ./overview.md
