@@ -49,7 +49,6 @@ artifact_dir = artifact.download()
 
 **使用来自其他项目的artifact**
 
-  
 通过使用项目加上artifact名称，你可以自由引用您有权访问的任何项目中的artifact。 您还可以通过使用artifact的实体名称进一步限定artifact的名称来跨实体引用artifact。
 
 ```python
@@ -73,7 +72,7 @@ run.use_artifact(artifact)
 
 ### **版本和别名**
 
-首次记录artifact时，我们将创建版本**v0**。 当您再次登录同一artifact时，我们将对内容进行校验，如果artifact已更改，我们将保存新版本**v1**。 
+首次记录artifact时，我们将创建版本**v0**。 当您再次登录同一artifact时，我们将对内容进行校验，如果artifact已更改，我们将保存新版本**v1**。
 
 您可以使用别名作为指向特定版本的指针。 默认情况下，run.log\_artifact将**最新**的别名添加到记录的版本中。
 
@@ -93,7 +92,7 @@ run.log_artifact(artifact, aliases=['latest','best-ap50'])
 
 ### **构建artifact**
 
- 一个artifact就像数据文件夹。 每个条目要么是存储在artifact中的实际文件，要么是对外部URI的引用。 您可以将文件夹嵌套在artifact中，就像常规文件系统一样。 通过初始化`wandb.Artifact（）`类来构造新的artifact。
+一个artifact就像数据文件夹。 每个条目要么是存储在artifact中的实际文件，要么是对外部URI的引用。 您可以将文件夹嵌套在artifact中，就像常规文件系统一样。 通过初始化`wandb.Artifact（）`类来构造新的artifact。
 
 您可以将以下字段传递给`Artifact（）`构造函数，或直接在artifact对象上设置它们
 
@@ -301,7 +300,7 @@ artifact.download()
 
 ### **更新artifact**
 
- 您可以设置artifact的`description`，`metadata`和`aliases`为所需的值，然后调用`save()`来更新它们。
+您可以设置artifact的`description`，`metadata`和`aliases`为所需的值，然后调用`save()`来更新它们。
 
 ```python
 api = wandb.Api()

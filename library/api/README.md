@@ -15,9 +15,9 @@ Authenticate your machine with your API key from the [settings page](https://app
 
 ### Querying Runs
 
-The most common use of wandb's API is to export data from a past or running run.  
+The most common use of wandb's API is to export data from a past or running run.
 
-This can be used for ad-hoc data analysis or taking action in automated environments using custom logic.  
+This can be used for ad-hoc data analysis or taking action in automated environments using custom logic.
 
 ```python
 import wandb
@@ -33,15 +33,15 @@ The most commonly used attributes of a run object are:
 | run.summary | A dictionary of outputs which can contain everything from scalars such as accuracy or loss to large files.  The command wandb.log\(\) updates this obejct.  It can also be set directly. |
 | run.history | A list of dictionaries meant to store values that change while the model is training such as loss.  The command wandb.log\(\) appends to this object. |
 
-You can also modify or update the data of past runs.  
+You can also modify or update the data of past runs.
 
-By default a single instance of an api object will cache all network requests.  If your use case  requires real time information in a running script, call api.flush\(\) to get updated values.
+By default a single instance of an api object will cache all network requests. If your use case requires real time information in a running script, call api.flush\(\) to get updated values.
 
 ### Querying Multiple Runs
 
 {% tabs %}
 {% tab title="MongoDB Style" %}
-The W&B API also provides a way for you to query across runs in a project with api.runs\(\). The most common use case is exporting runs data for custom analysis.  The query interface is the same as the one [MongoDB uses](https://docs.mongodb.com/manual/reference/operator/query).
+The W&B API also provides a way for you to query across runs in a project with api.runs\(\). The most common use case is exporting runs data for custom analysis. The query interface is the same as the one [MongoDB uses](https://docs.mongodb.com/manual/reference/operator/query).
 
 ```python
 runs = api.runs("username/project", {"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
@@ -102,12 +102,12 @@ Check out our [API examples](examples.md) for some common export patterns. You c
 
 ### Get the random run ID and run name from your script
 
-After calling `wandb.init()`  you can access the random run ID or the human readable run name from your script like this:
+After calling `wandb.init()` you can access the random run ID or the human readable run name from your script like this:
 
 * Unique run ID \(8 character hash\): `wandb.run.id`
 * Random run name \(human readable\): `wandb.run.name`
 
- If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
+  If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
 
 * **Run ID**: leave it as the generated hash. This needs to be unique across runs in your project.
 * **Run name**: This should be something short, readable, and preferably unique so that you can tell the difference between different lines on your charts.

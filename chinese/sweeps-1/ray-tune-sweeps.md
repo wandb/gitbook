@@ -11,7 +11,7 @@ description: ✨BETA✨支持Ray Tune扫描搜索和scheduler API
 {% endhint %}
 
 {% hint style="info" %}
- 这个功能处于测试阶段！ 我们喜欢反馈，非常感谢听到正在试用我们的Sweeps产品的人们的来信。
+这个功能处于测试阶段！ 我们喜欢反馈，非常感谢听到正在试用我们的Sweeps产品的人们的来信。
 {% endhint %}
 
 这是一个简单的例子：
@@ -40,13 +40,13 @@ tune_config.save("sweep-hyperopt.yaml")
 wandb.sweep(tune_config)
 ```
 
- [在GitHub查看完整示例→](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)
+[在GitHub查看完整示例→](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)
 
-### **特征兼容性**
+## **特征兼容性**
 
 **搜索算法**
 
- [Ray/Tune搜索算法](https://docs.ray.io/en/latest/tune-searchalg.html)
+[Ray/Tune搜索算法](https://docs.ray.io/en/latest/tune-searchalg.html)
 
 | 搜索算法 |  |
 | :--- | :--- |
@@ -58,7 +58,7 @@ wandb.sweep(tune_config)
 | [Ax](https://ray.readthedocs.io/en/latest/tune-searchalg.html#ax-search) | 计划支持 |
 | [BOHB](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bohb) | 计划支持 |
 
-### HyperOpt
+## HyperOpt
 
 | HyperOpt 特征 | 是否支持 |
 | :--- | :--- |
@@ -77,7 +77,7 @@ wandb.sweep(tune_config)
 
 **调试安排**
 
- ****默认情况下，调试安排以顺序运行。 您还可以指定自定义调度算法，该算法可以提前停止运行或扰动参数。 在 [Tune docs ](https://ray.readthedocs.io/en/latest/tune-schedulers.html)中阅读更多内容→
+_\*\*_默认情况下，调试安排以顺序运行。 您还可以指定自定义调度算法，该算法可以提前停止运行或扰动参数。 在 [Tune docs ](https://ray.readthedocs.io/en/latest/tune-schedulers.html)中阅读更多内容→
 
 | 安排表 | 是否支持 |
 | :--- | :--- |

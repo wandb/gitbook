@@ -29,7 +29,7 @@ wandb.tensorboard.patch(save=False, tensorboardX=True)
 
 If you have existing tfevents files stored locally that were already generated using the wandb library integration and you would like to import them into wandb, you can run `wandb sync log_dir`, where `log_dir` is a local directory containing the tfevents files.
 
-You can also run `wandb sync directory_with_tf_event_file` 
+You can also run `wandb sync directory_with_tf_event_file`
 
 ```python
 """This script will import a directory of tfevents files into a single W&B run.
@@ -37,73 +37,51 @@ You must install wandb from a special branch until this feature is merged into t
 ```bash
 pip install --upgrade git+git://github.com/wandb/client.git@feature/import#egg=wandb
 ```
-You can call this script with `python no_image_import.py dir_with_tf_event_file`.  This will create a single
-run in wandb with metrics from the event files in that directory.
-If you want to run this on many directories, you should only execute this script once 
-per run, so a loader might look like:
+
+You can call this script with `python no_image_import.py dir_with_tf_event_file`. This will create a single run in wandb with metrics from the event files in that directory. If you want to run this on many directories, you should only execute this script once per run, so a loader might look like:
+
 ```python
 import glob
 for run_dir in glob.glob("logdir-*"):
   subprocess.Popen(["python", "no_image_import.py", run_dir], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 ```
-"""
-import glob
-import os
-import wandb
-import sys
-import time
-import tensorflow as tf
-from wandb.tensorboard.watcher import Consumer, Event
-from six.moves import queue
 
+""" import glob import os import wandb import sys import time import tensorflow as tf from wandb.tensorboard.watcher import Consumer, Event from six.moves import queue
 
-if len(sys.argv) == 1:
-    raise ValueError("Must pass a directory as the first argument")
+if len\(sys.argv\) == 1: raise ValueError\("Must pass a directory as the first argument"\)
 
-paths = glob.glob(sys.argv[1]+"/**/*.tfevents.*", recursive=True)
-root = os.path.dirname(os.path.commonprefix(paths)).strip("/")
-namespaces = {path: path.replace(root, "").replace(
-    path.split("/")[-1], "").strip("/") for path in paths}
-finished = {namespace: False for path, namespace in namespaces.items()}
-readers = [(namespaces[path], tf.train.summary_iterator(path))
-           for path in paths]
-if len(readers) == 0:
-    raise ValueError("Couldn't find any event files in this directory")
+paths = glob.glob\(sys.argv\[1\]+"/_\*/_.tfevents.\*", recursive=True\) root = os.path.dirname\(os.path.commonprefix\(paths\)\).strip\("/"\) namespaces = {path: path.replace\(root, ""\).replace\( path.split\("/"\)\[-1\], ""\).strip\("/"\) for path in paths} finished = {namespace: False for path, namespace in namespaces.items\(\)} readers = \[\(namespaces\[path\], tf.train.summary\_iterator\(path\)\) for path in paths\] if len\(readers\) == 0: raise ValueError\("Couldn't find any event files in this directory"\)
 
-directory = os.path.abspath(sys.argv[1])
-print("Loading directory %s" % directory)
-wandb.init(project="test-detection")
+directory = os.path.abspath\(sys.argv\[1\]\) print\("Loading directory %s" % directory\) wandb.init\(project="test-detection"\)
 
-Q = queue.PriorityQueue()
-print("Parsing %i event files" % len(readers))
-con = Consumer(Q, delay=5)
-con.start()
-total_events = 0
-while True:
-    # Consume 500 events at a time from all readers and push them to the queue
-    for namespace, reader in readers:
-        if not finished[namespace]:
-            for i in range(500):
-                try:
-                    event = next(reader)
-                    kind = event.value.WhichOneof("value")
-                    if kind != "image":
-                        Q.put(Event(event, namespace=namespace))
-                        total_events += 1
-                except StopIteration:
-                    finished[namespace] = True
-                    print("Finished parsing %s event file" % namespace)
-                    break
-    if all(finished.values()):
-        break
-print("Persisting %i events..." % total_events)
-con.shutdown()
-print("Import complete")
+Q = queue.PriorityQueue\(\) print\("Parsing %i event files" % len\(readers\)\) con = Consumer\(Q, delay=5\) con.start\(\) total\_events = 0 while True:
+
+```text
+# Consume 500 events at a time from all readers and push them to the queue
+for namespace, reader in readers:
+    if not finished[namespace]:
+        for i in range(500):
+            try:
+                event = next(reader)
+                kind = event.value.WhichOneof("value")
+                if kind != "image":
+                    Q.put(Event(event, namespace=namespace))
+                    total_events += 1
+            except StopIteration:
+                finished[namespace] = True
+                print("Finished parsing %s event file" % namespace)
+                break
+if all(finished.values()):
+    break
 ```
 
-### Google Colab and TensorBoard 
+print\("Persisting %i events..." % total\_events\) con.shutdown\(\) print\("Import complete"\)
 
- To run commands from the command line in Colab, you must run `!wandb sync directoryname` .  Currently tensorboard syncing does not work in a notebook environment for Tensorflow 2.1+.  You can have your Colab use an earlier version of TensorBoard, or run a script from the command line with `!python your_script.py` .
+\`\`\`
+
+### Google Colab and TensorBoard
+
+To run commands from the command line in Colab, you must run `!wandb sync directoryname` . Currently tensorboard syncing does not work in a notebook environment for Tensorflow 2.1+. You can have your Colab use an earlier version of TensorBoard, or run a script from the command line with `!python your_script.py` .
 
 ## How is W&B different from TensorBoard?
 

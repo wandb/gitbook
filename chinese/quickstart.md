@@ -15,7 +15,7 @@ pip install wandb
 ```
 
 {% hint style="info" %}
- 如果你在自动环境中训练模型，应当看看文档《[在自动环境中运行](https://docs.wandb.com/library/environment-variables)》。自动的环境方便运行shell命令，比如谷歌的CloudML。
+如果你在自动环境中训练模型，应当看看文档《[在自动环境中运行](https://docs.wandb.com/library/environment-variables)》。自动的环境方便运行shell命令，比如谷歌的CloudML。
 {% endhint %}
 
 ## 2. **创建账号**
@@ -31,7 +31,7 @@ wandb login
 在脚本中插入几行代码，用以记录超参数和指标。
 
 {% hint style="info" %}
-权阈是与框架无关的，但如果你用的是常见的机器学习框架，或许能找到对应框架的例子，就更容易上手。我们针对各种框架开发了对应的钩子（hook）,简化了集成过程，这些框架包括  [Keras](https://docs.wandb.com/frameworks/keras), [TensorFlow](https://docs.wandb.com/frameworks/tensorflow), [PyTorch](https://docs.wandb.com/frameworks/pytorch), [Fast.ai](https://docs.wandb.com/frameworks/fastai), [Scikit-learn](https://docs.wandb.com/frameworks/scikit), [XGBoost](https://docs.wandb.com/frameworks/xgboost), [Catalyst](https://docs.wandb.com/frameworks/catalyst), 和 [Jax](https://docs.wandb.com/frameworks/jax-example).
+权阈是与框架无关的，但如果你用的是常见的机器学习框架，或许能找到对应框架的例子，就更容易上手。我们针对各种框架开发了对应的钩子（hook）,简化了集成过程，这些框架包括 [Keras](https://docs.wandb.com/frameworks/keras), [TensorFlow](https://docs.wandb.com/frameworks/tensorflow), [PyTorch](https://docs.wandb.com/frameworks/pytorch), [Fast.ai](https://docs.wandb.com/frameworks/fastai), [Scikit-learn](https://docs.wandb.com/frameworks/scikit), [XGBoost](https://docs.wandb.com/frameworks/xgboost), [Catalyst](https://docs.wandb.com/frameworks/catalyst), 和 [Jax](https://docs.wandb.com/frameworks/jax-example).
 {% endhint %}
 
 **初始化Wandb**
@@ -82,7 +82,7 @@ model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 不错！现在正常运行脚本，我们会在一个后台进程中同步那些记录。你的最终输出、指标和文件将被同步到云端，如果你从git repo运行的话，还会同步你的git状态记录。
 
 {% hint style="info" %}
- 如果你要做测试，想关闭wandb同步，就设置[环境变量](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/environment-variables)WANDB\_MODE=dryrun
+如果你要做测试，想关闭wandb同步，就设置[环境变量](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/environment-variables)WANDB\_MODE=dryrun
 {% endhint %}
 
 ## **下一步**

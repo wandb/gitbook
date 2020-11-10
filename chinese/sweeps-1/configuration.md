@@ -6,8 +6,8 @@ description: 用于设置超参数范围，搜索策略以及其他扫描相关�
 
 使用这些配置字段来自定义扫描。 有两种方法可以指定您的配置：
 
-1.  [文件](https://docs.wandb.com/sweeps/quickstart#2-sweep-config)：最适合分布式扫描。 在此[处查](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)看示例。
-2.   [Python数据结构](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/python-api)：最适合从Jupyter Notebook运行扫描
+1. [文件](https://docs.wandb.com/sweeps/quickstart#2-sweep-config)：最适合分布式扫描。 在此[处查](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)看示例。
+2. [Python数据结构](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/python-api)：最适合从Jupyter Notebook运行扫描
 
 | Top-level key | 含义 |
 | :--- | :--- |
@@ -15,8 +15,8 @@ description: 用于设置超参数范围，搜索策略以及其他扫描相关�
 | description | 文字说明（注释） |
 | program | 要运行的训练脚本（必需） |
 | metric | 指定要优化的指标（由某些搜索策略和停止条件使用） |
-| method |  指定[搜索策略](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/configuration#search-strategy)（必填） |
-| early\_terminate |  指[定停止条](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/configuration#stopping-criteria)件（可选，默认为不提前停止） |
+| method | 指定[搜索策略](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/configuration#search-strategy)（必填） |
+| early\_terminate | 指[定停止条](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/configuration#stopping-criteria)件（可选，默认为不提前停止） |
 | parameters | 指定要搜索的[参数](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/configuration#parameters)范围（必填） |
 | project | 指定此扫描的项目 |
 | entity | 指定此扫描的实体 |
@@ -43,23 +43,21 @@ wandb.log({"val_loss" : valid_loss})
 这将**不**起作用：  
 Sweep configuration:  
 metric:  
-   name: my\_metric.nested  
+name: my\_metric.nested  
 Code:  
-`nested_metrics = {"nested": 4}  
-wandb.log({"my_metric", nested_metrics}`  
-  
+`nested_metrics = {"nested": 4}    
+wandb.log({"my_metric", nested_metrics}`
+
 要解决此限制，脚本应在顶层记录嵌套指标，如下所示：
 
 扫描配置：  
 metric:  
-  name: my\_metric\_nested  
+name: my\_metric\_nested  
 Code:  
-`nested_metrics = {"nested": 4}  
-wandb.log{{"my_metric", nested_metric}  
+`nested_metrics = {"nested": 4}    
+wandb.log{{"my_metric", nested_metric}    
 wandb.log({"my_metric_nested", nested_metric["nested"]})`
 {% endhint %}
-
-
 
 **示例**
 
@@ -80,7 +78,7 @@ metric:
 {% endtab %}
 
 {% tab title="Target" %}
-```
+```text
 metric:
   name: val_loss
   goal: maximize
@@ -136,7 +134,7 @@ metric:
 
 | `type` | 含义 |
 | :--- | :--- |
-| hyperband |  使用[hyperband方法](https://arxiv.org/abs/1603.06560) |
+| hyperband | 使用[hyperband方法](https://arxiv.org/abs/1603.06560) |
 
 Hyperband终止算法在执行程序期间评估是否应停止程序，还是应允许程序在一个或多个括号中继续执行。 括号是在静态迭代中针对指定指标配置的（其中迭代是指标的记录次数——如果在每个训练epoch都记录了指标，则存在epoch迭代）。
 
@@ -159,7 +157,7 @@ early_terminate:
   min_iter: 3
 ```
 
-Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\) 
+Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\)
 {% endtab %}
 
 {% tab title="Hyperband \(max\_iter\)" %}
@@ -182,7 +180,7 @@ Brackets: 9 \(27/eta\), 3 \(9/eta\)
 | :--- | :--- |
 | values: \[\(type1\), \(type2\), ...\] | 指定此超参数的所有有效值。 与网格兼容。 |
 | value: \(type\) | 指定此超参数的单个有效值。 与网格兼容。 |
-| distribution: \(distribution\) |  从下面的分布表中选择一个分布。 如果未指定分布：如果设置了`value`，则默认为`categorical`；如果将`max`和`min`设置为整数，则默认为`int_uniform`；如果将`max`和`min`设置为float，则默认为`int_uniform`；如果设置为`value`，则默认为`constant`。 |
+| distribution: \(distribution\) | 从下面的分布表中选择一个分布。 如果未指定分布：如果设置了`value`，则默认为`categorical`；如果将`max`和`min`设置为整数，则默认为`int_uniform`；如果将`max`和`min`设置为float，则默认为`int_uniform`；如果设置为`value`，则默认为`constant`。 |
 | min: \(float\) max: \(float\) | 均匀分布`uniform`的超参数的最大和最小有效值。 |
 | min: \(int\) max: \(int\) | `int_uniform`分布式超参数的最大值和最小值。 |
 | mu: \(float\) | 正态分布`normal`或对数正态分布`lognormal`超参数的平均参数。 |
@@ -200,7 +198,7 @@ parameter_name:
 {% endtab %}
 
 {% tab title="grid - multiple values" %}
-```
+```text
 parameter_name:
   values:
   - 8
@@ -214,7 +212,7 @@ parameter_name:
 {% endtab %}
 
 {% tab title="random or bayes - normal distribution" %}
-```
+```text
 parameter_name:
   distribution: normal
   mu: 100
@@ -268,7 +266,7 @@ parameter_name:
 {% endtab %}
 
 {% tab title="uniform" %}
-```
+```text
 parameter_name:
   distribution: uniform
   min: 0
@@ -277,7 +275,7 @@ parameter_name:
 {% endtab %}
 
 {% tab title="q\_uniform" %}
-```
+```text
 parameter_name:
   distribution: q_uniform
   min: 0
@@ -289,7 +287,7 @@ parameter_name:
 
 **命令行**
 
-扫描代理默认情况下以以下格式构造命令行： 
+扫描代理默认情况下以以下格式构造命令行：
 
 ```text
 /usr/bin/env python train.py --param1=value1 --param2=value2

@@ -12,7 +12,7 @@ Try our free tools for experiment tracking with this [5 minute example →](http
 
 ## Deep Learning in the Real World
 
-Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf).  If you want to join our Machine Learning community, join our [forum](https://bit.ly/wandb-forum).
+Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf). If you want to join our Machine Learning community, join our [forum](https://bit.ly/wandb-forum).
 
 If you're curious to learn more about some of the things I referenced in my talk, check out these resources:
 
@@ -40,6 +40,4 @@ If you're curious to learn more about some of the things I referenced in my talk
 5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
 6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
 7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
-
-
 

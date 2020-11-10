@@ -40,27 +40,25 @@ wandb.log({"val_loss" : valid_loss})
 | target | Value that you'd like to achieve for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to "Finished." This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
 
 {% hint style="danger" %}
-The metric specified needs to be a "top level" metric:  
-  
+The metric specified needs to be a "top level" metric:
+
 This will **NOT** work:  
 Sweep configuration:  
 metric:  
-   name: my\_metric.nested  
+name: my\_metric.nested  
 Code:  
-`nested_metrics = {"nested": 4}  
-wandb.log({"my_metric", nested_metrics}`  
-  
+`nested_metrics = {"nested": 4}    
+wandb.log({"my_metric", nested_metrics}`
+
 To work around this limitation the script should log the nested metric at the top level like this:  
 Sweep configuration:  
 metric:  
-  name: my\_metric\_nested  
+name: my\_metric\_nested  
 Code:  
-`nested_metrics = {"nested": 4}  
-wandb.log{{"my_metric", nested_metric}  
+`nested_metrics = {"nested": 4}    
+wandb.log{{"my_metric", nested_metric}    
 wandb.log({"my_metric_nested", nested_metric["nested"]})`
 {% endhint %}
-
-
 
 **Examples**
 
@@ -81,7 +79,7 @@ metric:
 {% endtab %}
 
 {% tab title="Target" %}
-```
+```text
 metric:
   name: val_loss
   goal: maximize
@@ -139,9 +137,9 @@ We support the following stopping algorithm\(s\):
 | :--- | :--- |
 | hyperband | Use the [hyperband method](https://arxiv.org/abs/1603.06560) |
 
-Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program.  Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged — if the metric is logged every epoch, then there are epoch iterations\).
+Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program. Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged — if the metric is logged every epoch, then there are epoch iterations\).
 
-In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined. 
+In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
@@ -160,7 +158,7 @@ early_terminate:
   min_iter: 3
 ```
 
-Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\) 
+Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\)
 {% endtab %}
 
 {% tab title="Hyperband \(max\_iter\)" %}
@@ -183,7 +181,7 @@ Describe the hyperparameters to explore. For each hyperparameter, specify the na
 | :--- | :--- |
 | values: \[\(type1\), \(type2\), ...\] | Specifies all valid values for this hyperparameter. Compatible with `grid`. |
 | value: \(type\) | Specifies the single valid value for this hyperparameter. Compatible with `grid`. |
-| distribution: \(distribution\) | Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set.  |
+| distribution: \(distribution\) | Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set. |
 | min: \(float\) max: \(float\) | Maximum and minimum valid values for `uniform` -distributed hyperparameters. |
 | min: \(int\) max: \(int\) | Maximum and minimum values for `int_uniform` -distributed hyperparameters. |
 | mu: \(float\) | Mean parameter for `normal` - or `lognormal` -distributed hyperparameters. |
@@ -201,7 +199,7 @@ parameter_name:
 {% endtab %}
 
 {% tab title="grid - multiple values" %}
-```
+```text
 parameter_name:
   values:
   - 8
@@ -215,7 +213,7 @@ parameter_name:
 {% endtab %}
 
 {% tab title="random or bayes - normal distribution" %}
-```
+```text
 parameter_name:
   distribution: normal
   mu: 100
@@ -269,7 +267,7 @@ parameter_name:
 {% endtab %}
 
 {% tab title="uniform" %}
-```
+```text
 parameter_name:
   distribution: uniform
   min: 0
@@ -278,7 +276,7 @@ parameter_name:
 {% endtab %}
 
 {% tab title="q\_uniform" %}
-```
+```text
 parameter_name:
   distribution: q_uniform
   min: 0
@@ -297,7 +295,7 @@ The sweep agent constructs a command line in the following format by default:
 ```
 
 {% hint style="info" %}
-On Windows machines the /usr/bin/env will be omitted.  On UNIX systems it ensures the right python interpreter is chosen based on the environment.
+On Windows machines the /usr/bin/env will be omitted. On UNIX systems it ensures the right python interpreter is chosen based on the environment.
 {% endhint %}
 
 This command line can be modified by specifying a `command` key in the configuration file.
@@ -322,7 +320,7 @@ command:
 | ${json} | Arguments encoded as JSON |
 | ${json\_file} | The path to a file containing the args encoded as JSON |
 
- Examples:
+Examples:
 
 {% tabs %}
 {% tab title="Set python interpreter" %}

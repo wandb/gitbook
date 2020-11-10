@@ -6,11 +6,11 @@ description: >-
 
 # API Examples
 
-### Find the run path
+## Find the run path
 
-To use the public API, you'll often need the **Run Path** which is `"<entity>/<project>/<run_id>"`  In the app, open a run and click on the **Overview** tab to see the run path for any run.
+To use the public API, you'll often need the **Run Path** which is `"<entity>/<project>/<run_id>"` In the app, open a run and click on the **Overview** tab to see the run path for any run.
 
-### Read metrics from a run
+## Read metrics from a run
 
 This example outputs timestamp and accuracy saved with `wandb.log({"accuracy": acc})` for a run saved to `<entity>/<project>/<run_id>`.
 
@@ -24,7 +24,7 @@ if run.state == "finished":
        print(k["_timestamp"], k["accuracy"])
 ```
 
-### Compare two runs
+## Compare two runs
 
 This will output the config parameters that are different between run1 and run2.
 
@@ -52,7 +52,7 @@ n_conv_layers                               5                    4
 optimizer                             rmsprop                 adam
 ```
 
-### Update metrics for a run \(after run finished\)
+## Update metrics for a run \(after run finished\)
 
 This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_array
 
@@ -66,7 +66,7 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
-### Update config in a run
+## Update config in a run
 
 This examples updates one of your configuration settings
 
@@ -78,7 +78,7 @@ run.config["key"] = 10
 run.update()
 ```
 
-### Export metrics from a single run to a CSV file
+## Export metrics from a single run to a CSV file
 
 This script finds all the metrics saved for a single run and saves them to a CSV.
 
@@ -94,7 +94,7 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 ```
 
-### Export metrics from a large single run without sampling
+## Export metrics from a large single run without sampling
 
 The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. This script loads all of the loss metrics into a variable losses for a longer run.
 
@@ -107,7 +107,7 @@ history = run.scan_history()
 losses = [row["Loss"] for row in history]
 ```
 
-### Export metrics from all runs in a project to a CSV file
+## Export metrics from all runs in a project to a CSV file
 
 This script finds a project and outputs a CSV of runs with name, configs and summary stats.
 
@@ -138,7 +138,7 @@ all_df = pd.concat([name_df, config_df,summary_df], axis=1)
 all_df.to_csv("project.csv")
 ```
 
-### Download a file from a run
+## Download a file from a run
 
 This finds the file "model-best.h5" associated with with run ID uxte44z7 in the cifar project and saves it locally.
 
@@ -149,9 +149,9 @@ run = api.run("<entity>/<project>/<run_id>")
 run.file("model-best.h5").download()
 ```
 
-### Download all files from a run
+## Download all files from a run
 
-This finds all files associated with run ID uxte44z7 and saves them locally.  \(Note: you can also accomplish this by running wandb restore &lt;RUN\_ID&gt; from the command line.\)
+This finds all files associated with run ID uxte44z7 and saves them locally. \(Note: you can also accomplish this by running wandb restore &lt;RUN\_ID&gt; from the command line.\)
 
 ```python
 import wandb
@@ -161,7 +161,7 @@ for file in run.files():
     file.download()
 ```
 
-### Download the best model file
+## Download the best model file
 
 ```python
 import wandb
@@ -174,7 +174,7 @@ runs[0].file("model-best.h5").download(replace=True)
 print("Best model saved to model-best.h5")
 ```
 
-### Get runs from a specific sweep
+## Get runs from a specific sweep
 
 ```python
 import wandb
@@ -183,7 +183,7 @@ sweep = api.sweep("<entity>/<project>/<sweep_id>")
 print(sweep.runs)
 ```
 
-### Download system metrics data
+## Download system metrics data
 
 This gives you a dataframe with all your system metrics for a run.
 
@@ -194,7 +194,7 @@ run = api.run("<entity>/<project>/<run_id>")
 system_metrics = run.history(stream = 'events')
 ```
 
-### Update summary metrics
+## Update summary metrics
 
 You can pass your dictionary to update summary metrics.
 
@@ -202,7 +202,7 @@ You can pass your dictionary to update summary metrics.
 summary.update({“key”: val})
 ```
 
-### Get the command that ran the run
+## Get the command that ran the run
 
 Each run captures the command that launched it on the run overview page. To pull this command down from the API, you can run:
 
@@ -213,7 +213,7 @@ meta = json.load(run.file("wandb-metadata.json").download())
 program = ["python"] + [meta["program"]] + meta["args"]
 ```
 
-### Get paginated data from history
+## Get paginated data from history
 
 If metrics are being fetched slowly on our backend or API requests are timing out, you can try lowering the page size in `scan_history` so that individual requests don't time out. The default page size is 1000, so you can experiment with different sizes to see what works best:
 
@@ -222,6 +222,4 @@ api = wandb.Api()
 run = api.run("username/project/run_id")
 run.scan_history(keys=sorted(cols), page_size=100)
 ```
-
-
 

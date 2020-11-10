@@ -12,13 +12,13 @@ description: 机器学习项目的项目管理和协作工具
 2. 协作：与您的同事分享发现。
 3. 工作日志：跟踪您尝试过的内容，并计划下一步。
 
-###  [请参阅OpenAI案例研究→](https://wandb.ai/openai/published-work/Learning-Dexterity-End-to-End--VmlldzoxMTUyMDQ)
+## [请参阅OpenAI案例研究→](https://wandb.ai/openai/published-work/Learning-Dexterity-End-to-End--VmlldzoxMTUyMDQ)
 
- [在W＆B](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/quickstart)中进行实验后，可以轻松地在报告中可视化结果。 这是一个快速的概述视频。
+[在W＆B](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/quickstart)中进行实验后，可以轻松地在报告中可视化结果。 这是一个快速的概述视频。
 
-{% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" %}
+{% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" caption="" %}
 
-### **利用报告进行协作**
+## **利用报告进行协作**
 
 保存报告后，可以单击“共享”按钮进行协作。 确保项目上的可见性设置允许您的协作者访问报告——您将需要一个开放项目或团队项目来共享可以一起编辑的报告。
 
@@ -30,26 +30,26 @@ description: 机器学习项目的项目管理和协作工具
 
 **上传CSV文件到报告中**
 
-### **增加面板**
+## **增加面板**
 
 点击增加面板按钮，将新的可视化加到报告中
 
 ![](https://downloads.intercomcdn.com/i/o/142935595/d1422f30460a39b8b4868885/image.png)
 
-### **面板网格**
+## **面板网格**
 
 如果要比较一组不同的运行，请创建一个新的面板网格。 每个部分的图形均由该部分底部的运行集控制。
 
-### **静态和动态运行集**
+## **静态和动态运行集**
 
 * **动态运行集**：如果您从“全部可视化”开始，然后过滤或取消选择某些运行的可视化，则运行集将自动更新以显示与过滤器匹配的所有新运行。
 * **静态运行集：**如果从“不可视化”开始，然后选择要包含在运行集中的运行，则运行集中只会包含这些运行。 没有新的运行将被添加。
 
-### **导出报告**
+## **导出报告**
 
- 单击下载按钮将报告导出为LaTeX zip文件。 检查下载文件夹中的README.md，以查找有关如何将此文件转换为PDF的说明。 您可以很容易将zip文件上传到 [Overleaf](https://www.overleaf.com/) 来编辑LaTeX。
+单击下载按钮将报告导出为LaTeX zip文件。 检查下载文件夹中的README.md，以查找有关如何将此文件转换为PDF的说明。 您可以很容易将zip文件上传到 [Overleaf](https://www.overleaf.com/) 来编辑LaTeX。
 
-### **跨项目报告**
+## **跨项目报告**
 
 将来自两个不同项目的运行与跨项目报告进行比较。 使用运行集表中的项目选择器选择一个项目。
 
@@ -71,15 +71,13 @@ description: 机器学习项目的项目管理和协作工具
 
 ![](../.gitbook/assets/demo-export-to-existing-report.gif)
 
-
-
-### **报告常见问题\(FAQ\)**
+## **报告常见问题\(FAQ\)**
 
 **将CSV上传到报告**
 
- 如果当前要上传CSV到报告中，则可以通过`wandb.Table`格式来完成。 在您的Python脚本中加载CSV并将其记录为`wandb.Table`对象将使您能够将数据呈现为报表中的表格。
+如果当前要上传CSV到报告中，则可以通过`wandb.Table`格式来完成。 在您的Python脚本中加载CSV并将其记录为`wandb.Table`对象将使您能够将数据呈现为报表中的表格。
 
-### **刷新数据**
+## **刷新数据**
 
 重新加载页面以刷新报告中的数据，并从运行中获得最新结果。 如果您启用了“自动刷新”选项（在页面右上角的下拉菜单中可找到），则工作区将自动加载新数据。 自动刷新不适用于报表，因此在您重新加载页面之前，该数据不会刷新。
 

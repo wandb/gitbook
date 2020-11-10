@@ -1,14 +1,14 @@
 # Kubeflow
 
-### Kubeflow Integration
+## Kubeflow Integration
 
 Using certain features require additional dependencies. Install all Kubeflow dependencies by running `pip install wandb[kubeflow]`.
 
-#### Training Jobs
+### Training Jobs
 
 Currently W&B automatically reads the **TF\_CONFIG** environment variable to group distributed runs.
 
-#### Arena
+### Arena
 
 The wandb library integrates with [arena](https://github.com/kubeflow/arena) by automatically adding credentials to container environments. If you want to use the wandb wrapper locally, add the following to your `.bashrc`
 
@@ -18,7 +18,7 @@ alias arena="python -m wandb.kubeflow.arena"
 
 If you don't have arena installed locally, the above command will use the `wandb/arena` docker image and attempt to mount your kubectl configs.
 
-#### Pipelines
+### Pipelines
 
 wandb provides an `arena_launcher_op` that can be used in [pipelines](https://github.com/kubeflow/pipelines).
 

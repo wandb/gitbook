@@ -12,7 +12,7 @@ Explore examples for using Weights & Biases to:
 
 Fork examples from our [GitHub repo](https://github.com/wandb/examples) or browse the direct links here. Contact us at c@wandb.com to contribute an example to the list.
 
-### Getting Started with W&B
+## Getting Started with W&B
 
 | Description | Dashboard | Code |
 | :--- | :--- | :--- |
@@ -22,7 +22,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 | Compare System Metrics | [W&B link](https://app.wandb.ai/stacey/estuary/reports/System-metrics-for-model-comparison--Vmlldzo1NzI5Mg) |  |
 | Hyperparameter Sweeps | [W&B link](https://app.wandb.ai/sweep/sweeps-tutorial/workspace?workspace=user-lavanyashukla) | [Colab Notebook](https://colab.research.google.com/drive/1gKixa6hNUB8qrn1CfHirOfTEQm0qLCSS) |
 
-### PyTorch
+## PyTorch
 
 | Description | Dashboard | Code |
 | :--- | :--- | :--- |
@@ -38,7 +38,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 | PyTorch Lightning | [W&B Report](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) | [Colab Notebook](https://colab.research.google.com/drive/1GHWwfzAsWx_Q1paw73hngAvA7-U9QHi-) |
 | Semantic Segmentation with PyTorch Lightning | [W&B Dashboard](https://app.wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw) | [Github Repo](https://github.com/borisdayma/lightning-kitti) |
 
-### Keras
+## Keras
 
 | Description | Dashboard | Code |
 | :--- | :--- | :--- |
@@ -56,7 +56,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 | Visualize models in TensorBoard with Weights & Biases | [W&B Dashboard](https://app.wandb.ai/sayakpaul/tensorboard-integration-partII/reports/Visualize-models-in-TensorBoard-with-Weights-and-Biases--Vmlldzo2MzE2Mg) | [Colab Notebook](https://colab.research.google.com/gist/sayakpaul/5b31ed03725cc6ae2af41848d4acee45/demo_tensorboard.ipynb) |
 | Weights & Biases with TPUs |  | [Colab notebook](https://colab.research.google.com/drive/1gXEr0a_8ZbHt5-uO80JdQJxJ_uoYR4qv?usp=sharing) |
 
-### TensorFlow
+## TensorFlow
 
 | Description | Dashboard | Code |
 | :--- | :--- | :--- |
@@ -64,14 +64,14 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 | Tracking TensorFlow model performance |  | [Github Repo](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-estimator-mnist/mnist.py) |
 | Training distributed TensorFlow models |  | [Github Repo](https://github.com/wandb/examples/tree/master/examples/tensorflow/tf-distributed-mnist/train.py) |
 
-### Fast.ai
+## Fast.ai
 
 | Description | Dashboard | Code |
 | :--- | :--- | :--- |
 | Classifying Simpson's characters | [W&B Dashboard](https://app.wandb.ai/borisd13/simpsons-fastai) | [Github Repo](https://github.com/borisdayma/simpsons-fastai) |
 | Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/semantic-segmentation/?workspace=user-borisd13) | [Github Repo](https://github.com/borisdayma/semantic-segmentation/blob/master/src/train.py) |
 
-### Sweeps
+## Sweeps
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -80,7 +80,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 | Running sweeps in python scripts |  | [Github Repo](https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-python/sweep.py) |
 | Using sweeps with MPI frameworks |  | [Github Repo](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-mpi-wrappers) |
 
-### Scikit-learn
+## Scikit-learn
 
 | Description | Public Dashboard | Code |
 | :--- | :--- | :--- |
@@ -88,21 +88,19 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 | Using W&B with XGBoost |  | [Github Repo](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/xgboost-dermatology) |
 | Using W&B with an SVM |  | [Github Repo](https://github.com/wandb/examples/tree/master/examples/scikit/scikit-iris) |
 
-### Applications
+## Applications
 
 | Title | Link |
 | :--- | :--- |
 | Protein Structure Prediction | [Report](https://app.wandb.ai/koes-group/protein-transformer/reports/Evaluating-the-Impact-of-Sequence-Convolutions-and-Embeddings-on-Protein-Structure-Prediction--Vmlldzo2OTg4Nw) |
-| Semantic Segmentation for Self-Driving Cars | [Report](https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ) |
+| Semantic Segmentation for Self-Driving Cars | \[Report\]\([https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ](https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ)\) |
 | Template for COVID-19 Research | [Report](https://app.wandb.ai/cayush/covid-19-scans/reports/COVID-19-research-using-PyTorch-and-W%26B--Vmlldzo2OTQ5OA) |
 | Depth Maps from Videos for Self-Driving Car | [Report](https://app.wandb.ai/stacey/sfmlearner/reports/See-3D-from-Video%3A-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw) |
 | Effects of Weight Initialization on Neural Networks | [Report](https://app.wandb.ai/sayakpaul/weight-initialization-tb/reports/Effects-of-Weight-Initialization-on-Neural-Networks--Vmlldzo2ODY0NA) |
 
-### Features
+## Features
 
 | Title | Link |
 | :--- | :--- |
 | Hugging Face Integration | [Colab Notebook](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8) |
-
-
 

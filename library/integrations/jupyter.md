@@ -29,7 +29,7 @@ wandb.init(project="jupyter-projo",
            })
 ```
 
-After running `wandb.init()` , start a new cell with `%%wandb`  to see live graphs in the notebook. If you run this cell multiple times, data will be appended to the run.
+After running `wandb.init()` , start a new cell with `%%wandb` to see live graphs in the notebook. If you run this cell multiple times, data will be appended to the run.
 
 ```python
 %%wandb
@@ -76,5 +76,5 @@ logger.setLevel(logging.ERROR)
 
 ### Notebook name
 
-If you're seeing the error message "Failed to query for notebook name, you can set it manually with the WANDB\_NOTEBOOK\_NAME environment variable," you can solve this by setting the environment variable from your script like so: `os.environ['WANDB_NOTEBOOK_NAME'] = 'some text here'` 
+If you're seeing the error message "Failed to query for notebook name, you can set it manually with the WANDB\_NOTEBOOK\_NAME environment variable," you can solve this by setting the environment variable from your script like so: `os.environ['WANDB_NOTEBOOK_NAME'] = 'some text here'`
 

@@ -17,7 +17,7 @@ We also offer [W&B Enterprise Cloud](cloud.md), which runs a completely scalable
 * Integrate with your company's authentication system
 * Premier support by the W&B engineering team
 
-The self hosted server is a single Docker image that is simple to deploy.  Your W&B data is saved on a persistent volume or an external database so data can be preserved across container versions.
+The self hosted server is a single Docker image that is simple to deploy. Your W&B data is saved on a persistent volume or an external database so data can be preserved across container versions.
 
 ## Server Requirements
 
@@ -34,6 +34,4 @@ The W&B self hosted server requires an instance with at least 4 cores and 8GB me
 {% page-ref page="local-common-questions.md" %}
 
 {% page-ref page="cloud.md" %}
-
-
 

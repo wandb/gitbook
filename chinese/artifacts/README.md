@@ -4,13 +4,13 @@ description: 跨管道(pipeline)的版本化数据，模型和结果
 
 # Artifacts
 
-### **总览**
+## **总览**
 
 使用W＆B Artifacts在整个机器学习管道\(pipeline\)中存储和跟踪数据集，模型和评估结果。 将工件模块artifact视为数据的版本文件夹。 您可以将整个数据集直接存储在artifact中，或使用artifact来指向其他系统中的数据。
 
 **运行原理**
 
- 使用我们的artifact API，您可以将artifact记录为W＆B运行的输出，也可以将artifact用作运行的输入。
+使用我们的artifact API，您可以将artifact记录为W＆B运行的输出，也可以将artifact用作运行的输入。
 
 ![](../../.gitbook/assets/simple-artifact-diagram-2.png)
 

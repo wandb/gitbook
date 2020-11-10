@@ -1,11 +1,11 @@
 # Sweeps Quickstart
 
- 从任何机器学习模型开始，在几分钟内运行超参数扫描。想看一个例子吗？这是[示例代码](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)和示例[仪表板。](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps-1/sweeps-quickstart)
+从任何机器学习模型开始，在几分钟内运行超参数扫描。想看一个例子吗？这是[示例代码](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)和示例[仪表板。](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps-1/sweeps-quickstart)
 
 ![](../../.gitbook/assets/image%20%2850%29.png)
 
 {% hint style="info" %}
- 已经有一个权阈项目？[跳到我们的下一个sweep教程→](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/add-to-existing)
+已经有一个权阈项目？[跳到我们的下一个sweep教程→](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/add-to-existing)
 {% endhint %}
 
 ### **1.添加wandb**
@@ -18,8 +18,8 @@
 
 **设置您的Python训练脚本**
 
-1.  导入我们的库`wandb`
-2.  确保您的超参数可以通过sweep正确设置。在脚本顶部的字典中定义它们，并将它们传递到wandb.init中。
+1. 导入我们的库`wandb`
+2. 确保您的超参数可以通过sweep正确设置。在脚本顶部的字典中定义它们，并将它们传递到wandb.init中。
 3. 记录指标以在实时仪表板中查看它们
 
 ```python
@@ -51,15 +51,15 @@ wandb.log(metrics)
 
 ## 2. **.扫描配置**
 
- 设置一个YAML文件以指定您的训练脚本，参数范围，搜索策略和停止条件。 W＆B会将这些参数及其值作为命令行参数传递给您的训练脚本，我们将使用在[步骤1](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/quickstart#set-up-your-python-training-script)中设置的config对象自动解析它们。
+设置一个YAML文件以指定您的训练脚本，参数范围，搜索策略和停止条件。 W＆B会将这些参数及其值作为命令行参数传递给您的训练脚本，我们将使用在[步骤1](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/quickstart#set-up-your-python-training-script)中设置的config对象自动解析它们。
 
 Here are some config resources:
 
 1. [ 示例YAML](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml)：执行扫描的脚本和YAML文件的代码示例
 2. [置](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/configuration)：设置扫描配置的完整规格
 3. [Jupyter Notebook](../../sweeps/python-api.md): 使用Python字典而不是YAML文件设置扫描配置
-4.  [从UI生成配置](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/add-to-existing)：接受现有的W＆B项目并生成配置文件
-5.  [输入先前的运行](https://docs.wandb.com/sweeps/add-to-existing#seed-a-new-sweep-with-existing-runs)：进行先前的运行并将其添加到新扫描中
+4. [从UI生成配置](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/add-to-existing)：接受现有的W＆B项目并生成配置文件
+5. [输入先前的运行](https://docs.wandb.com/sweeps/add-to-existing#seed-a-new-sweep-with-existing-runs)：进行先前的运行并将其添加到新扫描中
 
 这是一个名为**sweep.yam**l的扫描配置YAML文件示例：
 
@@ -124,13 +124,9 @@ wandb agent your-sweep-id
 
 ![](../../.gitbook/assets/image%20%2880%29.png)
 
-## 
-
 ![](../../.gitbook/assets/image%20%2850%29.png)
 
 {% hint style="info" %}
 Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](../../sweeps/add-to-existing.md)
 {% endhint %}
-
-
 

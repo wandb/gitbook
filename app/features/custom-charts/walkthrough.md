@@ -68,11 +68,10 @@ Thanks for following along! Message Carey \(c@wandb.com\) with questions and fee
 
 ## Bonus: Composite Histograms
 
-Histograms can visualize numerical distributions to help us understand larger datasets. Composite histograms show multiple distributions across the same bins, letting us compare two or more metrics across different models or across different classes within our model. For a semantic segmentation model detecting objects in driving scenes, we might compare the effectiveness of optimizing for accuracy versus intersection over union \(IOU\), or we might want to know how well different models detect cars \(large, common regions in the data\) versus traffic signs \(much smaller, less common regions\). In the[ demo Colab](https://bit.ly/custom-charts-colab), you can compare the confidence scores for two of the ten classes of living things. 
+Histograms can visualize numerical distributions to help us understand larger datasets. Composite histograms show multiple distributions across the same bins, letting us compare two or more metrics across different models or across different classes within our model. For a semantic segmentation model detecting objects in driving scenes, we might compare the effectiveness of optimizing for accuracy versus intersection over union \(IOU\), or we might want to know how well different models detect cars \(large, common regions in the data\) versus traffic signs \(much smaller, less common regions\). In the[ demo Colab](https://bit.ly/custom-charts-colab), you can compare the confidence scores for two of the ten classes of living things.
 
 ![](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.19.47-am.png)
 
-  
 To create your own version of the custom composite histogram panel:
 
 1. Create a new Custom Chart panel in your Workspace or Report \(by adding a “Custom Chart” visualization\). Hit the “Edit” button in the top right  to modify the Vega spec starting from any built-in panel type.

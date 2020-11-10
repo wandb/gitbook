@@ -36,7 +36,7 @@ description: 每当开始一个新的运行项，就要调用wandb.init()，然�
 
 运行wandb.init\(\)的脚本，我们会自动保存一份脚本副本。可在[代码比较器](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/app/features/panels/code)详细了解代码比较功能。如果要关闭该功能，就设置环境变量WANDB\_DISABLE\_CODE=True
 
-### **常见问题**
+## **常见问题**
 
 **如何在一个脚本中启动多个运行项？**
 
@@ -65,12 +65,12 @@ for x in range(10):
             run.log({"metric": x+y})
 ```
 
-### LaunchError: Permission denied **拒绝访问）**
+## LaunchError: Permission denied **拒绝访问）**
 
- 当你正要把运行项发送到某个项目，如果你遇到这样的错误**LaunchError: Launch exception: Permission denied**，说明你没有权限记录到该项目。应该有多方面的原因。
+当你正要把运行项发送到某个项目，如果你遇到这样的错误**LaunchError: Launch exception: Permission denied**，说明你没有权限记录到该项目。应该有多方面的原因。
 
 1. 你没有登录到该机器。在命令行运行`wandb login`
-2.  你设置的归属单位（entity）不存在。“entity”应当为你的用户名或已存在的团队的名称。如果你要创建一个团队，请打开我们的[订购页](https://wandb.ai/billing)。
+2. 你设置的归属单位（entity）不存在。“entity”应当为你的用户名或已存在的团队的名称。如果你要创建一个团队，请打开我们的[订购页](https://wandb.ai/billing)。
 3. 你没有项目权限。请找项目创建者把隐私权限设置为**Open**（开放），这样你就能把运行项记录到该项目
 
 **给运行项取一个易辨别的名称**
@@ -97,13 +97,13 @@ wandb.run.save()
 
 **保存git提交**
 
- 当在脚本中调用`wandb.init()`，我们自动查找git信息，以保存一个指向repo的链接，即最近提交的SHA值。git信息应该在你的[运行页](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/app/pages/run-page#overview-tab)，如果没有的话，请确保你调用wandb.init\(\)的脚本所在的文件夹有git信息。
+当在脚本中调用`wandb.init()`，我们自动查找git信息，以保存一个指向repo的链接，即最近提交的SHA值。git信息应该在你的[运行页](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/app/pages/run-page#overview-tab)，如果没有的话，请确保你调用wandb.init\(\)的脚本所在的文件夹有git信息。
 
-git提交以及运行实验的命令对你可见、对别的用户隐藏，所以，你的项目是公开的，其详细信息仍然是保密的。 
+git提交以及运行实验的命令对你可见、对别的用户隐藏，所以，你的项目是公开的，其详细信息仍然是保密的。
 
 **离线保存日志**
 
-  默认情况下，wandb.init\(\)会启动一个进程，把指标实时同步到我们的云托管应用程序。如果你的机器离线，或者你不能上网，下面讲述如何用离线模式运行wandb并在以后同步。
+默认情况下，wandb.init\(\)会启动一个进程，把指标实时同步到我们的云托管应用程序。如果你的机器离线，或者你不能上网，下面讲述如何用离线模式运行wandb并在以后同步。
 
 设置两个环境变量：
 
@@ -142,6 +142,4 @@ for i in range(100):
 `wandb sync wandb/dryrun-folder-name`
 
 ![](../../.gitbook/assets/image%20%2836%29.png)
-
-
 

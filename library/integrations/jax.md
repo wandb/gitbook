@@ -1,6 +1,6 @@
 # JAX Example
 
-This is a complete example of JAX code that trains a MLP and saves to W&B. 
+This is a complete example of JAX code that trains a MLP and saves to W&B.
 
 You can find this example on [GitHub](https://github.com/wandb/examples/tree/master/examples/jax/jax-mnist) and see the results on [W&B](https://app.wandb.ai/l2k2/examples-jax-mnist/runs/g0vgca81).
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
   wandb.config.batch_size = 128
   wandb.config.momentum_mass = 0.9
 
-  
+
 
   train_images, train_labels, test_images, test_labels = datasets.mnist()
   num_train = train_images.shape[0]

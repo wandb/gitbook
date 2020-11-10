@@ -33,6 +33,5 @@ for step in range(30):
       "acc": random.random(),
       "loss": random.random()
   })
-
 ```
 

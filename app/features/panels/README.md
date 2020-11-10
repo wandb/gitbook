@@ -14,7 +14,7 @@ This is likely because you have dots in your config parameter names. We flatten 
 
 \*\*\*\*
 
-### Visualize max accuracy in groups 
+### Visualize max accuracy in groups
 
 Turn on the "eye" icon next to the top run in each group to visualize the maximum accuracy on the charts
 
@@ -25,6 +25,4 @@ Turn on the "eye" icon next to the top run in each group to visualize the maximu
 You can download charts by clicking the down arrow and select a format \(.png, .svg, export API or export by CSV\)
 
 ![](../../../.gitbook/assets/screen-shot-2020-02-20-at-10.07.09-am.png)
-
-
 

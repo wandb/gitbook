@@ -1,12 +1,12 @@
 # Support
 
-### Resources
+## Resources
 
 1. [Example Projects](../examples.md) - full scripts of models using Keras, PyTorch, and TensorFlow
 2. [Articles](https://www.wandb.com/articles) - blog posts about best practices and trends in machine learning
 3. [Slack](http://bit.ly/wandb-forum) - join our open forum to ask questions and discuss projects
 
-### Contact us
+## Contact us
 
 We really appreciate hearing from people who are using our tools. If you have questions or suggestions, please reach out!
 

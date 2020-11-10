@@ -6,19 +6,19 @@ description: Hyperparameter search and model optimization
 
 Use Weights & Biases Sweeps to automate hyperparameter optimization and explore the space of possible models.
 
-### Benefits of using W&B Sweeps 
+## Benefits of using W&B Sweeps
 
 1. **Quick setup**: With just a few lines of code you can run W&B sweeps.
 2. **Transparent**: We cite all the algorithms we're using, and [our code is open source](https://github.com/wandb/client/tree/master/wandb/sweeps).
 3. **Powerful**: Our sweeps are completely customizable and configurable. You can launch a sweep across dozens of machines, and it's just as easy as starting a sweep on your laptop.
 
-### Common Use Cases
+## Common Use Cases
 
 1. **Explore**: Efficiently sample the space of hyperparameter combinations to discover promising regions and build an intuition about your model.
 2. **Optimize**:  Use sweeps to find a set of hyperparameters with optimal performance.
 3. **K-fold cross validation**: Here's [a brief code example](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation) of k-fold cross validation with W&B Sweeps.
 
-### Approach
+## Approach
 
 1. **Add wandb**: In your Python script, add a couple lines of code to log hyperparameters and output metrics from your script. [Get started now →](quickstart.md)
 2. **Write config**: Define the variables and ranges to sweep over. Pick a search strategy— we support grid, random, and Bayesian search, as well as early stopping. Check out some example configs [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
@@ -39,6 +39,4 @@ Use Weights & Biases Sweeps to automate hyperparameter optimization and explore 
 {% page-ref page="python-api.md" %}
 
 {% page-ref page="sweeps-examples.md" %}
-
-
 

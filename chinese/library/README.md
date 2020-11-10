@@ -8,15 +8,13 @@ description: 概述我们的客户端库
 
 我们有从代码生成的更详尽文档，见于[参考](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/reference)。
 
-###  **训练模型**
+### **训练模型**
 
 * wandb.init — 在训练脚本开头初始化一个新的运行项；
 * wandb.config — 跟踪超参数；
 * wandb.log — 在训练循环中持续记录变化的指标；
 * wandb.save — 保存运行项相关文件，如模型权值；
 * wandb.restore — 运行指定运行项时，恢复代码状态。
-
-
 
 {% page-ref page="../../library/init.md" %}
 
@@ -34,7 +32,7 @@ description: 概述我们的客户端库
 
 **自动记录**
 
-*  **系统指标**：处理器和GPU使用率、网络等。由命令[nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface)得出这些指标，这些指标位于运行页“系统”选项卡。
+* **系统指标**：处理器和GPU使用率、网络等。由命令[nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface)得出这些指标，这些指标位于运行页“系统”选项卡。
 * **命令行**：记录标准输出和标准错误，并显示于运行页“日志”选项卡。
 * **git提交**：记录最近的git提交，并显示于运行页“概况”选项卡。
 * **文件**：requirements.txt文件，以及用于运行项并保存在**wandb**路径的全部文件，将被上传并显示于运行页“文件”选项卡。
@@ -117,8 +115,5 @@ pip install https://github.com/pywharf/pywharf-pkg-repo/releases/download/psutil
 
 ‌
 
-After psutil has been installed, you can install wandb with `pip install wandb`  
-
-
-
+After psutil has been installed, you can install wandb with `pip install wandb`
 

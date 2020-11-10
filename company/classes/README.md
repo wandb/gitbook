@@ -40,7 +40,7 @@ We also created some hosted notebooks with models that your students can start t
 
 ### **Tutorials**
 
-Lukas and Chris have built a library of short tutorial projects with notes on each class section. Reach out to vanpelt@wandb.com with questions. 
+Lukas and Chris have built a library of short tutorial projects with notes on each class section. Reach out to vanpelt@wandb.com with questions.
 
 [View the tutorials →](https://www.wandb.com/tutorials)
 
@@ -80,8 +80,6 @@ Here are some excellent videos, notes, and slides from around the web. These are
 6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
 7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
 8. [Zero-shot transfer learning + LSTMs](https://www.media.mit.edu/publications/zero-shot-transfer-learning-to-enhance-communication-for-minimally-verbal-individuals-with-autism-using-naturalistic-data/): Enhancing translation technology for minimally verbal individuals
-
-
 
 If you are teaching a class, we would love to support you. Please reach out to us at support@wandb.com.
 

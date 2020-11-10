@@ -1,12 +1,12 @@
 # Visualize Sweep Result
 
-### **平行坐标图**
+## **平行坐标图**
 
 ![](https://paper-attachments.dropbox.com/s_194708415DEC35F74A7691FF6810D3B14703D1EFE1672ED29000BA98171242A5_1578695138341_image.png)
 
 平行坐标图将超参数值映射到模型指标。它们对于寻找最佳模型性能的超参数组合很有用。
 
-#### **超参数重要性图**
+### **超参数重要性图**
 
 ![](https://paper-attachments.dropbox.com/s_194708415DEC35F74A7691FF6810D3B14703D1EFE1672ED29000BA98171242A5_1578695757573_image.png)
 

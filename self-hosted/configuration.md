@@ -4,7 +4,7 @@ description: How to configure the W&B Local Server installation
 
 # Advanced Configuration
 
-Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running.    You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams. 
+Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
 
 ## Configuration as code
 
@@ -16,13 +16,13 @@ All configuration settings can be set via the UI however if you would like to ma
 **BUCKET\_QUEUE** - The SQS / Google PubSub queue for object creation events  
 **NOTIFICATIONS\_QUEUE** - The SQS queue on which to publish run events  
 **AWS\_REGION** - The AWS Region where your bucket lives  
-**HOST** - The FQD of your instance, i.e. https://my.domain.net  
+**HOST** - The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net)  
 **AUTH0\_DOMAIN** - The Auth0 domain of your tenant  
 **AUTH0\_CLIENT\_ID** - The Auth0 Client ID of application
 
 ## Authentication
 
-By default, a W&B Local Server run with manual user management enabling up to 4 users.  Licensed versions of _wandb/local_ also unlock SSO using Auth0.
+By default, a W&B Local Server run with manual user management enabling up to 4 users. Licensed versions of _wandb/local_ also unlock SSO using Auth0.
 
 Your server supports any authentication provider supported by [Auth0](https://auth0.com/). You should set up your own Auth0 domain and application that will be under your teams' control.
 

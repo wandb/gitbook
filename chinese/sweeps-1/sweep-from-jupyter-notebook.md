@@ -4,9 +4,7 @@ description: 从Jupyter Notebook中运行sweep
 
 # Sweep from Jupyter Notebook
 
-
-
-### **初始化一个sweep**
+## **初始化一个sweep**
 
 ```python
 import wandb
@@ -33,7 +31,7 @@ sweep_id = wandb.sweep(sweep_config)
 * [Sweep configuration ](../../sweeps/configuration.md)using the keys "entity" and "project"
 {% endhint %}
 
-### **运行代理**
+## **运行代理**
 
 从python运行代理程序时，该代理程序将运行指定的功能，而不是使用扫描配置文件中的`program`密钥。
 
@@ -52,16 +50,16 @@ def train():
 wandb.agent(sweep_id, function=train)
 ```
 
-*  快速预览：[在colab中运行](https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-python/notebook.ipynb)
-*  完整教程：[在colab中运行](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt)
+* 快速预览：[在colab中运行](https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-python/notebook.ipynb)
+* 完整教程：[在colab中运行](https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt)
 
-### wandb.agent\(\)
+## wandb.agent\(\)
 
 {% hint style="danger" %}
 在使用GPU的情况下，将wandb.agent（）与jupyter notebook一起使用可能会导致环境变量挂起。
 
-wandb.agent（）与jupyter环境之间可能存在不良交互，这是由初始化GPU / CUDA资源的初始化方式导致的。  
-  
+wandb.agent（）与jupyter环境之间可能存在不良交互，这是由初始化GPU / CUDA资源的初始化方式导致的。
+
 暂时的解决方法（直到我们可以解决这些交互问题）是避免使用python接口运行代理。 而是通过在扫描配置中设置program键来使用命令行界面，然后在笔记本中执行：!wandb agent SWEEP\_ID。
 {% endhint %}
 
@@ -72,7 +70,7 @@ wandb.agent（）与jupyter环境之间可能存在不良交互，这是由初�
 * **project \(str, optional\):** 要发送运行的项目
 * **function \(dir, optional\):** 配置扫描功能
 
-### **运行本地控制器**
+## **运行本地控制器**
 
 如果要开发自己的参数搜索算法，您可以从python运行控制器
 

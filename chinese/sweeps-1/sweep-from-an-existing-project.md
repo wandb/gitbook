@@ -4,7 +4,7 @@ description: 如果您已经在项目中使用wandb.init，wandb.config和wandb.
 
 # Sweep from an existing project
 
- 如果您有现成的W＆B项目，则可以轻松地通过超参数扫描来优化模型。我将通过一个工作示例逐步介绍步骤——您可以打开 [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion)。我正在使用此示例存储[库中的代码](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)，该代码训练了PyTorch卷积神经网络来对[Fashion MNIST数据集](https://github.com/zalandoresearch/fashion-mnist)中的图像进行分类。
+如果您有现成的W＆B项目，则可以轻松地通过超参数扫描来优化模型。我将通过一个工作示例逐步介绍步骤——您可以打开 [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion)。我正在使用此示例存储[库中的代码](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)，该代码训练了PyTorch卷积神经网络来对[Fashion MNIST数据集](https://github.com/zalandoresearch/fashion-mnist)中的图像进行分类。
 
 ## 1. **创建一个项目**
 
@@ -15,7 +15,7 @@ description: 如果您已经在项目中使用wandb.init，wandb.config和wandb.
 * `cd examples/pytorch/pytorch-cnn-fashion`
 * • 手动运行 `python train.py`
 
- [查看示例项目页面→](https://wandb.ai/carey/pytorch-cnn-fashion)
+  [查看示例项目页面→](https://wandb.ai/carey/pytorch-cnn-fashion)
 
 ## 2. **创建扫描**
 
@@ -29,9 +29,7 @@ description: 如果您已经在项目中使用wandb.init，wandb.config和wandb.
 
 ### **3.启动代理**
 
-接下来，在本地启动代理。如果您想分发工作并更快地完成扫描，则可以在不同的计算机上并行启动数十个代理。该代理将打印出下一个要尝试的参数集。 
-
-
+接下来，在本地启动代理。如果您想分发工作并更快地完成扫描，则可以在不同的计算机上并行启动数十个代理。该代理将打印出下一个要尝试的参数集。
 
 ![](../../.gitbook/assets/sweep3.png)
 

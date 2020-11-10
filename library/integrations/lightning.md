@@ -26,7 +26,7 @@ We've created a few examples for you to see how the integration works:
 
 ## **💻 API Reference**
 
-#### `WandbLogger`
+### `WandbLogger`
 
 Parameters:
 
@@ -38,7 +38,7 @@ Parameters:
 * **project** \(_str_\) – the name of the project to which this run will belong.
 * **tags** \(_list of str_\) – tags associated with this run.
 
-#### **`WandbLogger.watch`**
+### **`WandbLogger.watch`**
 
 Log model topology as well as optionally gradients and weights.
 
@@ -52,7 +52,7 @@ Parameters:
 * **log** \(_str_\) – can be "gradients" \(default\), "parameters", "all" or None.
 * **log\_freq** \(_int_\) – step count between logging of gradients and parameters.
 
-#### **`WandbLogger.log_hyperparams`**
+### **`WandbLogger.log_hyperparams`**
 
 Record hyperparameter configuration.
 
@@ -66,7 +66,7 @@ Parameters:
 
 * **params** \(dict\)  – dictionary with hyperparameter names as keys and configuration values as values
 
-#### `WandbLogger.log_metrics`
+### `WandbLogger.log_metrics`
 
 Record training metrics.
 
@@ -80,8 +80,6 @@ Parameters:
 
 * **metric** \(numeric\) – dictionary with metric names as keys and measured quantities as values
 * **step** \(int\|None\) – step number at which the metrics should be recorded
-
-
 
 \*\*\*\*
 

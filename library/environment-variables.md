@@ -56,7 +56,7 @@ Use these optional environment variables to do things like set up authentication
 
 ## Singularity Environments
 
-If you're running containers in [Singularity](https://singularity.lbl.gov/index.html) you can pass environment variables by pre-pending the above variables with **SINGULARITYENV\_**.  More details about Singularity environment variables can be found [here](https://singularity.lbl.gov/docs-environment-metadata#environment).
+If you're running containers in [Singularity](https://singularity.lbl.gov/index.html) you can pass environment variables by pre-pending the above variables with **SINGULARITYENV\_**. More details about Singularity environment variables can be found [here](https://singularity.lbl.gov/docs-environment-metadata#environment).
 
 ## Running on AWS
 
@@ -74,7 +74,7 @@ This is useful for continuous integration and tools like TravisCI or CircleCI if
 
 ### Do environment variables overwrite the parameters passed to wandb.init\(\)?
 
-Arguments passed to `wandb.init`  take precedence over the environment.  You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
+Arguments passed to `wandb.init` take precedence over the environment. You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
 
 ### Turn off logging
 
@@ -87,6 +87,4 @@ import logging
 logger = logging.getLogger("wandb")
 logger.setLevel(logging.WARNING)
 ```
-
-
 

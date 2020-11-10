@@ -12,14 +12,14 @@ W＆B Local Server是在基础架构上运行的docker映像。有关如何置�
 
 ### AWS Fargate
 
- 在AWS控制台中输入Fargate，[或直接转到ECS管理页面](https://console.aws.amazon.com/ecs/home)。单击Get Started，使用Fargate创建新的ECS服务。
+在AWS控制台中输入Fargate，[或直接转到ECS管理页面](https://console.aws.amazon.com/ecs/home)。单击Get Started，使用Fargate创建新的ECS服务。
 
 * **Container Definition**：选择“自定义custom”，然后单击“配置configure”。在这里将您的容器命名为wandb-local，并将映像名称设置为wandb/local:latest。最后，将端口8080添加到端口映射中。
 * **Task Definition**：单击“编辑edit”，并确保为任务分配至少8GB的ram和4个vCPU
 * **Define Your Service**：您可能想创建一个ALB，该ALB可以终止SSL并将请求转发到该服务的端口8080。
 * **IAM Permissions**：如果您打算使用云文件后端（这是可选的），请确保您的实例具有IAM角色，以使其可以访问S3并订阅SQS。
 
- 设置服务后，您可以通过ALB或直接通过实例的IP和PORT访问它。您的实例从启动即可使用，但是对于高级选项，您现在可以参考 [configuring your instance](../../self-hosted/configuration.md)。
+  设置服务后，您可以通过ALB或直接通过实例的IP和PORT访问它。您的实例从启动即可使用，但是对于高级选项，您现在可以参考 [configuring your instance](../../self-hosted/configuration.md)。
 
 ### EC2
 
