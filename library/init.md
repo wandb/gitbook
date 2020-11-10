@@ -10,7 +10,7 @@ description: >-
 
 Calling `wandb.init()` returns a [**run**](../ref/api.md#run) object. You can also access the run object by calling `wandb.run`.
 
-You should generally call `wandb.init()` once at the start of your training script. This will create a new run and launch a single background process to sync the data to our cloud. If you want your machine to run offline and upload data later, use [offline mode](../guides/technical-faq.md#does-your-tool-track-or-store-training-data).
+You should generally call `wandb.init()` once at the start of your training script. This will create a new run and launch a single background process to sync the data to our cloud. If you want your machine to run offline and upload data later, use [offline mode](technical-faq.md#does-your-tool-track-or-store-training-data).
 
 `wandb.init()` accepts a few keyword arguments:
 
@@ -23,10 +23,10 @@ You should generally call `wandb.init()` once at the start of your training scri
 * **entity** — the team posting this run \(_default: your username or your default team_\)
 * **job\_type** — the type of job you are logging, e.g. eval, worker, ps \(_default: training_\)
 * **save\_code** — save the main python or notebook file to wandb to enable diffing \(_default: editable from your_ [_settings_](https://app.wandb.ai/settings) _page_\)
-* **group** — a string by which to group other runs; see [Grouping](../guides/grouping.md)
+* **group** — a string by which to group other runs; see [Grouping](grouping.md)
 * **reinit** — whether to allow multiple calls to wandb.init in the same process \(_default: False_\)
-* **id** — a _unique_ ID for this run primarily used for [Resuming](../guides/resuming.md). It **must** be globally unique, and if you delete a run you can't reuse the ID. Use the **name** field for a descriptive, useful name for the run. The ID cannot contain special characters.
-* **resume** — if set to True, the run auto resumes; can also be a unique string for manual resuming; see [Resuming](../guides/resuming.md) \(_default: False_\)
+* **id** — a _unique_ ID for this run primarily used for [Resuming](resuming.md). It **must** be globally unique, and if you delete a run you can't reuse the ID. Use the **name** field for a descriptive, useful name for the run. The ID cannot contain special characters.
+* **resume** — if set to True, the run auto resumes; can also be a unique string for manual resuming; see [Resuming](resuming.md) \(_default: False_\)
 * **anonymous** — can be "allow", "never", or "must". This enables or explicitly disables anonymous logging. \(_default: never_\)
 * **force** — whether to force a user to be logged into wandb when running a script \(_default: False_\)
 * **magic** — \(bool, dict, or str, optional\): magic configuration as bool, dict, json string, yaml filename. If set to True will attempt to auto-instrument your script. \(_default: None_\)

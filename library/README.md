@@ -4,7 +4,7 @@ description: >-
   management
 ---
 
-# Usage
+# Getting Started
 
 Use the `wandb` Python library to track machine learning experiments with a few lines of code. If you're using a popular framework like [PyTorch](integrations/pytorch.md) or [Keras](integrations/keras.md), we have lightweight [integrations](integrations/).
 

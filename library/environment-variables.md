@@ -51,8 +51,8 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_NOTEBOOK\_NAME** | If you're running in jupyter you can set the name of the notebook with this variable. We attempt to auto detect this. |
 | **WANDB\_HOST** | Set this to the hostname you want to see in the wandb interface if you don't want to use the system provided hostname |
 | **WANDB\_SILENT** | Set this to **true** to silence wandb log statements. If this is set all logs will be written to **WANDB\_DIR**/debug.log |
-| **WANDB\_RUN\_GROUP** | Specify the experiment name to automatically group runs together. See [grouping](../guides/grouping.md) for more info. |
-| **WANDB\_JOB\_TYPE** | Specify the job type, like "training" or "evaluation" to indicate different types of runs. See [grouping](../guides/grouping.md) for more info. |
+| **WANDB\_RUN\_GROUP** | Specify the experiment name to automatically group runs together. See [grouping](grouping.md) for more info. |
+| **WANDB\_JOB\_TYPE** | Specify the job type, like "training" or "evaluation" to indicate different types of runs. See [grouping](grouping.md) for more info. |
 
 ## Singularity Environments
 
@@ -92,5 +92,5 @@ logger.setLevel(logging.WARNING)
 
 If you're using a shared machine and another person is a wandb user, it's easy to make sure your runs are always logged to the proper account. Set the [WANDB\_API\_KEY environment variable](environment-variables.md) to authenticate. If you source it in your env, when you log in you'll have the right credentials, or you can set the environment variable from your script.
 
-Run this command `export WANDB_API_KEY=X` where X is your API key. When you're logged in, you can find your API key at [wandb.ai/authorize](https://app.wandb.ai/authorize). 
+Run this command `export WANDB_API_KEY=X` where X is your API key. When you're logged in, you can find your API key at [wandb.ai/authorize](https://app.wandb.ai/authorize).
 

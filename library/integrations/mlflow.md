@@ -21,7 +21,7 @@ When mirroring data to both a wandb and mlflow tracking backend, the following c
 | [mlflow.log\_params](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_param) | [wandb.config](../config.md) |
 | [mlflow.log\_metrics](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_metric) | [wandb.log](../log.md) |
 | [mlflow.log\_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact) | [wandb.save](../save.md) |
-| [mlflow.start\_run\(nested=True\)](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [Grouping](../../guides/grouping.md) |
+| [mlflow.start\_run\(nested=True\)](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [Grouping](../grouping.md) |
 
 ## Logging rich metrics
 

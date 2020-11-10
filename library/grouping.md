@@ -29,7 +29,7 @@ Pass an optional group and job\_type to wandb.init\(\). For example:`wandb.init(
 
 **Set a group environment variable**
 
-Use `WANDB_RUN_GROUP` to specify a group for your runs as an environment variable. For more on this, check our docs for [**Environment Variables**](../library/environment-variables.md)**.**
+Use `WANDB_RUN_GROUP` to specify a group for your runs as an environment variable. For more on this, check our docs for [**Environment Variables**](environment-variables.md)**.**
 
 **Toggle grouping in the UI**
 

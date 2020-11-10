@@ -8,7 +8,7 @@ Everything you log to Weights & Biases is yours, including your training data, c
 
 Our tool provides the ability to log 4 primary classes of data:
 
-1. **Metrics and Parameters**: _\*\*_This is the core functionality of the tool— keeping track of the scalars and histograms you log with a run. You specify these directly in `wandb.log()` or set up an integration with one of the supported frameworks.
+1. **Metrics and Parameters**: \_\*\*\_This is the core functionality of the tool— keeping track of the scalars and histograms you log with a run. You specify these directly in `wandb.log()` or set up an integration with one of the supported frameworks.
 2. **Code**: We support saving the latest git SHA and a diff patch, or saving the main file from your run for easy code comparison. This is off by default and needs to be manually enabled on your [settings page](https://app.wandb.ai/settings).
 3. **Media**: Users can log video, images, text, or custom plots to visualize how your model is doing on examples during training. This is entirely opt-in, and you must explicitly configure your script to log this class of data.
 4. **Artifacts**: Manually set up artifact logging to save and version datasets and model files. You explicitly specify which files you want to include in artifacts.
