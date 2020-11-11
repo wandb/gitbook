@@ -8,7 +8,7 @@ description: >-
 
 W&B can post alerts on Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
 
-## Team Level Alerts
+### Team Level Alerts
 
 To receive alerts whenever runs launched by members of your team crash, complete, or call `wandb.alert()`, you can configure a team level alert. Team level alerts apply to all projects the team owns and will trigger whenever any member of the team has a crashed or failed run.
 
@@ -16,7 +16,7 @@ Team level alerts apply to all projects belonging to the team. In your team sett
 
 Once Slack is connected, team administrators can freely enable and disable alerts.
 
-## User Level Alerts
+### User Level Alerts
 
 To receive alerts whenever runs you launch crash, complete, or call `wandb.alert()`, you can configure a user level alert. User level alerts apply to all projects, including team projects, and will trigger whenever the user has a crashed or failed run.
 

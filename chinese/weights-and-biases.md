@@ -25,9 +25,9 @@ description: 记录机器学习试验过程，将指标可视化，分享成果�
 
 * [快速上手](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/quickstart)
 * [集成Keras](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/keras)
-* [集成PyTorch ](https://github.com/wandb/gitbook/tree/0f88dd5fff8e406e4013b4fca5b75a9cf239e2df/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/pytorch/README.md)   
+* [集成PyTorch ](https://github.com/wandb/gitbook/tree/f7ad30c988fe522f738e058e2d25dabfd045dd0e/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/pytorch/README.md)   
 * [集成TensorFlow](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/tensorflow)
-* [集成 Jupyter Notebook ](https://github.com/wandb/gitbook/tree/0f88dd5fff8e406e4013b4fca5b75a9cf239e2df/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/jupyter/README.md)
+* [集成 Jupyter Notebook ](https://github.com/wandb/gitbook/tree/f7ad30c988fe522f738e058e2d25dabfd045dd0e/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/integrations/jupyter/README.md)
 
   下面的截图样本是权阈中的一个[物种鉴别项目](https://wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification)。
 
@@ -38,5 +38,5 @@ description: 记录机器学习试验过程，将指标可视化，分享成果�
 如果你对案例项目感兴趣，我们有些资源：
 
 * [应用库](https://wandb.ai/gallery)：该库包含了我们的网络应用精选报告
-* [项目案例](https://github.com/wandb/gitbook/tree/0f88dd5fff8e406e4013b4fca5b75a9cf239e2df/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/examples/README.md)：我们的网络应用Python脚本和成果结论。
+* [项目案例](https://github.com/wandb/gitbook/tree/f7ad30c988fe522f738e058e2d25dabfd045dd0e/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/examples/README.md)：我们的网络应用Python脚本和成果结论。
 

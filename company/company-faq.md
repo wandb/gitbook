@@ -1,6 +1,6 @@
 # Company FAQ
 
-## Pricing and Account Plans
+### Pricing and Account Plans
 
 W&B is free for individuals and academic teams. We are committed to staying free to support the advancement of machine learning, and we make it easy to export data with our [Export API](../library/api/).
 
@@ -10,7 +10,7 @@ W&B is free for individuals and academic teams. We are committed to staying free
 * [Contact](getting-help.md): Reach out with any questions
 * [Request a demo](https://www.wandb.com/contact): We're happy to get on a call and talk about custom enterprise plans 
 
-## How is Weights & Biases different from TensorBoard?
+### How is Weights & Biases different from TensorBoard?
 
 We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
 
@@ -23,23 +23,23 @@ We were inspired to improve experiment tracking tools for everyone. When the cof
 
 Get started with a [free personal account →](http://app.wandb.ai/)
 
-## Who has rights to the data?
+### Who has rights to the data?
 
 You can always export and delete your data at any time. We will never share data associated with private projects. We hope that when you can, you will make your work public so that other practitioners can learn from it.
 
 We hope to discover and share high level patterns to move the field of machine learning forward. For example, we wrote [this article](https://www.wandb.com/articles/monitor-improve-gpu-usage-for-model-training) on how people are not fully utilizing their GPUs. We want to do this in a way that respects your privacy and feels honest. If you have any concerns about data privacy, we'd love to hear from you. Reach out at contact@wandb.com.
 
-## Why are you building these tools?
+### Why are you building these tools?
 
-At Weights & Biases our mission is to build the best tools for machine learning. Our experienced technical cofounders built Figure Eight, and our tools are being used by cutting-edge machine learning teams including OpenAI and Toyota. We enjoy making useful tools, and the best part of our day is interacting with people who are building real models using our product.
+At Weights & Biases our mission is to build the best tools for machine learning. Our experienced technical cofounders built Figure Eight, and our tools are being used by cutting-edge machine learning teams including OpenAI and Toyota. We enjoy making useful tools, and the best part of our day is interacting with people who are building real models using our product. 
 
 ![](../.gitbook/assets/image%20%2856%29.png)
 
-## How do I pronounce "wandb"?
+### How do I pronounce "wandb"?
 
 You can pronounce it w-and-b \(as we originally intended\), wand-b \(because it's magic like a wand\), or wan-db \(because it saves things like a database\).
 
-## How do I cite Weights & Biases in a paper?
+### How do I cite Weights & Biases in a paper?
 
 We wrote a [white paper](https://www.dropbox.com/s/0ipub9ewwkml8jf/Experiment%20Tracking%20with%20Weights%20%26%20Biases.pdf?dl=1), and if you're writing a paper or article about a project that used our tools, we'd love it if you cited us. Here's a generated BibTeX citation for our website that will help point people to our tools.
 

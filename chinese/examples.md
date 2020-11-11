@@ -20,14 +20,14 @@ description: 权阈使用方法的项目示例、演练和教程。
 | 模型预测可视化 | [权阈链接](https://wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA) | [Kaggle Kernel](https://www.kaggle.com/lavanyashukla01/visualizing-model-performance-with-w-b) |
 | 保存模型与恢复模型 | [权阈链接](https://wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W&B--Vmlldzo3MDQ3Mw) | [ ](https://colab.research.google.com/drive/1pVlV6Ua4C695jVbLoG-wtc50wZ9OOjnC?authuser=1#scrollTo=0LB6j3O-jIsd)[Colab笔记本](https://colab.research.google.com/drive/1pVlV6Ua4C695jVbLoG-wtc50wZ9OOjnC?authuser=1#scrollTo=0LB6j3O-jIsd) |
 | 比较系统指标 | [权阈链接](https://wandb.ai/stacey/estuary/reports/System-metrics-for-model-comparison--Vmlldzo1NzI5Mg) |  |
-| 超参数扫描 | [权阈链接](https://github.com/wandb/gitbook/tree/0f88dd5fff8e406e4013b4fca5b75a9cf239e2df/sweep/sweeps-tutorial/workspace?workspace=user-lavanyashukla/README.md) | [Colab笔记本](https://colab.research.google.com/drive/1gKixa6hNUB8qrn1CfHirOfTEQm0qLCSS?pli=1&authuser=1) |
+| 超参数扫描 | [权阈链接](https://github.com/wandb/gitbook/tree/f7ad30c988fe522f738e058e2d25dabfd045dd0e/sweep/sweeps-tutorial/workspace?workspace=user-lavanyashukla/README.md) | [Colab笔记本](https://colab.research.google.com/drive/1gKixa6hNUB8qrn1CfHirOfTEQm0qLCSS?pli=1&authuser=1) |
 
 ## PyTorch
 
 | 描述 | 指示板 | 代码 |
 | :--- | :--- | :--- |
 | 概述PyTorch与权阈集成 | [权阈指示板](https://wandb.ai/wandb/pytorch-intro) | [Colab笔记本](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-intro/intro.ipynb) |
-| PyTorch MNIST Colab | [权阈指示板](https://github.com/wandb/gitbook/tree/0f88dd5fff8e406e4013b4fca5b75a9cf239e2df/wandb/pytorch-mnist?workspace=user-/README.md) | [Colab笔记本](https://colab.research.google.com/drive/1zkoPdBZWUMsTpvA35ShVNAP0QcRsPUjf?pli=1&authuser=1#scrollTo=oewlztOSe5n4) |
+| PyTorch MNIST Colab | [权阈指示板](https://github.com/wandb/gitbook/tree/f7ad30c988fe522f738e058e2d25dabfd045dd0e/wandb/pytorch-mnist?workspace=user-/README.md) | [Colab笔记本](https://colab.research.google.com/drive/1zkoPdBZWUMsTpvA35ShVNAP0QcRsPUjf?pli=1&authuser=1#scrollTo=oewlztOSe5n4) |
 | 着色CNN将灰度图转化为彩图 | [权阈指示板](https://wandb.ai/clarence-n-huang/color-best-looking/reports?view=carey%2FColorizing%20Images) | [Github Repo](https://github.com/clarencenhuang/dl-colorize) |
 | Yolo-2边界框 | [权阈指示板](https://wandb.ai/l2k2/darknet?workspace=user-) | [Github Repo](https://github.com/lukas/pytorch-yolo2) |
 | 强化学习 | [ 权阈指示板](https://wandb.ai/kairproject/kair_algorithms_draft-scripts/runs/ylmssdkf) | [Github Repo](https://github.com/kairproject/kair_algorithms_draft) |

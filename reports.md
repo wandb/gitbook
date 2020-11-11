@@ -16,7 +16,7 @@ Reports let you organize visualizations, describe your findings, and share updat
 
 Once you have [experiments in W&B](quickstart.md), easily visualize results in reports. Here's a quick overview video.
 
-{% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" caption="" %}
+{% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" %}
 
 ## Collaborate on reports
 
@@ -28,7 +28,7 @@ If one of your collaborators has edited the report in the meantime, you'll get a
 
 ![](.gitbook/assets/collaborative-reports.gif)
 
-### Upload a CSV to a report
+### Upload a CSV to a report 
 
 ## Add panels
 
@@ -71,9 +71,11 @@ Send a graph from your workspace to a report to keep track of your progress. Cli
 
 ![](.gitbook/assets/demo-export-to-existing-report.gif)
 
+
+
 ## Reports FAQ
 
-### Upload a CSV to a report
+### Upload a CSV to a report 
 
 If you currently want to upload a CSV to a report you can do it via the `wandb.Table` format. Loading the CSV in your Python script and logging it as a `wandb.Table` object will allow you to render the data as a table in a report.
 

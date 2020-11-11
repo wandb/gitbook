@@ -145,3 +145,5 @@ And once I have internet, I run a sync command to send that folder to the cloud.
 
 ![](../.gitbook/assets/image%20%2836%29.png)
 
+
+
