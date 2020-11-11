@@ -39,5 +39,3 @@
     * [Talks](company/classes/talks.md)
 * [Marketing Site](http://wandb.com/)
 
-## Chinese
-
