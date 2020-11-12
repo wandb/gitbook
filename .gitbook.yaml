@@ -111,6 +111,7 @@ redirects:
   frameworks/xgboost: ./library/frameworks/xgboost.md
   frameworks/xgboost-example: ./library/example-projects/xgboost.md
   getting-started: ./quickstart.md
+  huggingface: ./library/integrations/huggingface.md
   integrations/api: ./library/api/README.md
   ? "integrations/api#special-methods"
   : ./library/api/README.md
