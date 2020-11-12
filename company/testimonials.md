@@ -1,114 +1,114 @@
 ---
-description: Kind messages from Weights & Biases users
+description: 来自“权阈”用户的善意反馈
 ---
 
 # Testimonials
 
-### Jeffrey Wardman, Applied AI Scientist at [Harrison.ai](https://www.harrison.ai/)
+###  [Harrison.ai](https://www.harrison.ai/)**的应用AI科学家Jeffrey Wardman**  
 
-WandB is absolute heaven.
+###  WandB是绝对的天堂。
 
-With next to no modification of my code, I'm able to visualize metrics in real time when training my models on multiple systems and can look at their performance relative to each other, and previous runs, anytime on any device. Sweeps also allows me to train my models with different parameter settings on multiple systems in unison via a Bayesian approach to optimally test a range of input arguments and find the best solution.
+在几乎不修改我的代码的情况下，我可以在多个系统上训练模型时实时显示指标，并且可以随时随地在任何设备上查看它们相对于彼此的性能以及先前的运行情况。借助Sweeps，我还可以通过贝叶斯方法在多个系统上同时训练具有不同参数设置的模型，以最佳地测试一系列输入参数并找到最佳解决方案。
 
-I can't imagine going back to how I did things before.
+我无法想象回到以前的工作方式。
 
-### **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
+###  ****[**Latent Space**](https://www.latentspace.co/)**的伊恩·汤普森（Ian Thompson）**
 
-Wandb has become the critical tool for us in bringing together the work of remote researchers across several continents. On a recent paper, we started using a wandb report as the central hub for collaboration, where everyone could see the most recent experimental results and essentially the latest draft of the paper. The flexibility and clarity of wand reports have enabled us to collaborate in ways that used to only be possible in person.
+Wandb已成为我们汇集多个大洲的远程研究人员的工作的重要工具。在最近的一篇论文中，我们开始使用wandb报告作为协作的中心枢纽，每个人都可以看到最新的实验结果，这本质上也是该论文的最新稿件。wandb报告的灵活性和清晰度使我们能够以紧密的方式进行协作。
 
-### Daniel Bourke, ML engineer
+### **ML工程师Daniel Bourke**
 
-Since machine learning is a very experimental process, meaning you try something, see if it works and if not you try something else. I plan on building a number of different models to see which one works best. To track the results of each different model, I set up Weights & Biases, a tool for tracking deep learning experiments.
+由于机器学习是一个非常实验性的过程，意味着您要尝试一些东西，看看它是否有效，如果不行，您可以进行其他尝试。我计划构建许多不同的模型，以查看哪种模型效果最好。为了跟踪每个不同模型的结果，我设置了Weights＆Biases，这是一个用于跟踪深度学习实验的工具。
 
-[Watch the video here →](https://www.youtube.com/watch?v=83s-OEFMgVY)
+ [在这里观看视频→](https://www.youtube.com/watch?v=83s-OEFMgVY)
 
 ![Every model I build has to answer 1 simple question \| Airbnb Machine Learning Project Part 5](../.gitbook/assets/fan-video.png)
 
-### Ken Tsui, VP of Machine Learning at [Apoidea AI](https://apoidea.ai/)
+###  [Apoidea AI](https://apoidea.ai/)**机器学习副总裁Ken Tsui**
 
-My team enjoys using this helpful tool. ML is always experimental in nature, in industry and in research and wandb is like a diary to record the whole ML development journey from the baseline to the SOTA. And the best thing is that you can share the journey with others.
+我的团队喜欢使用这个有用的工具。 ML在自然界，工业界和研究界始终是实验性的，而wandb就像一本日记，记录了从基线到SOTA的整个ML开发过程。最好的是，您可以与他人分享旅程。
 
-### Michael Oblak, COO at SmartLunch
+###  **SmartLunch首席运营官Michael Oblak**
 
-10/10. It's really great software. Helps me a ton with my work. Also, sweeps handle a lot of my work.
+10/10。这真的是很棒的软件。帮助我工作很多。此外，打扫处理了我的很多工作。
 
-### André Aquilina, Computer Vision Engineer at [Dysis Medical](https://dysismedical.com/)
+###  [Dysis Medical](https://dysismedical.com/) **的计算机视觉工程师AndréAquilina**
 
-Between architecture, hyper parameters and general problem approach, I always found myself going in circles trying to keep track of results, configs and the code version I was using in an experiment. After looking around for a tool/dashboard to help with experiment management I landed on WandB. With one init line I could track many of the metrics I was interested in. Wandb one of the few tools that makes it so easy that it’s a no brainer to try for yourself.
+在体系结构，超参数和一般问题方法之间，我总是发现自己一直在兜圈子，试图跟踪实验中使用的结果，配置和代码版本。在寻找可以帮助进行实验管理的工具/仪表板之后，我发现了WandB。使用一条init行，我可以跟踪许多我感兴趣的指标。Wandb是如此简单以至于任何人都可以动手尝试。
 
-### Samuel Boulanger, Machine Learning Engineer at [Intel AI](https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html)
+###  [Intel AI](https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html)**机器学习工程师Samuel Boulanger**
 
-Helpful. Easy to use. Integrates cleanly.
+很有帮助易于使用。干净地集成。
 
-### Francisco J. Peña, [Postdoc](https://www.linkedin.com/in/franciscojp) at University College Dublin
+### **J.Peña，都柏林大学学院的**[**博士后**](https://www.linkedin.com/in/franciscojp/)\*\*\*\*
 
-I went from storing all of my experiment results in JSON files and plotting them with matplotlib and seaborn, to have all the work taken care by W&B. Viewing the results so fast has helped me to identify bugs in my code at an early stage, it's a game changer. Thank you!
+我开始将所有实验结果存储在JSON文件中，并使用matplotlib和seaborn将其绘制出来，然后由W＆B处理所有工作。如此快速地查看结果有助于我及早发现代码中的错误，这是神器。谢谢！
 
-### Mohamed Raga, PhD Candidate at NTU, Singapore 
+###  **Mohamed Raga，新加坡国立大学博士研究生**
 
-I am impressed daily by wandb and the amazing visualization tools. Now I present all my works and experiments through wandb— no more slides. I also, send progress report to my supervisor using wandb. The synchronization with TensorBoard helps me to further use embedding projector. So far, I have explored all the wandb tools, but I can't wait to explore more.
+ wandb和出色的可视化工具每天都给我留下深刻的印象。现在，我通过wandb展示我的所有作品和实验——不再需要幻灯片。我也使用wandb将进度报告发送给我的主管。与TensorBoard的同步帮助我进一步使用嵌入式投影仪。到目前为止，我已经研究了所有wandb工具，但是我迫不及待地要探索更多。
 
-### Abhi Gupta, Researcher at Columbia University
+**哥伦比亚大学研究员Abhi Gupta**
 
-TensorBoard can be a nightmare when training on multiple machines. I have to run TensorBoard locally on a master machine and sync logs between computers to visualize real-time results. With wandb, this is so easy. Wandb is going to change everything for me.
+在多台机器上训练时，TensorBoard可能是一场噩梦。我必须在主机上本地运行TensorBoard并在计算机之间同步日志以可视化实时结果。使用wandb，这很容易。 Wandb将改变一切。
 
-### Henry Howard, Researcher at [iBRAIN research laboratory ](https://www.monash.edu/medicine/ccs/neuroscience/research/law-group)at Alfred Hospital
+###  **阿尔弗雷德医院**[iBRAIN research laboratory](https://www.monash.edu/medicine/ccs/neuroscience/research/law-group)**研究员Henry Howard**
 
-Great interface. Does what I want it to do without much effort.
+很棒的界面。做我想要它做的事而无需付出太多努力。
 
-### [Matthew Clapp](https://itsayellow.com/), PhD Candidate at Johns Hopkins University
+###  **约翰·霍普金斯大学博士候选人**[Matthew Clapp](https://itsayellow.com/)
 
-Effortless python usage, and excellent visualization of my experiments. Minimal hassle, maximum benefit.
+ 轻松使用python，以及出色的可视化实验。最小的麻烦，最大的收益。
 
 ### Ivan Oršolić, [Ori Codes](https://ori.codes/)
 
-Your tool is very easy to set up \(well documented!\) and works great.
+ 您的工具很容易设置（有很好的文档可查！），并且效果很好。
 
-### Dongwhan Jang, Researcher at Seoul National University
+###  **首尔国立大学研究员张东焕**
 
-Awesome UI for logging. Cross-platform\(library\) support. Excellent customer service. Free for an academic use. Easy for beginners etc.
+ 很棒的用户界面记录。跨平台（库）支持。优质的客户服务。免费供学术使用。易于初学者等
 
-### Bowei Hou, PhD candidate at Waseda University
+###  **侯伯威，早稻田大学博士研究生**
 
-It helps me a lot to collaborate with my co-workers in different countries. They can easily find the running experiments and the logs. It's so cool that we can get rid of the tedious terminal loss.
+ Wandb在与不同国家的同事合作上对我有很大帮助。他们可以轻松找到正在运行的实验和日志。太酷了，我们可以摆脱繁琐的终端损失。
 
-### **Rajesh, Engineer at  Nokia**
+### **诺基亚工程师Rajesh**
 
-10/10. It is purely awesome!
+10/10。太棒了！
 
-### Taufiquzzaman Peyash, Researcher at [North South University](http://www.northsouth.edu/)
+###  [North South University](http://www.northsouth.edu/) **研究员Taufiquzzaman Peyash**
 
-I really like the visualizations and it's very easy to integrate with the pipeline.
+我非常喜欢可视化，并且很容易与管道集成。
 
-### Tiago Manual,  PhD student at [Cambridge](https://www.cl.cam.ac.uk/research/ai/)
+### **Tiago Manual，**[**剑桥大学**](https://www.cl.cam.ac.uk/research/ai/)**博士研究生**
 
-Great tool! Still a lot to improve but looks like you have an entire team fully working on that!
+很棒的工具！仍然有很多需要改进的地方，但是看起来您的整个团队都在全力以赴！
 
-### **Seonil Simon Son,** [NLP lover](https://dramaqa.snu.ac.kr/) at Seoul National University 
+###  **首尔国立大学**[**NLP爱好者**](https://dramaqa.snu.ac.kr/)**Seonil Simon Son**
 
- -Dumb-easy api really helped. Developing with tensorboardx which I had experience before was more trickier than learning this from the scratch.
+ -傻瓜式api确实有所帮助。我以前曾使用过tensorboardx进行开发，比从头开始学习这个要难得多。
 
--Summarizing all the loggings on the cloud helps me keep focused on important things.
+-汇总云上的所有日志记录有助于我专注于重要的事情。
 
--Sweep: plug-n-play version of hyperparam tuning methodologies
+-Sweep：超参数调整方法的即插即用版本
 
-### Michael, a wonderful user 
+###   **迈克尔，一个很棒的用户**
 
-It's just amazing, you guys are doing an amazing job over there! I'm telling about it to all my friends, everyone should use wandb!
+ 太神奇了，你们在那里做得很棒！我正在向所有朋友讲这件事，每个人都应该使用wandb！
 
-### [Shivam Kaushik](https://www.kaggle.com/mythrex/competitions), Kaggle User 
+### [Shivam Kaushik](https://www.kaggle.com/mythrex/competitions),  **Kaggle用户**
 
-I just love how we can make reports and share our work. I use this for kaggle mainly and I know how difficult was it for me to compile my results for the team.
+我真的很喜欢wandb如何进行报告和分享我们的工作。我主要将其用于kaggle，并且我知道为团队编写结果曾经对我来说有多困难。
 
-### Dinis Rodrigues, [INESC](https://www.inesc-id.pt/), student at [Técnico Lisboa](https://tecnico.ulisboa.pt/pt/)
+### **里斯本大学学生**, [INESC](https://www.inesc-id.pt/)
 
-Awesome, easy to use and intuitive!
+很棒，易于使用且直观！
 
-### Khel Kim, software engineer
+###  **Khel Kim，软件工程师**
 
-I love you guys. Your system is awesome! Please, keep your service. Thank you guys.
+我爱你们。您的系统很棒！请保持您的服务。谢谢你们。
 
-### Rohit P N, Student at Ramaiah Institute of Technology, Bangalore
+### **Rohit P N，班加罗尔Ramaiah理工学院学生**
 
-This platform is absolutely amazing, makes life so much easier. Thank you so much to the developers of this platform!
+ 这个平台绝对是惊人的，使生活变得更加轻松。非常感谢这个平台的开发者！
 

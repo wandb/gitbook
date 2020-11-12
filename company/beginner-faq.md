@@ -1,32 +1,32 @@
 ---
-description: Resources for people getting started with Machine Learning
+description: 机器学习入门资源
 ---
 
 # Beginner FAQ
 
-## Are you learning machine learning?
+## **您正在学习机器学习吗？**
 
-Wandb is a tool for visualizing training and we hope that it's useful for everyone from experts to people just getting started.  If you have general questions about machine learning you are welcome to ask them in our [Slack](http://bit.ly/wandb-forum) channel.  We have also made some free [tutorial videos](https://www.wandb.com/tutorials) with example code that are designed to get you started.
+ Wandb是用于可视化训练的工具，我们希望它对从专家到入门的每个人都有用。如果您对机器学习有一般性问题，欢迎在我们的[Slack](http://bit.ly/wandb-forum) 频道中提问。我们还制作了一些带有示例代码的免费[教程视频](https://www.wandb.com/tutorials)，旨在帮助您入门。
 
-One great way to learn machine learning is to start with an interesting project.  If you don't have a project in mind, a good place to find projects is our [benchmarks](https://www.wandb.com/benchmarks) page - we have a variety of machine learning tasks with data and working code that you can improve.
+ 学习机器学习的一种好方法是从一个有趣的项目开始。如果您不打算开发项目，那么我们的[基准测试页面](https://www.wandb.com/benchmarks)是找到项目的好地方——我们有各种各样的机器学习任务，您可以改善数据和工作代码。
 
-## Online Resources
+## **在线资源**
 
-There are a lot of excellent online resources for learning machine learning.  Please send us a note if we should add anything here.
+ 有很多优秀的在线资源可供学习机器学习。如果我们应在此处添加任何内容，请给告知我们。
 
-* [fast.ai ](https://www.fast.ai)- Excellent practical machine learning classes and friendly community.
-* [deep learning book](http://www.deeplearningbook.org) - Detailed book available for free online.
-* [Stanford CS229](https://see.stanford.edu/Course/CS229) - Lectures from a great class available online.
+* [fast.ai ](https://www.fast.ai)- 优秀的实用机器学习课程和友好的社区
+* [深度学习书籍](http://www.deeplearningbook.org/)——详细的书可在线免费获得。
+*  [斯坦福CS229](https://see.stanford.edu/Course/CS229)——在线提供一流的演讲。
 
-## Looking for bias in models
+## **寻找模型偏差**
 
-If you're training a machine learning model, you want to be able to visualize how it performs on different inputs. A common problem, especially when you're getting started, is that it's hard to get those visualizations set up. That's where Weights & Biases comes in. We make it easy to get metrics to understand your model performance.
+如果您正在训练机器学习模型，您会希望能够可视化它在不同输入上的表现。一个普遍的问题，尤其是在您入门时，是很难设置这些可视化文件的。这就是“权阈”的发挥作用的地方了。我们可以轻松获取度量标准来了解您的模型性能。
 
-Here's a hypothetical example— you're training a model to identify objects on the road. Your dataset is a bunch of labeled images with cars, pedestrians, bicycles, trees, buildings, etc. As you train your model, you can visualize the different class accuracies. That means you can see if your model is great at finding cars but bad at finding pedestrians. This could be a dangerous bias, especially in a self-driving car model.
+这是一个假设的示例——您正在训练一个模型来识别道路上的物体​​。您的数据集是一堆带有汽车，行人，自行车，树木，建筑物等的带标签图像。在训练模型时，您可以可视化不同的对象精度。这意味着您可以看到您的模型是否擅长寻找汽车，但不擅长寻找行人。这可能是一个危险的偏见，尤其是在自动驾驶汽车模型中。
 
-Interested in seeing a live example? Here's a report that compares the model's accuracy on identifying images of different types of plants and animals— birds, mammals, fungi etc. The Weights & Biases graphs make it easy to see how each version of the model \(each line on the graph\) performs on different classes.
+有兴趣看到一个生动的例子吗？这是一份报告，比较了该模型在识别不同类型的动植物（如鸟类，哺乳动物，真菌等）的图像上的准确性。“权阈”图使您可以轻松查看模型的每个版本（图中的每条线）如何执行在不同的对象上。
 
-[See the report in W&B →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
+ [参见W＆B中的报告→](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
 
 ![](../.gitbook/assets/image%20%288%29.png)
 

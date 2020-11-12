@@ -1,20 +1,20 @@
 ---
-description: Links and resources from our live presentations and talks
+description: 现场演示和讲座的链接和资源
 ---
 
 # Talks
 
-## Experiment Tracking
+##  **实验跟踪**
 
-Try our free tools for experiment tracking with this [5 minute example →](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
+尝试使用我们的免费工具进行[5分钟的示例实验跟踪→ ](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
 
 ![](../../.gitbook/assets/image%20%2876%29.png)
 
-## Deep Learning in the Real World
+##  **现实世界中的深度学习**
 
-Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf).  If you want to join our Machine Learning community, join our [forum](https://bit.ly/wandb-forum).
+这是[幻灯片](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf)。如果您想加入我们的机器学习社区，请加入我们的[论坛](https://app.slack.com/client/TL4V2PWQ3)。
 
-If you're curious to learn more about some of the things I referenced in my talk, check out these resources:
+如果您想了解更多我在演讲中引用的内容，请查看以下资源 :
 
 1. IBM over promises and under delivers with Watson for cancer detection —[https://www.statnews.com/2017/09/05/watson-ibm-cancer/](https://www.statnews.com/2017/09/05/watson-ibm-cancer/)
 2. Deep learning models listen to machines to detect mechanical issues —[https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/deep-learning-ai-listens-to-machines-for-signs-of-trouble](https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/deep-learning-ai-listens-to-machines-for-signs-of-trouble)
@@ -31,15 +31,15 @@ If you're curious to learn more about some of the things I referenced in my talk
 13. Explainable time series predictions — [https://www.ijcai.org/proceedings/2019/0932.pdf](https://www.ijcai.org/proceedings/2019/0932.pdf)
 14. The reproducibility crisis — [https://www.wired.com/story/artificial-intelligence-confronts-reproducibility-crisis/](https://www.wired.com/story/artificial-intelligence-confronts-reproducibility-crisis/)
 
-### Natural Language Examples
+### **自然语言示例**
 
-1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
-2. [TalkToTransformer.com](https://talktotransformer.com): try GPT 2
-3. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
-4. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
-5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
-6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
-7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
+1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/):  用于生成逼真的文本的模型
+2. [TalkToTransformer.com](https://talktotransformer.com): 尝试GPT 2
+3. [GLUE基准测试:](https://gluebenchmark.com/) 用于训练和分析自然语言系统的资源
+4.  [SuperGLUE](https://super.gluebenchmark.com/)：更新和改进了GLUE基准测试的v2版本
+5. [Livox](http://impact-transfer.org/zero/livox/): 在另类通信应用程序中使用NLP
+6. [ 实用的Twitter内容挖掘](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/)：有关在推特上使用NLP的医学期刊文章
+7.  [NLP的应用程序](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a)：Medium文章谈论10个有趣的应用程序
 
 
 

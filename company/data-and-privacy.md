@@ -1,43 +1,43 @@
 # Data and Privacy
 
-### You own your data
+###  **您拥有自己的数据**
 
-Everything you log to Weights & Biases is yours, including your training data, code, configuration and hyperparameters, output metrics, analysis, and saved model files. You can choose to log, export, publish, or delete any of these. We collect aggregate statistics across our users to improve our product— we might do a database query to count how many users have uploaded a requirements.txt that includes a specific library to help decide if we want to do a first class integration with that library. We treat your private data, source code, or trade secrets as confidential and private, as consistent with our [Terms of Service](https://www.wandb.com/terms) and [Privacy Policy](https://www.wandb.com/privacy).‌
+您登录到Weights＆Biases的所有内容都全部属于您，包括您的训练数据，代码，配置和超参数，输出指标，分析以及已保存的模型文件。您可以选择记录，导出，发布或删除其中任何一个。我们收集了整个用户的汇总统计信息以改进我们的产品——我们可能会进行数据库查询，以统计有多少用户上传了require.txt文件，其中包括一个特定的库，以帮助决定我们是否要与该库进行一流的集成。根据我们的[服务条款](https://www.wandb.com/terms)和[隐私政策](https://www.wandb.com/privacy)，我们将您的私人数据，源代码或商业秘密视为机密和私人。
 
-### Data logging
+### **数据记录**
 
-Our tool provides the ability to log 4 primary classes of data:
+ 我们的工具提供了记录4种主要数据类别的功能：
 
-1. **Metrics and Parameters**: ****This is the core functionality of the tool— keeping track of the scalars and histograms you log with a run. You specify these directly in `wandb.log()` or set up an integration with one of the supported frameworks.
-2. **Code**: We support saving the latest git SHA and a diff patch, or saving the main file from your run for easy code comparison. This is off by default and needs to be manually enabled on your [settings page](https://app.wandb.ai/settings).
-3. **Media**: Users can log video, images, text, or custom plots to visualize how your model is doing on examples during training. This is entirely opt-in, and you must explicitly configure your script to log this class of data.
-4. **Artifacts**: Manually set up artifact logging to save and version datasets and model files. You explicitly specify which files you want to include in artifacts.
+1. 指标和参数：这是该工具的核心功能——跟踪您运行时记录的标量和直方图。您可以直接在`wandb.log（）`中指定它们，或与其中一种支持的框架建立集成。
+2.  **代码**：我们支持保存最新的git SHA和diff补丁，或保存运行时的主文件以便于代码比较。默认情况下此功能处于关闭状态，需要在“[设置”](https://wandb.ai/settings)页面上手动启用。
+3. **媒体**：用户可以记录视频，图像，文本或自定义图，以可视化模型在训练过程中如何处理示例。这是完全可选的，您必须显式配置脚本以记录此类数据。
+4. **工件artifact**：手动设置工件日志记录以保存和版本化数据集和模型文件。您明确指定要包含在工件中的文件。
 
-All data is stored encrypted at rest and is encrypted in transit in our cloud offering. We respect all data takedown requests in a timely manner and can ensure it's been wiped from the system.
+ 所有数据在静止状态下均以加密方式存储，并在我们的云产品中进行传输时加密。我们会及时遵守所有数据删除请求，并确保将其从系统中删除。
 
-### Self hosted and private cloud
+### **自托管和私有云**
 
-We follow industry best practices for security and encryption in our cloud-hosted service. We also offer [private cloud and self hosted installations]() for enterprise customers. [Contact us](getting-help.md) to learn about options for your business.
+ 我们在云托管服务中遵循行业最佳实践，以实现安全性和加密。我们还为企业客户提供私有云和自托管安装。与[我们联系](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MLvV8HPbd9J_6haqztg/v/ch/company/getting-help)以了解您的业务选择。
 
-For personal use, we have a [local Docker installation]() that you can run on your own machine.‌
+对于个人使用，我们有[本地Docker安装](https://app.gitbook.com/@weights-and-biases/s/docs/self-hosted/local)，您可以在自己的计算机上运行
 
-### Project privacy and teams
+###  **项目隐私和团队**
 
-By default Weights & Biases projects are private, which means other users won’t be able to view your work. You can edit this default on your [settings page](https://app.wandb.ai/settings). You can choose to share your results with others by making your project public or creating a team to share private projects with specific collaborators. Teams are a premium feature for companies. Learn more on our [pricing page](https://www.wandb.com/pricing).‌
+默认情况下，“权阈”项目是私有项目，这意味着其他用户将无法查看您的工作。您可以在[设置页面](https://wandb.ai/settings)上编辑此默认设置。您可以通过将项目公开或创建一个团队与特定的协作者共享私人项目来选择与他人共享结果。团队是公司的一项高级功能。在我们的[定价页面](https://www.wandb.com/pricing)上了解更多信息。
 
-To support the ML ecosystem, we offer free private teams to academics and open source projects. Sign up for an account and then contact us via [this form](https://www.wandb.com/academic) to request a free private team.
+ 为了支持ML生态系统，我们为学术人员和开源项目提供了免费的私人团队。注册一个帐户，然后通过此[表格](https://www.wandb.com/academic)与我们联系以请求免费的私人团队。
 
-### Code saving
+### **代码保存**
 
-By default, we only pick up the latest git SHA for your code. You can optionally turn on code saving features— this will enable a code comparison panel and tab in the UI to see the version of the code that ran your run. You can turn on code saving in your [settings page](https://app.wandb.ai/settings).
+ 默认情况下，我们仅为您的代码选择最新的git SHA。您可以选择打开代码保存功能——这将启用代码比较面板和UI中的选项卡，以查看运行您的代码的版本。您可以在[设置](https://wandb.ai/settings)页面中打开代码保存功能。
 
 ![](../.gitbook/assets/project-defaults.png)
 
-### Exporting data
+**导出数据**
 
-You can download data saved with Weights & Biases using our [export API](). We want to make it easy to do custom analysis in notebooks, back up your data if you'd like to have a local copy, or plug your saved logs into other tools in your ML workflow.
+您可以使用我们的[导出AP](https://app.gitbook.com/@weights-and-biases/s/docs/ref/export-api)I下载“权阈”保存的数据。我们希望使在笔记本中进行自定义分析变得容易，如果您想拥有本地副本，则可以备份数据，或者将保存的日志插入ML工作流程中的其他工具。
 
-### Linked accounts
+### **关联账户**
 
-If you use Google or GitHub OAuth to create and log in to a Weights & Biases account, we don't read or sync data from your repositories or folders. These connections are purely for authentication purposes. You can log files and code to associate with your runs using W&B [Artifacts]().
+ 如果您使用Google或GitHub OAuth创建并登录到Weights＆Biases帐户，我们不会从您的存储库或文件夹中读取或同步数据。这些连接仅用于认证目的。您可以使用W＆B [Artifacts](https://app.gitbook.com/@weights-and-biases/s/docs/artifacts)记录文件和代码来关联您的训练。
 

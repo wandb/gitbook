@@ -1,22 +1,20 @@
 ---
-description: >-
-  Use Weights & Biases for free to track experiments, collaborate, and publish
-  results
+description: 免费使用权阈来跟踪实验、协作和发布结果
 ---
 
 # Academics
 
-## Free Academic Team
+##  **免费学术团队账户**
 
-Collaborate easily, whether your colleagues are sitting in the same lab or thousands of miles away. W&B gives you a shared set of dashboards and a space to write notes on interactive graphs. This system of records makes it possible to look across all the experiments you've run in a project, not just the last few that you remembered to write down.
+无论您的同事是坐在同一实验室还是数千英里之外，都可以轻松进行协作。 W＆B为您提供了一组共享的仪表板和一个在交互式图形上书写注释的空间。 这种记录系统使您可以查看项目中运行的所有实验，而不仅仅是您记得写下来的最后几个实验。
 
-[Request a free academic team →](https://www.wandb.com/academic)
+ [申请免费的学术团队账户→](https://www.wandb.com/academic)
 
-## Cite Weights & Biases
+##  **引用权阈**
 
-Are you writing an academic paper? Cite Weights & Biases as your experiment tracking tool. Here are some pre-generated citations for you:
+你在写学术论文吗？ 引用权阈作为您的实验跟踪工具。 以下是一些预先生成的引文供您使用：
 
-**Bibtex Citation Format**
+**Bibtex引用格式**
 
 @misc{wandb,   
 title = {Experiment Tracking with Weights and Biases},   
@@ -26,12 +24,12 @@ url={[https://www.wandb.com/](https://www.wandb.com/),}
 author = {Biewald, Lukas},   
 }
 
-**IEEE Citation Format**
+**IEEE引用格式**
 
 L. Biewald, “Experiment Tracking with Weights and Biases,” Weights & Biases. \[Online\]. Available: [http://wandb.com/](http://wandb.com/). \[Accessed: `Add date here`\].  
 Software available from [wandb.com](http://wandb.com/)
 
-## Papers published with Weights & Biases
+##  **带有权阈的论文**
 
 1. [Variational Learning with Disentanglement-PyTorch](https://arxiv.org/pdf/1912.05184.pdf) by Amir Abdi et al, at NeurIPS 2019
 2. [Climate Adaptation: Reliably Predicting from Imbalanced Satellite Data](https://openaccess.thecvf.com/content_CVPRW_2020/papers/w5/Rawal_Climate_Adaptation_Reliably_Predicting_From_Imbalanced_Satellite_Data_CVPRW_2020_paper.pdf) from CVPR 2020
