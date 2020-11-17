@@ -144,8 +144,6 @@ redirects:
   wandb/log: ./library/python/log.md
   wandb/restore: ./library/python/restore.md
   wandb/save: ./library/python/save.md
-  
-  ## Integrations moving to top level from under library
   library/integrations/pytorch: ./integrations/pytorch.md
   library/integrations/keras: ./integrations/keras.md
   library/integrations/tensorflow: ./integrations/tensorflow.md
