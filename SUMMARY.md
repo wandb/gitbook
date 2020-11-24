@@ -23,6 +23,7 @@
   * [TensorBoard](library/tensorboard.md)
   * [Sagemaker](library/sagemaker.md)
   * [PyTorch Lightning](library/pytorch-lightning.md)
+  * [Pytorch Ignite](library/pytorch-ignite.md)
 * [Dashboard](dashboard.md)
 * [Reports](reports-1.md)
 * [Sweeps](sweeps-1/README.md)
