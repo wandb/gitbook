@@ -2,7 +2,7 @@
 description: wandb.data_types
 ---
 
-# Data Types
+# Data Types Reference
 
 [source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L0)
 
