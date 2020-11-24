@@ -39,14 +39,16 @@ After running `wandb.init()` , start a new cell with `%%wandb` to see live graph
 
 Try it for yourself in this [quick example script →](https://bit.ly/wandb-jupyter-widgets-colab)
 
-![](../../.gitbook/assets/jupyter-widget.png)
+![](../.gitbook/assets/jupyter-widget.png)
 
-As an alternative to the `%%wandb` decorator, you can add a line after `wandb.init()` to show in-line graphs:
+As an alternative to the `%%wandb` decorator, after running `wandb.init()` you can end any cell with `wandb.run` to show in-line graphs:
 
 ```python
-# Show graphs in the notebook
+# Initialize wandb.run first
 wandb.init()
-display(wandb.jupyter.Run())
+
+# If cell outputs wandb.run, you'll see live graphs
+wandb.run
 ```
 
 ## Additional Jupyter features in W&B

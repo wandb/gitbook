@@ -15,8 +15,10 @@ The following sub-commands are available:
 | docs | Open documentation in a browser |
 | init | Configure a directory with W&B |
 | login | Login to W&B |
-| off | Disable W&B in this directory, useful for testing |
-| on | Ensure W&B is enabled in this directory |
+| offline | Only save run data locally, no cloud syncing \(`off` deprecated\) |
+| online | Ensure W&B is enabled in this directory \(`on` deprecated\) |
+| disabled | Disables all API calls, useful for testing |
+| enabled | Same as `online`, resumes normal W&B logging, once you've finished testing |
 | docker | Run a docker image, mount cwd, and ensure wandb is installed |
 | docker-run | Add W&B environment variables to a docker run command |
 | projects | List projects |

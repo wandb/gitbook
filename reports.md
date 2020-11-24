@@ -28,13 +28,13 @@ If one of your collaborators has edited the report in the meantime, you'll get a
 
 ![](.gitbook/assets/collaborative-reports.gif)
 
-### Upload a CSV to a report
 
-## Add panels
 
-Click the **Add panel** button to add a new visualization to the report.
+### Comment on reports
 
-![](https://downloads.intercomcdn.com/i/o/142935595/d1422f30460a39b8b4868885/image.png)
+Click the comment button on a panel in a report to add a comment directly to that panel.
+
+![](.gitbook/assets/demo-comment-on-panels-in-reports.gif)
 
 ## Panel Grids
 

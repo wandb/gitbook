@@ -26,7 +26,7 @@ learn = learner(..., cbs=WandbCallback())
 ```
 
 {% hint style="info" %}
-If you use version 1 of Fastai, refer to the [Fastai v1 docs](fastai.md).
+If you use version 1 of Fastai, refer to the [Fastai v1 docs](v1.md).
 {% endhint %}
 
 `WandbCallback` accepts the following arguments:

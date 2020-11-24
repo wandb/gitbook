@@ -7,7 +7,7 @@ bst = xgb.train(param, xg_train, num_round, watchlist,
                 callbacks=[wandb.xgboost.wandb_callback()])
 ```
 
-![](../../.gitbook/assets/image%20%2812%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 ## Example
 

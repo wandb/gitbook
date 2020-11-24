@@ -19,7 +19,7 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 ```
 {% endcode %}
 
-Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb), complete with [video tutorial](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases), or see our [example projects](../../examples.md) for a complete script example.
+Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb), complete with [video tutorial](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases), or see our [example projects](../examples.md) for a complete script example.
 
 #### Options
 

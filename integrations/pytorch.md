@@ -25,7 +25,7 @@ for batch_idx, (data, target) in enumerate(train_loader):
 
 > Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward and backward pass.
 
-See this [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) for an end to end example of integrating wandb with PyTorch, including a [video tutorial](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases). You can also find more examples in our [example projects](../../examples.md) section.
+See this [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) for an end to end example of integrating wandb with PyTorch, including a [video tutorial](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases). You can also find more examples in our [example projects](../examples.md) section.
 
 ### Options
 
@@ -52,7 +52,7 @@ By default the hook only logs gradients.
     </tr>
     <tr>
       <td style="text-align:left">log_freq</td>
-      <td style="text-align:left">integer (default 100): The number of steps between logging gradients</td>
+      <td style="text-align:left">integer (default 1000): The number of steps between logging gradients</td>
     </tr>
   </tbody>
 </table>
