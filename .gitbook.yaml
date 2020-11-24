@@ -64,7 +64,6 @@ redirects:
   library/integrations/keras: ./integrations/keras.md
   library/integrations/tensorflow: ./integrations/tensorflow.md
   library/integrations/scikit: ./integrations/scikit.md
-  library/integrations/pytorch: ./integrations/pytorch.md
   library/integrations/fastai: ./integrations/fastai/README.md
   library/integrations/fastai/fastai: ./integrations/fastai/v1.md
   library/integrations/xgboost: ./integrations/xgboost.md
