@@ -6,7 +6,7 @@ description: Generated docs from the wandb Python library
 
 ## wandb.sdk.wandb\_artifacts
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L2)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L2)
 
 ### Artifact Objects
 
@@ -14,7 +14,7 @@ description: Generated docs from the wandb Python library
 class Artifact(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L36)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L36)
 
 An artifact object you can write files into, and pass to log\_artifact.
 
@@ -24,7 +24,7 @@ An artifact object you can write files into, and pass to log\_artifact.
  | add_reference(uri, name=None, checksum=True, max_objects=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L171)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L171)
 
 adds `uri` to the artifact via a reference, located at `name`. You can use Artifact\#get\_path\(`name`\) to retrieve this object.
 
@@ -42,7 +42,7 @@ adds `uri` to the artifact via a reference, located at `name`. You can use Artif
  | add(obj, name)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L206)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L206)
 
 Adds `obj` to the artifact, located at `name`. You can use Artifact\#get\(`name`\) after downloading the artifact to retrieve this object.
 
@@ -57,7 +57,7 @@ Adds `obj` to the artifact, located at `name`. You can use Artifact\#get\(`name`
  | get_added_local_path_name(local_path)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L249)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L249)
 
 If local\_path was already added to artifact, return its internal name.
 
@@ -67,7 +67,7 @@ If local\_path was already added to artifact, return its internal name.
 class ArtifactManifestV1(ArtifactManifest)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L302)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L302)
 
 **to\_manifest\_json**
 
@@ -75,7 +75,7 @@ class ArtifactManifestV1(ArtifactManifest)
  | to_manifest_json()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L342)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L342)
 
 This is the JSON that's stored in wandb\_manifest.json
 
@@ -87,7 +87,7 @@ If include\_local is True we also include the local paths to files. This is used
 class TrackingHandler(StorageHandler)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L609)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L609)
 
 **\_\_init\_\_**
 
@@ -95,7 +95,7 @@ class TrackingHandler(StorageHandler)
  | __init__(scheme=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L610)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L610)
 
 Tracks paths as is, with no modification or special processing. Useful when paths being tracked are on file systems mounted at a standardized location.
 
@@ -107,7 +107,7 @@ For example, if the data to track is located on an NFS share mounted on /data, t
 class LocalFileHandler(StorageHandler)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L655)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L655)
 
 Handles file:// references
 
@@ -117,7 +117,7 @@ Handles file:// references
  | __init__(scheme=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L659)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L659)
 
 Tracks files or directories on a local filesystem. Directories are expanded to create an entry for each file contained within.
 
@@ -127,7 +127,7 @@ Tracks files or directories on a local filesystem. Directories are expanded to c
 class WBArtifactHandler(StorageHandler)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L1145)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L1145)
 
 Handles loading and storing Artifact reference-type files
 
@@ -138,7 +138,7 @@ Handles loading and storing Artifact reference-type files
  | scheme()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L1154)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L1154)
 
 overrides parent scheme
 
@@ -152,7 +152,7 @@ The scheme to which this handler applies. :rtype: str
  | load_path(artifact, manifest_entry, local=False)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L1167)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L1167)
 
 Loads the file within the specified artifact given its corresponding entry. In this case, the referenced artifact is downloaded and a new symlink is created and returned to the caller.
 
@@ -172,7 +172,7 @@ A path to the file represented by `index_entry` :rtype: os.PathLike
  | store_path(artifact, path, name=None, checksum=True, max_objects=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/488f6db75b36b2d44a0cb5a770040408487d05aa/wandb/sdk/wandb_artifacts.py#L1197)
+[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_artifacts.py#L1195)
 
 Stores the file or directory at the given path within the specified artifact. In this case we recursively resolve the reference until the result is a concrete asset so that we don't have multiple hops. TODO: This resolution could be done in the server for performance improvements.
 
