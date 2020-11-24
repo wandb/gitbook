@@ -2,7 +2,7 @@
 description: wandb.apis.public
 ---
 
-# Public API
+# Public API Reference
 
 ## wandb.apis.public
 
