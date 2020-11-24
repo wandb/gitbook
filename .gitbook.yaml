@@ -1,10 +1,5 @@
 --- 
 redirects: 
-  advanced/automated: ./library/advanced/automated.md
-  advanced/grouping: ./library/advanced/grouping.md
-  advanced/limits: ./library/advanced/limits.md
-  advanced/resuming: ./library/advanced/resuming.md
-  advanced/security: ./library/advanced/security.md
   alerts/slack: ./app/features/alerts.md
   api: ./library/api/README.md
   api/overview: ./library/api/README.md
@@ -13,91 +8,12 @@ redirects:
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   docs/: ./README.md
-  docs/advanced/automated: ./library/advanced/automated.md
-  docs/advanced/grouping: ./library/advanced/grouping.md
-  docs/advanced/limits: ./library/advanced/limits.md
-  docs/advanced/resuming: ./library/advanced/resuming.md
-  docs/advanced/security: ./library/advanced/security.md
-  docs/alerts/slack: ./app/features/alerts.md
-  docs/api: ./library/api/README.md
-  docs/api/overview: ./library/api/README.md
-  docs/api/project: ./library/api/README.md
-  docs/api/run: ./library/api/README.md
-  docs/artifacts: ./library/python/init.md
-  docs/automated: ./library/advanced/automated.md
-  docs/cli/overview: ./library/cli.md
-  docs/cli/restoring: ./library/cli.md
-  docs/config: ./library/python/config.md
-  docs/enterprise: ./enterprise/overview.md
-  docs/enterprise/about: ./enterprise/overview.md
-  docs/enterprise/cloud: ./enterprise/cloud.md
-  docs/enterprise/setup: ./enterprise/setup.md
-  docs/enterprise/config: ./enterprise/configuration.md
-  docs/enterprise/upgrades: ./enterprise/upgrades.md
-  docs/enterprise/sending-data: ./enterprise/sending-data.md
-  docs/examples: ./library/example-projects/README.md
-  docs/faq: ./overview/company-faq.md
-  docs/frameworks/catalyst: ./library/integrations/catalyst.md
-  docs/frameworks/examples: ./library/example-projects.md
-  docs/frameworks/fastai: ./library/frameworks/fastai.md
-  docs/frameworks/fastai-example: ./library/example-projects/fastai.md
-  docs/frameworks/jax-example: ./library/example-projects/jax.md
-  docs/frameworks/keras: ./library/frameworks/keras.md
-  docs/frameworks/keras-example: ./library/example-projects/keras.md
-  docs/frameworks/numpy-example: ./library/example-projects/numpy.md
-  docs/frameworks/pytorch: ./library/frameworks/pytorch.md
-  docs/frameworks/pytorch-example: ./library/example-projects/pytorch.md
-  docs/frameworks/scikit: ./library/frameworks/scikit.md
-  docs/frameworks/scikit-example: ./library/example-projects/scikit.md
-  docs/frameworks/tensorflow: ./library/frameworks/tensorflow.md
-  docs/frameworks/tensorflow-example: ./library/example-projects/tensorflow.md
-  docs/frameworks/xgboost: ./library/frameworks/xgboost.md
-  docs/frameworks/xgboost-example: ./library/example-projects/xgboost.md
   docs/getting-started: ./quickstart.md
-  docs/init: ./library/python/init.md
-  docs/integrations/api: ./library/api/README.md
-  ? "docs/integrations/api#special-methods"
-  : ./library/api/README.md
-  docs/integrations/databricks: ./library/integrations/databricks.md
-  docs/integrations/docker: ./library/integrations/docker.md
-  docs/integrations/jupyter: ./library/integrations/jupyter.md
-  docs/integrations/kubeflow: ./library/integrations/kubeflow.md
-  docs/integrations/ray: ./library/integrations/ray.md
-  docs/integrations/sagemaker: ./library/integrations/sagemaker.md
-  docs/integrations/tensorboard: ./library/integrations/tensorboard.md
-  docs/log: ./library/python/log.md
-  ? "docs/log#summary-metrics"
-  : "./library/python/log#summary-metrics.md"
-  docs/logs: ./library/python/log.md
-  docs/overview/company-faq: ./overview/company-faq.md
-  docs/overview/getting-help: ./overview/getting-help.md
-  docs/overview/overview: ./overview.md
-  docs/overview/technical-faq: ./overview/technical-faq.md
-  docs/restore: ./library/python/restore.md
-  docs/save: ./library/python/save.md
-  docs/started: ./quickstart.md
-  docs/sweeps/configuration: ./library/sweeps/configuration.md
-  docs/sweeps/local: ./library/sweeps/local-controller.md
-  docs/sweeps/overview: ./library/sweeps.md
-  docs/sweeps/python: ./library/sweeps/python-api.md
-  docs/wandb/config: ./library/python/config.md
-  docs/wandb/init: ./library/python/init.md
-  docs/wandb/log: ./library/python/log.md
-  docs/wandb/restore: ./library/python/restore.md
-  docs/wandb/save: ./library/python/save.md
-  en/help: ./README.md
   examples: ./library/example-projects/README.md
-  enterprise: ./enterprise/overview.md
-  enterprise/about: ./enterprise/overview.md
-  enterprise/cloud: ./enterprise/cloud.md
-  enterprise/config: ./enterprise/configuration.md
-  enterprise/setup: ./enterprise/setup.md
-  enterprise/upgrades: ./enterprise/upgrades.md
-  enterprise/sending-data: ./enterprise/sending-data.md
-  frameworks/catalyst: ./library/integrations/catalyst.md
-  frameworks/examples: ./library/example-projects.md
-  frameworks/fastai: ./library/frameworks/fastai.md
-  frameworks/fastai-example: ./library/example-projects/fastai.md
+  frameworks/catalyst: ./integrations/catalyst.md
+  frameworks/examples: ./examples.md
+  frameworks/fastai: ./integrations/fastai/README.md
+  frameworks/fastai-example: ./integrations/fastai.md
   frameworks/jax-example: ./library/example-projects/jax.md
   frameworks/keras: ./library/frameworks/keras.md
   frameworks/keras-example: ./library/example-projects/keras.md
@@ -111,32 +27,22 @@ redirects:
   frameworks/xgboost: ./library/frameworks/xgboost.md
   frameworks/xgboost-example: ./library/example-projects/xgboost.md
   getting-started: ./quickstart.md
-  integrations/api: ./library/api/README.md
-  ? "integrations/api#special-methods"
-  : ./library/api/README.md
-  integrations/databricks: ./library/integrations/databricks.md
-  integrations/docker: ./library/integrations/docker.md
-  integrations/jupyter: ./library/integrations/jupyter.md
-  integrations/kubeflow: ./library/integrations/kubeflow.md
-  integrations/ray: ./library/integrations/ray.md
-  integrations/sagemaker: ./library/integrations/sagemaker.md
-  integrations/tensorboard: ./library/integrations/tensorboard.md
+  huggingface: ./integrations/huggingface.md
   java: ./ref/java/README.md
   java/wandbrun-builder: ./ref/java/wandbrun-builder.md
   java/wandbrun: ./ref/java/wandbrun.md
   library/advanced: ./guides/README.md
-  library/advanced/grouping: ./guides/grouping.md
-  library/advanced/resuming: ./guides/resuming.md
-  library/advanced/security: ./guides/security.md
-  library/advanced/limits: ./guides/limits.md
+  library/advanced/grouping: ./library/grouping.md
+  library/advanced/resuming: ./library/resuming.md
+  library/advanced/security: ./library/security.md
+  library/advanced/limits: ./library/limits.md
   library/api: ./ref/export-api/README.md
   library/api/examples: ./ref/export-api/examples.md
   library/reference: ./ref/README.md
   library/reference/wandb_api: ./ref/api.md
   library/reference/keras: ./ref/keras.md
   library/reference/data_types: ./ref/data-types.md
-  library/technical-faq: ./guides/technical-faq.md
-  library/reference/fastai: ./library/integrations/fastai/README.md
+  library/reference/fastai: ./integrations/fastai/README.md
   library/sweeps: ./sweeps/overview.md
   library/sweeps/configuration: ./sweeps/configuration.md
   library/sweeps/advanced: ./sweeps/ray-tune.md
@@ -154,3 +60,29 @@ redirects:
   wandb/log: ./library/python/log.md
   wandb/restore: ./library/python/restore.md
   wandb/save: ./library/python/save.md
+  library/integrations/pytorch: ./integrations/pytorch.md
+  library/integrations/keras: ./integrations/keras.md
+  library/integrations/tensorflow: ./integrations/tensorflow.md
+  library/integrations/scikit: ./integrations/scikit.md
+  library/integrations/pytorch: ./integrations/pytorch.md
+  library/integrations/fastai: ./integrations/fastai/README.md
+  library/integrations/fastai/fastai: ./integrations/fastai/v1.md
+  library/integrations/xgboost: ./integrations/xgboost.md
+  library/integrations/lightgbm: ./integrations/lightgbm.md
+  library/integrations/huggingface: ./integrations/huggingface.md
+  library/integrations/tensorboard: ./integrations/tensorboard.md
+  library/integrations/sagemaker: ./integrations/sagemaker.md
+  library/integrations/lightning: ./integrations/lightning.md
+  library/integrations/ignite: ./integrations/ignite.md
+  library/integrations/kubeflow: ./integrations/kubeflow.md
+  library/integrations/docker: ./integrations/docker.md
+  library/integrations/jupyter: ./integrations/jupyter.md
+  library/integrations/mlflow: ./integrations/mlflow.md
+  library/integrations/databricks: ./integrations/databricks.md
+  library/integrations/ray-tune: ./integrations/ray-tune.md
+  library/integrations/catalyst: ./integrations/catalyst.md
+  library/integrations/skorch: ./integrations/skorch.md
+  library/integrations/simpletransformers: ./integrations/simpletransformers.md
+  library/integrations/openai-gym: ./integrations/openai-gym.md
+  library/integrations/numpy: ./integrations/numpy.md
+  library/integrations/jax: ./integrations/jax.md
