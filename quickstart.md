@@ -38,7 +38,7 @@ Weights and Biases is framework agnostic, but if you are using a common ML frame
 
 ### Initialize Wandb
 
-Initialize `wandb` at the beginning of your script right after the imports.
+Initialize `wandb` at the beginning of your script, before you start logging. Some integrations, like our [Hugging Face](integrations/huggingface.md) integration, include wandb.init\(\) internally.
 
 ```python
 # Inside my model training code
