@@ -1,14 +1,10 @@
----
-description: Generated docs from the wandb Python library
----
-
-# Config Reference
+# Config
 
 ## wandb.sdk.wandb\_config
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_config.py#L3)
+[\[view\_source\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L3)
 
-Config is a dictionary-like object useful for tracking inputs to your script, like hyperparameters. We suggest you set this once at the beginning of your job, when you initialize the run like so: `wandb.init(config={"key": "value"})`. For example, if you're training an ML model, you might track learning\_rate and batch\_size in config.
+config.
 
 ### Config Objects
 
@@ -16,11 +12,17 @@ Config is a dictionary-like object useful for tracking inputs to your script, li
 class Config(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_config.py#L32)
+[\[view\_source\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L28)
 
-Use the config object to save your run's hyperparameters. When you call wandb.init\(\) to start a new tracked run, a run object is saved. We recommend saving the config object with the run at the same time, like so: `wandb.init(config=my_config_dict)`.
+Config object
 
-You can create a file called config-defaults.yaml, and wandb will auto-load your config into wandb.config. Alternatively, you can use a YAML file with a custom name and pass the filename: `wandb.init(config="my_config_file.yaml")` See [https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs).
+Config objects are intended to hold all of the hyperparameters associated with a wandb run and are saved with the run object when wandb.init is called.
+
+We recommend setting wandb.config once at the top of your training experiment or setting the config as a parameter to init, ie. wandb.init\(config=my\_config\_dict\)
+
+You can create a file called config-defaults.yaml, and it will automatically be loaded into wandb.config. See [https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs).
+
+You can also load a config YAML file with your custom name and pass the filename into wandb.init\(config="special\_config.yaml"\). See [https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs).
 
 **Examples**:
 
@@ -85,7 +87,7 @@ wandb.config.update(flags.FLAGS)  # adds all of the tensorflow flags to config
  | persist()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/sdk/wandb_config.py#L162)
+[\[view\_source\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L163)
 
 Calls the callback if it's set
 
