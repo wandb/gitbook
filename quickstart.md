@@ -17,7 +17,7 @@ pip install wandb
 ```
 
 {% hint style="info" %}
-If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at the documentation on [Running in Automated Environments](https://docs.wandb.com/advanced/automated).
+If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our [Environment Variables](library/environment-variables.md).
 {% endhint %}
 
 ## 2. Create Account
