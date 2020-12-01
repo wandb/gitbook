@@ -24,10 +24,10 @@ Our tools work with your machine learning infrastructure: AWS, GCP, Kubernetes, 
 Easily add our Python library `wandb` to your machine learning script.
 
 * [Quickstart](quickstart.md)
-* [Keras integration](library/integrations/keras.md)
-* [PyTorch integration](library/integrations/pytorch.md)
-* [TensorFlow integration](library/integrations/tensorflow.md)
-* [Jupyter notebook integration](library/integrations/jupyter.md)
+* [Keras integration](integrations/keras.md)
+* [PyTorch integration](integrations/pytorch.md)
+* [TensorFlow integration](integrations/tensorflow.md)
+* [Jupyter notebook integration](integrations/jupyter.md)
 
 Here's a sample screenshot from a [Species Identification project](https://app.wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification) in W&B.
 
