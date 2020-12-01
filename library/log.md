@@ -1,46 +1,46 @@
 ---
-description: 'Keep track of metrics, video, custom plots, and more'
+description: 指標、ビデオ、カスタムプロットなどを追跡します
 ---
 
 # wandb.log\(\)
 
-Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a step. By default we increment the step each time, so you'll see outputs of your model over time in graphs and rich visualizations.
+**`wandb.log（dict）`を呼び出して、メトリックまたはカスタムオブジェクトのディクショナリをステップに記録します。デフォルトでは、ステップを毎回インクリメントするため、モデルの出力がグラフと豊富な視覚化で時間の経過とともに表示されます。wandb.log（dict）を呼び出して、メトリックまたはカスタムオブジェクトのディクショナリをステップに記録します。デフォルトでは、ステップを毎回インクリメントするため、モデルの出力がグラフと豊富な視覚化で時間の経過とともに表示されます。**
 
-**Keyword arguments**
+**キーワード引数**
 
-* **step** — Which time step to associate the logs with \(see [Incremental Logging](log.md#incremental-logging)\)
-* **commit** — By default commit=true, which means we increment the step each time you call wandb.log. Set commit=false to have multiple sequential wandb.log\(\) commands save data to the same step.
+*    **step**—**ログを関連付けるタイムステップ（**[インクリメンタルログ](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNT_hJubmcvhzLDyMFV/v/japanese/library/log#incremental-logging)**を参照）**
+*  **commit**—**デフォルトではcommit=trueです。これは、wandb.logを呼び出すたびにステップをインクリメントすることを意味します。commit=falseを設定して、複数の連続したwandb.log（）コマンドでデータを同じステップに保存します。**
 
-**Example usage**
+**使用例**
 
 ```python
 wandb.log({'accuracy': 0.9, 'epoch': 5})
 ```
 
-## Logging Objects
+## ロギングオブジェクト
 
-We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
+ 画像、ビデオ、オーディオ、カスタムグラフなどをサポートしています。リッチメディアをログに記録して、結果を調査し、実行間の比較を視覚化します。
 
-[Try it in Colab ](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK)
+[ ](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK) [Colabでお試しください](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK)
 
-### Histograms
+### ヒストグラム 
 
 ```python
 wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
 wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
 ```
 
-If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from np.histogram to the np\_histogram keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional num\_bins keyword argument when passing a sequence to override the default of 64 bins.
+シーケンスが最初の引数として指定されている場合、ヒストグラムを自動的にビニングします。np.histogramから返されたものをnp\_histogramキーワード引数に渡して、独自のビニングを行うこともできます。サポートされるビンの最大数は512です。シーケンスを渡すときにオプションのnum\_binsキーワード引数を使用して、デフォルトの64ビンをオーバーライドできます。
 
-If histograms are in your summary they will appear as sparklines on the individual run pages. If they are in your history, we plot a heatmap of bins over time.
+  ヒストグラムが要約に含まれている場合、個々の実行ページにスパークラインとして表示されます。それらが履歴にある場合は、時間の経過に伴うビンのヒートマップをプロットします。
 
-### Images and Overlays
+###  画像とオーバーレイ
 
 {% tabs %}
-{% tab title="Image" %}
+{% tab title="画像" %}
 `wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})`
 
-If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. You can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
+numpy配列が指定されている場合、最後の次元が1の場合はグレースケール、3の場合はRGB、4の場合はRGBAと見なします。配列にfloatが含まれている場合は、0〜255のintに変換します。モードは手動で指定できます。または、`PIL.Image`を指定します。1ステップあたり50枚未満の画像をログに記録することをお勧めします。
 {% endtab %}
 
 {% tab title="Segmentation Mask" %}
@@ -143,15 +143,15 @@ Boxes - Each box passed into box\_data can be defined with different coordinate 
 ### Media
 
 {% tabs %}
-{% tab title="Audio" %}
+{% tab title="メディア" %}
 ```python
 wandb.log({"examples": [wandb.Audio(numpy_array, caption="Nice", sample_rate=32)]})
 ```
 
-The maximum number of audio clips that can be logged per step is 100.
+ステップごとにログに記録できるオーディオクリップの最大数は100です。
 {% endtab %}
 
-{% tab title="Video" %}
+{% tab title="オーディオ" %}
 ```python
 wandb.log({"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
 ```
@@ -161,7 +161,7 @@ If a numpy array is supplied we assume the dimensions are: time, channels, width
 On the W&B runs page, you will see your videos in the Media section.
 {% endtab %}
 
-{% tab title="Text Table" %}
+{% tab title="テキストテーブル" %}
 Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 10,000.
 
 ```python
@@ -196,7 +196,7 @@ wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
 ```
 {% endtab %}
 
-{% tab title="Molecule" %}
+{% tab title="分子" %}
 ```python
 wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
 ```
@@ -213,15 +213,15 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 {% endtab %}
 {% endtabs %}
 
-### Custom Charts
+###  カスタムチャート
 
-These presets have builtin `wandb.plot` methods that make it fast to log charts directly from your script and see the exact visualizations you're looking for in the UI.
+これらのプリセットには`wandb.plot`メソッドが組み込まれており、スクリプトから直接グラフをログに記録し、UIで探している正確な視覚化をすばやく確認できます。
 
 {% tabs %}
-{% tab title="Line plot" %}
+{% tab title="折れ線グラフ" %}
 `wandb.plot.line()`
 
-Log a custom line plot—a list of connected and ordered points \(x,y\) on arbitrary axes x and y.
+カスタム折れ線グラフをログに記録します。これは、任意の軸xおよびy上の接続され順序付けられた点（x、y）のリストです。
 
 ```python
 data = [[x, y] for (x, y) in zip(x_values, y_values)]
@@ -229,16 +229,16 @@ table = wandb.Table(data=data, columns = ["x", "y"])
 wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom Y vs X Line Plot")})
 ```
 
-You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
+これを使用して、任意の2次元の曲線をログに記録できます。2つの値のリストを相互にプロットする場合、リスト内の値の数は正確に一致する必要があることに注意してください（つまり、各ポイントにはxとyが必要です）。
 
 ![](../.gitbook/assets/line-plot.png)
 
-[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
+ [アプリで見る→](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
 
-[Run the code →](https://tiny.cc/custom-charts)
+[コードを実行する→](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Scatter plot" %}
+{% tab title="散布図" %}
 `wandb.plot.scatter()`
 
 Log a custom scatter plot—a list of points \(x, y\) on a pair of arbitrary axes x and y.
@@ -258,7 +258,7 @@ You can use this to log scatter points on any two dimensions. Note that if you'r
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Bar chart" %}
+{% tab title="棒グラフ" %}
 `wandb.plot.bar()`
 
 Log a custom bar chart—a list of labeled values as bars—natively in a few lines:
@@ -278,7 +278,7 @@ You can use this to log arbitrary bar charts. Note that the number of labels and
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Histogram" %}
+{% tab title="ヒストグラム" %}
 `wandb.plot.histogram()`
 
 Log a custom histogram—sort list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores \(`scores`\) and want to visualize their distribution:
@@ -298,7 +298,7 @@ You can use this to log arbitrary histograms. Note that `data` is a list of list
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="PR curve" %}
+{% tab title="PR曲線" %}
 `wandb.plot.pr_curve()`
 
 Log a [Precision-Recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) in one line:
@@ -322,7 +322,7 @@ You can log this whenever your code has access to:
 [Run the code →](https://colab.research.google.com/drive/1mS8ogA3LcZWOXchfJoMrboW3opY1A8BY?usp=sharing)
 {% endtab %}
 
-{% tab title="ROC curve" %}
+{% tab title="ROC曲線" %}
 `wandb.plot.roc_curve()`
 
 Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
@@ -347,9 +347,9 @@ You can log this whenever your code has access to:
 {% endtab %}
 {% endtabs %}
 
-### **Custom presets**
+### **カスタムプリセット**
 
-Tweak a builtin Custom Chart preset, or create a new preset, then save the chart. Use the chart ID to log data to that custom preset directly from your script.
+組み込みのカスタムチャートプリセットを微調整するか、新しいプリセットを作成してからチャートを保存します。チャートIDを使用して、スクリプトから直接そのカスタムプリセットにデータを記録します。
 
 ```python
 # Create a table with the columns to plot
@@ -367,7 +367,7 @@ my_custom_chart = wandb.plot_table(vega_spec_name="carey/new_chart",
               )
 ```
 
-[Run the code →](https://tiny.cc/custom-charts)
+ [コードを実行する→](https://tiny.cc/custom-charts)
 
 ### Matplotlib
 
@@ -378,12 +378,12 @@ plt.ylabel('some interesting numbers')
 wandb.log({"chart": plt})
 ```
 
-You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default we'll convert the plot into a [Plotly](https://plot.ly/) plot. If you want to explicitly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging Plotly charts.
+`matplotlib`のpyplotまたはfigureオブジェクトを`wandb.log（）`に渡すことができます。デフォルトでは、プロットをPlotlyプロットに変換します。プロットを画像として明示的にログに記録する場合は、プロットを`wandb.Image`に渡すことができます。Plotlyチャートを直接ログに記録することもできます。
 
-### 3D Visualizations
+###  3Dビジュアライゼーション
 
 {% tabs %}
-{% tab title="3D Object" %}
+{% tab title="3Dオブジェクト" %}
 Log files in the formats `obj`, `gltf`, or `glb`, and we will render them in the UI when your run finishes.
 
 ```python
@@ -398,7 +398,7 @@ wandb.log({"generated_samples":
 [See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
 
-{% tab title="Point Clouds" %}
+{% tab title="点群" %}
 Log 3D point clouds and Lidar scenes with bounding boxes. Pass in a numpy array containing coordinates and colors for the points to render.
 
 ```python
@@ -479,17 +479,15 @@ wandb.log(
 {% endtab %}
 {% endtabs %}
 
-## Incremental Logging
+##  インクリメンタルログ
 
-If you want to log to a single history step from lots of different places in your code you can pass a step index to `wandb.log()` as follows:
+コード内のさまざまな場所から単一の履歴ステップにログを記録する場合は、次のようにステップインデックスを`wandb.log（）`に渡すことができます。
 
 ```python
 wandb.log({'loss': 0.2}, step=step)
 ```
 
-As long as you keep passing the same value for `step`, W&B will collect the keys and values from each call in one unified dictionary. As soon you call `wandb.log()` with a different value for `step` than the previous one, W&B will write all the collected keys and values to the history, and start collection over again. Note that this means you should only use this with consecutive values for `step`: 0, 1, 2, .... This feature doesn't let you write to absolutely any history step that you'd like, only the "current" one and the "next" one.
-
-You can also set **commit=False** in `wandb.log` to accumulate metrics, just be sure to call `wandb.log` without the **commit** flag to persist the metrics.
+ ステップに同じ値を渡し続ける限り、W＆Bは各呼び出しからキーと値を1つの統合ディクショナリに収集します。前のステップとは異なるステップの値を使用して`wandb.log（）`を呼び出すとすぐに、W＆Bは収集されたすべてのキーと値を履歴に書き込み、収集を最初からやり直します。これは、ステップ0、1、2、...の連続した値でのみこれを使用する必要があることを意味することに注意してください。この機能では、必要な履歴ステップに絶対に書き込むことはできず、「現在」と「次」のステップのみに書き込むことができます。`wandb.log`で**commit=False**を設定してメトリックを累積することもできます。メトリックを持続化するには、**commit**フラグなしで必ず`wandb.log`を呼び出してください。
 
 ```python
 wandb.log({'loss': 0.2}, commit=False)
@@ -497,9 +495,9 @@ wandb.log({'loss': 0.2}, commit=False)
 wandb.log({'accuracy': 0.8})
 ```
 
-## Summary Metrics
+##  メトリックサマリー
 
-The summary statistics are used to track single metrics per model. If a summary metric is modified, only the updated state is saved. We automatically set summary to the last history row added unless you modify it manually. If you change a summary metric, we only persist the last value it was set to.
+要約統計量は、モデルごとに単一のメトリックを追跡するために使用されます。サマリーメトリックが変更されると、更新された状態のみが保存されます。手動で変更しない限り、要約は最後に追加された履歴行に自動的に設定されます。メトリックサマリーを変更すると、最後に設定された値のみが保持されます。
 
 ```python
 wandb.init(config=args)
@@ -512,7 +510,7 @@ for epoch in range(1, args.epochs + 1):
     best_accuracy = test_accuracy
 ```
 
-You may want to store evaluation metrics in a runs summary after training has completed. Summary can handle numpy arrays, pytorch tensors or tensorflow tensors. When a value is one of these types we persist the entire tensor in a binary file and store high level metrics in the summary object such as min, mean, variance, 95% percentile, etc.
+トレーニングが完了した後、評価メトリックを実行サマリーに保存することをお勧めします。サマリーは、numpy配列、pytorchテンソル、またはtensorflowテンソルを処理できます。値がこれらのタイプの1つである場合、テンソル全体をバイナリファイルに持続化し、最小、平均、分散、95％パーセンタイルなどの高レベルのメトリックをサマリーオブジェクトに格納します。
 
 ```python
 api = wandb.Api()
@@ -521,11 +519,11 @@ run.summary["tensor"] = np.random.random(1000)
 run.summary.update()
 ```
 
-### Accessing Logs Directly
+### ログに直接アクセスします
 
-The history object is used to track metrics logged by _wandb.log_. You can access a mutable dictionary of metrics via `run.history.row`. The row will be saved and a new row created when `run.history.add` or `wandb.log` is called.
+ 履歴オブジェクトは、wandb.logによってログに記録されたメトリックを追跡するために使用されます。`run.history.row`を介して、メトリックの変更可能なディクショナリにアクセスできます。`run.history.add`または`wandb.log`が呼び出されると、行が保存され、新しい行が作成されます。
 
-#### Tensorflow Example
+#### Tensorflowの例
 
 ```python
 wandb.init(config=flags.FLAGS)
@@ -544,7 +542,7 @@ with tf.Session() as sess:
       wandb.log({'acc': acc, 'loss':loss}) # log accuracy and loss
 ```
 
-#### PyTorch Example
+####  PyTorchの例
 
 ```python
 # Start pytorch training
@@ -559,27 +557,27 @@ for epoch in range(1, args.epochs + 1):
   wandb.log({"loss": train_loss, "val_loss": test_loss})
 ```
 
-## Common Questions
+## よくある質問
 
-### **Compare images from different epochs**
+### **異なる時代の画像を比較します**
 
-Each time you log images from a step, we save them to show in the UI. Pin the image panel, and use the **step slider** to look at images from different steps. This makes it easy to compare how a model's output changes over training.
+ ステップから画像をログに記録するたびに、UIに表示するために画像を保存します。画像パネルを固定し、ステップスライダーを使用して、さまざまなステップの画像を表示します。これにより、トレーニング中にモデルの出力がどのように変化するかを簡単に比較できます。
 
 ```python
 wandb.log({'epoch': epoch, 'val_acc': 0.94})
 ```
 
-### Batch logging
+### バッチログ
 
-If you'd like to log certain metrics in every batch and standardize plots, you can log x axis values that you want to plot with your metrics. Then in the custom plots, click edit and select the custom x-axis.
+#### すべてのバッチで特定のメトリックをログに記録し、プロットを標準化する場合は、メトリックでプロットするx軸の値をログに記録できます。次に、カスタムプロットで、\[編集\]をクリックして、カスタムx軸を選択します。
 
 ```python
 wandb.log({'batch': 1, 'loss': 0.3})
 ```
 
-### **Log a PNG**
+### **PNGをログ**
 
-wandb.Image converts numpy arrays or instances of PILImage to PNG's by default.
+wandb.Imageは、デフォルトでPILImageのnumpy配列またはインスタンスをPNGに変換します。
 
 ```python
 wandb.log({"example": wandb.Image(...)})
@@ -587,9 +585,9 @@ wandb.log({"example": wandb.Image(...)})
 wandb.log({"example": [wandb.Image(...) for img in images]})
 ```
 
-### **Log a JPEG**
+### **JPEGをログ**
 
-To save a JPEG you can pass a path to a file:
+JPEGを保存するには、ファイルへのパスを渡すことができます。
 
 ```python
 im = PIL.fromarray(...)
@@ -598,53 +596,43 @@ rgb_im.save('myimage.jpg')
 wandb.log({"example": wandb.Image("myimage.jpg")})
 ```
 
-### **Log a Video**
+### **ビデオをログ**
 
 ```python
 wandb.log({"example": wandb.Video("myvideo.mp4")})
 ```
 
-Now you can view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
+これで、メディアブラウザでビデオを表示できます。プロジェクトワークスペースに移動し、ワークスペースを実行するか、レポートを作成し、\[視覚化の追加\]をクリックしてリッチメディアパネルを追加します。
 
-### Custom x-axis
+###  カスタムx軸
 
-By default, we increment the global step every time you call wandb.log. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
+ デフォルトでは、wandb.logを呼び出すたびにグローバルステップがインクリメントされます。必要に応じて、単調に増加する独自のステップをログに記録し、それをグラフのカスタムx軸として選択できます。たとえば、調整したいトレーニングと検証のステップがある場合は、独自のステップカウンター`wandb.log({“acc”:1, “global_step”:1})`を渡してください。次に、グラフでx軸として「global\_step」を選択します。`wandb.log({“acc”:1,”batch”:10}, step=epoch)`を使用すると、デフォルトのステップ軸に加えて、x軸として「バッチ」を選択できます。
 
-For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
+### 点群のナビゲートとズームイン
 
-`wandb.log({“acc”:1,”batch”:10}, step=epoch)` would enable you to choose “batch” as an x axis in addition to the default step axis
+コントロールを押したまま、マウスを使用してスペース内を移動できます
 
-### Navigating and zooming in point clouds
+### グラフには何も表示されません
 
-You can hold control and use the mouse to move around inside the space
+「視覚化データがまだログに記録されていません」と表示されている場合は、スクリプトから最初のwandb.log呼び出しをまだ取得していないことを意味します。これは、実行がステップを完了するのに長い時間がかかることが原因である可能性があります。各エポックの終わりにログを記録している場合は、エポックごとに数回ログを記録して、データストリームをより迅速に確認できます。
 
-### Nothing shows up in the graphs
+### **メトリック名が重複しています**
 
-If you're seeing "No visualization data logged yet" that means that we haven't gotten the first wandb.log call from your script yet. This could be because your run takes a long time to finish a step. If you're logging at the end of each epoch, you could log a few times per epoch to see data stream in more quickly.
+同じキーで異なるタイプをログに記録する場合は、データベースでそれらを分割する必要があります。これは、UIのドロップダウンに同じメトリック名の複数のエントリが表示されることを意味します。グループ化するタイプは、数値、文字列、ブール、その他（主に配列）、および任意のwandbタイプ（ヒストグラム、画像など）です。この動作を回避するために、各キーに1つのタイプのみを送信してください。
 
-### **Duplicate metric names**
+### パフォーマンスおよび制限
 
-If you're logging different types under the same key, we have to split them out in the database. This means you'll see multiple entries of the same metric name in a dropdown in the UI. The types we group by are `number`, `string`, `bool`, `other` \(mostly arrays\), and any wandb type \(`histogram`, `images`, etc\). Please send only one type to each key to avoid this behavior.
+### **サンプリング**
 
-### Performance and limits
+送信するポイントが多いほど、UIにグラフを読み込むのに時間がかかります。1行に1000ポイントを超える場合は、ブラウザにデータを送信する前に、バックエンドで1000ポイントまでサンプリングします。このサンプリングは非決定的であるため、ページを更新すると、サンプリングされたポイントの異なるセットが表示されます。すべての元のデータが必要な場合は、データAPIを使用してサンプリングされていないデータをプルダウンできます。 
 
-**Sampling**
+**ガイドライン**
 
-The more points you send us, the longer it will take to load your graphs in the UI. If you have more than 1000 points on a line, we sample down to 1000 points on the backend before we send your browser the data. This sampling is nondeterministic, so if you refresh the page you'll see a different set of sampled points.
+メトリックごとに10,000ポイント未満をログに記録することをお勧めします。500列を超える構成および要約メトリックがある場合、テーブルには500のみが表示されます。1行に100万ポイントを超えるログを記録すると、ページの読み込みに時間がかかります。メトリックは大文字と小文字を区別せずに保存されるため、「My-Metric」と「my-metric」のように同じ名前の2つのメトリックがないことを確認してください。
 
-If you'd like all the original data, you can use our [data API](https://docs.wandb.com/library/api) to pull down unsampled data.
+### 画像のアップロードをコントロール
 
-**Guidelines**
-
-We recommend that you try to log less than 10,000 points per metric. If you have more than 500 columns of config and summary metrics, we'll only show 500 in the table. If you log more than 1 million points in a line, it will take us while to load the page.
-
-We store metrics in a case-insensitive fashion, so make sure you don't have two metrics with the same name like "My-Metric" and "my-metric".
-
-### Control image uploading
-
-"I want to integrate W&B in my project, but I don't want to upload any images"
-
-Our integration doesn't automatically upload images— you specify any files you'd like to upload explicitly. Here's a quick example I made for PyTorch where I explicitly log images: [http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)
+W＆Bをプロジェクトに統合したいのですが、画像はアップロードしたくありません」当社の統合では、画像は自動的にアップロードされません。明示的にアップロードするファイルを指定します。これは、画像を明示的にログに記録するPyTorch用に作成した簡単な例です。[http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)
 
 ```python
 wandb.log({
