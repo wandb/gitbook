@@ -10,15 +10,17 @@ Your W&B Local Server comes up ready-to-use on boot. However, several advanced c
 
 All configuration settings can be set via the UI however if you would like to manage these configuration options via code you can set the following environment variables:
 
-**LICENSE** - Your wandb/local license  
-**MYSQL** - The MySQL connection string  
-**BUCKET** - The S3 / GCS bucket for storing data  
-**BUCKET\_QUEUE** - The SQS / Google PubSub queue for object creation events  
-**NOTIFICATIONS\_QUEUE** - The SQS queue on which to publish run events  
-**AWS\_REGION** - The AWS Region where your bucket lives  
-**HOST** - The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net)  
-**AUTH0\_DOMAIN** - The Auth0 domain of your tenant  
-**AUTH0\_CLIENT\_ID** - The Auth0 Client ID of application
+| Environment Variable | Description |
+| :--- | :--- |
+| LICENSE | Your wandb/local license |
+| MYSQL | The MySQL connection string |
+| BUCKET | The S3 / GCS bucket for storing data |
+| BUCKET\_QUEUE | The SQS / Google PubSub queue for object creation events |
+| NOTIFICATIONS\_QUEUE | The SQS queue on which to publish run events |
+| AWS\_REGION | The AWS Region where your bucket lives |
+| HOST | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net) |
+| AUTH0\_DOMAIN | The Auth0 domain of your tenant |
+| AUTH0\_CLIENT\_ID | The Auth0 Client ID of application |
 
 ## Authentication
 
@@ -137,4 +139,67 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/ad
 ![GCP file storage settings](../.gitbook/assets/gcloud-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
+
+### Azure
+
+To use an Azure blob container as the file storage for W&B, you'll need to create a storage account \(if you don't already have one you want to use\), create a blob container and a queue within that storage account, and then create an event subscription that sends "blob created" notifications to the queue from the blob container.
+
+#### Create a Storage Account
+
+If you have a storage account you want to use already, you can skip this step.
+
+Navigate to [Storage Accounts &gt; Add ](https://portal.azure.com/#create/Microsoft.StorageAccount)in the Azure portal. Select an Azure subscription, and select any resource group or create a new one. Enter a name for your storage account.
+
+![Azure storage account setup](../.gitbook/assets/image%20%28106%29.png)
+
+Click Review and Create, and then, on the summary screen, click Create:
+
+![Azure storage account details review](../.gitbook/assets/image%20%28114%29.png)
+
+#### Creating the blob container
+
+Go to  [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service &gt; Containers in the menu:
+
+![](../.gitbook/assets/image%20%28102%29.png)
+
+Create a new container, and set it to Private:
+
+![](../.gitbook/assets/image%20%28110%29.png)
+
+Go to Settings &gt; CORS &gt; Blob service, and enter the IP of your wandb server as an allowed origin, with allowed methods `GET` and `PUT`, and all headers allowed and exposed, then save your CORS settings.
+
+![](../.gitbook/assets/image%20%28119%29.png)
+
+#### Creating the Queue
+
+Go to Queue service &gt; Queues in your storage account, and create a new Queue:
+
+![](../.gitbook/assets/image%20%28101%29.png)
+
+Go to Events in your storage account, and create an event subscription:
+
+![](../.gitbook/assets/image%20%28108%29.png)
+
+Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
+
+![](../.gitbook/assets/image%20%28116%29.png)
+
+In the Filters tab, enable subject filtering for subjects beginning with `/blobServices/default/containers/your-blob-container-name/blobs/`
+
+![](../.gitbook/assets/image%20%28105%29.png)
+
+#### Configure W&B Server
+
+Go to Settings &gt; Access keys in your storage account, click "Show keys", and then copy either key1 &gt; Key or key2 &gt; Key. Set this key on your W&B server as the environment variable `AZURE_STORAGE_KEY`.
+
+![](../.gitbook/assets/image%20%28115%29.png)
+
+Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+
+* **File Storage Bucket**: `az://<storage-account-name>/<blob-container-name>`
+* **Notification Subscription**: `az://<storage-account-name>/<queue-name>`
+
+![](../.gitbook/assets/image%20%28109%29.png)
+
+Press "Update settings" to apply the new settings.
 
