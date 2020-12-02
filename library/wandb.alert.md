@@ -1,14 +1,16 @@
 ---
-description: 'Scriptable alerts triggered from Python, sent to you via Slack or email'
+description: Pythonからトリガーされ、Slackまたはメールで送信されるスクリプト可能なアラート
 ---
 
 # wandb.alert\(\)
 
-Send a Slack or email alert, triggered from your Python script.
+PythonスクリプトからトリガーされたSlackまたはEメールアラートを送信します。
 
-1. [Set up alerts in your account→](../app/features/alerts.md)
-2. [Try the code →](http://tiny.cc/wb-alerts)
-3. Check your Slack or email to see the scriptable alerts.
+1. アカウントにアラートを設定する→
+
+2. コードを試す→
+
+3. SlackまたはEメールをチェックして、スクリプト可能なアラートを確認する。
 
 ### Arguments
 

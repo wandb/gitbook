@@ -1,137 +1,134 @@
 # Technical FAQ
 
-### What does this do to my training process?
+### テクニカルFAQ
 
-When `wandb.init()` is called from your training script an API call is made to create a run object on our servers. A new process is started to stream and collect metrics, thereby keeping all threads and logic out of your primary process. Your script runs normally and writes to local files, while the separate process streams them to our servers along with system metrics. You can always turn off streaming by running `wandb off` from your training directory, or setting the **WANDB\_MODE** environment variable to "dryrun".
+**これは私のトレーニングプロセスにどのように影響しますか？**トレーニングスクリプトから`wandb.init`（）が呼び出されると、API呼び出しが行われ、サーバー上に実行オブジェクトが作成されます。メトリックをストリーミングおよび収集するために新しいプロセスが開始され、それによってすべてのスレッドとロジックがプライマリプロセスから除外されます。スクリプトは正常に実行され、ローカルファイルに書き込みますが、別のプロセスがシステムメトリックとともにそれらをサーバーにストリーミングします。トレーニングディレクトリからwandbをオフにするか、**WANDB\_MODE**環境変数を「dryrun」に設定することで、いつでもストリーミングをオフにできます。
 
-### If wandb crashes, will it possibly crash my training run?
+###  **wandbがクラッシュした場合、トレーニングの実行がクラッシュする可能性がありますか？**
 
-It is extremely important to us that we never interfere with your training runs. We run wandb in a separate process to make sure that if wandb somehow crashes, your training will continue to run. If the internet goes out, wandb will continue to retry sending data to wandb.com.
+私たちがあなたのトレーニングの実行を決して妨害しないことは私たちにとって非常に重要です。wandbを別のプロセスで実行して、wandbが何らかの理由でクラッシュした場合でも、トレーニングが引き続き実行されるようにします。インターネットが切断された場合、wandbは引き続きwandb.comへのデータの送信を再試行します。
 
-### Will wandb slow down my training?
+### **wandbは私のトレーニングを遅くするようなことがありますか？**
 
-Wandb should have negligible effect on your training performance if you use it normally. Normal use of wandb means logging less than once a second and logging less than a few megabytes of data at each step. Wandb runs in a separate process and the function calls don't block, so if the network goes down briefly or there are intermittent read write issues on disk it should not affect your performance. It is possible to log a huge amount of data quickly, and if you do that you might create disk I/O issues. If you have any questions, please don't hesitate to contact us.
+Wandbを通常使用する場合、トレーニングパフォーマンスへの影響はごくわずかです。wandbの通常の使用は、各ステップで1秒に1回未満のログを記録し、数メガバイト未満のデータをログに記録することを意味します。Wandbは別のプロセスで実行され、関数呼び出しはブロックされないため、ネットワークが一時的にダウンしたり、ディスク上で断続的な読み取り/書き込みの問題が発生したりしても、パフォーマンスに影響はありません。大量のデータをすばやくログに記録することが可能であり、そうすると、ディスクI/Oの問題が発生する可能性があります。ご不明な点がございましたら、お気軽にお問い合わせください。
 
-### Can I run wandb offline?
+### **wandbをオフラインで実行できますか？**
 
-If you're training on an offline machine and want to upload your results to our servers afterwards, we have a feature for you!
+当社は、オフラインマシンでトレーニングしていて、後で結果をサーバーにアップロードする機能を有しています。
 
-1. Set the environment variable `WANDB_MODE=dryrun` to save the metrics locally, no internet required.
-2. When you're ready, run `wandb init` in your directory to set the project name.
-3. Run `wandb sync YOUR_RUN_DIRECTORY` to push the metrics to our cloud service and see your results in our hosted web app.
+1. 環境変数WANDB\_MODE=dryrunを設定して、メトリックをローカルに保存します。インターネットは必要ありません
+2. 準備ができたら、ディレクトリでwandb initを実行して、プロジェクト名を設定します。wandb sync YOUR\_RUN\_DIRECTORYを実行して、メトリックをクラウドサービスにプッシュし、ホストされているWebアプリで結果を確認します。
 
-### Does your tool track or store training data?
+### **ツールはトレーニングデータを追跡または保存していますか？**
 
-You can pass a SHA or other unique identifier to `wandb.config.update(...)` to associate a dataset with a training run. W&B does not store any data unless `wandb.save` is called with the local file name.
+SHAまたはその他の一意の識別子を`wandb.config.update(...)`に渡して、データセットをトレーニングの実行に関連付けることができます。`wandb.save`がローカルファイル名で呼び出されない限り、W＆Bはデータを保存しません。
 
-### How often are system metrics collected?
+### **システムメトリックはどのくらいの頻度で収集されますか？**
 
-By default metrics are collected every 2 seconds and averaged over a 30 second period. If you need higher resolution metrics, email us a [contact@wandb.com](mailto:contact@wandb.com).
+デフォルトでは、メトリックは2秒ごとに収集され、30秒間の平均になります。より高い解像度の指標が必要な場合は、[contact@wandb.com](mailto:contact@wandb.com)までEメールでお問い合わせください。
 
-### Does this only work for Python?
+### **これはPythonでのみ機能しますか？**
 
-Currently the library only works with Python 2.7+ & 3.6+ projects. The architecture mentioned above should enable us to integrate with other languages easily. If you have a need for monitoring other languages, send us a note at [contact@wandb.com](mailto:contact@wandb.com).
+現在、ライブラリはPython2.7以降および3.6以降のプロジェクトでのみ機能します。上記のアーキテクチャにより、他の言語と簡単に統合できるようになります。他の言語を表示する必要がある場合は、[contact@wandb.com](mailto:contact@wandb.com)までご連絡ください。
 
-### Can I just log metrics, no code or dataset examples?
+### **コードやデータセットの例ではなく、メトリックのみをログに記録できますか？**
 
-**Dataset Examples**
+データセットの例
 
-By default, we don't log any of your dataset examples. You can explicitly turn this feature on to see example predictions in our web interface.
+デフォルトでは、データセットの例はログに記録されません。この機能を明示的にオンにすると、Webイ
 
-**Code Logging**
+ンターフェイスで予測例を確認できます。
 
-There's two ways to turn off code logging:
+**コードロギング**
 
-1. Set **WANDB\_DISABLE\_CODE** to **true** to turn off all code tracking. We won't pick up the git SHA or the diff patch.
-2. Set **WANDB\_IGNORE\_GLOBS** to **\*.patch** to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](cli.md#restore-the-state-of-your-code) command.
+コードロギングをオフにする方法は2つあります。
 
-### Does logging block my training? 
+1. **WANDB\_DISABLE\_CODE**をtrueに設定して、すべてのコード追跡をオフにします。git SHAまたはdiffパッチは取得しません。
+2.  **WANDB\_IGNORE\_GLOBS**を\* .patchに設定して、サーバーへのdiffパッチの同期をオフにします。 あなたはまだそれをローカルに持っていて、[wandbrestore](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/library/cli#restore-the-state-of-your-code)コマンドでそれを適用することができます。
 
-"Is the logging function lazy? I don't want to be dependent on the network to send the results to your servers and then carry on with my local operations."
+### **ロギングは私のトレーニングをブロックしますか？**
 
-Calling **wandb.log** writes a line to a local file; it does not block on any network calls. When you call wandb.init we launch a new process on the same machine that listens for filesystem changes and talks to our web service asynchronously from your training process.
+「ロギング機能は怠惰ですか？結果をサーバーに送信してからローカル操作を続行するためにネットワークに依存したくありません。」
 
-### What formula do you use for your smoothing algorithm?
+wandb.logを呼び出すと、ローカルファイルに行が書き込まれます。ネットワーク呼び出しをブロックしません。wandb.initを呼び出すと、ファイルシステムの変更をリッスンし、トレーニングプロセスとは非同期にWebサービスと通信する新しいプロセスを同じマシンで起動します。
 
-We use the same exponential moving average formula as TensorBoard. You can find an explanation here: [https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar).
+### **平滑化アルゴリズムにはどの式を使用しますか？**
 
-### How is W&B different from TensorBoard?
+TensorBoardと同じ指数移動平均式を使用します。次のリンクからその説明を見つけることができます。[https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar)
 
-We love the TensorBoard folks, and we have a [TensorBoard integration](../integrations/tensorboard.md)! We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
+### **W＆BはTensorBoardとどう違いますか？**
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible. 
-2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
-3. **Fast, flexible integration**: Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
-4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
-5. **Powerful table**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
-6. **Tools for collaboration**: Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+私たちはTensorBoardに関わった人たちとの協力を望んでおり、TensorBoardとの統合を成し遂げています！私たちは、すべての人のための実験追跡ツールを改善するために努力しています。共同創設者がW＆Bに取り組み始めたとき、彼らはOpenAIで欲求不満のTensorBoardユーザーのためのツールを構築するように求められました。以下は、当社が改善する上で力を入れた項目です。
 
-Get started with a [free personal account →](http://app.wandb.ai/)
+1. **モデルの再現**：Weights＆Biasesは、実験、調査、および後でモデルを再現するのに適しています。メトリックだけでなく、ハイパーパラメータとコードのバージョンもキャプチャし、プロジェクトの再現性を高めるためにモデルのチェックポイントを保存できます。
+2. **自動編成**：プロジェクトを共同作業者に引き渡したり、休暇を取ったりした場合、W＆Bを使用すると、試したすべてのモデルを簡単に確認できるため、古い実験を再実行するのに時間を無駄にすることはありません。
+3. **高速で柔軟な統合**：5分でプロジェクトにW＆Bを追加します。無料のオープンソースPythonパッケージをインストールし、コードに数行追加すると、モデルを実行するたびに、ログに記録された優れたメトリックとレコードが得られます。
+4. **統一化および一元化されたダッシュボード**：ローカルマシン、ラボクラスター、クラウド内のスポットインスタンスなど、モデルをトレーニングする場所ならどこでも、同じ一元化されたダッシュボードを提供します。異なるマシンからTensorBoardファイルをコピーして整理するのに時間を費やす必要はありません。
+5. **強力なテーブル**：さまざまなモデルの結果を検索、フィルタリング、並べ替え、グループ化します。何千ものモデルバージョンを調べて、さまざまなタスクに最適なモデルを見つけるのは簡単です。TensorBoardは、大規模なプロジェクトでうまく機能するようには構築されていません。
+6. **コラボレーションのためのツール**：W＆Bを使用して、複雑な機械学習プロジェクトを整理します。 W＆Bへのリンクを共有するのは簡単で、プライベートチームを使用して、全員が共有プロジェクトに結果を送信することができます。また、レポートを介したコラボレーションもサポートしています。インタラクティブな視覚化を追加し、マークダウンで作業を説明します。これは、作業ログを保持したり、調査結果を上司と共有したり、調査結果をラボに提示したりするための優れた方法です。無料の個人アカウントを始めましょう→
 
-### How can I configure the name of the run in my training code?
+### **トレーニングコードで実行の名前を構成するにはどうすればよいですか？**
 
-At the top of your training script when you call wandb.init, pass in an experiment name, like this: `wandb.init(name="my awesome run")`
+ `wandb.init`を呼び出すときは、トレーニングスクリプトの先頭で、`wandb.init(name="my awesome run")`のような実験名を渡します。
 
-### How do I get the random run name in my script?
+### **スクリプトでランダムな実行名を取得するにはどうすればよいですか？**
 
-Call `wandb.run.save()` and then get the name with `wandb.run.name` .
+`wandb.run.save（）`を呼び出してから、
 
-### Is there an anaconda package?
+`wandb.run.name`で名前を取得します。
 
-We don't have an anaconda package but you should be able to install wandb using:
+### **anacondaパッケージはありますか？**
+
+anacondaパッケージはありませんが、以下を使用してwandbをインストールできます。
 
 ```text
 conda activate myenv
 pip install wandb
 ```
 
-If you run into issues with this install, please let us know. This Anaconda [doc on managing packages](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) has some helpful guidance.
+ このインストールで問題が発生した場合は、お知らせください。この[パッケージ管理に関するAnacondaドキ](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html)ュメントには、助けになるガイダンスがあります。
 
-### How do I stop wandb from writing to my terminal or my jupyter notebook output?
+###  **wandbがターミナルまたはjupyterノートブック出力に書き込むのを停止するにはどうすればよいですか？**
 
-Set the environmental variable [WANDB\_SILENT](environment-variables.md).
+環境変数[WANDB\_SILENT](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/library/environment-variables)を設定します。
 
-In a notebook:
+ノートブックの場合：
 
 ```text
 %env WANDB_SILENT true
 ```
 
-In a python script:
+Pythonスクリプトの場合：
 
 ```text
 os.environ["WANDB_SILENT"] = "true"
 ```
 
-### How do I kill a job with wandb?
+### **wandbでジョブを強制終了するにはどうすればよいですか？**
 
-Press ctrl+D on your keyboard to stop a script that is instrumented with wandb.
+キーボードのctrl+Dを押して、wandbでインストルメントされたスクリプトを停止します。
 
-### How do I deal with network issues?
+###  **ネットワークの問題に対処するにはどうすればよいですか？**
 
-If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), entering retry loop.` you can try a couple of different approaches to solving this issue:
+**SSL CERTIFICATE\_VERIFY\_FAILED:** this error could be due to your company's firewall. You can set up local CAs and then use: **ネットワークの問題に対処するにはどうすればよいですか？**SSLまたはネットワークで、`wandb: Network error (ConnectionError), entering retry loop`のようなエラーが発生している場合、この問題を解決するために、いくつかの異なるアプローチを試すことができます。
 
-1. Upgrade your SSL certificate. If you're running the script on an Ubuntu server, run `update-ca-certificates`  We can't sync training logs without a valid SSL certificate because it's a security vulnerability.
-2. If your network is flakey, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
-3. Try running [W&B Local](../self-hosted/local.md), which operates on your machine and doesn't sync files to our cloud servers.
-
-**SSL CERTIFICATE\_VERIFY\_FAILED:** this error could be due to your company's firewall. You can set up local CAs and then use:
+1. SSL証明書をアップグレードします。Ubuntuサーバーでスクリプトを実行している場合は、`update-ca-certificates`を実行します。セキュリティの脆弱性があるため、有効なSSL証明書がないとトレーニングログを同期できません。
+2. ネットワークが不安定な場合は、[オフラインモード](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline)でトレーニングを実行し、インターネットにアクセスできるマシンからファイルを同期します。
+3. [W＆B Local](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/self-hosted/local)を実行してみてください。これは、マシン上で動作し、ファイルをクラウドサーバーに同期しません。**SSL CERTIFICATE\_VERIFY\_FAILED**：このエラーは、会社のファイアウォールが原因である可能性があります。ローカルCAを設定して、次を使用してください。
 
 `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
 
-### What happens if internet connection is lost while I'm training a model? 
+### **モデルのトレーニング中にインターネット接続が失われた場合はどうなりますか？**
 
-If our library is unable to connect to the internet it will enter a retry loop and keep attempting to stream metrics until the network is restored.  During this time your program is able to continue running.  
+ライブラリがインターネットに接続できない場合、ライブラリは再試行ループに入り、ネットワークが復元されるまでメトリックのストリーミングを試み続けます。この間、プログラムは実行を継続できます。インターネットのないマシンで実行する必要がある場合は、`WANDB_MODE=dryrun`を設定して、メトリックをハードドライブにローカルにのみ保存することができます。後でwandb sync DIRECTORYを呼び出して、データをサーバーにストリーミングすることができます。
 
-If you need to run on a machine without internet, you can set WANDB\_MODE=dryrun to only have metrics stored locally on your harddrive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
+### **2つの異なる時間スケールでメトリックをログに記録できますか？**
 
-### Can I log metrics on two different time scales?  \(For example I want to log training accuracy per batch and validation accuracy per epoch.\)
+**（たとえば、バッチごとのトレーニング精度とエポックごとの検証精度をログに記録したいと思います。）**はい、そうです。これを行うには、複数のメトリックをログに記録してから、それらにx軸の値を設定します。したがって、あるステップでは`wandb.log({'train_accuracy': 0.9, 'batch': 200})`を呼び出し、別のステップでは`wandb.log({'val_acuracy': 0.8, 'epoch': 4})`を呼び出すことができます。 
 
-Yes, you can do this by logging multiple metrics and then setting them a x axis values.  So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`
+### **最終評価の精度など、時間の経過とともに変化しないメトリックをログに記録するにはどうすればよいですか？**
 
-### How can I log a metric that doesn't change over time such as a final evaluation accuracy?
-
-Using wandb.log\({'final\_accuracy': 0.9} will work fine for this.  By default wandb.log\({'final\_accuracy'}\) will update wandb.settings\['final\_accuracy'\] which is the value shown in the runs table.
+wandb.log（{'final\_accuracy': 0.9}）を使用すると、これで問題なく動作します。デフォルトでは、wandb.log（{'final\_accuracy'}）は、runsテーブルに表示される値であるwandb.settings\['final\_accuracy'\]を更新します。
 
 ### How can I log additional metrics after a run completes?
 
@@ -142,6 +139,10 @@ For complicated workflows, we recommend using multiple runs and setting group pa
 For simpler workflows, you can call wandb.init with resume=True and id=UNIQUE\_ID and then later call wandb.init with the same id=UNIQUE\_ID. Then you can log normally with [wandb.log](log.md) or wandb.summary and the runs values will update.
 
 At any point you can always use the[ API](../ref/export-api/) to add additional evaluation metrics.
+
+ **実行が完了した後、追加のメトリックをログに記録するにはどうすればよいですか？**
+
+これはいくつかの方法によって行われます。複雑なワークフローの場合は、複数の実行を使用し、[wandb.init](init.md)のグループパラメータを、単一の実験の一部として実行されるすべてのプロセスでユニークな値に設定することをお勧めします。実行テーブルは、グループIDによってテーブルを自動的にグループ化し、ビジュアライゼーションは期待どおりに動作します。これにより、個別のプロセスがすべての結果を1つの場所に記録するため、複数の実験とトレーニングを実行できます。より単純なワークフローの場合、resume=Trueおよびid=UNIQUE\_IDを指定してwandb.initを呼び出し、後で同じid=UNIQUE\_IDを指定してwandb.initを呼び出すことができます。次に、wandb.logまたはwandb.summaryを使用して通常どおりログに記録すると、実行値が更新されます。APIを使用して、いつでも評価指標を追加できます。
 
 ### What is the difference between  .log\(\) and .summary?  
 

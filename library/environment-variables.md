@@ -1,6 +1,6 @@
 # Environment Variables
 
-When you're running a script in an automated environment, you can control **wandb** with environment variables set before the script runs or within the script.
+自動化された環境でスクリプトを実行している場合、スクリプトの実行前またはスクリプト内で設定された環境変数を使用して**wandb**を制御できます。
 
 ```bash
 # This is secret and shouldn't be checked into version control
@@ -21,9 +21,9 @@ WANDB_PROJECT=$project
 os.environ['WANDB_MODE'] = 'dryrun'
 ```
 
-## Optional Environment Variables
+## オプショナル環境変数
 
-Use these optional environment variables to do things like set up authentication on remote machines.
+これらのオプションの環境変数を用いて、リモートマシンでの認証の設定などを行います。
 
 | Variable name | Usage |
 | :--- | :--- |
@@ -54,33 +54,31 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_RUN\_GROUP** | Specify the experiment name to automatically group runs together. See [grouping](grouping.md) for more info. |
 | **WANDB\_JOB\_TYPE** | Specify the job type, like "training" or "evaluation" to indicate different types of runs. See [grouping](grouping.md) for more info. |
 
-## Singularity Environments
+## Singularity環境
 
-If you're running containers in [Singularity](https://singularity.lbl.gov/index.html) you can pass environment variables by pre-pending the above variables with **SINGULARITYENV\_**. More details about Singularity environment variables can be found [here](https://singularity.lbl.gov/docs-environment-metadata#environment).
+[Singularity](https://singularity.lbl.gov/index.html)でコンテナーを実行している場合は、上記の変数の前に**SINGULARITYENV\_**を付けることで、環境変数を渡すことができます。Singularity環境変数の詳細については、[こちら](https://singularity.lbl.gov/docs-environment-metadata#environment)をご覧ください。
 
-## Running on AWS
+## AWSで実行
 
-If you're running batch jobs in AWS, it's easy to authenticate your machines with your W&B credentials. Get your API key from your [settings page](https://app.wandb.ai/settings), and set the WANDB\_API\_KEY environment variable in the [AWS batch job spec](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters).
+AWSでバッチジョブを実行している場合は、W＆B認証情報を使用してマシンを簡単に認証できます。[設定ページ](https://wandb.ai/settings)からAPIキーを取得し、[AWSバッチジョブ仕様](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters)でWANDB\_API\_KEY環境変数を設定します。
 
-## Common Questions
+## よくある質問
 
-### Automated runs and service accounts
+**自動実行とサービスアカウント**W＆Bへの実行ログを起動する自動テストまたは内部ツールがある場合は、チーム設定ページで**サービスアカウント**を作成します。これにより、自動化されたジョブにサービスAPIキーを使用できるようになります。サービスアカウントジョブを特定のユーザーに関連付ける場合は、WANDB\_USER\_NAMEまたはWANDB\_USER\_EMAIL環境変数を使用できます。
 
-If you have automated tests or internal tools that launch runs logging to W&B, create a **Service Account** on your team settings page. This will allow you to use a service API key for your automated jobs. If you want to attribute service account jobs to a specific user, you can use the WANDB\_USER\_NAME or WANDB\_USER\_EMAIL environment variables.
+![ &#x81EA;&#x52D5;&#x5316;&#x3055;&#x308C;&#x305F;&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x3092;&#x30C1;&#x30FC;&#x30E0;&#x8A2D;&#x5B9A;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;](../.gitbook/assets/image%20%2892%29.png)
 
-![Create a service account on your team settings page for automated jobs](../.gitbook/assets/image%20%2892%29.png)
+これは、自動化された単体テストを設定する場合に、継続的インテグレーションやTravisCIやCircleCIなどのツールに役立ちます。
 
-This is useful for continuous integration and tools like TravisCI or CircleCI if you're setting up automated unit tests.
+### 環境変数は、wandb.init（）に渡されたパラメータを上書きしますか？
 
-### Do environment variables overwrite the parameters passed to wandb.init\(\)?
+wandb.initに渡される引数は、環境よりも優先されます。環境変数が設定されていないときにシステムデフォルト以外のデフォルトを設定する場合は、wandb.init `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))`を呼び出すことができます。
 
-Arguments passed to `wandb.init` take precedence over the environment. You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
+### ログをオフにします
 
-### Turn off logging
+コマンドwandboffは、環境変数, `WANDB_MODE=dryrun`を設定します。これにより、マシンからリモートwandbサーバーへのデータの同期が停止します。複数のプロジェクトがある場合、それらはすべて、ログに記録されたデータのW＆Bサーバーへの同期を停止します。
 
-The command `wandb off` sets an environment variable, `WANDB_MODE=dryrun` . This stops any data from syncing from your machine to the remote wandb server. If you have multiple projects, they will all stop syncing logged data to W&B servers.
-
-To quiet the warning messages:
+警告メッセージを無効にするには：
 
 ```python
 import logging
@@ -88,9 +86,7 @@ logger = logging.getLogger("wandb")
 logger.setLevel(logging.WARNING)
 ```
 
-### Multiple wandb users on shared machines
+### 共有マシン上の複数のwandbユーザー
 
-If you're using a shared machine and another person is a wandb user, it's easy to make sure your runs are always logged to the proper account. Set the [WANDB\_API\_KEY environment variable](environment-variables.md) to authenticate. If you source it in your env, when you log in you'll have the right credentials, or you can set the environment variable from your script.
-
-Run this command `export WANDB_API_KEY=X` where X is your API key. When you're logged in, you can find your API key at [wandb.ai/authorize](https://app.wandb.ai/authorize).
+共有マシンを使用していて、他の人がwandbユーザーである場合、実行が常に適切なアカウントに記録されていることを確認するのは簡単です。認証するようにWANDB\_API\_KEY環境変数を設定します。環境でソースを作成する場合、ログインすると適切な資格情報が得られます。または、スクリプトから環境変数を設定することもできます。この`export WANDB_API_KEY=X`コマンドを実行します。ここで、XはAPIキーです。ログインすると、APIキーは[wandb.ai/authorize](https://wandb.ai/authorize)にあります。
 
