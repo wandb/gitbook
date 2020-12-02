@@ -194,7 +194,7 @@ Generally, the residuals of a well-fit model should be randomly distributed beca
 * X \(arr\): Training set features.
 * y \(arr\): Training set labels.
 
-  If you have any questions, we'd love to answer them in our [slack community](http://bit.ly/wandb-forum).
+  If you have any questions, we'd love to answer them in our [slack community](http://wandb.me/slack).
 
 ## Example
 
