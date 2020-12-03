@@ -6,27 +6,29 @@ description: >-
 
 # Configuration
 
-Use these configuration fields to customize your sweep. There are two ways to specify your configuration:
+ハイパーパラメータ範囲、サーチストラテジー、およびスイープの他の側面を設定するためのシンタックスこれらの構成フィールドを使用して、スイープをカスタマイズします。
 
-1. [YAML file](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config): best for distributed sweeps. See examples [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
-2. [Python data structure](python-api.md): best for running a sweep from a Jupyter Notebook 
+構成を指定する方法は2つあります。
 
-| Top-level key | Meaning |
+1. [YAMLファイル](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config)：分散スイープに最適です。[こちら](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config)の例をご覧ください。
+2. [Pythonデータ構造](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNdlQobOrN8f63KfkRZ/v/japanese/sweeps/python-api)：JupyterNotebookからスイープを実行するのに最適です
+
+| トップレベルキー | 意味 |
 | :--- | :--- |
-| name | The name of the sweep, displayed in the W&B UI |
-| description | Text description of the sweep \(notes\) |
-| program | Training script to run \(required\) |
-| metric | Specify the metric to optimize \(used by some search strategies and stopping criteria\) |
-| method | Specify the [search strategy](configuration.md#search-strategy) \(required\) |
-| early\_terminate | Specify the [stopping criteria](configuration.md#stopping-criteria) \(optional, defaults to no early stopping\) |
-| parameters | Specify [parameters](configuration.md#parameters) bounds to search \(required\) |
-| project | Specify the project for this sweep |
-| entity | Specify the entity for this sweep |
-| command | Specify [command line](configuration.md#command) for how the training script should be run |
+| name | W＆B UIに表示されるスイープの名前 |
+| description | スイープのテキスト説明（注） |
+| program |  ****実行するトレーニングスクリプト（必須） |
+| metric |   最適化するメトリックを指定します（一部の検索戦略および停止基準で使用されます） |
+| method | サーチストラテジーを指定します（必須）  |
+| early\_terminate | 停止基準を指定します（オプション、デフォルトでは早期停止なし） |
+| parameters | 停止基準を指定します（オプション、デフォルトでは早期停止なし） |
+| project | このスイープのプロジェクトを指定します |
+| entity |  このスイープのプロジェクトを指定します |
+| command | このスイープのエンティティを指定します |
 
-### Metric
+###  メトリック
 
-Specify the metric to optimize. This metric should be logged explicitly to W&B by your training script. For example, if you want to minimize the validation loss of your model:
+ 最適化するメトリックを指定します。このメトリックは、トレーニングスクリプトによってW＆Bに明示的に記録する必要があります。たとえば、モデルの検証損失を最小限に抑えたい場合は、次のようにします。
 
 ```python
 # [model training code that returns validation loss as valid_loss]
@@ -35,23 +37,16 @@ wandb.log({"val_loss" : valid_loss})
 
 | `metric` sub-key | Meaning |
 | :--- | :--- |
-| name | Name of the metric to optimize |
-| goal | `minimize` or `maximize` \(Default is `minimize`\) |
-| target | Value that you'd like to achieve for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to "Finished." This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
+| name | 最適化するメトリックの名前 |
+| goal | 最適化するメトリックの名前 |
+| target | 最適化する指標に対して達成したい値。スイープのいずれかの実行がその目標値に達すると、スイープの状態は「終了」に設定されます。つまり、アクティブな実行を持つすべてのエージェントはそれらのジョブを終了しますが、スイープで新しい実行は開始されません。 |
 
 {% hint style="danger" %}
-The metric specified needs to be a "top level" metric:
+**指定するメトリックは、「トップレベル」メトリックである必要があります。**
 
-This will **NOT** work:  
-Sweep configuration:  
-metric:  
-name: my\_metric.nested  
-Code:  
-`nested_metrics = {"nested": 4}    
-wandb.log({"my_metric", nested_metrics}`
+**これは機能無し：スイープ構成：メトリック：名前：**`nested_metrics = {"nested": 4} wandb.log({"my_metric", nested_metrics}`
 
-To work around this limitation the script should log the nested metric at the top level like this:  
-Sweep configuration:  
+**この制限を回避するには、スクリプトは次のようにネストされたメトリックをトップレベルでログに記録する必要があります。スイープ構成：メトリック：名前：**my\_metric\_nested Code: `nested_metrics = {"nested": 4} wandb.log{{"my_metric", nested_metric} wandb.log({"my_metric_nested", nested_metric["nested"]})`  
 metric:  
 name: my\_metric\_nested  
 Code:  
@@ -60,7 +55,7 @@ wandb.log{{"my_metric", nested_metric}
 wandb.log({"my_metric_nested", nested_metric["nested"]})`
 {% endhint %}
 
-**Examples**
+**Examples** 
 
 {% tabs %}
 {% tab title="Maximize" %}
@@ -88,17 +83,17 @@ metric:
 {% endtab %}
 {% endtabs %}
 
-### Search Strategy
+###  **例**
 
-Specify the search strategy with the `method` key in the sweep configuration.
+スイープ構成の`method`キーを使用してサーチストラテジーを指定します。
 
 | `method` | Meaning |
 | :--- | :--- |
-| grid | Grid search iterates over all possible combinations of parameter values. |
-| random | Random search chooses random sets of values. |
-| bayes | Bayesian Optimization uses a gaussian process to model the function and then chooses parameters to optimize probability of improvement. This strategy requires a metric key to be specified. |
+| grid | グリッド検索は、パラメーター値のすべての可能な組み合わせを繰り返します。 |
+| random | ランダム検索では、ランダムな値のセットが選択されます |
+| bayes |  ベイズ最適化は、ガウス過程を使用して関数をモデル化し、パラメーターを選択して改善の確率を最適化します。この戦略では、メトリックキーを指定する必要があります。 |
 
-**Examples**
+ **例**
 
 {% tabs %}
 {% tab title="Random search" %}
@@ -123,9 +118,9 @@ metric:
 {% endtab %}
 {% endtabs %}
 
-### Stopping Criteria
+### 停止基準
 
-Early termination is an optional feature that speeds up hyperparameter search by stopping poorly-performing runs. When the early stopping is triggered, the agent stops the current run and gets the next set of hyperparameters to try.
+早期終了は、パフォーマンスの低い実行を停止することでハイパーパラメータ検索を高速化するオプション機能です。早期停止がトリガーされると、エージェントは現在の実行を停止し、試行するハイパーパラメータの次のセットを取得します。
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
@@ -137,21 +132,21 @@ We support the following stopping algorithm\(s\):
 | :--- | :--- |
 | hyperband | Use the [hyperband method](https://arxiv.org/abs/1603.06560) |
 
-Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program. Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged — if the metric is logged every epoch, then there are epoch iterations\).
+ハイパーバンド停止は、プログラムの実行中にプログラムを停止するか、1つ以上の括弧で続行することを許可するかを評価します。ブラケットは、指定されたメトリックの静的反復で構成されます（反復は、メトリックがログに記録された回数です。メトリックがエポックごとにログに記録される場合、エポック反復があります）。
 
-In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
+ブラケットスケジュールを指定するには、`min_iter`または`max_iter`のいずれかを定義する必要があります。
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
-| min\_iter | specify the iteration for the first bracket |
-| max\_iter | specify the maximum number of iterations for the program |
-| s | specify the total number of brackets \(required for `max_iter`\) |
-| eta | specify the bracket multiplier schedule \(default: 3\) |
+| min\_iter | 最初の括弧の反復を指定します |
+| max\_iter | プログラムの最大反復回数を指定します |
+| s | 角かっこの総数を指定します（`max_iter`に必要） |
+| eta | ブラケット乗数スケジュールを指定します（デフォルト：3） |
 
-**Examples**
+ **例**
 
 {% tabs %}
-{% tab title="Hyperband \(min\_iter\)" %}
+{% tab title="ハイパーバンド（min\_iter）" %}
 ```text
 early_terminate:
   type: hyperband
@@ -161,7 +156,7 @@ early_terminate:
 Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\)
 {% endtab %}
 
-{% tab title="Hyperband \(max\_iter\)" %}
+{% tab title="ハイパーバンド（max\_iter）" %}
 ```text
 early_terminate:
   type: hyperband
@@ -173,22 +168,22 @@ Brackets: 9 \(27/eta\), 3 \(9/eta\)
 {% endtab %}
 {% endtabs %}
 
-### Parameters
+### パラメーター
 
-Describe the hyperparameters to explore. For each hyperparameter, specify the name and the possible values as a list of constants \(for any method\) or specify a distribution \(for `random` or `bayes` \).
+探索するハイパーパラメータについて説明します。ハイパーパラメータごとに、名前と可能な値を定数のリストとして指定するか（任意のメソッドの場合）、分布を指定します（ランダムまたはベイの場合）。
 
 | Values | Meaning |
 | :--- | :--- |
-| values: \[\(type1\), \(type2\), ...\] | Specifies all valid values for this hyperparameter. Compatible with `grid`. |
-| value: \(type\) | Specifies the single valid value for this hyperparameter. Compatible with `grid`. |
-| distribution: \(distribution\) | Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set. |
-| min: \(float\) max: \(float\) | Maximum and minimum valid values for `uniform` -distributed hyperparameters. |
-| min: \(int\) max: \(int\) | Maximum and minimum values for `int_uniform` -distributed hyperparameters. |
-| mu: \(float\) | Mean parameter for `normal` - or `lognormal` -distributed hyperparameters. |
-| sigma: \(float\) | Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters. |
-| q: \(float\) | Quantization step size for quantized hyperparameters |
+| values: \[\(type1\), \(type2\), ...\] |  このハイパーパラメータのすべての有効な値を指定します。グリッドと互換性があります。 |
+| value: \(type\) | このハイパーパラメータの単一の有効な値を指定します。グリッドと互換性があります。 |
+| distribution: \(distribution\) | 以下の分布表から分布を選択します。指定しない場合、値が設定されている場合はデフォルトでカテゴリカル、最大値と最小値が整数に設定されている場合は |
+| min: \(float\) max: \(float\) | int\_uniform、最大値と最小値が浮動小数点数に設定されている場合は均一、値が設定されている場合は一定になります。 |
+| min: \(int\) max: \(int\) | 均一に分散されたハイパーパラメータの有効な最大値と最小値。 |
+| mu: \(float\) | int\_uniform分散ハイパーパラメータの最大値と最小値 |
+| sigma: \(float\) | 正規分布または対数正規分布のハイパーパラメータの標準偏差パラメータ。 |
+| q: \(float\) | 量子化されたハイパーパラメータの量子化ステップサイズ |
 
-**Example**
+ **例**
 
 {% tabs %}
 {% tab title="grid - single value" %}
@@ -224,21 +219,21 @@ parameter_name:
 
 ### Distributions
 
-| Name | Meaning |
+| 名前 |  意味 |
 | :--- | :--- |
-| constant | Constant distribution. Must specify `value`. |
-| categorical | Categorical distribution. Must specify `values`. |
-| int\_uniform | Discrete uniform distribution on integers. Must specify `max` and `min` as integers. |
-| uniform | Continuous uniform distribution. Must specify `max` and `min` as floats. |
-| q\_uniform | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`. |
-| log\_uniform | Log-uniform distribution. Returns a value between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`. |
-| q\_log\_uniform | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`. |
-| normal | Normal distribution. Return value is normally-distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
+| constant | 一定の分布。値を指定する必要があります。 |
+| categorical | カテゴリ分布。値を指定する必要があります。 |
+| int\_uniform | 整数の離散一様分布。maxとminを整数として指定する必要があります。 |
+| uniform | 連続一様分布。maxとminをfloatとして指定する必要があります。 |
+| q\_uniform | 量子化された一様分布。round（X / q）\* qを返します。ここで、Xは均一です。qのデフォルトは1です。 |
+| log\_uniform | 対数均一分布。自然対数が最小値と最大値の間で均一に分布するように、exp（最小）とexp（最大）の間の値を返します。 |
+| q\_log\_uniform | 量子化されたログユニフォーム。round（X / q）\* qを返します。ここで、Xはlog\_uniformです。qのデフォルトは1です。 |
+| normal | 正規分布。戻り値は通常、平均ミュー（デフォルトは0）と標準偏差シグマ（デフォルトは1）で分布しています。 |
 | q\_normal | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1. |
 | log\_normal | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
-| q\_log\_normal | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`. |
+| q\_log\_normal | 量子化された対数正規分布。round（X / q）\* qを返します。ここで、Xはlog\_normalです。qのデフォルトは1です。 |
 
-**Example**
+ **例**
 
 {% tabs %}
 {% tab title="constant" %}
@@ -286,21 +281,19 @@ parameter_name:
 {% endtab %}
 {% endtabs %}
 
-### Command Line <a id="command"></a>
+### コマンドライン <a id="command"></a>
 
-The sweep agent constructs a command line in the following format by default:
+スイープエージェントは、デフォルトで次の形式でコマンドラインを作成します。
 
 ```text
 /usr/bin/env python train.py --param1=value1 --param2=value2
 ```
 
 {% hint style="info" %}
-On Windows machines the /usr/bin/env will be omitted. On UNIX systems it ensures the right python interpreter is chosen based on the environment.
+Windowsマシンでは、/usr/bin/envは省略されます。UNIXシステムでは、環境に基づいて適切なpythonインタープリターが選択されるようにします。
 {% endhint %}
 
-This command line can be modified by specifying a `command` key in the configuration file.
-
-By default the command is defined as:
+このコマンドラインは、構成ファイルで`command`キーを指定することで変更できます。デフォルトでは、コマンドは次のように定義されています。
 
 ```text
 command:
@@ -310,21 +303,21 @@ command:
   - ${args}
 ```
 
-| Command Macro | Expansion |
+| コマンドマクロ | 拡張 |
 | :--- | :--- |
-| ${env} | /usr/bin/env on UNIX systems, omitted on Windows |
-| ${interpreter\| | Expands to "python". |
-| ${program} | Training script specified by the sweep configuration `program` key |
-| ${args} | Expanded arguments in the form --param1=value1 --param2=value2 |
+| ${env} | UNIXシステムでは/usr/bin/env、Windowsでは省略します |
+| ${interpreter\| | 「python」に展開されます。 |
+| ${program} | スイープ構成プログラムキーで指定されたトレーニングスクリプト |
+| ${args} | --param1=value1 --param2=value2の形式の展開された引数 |
 | ${args\_no\_hyphens} | Expanded arguments in the form param1=value1 param2=value2 |
-| ${json} | Arguments encoded as JSON |
-| ${json\_file} | The path to a file containing the args encoded as JSON |
+| ${json} |  param1=value1 param2=value2の形式の展開された引数 |
+| ${json\_file} |  JSONとしてエンコードされた引数 |
 
-Examples:
+: 例：
 
 {% tabs %}
 {% tab title="Set python interpreter" %}
-In order to hardcode the python interpreter you can can specify the interpreter explicitly:
+Pythonインタープリターをハードコーディングするために、インタープリターを明示的に指定できます
 
 ```text
 command:
@@ -373,9 +366,9 @@ command:
 {% endtab %}
 {% endtabs %}
 
-## Common Questions
+##  よくある質問
 
-### Nested Config
+### ネストされた構成現在、
 
-Right now, sweeps do not support nested values, but we plan on supporting this in the near future.
+スイープはネストされた値をサポートしていませんが、近い将来これをサポートする予定です。.
 

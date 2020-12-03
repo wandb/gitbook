@@ -16,35 +16,27 @@ description: プロジェクトですでにwandb.init、wandb.config、および
 
 [プロジェクトページの例を見る→](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-## 2. Create a sweep
+## 2. **スイープの作成**
 
-From your project page, open the Sweep tab in the sidebar and click "Create Sweep".
+プロジェクトページから、サイドバーの\[スイープ\]タブを開き、\[スイープの作成\]をクリックします。
 
-![](../.gitbook/assets/sweep1.png)
-
-The auto-generated config guesses values to sweep over based on the runs you've done already. Edit the config to specify what ranges of hyperparameters you want to try. When you launch the sweep, it starts a new process on our hosted W&B sweep server. This centralized service coordinates the agents— your machines that are running the training jobs.
+ 自動生成された構成は、すでに実行した実行に基づいてスイープする値を推測します。構成を編集して、試行するハイパーパラメーターの範囲を指定します。スイープを起動すると、ホストされているW＆Bスイープサーバーで新しいプロセスが開始されます。この一元化されたサービスは、エージェント、つまりトレーニングジョブを実行しているマシンを調整します。
 
 ![](../.gitbook/assets/sweep2.png)
 
-## 3. Launch agents
-
-Next, launch an agent locally. You can launch dozens of agents on different machines in parallel if you want to distribute the work and finish the sweep more quickly. The agent will print out the set of parameters it’s trying next.
+**3. エージェントの起動**次に、エージェントをローカルで起動します。作業を分散してスイープをより迅速に終了したい場合は、異なるマシンで数十の
 
 ![](../.gitbook/assets/sweep3.png)
 
-That’s it! Now you're running a sweep. Here’s what the dashboard looks like as my example sweep gets started. [View an example project page →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+ それで完了しました！これで、スイープを実行しています。スイープの例を開始すると、ダッシュボードは次のようになります。[プロジェクトページの例を見る→](https://wandb.ai/carey/pytorch-cnn-fashion?workspace=)
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579066494222_image.png)
 
-## Seed a new sweep with existing runs
+## **既存の実行で新しいスイープをシードします**以前に記録した既存の実行を使用して、新しいスイープを起動します。
 
-Launch a new sweep using existing runs that you've previously logged.
-
-1. Open your project table.
-2. Select the runs you want to use with checkboxes on the left side of the table.
-3. Click the dropdown to create a new sweep.
-
-Your sweep will now be set up on our server. All you need to do is launch one or more agent to start running runs.
+1. プロジェクトテーブルを開きます。
+2. テーブルの左側にあるチェックボックスで使用する実行を選択します。
+3. ドロップダウンをクリックして、新しいスイープを作成します。これで、スイープがサーバーに設定されます。実行を開始するには、1つ以上のエージェントを起動するだけです。
 
 ![](../.gitbook/assets/create-sweep-from-table%20%281%29.png)
 
