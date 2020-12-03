@@ -59,7 +59,7 @@ Here are some config resources:
 2. [Configuration](configuration.md): full specs to set up your sweep config
 3. [Jupyter Notebook](python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
 4. [Generate config from UI](existing-project.md): take an existing W&B project and generate a config file
-5. [Feed in prior runs](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
+5. [Feed in prior runs](https://docs.wandb.com/sweeps/existing-project#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
 
 Here's an example sweep config YAML file called **sweep.yaml**:
 
