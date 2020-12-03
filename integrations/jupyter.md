@@ -1,16 +1,16 @@
 # Jupyter
 
-Use Weights & Biases in your Jupyter notebooks to get interactive visualizations and do custom analysis on training runs.
+ JupyterノートブックでWeights＆Biasesを使用して、インタラクティブな視覚化を取得し、トレーニングの実行時にカスタム分析を行います。
 
-## **Use Cases for W&B with Jupyter notebooks**
+### **Jupyterノートブックを使用したW＆Bのユースケース**
 
-1. **Iterative experimentation**: Run and re-run experiments, tweaking parameters, and have all the runs you do saved automatically to W&B without having to take manual notes along the way.
-2. **Code saving**: When reproducing a model, it's hard to know which cells in a notebook ran, and in which order. Turn on code saving on your [settings page ](https://app.wandb.ai/settings)to save a record of cell execution for each experiment.
-3. **Custom analysis**: Once runs are logged to W&B, it's easy to get a dataframe from the API and do custom analysis, then log those results to W&B to save and share in reports.
+1. **反復実験**：実験を実行および再実行し、パラメータを微調整し、途中で手動でメモをとることなく、実行したすべての実行をW＆Bに自動的に保存します。
+2. **コードの保存**：モデルを再現する場合、ノートブックのどのセルがどの順序で実行されたかを知るのは困難です。[設定ページ](https://wandb.ai/settings)でコード保存をオンにして、各実験のセル実行の記録を保存します。
+3. **カスタム分析**：実行がW＆Bに記録されると、APIからデータフレームを取得してカスタム分析を実行し、それらの結果をW＆Bに記録して、レポートに保存および共有するのは簡単です。
 
-## Configuring notebooks
+##  **ノートブックの構成**
 
-Start your notebook with the following code to install W&B and link your account:
+ 次のコードでノートブックを起動して、W＆Bをインストールし、アカウントをリンクします。
 
 ```python
 !pip install wandb -qqq
@@ -18,7 +18,7 @@ import wandb
 wandb.login()
 ```
 
-Next, set up your experiment and save hyperparameters:
+次に、実験を設定し、ハイパーパラメータを保存します。
 
 ```python
 wandb.init(project="jupyter-projo",
@@ -29,7 +29,7 @@ wandb.init(project="jupyter-projo",
            })
 ```
 
-After running `wandb.init()` , start a new cell with `%%wandb` to see live graphs in the notebook. If you run this cell multiple times, data will be appended to the run.
+ `wandb.init()`を実行した後、`%%wandb`で新しいセルを開始して、ノートブックにライブグラフを表示します。このセルを複数回実行すると、データが実行に追加されます
 
 ```python
 %%wandb
@@ -37,11 +37,11 @@ After running `wandb.init()` , start a new cell with `%%wandb` to see live graph
 # Your training loop here
 ```
 
-Try it for yourself in this [quick example script →](https://bit.ly/wandb-jupyter-widgets-colab)
+この[簡単なサンプルスクリプト](https://colab.research.google.com/drive/1XarrwLYCGmMUGBSe7eymzofIfSwytuKC?usp=sharing)で実際に試してみてください→
 
 ![](../.gitbook/assets/jupyter-widget.png)
 
-As an alternative to the `%%wandb` decorator, after running `wandb.init()` you can end any cell with `wandb.run` to show in-line graphs:
+`%%wandb`デコレータの代わりに、`wandb.init()`の後に線を追加して、インライングラフを表示できます
 
 ```python
 # Initialize wandb.run first
@@ -51,11 +51,11 @@ wandb.init()
 wandb.run
 ```
 
-## Additional Jupyter features in W&B
+### **W＆Bの追加のJupyter機能**
 
-1. **Colab**: When you call `wandb.init()` for the first time in a Colab, we automatically authenticate your runtime if you're currently logged in to W&B in your browser. On the overview tab of your run page, you'll see a link to the Colab. If you turn on code saving in [settings](https://app.wandb.ai/settings), you can also see the cells that were executed to run the experiment, enabling better reproducibility.
-2. **Launch Docker Jupyter**: Call `wandb docker --jupyter` to launch a docker container, mount your code in it, ensure Jupyter is installed, and launch on port 8888.
-3. **run.finish\(\)**: By default, we wait until the next time wandb.init\(\) is called to mark a run as finished. That allows you to run individual cells and have them all log to the same run. To mark a run as complete manually in a Jupyter notebook, use the **run.finish\(\)** feature.
+1. **Colab**：Colabで初めて`wandb.init（）`を呼び出すと、ブラウザーで現在W＆Bにログインしている場合、ランタイムが自動的に認証されます。実行ページの\[概要\]タブに、Colabへのリンクが表示されます。[設定](https://wandb.ai/settings)でコード保存をオンにすると、実験を実行するために実行されたセルも表示され、再現性が向上します。
+2. **Docker Jupyterの起動**：`wandb docker --jupyter`を呼び出してdockerコンテナーを起動し、コードをマウントして、Jupyterがインストールされていることを確認し、ポート8888で起動します。
+3. **run.finish\(\)**: デフォルトでは、次にwandb.init（）が呼び出されて、実行が終了したことを示すまで待機します。これにより、個々のセルを実行し、それらすべてを同じ実行に記録させることができます。Jupyterノートブックで手動で実行を完了としてマークするには、**run.finish（）**機能を使用します。
 
 ```python
 import wandb
@@ -64,9 +64,9 @@ run = wandb.init()
 run.finish()
 ```
 
-### **Silence W&B info messages**
+### **W＆B情報メッセージの無効化**
 
-To disable info messages, run the following in a notebook cell:
+情報メッセージを無効にするには、ノートブックセルで以下を実行します。
 
 ```python
 import logging
@@ -74,9 +74,9 @@ logger = logging.getLogger("wandb")
 logger.setLevel(logging.ERROR)
 ```
 
-## Common Questions
+### **よくある質問**
 
-### Notebook name
+#### **ノートブック名**
 
-If you're seeing the error message "Failed to query for notebook name, you can set it manually with the WANDB\_NOTEBOOK\_NAME environment variable," you can solve this by setting the environment variable from your script like so: `os.environ['WANDB_NOTEBOOK_NAME'] = 'some text here'`
+「ノートブック名のクエリに失敗しました。WANDB\_NOTEBOOK\_NAME環境変数を使用して手動で設定できます」というエラーメッセージが表示された場合は、次のようにスクリプトから環境変数を設定することでこれを解決できます。os.environ\['WANDB\_NOTEBOOK\_NAME'\] = 'some text here'
 

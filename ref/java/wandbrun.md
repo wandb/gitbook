@@ -1,20 +1,24 @@
 ---
-description: WandbRun object represents an instance of a run in Java.
+description: WandbRunオブジェクトは、Javaでの実行のインスタンスを表します。
 ---
 
 # WandbRun
 
-### Overview
+## 概要
 
-A run can be created by using the [WandbRun Builder](wandbrun-builder.md). This object is used to track runs  
+runは、WandbRunBuilderを使用して作成できます。このオブジェクトは、実行を追跡するために使用されます·      
 
-* **run.log\(JSONObject data\)** — logs data for a run, equivalent to [wand.log\(\)](../../library/log.md)
-* **run.log\(int step, JSONObject data\)** — logs data for a run, equivalent to [wand.log\(\)](../../library/log.md) at a specific step
-* **run.finish\(int exitCode\)** — finishes a run with an exit code \(_default: 0_\)
+ **run.log\(JSONObject data\)** — logs data for a run, equivalent to [wand.log\(\)](https://docs.wandb.com/library/log)​·      
 
-### Examples
+ **run.log\(int step, JSONObject data\)** — logs data for a run, equivalent to [wand.log\(\)](https://docs.wandb.com/library/log) at a specific step·   
 
-Plotting a sin wave with the Java client
+    **run.finish\(int exitCode\)** — finishes a run with an exit code \(_default: 0_\) · 
+
+     **run.log\(JSONObject data\)**—実行のデータをログに記録します。[wand.log\(\)](https://docs.wandb.com/library/log)と同等です。
+
+     **run.log\(int step, JSONObject data\)**—実行のデータをログに記録します。これは、特定のステップでの[wand.log\(\)](https://docs.wandb.com/library/log)と同等です。·     
+
+ **run.finish\(int exitCode\)**—終了コードで実行を終了します（デフォルト：0）
 
 ```java
 // Initalize a run

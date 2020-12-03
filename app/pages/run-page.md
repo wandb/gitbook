@@ -1,73 +1,71 @@
 ---
-description: >-
-  Each training run of your model gets a dedicated page, organized within the
-  larger project
+description: モデルの各トレーニング実行には、より大きなプロジェクト内で編成された専用ページがあります
 ---
 
 # Run Page
 
-Use the run page to explore detailed information about a single version of your model.
+実行ページを使用して、モデルの単一バージョンに関する詳細情報を調べます。
 
-## Overview Tab
+##  **概要\]タブ**·
 
-* Run name, description, and tags
-* Host name, operating system, python version, and command that launched the run
-* List of config parameters saved with [wandb.config](../../library/config.md)
-* List of summary parameters saved with [wandb.log\(\)](../../library/log.md), by default set to the last value logged
+* 実行名、説明、およびタグ
+*  ホスト名、オペレーティングシステム、Pythonバージョン、および実行を開始したコマンド
+*   [wandb.config](https://docs.wandb.com/library/config)で保存された構成パラメーターのリスト
+*    ****[**wandb.log\(\)**](https://docs.wandb.com/library/log)**で保存された要約パラメーターのリスト。デフォルトでは、ログに記録された最後の値に設定されます**
 
-[View a live example →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
+  [実例を見る→](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
 
 ![](../../.gitbook/assets/run-page-overview-tab.png)
 
-The Python details are private, even if you make the page itself public. Here is an example of my run page in incognito on the left and my account on the right.
+ ページ自体を公開しても、Pythonの詳細は非公開になります。左側がシークレットモードの実行ページ、右側がアカウントの例です。
 
 ![](../../.gitbook/assets/screen-shot-2020-04-07-at-7.46.39-am.png)
 
-## Graphs Tab
+## **\[グラフ\]タブ**
 
-* Search, group, and arrange visualizations
-* Click the pencil icon ✏️ on a graph to edit
-  * change x-axis, metrics, and ranges
-  * edit legends, titles, and colors of charts
-* View examples predictions from your validation set
+* ビジュアライゼーションの検索、グループ化、および配置
+*  編集するには、グラフの鉛筆アイコン✏️をクリックします
+* x軸、メトリック、および範囲の変化
+* グラフの凡例、タイトル、色の編集
+*    検証セットからの予測例を表示します
 
-[View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
+[実例を見る→](https://wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
 ![](../../.gitbook/assets/image%20%2837%29.png)
 
-## System Tab
+##  **\[システム\]タブ**
 
-* Visualize CPU utilization, system memory, disk I/O, network traffic, GPU utilization, GPU temperature, GPU time spent accessing memory, GPU memory allocated, and GPU power usage
-* Lambda Labs wrote about using our system metrics. [Read the blog post →](https://lambdalabs.com/blog/weights-and-bias-gpu-cpu-utilization/)
+* CPU使用率、システムメモリ、ディスクI/O、ネットワークトラフィック、GPU使用率、GPU温度、メモリへのアクセスに費やされたGPU時間、割り当てられたGPUメモリ、およびGPU電力使用量を視覚化します
+*     Lambda Labsは、システムメトリックの使用について書いています。[ブログ投稿を読む→](https://lambdalabs.com/blog/weights-and-bias-gpu-cpu-utilization/)
 
-[View a live example →](https://app.wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
+[実例を見る→](https://wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
 
 ![](../../.gitbook/assets/image%20%2888%29.png)
 
-## Model Tab
+## **［モデル］タブ**
 
-* See the layers of your model, the number of parameters, and the output shape of each layer
+* モデルのレイヤー、パラメーターの数、および各レイヤーの出力形状を確認します
 
-[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
+[実例を見る→](https://wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
 ![](../../.gitbook/assets/image%20%2834%29.png)
 
-## Logs Tab
+##  **\[ログ\]タブ**
 
-* Output printed on the command line, the stdout and stderr from the machine training the model
-* We show the last 1000 lines. After the run has finished, if you'd like to download the full log file, click the download button in the upper right corner.
+* コマンドラインに出力され、モデルをトレーニングするマシンからのstdoutとstderr
+*   最後の1000行を表示します。実行が終了した後、完全なログファイルをダウンロードする場合は、右上隅にあるダウンロードボタンをクリックします。
 
-[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
+ [実例を見る→](https://wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
 ![](../../.gitbook/assets/image%20%2874%29.png)
 
-## Files Tab
+##  **\[ファイル\]タブ**
 
-* Save files to sync with the run using [wandb.save\(\)](../../library/save.md) — _we're Dropbox for AI_
-* Keep model checkpoints, validation set examples, and more
-* Use the diff.patch to [restore](../../library/restore.md) the exact version of your code
+*     [wandb.save\(\)](https://docs.wandb.com/library/save)を使用して実行と同期するためにファイルを保存します。私たちはAI用のDropboxで
+* モデルのチェックポイント、検証セットの例などを保持します
+*   diff.patchを使用して、コードの正確なバージョンを復元します
 
-[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
+ [`実例を見る→`](https://wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)\`\`
 
 ![](../../.gitbook/assets/image%20%283%29.png)
 

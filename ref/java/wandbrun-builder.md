@@ -1,35 +1,36 @@
 ---
-description: >-
-  The Builder is used to help configure and initialize a run before the training
-  loop where you log model metrics.
+description: Builderは、モデルメトリックをログに記録するトレーニングループの前に実行を構成および初期化するために使用されます。
 ---
 
 # WandbRun.Builder
 
-### Overview
+### 概要
 
-The Builder pattern allows us to write readable code to set up a WandbRun. The builder contains a few functions used to help initialize these values.
+Builderパターンを使用すると、読み取り可能なコードを記述してWandbRunをセットアップできます。ビルダーには、これらの値の初期化に役立ついくつかの関数が含まれています。
 
-* **builder.build\(\)** — returns a WandbRun instance, representing a run 
-* **builder.withName\(String name\)** — a display name for this run, which shows up in the UI and is editable, doesn't have to be unique
-* **builder.withConfig\(JSONObject data\)** — a Java JSON Object that contains any initial config values
-* **builder.withProject\(String project\)** — the name of the project to which this run will belong
-* **builder.withNotes\(String notes\)** — a description associated with the run
-* **builder.setTags\(List&lt;String&gt; tags\)** — an array of tags to be used with the run
-* **builder.setJobType\(String type\)** — the type of job you are logging, e.g. eval, worker, ps \(_default: training_\)
-* **builder.withGroup\(String group\)** — a string by which to group other runs; see [Grouping](../../library/grouping.md)
+* **builder.build\(\)**—実行を表すWandbRunインスタンスを返します
+* **builder.withName\(String name\)**—UIに表示され、編集可能なこの実行の表示名は、ユニークである必要はありません。
+*   **builder.withConfig\(JSONObject data\)**—初期構成値を含むJava JSONオブジェクト
+* **builder.withProject\(String project\)**—この実行が属するプロジェクトの名前
+*    **builder.withNotes\(String notes\)**—実行に関連する説明
+*    **builder.setTags\(List&lt;String&gt; tags\)**—実行で使用されるタグの配列
+*  **builder.setJobType\(String type\)**—ログに記録するジョブのタイプ。例：eval、worker、ps（デフォルト：トレーニング）
+* **builder.withGroup\(String group\)**—他の実行をグループ化するための文字列。グループ化を参照してください run
 
-Most of these settings can also be controlled via [Environment Variables](../../library/environment-variables.md). This is often useful when you're running jobs on a cluster.
+Most of these settings can also be controlled via [Environment Variables](../../library/environment-variables.md). This is often useful when you're running jobs on a cluster.   
 
-### Examples
 
-Initializing a default run
+これらの設定のほとんどは、環境変数を介して制御することもできます。これは、クラスターでジョブを実行しているときに役立つことがよくあります。
+
+### 例
+
+ デフォルト実行の初期化
 
 ```java
 WandbRun run = new WandbRun.Builder().build();
 ```
 
-Initializing a run with a config object and name
+ 構成オブジェクトおよび名前を使用した実行の初期化
 
 ```java
 // Create JSONObject config

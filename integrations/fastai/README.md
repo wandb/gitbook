@@ -1,8 +1,8 @@
 # Fast.ai
 
-If you're using **fastai** to train your models, W&B has an easy integration using the `WandbCallback`. Explore the details in[ interactive docs with examples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
+ fastaiを使用してモデルをトレーニングしている場合、W＆BはWandbCallback.を使用して簡単に統合できます。[例を使用してインタラクティブドキュメント](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)で詳細を確認→
 
-First install Weights & Biases and log in:
+ 最初はWeights＆Biasesをインストールし、ログインします。
 
 ```text
 pip install wandb
@@ -26,74 +26,31 @@ learn = learner(..., cbs=WandbCallback())
 ```
 
 {% hint style="info" %}
-If you use version 1 of Fastai, refer to the [Fastai v1 docs](v1.md).
+ Fastaiのバージョン1を使用している場合は、[Fastai v1のドキュメント](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/integrations/fastai/v1)を参照してください。
 {% endhint %}
 
-`WandbCallback` accepts the following arguments:
+`WandbCallback`は、次の引数を受け入れます。
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Args</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">log</td>
-      <td style="text-align:left">&quot;gradients&quot; (default), &quot;parameters&quot;, &quot;all&quot;
-        or None. Losses &amp; metrics are always logged.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">log_preds</td>
-      <td style="text-align:left">whether we want to log prediction samples (default to True).</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">log_model</td>
-      <td style="text-align:left">whether we want to log our model (default to True). This also requires
-        SaveModelCallback.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">log_dataset</td>
-      <td style="text-align:left">
-        <ul>
-          <li>False (default)</li>
-          <li>True will log folder referenced by learn.dls.path.</li>
-          <li>a path can be defined explicitly to reference which folder to log.</li>
-        </ul>
-        <p><em>Note: subfolder &quot;models&quot; is always ignored.</em>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">dataset_name</td>
-      <td style="text-align:left">name of logged dataset (default to folder name).</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">valid_dl</td>
-      <td style="text-align:left"><code>DataLoaders</code> containing items used for prediction samples (default
-        to random items from <code>learn.dls.valid</code>.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">n_preds</td>
-      <td style="text-align:left">number of logged predictions (default to 36).</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">seed</td>
-      <td style="text-align:left">used for defining random samples.</td>
-    </tr>
-  </tbody>
-</table>
+| Args | 説明 |
+| :--- | :--- |
+| log | 「gradients」（デフォルト）、「parameters」、「all」、または「None」。損失とメトリックは常にログに記録されます。 |
+| log\_preds | 予測サンプルをログに記録するかどうか（デフォルトはTrue）。 |
+| log\_model | モデルをログに記録するかどうか（デフォルトはTrue）。これには、SaveModelCallbackも必要です。 |
+| log\_dataset | False（デフォルト） |
+| dataset\_name | Trueは、learn.dls.pathによって参照されるフォルダーをログに記録します。 |
+| valid\_dl |  ログに記録するフォルダーを参照するために、パスを明示的に定義できます。 |
+| n\_preds | 注：サブフォルダー「モデル」は常に無視されます。 |
+| seed | ログに記録されたデータセットの名前（デフォルトはフォルダー名）。 |
 
-For custom workflows, you can manually log your datasets and models:
+カスタムワークフローの場合、データセットとモデルを手動でログに記録できます。
 
 * `log_dataset(path, name=None, medata={})`
 * `log_model(path, name=None, metadata={})` 
 
-_Note: any subfolder "models" will be ignored._
+注：サブフォルダーの「モデル」はすべて無視されます。
 
-## Examples
+##  **例**
 
-* [Visualize, track, and compare Fastai models](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): A thoroughly documented walkthrough
-* [Image Segmentation on CamVid](http://bit.ly/fastai-wandb): A sample use case of the integration
+* [ Fastaiモデルの視覚化、追跡、比較](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)：完全に文書化されたウォークスルー
+* [ CamVidでの画像セグメンテーション](https://colab.research.google.com/drive/1IWrhwcJoncCKHm6VXsNwOr9Yukhz3B49?usp=sharing)：統合のサンプルユースケース
 

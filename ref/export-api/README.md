@@ -1,17 +1,17 @@
 # Data Import/Export API
 
-Export a dataframe for custom analysis, or asynchronously add data to a completed run. For more details see the [API Reference](api.md).
+カスタム分析用にデータフレームをエクスポートするか、完了した実行に非同期でデータを追加します。詳細については、[API](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/ref/export-api/api)リファレンスを参照してください。
 
-### Authentication
+###  認証
 
-Authenticate your machine with your [API key](https://wandb.ai/authorize) in one of two ways:
+次の2つの方法のいずれかで、APIキーを使用してあなたの機器を認証します。
 
-1. Run `wandb login`  on the command line and paste in your API key.
-2. Set the **WANDB\_API\_KEY** environment variable to your API key.
+1. コマンドラインでwandb loginを実行し、[APIキー](https://wandb.ai/authorize)を貼り付けます。
+2. **WANDB\_API\_KEY**環境変数をAPIキーに設定します。
 
-### Export Run Data
+### 実行データのエクスポート
 
-Download data from a finished or active run. Common usage includes downloading a dataframe for custom analysis in a Jupyter notebook, or using custom logic in an automated environment.
+終了した実行またはアクティブな実行からデータをダウンロードします。一般的な使用法には、Jupyterノートブックでのカスタム分析用のデータフレームのダウンロード、または自動化環境でのカスタムロジックの使用が含まれます。
 
 ```python
 import wandb
@@ -19,25 +19,25 @@ api = wandb.Api()
 run = api.run("<entity>/<project>/<run_id>")
 ```
 
-The most commonly used attributes of a run object are:
+実行オブジェクトの最も一般的に使用される属性は次のとおりです。
 
-| Attribute | Meaning |
+| 属性 | 意味 |
 | :--- | :--- |
-| run.config | A dictionary for model inputs, such as hyperparameters |
-| run.history\(\) | A list of dictionaries meant to store values that change while the model is training such as loss.  The command wandb.log\(\) appends to this object. |
-| run.summary | A dictionary of outputs. This can be scalars like accuracy and loss, or large files. By default, wandb.log\(\) sets the summary to the final value of a logged timeseries. This can also be set directly. |
+| run.config | ハイパーパラメータなどのモデル入力の辞書 |
+| run.history\(\) | モデルがロスなどのトレーニング中に変化する値を格納することを目的とした辞書のリスト。コマンドwandb.log\(\)がこのオブジェクトに追加されます |
+| run.summary | 出力の辞書。これは、精度やロスなどのスカラー、または大きなファイルの場合があります。デフォルトでは、wandb.log\(\)は、要約をログに記録された時系列の最終値に設定します。これは直接設定することもできます。 |
 
-You can also modify or update the data of past runs. By default a single instance of an api object will cache all network requests. If your use case requires real time information in a running script, call api.flush\(\) to get updated values.
+ 過去の実行のデータを変更または更新することもできます。デフォルトでは、APIオブジェクトの単一インスタンスがすべてのネットワークリクエストをキャッシュします。ユースケースで実行中のスクリプトにリアルタイムの情報が必要な場合は、api.flush\(\)を呼び出して更新された値を取得します。
 
-### Sampling
+###  サンプリング
 
-The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. For more details see the [API Reference](api.md).
+デフォルトの履歴メソッドは、メトリックを固定数のサンプルにサンプリングします（デフォルトは500です。これは、samples主張で変更できます）。大規模な実行ですべてのデータをエクスポートする場合は、run.scan\_history（）メソッドを使用できます。詳細については、[API](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/ref/export-api/api)リファレンスを参照してください。
 
-### Querying Multiple Runs
+### 複数の実行に関するクエリ
 
 {% tabs %}
-{% tab title="MongoDB Style" %}
-The W&B API also provides a way for you to query across runs in a project with api.runs\(\). The most common use case is exporting runs data for custom analysis.  The query interface is the same as the one [MongoDB uses](https://docs.mongodb.com/manual/reference/operator/query).
+{% tab title="MongoDBスタイル" %}
+W＆B APIは、api.runs（）を使用してプロジェクト内の実行間でクエリを実行する方法も提供します。最も一般的な使用例は、カスタム分析のために実行データをエクスポートすることです。クエリインターフェイスは、[MongoDBの使用](https://docs.mongodb.com/manual/reference/operator/query/)と同じです。
 
 ```python
 runs = api.runs("username/project", {"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
@@ -46,7 +46,7 @@ print("Found %i" % len(runs))
 {% endtab %}
 
 {% tab title="Dataframes and CSVs" %}
-This example script finds a project and outputs a CSV of runs with name, configs and summary stats.
+このサンプルスクリプトは、プロジェクトを検索し、名前、構成、および要約統計量を含む実行のCSVを出力します。
 
 ```python
 import wandb
@@ -78,35 +78,38 @@ all_df.to_csv("project.csv")
 {% endtab %}
 {% endtabs %}
 
-Calling `api.runs(...)` returns a **Runs** object that is iterable and acts like a list. The object loads 50 runs at a time in sequence as required, you can change the number loaded per page with the **per\_page** keyword argument.
+`api.runs（...）`を呼び出すと、反復可能でリストのように機能する**Runs**オブジェクトが返されます。オブジェクトは、必要に応じて一度に50回の実行を順番にロードします。ページごとにロードされる数は、**per\_page**キーワード主張を使用して変更できます。
 
-`api.runs(...)` also accepts an **order** keyword argument. The default order is `-created_at`, specify `+created_at` to get results in ascending order. You can also sort by config or summary values i.e. `summary.val_acc` or `config.experiment_name`
+`api.runs（...）`は、**order**キーワード主張も受け入れます。デフォルトの順序は`-created_at`です。結果を昇順で取得するには、`+created_at`を指定します。構成値または要約値、つまり`summary.val_acc`または`config.experiment_name`で並べ替えることもできます。
 
-### Error Handling
+### エラー処理
 
-If errors occur while talking to W&B servers a `wandb.CommError` will be raised. The original exception can be introspected via the **exc** attribute.
+W＆Bサーバーとの通信中にエラーが発生すると、wandb.CommErrorが発生します。元の例外は、**exc**属性を介してイントロスペクトできます。
 
-### Get the latest git commit through the API
+### を取得します
 
-In the UI, click on a run and then click the Overview tab on the run page to see the latest git commit. It's also in the file `wandb-metadata.json` . Using the public API, you can get the git hash with **run.commit**.
+UIで、実行をクリックしてから、実行ページの\[概要\]タブをクリックして、最新のgitcommitを確認します。これは、ファイル`wandb-metadata.json`にもあります。パブリックAPIを使用すると、**run.commit**でgitハッシュを取得できます。
 
-## Common Questions
+##  よくある質問
 
 ### Export data to visualize in matplotlib or seaborn
 
-Check out our [API examples](examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
+Check out our [API examples](examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser. データをエクスポートしてmatplotlibまたはseabornで視覚化します
+
+一般的なエクスポートパターンについては、APIの例をご覧ください。カスタムプロットまたは展開された実行テーブルのダウンロードボタンをクリックして、ブラウザからCSVをダウンロードすることもできます。
 
 ### Get the random run ID and run name from your script
 
-After calling `wandb.init()`  you can access the random run ID or the human readable run name from your script like this:
+スクリプトからランダムな実行IDと実行名を取得します
 
-* Unique run ID \(8 character hash\): `wandb.run.id`
-* Random run name \(human readable\): `wandb.run.name`
+* **wandb.init（）を呼び出した後、次のようにスクリプトからランダムな実行IDまたは人間が読める形式の実行名にアクセスできます。**
+* **•ユニークな実行ID（8文字のハッシュ）：wandb.run.id**
+* **ランダムな実行名（人間が読める形式）：wandb.run.name**
 
- If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
+\*\*\*\*
 
-* **Run ID**: leave it as the generated hash. This needs to be unique across runs in your project.
-* **Run name**: This should be something short, readable, and preferably unique so that you can tell the difference between different lines on your charts.
-* **Run notes**: This is a great place to put a quick description of what you're doing in your run. You can set this with `wandb.init(notes="your notes here")` 
-* **Run tags**: Track things dynamically in run tags, and use filters in the UI to filter your table down to just the runs you care about. You can set tags from your script and then edit them in the UI, both in the runs table and the overview tab of the run page.
+* **実行ID**：生成されたハッシュのままにします。これは、プロジェクトの実行全体でユニークである必要があります。
+*  **実行名**：グラフの異なる線の違いがわかるように、短く、読みやすく、できればユニークである必要があります。
+*  **ランニングノート**：これは、ランニングで何をしているかを簡単に説明するのに最適な場所です。これはwandb.init（notes = "your notes here"）で設定できます
+* **実行タグ**：実行タグで動的に追跡し、UIのフィルターを使用して、関心のある実行だけに表をフィルターします。スクリプトからタグを設定し、UIで実行表と実行ページの概要タブの両方でタグを編集できます。
 

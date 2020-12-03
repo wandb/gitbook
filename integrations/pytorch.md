@@ -4,7 +4,7 @@ description: How to integrate a PyTorch script to log metrics to W&B
 
 # PyTorch
 
-W&B provides first class support for PyTorch. To automatically log gradients and store the network topology, you can call `watch` and pass in your PyTorch model.
+トップの機械学習ライブラリとワークフローとの当社のすべての統合へのギャラリー。
 
 ```python
 import wandb
@@ -23,59 +23,36 @@ for batch_idx, (data, target) in enumerate(train_loader):
         wandb.log({"loss": loss})
 ```
 
-> Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward and backward pass.
+> グラデーション、メトリック、およびグラフは、順方向および逆方向のパスの後に`wandb.log`が呼び出されるまでログに記録されません。
 
-See this [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) for an end to end example of integrating wandb with PyTorch, including a [video tutorial](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases). You can also find more examples in our [example projects](../examples.md) section.
+ ビデオチュートリアルを含む、wandbとPyTorchの統合のエンドツーエンドの例については、この[colabノートブック](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb)を参照してください。また、サ[ンプルプロジェクト](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb)セクションで他の例を見つけることができます。
 
-### Options
+###  **オプション**
 
-By default the hook only logs gradients.
+ デフォルトでは、フックはグラデーションのみをログに記録します。
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Arguments</th>
-      <th style="text-align:left">Options</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">log</td>
-      <td style="text-align:left">
-        <ul>
-          <li>all: log histograms of gradients and parameters</li>
-          <li>gradients (default)</li>
-          <li>parameters (weights of the model)</li>
-          <li>None</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">log_freq</td>
-      <td style="text-align:left">integer (default 1000): The number of steps between logging gradients</td>
-    </tr>
-  </tbody>
-</table>
+| 引数 | オプション |
+| :--- | :--- |
+| log |     **すべて：グラデーションとパラメータのヒストグラムをログに記録する·       グラデーション（デフォルト）·       パラメータ（モデルの重み）なし** |
+| log\_freq | 整数（デフォルトは100）：ロググラデーション間のステップ数 |
 
-## Images
+## **画像**
 
-You can pass PyTorch tensors with image data into `wandb.Image` and torchvision utils will be used to log them automatically.
-
-To log images and view them in the Media panel, you can use the following syntax:
+ 画像データを含むPyTorchテンソルを`wandb.Image`に渡すことができ、torchvision utilsを使用してそれらを自動的にログに記録します。画像をログに記録してメディアパネルに表示するには、次の構文を使用できます。
 
 ```python
 wandb.log({"examples" : [wandb.Image(i) for i in images]})
 ```
 
-## Multiple Models
+## **複数のモデル**
 
-If you need to track multiple models in the same script, you can wall wandb.watch\(\) on each model separately.
+同じスクリプトで複数のモデルを追跡する必要がある場合は、各モデルでwandb.watch（）を個別に壁にすることができます。
 
 ## Example
 
-We've created a few examples for you to see how the integration works:
+統合がどのように機能するかを確認するために、いくつかの例を作成しました。
 
-* [Run in Google Colab](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb): A simple notebook example to get you started
-* [Example on Github](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-mnist/main.py): MNIST example in a Python script
-* [Wandb Dashboard](https://app.wandb.ai/wandb/pytorch-mnist/runs/): View result on W&B
+*  [GoogleColabで実行](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb)：開始するための簡単なノートブックの例
+*  [Githubの例](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-mnist/main.py)：PythonスクリプトのMNISTの例
+*  [Wandbダッシュボード](https://app.wandb.ai/wandb/pytorch-mnist/runs/)：W＆Bで結果を表示
 

@@ -1,141 +1,136 @@
 ---
-description: >-
-  Compare versions of your model, explore results in a scratch workspace, and
-  export findings to a report to save notes and visualizations
+description: モデルのバージョンを比較し、スクラッチワークスペースで結果を調査し、結果をレポートにエクスポートしてメモと視覚化を保存します
 ---
 
 # Project Page
 
-The project **Workspace** gives you a personal sandbox to compare experiments. Use projects to organize models that can be compared, working on the same problem with different architectures, hyperparameters, datasets, preprocessing etc.
+プロジェクトワークスペースは、実験を比較するための個人的なサンドボックスを提供します。プロジェクトを使用して、比較可能なモデルを整理し、異なるアーキテクチャ、ハイパーパラメータ、データセット、前処理などで同じ問題に取り組みます。
 
-Project page tabs:
+プロジェクトページのタブ：
 
-1. [**Overview**](project-page.md#overview-tab): snapshot of your project
-2. [**Workspace**](project-page.md#workspace-tab): personal visualization sandbox
-3. [**Table**](project-page.md#table-tab): bird's eye view of all runs
-4. [**Reports**](project-page.md#reports-tab): saved snapshots of notes, runs, and graphs
-5. [**Sweeps**](project-page.md#sweeps-tab): automated exploration and optimization
+1.  [**概要**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/app/pages/project-page#overview-tab)：プロジェクトのスナップショット
+2.  [**ワークスペース**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/app/pages/project-page#workspace-tab)：個人用視覚化サンドボックス
+3.  [**表**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/app/pages/project-page#table-tab)：すべての実行の鳥瞰図
+4.  [**レポート**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/app/pages/project-page#reports-tab)：メモ、実行、グラフのスナップショットを保存しました
+5.  [**スイープ**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/app/pages/project-page#sweeps-tab)：自動化された探索と最適化
 
-## Overview Tab
+## **\[概要\]タブ**
 
-* **Project name**: click to edit the project name
-* **Project description**: click to edit the project description and add notes
-* **Delete project**: click the dot menu in the right corner to delete a project
-* **Project privacy**: edit who can view runs and reports— click the lock icon
-* **Last active**: see when the most recent data was logged to this project
-* **Total compute**: we add up all the run times in your project to get this total
-* **Undelete runs**: Click the dropdown menu and click "Undelete all runs" to recover deleted runs in your project.
+* **プロジェクト名**：クリックしてプロジェクト名を編集しますl  
+* **プロジェクトの説明**：クリックしてプロジェクトの説明を編集し、メモを追加しますl  
+* **プロジェクトの削除**：プロジェクトを削除するには、右隅のドットメニューをクリックしますl   
+* **ジェクトのプライバシー**：実行とレポートを表示できるユーザーを編集します。ロックアイコンをクリックしますl  
+* **最後のアクティブ**：最新のデータがこのプロジェクトに記録された日時を確認しますl   
+* **合計計算**：プロジェクトのすべての実行時間を合計して、この合計を取得しますl   
+* **実行の削除の取り消し**：ドロップダウンメニューをクリックし、\[すべての実行の削除を取り消す\]をクリックして、プロジェクトで削除された実行を復元します。
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
+[実例を見る→](https://app.wandb.ai/example-team/sweep-demo/overview)
 
 ![](../../.gitbook/assets/image%20%2829%29.png)
 
 ![](../../.gitbook/assets/undelete.png)
 
-## Workspace Tab
+## \[ワークスペース\]タブ
 
-**Runs Sidebar**: list of all the runs in your project
+ **実行サイドバー：**プロジェクト内のすべての実行のリスト
 
-* **Dot menu**: hover over a row in the sidebar to see the menu appear on the left side. Use this menu to rename a run, delete a run, or stop and active run.
-* **Visibility icon**: click the eye to turn on and off runs on graphs
-* **Color**: change the run color to another one of our presets or a custom color
-* **Search**: search runs by name. This also filters visible runs in the plots.
-* **Filter**: use the sidebar filter to narrow down the set of runs visible
-* **Group**: select a config column to dynamically group your runs, for example by architecture. Grouping makes plots show up with a line along the mean value, and a shaded region for the variance of points on the graph.
-* **Sort**: pick a value to sort your runs by, for example runs with the lowest loss or highest accuracy. Sorting will affect which runs show up on the graphs.
-* **Expand button**: expand the sidebar into the full table
-* **Run count**: the number in parentheses at the top is the total number of runs in the project. The number \(N visualized\) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
+* **ドットメニュー**：サイドバーの行にカーソルを合わせると、メニューが左側に表示されます。このメニューを使用して、実行の名前を変更したり、実行を削除したり、実行を停止してアクティブにしたりします。
+*  **可視性アイコン**：目をクリックして、グラフの実行をオンまたはオフにします
+*  **色**：実行色を別のプリセットまたはカスタム色に変更します
+*  **検索**：検索は名前で実行されます。これにより、プロットで表示される実行もフィルタリングされます。
+* **フィルター**：サイドバーフィルターを使用して、表示される実行のセットを絞り込みます
+* **グループ化**：構成列を選択して、アーキテクチャなどによって実行を動的にグループ化します。グループ化すると、プロットは平均値に沿った線と、グラフ上の点の分散の影付きの領域で表示されます。
+* **並べ替え**：実行を並べ替える値を選択します。たとえば、損失が最小または精度が最も高い実行などです。並べ替えは、グラフに表示される実行に影響します。
+* **展開ボタン**：サイドバーを表全体に展開します
+* **実行数**：上部の括弧内の数は、プロジェクトでの実行の総数です。数（視覚化されたN）は、目をオンにして、各プロットで視覚化できる実行の数です。以下の例では、グラフは183回の実行のうち最初の10回のみを示しています。グラフを編集して、表示される実行の最大数を増やします。
+* **パネルレイアウト**：このスクラッチスペースを使用して、結果の調査、グラフの追加と削除、さまざまな指標に基づくモデルのバージョンの比較を行います
 
-**Panels layout**: use this scratch space to explore results, add and remove charts, and compare versions of your models based on different metrics
-
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo)
+ [実例を見る→](https://wandb.ai/example-team/sweep-demo)
 
 ![](../../.gitbook/assets/image%20%2832%29.png)
 
-### Search for runs
+### の検索
 
-Search for a run by name in the sidebar. You can use regex to filter down your visible runs. The search box affects which runs are shown on the graph. Here's an example:
+サイドバーで名前でrunを検索します。正規表現を使用して、表示されているrunをフィルタリングできます。検索ボックスは、グラフに表示されるrunに影響します。次に例を示します。
 
 ![](../../.gitbook/assets/2020-02-21-13.51.26.gif)
 
-### Add a section of panels
+### Add a section of パネルのセクションを追加する
 
-Click the section dropdown menu and click "Add section" to create a new section for panels. You can rename sections, drag them to reorganize them, and expand and collapse sections.
+セクションのドロップダウンメニューをクリックし、\[セクションの追加\]をクリックして、パネルの新しいセクションを作成します。セクションの名前を変更したり、ドラッグして再編成したり、セクションを展開したり折りたたんだりできます。
 
-Each section has options in the upper right corner:
+各セクションには、右上隅にオプションがあります。
 
-* **Switch to custom layout**: The custom layout allows you to resize panels individually.
-* **Switch to standard layout**: The standard layout lets you resize all panels in the section at once, and gives you pagination.
-* **Add section**: Add a section above or below from the dropdown menu, or click the button at the bottom of the page to add a new section.
-* **Rename section**: Change the title for your section.
-* **Export section to report**: Save this section of panels to a new report.
-* **Delete section**: Remove the whole section and all the charts. This can be undone with the undo button at the bottom of the page in the workspace bar.
-* **Add panel**: Click the plus button to add a panel to the section. 
+* l  **カスタムレイアウトへの切り替え**：カスタムレイアウトを使用すると、パネルのサイズを個別に変更できます。
+* l  **標準レイアウトへの切り替え**：標準レイアウトでは、セクション内のすべてのパネルのサイズを一度に変更でき、ページ付けが可能です。
+* **セクションの追加**：ドロップダウンメニューから上または下にセクションを追加するか、ページの下部にあるボタンをクリックして新しいセクションを追加します。
+* **セクション名前の変更**：セクションのタイトルを変更します。
+* **セクションをレポートにエクスポート**：このパネルのセクションを新しいレポートに保存します
+* **セクションの削除：セクション全体とすべてのグラフを削除します。これは、ワークスペースバーのページ下部にある元に戻すボタンで元に戻すことができます。**
+* **パネルの追加：プラスボタンをクリックして、セクションにパネルを追加します**
 
 ![](../../.gitbook/assets/add-section.gif)
 
-### Move panels between sections
+### セクション間でパネルを移動
 
-Drag and drop panels to reorder and organize into sections. You can also click the "Move" button in the upper right corner of a panel to select a section to move the panel to.
+パネルをドラッグアンドドロップして、セクションに並べ替えて整理します。パネルの右上隅にある\[移動\]ボタンをクリックして、パネルを移動するセクションを選択することもできます。
 
 ![](../../.gitbook/assets/move-panel.gif)
 
-### Resize panels
+### パネルのサイズを変更
 
-* **Standard layout**: All panels maintain the same size, and there are pages of panels. You can resize the panels by clicking and dragging the lower right corner. Resize the section by clicking and dragging the lower right corner of the section. 
-* **Custom layout**: All panels are sized individually, and there are no pages. 
+*   **標準レイアウト**：すべてのパネルは同じサイズを維持し、パネルのページがあります。右下隅をクリックしてドラッグすると、パネルのサイズを変更できます。セクションの右下隅をクリックしてドラッグし、セクションのサイズを変更します。·      
+* **カスタムレイアウト**：すべてのパネルは個別にサイズ設定され、ページはありません。 
 
 ![](../../.gitbook/assets/resize-panel.gif)
 
-### Search for metrics
+### 指標の検索
 
-Use the search box in the workspace to filter down the panels. This search matches the panel titles, which are by default the name of the metrics visualized.
+ワークスペースの検索ボックスを使用して、パネルをフィルタリングします。この検索は、デフォルトで視覚化されたメトリックの名前であるパネルタイトルと一致します。
 
 ![](../../.gitbook/assets/search-in-the-workspace.png)
 
-## Table Tab
+## \[表\]タブ
 
-Use the table to filter, group, and sort your results.
+表を使用して、結果をフィルタリング、グループ化、および並べ替えます。
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
+[実例を見る→](https://wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
 
 ![](../../.gitbook/assets/image%20%2886%29.png)
 
-## Reports Tab
+## \[レポート\]タブ
 
-See all the snapshots of results in one place, and share findings with your team.
+結果のすべてのスナップショットを1か所で確認し、調査結果をチームと共有します。
 
 ![](../../.gitbook/assets/reports-tab.png)
 
-## Sweeps Tab
+##  \[スイープ\]タブ
 
-Start a new sweep from your project.
+プロジェクトから新しいスイープを開始します。
 
 ![](../../.gitbook/assets/sweeps-tab.png)
 
-## Common Questions
+### よくある質問
 
-### Reset workspace
+### ワークスペースのリセット
 
-If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
+プロジェクトページに次のようなエラーが表示された場合は、ワークスペースをリセットする方法を説明します。`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
-Add **?workspace=clear** to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
+URLの最後に**?workspace=clear**を追加し、Enterキーを押します。これにより、プロジェクトページワークスペースのクリアバージョンが表示されます。
 
-### Delete Projects
-
-You can delete your project by clicking the three dots on the right of the overview tab.
+プロジェクトの削除概要タブの右側にある3つのドットをクリックすると、プロジェクトを削除できます
 
 ![](../../.gitbook/assets/howto-delete-project.gif)
 
-### Privacy settings
+### プライバシー設定
 
-Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
+プロジェクトのプライバシー設定を変更するには、ページ上部のナビゲーションバーのロックをクリックします。実行を表示またはプロジェクトに送信できるユーザーを編集できます。これらの設定には、プロジェクト内のすべての実行とレポートが含まれます。結果を数人で共有したい場合は、[プライベートチーム](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/app/features/teams)を作成できます。
 
 ![](../../.gitbook/assets/image%20%2879%29.png)
 
-### Delete an empty project
+###  空のプロジェクトを削除する
 
-Delete a project with no runs by clicking the dropdown menu and selecting "Delete project".
+ドロップダウンメニューをクリックして\[プロジェクトの削除\]を選択し、実行されていないプロジェクトを削除します。
 
 ![](../../.gitbook/assets/image%20%2866%29.png)
 

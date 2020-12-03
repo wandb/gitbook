@@ -1,8 +1,8 @@
 ---
-description: >-
-  A gallery of all our integrations with top machine learning libraries and
-  workflows.
+description: トップの機械学習ライブラリとワークフローとの当社のすべての統合へのギャラリー。
 ---
 
 # Integrations
+
+### このセクションの記事は次のとおりです。
 

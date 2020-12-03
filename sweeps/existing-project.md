@@ -1,22 +1,20 @@
 ---
-description: >-
-  If you're already using wandb.init, wandb.config, and wandb.log in your
-  project, start here!
+description: プロジェクトですでにwandb.init、wandb.config、およびwandb.logを使用している場合は、ここから始めてください。
 ---
 
 # Sweep from an existing project
 
-If you have an existing W&B project, it’s easy to start optimizing your models with hyperparameter sweeps. I’ll walk through the steps with a working example— you can open my [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion). I'm using the code from [this example repo](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), which trains a PyTorch convolutional neural network to classify images from the [Fashion MNIST dataset](https://github.com/zalandoresearch/fashion-mnist).
+既存のW＆Bプロジェクトがある場合は、ハイパーパラメータスイープを使用してモデルの最適化を簡単に開始できます。実用的な例を使用して手順を説明します。[W＆Bダッシュボード](https://wandb.ai/carey/pytorch-cnn-fashion)を開くことができます。このサンプルリポジトリのコードを使用しています。このコードは、PyTorch畳み込みニューラルネットワークをトレーニングして、[Fashion MNIST ](https://github.com/zalandoresearch/fashion-mnist)データセットからの画像を分類します。
 
-## 1. Create a project
+## 1. **プロジェクトの作成**
 
-Run your first baseline run manually to check that W&B logging is working properly. You'll download this simple example model, train it for a few minutes, and see the example appear in the web dashboard.
+最初のベースライン実行を手動で実行して、W＆Bロギングが正しく機能していることを確認します。この単純なサンプルモデルをダウンロードし、数分間トレーニングすると、サンプルがWebダッシュボードに表示されます。
 
-* Clone this repo `git clone https://github.com/wandb/examples.git`
-* Open this example `cd examples/pytorch/pytorch-cnn-fashion`
-* Run a run manually `python train.py`
+* このリポジトリの git clone [https://github.com/wandb/examples.gitのクローンを作成します](https://github.com/wandb/examples.gitのクローンを作成します)
+* **•この例の\`cd examples/pytorch/pytorch-cnn-fashion\`を開きます**
+* **手動で \`python train.py実行を実行します**
 
-[View an example project page →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+[プロジェクトページの例を見る→](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
 ## 2. Create a sweep
 

@@ -4,9 +4,9 @@ description: Visualize PyTorch Lightning models with W&B
 
 # PyTorch Lightning
 
-PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/multi_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/amp.html). W&B provides a lightweight wrapper for logging your ML experiments. We're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/latest/loggers.html#weights-and-biases).
+ PyTorch Lightningは、PyTorchコードを整理し、[分散トレーニング](https://pytorch-lightning.readthedocs.io/en/latest/multi_gpu.html)や[16ビット](https://pytorch-lightning.readthedocs.io/en/latest/amp.html)の高度な機能を簡単に追加するための軽量ラッパーを提供します。W＆Bは、ML実験をロ[精度](https://pytorch-lightning.readthedocs.io/en/latest/loggers.html#weights-and-biases)などグに記録するための軽量ラッパーを提供します。PyTorch Lightningライブラリに直接組み込まれているため、いつでもそのドキュメントを確認できます。
 
-## ⚡Get going lightning-fast with just two lines:
+### **⚡たった2行で超高速で進みましょう**
 
 ```python
 from pytorch_lightning.loggers import WandbLogger
@@ -16,70 +16,70 @@ wandb_logger = WandbLogger()
 trainer = Trainer(logger=wandb_logger)
 ```
 
-## ✅ Check out **real** examples!
+##  ✅実際の例をチェックしてください！
 
-We've created a few examples for you to see how the integration works:
+ 統合がどのように機能するかを確認するために、いくつかの例を作成しました。
 
-* [Run in a Google Colab](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch-lightning/Supercharge_your_Training_with_Pytorch_Lightning_%2B_Weights_%26_Biases.ipynb) and try out the integration in a simple notebook
-* [A step by step guide](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) to tracking your Lightning model performance
-* [Semantic Segmentation with Lightning](https://app.wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw): optimize neural networks for self-driving cars
+*  [GoogleColabで実行し](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch-lightning/Supercharge_your_Training_with_Pytorch_Lightning_%2B_Weights_%26_Biases.ipynb)、シンプルなノートブックで統合を試してください
+* モデルのパフォーマンスを追跡するための[ステップバイステップガイド](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw)
+*  [Lightningによるセマンティックセグメンテーション](https://wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw)：自動運転車のニューラルネットワークを最適化します
 
-## **💻 API Reference**
+## **💻 API参照**
 
 ### `WandbLogger`
 
-Parameters:
+パラメータ：
 
-* **name** \(_str_\) – display name for the run.
-* **save\_dir** \(_str_\) – path where data is saved.
-* **offline** \(_bool_\) – run offline \(data can be streamed later to wandb servers\).
-* **version** \(_id_\) – sets the version, mainly used to resume a previous run.
-* **anonymous** \(_bool_\) – enables or explicitly disables anonymous logging.
-* **project** \(_str_\) – the name of the project to which this run will belong.
-* **tags** \(_list of str_\) – tags associated with this run.
+* **name** \(_str_\) – 実行の表示名。
+* **save\_dir** \(_str_\) – データが保存されるパス。
+* **offline** \(_bool_\) – オフラインで実行します（データは後
+* **version** \(_id_\) – でwandbサーバーにストリーミングできます）。
+* **anonymous** \(_bool_\) – 匿名ログを有効または明示的に無効にします。
+* **project** \(_str_\) – この実行が属するプロジェクトの名前。
+* **tags** \(_list of str_\) – この実行に関連付けられたタグ。
 
 ### **`WandbLogger.watch`**
 
-Log model topology as well as optionally gradients and weights.
+ 対数モデルトポロジ、およびオプションでグラデーションと重み。
 
 ```python
 wandb_logger.watch(model, log='gradients', log_freq=100)
 ```
 
-Parameters:
+ パラメータ：
 
-* **model** \(_nn.Module_\) – model to be logged.
-* **log** \(_str_\) – can be "gradients" \(default\), "parameters", "all" or None.
-* **log\_freq** \(_int_\) – step count between logging of gradients and parameters.
+* **model** \(_nn.Module_\) – ログに記録されるモデル。
+* **log** \(_str_\) – 「gradients」（デフォルト）、「parameters」、「all」、またはNoneのいずれかです。
+* **log\_freq** \(_int_\) – グラデーションとパラメータのロギング間のステップ数。
 
 ### **`WandbLogger.log_hyperparams`**
 
-Record hyperparameter configuration.
+ハイパーパラメータ構成を記録します。
 
-_Note: this function is called automatically by `Trainer`_
+注：この関数は`Trainer`によって自動的に呼び出されます
 
 ```python
 wandb_logger.log_hyperparams(params)
 ```
 
-Parameters:
+ パラメータ：
 
-* **params** \(dict\)  – dictionary with hyperparameter names as keys and configuration values as values
+* **params** \(dict\)  – ハイパーパラメータ名をキーとして、構成値を値として持つ辞書
 
 ### `WandbLogger.log_metrics`
 
-Record training metrics.
+トレーニング指標を記録します。
 
-_Note: this function is called automatically by `Trainer`_
+ 注：この関数は`Trainer`によって自動的に呼び出されます
 
 ```python
 wandb_logger.log_metrics(metrics, step=None)
 ```
 
-Parameters:
+パラメータ：
 
-* **metric** \(numeric\) – dictionary with metric names as keys and measured quantities as values
-* **step** \(int\|None\) – step number at which the metrics should be recorded
+* **metric** \(numeric\) – メトリック名をキーとして、測定量を値として持つ辞書
+* **step** \(int\|None\) – メトリックを記録するステップ番号
 
 \*\*\*\*
 

@@ -10,29 +10,45 @@
 class Run(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L132)
+## 実行
 
-The run object corresponds to a single execution of your script, typically this is an ML experiment. Create a run with wandb.init\(\).
+[ソース](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L132)
 
-In distributed training, use wandb.init\(\) to create a run for each process, and set the group argument to organize runs into a larger experiment.
+エンティティとプロジェクトに関連付けられた単一の実行。
 
-Currently there is a parallel Run object in the wandb.Api. Eventually these two objects will be merged.
+## **属性：**
 
-**Attributes**:
+•`tags` _\[str\]_‐実行に関連付けられたタグのリスト
 
-* `history` _`History`_ - Time series values, created with wandb.log\(\).
+•`url` _str_‐この実行のURL
 
-  History can contain scalar values, rich media, or even custom plots
+•`id` _str_‐実行の一意の識別子（デフォルトは8文字）
 
-  across multiple steps.
+•`name` _str_‐実行の名前
 
-* `summary` _`Summary`_ - Single values set for each wandb.log\(\) key. By
+•`state` _str_‐実行中、終了、クラッシュ、中止のいずれか
 
-  default, summary is set to the last value logged. You can manually
+•`config` _dict_‐実行に関連付けられたハイパーパラメータの辞書
 
-  set summary to the best value, like max accuracy, instead of the
+•`created_at` _str_‐実行が開始されたときのISOタイムスタンプ
 
-  final value.
+•`system_metrics` _dict_‐実行のために記録された最新のシステムメトリック
+
+•`summary` _dict_‐現在の要約を保持する可変の辞書のようなプロパティ。updateを呼び出すと、変更が保持されます。
+
+•`project` _str_‐実行に関連付けられたプロジェクト
+
+•`entity` _str_‐実行に関連付けられたエンティティの名前
+
+•`user` _str_‐実行を作成したユーザーの名前
+
+•`path` _str_‐ユニークな識別子\[entity\]/\[project\]/\[run\_id\]
+
+•`notes` _str_‐実行に関するメモ
+
+•`read_only` _boolean_‐実行が編集可能の如何
+
+•`history_keys` _str_‐`wandb.log({key: value})`でログに記録された履歴メトリックのキー
 
 **dir**
 

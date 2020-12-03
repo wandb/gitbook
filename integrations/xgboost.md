@@ -1,6 +1,6 @@
 # XGBoost
 
-Use our callback to compare results between different versions of your XGBoost model.
+ コールバックを使用して、XGBoostモデルの異なるバージョン間の結果を比較します
 
 ```python
 bst = xgb.train(param, xg_train, num_round, watchlist,
@@ -9,7 +9,7 @@ bst = xgb.train(param, xg_train, num_round, watchlist,
 
 ![](../.gitbook/assets/image%20%2812%29.png)
 
-## Example
+## **例**
 
-* [Example on Github](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/xgboost-dermatology): Multi-class dermatology classification example
+*  [Githubの例](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/xgboost-dermatology)：マルチクラス皮膚科分類の例
 
