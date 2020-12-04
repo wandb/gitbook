@@ -78,39 +78,36 @@ Enable CORS access: your CORS configuration should look like the following:
 </CORSConfiguration>
 ```
 
-**Configure W&B Server**
+**\BW＆Bサーバーを構成する**最後に、`http(s)://YOUR-W&B-SERVER-HOST/admin-settings`のW＆B設定ページに移動します。\[外部ファイルストレージバックエンドを使用する\]オプションを有効にし、s3バケット、リージョン、およびSQSキューに次の形式で入力します。
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+* **ファイルストレージバケット**：`s3://<bucket-name>`
+* **ファイルストレージリージョン**：`<region>`•**通知サブスクリプション**：`sqs://<queue-name>`
 
-* **File Storage Bucket**: `s3://<bucket-name>`
-* **File Storage Region**: `<region>`
-* **Notification Subscription**: `sqs://<queue-name>`
+![AWS&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x8A2D;&#x5B9A;](../.gitbook/assets/aws-filestore.png)
 
-![AWS file storage settings](../.gitbook/assets/aws-filestore.png)
+「設定を更新してW＆Bを再起動」を押して、新しい設定を適用します。
 
-Press "update settings and restart W&B" to apply the new settings.
+### グーグル・クラウド・プラットフォーム
 
-### Google Cloud Platform
+GCPストレージバケットをW＆Bのファイルストレージバックエンドとして使用するには、バケットを作成する必要があります。また、そのバケットからオブジェクト作成メッセージを受信するように構成されたpubsubトピックとサブスクリプションも作成する必要があります。
 
-To use a GCP Storage bucket as a file storage backend for W&B, you'll need to create a bucket, along with a pubsub topic and subscription configured to receive object creation messages from that bucket.
+**トピックおよびサブスクリプションの作成**
 
-**Create Pubsub Topic and Subscription**
+GCPコンソールで\[Pub/Sub\]&gt;\[トピック\]に移動し、\[トピックの作成\]をクリックします。名前を選択してトピックを作成します。
 
-Navigate to Pub/Sub &gt; Topics in the GCP Console, and click "Create topic". Choose a name and create a topic.
+次に、ページ下部のサブスクリプションテーブルで\[サブスクリプションの作成\]をクリックします。名前を選択し、\[配信タイプ\]が\[プル\]に設定されていることを確認します。「作成」をクリックします。
 
-Then click "Create subscription" in the subscriptions table at the bottom of the page. Choose a name, and make sure Delivery Type is set to "Pull". Click "Create".
+インスタンスが実行されているサービスアカウントまたはアカウントがこのサブスクリプションにアクセスできることを確認してください。
 
-Make sure the service account or account that your instance is running as has access to this subscription.
+**ストレージバケットの作成**
 
-**Create Storage Bucket**
+GCPコンソールで\[ストレージ\]&gt;\[ブラウザ\]に移動し、\[バケットを作成\]をクリックします。必ず「標準」ストレージクラスを選択してください。
 
-Navigate to Storage &gt; Browser in the GCP Console, and click "Create bucket". Make sure to choose "Standard" storage class.
+インスタンスが実行されているサービスアカウントまたはアカウントがこのバケットにアクセスできることを確認してください。
 
-Make sure the service account or account that your instance is running as has access to this bucket.
+**Pubsub通知の作成**
 
-**Create Pubsub Notification**
-
-Creating a notification stream from the Storage Bucket to the Pubsub Topic can unfortunately only be done in the console. Make sure you have `gsutil` installed, and logged into the correct GCP Project, then run the following:
+ストレージバケットからPubsubトピックへの通知ストリームの作成は、残念ながらコンソールでのみ実行できます。  `gsutil` がインストールされていることを確認し、正しいGCPプロジェクトにログインしてから、次の手順を実行します。:
 
 ```bash
 gcloud pubsub topics list  # list names of topics for reference
@@ -120,21 +117,21 @@ gsutil ls                  # list names of buckets for reference
 gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 ```
 
-[Further reference is available on the Cloud Storage website.](https://cloud.google.com/storage/docs/reporting-changes)
+ [詳細については、Cloud StorageのWebサイトを参照してください。](https://cloud.google.com/storage/docs/reporting-changes)
 
-**Add Signing Permissions**
+**署名権限の追加**
 
-To create signed file URLs, your W&B instance also needs the `iam.serviceAccounts.signBlob` permission in GCP. You can add it by adding the `Service Account Token Creator` role to the service account or IAM member that your instance is running as.
+署名付きファイルのURLを作成するには、W＆BインスタンスにもGCPでの `iam.serviceAccounts.signBlob`権限が必要です。インスタンスが実行されているサービスアカウントまたはIAMメンバーにサービスアカウントトークン作成者の役割を追加することで、これを追加できます。
 
-**Configure W&B Server**
+ **W＆Bサーバーの構成**
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+ 最後に、`http(s)://YOUR-W&B-SERVER-HOST/admin-settings`のW＆B設定ページに移動します。\[外部ファイルストレージバックエンドを使用する\]オプションを有効にし、s3バケット、リージョン、およびSQSキューに次の形式で入力します。
 
-* **File Storage Bucket**: `gs://<bucket-name>`
-* **File Storage Region**: blank
-* **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
+* **ファイルストレージバケット**：`gs://<bucket-name>`
+* **ファイルストレージ領域**：空白
+* **通知サブスクリプション**：`pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![GCP file storage settings](../.gitbook/assets/gcloud-filestore.png)
+![GCP&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x8A2D;&#x5B9A;](../.gitbook/assets/gcloud-filestore.png)
 
-Press "update settings and restart W&B" to apply the new settings.
+設定を更新してW＆Bを再起動」を押して、新しい設定を適用します。
 

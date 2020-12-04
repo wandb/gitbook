@@ -1,47 +1,47 @@
 # Company FAQ
 
-## Pricing and Account Plans
+##  価格とアカウントプラン
 
-W&B is free for individuals and academic teams. We are committed to staying free to support the advancement of machine learning, and we make it easy to export data with our [Export API](../ref/export-api/).
+W＆Bは、個人および学術チームは無料です。私たちは、機械学習の進歩をサポートするために自由を維持することを約束し、[APIエクスポート](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNgitmWwhiOG-bRHucG/v/japanese/ref/export-api)を使用してデータを簡単にエクスポートできるようにします。
 
-* [Pricing Page](https://www.wandb.com/pricing): Accounts for individuals, startups, teams, and enterprises
-* [Academics](https://www.wandb.com/academic): Apply for access to academic teams to share results with collaborators
-* [On-prem](../self-hosted/): We have options for on-prem and private cloud installations
-* [Contact](getting-help.md): Reach out with any questions
-* [Request a demo](https://www.wandb.com/contact): We're happy to get on a call and talk about custom enterprise plans 
+*  [価格設定ページ](https://www.wandb.com/pricing)：個人、スタートアップ、チーム、および企業のアカウント
+*  [アカデミック](https://www.wandb.com/academic)：アカデミックチームへのアクセスを申請して、結果を共同編集者と共有します
+* [オンプレミス](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNgitmWwhiOG-bRHucG/v/japanese/self-hosted)：オンプレミスとプライベートクラウドのインストールのオプションがあります
+*  [連絡先](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNgitmWwhiOG-bRHucG/v/japanese/company/getting-help)：質問がある場合は連絡してください
+* [ デモのリクエスト](https://www.wandb.com/contact)：電話に出て、カスタムエンタープライズプランについて話し合うことができます。
 
-## How is Weights & Biases different from TensorBoard?
+##  Weights＆BiasesはTensorBoardとどう違うのですか？
 
-We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
+私たちは、すべての人のための実験追跡ツールを改善するように促されました。共同創設者がW＆Bに取り組み始めたとき、彼らはOpenAIで欲求不満のTensorBoardユーザーのためのツールを構築するように促されました。これが私たちが改善する上で力を入れた点です：
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible. 
-2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
-3. **Fast, flexible integration**: Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
-4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
-5. **Powerful table**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
-6. **Tools for collaboration**: Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+1. **モデルの複製：Weights＆Biasesは、実験、調査、および後でモデルを再現するのに適しています。メトリックだけでなく、ハイパーパラメータとコードのバージョンもキャプチャし、プロジェクトの再現性を高めるためにモデルのチェックポイントを保存できます。**
+2. **自動編成**：プロジェクトを共同作業者に引き渡すか、休暇を取る場合、W＆Bを使用すると、試したすべてのモデルを簡単に確認できるため、古い実験を再実行するのに時間を無駄にすることはありません。
+3. .**高速で柔軟な統合**：5分でプロジェクトにW＆Bを追加します。無料のオープンソースPythonパッケージをインストールし、コードに数行追加すると、モデルを実行するたびに、ログに記録された優れたメトリックとレコードが得られます。
+4. **統一されて一元化されたダッシュボード**：ローカル機器、ラボクラスター、クラウド内のスポットインスタンスなど、モデルをトレーニングする場所ならどこでも、同じ一元化されたダッシュボードを提供します。異なる機器からTensorBoardファイルをコピーして整理するのに時間を費やす必要はありません。
+5. **効果的な表**：さまざまなモデルの結果を検索、フィルタリング、並べ替え、グループ化します。何千ものモデルバージョンを調べて、さまざまなタスクに最適なモデルを見つけるのは簡単です。TensorBoardは、大規模なプロジェクトでうまく機能するようには構築されていません。
+6. **コラボレーションのためのツール**：W＆Bを使用して、複雑な機械学習プロジェクトを編成します。W＆Bへのリンクを共有するのは簡単で、プライベートチームを使用して、全員が共有プロジェクトに結果を送信することができます。また、レポートを介したコラボレーションもサポートしています。インタラクティブな視覚化を追加し、マークダウンで作業を説明します。これは、作業ログを保持したり、調査結果を上司と共有したり、調査結果をラボに提示したりするための優れた方法です。
 
-Get started with a [free personal account →](http://app.wandb.ai/)
+ [無料の個人アカウント](https://wandb.ai/)を始めましょう[→](https://wandb.ai/)
 
-## Who has rights to the data?
+##  誰がデータに対する権利を有していますか？
 
-You can always export and delete your data at any time. We will never share data associated with private projects. We hope that when you can, you will make your work public so that other practitioners can learn from it.
+データはいつでもエクスポートおよび削除できます。プライベートプロジェクトに関連するデータを共有することは決してありません。可能であれば、他の開業医がそこから学ぶことができるように、あなたの作品を公開してください。
 
-We hope to discover and share high level patterns to move the field of machine learning forward. For example, we wrote [this article](https://www.wandb.com/articles/monitor-improve-gpu-usage-for-model-training) on how people are not fully utilizing their GPUs. We want to do this in a way that respects your privacy and feels honest. If you have any concerns about data privacy, we'd love to hear from you. Reach out at contact@wandb.com.
+機械学習の分野を前進させるために、高レベルのパターンを発見して共有したいと考えています。たとえば、人々がGPUを十分に活用していない方法について[この記事](https://www.wandb.com/articles/monitor-improve-gpu-usage-for-model-training)を書きました。私たちはあなたのプライバシーを尊重し、正直な方法でこれを行いたいと思っています。データのプライバシーについて懸念がある場合は、ぜひご連絡ください。[contact@wandb.com](mailto:contact@wandb.com)に連絡してください。
 
-## Why are you building these tools?
+## これらのツールを構築した目的は何ですか？
 
-At Weights & Biases our mission is to build the best tools for machine learning. Our experienced technical cofounders built Figure Eight, and our tools are being used by cutting-edge machine learning teams including OpenAI and Toyota. We enjoy making useful tools, and the best part of our day is interacting with people who are building real models using our product.
+ Weights＆Biasesの使命は、機械学習に最適なツールを構築することです。経験豊富な技術共同創設者がFigure Eightを作成し、OpenAIやToyotaなどの最先端の機械学習チームがツールを使用しています。私たちは便利なツールを作ることを楽しんでいます。私たちの一日の大部分は、私たちの製品を使用して実際のモデルを構築している人々と交流することです。
 
 ![](../.gitbook/assets/image%20%2856%29.png)
 
-## How do I pronounce "wandb"?
+## 「wandb」はどう発音しますか？
 
-You can pronounce it w-and-b \(as we originally intended\), wand-b \(because it's magic like a wand\), or wan-db \(because it saves things like a database\).
+ w-and-b（当初の意図どおり）、wand-b（杖のような魔法であるため）、またはwan-db（データベースなどを保存するため）と発音できます。
 
-## How do I cite Weights & Biases in a paper?
+##  論文でWeights＆Biasesを引用するにはどうすればよいですか？
 
-We wrote a [white paper](https://www.dropbox.com/s/0ipub9ewwkml8jf/Experiment%20Tracking%20with%20Weights%20%26%20Biases.pdf?dl=1), and if you're writing a paper or article about a project that used our tools, we'd love it if you cited us. Here's a generated BibTeX citation for our website that will help point people to our tools.
+私たちは、[ホワイトペーパー](https://www.dropbox.com/s/0ipub9ewwkml8jf/Experiment%20Tracking%20with%20Weights%20%26%20Biases.pdf?dl=1)を作成しています。ツールを使用したプロジェクトに関する論文や記事を作成している場合は、引用していただければ幸いです。これが私たちのウェブサイトのために生成されたBibTeX引用であり、人々に私たちのツールを紹介するのに役立ちます。
 
 ```text
 @misc{wandb, 
