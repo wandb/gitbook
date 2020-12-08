@@ -1,43 +1,44 @@
 ---
-description: Appropriate limits and guidelines for logging data to Weights & Biases
+description: Weights & Biases에 데이터를 로딩하기 위한 적절한 제한 및 가이드라인
 ---
 
 # Limits
 
-### Best Practices for Fast Page Loading
+###  **빠른 페이지 로딩에 대한 모범 사례**
 
-For fast page loading in the W&B UI, we recommend keeping logged data amounts within these bounds.
+W&B UI에서 페이지를 빠르게 로딩하시려면, 로그된 데이터 양을 다음의 범위 내로 유지하시기 바랍니다.
 
-* **Scalars**: ****you can have tens of thousands of steps and hundreds of metrics
-* **Histograms**: we recommend limiting to thousands of steps
+* **스칼라\(Scalars\):** 수천 수 만개의 단계 및 수 백 개의 메트릭을 가질 수 있습니다
+* **히스토그램\(Histograms\)**: 수천 개의 단계로 제한하실 것을 권장합니다.
 
-If you send us more that that, your data will be saved and tracked, but pages may load more slowly.
+저희에게 데이터를 더 전송하시는 경우, 데이터는 저장 및 추적되지만, 페이지는 더 느리게 로딩될 수 있습니다.
 
-### Python Script Performance
+### **Python 스크립트 퍼포먼스** 
 
-Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds. 
+  일반적으로 초당 수 회 이상 `wandb.log`를 호출하셔서는 안 됩니다. 그렇지 않으면 wandb는 여러분의 훈련 실행 퍼포먼스에 지장을 초래할 수도 있습니다. 저희는 비율 제한을 초과하는 어떤 제한도 행사하지 않습니다. 저희 Python 클라이언트는 자동으로 지수 백오프\(exponential backoff\)를 수행하고, 제한을 초과한 재시도 요청을 수행합니다. 따라서 이러한 사항은 여러분께 분명 해야하며, 명령줄에 “Network failure\(네트워크 오류\)”라고 표시됩니다. 무료 계정의 경우, 저희는 사용량이 한계점을 통과하는 극단적 경우에 한하여 연락을 취할 수도 있습니다.
 
-### Rate Limits
+###  **비율 제한**
 
-The W&B API is rate limited by IP and API key. New accounts are restricted to 200 requests per minute. This rate allows you to run approximately 15 processes in parallel and have them report without being throttled. If the **wandb** client detects it's being limited, it will backoff and retry sending the data in the future. If you need to run more than 15 processes in parallel send an email to [contact@wandb.com](mailto:contact@wandb.com).
+ W&B API는 IP와 API 키로 비율이 제한됩니다. 새 계정은 분당 200개 요청으로 제한됩니다. 이 비율은 대략 15개의 프로세스를 동시에 시작하고, 속도 감소 없이 보고할 수 있습니다. **wandb** 클라이언트는 제한되고 있음을 감지할 경우, 추후에 파일 전송을 백오프 및 재실도합니다. 15개 이상의 프로세스를 동시에 실행하셔야 하는 경우, [contact@wandb.com](mailto:contact@wandb.com)로 이메일을 보내주시기 바랍니다.  
 
-### Size Limits
 
-#### Files
+###  **사이즈 제한**
 
-The maximum file size for new accounts is 2GB. A single run is allowed to store 10 GB of data. If you need to store larger files or more data per run, contact us at [contact@wandb.com](mailto:contact@wandb.com).
+####  **파일**
 
-#### Metrics
+ 새 계정의 최대 파일 사이즈는 2GB입니다. 단일 실행으로 10GB의 데이터를 저장하실 수 있습니다 있습니다. 더 큰 파일 또는 실행당 더 많은 데이터를 저장 하셔야 되는 경우, [contact@wandb.com](mailto:contact@wandb.com)로 문의해주시기 바랍니다.
 
-Metrics are sampled to 1500 data points by default before displaying in the UI. 
+#### **메트릭**
 
-#### Logs
+메트릭은 기본값으로 UI에 표시되기 전, 1500개의 데이터 포인트로 샘플링됩니다.
 
-While a run is in progress we tail the last 5000 lines of your log for you in the UI. After a run is completed the entire log is archived and can be downloaded from an individual run page.
+####  **로그**
 
-### Logging Guidance
+실행이 처리되는 동안, 저희는 UI에서 로그의 마지막 5000줄을 추적합니다. 실행이 완료된 후 전체 로그는 보관되며 개별 실행 페이지에서 다운로드 하실 수 있습니다
 
-Here are some additional guidelines for logging data to W&B.
+### **로깅 안내**
 
-* **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
+다음은 W&B에 데이터 로깅 하는 법에 대한 몇 가지 추가 안내 입니다.
+
+* **네스트된 매개변수\(Nested parameters\)**: 저희는 자동으로 네스트된 매개변수를 평면화합니다. 따라서 사전\(dictionary\)을 전달하면, 점으로 구분된\(dot-separated\) 이름으로 변환됩니다. 구성 값\(config values\)의 경우, 저희는 이름에 점\(dot\) 3개를 지원합니다. 요약 값\(summary values\)의 경우 점 4개를 지원합니다.
 

@@ -1,7 +1,5 @@
 ---
-description: >-
-  Weights & Biases for experiment tracking, dataset versioning, and model
-  management
+description: '실험 추적, 데이터세트 버저닝, 모델 관리용 Weights & Biases'
 ---
 
 # Library

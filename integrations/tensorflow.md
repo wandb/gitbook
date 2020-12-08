@@ -4,23 +4,25 @@ description: How to integrate a TensorFlow script to log metrics to W&B
 
 # TensorFlow
 
-If you're already using TensorBoard, it's easy to integrate with wandb.
+TesorBoard를 이미 사용 중이신 경우, wandb와 쉽게 통합하실 수 있습니다.
 
 ```python
 import tensorflow as tf
 import wandb
-wandb.init(config=tf.flags.FLAGS, sync_tensorboard=True)
+wandb.init(config=tf.fla
+gs.FLAGS, sync_tensorboard=True)
 ```
 
-See our [example projects](../examples.md) for a complete script example.
+전체 스크립트 예시를 보시려면 저희 [예시 프로젝트](https://docs.wandb.com/examples)를 참조해 주시기 바랍니다.
 
-## Custom Metrics
+##  **사용자 정의 메트릭**
 
-If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code with the same step argument that TensorBoard is using: ie. `wandb.log({"custom": 0.8}, step=global_step)`
+  
+`wandb.log({"custom": 0.8}, step=global_step)` ****TensorBoard에 로그되지 않은 추가 사용자 정의 메트릭을 로그해야 하시는 경우, TensorBoard가 사용 하고 있는 같은 단계의 전달인자\(the same step argument\)로 코드에서 `wandb.log`를 호출하실 수 있습니다. 즉, `wandb.log({"custom": 0.8}, step=global_step)`입니다.
 
-## TensorFlow Hook
+## **TensorFlow 훅\(Hook\)**
 
-If you want more control over what get's logged, wandb also provides a hook for TensorFlow estimators. It will log all `tf.summary` values in the graph.
+로그된 항목을 좀 더 제어하고 싶으신 경우, wandb는 또한 TensorFlow estimator\(견적자\)에 훅을 제공합니다. 이는 모든 `tf.summary` 값을 그래프에 로그합니다.
 
 ```python
 import tensorflow as tf
@@ -31,9 +33,9 @@ wandb.init(config=tf.FLAGS)
 estimator.train(hooks=[wandb.tensorflow.WandbHook(steps_per_log=1000)])
 ```
 
-## Manual Logging
+## **수동 로깅\(Manual Logging\)**
 
-The simplest way to log metrics in TensorFlow is by logging `tf.summary` with the TensorFlow logger:
+TensorFlow에 메트릭을 로그하는 가장 손쉬운 방법은 TensorFlow logger\(로거, 기록장치\)로 `tf.summary`를 로그하는 것입니다.
 
 ```python
 import wandb
@@ -43,7 +45,7 @@ with tf.Session() as sess:
     wandb.tensorflow.log(tf.summary.merge_all())
 ```
 
-With TensorFlow 2, the recommended way of training a model with a custom loop is via using `tf.GradientTape`. You can read more about it [here](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough). If you want to incorporate `wandb` to log metrics in your custom TensorFlow training loops you can follow this snippet -
+TensorFlow 2를 통해서, 사용자 정의 루프를 통해 모델을 훈련 시키는 방법 중 `tf.GradientTape`을 추천드립니다. 자세한 내용은 [이 곳](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough)에서 확인하실 수 있습니다. 메트릭을 사용자 지정 TensorFlow 훈련 루프에 로그하기 위해 `wandb`를 통합하고 싶으신 경우, 아래 스니펫\(snippet\)을 활용하실 수 있습니다.
 
 ```python
     with tf.GradientTape() as tape:
@@ -60,27 +62,27 @@ With TensorFlow 2, the recommended way of training a model with a custom loop is
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ```
 
-A full example is available [here](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2).
+ 전체 예시는 [이 곳](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2)에서 확인하실 수 있습니다.
 
-## How is W&B different from TensorBoard?
+## **W&B는 TensorBoard와 어떻게 다른가요?**
 
-We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
+저희는 여러분 모두를 위해 실험 추적 툴을 개선하기 위해 열심히 최선을 다하고 있습니다. 공동창립사들이 W&B 작업을 시작했을 때, OpenAI에서 좌절한 TensorBoard 사용자들을 위한 툴 개발을 위한 영감을 얻었습니다. 다음은 저희가 개선하기 위해 노력하고 있는 몇 가지 항목들 입니다.
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.
-2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
-3. **Fast, flexible integration**: Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
-4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
-5. **Powerful table**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
-6. **Tools for collaboration**: Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+1. **모델 재현**: Weights & Biases는 실험, 탐색 및 추 후 모델 재현에 유용합니다. 저희는 메트릭 뿐만 아니라 초매개변수 및 코드의 버전을 캡쳐하고, 프로젝트를 재현할 수 있도록 모델 체크포인트를 저장하실 수 있습니다.
+2. **자동 구성**: 프로젝트를 공동작업자에게 넘기거나, 휴가를 낸 경우, W&B는 여러 분이 시도한 모든 모델을 쉽게 확인할 수 있도록 해드립니다. 따라서 오래된 실험 재실행에 시간을 허비하지 않으셔도 됩니다.
+3. **빠르고 유연한 통합**: 5분 안에 W&B를 여러분의 프로젝트에 추가하세요.저희의 무료 오픈소스 Python 패키지를 설치하시고, 여러분의 코드에 몇 줄만 추가하세요. 그리고 나면 모델을 실행하실 때 마다, 훌륭한 로그된 메트릭과 레코드를 가지게 됩니다.
+4. **지속적인, 중앙 집중식 대시보드**: 로컬 머신, 랩 클러스터\(lab cluster\) 또는 클라우드의 스팟 인스턴스\(spot instances\) 등 모델을 훈련하는 모든 곳에서 동일한 중앙 집중식 대시보드를 제공합니다. 여러 머신에서 TensorBoard 파일을 복사 및 정리하는 데 시간을 쓰실 필요가 없습니다.
+5. **강력한 테이블**: 여러 모델에서의 결과를 검색, 필터, 정렬 및 그룹화합니다. 수 천개의 모델 버전을 살펴보고, 다양한 작업에 대한 최고 퍼포먼스 모델을 쉽게 찾으실 수 있습니다. TensorBoard는 대규모 프로젝트에서 잘 작동하도록 설계되어 있지는 않습니다.
+6.  **공동작업을 위한 툴**: W&B를 사용해서 복잡한 머신 러닝 프로젝트를 구성하세요. W&B로 링크를 쉽게 공유하실 수 있으며, 개인 팀\(private teams\)를 활용해 모두가 공유 프로젝트에 결과를 보내도록 할 수 있습니다. 또한 리포트\(reports\)를 통해 공동 작업을 지원합니다. 양방향 시각화\(interactive visualizations\)를 추가하고, 마크다운\(markdown\)에서 여러분의 작업 내용을 설명하세요. 작업 로그 보관, 상사와의 결과 공유 또는 여러분의 연구실에 결과를 제시할 수 있는 유용한 방법입니다.
 
-Get started with a [free personal account →](http://app.wandb.ai/)
+ [무료 개인 계정 →](http://app.wandb.ai/)으로 시작하세요
 
-## Example
+## **예시**
 
-We've created a few examples for you to see how the integration works:
+저희는 여러분을 위한 통합\(integration\)의 작동 방식을 확인 할 수 있는 위한 몇 가지 예시를 만들어보았습니다.
 
-* [Example on Github](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-estimator-mnist/mnist.py): MNIST example Using TensorFlow Estimators
-* [Example on Github](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-cnn-fashion/train.py): Fashion MNIST example Using Raw TensorFlow
-* [Wandb Dashboard](https://app.wandb.ai/l2k2/examples-tf-estimator-mnist/runs/p0ifowcb): View result on W&B
-* Customizing Training Loops in TensorFlow 2 - [Article](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2) \| [Colab Notebook](https://colab.research.google.com/drive/1JCpAbjkCFhYMT7LCQ399y35TS3jlMpvM) \| [Dashboard](https://app.wandb.ai/sayakpaul/custom_training_loops_tf)
+* [Github의 예시](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-estimator-mnist/mnist.py): TensorFlow Estimators\(추정기\)를 사용한 MNIST 예시
+* [Github의 예시](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-cnn-fashion/train.py): Raw TensorFlow를 사용한Fashion MNIST 예시
+* [Wandb 대시보드\(Dashboard\)](https://app.wandb.ai/l2k2/examples-tf-estimator-mnist/runs/p0ifowcb): W&B 결과 보기
+* TensorFlow 2에서 훈련 루프 사용자 정의하기 – [기사\(Article\)](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2) \| [Colab Notebook](https://colab.research.google.com/drive/1JCpAbjkCFhYMT7LCQ399y35TS3jlMpvM) \| [대시보드\(Dashboard\)](https://app.wandb.ai/sayakpaul/custom_training_loops_tf)
 

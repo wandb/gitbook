@@ -1,44 +1,42 @@
 ---
-description: >-
-  Easily instrument a script to see our experiment tracking and visualization
-  features on your own project
+description: 간편하게 스크립트를 작성하여 여러분의 프로젝트의 실험 추적 및 시각화 기능을 확인하실 수 있습니다
 ---
 
 # Quickstart
 
-Start logging machine learning experiments in three quick steps.
+ 세 가지 빠른 단계로 머신 러닝 실험 로깅을 시작하세요.
 
-## 1. Install Library
+## **1. 라이브러리 설치**
 
-Install our library in an environment using Python 3.
+파이썬 3를 사용하는 환경에 라이브러리를 설치하세요
 
 ```bash
 pip install wandb
 ```
 
 {% hint style="info" %}
-If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our [Environment Variables](library/environment-variables.md).
+Google의 CloudML과 같은 쉘 커맨드를 실행하기 어려운 자동화 환경에서 모델을 훈련하는 경우, [자동화 환경에서 실행하기](https://docs.wandb.com/advanced/automated) 문서를 참조하시기 바랍니다.
 {% endhint %}
 
-## 2. Create Account
+## 2. 계정 생성하기
 
-Sign up for a free account in your shell or go to our [sign up page](https://app.wandb.ai/login?signup=true).
+ 여러분의 쉘에 무료 계정을 등록하시거나 [가입 페이지](https://app.wandb.ai/login?signup=true)로 이동하세요
 
 ```bash
 wandb login
 ```
 
-## 3. Modify your training script
+## 3.  **훈련 스크립트 수정하기**
 
-Add a few lines to your script to log hyperparameters and metrics.
+ 초매개변수 및 메트릭 로그를 하시려면 스크립트에 추가 입력 하세요.
 
 {% hint style="info" %}
-Weights and Biases is framework agnostic, but if you are using a common ML framework, you may find framework-specific examples even easier for getting started. We've built framework-specific hooks to simplify the integration for [Keras](integrations/keras.md), [TensorFlow](integrations/tensorflow.md), [PyTorch](integrations/pytorch.md), [Fast.ai](integrations/fastai/), [Scikit](integrations/scikit.md), [XGBoost](integrations/xgboost.md), [Catalyst](integrations/catalyst.md).
+Weights and Biases는 프레임워크에 프레임워크에 구애 받지 않습니다\(framework agnostic\). 하지만 귀하께서 일반적인 ML 프레임워크를 사용하고 있으시다면, 프레임워크에 특정한 예시를 시작하는 것이 훨씬 쉽다고 생각하실 수도 있습니다. 저희는 [Keras](https://docs.wandb.com/frameworks/keras), [TensorFlow](https://docs.wandb.com/frameworks/tensorflow), [PyTorch](https://docs.wandb.com/frameworks/pytorch), [Fast.ai](https://docs.wandb.com/frameworks/fastai), [Scikit-learn](https://docs.wandb.com/frameworks/scikit), [XGBoost](https://docs.wandb.com/frameworks/xgboost), [Catalyst](https://docs.wandb.com/frameworks/catalyst), and [Jax](https://docs.wandb.com/frameworks/jax-example)에 대한 통합을 단순화하기 위해서 프레임워크 특정 후크를 개발했습니다.
 {% endhint %}
 
-### Initialize W&B
+###  **Wandb 초기설정하기**
 
-Initialize `wandb` at the beginning of your script, before you start logging. Some integrations, like our [Hugging Face](integrations/huggingface.md) integration, include wandb.init\(\) internally.
+ 불러오기 직후, 스크립트 시작 부분에서 `wandb`를 초기화하십시오
 
 ```python
 # Inside my model training code
@@ -46,20 +44,20 @@ import wandb
 wandb.init(project="my-project")
 ```
 
-We automatically create the project for you if it doesn't exist. Runs of the training script above will sync to a project named "my-project". See the [wandb.init](library/init.md) documentation for more initialization options.
+ 만약 존재하지 않는 경우, 저희는 여러분을 위해 자동으로 프로젝트를 생성합니다. 위의 훈련 스크립트의 실행은 “my-project”라는 프로젝트와 동기화 됩니다. 자세한 초기화 옵션은 [wandb.init](https://docs.wandb.com/library/init) 문서를 참조하십시오.
 
-### Declare Hyperparameters
+### **초매개변수 선언**
 
-It's easy to save hyperparameters with the [wandb.config](library/config.md) object.
+[wandb.config](https://docs.wandb.com/library/config) 객체로 초매개변수를 쉽게 저장하실 수 있습니다. 
 
 ```python
 wandb.config.dropout = 0.2
 wandb.config.hidden_layer_size = 128
 ```
 
-### Log Metrics
+###  로그 메트릭
 
-Log metrics like loss or accuracy as your model trains \(in many cases we provide framework-specific defaults\). Log more complicated output or results like histograms, graphs, or images with [wandb.log](library/log.md).
+ 모델을 훈련시키는 것처럼 손실 또는 정확성과 같은 메트릭을 기록하세요 \(대부분의 경우 프레임워크에 특정한 기본값을 제공합니다\). [wandb.log](https://docs.wandb.com/library/log)를 사용해서 히스토그램, 그래프, 이미지와 같은 좀 더 복잡한 출력 및 결과를 로그하세요.
 
 ```python
 def my_train_loop():
@@ -68,9 +66,9 @@ def my_train_loop():
         wandb.log({'epoch': epoch, 'loss': loss})
 ```
 
-### Save Files
+###  **파일 저장**
 
-Anything saved in the `wandb.run.dir` directory will be uploaded to W&B and saved along with your run when it completes. This is especially convenient for saving the literal weights and biases in your model:
+`wandb.run.dir` 디렉토리에 저장된 모든 항목은 W&B에 업로드 되며, 완료되면 실행과 함께 저장됩니다. 모델 내 문자상의 가중치 및 편향 저장에 유용합니다.
 
 ```python
 # by default, this will save to a new subfolder for files associated
@@ -81,25 +79,25 @@ wandb.save("mymodel.h5")
 model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 ```
 
-Great! Now run your script normally and we'll sync the logs in a background process. Your terminal output, metrics, and files will be synced to the cloud, along with a record of your git state if you're running from a git repo.
+ 좋습니다! 이제 스크립트를 정상적으로 실행하시면 백그라운드 프로세스로 로그가 동기화됩니다. git repo에서 실행중인 경우, 터미널 출력, 메트릭 및 파일은 여러분의 git 상태 기록과 함께 클라우드에 동기화 됩니다.
 
 {% hint style="info" %}
-If you're testing and want to disable wandb syncing, set the [environment variable](library/environment-variables.md) WANDB\_MODE=dryrun
+테스트 중에 wandb 동기화 사용을 원하지 않으시다면, [환경 변수](https://docs.wandb.com/library/environment-variables) WANDB\_MODE=dryrun를 설정하세요.
 {% endhint %}
 
-## Next Steps
+## **다음 단계**
 
-Now you've got the instrumentation working, here's a quick overview of cool features:
+이제 계측\(instrumentation\)이 작동하고 있습니다. 다음은 멋진 기능의 간략한 개요입니다.
 
-1. **Project Page**: Compare lots of different experiments in a project dashboard. Every time you run a model in a project, a new line appears in the graphs and in the table. Click the table icon on the left sidebar to expand the table and see all your hyperparameters and metrics. Create multiple projects to organize your runs, and use the table to add tags and notes to your runs.
-2. **Custom Visualizations**: Add parallel coordinates charts, scatter plots, and other advanced visualizations to explore your results.
-3. \*\*\*\*[**Reports**](reports.md): Add a Markdown panel to describe your research results alongside your live graphs and tables. Reports make it easy to share a snapshot of your project with collaborators, your professor, or your boss!
-4. \*\*\*\*[**Integrations**](integrations/): We have special integrations for popular frameworks like PyTorch, Keras, and XGBoost.
-5. **Showcase**: Interested in sharing your research? We're always working on blog posts to highlight the amazing work of our community. Message us at contact@wandb.com.
+1. **프로젝트 페이지**: 프로젝트 대시보드에서 다양한 실험을 비교하세요. 프로젝트에서 모델을 실행하실 때마다 그래프와 테이블에 새로운 라인이 나타납니다. 왼쪽 사이드바의 테이블을 클릭하시면 테이블을 확장해서 모든 초매개변수와 메트릭을 확인하실 수 있습니다. 여러 프로젝트를 생성하여 실행을 구성하고, 테이블을 사용해서 태그와 노트를 실행에 추가하세요.
+2. **시각화 사용자 지정하기**: 평행좌표 차트, 산점도 및 기타 고급 시각화를 추가하여 결과를 탐색하세요.
+3.  [ **리포트**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MO02cq56Hqy11WYFJ6I/v/han-guo-yu/reports): 마크다운 패널\(Markdown pannel\)을 추가하여 실시간 그래프 및 테이블과 함께 연구 결과를 설명하세요. 리포트를 통해서 공동작업자, 교수, 상사에게 프로젝트의 스냅샷을 쉽게 공유하실 수 있습니다.
+4.  [**프레임워크**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MO02cq56Hqy11WYFJ6I/v/han-guo-yu/integrations): PyTorch, Keras, XGBoost와 같은 대중적 프레임워크에 대한 특별 통합 기능을 갖추고 있습니다.
+5. **쇼케이스**: 연구결과를 공유하고 싶으신가요? 저희는 항상 저희 커뮤니티의 놀라운 작업을 돋보이게 하기 위해 블로그에 포스팅하고 있습니다. [contact@wandb.com](mailto:contact@wandb.com)으로 메시지 해 주세요. 
 
-### [Contact us with questions →](company/getting-help.md)
+###  [질문이 있으시면 연락 주십시오→](https://docs.wandb.com/company/getting-help)​
 
-### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
+###  [오픈AI 케이스 연구 보기 →​](https://bit.ly/wandb-learning-dexterity)
 
 ![](.gitbook/assets/image%20%2891%29.png)
 
