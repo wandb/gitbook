@@ -1,34 +1,34 @@
 ---
-description: Resources for teaching machine learning and deep learning
+description: 機械学習と深層学習を教えるためのリソース
 ---
 
 # Classes
 
-W&B is a great tool for learning and collaboration. We offer free academic accounts, and we've collected some good resources for helping you and your students navigate complex machine learning projects.
+W＆Bは、学習とコラボレーションのための優れたツールです。無料のアカデミックアカウントを提供しており、あなたとあなたの学生が複雑な機械学習プロジェクトをナビゲートするのに役立ついくつかの優れたリソースを集めました。
 
-## Features
+##  特徴
 
-**Academic Teams**
+**アカデミックチーム**
 
-Request an [academic team](https://www.wandb.com/academic) to get started having your students submit results to a shared workspace. Grading projects is easy when you can see the real, tracked results and the code that students used to generate models.
+[アカデミックチーム](https://www.wandb.com/academic)に、生徒に結果を共有ワークスペースに送信してもらうことを開始するように依頼します。学生がモデルを生成するために使用した実際の追跡された結果とコードを見ることができれば、プロジェクトの評価は簡単です。
 
-**Reports**
+**レポート**
 
-Ask your students to submit reports so you can explore their results and compare new projects against previous baselines. Reports make it easy to describe intermediate results and show progress, and all the graphs are connected to real model results that you can reproduce. [View an example report →](https://app.wandb.ai/stacey/keras_finetune/reports/Curriculum-Learning-in-Nature--Vmlldzo1MjcxNw)
+生徒にレポートを提出してもらい、結果を調べて新しいプロジェクトを以前のベースラインと比較できるようにします。レポートを使用すると、中間結果の記述と進行状況の表示が簡単になり、すべてのグラフは、再現可能な実際のモデル結果に接続されます。[レポートの例を見る→](%20https://wandb.ai/stacey/keras_finetune/reports/Curriculum-Learning-in-Nature--Vmlldzo1MjcxNw)
 
-**Competitions**
+**コンテスト**
 
-Create a project in your academic team, and have your students compete to achieve the best accuracy on a shared task. Here's a screenshot of an example competition. Each row is a different experiment, and users are competing for the highest accuracy. [View the project →](https://app.wandb.ai/wandb/feb8-emotion)
+アカデミックチームでプロジェクトを作成し、共有タスクで最高の精度を達成するために生徒を競わせます。これは、コンテストの例のスクリーンショットです。各行は異なる実験であり、ユーザーは最高の精度を求めて競争しています。[プロジェクトを見る→](https://wandb.ai/wandb/feb8-emotion)
 
 ![](../../.gitbook/assets/image%20%2862%29.png)
 
-## Resources
+### リソース
 
-### Example script repo
+###  スクリプトリポジトリの例
 
-We've built up a set of working examples of deep learning projects in different frameworks.
+さまざまなフレームワークで深層学習プロジェクトに関する一連の実用的な例を作成しました。
 
-[View the GitHub repo →](https://github.com/wandb/examples)
+   [GitHubリポジトリを表示する→ ](https://github.com/wandb/examples)
 
 ![](../../.gitbook/assets/image%20%2845%29.png)
 
@@ -38,48 +38,48 @@ We also created some hosted notebooks with models that your students can start t
 * [Keras ](http://bit.ly/wandb-keras-colab)MNIST example
 * [TensorFlow 2](http://bit.ly/wandb-tf-colab) convolutional neural network
 
-### **Tutorials**
+###  **チュートリアル**
 
-Lukas and Chris have built a library of short tutorial projects with notes on each class section. Reach out to vanpelt@wandb.com with questions.
+LukasとChrisは、各クラスセクションに関するメモを含む短いチュートリアルプロジェクトのライブラリを構築しました。質問がある場合はvanpelt@wandb.comに連絡してください。
 
-[View the tutorials →](https://www.wandb.com/tutorials)
+ [チュートリアルを見る→](https://www.wandb.com/tutorials)
 
 ![](../../.gitbook/assets/image%20%2870%29.png)
 
-### Free classes
+### 無料クラス
 
-Here are some excellent videos, notes, and slides from around the web. These are great additions to any curriculum on machine learning.
+これは、Web全体からの優れたビデオ、メモ、およびスライドです。これらは、機械学習のカリキュラムへの素晴らしい追加です。
 
-1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support
-2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models
-3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu/): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
-4. [MIT Intro to Deep Learning](http://introtodeeplearning.com/):  Accessible introduction taught by Alexander Amini and Ava Soleimany
+1. [コーダー向けの機械学習の概要](https://course18.fast.ai/ml)：ビデオ、サンプルコード、サポートのための活気に満ちたフォーラムを備えた素晴らしいfastaiコース
+2.  [フルスタック深層学習](https://fullstackdeeplearning.com/march2019)：友人のJosh Tobinが教えてくれたこの素晴らしいコースでは、深層学習モデルの構築に関する次のレベルの専門知識を習得できます。
+3.  [スタンフォードCS230深層学習](https://cs230.stanford.edu/)：Andrew Ngが教えるこの素晴らしいスタンフォードコースの講義とスライドは、オンラインで入手できます。
+4. [MITの深層学習入門](http://introtodeeplearning.com/)：AlexanderAminiとAvaSoleimanyによるアクセシブルな紹介
 
-### Slide decks
+### スライドデッキ
 
-1. [Troubleshooting Deep Neural Networks](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): Josh Tobin's excellent slide deck on debugging models
-2. [Sequence to sequence models](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf): Slides from Stanford's computational linguistics class
-3. [Transfer and multi-task learning](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_15_multi_task_learning.pdf): Sergey Levine from Berkeley
-4. [Transfomer models](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/lectures/lecture12.pdf): Richard Socher from Stanford
+1.  [ディープニューラルネットワークのトラブルシューティング](http://josh-tobin.com/troubleshooting-deep-neural-networks.html)：モデルのデバッグに関するJosh Tobinの優れたスライドデッキ
+2.  [シーケンス間モデル](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf)：スタンフォード大学の計算言語学クラスのスライド
+3. [ 転送とマルチタスク学習](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_15_multi_task_learning.pdf)：バークレー校のSergey Levine
+4.  [トランスフォーマーモデル](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/lectures/lecture12.pdf)：スタンフォード大学のRichard Socher
 
-## Topics
+## トピック
 
 ### Seq2Seq
 
-1. [Keras intro to seq2seq](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html): A fast intro from the Keras team
-2. [Original paper](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf): Ilya Sutskever and colleagues from Google
-3. [Berkeley slides](https://courses.d2l.ai/berkeley-stat-157/units/seq2seq.html): Encoder-decoder, seq2seq, and machine translation
+1. [Keras intro to seq2seq](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html): Kerasチームからの簡単な紹介
+2. [Original paper](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf): GoogleのIlya Sutskeverと同僚
+3. [Berkeley slides](https://courses.d2l.ai/berkeley-stat-157/units/seq2seq.html): エンコーダー-デコーダー、seq2seq、および機械翻訳
 
-### Natural language examples
+###  自然言語の例
 
-1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
-2. [TalkToTransformer.com](https://talktotransformer.com): try GPT 2
-3. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
-4. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
-5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
-6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
-7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
-8. [Zero-shot transfer learning + LSTMs](https://www.media.mit.edu/publications/zero-shot-transfer-learning-to-enhance-communication-for-minimally-verbal-individuals-with-autism-using-naturalistic-data/): Enhancing translation technology for minimally verbal individuals
+1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): リアルなテキストを生成するためのモデル
+2. [TalkToTransformer.com](https://talktotransformer.com):  GPT2の試行
+3. [GLUEベンチマーク](https://gluebenchmark.com/)： 自然言語システムのトレーニングと分析のためのリソース
+4. [SuperGLUE](https://super.gluebenchmark.com/):  GLUEベンチマークのv2の更新および改善
+5. [Livox](http://impact-transfer.org/zero/livox/):  代替コミュニケーションアプリでNLPの使用
+6. [実用的なTwitterコンテンツマイニング](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/)： ツイートでのNLPの使用に関する医学雑誌の記事
+7.  [NLPのアプリケーション](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): 10の興味深いアプリケーションについて話している中程度の記事
+8.  [ゼロショット転送学習+ LSTM](https://www.media.mit.edu/publications/zero-shot-transfer-learning-to-enhance-communication-for-minimally-verbal-individuals-with-autism-using-naturalistic-data/): 最小限の口頭の個人のための翻訳技術の強化
 
-If you are teaching a class, we would love to support you. Please reach out to us at support@wandb.com.
+あなたがクラスを教えているなら、私たちはあなたをサポートしたいと思っています。[support@wandb.com](mailto:support@wandb.com)までご連絡ください。
 

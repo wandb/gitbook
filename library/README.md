@@ -1,68 +1,36 @@
 ---
-description: Overview of our client library
+description: 実験の追跡、データセットのバージョン管理、モデル管理のためのWeights＆Biases
 ---
 
-# Python Library
+# Library
 
-Use our python library to instrument your machine learning model and track experiments. Setup should only take a few lines of code. If you're using a popular framework, we have a number of integrations to make setting up wandb easy.
+ `wandb` Pythonライブラリを使用して、数行のコードで機械学習実験を追跡します。[PyTorch](../integrations/pytorch.md)や[Keras](../integrations/keras.md)などの一般的なフレームワークを使用している場合は、軽量な[統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTRmPsdM-fSSOyCL8w/v/japanese/integrations)を実現しています。
 
-When you call wandb.init\(\) in your code, wandb will return a Run object and create a local directory and save logs and files there, which it will stream asynchronously to a wandb server.
+## **概要**
 
-A wandb Run corresponds to a single training run and contains a config, a summary and a history object. The config object is a dictionary-like structure that tracks hyperparameters such as a learning rate or a model type. The summary object is a dictionary-like structure that captures metrics such as accuracy or loss. A history object is an array of dictionary like objects that tracks metrics over time. By default, calling wandb.log\(\) appends to the history object and updates the summary object but you can override this behavior if for example you want your summary metrics to capture the metrics of the optimal model found during training.
+W＆Bで実験を追跡するには：
 
-We have more detailed docs generated from the code in [Reference](reference/).
+1. \*\*\*\*[**wandb.init\(\)**](init.md):  スクリプトの先頭で新しい実行を初期化します。これにより、Runオブジェクトが返され、すべてのログとファイルが保存されるローカルディレクトリが作成され、W＆Bサーバーに非同期でストリーミングされます。ホスト型クラウドサーバーの代わりにプライベートサーバーを使用したい場合は、[セルフホスティングを提供しています](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTRmPsdM-fSSOyCL8w/v/japanese/self-hosted)。
+2. \*\*\*\*[**wandb.config**](config.md): 学習率やモデルタイプなどのハイパーパラメータの辞書を保存します。configでキャプチャしたモデル設定により、後で結果を整理して質問することができます。
+3. \*\*\*\*[**wandb.log\(\)**](log.md): 精度や損失など、トレーニングループ内の時間の経過に伴うメトリックをログに記録します。デフォルトでは、wandb.log（）を呼び出すと、履歴オブジェクトに新しいステップが追加され、サマリーオブジェクトが更新されます。
 
-### **Instrumenting a model**
+   o   **ヒストリー**：時間の経過とともにメトリックを追跡する辞書のようなオブジェクトの配列。これらの時系列値は、UIにデフォルトのラインプロットとして表示されます。
 
-* wandb.init — initialize a new run at the top of your training script
-* wandb.config — track hyperparameters
-* wandb.log — log metrics over time within your training loop
-* wandb.save — save files in association with your run, like model weights
-* wandb.restore — restore the state of your code when you ran a given run
+   o   **サマリー**：デフォルトで、wandb.log（）でログに記録されるメトリックの最終値。メトリックの要約を手動で設定して、最終値の代わりに最高の精度または最低の損失を取得できます。これらの値は、実行を比較するテーブルとプロットで使用されます。たとえば、プロジェクト内のすべての実行の最終的な精度で視覚化できます。
 
-{% page-ref page="init.md" %}
+4. \*\*\*\*[**Artifacts**](../artifacts/): モデルの重みや予測の表など、実行の出力をアーティファクトに保存します。**run.use\_artifact**と組み合わせると、トレーニングステップだけでなく、最終モデルに影響を与えるすべてのパイプライン部分を追跡できます
 
-{% page-ref page="log.md" %}
+##  **ベストプラクティス**
 
-{% page-ref page="config.md" %}
+`wandb`ライブラリは非常に柔軟です。いくつかの推奨ガイドラインを以下に提示します。
 
-{% page-ref page="save.md" %}
+1.  **構成・設定**：ハイパーパラメータ、アーキテクチャ、データセット、およびモデルの再現に使用しようとする他のものを追跡します。これらは列に表示されます。構成列を使用して、アプリで実行を動的にグループ化、並べ替え、フィルタリングできます。
 
-{% page-ref page="restore.md" %}
+2.  **プロジェクト**：プロジェクトは、同時に比較できる一連の実験です。各プロジェクトには専用のダッシュボードページがあり、さまざまな実行グループを簡単にオンまたはオフにして、さまざまなモデルバージョンを比較できます。
 
-## What gets uploaded
+3.  **メモ**：自分へのクイックコミットメッセージ。メモはスクリプトから設定でき、テーブルで編集できます。
 
-All the data logged from your script is saved locally to your machine in a **wandb** directory, then sync'd to the cloud.
-
-### **Logged Automatically**
-
-* **System metrics**: CPU and GPU utilization, network, etc. These come from [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) and are shown in the System tab on the run page.
-* **Command line**: The stdout and stderr are picked up and show in the logs tab on the run page.
-* **Git commit**: We pick up the latest git commit and show it on the overview tab of the run page.
-* **Files**: The requirements.txt file and any files you save to the **wandb** directory for the run will be uploaded and shown on the files tab of the run page.
-
-### Logged with specific calls
-
-Where data and model metrics are concerned, you get to decide exactly what you want to log.
-
-* **Dataset**: You have to specifically log images or other dataset samples for them to stream to W&B.
-* **PyTorch gradients**: Add wandb.watch\(model\) to see gradients of the weights as histograms in the UI.
-* **Config**: Log hyperparameters, a link to your dataset, or the name of the architecture you're using as config parameters, passed in like this: wandb.init\(config=your\_config\_dictionary\).
-* **Metrics**: Use wandb.log\(\) to see metrics from your model. If you log metrics like accuracy and loss from inside your training loop, you'll get live updating graphs in the UI.
-
-## Common Questions
-
-### Multiple wandb users on shared machines
-
-If you're using a shared machine and another person is a wandb user, it's easy to make sure your runs are always logged to the proper account. Set the [WANDB\_API\_KEY environment variable](environment-variables.md) to authenticate. If you source it in your env, when you log in you'll have the right credentials, or you can set the environment variable from your script.
-
-Run this command `export WANDB_API_KEY=X` where X is your API key. When you're logged in, you can find your API key at [wandb.ai/authorize](https://app.wandb.ai/authorize).
-
-### Organization best practices <a id="best-practices"></a>
-
-We provide a very flexible and customizable tool. You're free to use our tools however you'd like, but here are some guidelines for how to think about our tools.
-
-Here's an example of setting up a run:
+4.  **タグ**：ベースライン実行とお気に入り実行を特定します。タグを使用して実行をフィルタリングでき、テーブルで編集可能です。
 
 ```python
 import wandb
@@ -83,10 +51,26 @@ wandb.init(
 )
 ```
 
-**Suggested usage**
+##  **どのようなデータがログに記録されますか？**
 
-1. **Config**: Track hyperparameters, architecture, dataset, and anything else you'd like to use to reproduce your model. These will show up in columns— use config columns to group, sort, and filter runs dynamically in the app.
-2. **Project**: A project is a set of experiments you can compare together. Each project gets a dedicated dashboard page, and you can easily turn on and off different groups of runs to compare different model versions.
-3. **Notes**: A quick commit message to yourself, the note can be set from your script and is editable in the table. We suggest using the notes field instead of overwriting the generated run name.
-4. **Tags**: Identify baseline runs and favorite runs. You can filter runs using tags, and they're editable in the table.
+スクリプトからログに記録されたすべてのデータは、ローカルの**wandb**ディレクトリにあるマシンに保存されてから、W＆Bクラウドまたはプライベートサーバーに同期されます。
+
+### **自動的に記録**
+
+*  **システムメトリック**：CPUおよびGPUの使用率、ネットワークなど。これらはnvidia-smiから取得され、実行ページの\[システム\]タブに表示されます。
+* **コマンドライン**：stdoutとstderrが取得され、実行ページの\[ログ\]タブに表示されます。
+
+  設定ページでコード保存をオンにして、以下を取得します。
+
+* **Git commit**：最新のgit commitを取得し、実行ページの\[概要\]タブで確認します。コミットされていない変更点がある場合は、diff.patchファイルを確認します。
+*  **ファイル**：requirements.txtファイルと、実行のために**wandb**ディレクトリに保存したファイルがアップロードされ、実行ページの\[ファイル\]タブに表示されます。
+
+###  **特定の通話で記録**
+
+データとモデルのメトリックが関係する場合、ログに記録する内容を正確に決定できます。
+
+*    **データセット**：W＆Bにストリーミングするには、画像またはその他のデータセットサンプルを具体的にログに記録する必要があります。
+*  **PyTorchグラデーション**：wandb.watch（model）を追加して、重みのグラデーションをUIのヒストグラムとして表示します。
+* **構成・設定**：ログハイパーパラメータ、データセットへのリンク、または構成パラメータとして使用しているアーキテクチャーの名前を、wandb.init（config = your\_config\_dictionary）のように渡します。
+* **メトリック**：wandb.log（）を使用して、モデルのメトリックを確認します。トレーニングループ内から精度やロスなどの指標をログに記録すると、UIにライブ更新グラフが表示されます
 
