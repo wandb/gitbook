@@ -1,53 +1,49 @@
 ---
-description: グループのトレーニングと評価は、より大きな実験に使います
+description: Group training and evaluation runs into larger experiments
 ---
 
 # Grouping
 
-ユニークな**グループ**名を**wandb.init（）**に渡すことにより、グループの個人が実験に使います
+Group individual runs into experiments by passing a unique **group** name to **wandb.init\(\)**.
 
-### **ユースケース**
+### **Use Cases**
 
-1.**分散トレーニング**：実験が異なる部分に分割され、より大きな全体の一部として表示される必要がある個別のトレーニングおよび評価スクリプトがある場合は、グループ化を使用します。
-
-2.**複数のプロセス**：複数の小さなプロセスを1つの実験にグループ化します。
-
-3.**K分割交差検定**：グループ化して、さまざまなランダムシードを使用して実行し、より大きな実験を確認します。これは、スイープとグループ化を使用したk分割交差検定の[例](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation)です。
+1. **Distributed training:** Use grouping if your experiments are split up into different pieces with separate training and evaluation scripts that should be viewed as parts of a larger whole.
+2. **Multiple processes**: Group multiple smaller processes together into an experiment.
+3. **K-fold cross-validation**: Group together runs with different random seeds to see a larger experiment. Here's [an example](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation) of k-fold cross validation with sweeps and grouping.
 
 ### What it looks like
 
-**それはどのようなものですか**
+If you set grouping in your script, we will group the runs by default in the table in the UI. You can toggle this on and off by clicking the **Group** button at the top of the table. Here's an example of grouping on the project page.
 
-スクリプトでグループ化を設定した場合、UIのテーブルでデフォルトで実行がグループ化されます。表の上部にある\[**グループ**\]ボタンをクリックすると、これのオンとオフを切り替えることができます。プロジェクトページでのグループ化の例を次に示します。
-
-*  **サイドバー**：実行はエポックの数でグループ化されます。
-* **グラフ**：各線はグループの平均を表し、陰影は分散を示します。この動作は、グラフ設定で変更できます。
+* **Sidebar**: Runs are grouped by the number of epochs.
+* **Graphs**: Each line represents the mean of the group, and the shading indicates the variance. This behavior can be change in the graph settings.
 
 ![](../.gitbook/assets/demo-grouping.png)
 
-グループ化を使用する方法はいくつかあります。
+There are a few ways to use grouping:
 
-**スクリプトにグループを設定します**
+**Setting a group in your script**
 
-オプションのグループとjob\_typeをwandb.init（）に渡します。例：`wandb.init(group="experiment_1", job_type="eval")`。**グループ**はプロジェクト内でユニークであり、グループ内のすべての実行で共有されている必要があります。`wandb.util.generate_id（）`を使用して、すべてのプロセスで使用する一意の8文字の文字列を生成できます。例：`os.environ["WANDB_RUN_GROUP"] = "experiment-" + wandb.util.generate_id()`
+Pass an optional group and job\_type to wandb.init\(\). For example:`wandb.init(group="experiment_1", job_type="eval")`**. Group** should be unique within your project and shared by all runs in the group.  You can use `wandb.util.generate_id()` to generate a unique 8 character string to use in all your processes— for example:`os.environ["WANDB_RUN_GROUP"] = "experiment-" + wandb.util.generate_id()`
 
-**グループ環境変数を設定します**
+**Set a group environment variable**
 
-`WANDB_RUN_GROUP`を使用して、実行のグループを環境変数として指定します。詳細については、ドキュメントで[**環境変数**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/library/environment-variables)を確認してください。
+Use `WANDB_RUN_GROUP` to specify a group for your runs as an environment variable. For more on this, check our docs for [**Environment Variables**](environment-variables.md)**.**
 
-**UIでグループ化を切り替えます**
+**Toggle grouping in the UI**
 
-任意の構成列で動的にグループ化できます。たとえば、`wandb.config`を使用してバッチサイズまたは学習率をログに記録する場合、Webアプリでこれらのハイパーパラメータによって動的にグループ化できます。
+You can dynamically group by any config column. For example, if you use `wandb.config` to log batch size or learning rate, you can then group by those hyperparameters dynamically in the web app. 
 
-**グループ化をオフにします**
+### Turn off grouping
 
-グループ化ボタンをクリックして、いつでもグループフィールドをクリアすると、テーブルとグラフがグループ化されていない状態に戻ります。
+Click the grouping button and clear group fields at any time, which returns the table and graphs to their ungrouped state.
 
 ![](../.gitbook/assets/demo-no-grouping.png)
 
-**グラフ設定のグループ化**
+### Grouping graph settings
 
-グラフの右上隅にある編集ボタンをクリックし、\[**詳細設定**\]タブを選択して、線と陰影を変更します。各グループの行の平均値、最小値、または最大値を選択できます。シェーディングについては、シェーディングをオフにし、最小値と最大値、標準偏差、および標準誤差を表示できます。
+Click the edit button in the upper right corner of a graph and select the **Advanced** tab to change the line and shading. You can select the mean, minimum, or maximum value to for the line in each group. For the shading, you can turn off shading, show the min and max, the standard deviation, and the standard error.
 
 ![](../.gitbook/assets/demo-grouping-options-for-line-plots.gif)
 

@@ -1,26 +1,26 @@
 ---
-description: Javaクライアントライブラリの概要
+description: Overview of our Java client library
 ---
 
 # Java Library \[Beta\]
 
-Pythonライブラリと同様に、機械学習モデルを計測して実験を追跡するためのJavaクライアントを提供しています。このライブラリは、Pythonライブラリのラッパーとして使用される2つの単純なクラスで構成されています。
+Similar to our Python library, we offer a Java client to instrument your machine learning model and track experiments. This library consists of two simple classes that are used as a wrapper around the Python Library.
 
-Javaクライアントのソースコードは[Githubリポジトリ](https://github.com/wandb/client-java)にあります。
+You can find the source code for the Java Client in the [Github repository](https://github.com/wandb/client-ng-java).
 
 {% page-ref page="wandbrun-builder.md" %}
 
 {% page-ref page="wandbrun.md" %}
 
-###  インストール
+### Installation
 
-1. **最新バージョンのwandb Pythonクライアントをインストールします。`pip install wandb[grpc] --upgrade`**  
-2. **JavaプロジェクトにWandb jarファイルを含めるだけです**
-3. **Maven：これはjarファイルをpom.xmlファイルに追加することで含めることができます。Mavenリポジトリの使用：**
+1. Install the latest version of the wandb Python client: `pip install wandb[grpc] --upgrade`
+2. Simply include the Wandb jar file in your Java Project.
 
-**または、jarファイルをGithubパッケージから直接ダウンロードすることもできます。**
+   **Maven**: this can be included by adding the jar file to your `pom.xml`  file.  
+   Using maven repository:
 
-1. ```markup
+   ```markup
    <dependency>
        <groupId>com.wandb.client</groupId>
        <artifactId>client-ng-java</artifactId>
@@ -28,7 +28,7 @@ Javaクライアントのソースコードは[Githubリポジトリ](https://gi
    </dependency>
    ```
 
-
+   Or you can download the jar file directly from the [Github Package](https://github.com/wandb/client-ng-java/packages/381057):
 
    ```markup
    <dependencies>

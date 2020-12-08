@@ -4,7 +4,7 @@
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L2)
 
-### アーティファクト
+### Artifact Objects
 
 ```python
 class Artifact(object)
@@ -12,7 +12,7 @@ class Artifact(object)
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L69)
 
-このアーティファクトをフェッチするために使用できる安定した名前。
+An artifact object you can write files into, and pass to log\_artifact.
 
 **add**
 

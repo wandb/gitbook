@@ -1,31 +1,27 @@
 # SageMaker
 
-##  **SageMakerの統合**
+## SageMaker Integration
 
- W＆Bは[Amazon SageMaker](https://aws.amazon.com/sagemaker/)と統合され、ハイパーパラメータを自動的に読み取り、分散実行をグループ化し、チェックポイントから実行を再開します。
+W&B integrates with [Amazon SageMaker](https://aws.amazon.com/sagemaker/), automatically reading hyperparameters, grouping distributed runs, and resuming runs from checkpoints.
 
-###  認証
+### Authentication
 
-W＆Bは、トレーニングスクリプトに関連する`secrets.env`という名前のファイルを探し、`wandb.init（）`が呼び出されたときにそれらを環境にロードします。実験の起動に使用するスクリプトで`wandb.sagemaker_auth（path = "source_dir"）`を呼び出すことにより、secrets.envファイルを生成できます。このファイルを`.gitignore`に必ず追加してください。
+W&B looks for a file named `secrets.env` relative to the training script and loads them into the environment when `wandb.init()` is called. You can generate a `secrets.env` file by calling `wandb.sagemaker_auth(path="source_dir")` in the script you use to launch your experiments. Be sure to add this file to your `.gitignore`!
 
-### 既存の推定量
+### Existing Estimators
 
-SageMakersの事前設定されたエスティメータのいずれかを使用している場合は、wandbを含むソースディレクトリにrequirements.txtを追加する必要があります
+If you're using one of SageMakers preconfigured estimators you need to add a `requirements.txt` to your source directory that includes wandb
 
 ```text
 wandb
 ```
 
-Python 2を実行しているEstimatorを使用している場合は、wandbをインストールする前に、[ホイール](https://pythonwheels.com/)から直接psutilをインストールする必要があります。
-
-|  |
-| :--- |
-
+If you're using an estimator that's running Python 2, you'll need to install psutil directly from a [wheel](https://pythonwheels.com/) before installing wandb:
 
 ```text
 https://wheels.galaxyproject.org/packages/psutil-5.4.8-cp27-cp27mu-manylinux1_x86_64.whl
 wandb
 ```
 
- 完全な例は[GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker)で入手でき、[ブログ](https://www.wandb.com/articles/running-sweeps-with-sagemaker)で詳細を読むことができます。
+A complete example is available on [GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker) and you can read more on our [blog](https://www.wandb.com/blog/running-sweeps-with-sagemaker).
 

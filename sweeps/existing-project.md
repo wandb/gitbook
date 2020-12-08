@@ -1,42 +1,52 @@
 ---
-description: プロジェクトですでにwandb.init、wandb.config、およびwandb.logを使用している場合は、ここから始めてください。
+description: >-
+  If you're already using wandb.init, wandb.config, and wandb.log in your
+  project, start here!
 ---
 
 # Sweep from an existing project
 
-既存のW＆Bプロジェクトがある場合は、ハイパーパラメータスイープを使用してモデルの最適化を簡単に開始できます。実用的な例を使用して手順を説明します。[W＆Bダッシュボード](https://wandb.ai/carey/pytorch-cnn-fashion)を開くことができます。このサンプルリポジトリのコードを使用しています。このコードは、PyTorch畳み込みニューラルネットワークをトレーニングして、[Fashion MNIST ](https://github.com/zalandoresearch/fashion-mnist)データセットからの画像を分類します。
+If you have an existing W&B project, it’s easy to start optimizing your models with hyperparameter sweeps. I’ll walk through the steps with a working example— you can open my [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion). I'm using the code from [this example repo](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), which trains a PyTorch convolutional neural network to classify images from the [Fashion MNIST dataset](https://github.com/zalandoresearch/fashion-mnist).
 
-## 1. **プロジェクトの作成**
+## 1. Create a project
 
-最初のベースライン実行を手動で実行して、W＆Bロギングが正しく機能していることを確認します。この単純なサンプルモデルをダウンロードし、数分間トレーニングすると、サンプルがWebダッシュボードに表示されます。
+Run your first baseline run manually to check that W&B logging is working properly. You'll download this simple example model, train it for a few minutes, and see the example appear in the web dashboard.
 
-* このリポジトリの git clone [https://github.com/wandb/examples.gitのクローンを作成します](https://github.com/wandb/examples.gitのクローンを作成します)
-* **•この例の\`cd examples/pytorch/pytorch-cnn-fashion\`を開きます**
-* **手動で \`python train.py実行を実行します**
+* Clone this repo `git clone https://github.com/wandb/examples.git`
+* Open this example `cd examples/pytorch/pytorch-cnn-fashion`
+* Run a run manually `python train.py`
 
-[プロジェクトページの例を見る→](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+[View an example project page →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-## 2. **スイープの作成**
+## 2. Create a sweep
 
-プロジェクトページから、サイドバーの\[スイープ\]タブを開き、\[スイープの作成\]をクリックします。
+From your project page, open the Sweep tab in the sidebar and click "Create Sweep".
 
- 自動生成された構成は、すでに実行した実行に基づいてスイープする値を推測します。構成を編集して、試行するハイパーパラメーターの範囲を指定します。スイープを起動すると、ホストされているW＆Bスイープサーバーで新しいプロセスが開始されます。この一元化されたサービスは、エージェント、つまりトレーニングジョブを実行しているマシンを調整します。
+![](../.gitbook/assets/sweep1.png)
+
+The auto-generated config guesses values to sweep over based on the runs you've done already. Edit the config to specify what ranges of hyperparameters you want to try. When you launch the sweep, it starts a new process on our hosted W&B sweep server. This centralized service coordinates the agents— your machines that are running the training jobs.
 
 ![](../.gitbook/assets/sweep2.png)
 
-**3. エージェントの起動**次に、エージェントをローカルで起動します。作業を分散してスイープをより迅速に終了したい場合は、異なるマシンで数十の
+## 3. Launch agents
+
+Next, launch an agent locally. You can launch dozens of agents on different machines in parallel if you want to distribute the work and finish the sweep more quickly. The agent will print out the set of parameters it’s trying next.
 
 ![](../.gitbook/assets/sweep3.png)
 
- それで完了しました！これで、スイープを実行しています。スイープの例を開始すると、ダッシュボードは次のようになります。[プロジェクトページの例を見る→](https://wandb.ai/carey/pytorch-cnn-fashion?workspace=)
+That’s it! Now you're running a sweep. Here’s what the dashboard looks like as my example sweep gets started. [View an example project page →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579066494222_image.png)
 
-## **既存の実行で新しいスイープをシードします**以前に記録した既存の実行を使用して、新しいスイープを起動します。
+## Seed a new sweep with existing runs
 
-1. プロジェクトテーブルを開きます。
-2. テーブルの左側にあるチェックボックスで使用する実行を選択します。
-3. ドロップダウンをクリックして、新しいスイープを作成します。これで、スイープがサーバーに設定されます。実行を開始するには、1つ以上のエージェントを起動するだけです。
+Launch a new sweep using existing runs that you've previously logged.
+
+1. Open your project table.
+2. Select the runs you want to use with checkboxes on the left side of the table.
+3. Click the dropdown to create a new sweep.
+
+Your sweep will now be set up on our server. All you need to do is launch one or more agent to start running runs.
 
 ![](../.gitbook/assets/create-sweep-from-table%20%281%29.png)
 

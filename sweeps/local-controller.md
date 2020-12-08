@@ -1,33 +1,37 @@
 ---
-description: クラウドでホストされているサービスを使用する代わりに、検索と停止のアルゴリズムをローカルで実行します
+description: >-
+  Run search and stopping algorithms locally, instead of using our cloud-hosted
+  service
 ---
 
 # Local Controller
 
-デフォルトでは、ハイパーパラメータコントローラーはW＆Bによってクラウドサービスとしてホストされます。W＆Bエージェントはコントローラーと通信して、トレーニングに使用する次のパラメーターセットを決定します。コントローラは、早期停止アルゴリズムを実行して、停止できる実行を決定する役割も果たします。
+By default the hyper-parameter controller is hosted by W&B as a cloud service. W&B agents communicate with the controller to determine the next set of parameters to use for training. The controller is also responsible for running early stopping algorithms to determine which runs can be stopped.
+
+The local controller feature allows the user to run search and stopping algorithms locally. The local controller gives the user the ability to inspect and instrument the code in order to debug issues as well as develop new features which can be incorporated into the cloud service.
 
 {% hint style="info" %}
 The local controller is currently limited to running a single agent.
 {% endhint %}
 
-## **ローカルコントローラー構成**
+## Local controller configuration
 
-ローカルコントローラを有効にするには、スイープ設定ファイルに以下を追加します。
+To enable the local controller, add the following to the sweep configuration file:
 
 ```text
 controller:
   type: local
 ```
 
-## **ローカルコントローラーの実行**
+## Running the local controller
 
-次のコマンドは、スイープコントローラーを起動します。
+The following command will launch a sweep controller:
 
 ```text
 wandb controller SWEEP_ID
 ```
 
-または、スイープを初期化するときにコントローラーを起動することもできます。
+Alternatively you can launch a controller when you initialize the sweep:
 
 ```text
 wandb sweep --controller sweep.yaml

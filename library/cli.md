@@ -1,44 +1,48 @@
 ---
-description: ログインし、コードの状態を復元し、ローカルディレクトリをサーバーに同期し、コマンドラインインターフェイスでハイパーパラメータスイープを実行します
+description: >-
+  Log in, restore code state, sync local directories to our servers, and run
+  hyperparameter sweeps with our command line interface
 ---
 
 # Command Line Interface
 
-`pip install wandb`を実行すると、新しいコマンドwandbが使用可能になります。次のサブコマンドを使用できます。
+After running `pip install wandb` you should have a new command available, **wandb**.
 
-| サブコマンド | 説明 |
+The following sub-commands are available:
+
+| Sub-command | Description |
 | :--- | :--- |
-| docs | ブラウザでドキュメントを開きます |
-| init | W＆Bでディレクトリを構成します |
-| login | W＆Bにログイン |
-| offline |  このディレクトリでW＆Bを無効にします。これは、テストに役立ちます |
-| online | このディレクトリでW＆Bが有効になっていることを確認します |
+| docs | Open documentation in a browser |
+| init | Configure a directory with W&B |
+| login | Login to W&B |
+| offline | Only save run data locally, no cloud syncing \(`off` deprecated\) |
+| online | Ensure W&B is enabled in this directory \(`on` deprecated\) |
 | disabled | Disables all API calls, useful for testing |
 | enabled | Same as `online`, resumes normal W&B logging, once you've finished testing |
-| docker | Dockerイメージを実行し、cwdをマウントして、wandbがインストールされていることを確認します |
-| docker-run | Docker実行コマンドにW＆B環境変数を追加します |
-| projects | プロジェクトを一覧表示します |
-| pull | W＆Bから実行するためにファイルをプルします |
-| restore | 行のためにコードと構成状態を復元します |
-| run | on以外のプログラムを起動します。Pythonの場合はwandb.init |
-| runs | ストはプロジェクトで実行されます |
-| sync | tfeventsまたは以前の実行ファイルを含むローカルディレクトリを同期します |
-| status | 在のディレクトリステータスを一覧表示します |
-| sweep | L定義を指定して新しいスイープを作成します |
-| agent | ジェントを起動して、スイープでプログラムを実行します |
+| docker | Run a docker image, mount cwd, and ensure wandb is installed |
+| docker-run | Add W&B environment variables to a docker run command |
+| projects | List projects |
+| pull | Pull files for a run from W&B |
+| restore | Restore code and config state for a run |
+| run | Launch a non-python program, for python use wandb.init\(\) |
+| runs | List runs in a project |
+| sync | Sync a local directory containing tfevents or previous runs files |
+| status | List current directory status |
+| sweep | Create a new sweep given a YAML definition |
+| agent | Start an agent to run programs in the sweep |
 
-## コードの状態を復元します
+## Restore the state of your code
 
-特定の実行を実行したときのコードの状態に戻るには、`restore`を使用します。
+Use `restore` to return to the state of your code when you ran a given run.
 
-### 例
+### Example
 
 ```python
 # creates a branch and restores the code to the state it was in when run $RUN_ID was executed
 wandb restore $RUN_ID
 ```
 
-コードの状態をどのようにキャプチャしますか？
+**How do we capture the state of the code?**
 
-スクリプトから`wandb.init`が呼び出されると、コードがgitリポジトリにある場合、最後のgit commitへのリンクが保存されます。コミットされていない変更やリモートと同期していない変更がある場合に備えて、diffパッチも作成されます。
+When `wandb.init` is called from your script, a link is saved to the last git commit if the code is in a git repository. A diff patch is also created in case there are uncommitted changes or changes that are out of sync with your remote.
 

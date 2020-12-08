@@ -1,41 +1,41 @@
 ---
-description: あなたはwandbを使うのが好きですか？ツールを世界と共有する方法をいくつか紹介します。
+description: Do you like using wandb? Here are some ways to share our tools with the world.
 ---
 
 # Spread the Word
 
 If you're enjoying our tools, please share wandb with your friends! We'd love for more people to use us.
 
-###  シャウトアウト
+### Shout-Outs
 
-* \*\*\*\*[**Twitter**](https://twitter.com/weights_biases): ツイートしてください。ハンドルは@weights\_biasesです。
-* \*\*\*\*[**Product Hunt**](https://www.producthunt.com/posts/weights-biases): レビューは他の人が私たちの製品を見つけるのに役立ちます
-* \*\*\*\*[**Reddit**](https://www.reddit.com/r/MachineLearning/comments/bx0apm/d_how_do_you_manage_your_machine_learning/): r/MachineLearningへの投稿またはコメントは大いに役立ちます
-  * スレッド:  [実験ワークフロー](https://www.reddit.com/r/MachineLearning/comments/cf97z8/d_current_state_of_experiment_management_tools/)
-  * スレッド :[MLフレームワーク](https://www.reddit.com/r/MachineLearning/comments/ecvmsr/d_looking_for_a_ml_framework_for_production_like/)
+* \*\*\*\*[**Twitter**](https://twitter.com/weights_biases): tweet at us, our handle is @weights\_biases
+* \*\*\*\*[**Product Hunt**](https://www.producthunt.com/posts/weights-biases): a review helps other people find our product
+* \*\*\*\*[**Reddit**](https://www.reddit.com/r/MachineLearning/comments/bx0apm/d_how_do_you_manage_your_machine_learning/): a post or comment on r/MachineLearning goes a long way
+  * Thread 1: [Experiment workflows](https://www.reddit.com/r/MachineLearning/comments/cf97z8/d_current_state_of_experiment_management_tools/)
+  * Thread 2: [ML framework](https://www.reddit.com/r/MachineLearning/comments/ecvmsr/d_looking_for_a_ml_framework_for_production_like/)
 
-###  ブログ投稿
+### Blog Posts
 
- あなたが共有したいクールなプロジェクトや洞察に満ちた視点を持っているなら、私たちはユーザーの仕事を増幅するのが大好きです。私たちは[あなたのブログ](https://wandb.com/articles)投稿についてツイートしたり、私たち自身のブログで投稿をホストしたりすることができます。[contact@wandb.com](mailto:contact@wandb.com)までご連絡ください。
+If you have a cool project or an insightful perspective you'd like to share, we love to amplify the work of our users. We can tweet about your blog post or host a post on [our own blog](https://wandb.com/articles). Please reach out at contact@wandb.com.
 
-### 製品フィードバック
+### Product Feedback
 
-オープンソースのGitHubリポジトリ（[github.com/wandb/client](https://github.com/wandb/client)）に問題を報告してください。私たちはフィードバックが大好きで、ユーザーが求めているものを実装するように努めています。
+File an issue in our open source GitHub repo: [github.com/wandb/client](https://github.com/wandb/client). We love feedback, and we try hard to implement what users are asking for.
 
-##  ありがとうございました
+## Thank You
 
-製品の改善とWeights＆Biasesについて紹介していただいた全てのユーザーに心より感謝を申し上げます。
+We're so grateful to our users who have helped us improve the product and spread the word about Weights & Biases.
 
-| お客様 | 居住地 | リンク |
+| Who | Where | Links |
 | :--- | :--- | :--- |
-| Amir Abdi | UBC, Canada | [Disentanglement Challenge](https://github.com/amir-abdi/disentanglement-pytorch) - NeurIPS2019の解きほぐしチャレンジの3位レポ第1ステージ |
-| Sergey Kolesnikov | Moscow, Russia | [Catalyst ](https://github.com/catalyst-team/catalyst)-DLおよびRL研究用の高レベルのPyTorch API |
-| Sayak Paul | Kolkata, India | [Generating Categories from ArXiv Paper Titles](https://github.com/sayakpaul/Generating-categories-from-arXiv-paper-titles) - TensorFlowプロジェクト |
-| Josh Tobin | San Francisco, California | [FSDL](https://fullstackdeeplearning.com/) - 機械学習モデルのトレーニングから実世界でのAIシステムの展開までのギャップを埋めるための実践的なコース（強くお勧めします！） |
-| Whitman Bohorquez | Venezuela | [DeepBay](https://github.com/ElPapi42/DeepBay) - プラグアンドプレイの深層学習モデル |
-| Boris Dayma | Houston, Texas | [CycleGAN](https://www.wandb.com/articles/horses-zebras-cyclegan) - 深層学習を使用して馬をシマウマに変える |
-| Séb Arnold | USC, California | [Cherry](http://cherry-rl.net) - の上に構築されたRLフレームワーク |
-| Ryan Lee | Princeton, New Jersey | [End to End](https://www.endtoend.ai) - 機械学習プロジェクトのブログ |
-| Róbert Csordás | IDSA, Switzerland | [W&B Profile](https://app.wandb.ai/csordas) -  近日公開の論文です！ :\)  |
-| Peter Welinder | San Francisco | OpenAIロボティクスチーム |
+| Amir Abdi | UBC, Canada | [Disentanglement Challenge](https://github.com/amir-abdi/disentanglement-pytorch) - the 3rd place repo 1st stage of the Disentanglement challenge of NeurIPS 2019 |
+| Sergey Kolesnikov | Moscow, Russia | [Catalyst ](https://github.com/catalyst-team/catalyst)- a high-level PyTorch API for DL & RL research |
+| Sayak Paul | Kolkata, India | [Generating Categories from ArXiv Paper Titles](https://github.com/sayakpaul/Generating-categories-from-arXiv-paper-titles) - a TensorFlow project |
+| Josh Tobin | San Francisco, California | [FSDL](https://fullstackdeeplearning.com/) - a hands on course to bridge the gap from training machine learning models to deploying AI systems in the real world \(We highly recommend!\) |
+| Whitman Bohorquez | Venezuela | [DeepBay](https://github.com/ElPapi42/DeepBay) - plug-n-play deep learning models |
+| Boris Dayma | Houston, Texas | [CycleGAN](https://www.wandb.com/articles/horses-zebras-cyclegan) - using deep learning to turn horses into zebras |
+| Séb Arnold | USC, California | [Cherry](http://cherry-rl.net) - an RL framework built on top of PyTorch |
+| Ryan Lee | Princeton, New Jersey | [End to End](https://www.endtoend.ai) - a blog for machine learning projects |
+| Róbert Csordás | IDSA, Switzerland | [W&B Profile](https://app.wandb.ai/csordas) -  a published paper to come soon! :\) |
+| Peter Welinder | San Francisco | OpenAI robotics team |
 

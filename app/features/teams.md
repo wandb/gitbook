@@ -1,69 +1,74 @@
 ---
-description: 同僚と協力し、結果を共有し、チーム全体のすべての実験を追跡します
+description: >-
+  Collaborate with your colleagues, share results, and track all the experiments
+  across your team
 ---
 
 # Teams
 
-機械学習チームの中央リポジトリとしてWeights＆Biasesを使用します。
+Use Weights & Biases as a central repository for your machine learning team.
 
-* **チームが試したすべての実験を追跡して、作業を重複させないようにします。わずか数行のインストルメンテーションにより、モデルのパフォーマンスメトリック、予測、GPUの使用状況、およびモデルをトレーニングしたコードのバージョンを高速で信頼性の高い方法で追跡できます。**
-* **以前にトレーニングしたモデルを保存、復元、および再現します。**
-*  **上司や共同編集者と結果および進捗状況を共有します。**
-*  **リグレッションをキャッチし、パフォーマンスが低下するとすぐにアラートを受け取ります。·       モデルのパフォーマンスをベンチマークし、クエリをカスタマイズしてモデルのバージョンを比較します。**
+* **Track all the experiments** your team has tried so you never duplicate work. Just a few lines of instrumentation give you fast, reliable tracking of model performance metrics, predictions, GPU usage, and the version of the code that trained the model.
+* **Save, restore and reproduce** previously trained models.
+* **Share progress** and results with your boss and collaborators.
+* **Catch regressions** and immediately get alerted when performance drops.
+* **Benchmark model performance** and customize queries to compare your model versions.
 
-##  よくある質問
+## Common Questions
 
 ### Get access to private teams
 
-あなたが会社にいるなら、私たちはエンタープライズプ実行を持っています。詳細については、[価格ページ](https://www.wandb.com/pricing)を確認してください。オープンソースプロジェクトに取り組んでいる学者のために、無料のプライベートチームを提供しています。[アカデミックページ](https://www.wandb.com/academic)を確認して、アップグレードを申請してください。
+If you're at a company, we have enterprise plans. Check the [pricing page](https://www.wandb.com/pricing) for more details. We offer free private teams for academics working on open source projects. Check the [academic page](https://www.wandb.com/academic) to apply for an upgrade.
 
-###  新しいチームを作成します
+### Create a new team
 
-機能を有効にすると、アプリの\[[設定](https://app.wandb.ai/settings)\]ページで新しいチームを作成できます。この名前はすべてのチームプロジェクトのURLで使用されるため、後で変更することはできないため、短く説明的なものを選択してください。
+Once you have the feature enabled, create a new team on your [Settings](https://app.wandb.ai/settings) page in the app. The name will be used in the URL of all your team projects, so make sure you pick something short and descriptive, since you won't be able to change it later.
 
-### 実行をチームに移動します
+### Move runs to a team
 
-アクセスできるプロジェクト間で実行を移動するのは簡単です。プロジェクトページ：
+It's easy to move runs between projects you have access to. On the project page:
 
-1. **\[表\]タブをクリックして、実行表を展開します**
-2. **チェックボックスをクリックしてすべての実行を選択します**
-3. **\[移動\]をクリックします。宛先プロジェクトは、個人アカウントまたはメンバーである任意のチームに含めることができます。**
+1. Click the table tab to expand the runs table
+2. Click the checkbox to select all runs
+3. Click **Move**: the destination project can be in your personal account or any team that you're a member of.
 
 ![](../../.gitbook/assets/demo-move-runs.gif)
 
-###  チームに新しい実行を送ります
+### Send new runs to a team
 
-スクリプトで、エンティティをチームに設定します。「エンティティ」とは、ユーザー名またはチーム名を意味します。実行を送信する前に、Webアプリでエンティティ（個人アカウントまたはチームアカウント）を作成します。
+In your script, set the entity to your team. "Entity" just means your username or team name. Create an entity \(personal account or team account\) in the web app before sending runs there.
 
 ```python
 wandb.init(entity="example-team")
 ```
 
- チームに参加すると、**デフォルトエンティティ**が更新されます。つまり、[設定ページ](https://wandb.ai/settings)で、新しいプロジェクトを作成するためのデフォルトの場所が、参加したばかりのチームになっていることがわかります。その設定ページセクションがどのように見えるかの例を次に示します。
+Your **default entity** is updated when you join a team. This means that on your [settings page](https://app.wandb.ai/settings), you'll see that the default location to create a new project is now the team you've just joined. Here's an example of what that [settings page](https://app.wandb.ai/settings) section looks like:
 
 ![](../../.gitbook/assets/screen-shot-2020-08-17-at-12.48.57-am.png)
 
-### チームメンバーを招待します
+### Invite team members
 
-チーム設定ページで新しいメンバーをチームに招待できます。app.wandb.ai/teams/&lt;your-team-here&gt;
+You can invite new members to your team on your team settings page:  
+app.wandb.ai/teams/&lt;your-team-here&gt;
 
-### プライバシー設定を参照します
+### See privacy settings
 
-すべてのチームプロジェクトのプライバシー設定は、チーム設定ページで確認できます。app.wandb.ai/teams/&lt;your-team-here&gt;
+You can see the privacy settings of all team projects on the team settings page:  
+app.wandb.ai/teams/&lt;your-team-here&gt;
 
-チーム設定ページは次のようになります。このスクリーンショットでは、プライバシーの切り替えがオンになっています。これは、チーム内のすべてのプロジェクトがチームにのみ表示されることを意味します。
+Here's what the team settings page looks like. In this screenshot the privacy toggle is on, which means all projects in the team are only visible to the team.
 
 ![](../../.gitbook/assets/demo-team-settings.png)
 
-### チームからのメンバーを削除します
+### Removing members from teams
 
-チームメンバーが去るとき、それらを取り除くのは簡単です。チーム管理者は、チーム設定ページを開いて、退会するメンバーの名前の横にある削除ボタンをクリックできます。チームに記録した実行は、ユーザーが削除された後も残ります。
+When a team member leaves, it's easy to remove them. Team admins can open the team settings page and click the delete button next to the departing member's name. Any runs that they logged to the team will remain after a user is removed.
 
-### アカウントの種類
+### Account types
 
- 同僚をチームに招待し、次のオプションから選択します。
+Invite colleagues to join the team, and select from these options:
 
-* **メンバー**：電子メールで招待されたチームの正規メンバー
-* **管理者**：他の管理者やメンバーを追加および削除できるチームメンバー
-*   **サービス**：サービスワーカー；実行自動化ツールでW＆Bを使用するのに役立つAPIキー。チームのサービスアカウントのAPIキーを使用する場合は、環境変数**WANDB\_USERNAME**を正しいユーザーに実行属性に設定してください。
+* **Member**: A regular member of your team, invited by email
+* **Admin**: A team member who can add and remove other admins and members
+* **Service**: A service worker, an API key useful for using W&B with your run automation tools. If you use the API key from a service account for your team, make sure to set the environment variable **WANDB\_USERNAME** to attribute runs to the correct user.
 

@@ -1,18 +1,18 @@
 ---
-description: ビジュアライゼーションで実行の色を変更する方法
+description: How to change the colors of your runs in visualizations
 ---
 
 # Run Colors
 
-新しい実行が作成されると、デフォルトの色が割り当てられます。カラープレビューをクリックすると、特定の実行の色を編集できます。
+When a new run is created, it is assigned a default color. You can edit the color for a given run by clicking the color preview.
 
-色はローカルスコープです。プロジェクトページでは、カスタムカラーは自分のワークスペースにのみ適用されます。レポートでは、実行のカスタムカラーはセクションレベルでのみ適用されます。異なるセクションで同じ実行を視覚化でき、セクションごとに異なるカスタムカラーを使用できます。
+Colors are locally scoped. On the project page, custom colors only apply to your own workspace. In reports, custom colors for runs only apply at the section level. You can visualize the same run in different sections, and it can have a different custom color in each section.
 
-## **実行色を編集する方法**
+## How to edit run colors
 
-1.視覚化する実行を選択します
-
-2.色付きのドットをクリックします3.実行のグラフの色を選択します
+1. Select the Run you want to visualize
+2. Click the colored dot 
+3. Select a color for the graphs of your run
 
 ![](https://downloads.intercomcdn.com/i/o/149202442/b430d9b1473e41644a91fae3/run+coloring.gif)
 

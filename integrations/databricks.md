@@ -1,16 +1,16 @@
 # Databricks
 
-W＆Bは、[Databricks](https://www.databricks.com/)環境でW＆B Jupyterノートブックエクスペリエンスをカスタマイズすることにより、Databricksと統合します。
+W&B integrates with [Databricks](https://www.databricks.com/) by customizing the W&B Jupyter notebook experience in the Databricks environment.
 
-## Databricksの構成
+## Databricks Configuration
 
-###  **クラスターにwandbをインストールします**
+### Install wandb in the cluster
 
-クラスター構成に移動し、クラスターを選択し、\[ライブラリ\]、\[新規インストール\]の順にクリックし、\[PyPI\]を選択して、パッケージ`wandb`を追加します。
+Navigate to your cluster configuration, choose your cluster, click on Libraries, then on Install New, Choose PyPI and add the package `wandb`.
 
-###  認証
+### Authentication
 
-W＆Bアカウントを認証するために、ノートブックが照会できるdatabricksシークレットを追加できます。
+In order to authenticate your W&B account you can add a databricks secret which your notebooks can query.
 
 ```bash
 # install databricks cli
@@ -29,9 +29,9 @@ databricks secrets create-scope --scope wandb --initial-manage-principal users
 databricks secrets put --scope wandb --key api_key
 ```
 
-## 例
+## Examples
 
-### シンプル
+### Simple
 
 ```python
 import os
@@ -44,9 +44,9 @@ wandb.init()
 wandb.log({"foo": 1})
 ```
 
-### スイープ
+### Sweeps
 
-wandb.sweep（）またはwandb.agent（）を使用しようとするノートブックに必要な（一時的な）セットアップ：
+Setup required \(temporary\) for notebooks attempting to use wandb.sweep\(\) or wandb.agent\(\):
 
 ```python
 import os
@@ -55,7 +55,7 @@ os.environ['WANDB_ENTITY'] = "my-entity"
 os.environ['WANDB_PROJECT'] = "my-project-that-exists"
 ```
 
-ノートブックでスイープを実行する方法の詳細については、こちらをご覧ください。
+We cover more details of how to run a sweep in a notebook here:
 
 {% page-ref page="../sweeps/python-api.md" %}
 

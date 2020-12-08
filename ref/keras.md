@@ -32,40 +32,38 @@ WandbCallback(self,
 
 WandbCallback automatically integrates keras with wandb.
 
-**例：**
+**Examples**:
 
 ```python
 model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 callbacks=[WandbCallback()])
 ```
 
-WandbCallbackは、kerasによって収集されたすべてのメトリック（ロスおよびkeras\_model.compile（）に渡されたもの）から履歴データを自動的にログに記録します
+WandbCallback will automatically log history data from any metrics collected by keras: loss and anything passed into keras\_model.compile\(\)
 
-WandbCallbackは、「最良の」トレーニングステップに関連付けられた実行の要約メトリックを設定します。ここで、「最良」はモニターとモードの属性によって定義されます。これはデフォルトで、val\_lossが最小のエポックになります。WandbCallbackは、デフォルトで、最良のエポックに関連付けられたモデルを保存します。
+WandbCallback will set summary metrics for the run associated with the "best" training step, where "best" is defined by the `monitor` and `mode` attribues. This defaults to the epoch with the minimum val\_loss. WandbCallback will by default save the model associated with the best epoch..
 
-WandbCallbackは、オプションで勾配とパラメーターのヒストグラムをログに記録できます。
+WandbCallback can optionally log gradient and parameter histograms.
 
-WandbCallbackは、オプションで、wandbが視覚化するためのトレーニングおよび検証データを保存できます。
+WandbCallback can optionally save training and validation data for wandb to visualize.
 
+**Arguments**:
 
-
-**主張：**
-
-* monitor str‐監視するメトリックの名前。デフォルトはval\_lossです。
-* mode str‐{"auto", "min", "max"}のいずれか。「min」-モニターが最小化されたときにモデルを保存します「max」-モニターが最大化されたときにモデルを保存します「auto」‐モデルを保存するタイミングを推測してみます（デフォルト）。save\_model：True‐モニターが以前のすべてのエポックを上回ったときにモデルを保存しますFalse-モデルを保存しません
-* save\_weights\_only boolean‐Trueの場合、モデルの重みのみが保存されます（\(model.save\_weights\(filepath\)\)。それ以外の場合は、モデル全体が保存されます（\(model.save\(filepath\)\)。
-* og\_weights‐（ブール値）Trueの場合、モデルのレイヤーの重みのヒストグラムを保存します。
-* log\_gradients‐（ブール値）トレーニング勾配の真の対数ヒストグラムの場合。モデルはtotal\_lossを定義する必要があります。
-* training\_data‐（タプル）model.fitに渡されるのと同じ形式（X、y）。これは勾配を計算するために必要です‐log\_gradientsがTrueの場合、これは必須です。
-* validation\_data‐（タプル）model.fitに渡されるのと同じ形式（X、y）。wandbが視覚化するためのデータセット。これが設定されている場合、すべてのエポック、wandbは少数の予測を行い、後で視覚化するために結果を保存します。
-* generator generator‐wandbが視覚化するための検証データを返すジェネレーター。このジェネレーターはタプル（X、y）を返す必要があります。特定のデータ例を視覚化するには、validate\_dataまたはgeneratorのいずれかをwandbに設定する必要があります。
-* validation\_steps int‐validation\_dataがジェネレーターの場合、完全な検証セットに対してジェネレーターを実行するためのステップ数。
-* labels list‐wandbを使用してデータを視覚化している場合、マルチクラス分類子を構築している場合、このラベルリストは数値出力を理解可能な文字列に変換します。バイナリ分類子を作成している場合は、2つのラベルのリストを渡すことができます\["label for false", "label for true"\]。validate\_dataとgeneratorの両方がfalseの場合、これは何もしません。
-* predictions int‐各エポックを視覚化するために行う予測の数。最大は100です。
-* input\_type string‐視覚化に役立つモデル入力のタイプ。\("image", "images", "segmentation\_mask"\)のいずれかになります。
-* output\_type string‐視覚化に役立つモデル出力のタイプ。\("image", "images", "segmentation\_mask"\)のいずれかになります。
-* log\_evaluation boolean‐Trueの場合、トレーニングの最後に完全な検証結果を含むデータフレームを保存します。
-* class\_colors \[float, float, float\] ‐入力または出力がセグメンテーションマスクの場合、各クラスのrgbタプル（範囲0-1）を含む配列。
-* log\_batch\_frequency integer‐Noneの場合、コールバックはすべてのエポックをログに記録します。整数に設定されている場合、コールバックはlog\_batch\_frequencyバッチごとにトレーニングメトリックをログに記録します。
-* log\_best\_prefix string‐Noneの場合、追加のサマリーメトリックは保存されません。文字列に設定すると、監視対象のメトリックとエポックにこの値が付加され、サマリーメトリックとして保存されます。
+* `monitor` _str_ - name of metric to monitor.  Defaults to val\_loss.
+* `mode` _str_ - one of {"auto", "min", "max"}. "min" - save model when monitor is minimized "max" - save model when monitor is maximized "auto" - try to guess when to save the model \(default\). save\_model: True - save a model when monitor beats all previous epochs False - don't save models
+* `save_weights_only` _boolean_ - if True, then only the model's weights will be saved \(`model.save_weights(filepath)`\), else the full model is saved \(`model.save(filepath)`\).
+* `log_weights` - \(boolean\) if True save histograms of the model's layer's weights.
+* `log_gradients` - \(boolean\) if True log histograms of the training gradients. The model must define a `total_loss`.
+* `training_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  This is needed for calculating gradients - this is mandatory if `log_gradients` is `True`.
+* `validation_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  A set of data for wandb to visualize.  If this is set, every epoch, wandb will make a small number of predictions and save the results for later visualization.
+* `generator` _generator_ - a generator that returns validation data for wandb to visualize.  This generator should return tuples \(X,y\).  Either validate\_data or generator should be set for wandb to visualize specific data examples.
+* `validation_steps` _int_ - if `validation_data` is a generator, how many steps to run the generator for the full validation set.
+* `labels` _list_ - If you are visualizing your data with wandb this list of labels will convert numeric output to understandable string if you are building a multiclass classifier.  If you are making a binary classifier you can pass in a list of two labels \["label for false", "label for true"\].  If validate\_data and generator are both false, this won't do anything.
+* `predictions` _int_ - the number of predictions to make for visualization each epoch, max is 100.
+* `input_type` _string_ - type of the model input to help visualization. can be one of: \("image", "images", "segmentation\_mask"\).
+* `output_type` _string_ - type of the model output to help visualziation. can be one of: \("image", "images", "segmentation\_mask"\).
+* `log_evaluation` _boolean_ - if True save a dataframe containing the full validation results at the end of training.
+* `class_colors` _\[float, float, float\]_ - if the input or output is a segmentation mask, an array containing an rgb tuple \(range 0-1\) for each class.
+* `log_batch_frequency` _integer_ - if None, callback will log every epoch. If set to integer, callback will log training metrics every log\_batch\_frequency batches.
+* `log_best_prefix` _string_ - if None, no extra summary metrics will be saved. If set to a string, the monitored metric and epoch will be prepended with this value and stored as summary metrics.
 

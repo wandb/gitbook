@@ -1,22 +1,22 @@
 # Docker
 
-## Docker統合
+## Docker Integration
 
-W＆Bは、コードが実行されたDockerイメージへのポインターを格納できるため、以前の実験を実行された正確な環境に復元できます。`wandb`ライブラリは、この状態を維持するために**WANDB\_DOCKER**環境変数を探します。この状態を自動的に設定するヘルパーをいくつか提供します。
+W&B can store a pointer to the Docker image that your code ran in, giving you the ability to restore a previous experiment to the exact environment it was run in. The wandb library looks for the **WANDB\_DOCKER** environment variable to persist this state. We provide a few helpers that automatically set this state.
 
-### ローカル開発
+### Local Development
 
-wandb dockerは、dockerコンテナーを起動し、wandb環境変数を渡し、コードをマウントし、wandbがインストールされていることを確認するコマンドです。デフォルトでは、コマンドはTensorFlow、PyTorch、Keras、およびJupyterがインストールされたDockerイメージを使用します。同じコマンドを使用して、独自のDockerイメージ（`wandb docker my/image:latest`）を開始できます。このコマンドは、現在のディレクトリをコンテナの「/app」ディレクトリにマウントします。これは、「-dir」フラグを使用して変更できます。
+`wandb docker` is a command that starts a docker container, passes in wandb environment variables, mounts your code, and ensures wandb is installed. By default the command uses a docker image with TensorFlow, PyTorch, Keras, and Jupyter installed. You can use the same command to start your own docker image: `wandb docker my/image:latest`. The command mounts the current directory into the "/app" directory of the container, you can change this with the "--dir" flag.
 
-### 製造
+### Production
 
-`wandb-docker-run`コマンドは、実稼働ワークロード用に提供されています。これは、`nvidia-docker`のドロップイン代替品となることを目的としています。これは、資格情報と**WANDB\_DOCKER**環境変数を呼び出しに追加する`dockerrun`コマンドの単純なラッパーです。「--runtime」フラグを渡さず、マシンで`nvidia-docker`が使用可能な場合、これにより、ランタイムがnvidiaに設定されます。
+The `wandb-docker-run` command is provided for production workloads. It's meant to be a dropin replacement for `nvidia-docker`. It's a simple wrapper to the `docker run` command that adds your credentials and the **WANDB\_DOCKER** environment variable to the call. If you do not pass the "--runtime" flag and `nvidia-docker` is available on the machine, this also ensures the runtime is set to nvidia.
 
 ### Kubernetes
 
-トレーニングワークロードをKubernetesで実行し、k8s APIがポッドに公開されている場合（デフォルトの場合）. wandbは、DockerイメージのダイジェストをAPIに照会し、**WANDB\_DOCKER**環境変数を自動的に設定します。
+If you run your training workloads in Kubernetes and the k8s API is exposed to your pod \(which is the case by default\). wandb will query the API for the digest of the docker image and automatically set the **WANDB\_DOCKER** environment variable.
 
-## 復元
+## Restoring
 
-実行にWANDB\_DOCKER環境変数が組み込まれている場合、`wandb restore username/project:run_id`を呼び出すと、コードを復元する新しいブランチがチェックアウトされ、元のコマンドが事前入力されたトレーニングに使用される正確なDockerイメージが起動します
+If a run was instrumented with the **WANDB\_DOCKER** environment variable, calling `wandb restore username/project:run_id` will checkout a new branch restoring your code then launch the exact docker image used for training pre-populated with the original command.
 

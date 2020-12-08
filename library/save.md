@@ -1,23 +1,23 @@
 ---
-description: ファイルをクラウドに保存して、現在の実行を関連付けます
+description: Save a file to the cloud to associate the current run
 ---
 
 # wandb.save\(\)
 
-実行に関連付けるファイルを保存する方法は2つあります。
+There are two ways to save a file to associate with a run.
 
-1. `wandb.save（filename）`を使用します。
-2. ファイルをwandbrunディレクトリに置くと、実行の最後にアップロードされます。
+1. Use `wandb.save(filename)`.
+2. Put a file in the wandb run directory, and it will get uploaded at the end of the run.
 
 {% hint style="info" %}
-runを[再開](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/library/resuming)する場合は、wandb.restore（filename）を呼び出すことでファイルを回復できます。
+If you're [resuming](resuming.md) a run, you can recover a file by calling`wandb.restore(filename)`
 {% endhint %}
 
-書き込み中にファイルを同期する場合は、`wandb.save`でファイル名またはglobを指定できます。
+If you want to sync files as they're being written, you can specify a filename or glob in `wandb.save`.
 
-##  **wandb.saveの例**
+## Examples of wandb.save
 
- 完全な実例については、[このレポート](https://wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W&B--Vmlldzo3MDQ3Mw)を参照してください。
+See [this report](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw) for a complete working example.
 
 ```python
 # Save a model file from the current directory
@@ -31,12 +31,12 @@ wandb.save(os.path.join(wandb.run.dir, "checkpoint*"))
 ```
 
 {% hint style="info" %}
-W＆Bのローカル実行ディレクトリはデフォルトでスクリプトに関連する./wandbディレクトリ内にあり、パスはrun-20171023\_105053-3o4933r0のようになります。ここで、20171023\_105053はタイムスタンプ、3o4933r0は実行のIDです。 WANDB\_DIR環境変数を設定するか、wandb.initのdirキーワード引数を絶対パスに設定すると、代わりにそのディレクトリ内にファイルが書き込まれます。
+W&B's local run directories are by default inside the ./wandb directory relative to your script, and the path looks like run-20171023\_105053-3o4933r0 where 20171023\_105053 is the timestamp and 3o4933r0 is the ID of the run. You can set the WANDB\_DIR environment variable, or the dir keyword argument of wandb.init to an absolute path and files will be written within that directory instead.
 {% endhint %}
 
-### **wandbrunディレクトリにファイルを保存する例**
+## Example of saving a file to the wandb run directory
 
-ファイル「model.h5」はwandb.run.dirに保存され、トレーニングの最後にアップロードされます
+The file "model.h5" is saved into the wandb.run.dir and will be uploaded at the end of training.
 
 ```python
 import wandb
@@ -47,35 +47,33 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 model.save(os.path.join(wandb.run.dir, "model.h5"))
 ```
 
-これが公開のサンプルページです。\[ファイル\]タブで、model-best.h5があります。これは、Keras統合によってデフォルトで自動的に保存されますが、チェックポイントを手動で保存することができ、あなたの実行に関連して保存されます。
+Here's a public example page. You can see on the files tab, there's the model-best.h5. That's automatically saved by default by the Keras integration, but you can save a checkpoint manually and we'll store it for you in association with your run.
 
-[実例を見る→](https://wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
+[See the live example →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
 
 ![](../.gitbook/assets/image%20%2844%29.png)
 
-##  **よくある質問**
+## Common Questions
 
-###  **特定のファイルを無視します**
+### Ignoring certain files
 
-`wandb/settings`ファイルを編集して、ignore\_globsをコンマで区切られたグロブのリストと同じに設定できます。**WANDB\_IGNORE\_GLOBS**環境変数を設定することもできます。一般的な使用例は、自動的に作成するgitパッチがアップロードされないようにすることです。つまり、**WANDB\_IGNORE\_GLOBS=\*.patch**です。
+You can edit the `wandb/settings` file and set ignore\_globs equal to a comma separated list of [globs](https://en.wikipedia.org/wiki/Glob_%28programming%29). You can also set the **WANDB\_IGNORE\_GLOBS** environment variable. A common use case is to prevent the git patch that we automatically create from being uploaded i.e. **WANDB\_IGNORE\_GLOBS=\*.patch**
 
-**実行が終了する前にファイルを同期します**
+### Sync files before the end of the run
 
-長時間実行している場合は、実行が終了する前に、モデルチェックポイントなどのファイルがクラウドにアップロードされていることを確認することをお勧めします。デフォルトでは、実行が終了するまでほとんどのファイルのアップロードを待機します。スクリプトに`wandb.save('*.pth')`または単に`wandb.save('latest.pth')`を追加して、ファイルが書き込まれたり更新されたりするたびにそれらのファイルをアップロードできます。
+If you have a long run, you might want to see files like model checkpoints uploaded to the cloud before the end of the run. By default, we wait to upload most files until the end of the run. You can add a `wandb.save('*.pth')` or just `wandb.save('latest.pth')` in your script to upload those files whenever they are written or updated.
 
-**ファイルを保存するためのディレクトリを変更します**
+### Change directory for saving files
 
-デフォルトでAWSS3またはGoogleCloud Storageにファイルを保存すると、`events.out.tfevents.1581193870.gpt-tpu-finetune-8jzqk-2033426287 is a cloud storage url, can't save file to wandb`のようなエラーが発生する可能性があります。
+If you default to saving files in AWS S3 or Google Cloud Storage, you might get this error:`events.out.tfevents.1581193870.gpt-tpu-finetune-8jzqk-2033426287 is a cloud storage url, can't save file to wandb.`
 
-TensorBoardイベントファイルまたは同期するその他のファイルのログディレクトリを変更するには、ファイルをwandb.run.dirに保存して、クラウドに同期させます。
+To change the log directory for TensorBoard events files or other files you'd like us to sync, save your files to the wandb.run.dir so they're synced to our cloud.
 
 ### Get the run name
 
-**実行名を取得します**
+If you'd like to use the run name from within your script, you can use `wandb.run.name` and you'll get the run name— "blissful-waterfall-2" for example.
 
-スクリプト内から実行名を使用する場合は、`wandb.run.name`を使用すると、実行名（たとえば、「blissful-waterfall-2」）を取得できます。
-
-表示名にアクセスする前に、実行時にsaveを呼び出す必要があります。
+you need to call save on the run before being able to access the display name:
 
 ```text
 run = wandb.init(...)
@@ -83,11 +81,11 @@ run.save()
 print(run.name)
 ```
 
-### **保存したすべてのファイルをwandbにプッシュします**
+### Push all saved files to wandb
 
-wandb.initの後にスクリプトの先頭で`wandb.save("*.pt")`を1回呼び出すと、そのパターンに一致するすべてのファイルは、wandb.run.dirに書き込まれるとすぐに保存されます。
+Call `wandb.save("*.pt")` once at the top of your script after wandb.init, then all files that match that pattern will save immediately once they're written to wandb.run.dir.
 
-**クラウドストレージに同期されているローカルファイルを削除します**
+### Remove local files that have been synced to cloud storage
 
-クラウドストレージにすでに同期されているローカルファイルを削除するために実行できるコマンド`wandb gc`があります。使用法の詳細については、\`wandb gc—helpを参照してください。
+There’s a command `wandb gc` that you can run to remove local files that have already been synced to cloud storage. More information about usage can be found with \`wandb gc —help
 

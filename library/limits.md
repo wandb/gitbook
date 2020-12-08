@@ -1,39 +1,43 @@
 ---
-description: データをWeights＆Biasesに記録するための適切な制限とガイドライン
+description: Appropriate limits and guidelines for logging data to Weights & Biases
 ---
 
 # Limits
 
-**ページの高速読み込みのベストプラクティス**
+### Best Practices for Fast Page Loading
 
-W＆BのUIでのページの読み込みを高速化するには、ログに記録されたデータ量をこれらの範囲内に保つことをお勧めします。
+For fast page loading in the W&B UI, we recommend keeping logged data amounts within these bounds.
 
-* **スカラー**：数万のステップと数百のメトリックを持つことができます
-* **ヒストグラム**：数千ステップに制限することをお勧めします
+* **Scalars**: ****you can have tens of thousands of steps and hundreds of metrics
+* **Histograms**: we recommend limiting to thousands of steps
 
-それ以上送信すると、データは保存および追跡されますが、ページの読み込みが遅くなる可能性があります。
+If you send us more that that, your data will be saved and tracked, but pages may load more slowly.
 
-### Pythonスクリプトのパフォーマンス
+### Python Script Performance
 
-通常、1秒間に数回以上`wandb.log`を呼び出さないでください。そうしないと、wandbがトレーニング実行のパフォーマンスを妨害し始める可能性があります。レート制限を超える制限はありません。Pythonクライアントは、指数バックオフを自動的に実行し、制限を超えるリクエストを再試行するため、これは透過的である必要があります。コマンドラインに「ネットワーク障害」と表示されます。未払いのアカウントについては、使用量が妥当なしきい値を超える極端な場合に連絡する場合があります。
+Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds. 
 
 ### Rate Limits
 
-W＆B APIは、IPおよびAPIキーによってレート制限されます。新しいアカウントは、1分あたり200リクエストに制限されています。このレートにより、約15のプロセスを並行して実行し、制限されることなくレポートを作成できます。**wandb**クライアントは、制限されていることを検出すると、バックオフして、将来データの送信を再試行します。15を超えるプロセスを並行して実行する必要がある場合は、Eメールを[contact@wandb.com](mailto:contact@wandb.com)に送信してください。
+The W&B API is rate limited by IP and API key. New accounts are restricted to 200 requests per minute. This rate allows you to run approximately 15 processes in parallel and have them report without being throttled. If the **wandb** client detects it's being limited, it will backoff and retry sending the data in the future. If you need to run more than 15 processes in parallel send an email to [contact@wandb.com](mailto:contact@wandb.com).
 
-### サイズ制限
+### Size Limits
 
-**ファイル**新規アカウントの最大ファイルサイズは2GBです。1回の実行で、10GBのデータを保存できます。実行ごとにより大きなファイルまたはより多くのデータを保存する必要がある場合は、[contact@wandb.com](mailto:contact@wandb.com)までご連絡ください。
+#### Files
 
-### メトリック
+The maximum file size for new accounts is 2GB. A single run is allowed to store 10 GB of data. If you need to store larger files or more data per run, contact us at [contact@wandb.com](mailto:contact@wandb.com).
 
-メトリックは、UIに表示する前に、デフォルトで1500データポイントにサンプリングされます。
+#### Metrics
 
-#### ログ
+Metrics are sampled to 1500 data points by default before displaying in the UI. 
 
-実行の進行中、UIでログの最後の5000行を追跡します。実行が完了すると、ログ全体がアーカイブされ、個々の実行ページからダウンロードできます。
+#### Logs
 
-### ロギングガイダンス
+While a run is in progress we tail the last 5000 lines of your log for you in the UI. After a run is completed the entire log is archived and can be downloaded from an individual run page.
 
-W＆Bにデータを記録するための追加のガイドラインを次に示します。ネストされたパラメータ：ネストされたパラメータは自動的にフラット化されるため、辞書を渡すと、ドットで区切られた名前に変換されます。構成値については、名前で3つのドットをサポートしています。要約値については、4つのドットをサポートしています。
+### Logging Guidance
+
+Here are some additional guidelines for logging data to W&B.
+
+* **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
 

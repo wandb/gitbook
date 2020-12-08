@@ -1,18 +1,18 @@
 ---
-description: W＆Bは、インストールを管理、スケーリング、および監視できます。
+description: 'W&B can manage, scale, and monitor your installation.'
 ---
 
 # Managed Cloud
 
-W＆B Enterprise Cloudは、プライベートAWSまたはGCPアカウントと選択したリージョンでプロビジョニングされた完全にスケーラブルなクラウド環境です。その環境は、TerraformとKubernetesで構成されるツールセットを使用して、当社またはお客様の会社がプロビジョニングできます。
+A W&B Enterprise Cloud is a fully scalable cloud environment provisioned on your private AWS or GCP account and the region of your choosing. The environment can be provisioned by us or by your company, using a toolset comprised of Terraform and Kubernetes.
 
-[contact@wandb.com](mailto:contact@wandb.com)に連絡して、セットアップ手順の詳細について営業チームに相談してください。
+Talk to our sales team for more detailed setup instructions by reaching out to [contact@wandb.com](mailto:contact@wandb.com)
 
-## 要件
+## Requirements
 
-W＆B Enterprise Cloudでは、アカウントに次のクラウドリソースが必要です。
+W&B Enterprise Cloud requires the following cloud resources in your account.
 
-* Kubernetesクラスター（EKS、GKE、またはAKS）
-* SQLデータベース（RDS、Google Cloud SQL、またはAzure MySQL）
-* オブジェクトストア（S3、GCS、またはAzure Blobストア）
+* A Kubernetes cluster \(EKS, GKE or AKS\)
+* A SQL database \(RDS, Google Cloud SQL, or Azure MySQL\)
+* A object store \(S3, GCS, or Azure Blob Store\)
 

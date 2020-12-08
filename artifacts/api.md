@@ -1,25 +1,29 @@
 # Artifacts API
 
-データセットの追跡とモデルのバージョン管理にW＆Bアーティファクトを使用します。実行を初期化し、アーティファクトを作成してから、ワークフローの別の部分で使用します。アーティファクトを使用して、ファイルを追跡および保存したり、外部URIを追跡したりできます。
+Use W&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. You can use artifacts to track and save files, or track external URIs.
 
-この機能は、`wandb`バージョン0.9.0以降のクライアントで使用できます。
+This feature is available in the client starting from `wandb` version 0.9.0.
 
-## 1. **1.実行の初期化**
+## 1. Initialize a run
 
-パイプラインのステップを追跡するには、スクリプトで実行を初期化します。job\_typeの文字列を指定して、前処理、トレーニング、評価などのさまざまなパイプラインステップを区別します。W＆Bで実行をインストルメント化したことがない場合は、[Pythonライブ](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNdlQobOrN8f63KfkRZ/v/japanese/library)ラリのドキュメントに実験追跡の詳細なガイダンスがあります。
+To track a step of your pipeline, initialize a run in your script. Specify a string for **job\_type** to differentiate different pipeline steps— preprocessing, training, evaluation, etc. If you've never instrumented a run with W&B, we have more detailed guidance for experiment tracking in our [Python Library](../library/) docs.
 
 ```python
 run = wandb.init(job_type='train')
 ```
 
-## 2. **2.アーティファクトの作成**
+## 2. Create an artifact
 
-アーティファクトとはデータのフォルダのようなもので、コンテンツはアーティファクトに保存されている実際のファイルまたは外部URIへの参照です。アーティファクトを作成するには、実行の出力としてログに記録します。さまざまなアーティファクト（データセット、モデル、結果など）を区別するために、タイプの文字列を指定します。アーティファクトの内部にあるものを思い出しやすいように、このアーティファクトにbike-datasetなどの名前を付けます。パイプラインの後のステップで、この名前をbike-dataset：v1のようなバージョンと一緒に使用して、このアーティファクトをダウンロードできます。log\_artifactを呼び出すと、アーティファクトの内容が変更されているかどうかが確認され、変更されている場合は、アーティファクトの新しいバージョン（v0、v1、v2など）が自動的に作成されます。
+An artifact is like a folder of data, with contents that are actual files stored in the artifact or references to external URIs. To create an artifact, log it as the output of a run. Specify a string for **type** to differentiate different artifacts— dataset, model, result etc. Give this artifact a **name**, like `bike-dataset`, to help you remember what is inside the artifact. In a later step of your pipeline, you can use this name along with a version like `bike-dataset:v1` to download this artifact.
 
-* **wandb.Artifact\(\)type \(str\)**：組織的な目的で使用されるアーティファクトの種類を区別します。「データセット」、「モデル」、「結果」に沿って行うことをお勧めします。
-* **name \(str\)**：アーティファクトにユニークな名前を付けます。これは、アーティファクトを他の場所で参照するときに使用されます。名前には、数字、文字、アンダースコア、ハイフン、およびドットを使用できます。
-* **description \(str, optional\)**：UIのアーティファクトバージョンの横に表示されるフリーテキスト
-* **metadata \(dict, optional\)**：データセットのクラス分布など、アーティファクトに関連付けられた構造化データ。Webインターフェースを構築すると、このデータを使用してクエリを実行し、プロットを作成できるようになります。
+When you call **log\_artifact**, we check to see if the contents of the artifact has changed, and if so we automatically create a new version of the artifact: v0, v1, v2 etc.
+
+**wandb.Artifact\(\)**
+
+* **type \(str\)**: Differentiate kinds of artifacts, used for organizational purposes. We recommend sticking to "dataset", "model" and "result".
+* **name \(str\)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, hyphens, and dots in the name.
+* **description \(str, optional\)**: Free text displayed next to the artifact version in the UI
+* **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
 
 ```python
 artifact = wandb.Artifact('bike-dataset', type='dataset')
@@ -31,9 +35,9 @@ artifact.add_file('bicycle-data.h5')
 run.log_artifact(artifact)
 ```
 
-## **3.アーティファクトの使用**
+## 3. Use an artifact
 
-アーティファクトを実行への入力として使用できます。たとえば、`bike-dataset`の最初のバージョンである`bike-dataset:v0`を取得し、パイプラインの次のスクリプトで使用できます。**use\_artifact**を呼び出すと、スクリプトはW＆Bにクエリを実行して、その名前付きアーティファクトを見つけ、実行への入力としてマークします。
+You can use an artifact as input to a run. For example, we could take `bike-dataset:v0` , the first version of `bike-dataset`, and use it in the next script in our pipeline. When you call **use\_artifact**, your script queries W&B to find that named artifact and marks it as input to the run.
 
 ```python
 # Query W&B for an artifact and mark it as input to this run
@@ -43,9 +47,8 @@ artifact = run.use_artifact('bike-dataset:v0')
 artifact_dir = artifact.download()
 ```
 
-**別のプロジェクトのアーティファクトの使用**　
-
-アーティファクトの名前をプロジェクト名で修飾することにより、アクセスできる任意のプロジェクトのアーティファクトを自由に参照できます。アーティファクトの名前をエンティティ名でさらに修飾することにより、エンティティ間でアーティファクトを参照することもできます。
+**Using an artifact from a different project**  
+You can freely reference artifacts from any project to which you have access by qualifying the name of the artifact with its project name. You can also reference artifacts across entities by further qualifying the name of the artifact with its entity name.
 
 ```python
 # Query W&B for an artifact from another project and mark it
@@ -57,9 +60,8 @@ artifact = run.use_artifact('my-project/bike-model:v0')
 artifact = run.use_artifact('my-entity/my-project/bike-model:v0')
 ```
 
-**ログに記録されていないアーティファクトの使用**　
-
-アーティファクトオブジェクトを作成して**use\_artifact**に渡すこともできます。アーティファクトがすでにW＆Bに存在するかどうかを確認し、存在しない場合は新しいアーティファクトを作成します。これが冪（べき）等性です。アーティファクトをuse\_artifactに何度でも渡すことができるし、内容が同じである限り重複排除します。
+**Using an artifact that has not been logged**  
+You can also construct an artifact object and pass it to **use\_artifact**. We check if the artifact already exists in W&B, and if not we creates a new artifact. This is idempotent— you can pass an artifact to use\_artifact as many times as you like, and we'll deduplicate it as long as the contents stay the same.
 
 ```python
 artifact = wandb.Artifact('bike-model', type='model')
@@ -67,19 +69,19 @@ artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
 
-## **バージョンとエイリアス**
+## Versions and aliases
 
- アーティファクトを初めてログに記録するときに、バージョン**v0**を作成します。同じアーティファクトに再度ログインすると、内容がチェックサムされ、アーティファクトが変更されている場合は、新しいバージョン**v1**が保存されます。
+When you log an artifact for the first time, we create version **v0**. When you log again to the same artifact, we checksum the contents, and if the artifact has changed we save a new version **v1**.
 
-特定のバージョンへのポインタとしてエイリアスを使用できます。デフォルトでは、run.log\_artifactはログに記録されたバージョンに**最新**エイリアスを追加します
+You can use aliases as pointers to specific versions. By default, run.log\_artifact adds the **latest** alias to the logged version.
 
-エイリアスを使用してアーティファクトをフェッチできます。たとえば、トレーニングスクリプトで常に最新バージョンのデータセットを取得する場合は、そのアーティファクトを使用するときに**最新バージョン**を指定します。
+You can fetch an artifact using an alias. For example, if you want your training script to always pull the most recent version of a dataset, specify **latest** when you use that artifact.
 
 ```python
 artifact = run.use_artifact('bike-dataset:latest')
 ```
 
-アーティファクトバージョンにカスタムエイリアスを適用することもできます。たとえば、メトリックAP-50でどのモデルチェックポイントが最適であるかをマークする場合は、モデルアーティファクトをログに記録するときに、エイリアスとして文字列**best-ap50**を追加できます。
+You can also apply a custom alias to an artifact version. For example, if you want to mark which model checkpoint is the best on the metric AP-50, you could add the string **best-ap50** as an alias when you log the model artifact.
 
 ```python
 artifact = wandb.Artifact('run-3nq3ctyy-bike-model', type='model')
@@ -87,21 +89,21 @@ artifact.add_file('model.h5')
 run.log_artifact(artifact, aliases=['latest','best-ap50'])
 ```
 
-## **アーティファクトの構築**
+## Constructing artifacts
 
-アーティファクトはデータのフォルダのようなものです。各エントリは、アーティファクトに保存されている実際のファイル、または外部URIへの参照のいずれかです。通常のファイルシステムと同じように、アーティファクト内にフォルダをネストできます。`wandb.Artifact()`クラスを初期化して、新しいアーティファクトを作成します。
+An artifact is like a folder of data. Each entry is either an actual file stored in the artifact, or a reference to an external URI. You can nest folders inside an artifact just like a regular filesystem. Construct new artifacts by initializing the `wandb.Artifact()` class.
 
-次のフィールドを`Artifact()`コンストラクターに渡すか、アーティファクトオブジェクトに直接設定できます。
+You can pass the following fields to an `Artifact()` constructor, or set them directly on an artifact object:
 
-* **タイプ**：「データセット」、「モデル」、または「結果」である必要があります•**説明**：UIに表示される自由形式のテキスト。
-* •**メタデータ**：任意の構造化データを含めることができる辞書。このデータを使用して、クエリを実行したり、プロットを作成したりできます。例えば、データセットアーティファクトのクラス分布をメタデータとして保存することを選択できます。
-* **name**を使用してオプションのファイル名を指定するか、ディレクトリを追加する場合はファイルパスプレフィックスを指定します。
+* **type:** Should be ‘dataset’, ‘model’, or ‘result’
+* **description**: Freeform text that will be displayed in the UI.
+* **metadata**: A dictionary that can contain any structured data. You’ll be able to use this data for querying and making plots. E.g. you may choose to store the class distribution for a dataset artifact as metadata.
 
 ```python
 artifact = wandb.Artifact('bike-dataset', type='dataset')
 ```
 
-**name**を使用してオプションのファイル名を指定するか、ディレクトリを追加する場合はファイルパスプレフィックスを指定します
+Use **name** to specify an optional file name, or a file path prefix if you're adding a directory.
 
 ```python
 # Add a single file
@@ -118,9 +120,9 @@ with artifact.new_file(name) as f:
 artifact.add_reference(uri, name='optional-name')
 ```
 
-###  ファイルおよびディレクトリの追加
+### Adding files and directories
 
-次の例では、このようなファイルを含むプロジェクトディレクトリがあると想定します。
+For the following examples, assume we have a project directory with these files:
 
 ```text
 project-directory
@@ -175,23 +177,23 @@ project-directory
   </tbody>
 </table>
 
-###  レファレンスの追加
+### Adding references
 
 ```python
 artifact.add_reference(uri, name=None, checksum=True)
 ```
 
-* **uri \(string\):** 追跡するレファレンスURI。
-* **name \(string\):** オプションの名前オーバーライド。指定しない場合、名前は**uri**から推測されます
-* **checksum \(bool\):** trueの場合、レファレンスは検証の目的で**uri**からチェックサム情報とメタデータを収集します。
+* **uri \(string\):** The reference URI to track.
+* **name \(string\):** An optional name override. If not provided, a name is inferred from **uri**.
+* **checksum \(bool\):** If true, the reference collects checksum information and metadata from **uri** for validation purposes.
 
-実際のファイルの代わりに、外部URIへの参照をアーティファクトに追加できます。wandbが処理方法を知っているスキームがURIにある場合、アーティファクトは再現性のためにチェックサムやその他の情報を追跡します。アーティファクトは現在、次のURIスキームをサポートしています。
+You can add references to external URIs to artifacts, instead of actual files. If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility. Artifacts currently support the following URI schemes:
 
-* `http(s)://`: HTTP経由でアクセス可能なファイルへのパス。HTTPサーバーがETagおよびContent-Length応答ヘッダーをサポートしている場合、アーティファクトはetagおよびサイズメタデータの形式でチェックサムを追跡します。
-* `s3://`: S3のオブジェクトまたはオブジェクトプレフィックスへのパス。アーティファクトは、参照されたオブジェクトのチェックサムとバージョン情報（バケットでオブジェクトのバージョン管理が有効になっている場合）を追跡します。オブジェクトプレフィックスは、最大10,000オブジェクトまで、プレフィックスの下のオブジェクトを含むように拡張されます。
-* `gs://`: GCSのオブジェクトまたはオブジェクトプレフィックスへのパス。アーティファクトは、参照されたオブジェクトのチェックサムとバージョン情報（バケットでオブジェクトのバージョン管理が有効になっている場合）を追跡します。オブジェクトプレフィックスは、最大10,000オブジェクトまで、プレフィックスの下のオブジェクトを含むように拡張されます。
+* `http(s)://`: A path to a file accessible over HTTP. The artifact will track checksums in the form of etags and size metadata if the HTTP server supports the `ETag` and `Content-Length` response headers.
+* `s3://`: A path to an object or object prefix in S3. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
+* `gs://`: A path to an object or object prefix in GCS. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
 
-次の例では、これらのファイルを含むS3バケットがあると想定します。
+For the following examples, assume we have an S3 bucket with these files:
 
 ```text
 s3://my-bucket
@@ -243,45 +245,43 @@ s3://my-bucket
   </tbody>
 </table>
 
-##  **アーティファクトの使用とダウンロード**
+## Using and downloading artifacts
 
 ```python
 run.use_artifact(artifact=None)
 ```
 
-* 実行への入力としてアーティファクトをマークします。
+* Marks an artifact as an input to your run.
 
-アーティファクトの使用には2つのパターンがあります。W＆Bに明示的に格納されているアーティファクト名を使用することも、アーティファクトオブジェクトを作成して渡し、必要に応じて重複排除することもできます。
+There are two patterns for using artifacts. You can use an artifact name that is explicitly stored in W&B, or you can construct an artifact object and pass it in to be deduplicated as necessary.
 
-### W＆Bに保存されているアーティファクトを使用します
+### Use an artifact stored in W&B
 
 ```python
 artifact = run.use_artifact('bike-dataset:latest')
 ```
 
- 返されたアーティファクトに対して次のメソッドを呼び出すことができます。
+You can call the following methods on the returned artifact:
 
 ```python
 datadir = artifact.download(root=None)
 ```
 
-* 現在存在しないアーティファクトのコンテンツをすべてダウンロードします。これにより、アーティファクトのコンテンツを含むディレクトリへのパスが返されます。**root**を設定することで、ダウンロード先を明示的に指定できます。
+* Download all of the artifact’s contents that aren't currently present. This returns a path to a directory containing the artifact’s contents. You can explicitly specify the download destination by setting **root**.
 
 ```python
 path = artifact.get_path(name)
 ```
 
-* パス名のファイルのみを取得します。次のメソッドを使用して`Entry`オブジェクトを返します。
+* Fetches only the file at the path `name`. Returns an `Entry` object with the following methods:
   * **Entry.download\(\)**: Downloads file from the artifact at path `name`
-  *  **Entry.ref（）**：エントリが`add_reference`を使用して参照として保存された場合、URIを返します
+  * **Entry.ref\(\)**: If the entry was stored as a reference using `add_reference`, returns the URI
 
-W＆Bが処理方法を知っているスキームを持つ参照は、アーティファクトファイルと同じようにダウンロードできます。コンシューマーAPIも同様です。
+References that have schemes that W&B knows how to handle can be downloaded just like artifact files. The consumer API is the same.
 
+### Construct and use an artifact
 
-
-アーティファクトオブジェクトを作成して**use\_artifact**に渡すこともできます。これにより、アーティファクトがまだ存在しない場合、W＆Bにアーティファクトが作成されます。これは冪（べき）等性であるため、何度でも実行できます。model.h5の内容が同じである限り、アーティファクトは1回だけ作成されます。
-
-実行外でアーティファクトをダウンロードします
+You can also construct an artifact object and pass it to **use\_artifact**. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, so you can do it as many times as you like. The artifact will only be created once, as long as the contents of `model.h5` remain the same.
 
 ```python
 artifact = wandb.Artifact('reference model')
@@ -289,7 +289,7 @@ artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
 
-###  アーティファクトを作成して使用します
+### Download an artifact outside of a run
 
 ```python
 api = wandb.Api()
@@ -297,9 +297,9 @@ artifact = api.artifact('entity/project/artifact:alias')
 artifact.download()
 ```
 
-## アーティファクトの更新
+## Updating artifacts
 
-アーティファクトの説明、メタデータ、およびエイリアスを目的の値に設定してからsave（）を呼び出して、それらを更新できます。
+You can update the `description`, `metadata`, and `aliases` of an artifact by just setting them to the desired values and then calling `save()`.
 
 ```python
 api = wandb.Api()
@@ -327,7 +327,7 @@ artifact.aliases = ['replaced']
 artifact.save()
 ```
 
-## データのプライバシー
+## Data privacy
 
-アーティファクトは、安全なAPIレベルのアクセス制御を使用します。ファイルは保存時と転送中に暗号化されます。アーティファクトは、ファイルの内容をW＆Bに送信せずに、プライベートバケットへの参照を追跡することもできます。別の方法については、[contact@wandb.com](mailto:contact@wandb.com)まで連絡して、プライベートクラウドとオンプレミスのインストールについてお問い合わせください。
+Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
 

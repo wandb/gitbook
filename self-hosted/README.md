@@ -1,26 +1,27 @@
 ---
-description: 機密データを含むプロジェクトのセルフホストインストール
+description: Self Hosted installations for projects with sensitive data
 ---
 
 # Self Hosted
 
-W＆B Localは、[Weights & Biases](https://app.wandb.ai/)のセルフホストバージョンです。これにより、企業の機械学習チームが共同で実験を追跡できるようになり、組織のネットワーク内にすべてのトレーニングデータとメタデータを保持する方法が提供されます。
+W&B Local is the self hosted version of [Weights & Biases](https://app.wandb.ai). It makes collaborative experiment tracking possible for enterprise machine learning teams, giving you a way to keep all training data and metadata within your organization's network.
 
- [W＆Bローカルを試すためのデモをリクエストする→](https://www.wandb.com/demo)
+[Request a demo to try out W&B Local →](https://www.wandb.com/demo)
 
- また、企業のAWSまたはGCPアカウント内で完全にスケーラブルなインフラを実行する[W&B Enterprise Cloud](https://docs.wandb.com/self-hosted/cloud)も提供しています。このシステムは、あらゆるレベルの使用に拡張できます。
+We also offer [W&B Enterprise Cloud](cloud.md), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system can scale to any level of usage.
 
-## **特徴**
+## Features
 
-* 無制限の実行、実験、およびレポート
-* 自社のネットワーク上でデータを安全に保存•会社の認証システムと統合
-* W＆Bエンジニアリングチームによるプレミアサポートセルフホストサーバーは、デプロイが簡単な単一のDockerイメージです。W＆Bデータは統一されたボリュームまたは外部データベースに保存されるため、コンテナのバージョン間でデータを保持できます。
+* Unlimited runs, experiments, and reports
+* Keep your data safe on your own company's network
+* Integrate with your company's authentication system
+* Premier support by the W&B engineering team
 
-セルフホストサーバーは、デプロイが簡単な単一のDockerイメージです。W＆Bデータは統一されたボリュームまたは外部データベースに保存されるため、コンテナのバージョン間でデータを保持できます。
+The self hosted server is a single Docker image that is simple to deploy. Your W&B data is saved on a persistent volume or an external database so data can be preserved across container versions.
 
-## サーバー要件
+## Server Requirements
 
-W＆Bセルフホストサーバーには、少なくとも4つのコアと8GBのメモリを備えたインスタンスが必要です。
+The W&B self hosted server requires an instance with at least 4 cores and 8GB memory.
 
 ## Self Hosted Resources
 

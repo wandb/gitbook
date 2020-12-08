@@ -4,59 +4,67 @@
 
 ![Selecting X-Axis](../../../../.gitbook/assets/image%20%2815%29.png)
 
- 折れ線グラフのX軸は、常に数値として記録されている限り、wandb.logで記録した任意の値に設定できます。
+You can set the X-Axis of a line plot to any value that you have logged with wandb.log as long as it's always logged as a number.
 
 ## Y-Axis Variables
 
-数値、数値の配列、または数値のヒストグラムをログに記録している限り、y軸変数をwandb.logでログに記録した任意の値に設定できます。変数に1500ポイントを超えて記録した場合、wandbは1500ポイントまでサンプリングします。
+You can set the y-axis variables to any value you have logged with wandb.log as long as you were logging numbers, arrays of numbers or a histogram of numbers. If you logged more than 1500 points for a variable, wandb samples down to 1500 points.
 
 {% hint style="info" %}
-実行表で実行の色を変更することにより、y軸線の色を変更できます。
+You can change the color of your y axis lines by changing the color of the run in the runs table.
 {% endhint %}
 
-## X範囲およびY範囲
+## X Range and Y Range
 
-プロットのXとYの最大値と最小値を変更できます。
+You can change the maximum and minimum values of X and Y for the plot.
 
-X範囲のデフォルトは、x軸の最小値から最大値までです。
+X range default is from the smallest value of your x-axis to the largest.
 
-Y範囲のデフォルトは、メトリックの最小値からゼロからメトリックの最大値までです。
+Y range default is from the smallest value of your metrics and zero to the largest value of your metrics.
 
-## 最大実行/グループ
+## Max Runs/Groups
 
-デフォルトでは、10回の実行または実行のグループのみをプロットします。実行は実行表または実行セットの先頭から取得されるため、実行表または実行セットを並べ替えると、表示される実行を変更できます。
+By default you will only plot 10 runs or groups of runs. The runs will be taken from the top of your runs table or run set, so if you sort your runs table or run set you can change the runs that are shown.
 
-## 凡例
+## Legend
 
-グラフの凡例を制御して、ログに記録した構成値と、実行時に作成された時間や実行を作成したユーザーなどの実行からのメタデータを実行に対して表示できます。例：${config:x}は、実行またはグループのxの構成値を挿入します。\[\[$x: $y\]\]を設定して、十字線にポイント固有の値を表示できます
+You can control the legend of your chart to show for any run any config value that you logged and meta data from the runs such as the created at time or the user who created the run.
 
-## グループ化
+Example:
 
-グループ化をオンにするか、個々の変数をグループ化することで、すべての実行を集約できます。表内でグループ化してグループ化をオンにすることもでき、グループは自動的にグラフに入力されます。
+${config:x} will insert the config value of x for a run or group.
 
-## スムージング
+You can set \[\[$x: $y\]\] to display point specific values in the crosshair
 
-平滑化係数を0から1の間に設定できます。ここで、0は平滑化なし、1は最大平滑化です。
+## Grouping
 
-## I外れ値を無視します
+You can aggregate all of the runs by turning on grouping, or group over an individual variable. You can also turn on grouping by grouping inside the table and the groups will automatically populate into the graph.
 
-外れ値を無視すると、グラフは、すべてのデータを表示するように設定するのではなく、y軸の最小値と最大値をデータの5パーセンタイルと95パーセンタイルに設定します。
+## Smoothing
 
-## 式
+You can set the [smoothing coefficient](../../../../library/technical-faq.md#what-formula-do-you-use-for-your-smoothing-algorithm) to be between 0 and 1 where 0 is no smoothing and 1 is maximum smoothing.
 
-式を使用すると、1-精度などのメトリックから派生した値をプロットできます。現在、単一のメトリックをプロットしている場合にのみ機能します。単純な算術式、+、-、\*、/、％、および累乗の\*\*を実行できます。
+## Ignore Outliers
 
-## プロットスタイル
+Ignore outliers makes the graph set the yaxis min and max to the 5th and 95th percentile of the data instead of setting it to make all data visible.
 
-**折れ線グラフのスタイルを選択します。折れ線プロット：**
+## Expression
+
+Expression lets you plot values derived from metrics like 1-accuracy. It currently only works if you are plotting a single metric. You can do simple arithmetic expressions, +, -, \*, / and % as well as \*\* for powers.
+
+## Plot style
+
+Select a style for your line plot.
+
+**Line plot:**
 
 ![](../../../../.gitbook/assets/image%20%284%29.png)
 
- **エリアプロット：**
+**Area plot:**
 
 ![](../../../../.gitbook/assets/image%20%2830%29.png)
 
-**パーセンテージエリアプロット：**
+**Percentage area plot:**
 
 ![](../../../../.gitbook/assets/image%20%2854%29.png)
 

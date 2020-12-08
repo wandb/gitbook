@@ -1,8 +1,8 @@
 # Ray Tune
 
-W＆Bは、2つの軽量統合を提供することにより、 [Ray](https://github.com/ray-project/ray)と統合します。
+W&B integrates with [Ray](https://github.com/ray-project/ray) by offering two lightweight integrations.
 
-つは`WandbLogger`で、Tuneに報告されたメトリックをWandb APIに自動的に記録します。もう1つは`@wandb_mixin`デコレータで、関数APIで使用できます。Tuneのトレーニング情報を使用してWandbAPIを自動的に初期化します。通常どおりにWandbAPIを使用できます。`wandb.log（）`を使用してトレーニングプロセスをログに記録します。
+One is the `WandbLogger`, which automatically logs metrics reported to Tune to the Wandb API. The other one is the `@wandb_mixin` decorator, which can be used with the function API. It automatically initializes the Wandb API with Tune’s training information. You can just use the Wandb API like you would normally do, e.g. using `wandb.log()` to log your training process.
 
 ## WandbLogger
 
@@ -10,21 +10,21 @@ W＆Bは、2つの軽量統合を提供することにより、 [Ray](https://gi
 from ray.tune.integration.wandb import WandbLogger
 ```
 
-Wandbの構成は、`wandb`キーを`tune.run（）`の構成パラメータに渡すことによって行われます（以下の例を参照）。
+Wandb configuration is done by passing a wandb key to the config parameter of `tune.run()` \(see example below\).
 
-wandb構成エントリの内容は、キーワード引数として`wandb.init（）`に渡されます。例外は、WandbLogger自体を構成するために使用される次の設定です。
+The content of the wandb config entry is passed to `wandb.init()` as keyword arguments. The exception are the following settings, which are used to configure the `WandbLogger` itself:
 
-### **パラメータ**
+### Parameters
 
-`api_key_file (str)` – `Wandb API KEY`を含むファイルへのパス。
+`api_key_file (str)` – Path to file containing the `Wandb API KEY`.
 
-`api_key (str)` – `Wandb API Key`。api\_key\_fileを設定する代わりに。
+`api_key (str)` – Wandb API Key. Alternative to setting `api_key_file`.
 
-`excludes (list)` – ログから除外する必要があるメトリックのリスト。
+`excludes (list)` – List of metrics that should be excluded from the `log`.
 
-`log_config (bool)` – 結果dictのconfigパラメータをログに記録する必要があるかどうかを示すブール値。これは、トレーニング中にパラメータが変更される場合に意味があります。例えば、PopulationBasedTrainingを使用する場合です。デフォルトはFalseです。
+`log_config (bool)` – Boolean indicating if the config parameter of the results dict should be logged. This makes sense if parameters will change during training, e.g. with `PopulationBasedTraining`. Defaults to False.
 
-### **例**
+### Example
 
 ```python
 from ray.tune.logger import DEFAULT_LOGGERS
@@ -51,7 +51,9 @@ tune.run(
 ray.tune.integration.wandb.wandb_mixin(func)
 ```
 
- このRayTune Trainable `mixin`は、`Trainable`クラスまたは関数APIの`@wandb_mixin`で使用するためにWandb APIを初期化するのに役立ちます。基本的な使用法については、トレーニング関数の前に`@wandb_mixin`デコレータを追加するだけです。
+This Ray Tune Trainable `mixin` helps initializing the Wandb API for use with the `Trainable` class or with `@wandb_mixin` for the function API.
+
+For basic usage, just prepend your training function with the `@wandb_mixin` decorator:
 
 ```python
 from ray.tune.integration.wandb import wandb_mixin
@@ -63,19 +65,19 @@ def train_fn(config):
 
 Wandb configuration is done by passing a `wandb key` to the `config` parameter of `tune.run()` \(see example below\).
 
-Wandbの構成は、wandbキーを`tune.run（）`の構成パラメータに渡すことによって行われます（以下の例を参照）。wandb構成エントリの内容は、キーワード引数として`wandb.init（）`に渡されます。例外は、WandbTrainableMixin自体を構成するために使用される次の設定です。
+The content of the wandb config entry is passed to `wandb.init()` as keyword arguments. The exception are the following settings, which are used to configure the `WandbTrainableMixin` itself:
 
-### **パラメータ**
+### Parameters
 
-`api_key_file (str)` – Wandb `API KEY`を含むファイルへのパス。
+`api_key_file (str)` – Path to file containing the Wandb `API KEY`.
 
-`api_key (str)` – Wandb API Key。`api_key_file`を設定する代わりに。
+`api_key (str)` – Wandb API Key. Alternative to setting `api_key_file`.
 
- Wandbのグループ`run_id`と`run_name`は、Tuneによって自動的に選択されますが、それぞれの構成値を入力することで上書きできます。
+Wandb’s `group`, `run_id` and `run_name` are automatically selected by Tune, but can be overwritten by filling out the respective configuration values.
 
-他のすべての有効な構成設定については、[https://docs.wandb.com/library/init](https://docs.wandb.com/library/init)を参照してください。
+Please see here for all other valid configuration settings: [https://docs.wandb.com/library/init](https://docs.wandb.com/library/init)
 
-### **例：**
+### Example:
 
 ```python
 from ray import tune
@@ -102,10 +104,10 @@ tune.run(
     })
 ```
 
-##  **サンプルコード**
+## Example Code
 
-統合がどのように機能するかを確認するために、いくつかの例を作成しました。
+We've created a few examples for you to see how the integration works:
 
-* [Colab](https://colab.research.google.com/drive/1an-cJ5sRSVbzKVRub19TmmE4-8PUWyAi?usp=sharing): 統合を試すための簡単なデモ
-*  [ダッシュボード](https://app.wandb.ai/authors/rayTune?workspace=user-cayush)：例から生成されたダッシュボードを表示
+* [Colab](https://colab.research.google.com/drive/1an-cJ5sRSVbzKVRub19TmmE4-8PUWyAi?usp=sharing): A simple demo to try the integration
+* [Dashboard](https://app.wandb.ai/authors/rayTune?workspace=user-cayush): View dashboard generated from the example
 

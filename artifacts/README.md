@@ -1,24 +1,24 @@
 ---
-description: パイプライン全体のバージョン管理されたデータ、モデル、および結果
+description: 'Versioned data, models and results across your pipelines'
 ---
 
 # Artifacts
 
-## **概要**
+## Overview
 
-W＆Bアーティファクトを使用して、機械学習パイプライン全体でデータセット、モデル、評価結果を保存および追跡します。アーティファクトは、バージョン管理されたデータのフォルダーと考えてください。データセット全体をアーティファクトに直接保存することも、アーティファクト参照を使用して他のシステムのデータを指すこともできます。
+Use W&B Artifacts to store and keep track of datasets, models, and evaluation results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems.
 
-## **使い方**
+## How it works
 
-アーティファクトAPIを使用すると、アーティファクトをW＆B実行の出力としてログに記録したり、アーティファクトを実行への入力として使用したりできます。
+Using our Artifacts API, you can log artifacts as outputs of W&B runs, or use artifacts as input to runs.
 
 ![](../.gitbook/assets/simple-artifact-diagram-2.png)
 
-実行は別の実行の出力アーティファクトを入力として使用できるため、アーティファクトと実行が一緒になって有向グラフを形成します。事前にパイプラインを定義する必要はありません。アーティファクトを使用してログに記録するだけで、すべてをつなぎ合わせます。
+Since a run can use another run’s output artifact as input, artifacts and runs together form a directed graph. You don’t need to define pipelines ahead of time. Just use and log artifacts, and we’ll stitch everything together.
 
-これは、DAGの概要ビューと、各ステップのすべての実行およびすべてのアーティファクトバージョンのズームアウトビューを表示できる[アーティファクトの例](https://app.wandb.ai/shawn/detectron2-11/artifacts/model/run-1cxg5qfx-model/4a0e3a7c5bff65ff4f91/graph)です。
+Here's an [example artifact](https://app.wandb.ai/shawn/detectron2-11/artifacts/model/run-1cxg5qfx-model/4a0e3a7c5bff65ff4f91/graph) where you can see the summary view of the DAG, as well as the zoomed-out view of every execution of each step and every artifact version.
 
 ![](../.gitbook/assets/2020-09-03-15.59.43.gif)
 
-アーティファクトの使用方法については、[アーティファクトAPIド](https://docs.wandb.com/artifacts/api)キュメントをご覧ください→
+To learn how to use Artifacts, check out the [Artifacts API Docs →](https://docs.wandb.com/artifacts/api)
 

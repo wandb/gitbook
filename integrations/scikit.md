@@ -1,11 +1,10 @@
 # Scikit
 
-wandbを使用すると、数行のコードでscikit-learnモデルのパフォーマンスを視覚化して比較できます。[**例を試してください→**](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)  
+You can use wandb to visualize and compare your scikit-learn models' performance with just a few lines of code. [**Try an example →**](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)
 
+### Making Plots
 
-### プロットを作成します
-
-**ステップ1：wandbをインポートし、新しい実行を初期化します。**
+#### Step 1: Import wandb and initialize a new run.
 
 ```python
 import wandb
@@ -15,14 +14,14 @@ wandb.init(project="visualize-sklearn")
 # train a model
 ```
 
-#### ステップ2：個々のプロットを視覚化します。
+#### Step 2: Visualize individual plots.
 
 ```python
 # Visualize single plot
 wandb.sklearn.plot_confusion_matrix(y_true, y_pred, labels)
 ```
 
-####  または、すべてのプロットを一度に視覚化します。
+#### Or visualize all plots at once:
 
 ```python
 # Visualize all classifier plots
@@ -36,101 +35,103 @@ wandb.sklearn.plot_regressor(reg, X_train, X_test, y_train, y_test,  model_name=
 wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model_name='KMeans')
 ```
 
-### サポートされているプロット
+### Supported Plots
 
-#### 学習曲線
+#### Learning Curve
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.46.34-am.png)
 
- さまざまな長さのデータセットでモデルをトレーニングし、トレーニングセットとテストセットの両方について、相互検証されたスコアとデータセットサイズのプロットを生成します。
+Trains model on datasets of varying lengths and generates a plot of cross validated scores vs dataset size, for both training and test sets.
 
 `wandb.sklearn.plot_learning_curve(model, X, y)`
 
-* model（clf or reg）：適合したリグレッサーまたは分類器を取り込みます。
-* x（arr）：データセットの機能.
-* y（arr）：データセットラベル
+* model \(clf or reg\): Takes in a fitted regressor or classifier.
+* X \(arr\): Dataset features.
+* y \(arr\): Dataset labels.
 
 #### ROC
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.02-am.png)
 
- ROC曲線は、真陽性率（y軸）と偽陽性率（x軸）をプロットします。理想的なスコアは、TPR = 1およびFPR = 0で、これは左上のポイントです。通常、ROC曲線の下の面積（AUC-ROC）を計算し、AUC-ROCが大きいほど好ましいです。
+ROC curves plot true positive rate \(y-axis\) vs false positive rate \(x-axis\). The ideal score is a TPR = 1 and FPR = 0, which is the point on the top left. Typically we calculate the area under the ROC curve \(AUC-ROC\), and the greater the AUC-ROC the better.
 
 `wandb.sklearn.plot_roc(y_true, y_probas, labels)`
 
-*   y\_true（arr）：テストセットのラベル。
-*  y\_probas（arr）：テストセットの予測確率。
-* labels（list）：ターゲット変数（y）の名前付きラベル。
+* y\_true \(arr\): Test set labels.
+* y\_probas \(arr\): Test set predicted probabilities.
+* labels \(list\): Named labels for target varible \(y\).
 
-####  クラスの割合
+#### Class Proportions
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.46-am.png)
 
- トレーニングセットとテストセットのターゲットクラスの分布をプロットします。不均衡なクラスを検出し、1つのクラスがモデルに不均衡な影響を与えないようにするのに役立ちます。
+Plots the distribution of target classes in training and test sets. Useful for detecting imbalanced classes and ensuring that one class doesn't have a disproportionate influence on the model.
 
 `wandb.sklearn.plot_class_proportions(y_train, y_test, ['dog', 'cat', 'owl'])`
 
-* y\_train（arr）：トレーニングセットのラベル。
-*  y\_test（arr）：テストセットのラベル。
-*  labels（list）：ターゲット変数（y）の名前付きラベル。
+* y\_train \(arr\): Training set labels.
+* y\_test \(arr\): Test set labels.
+* labels \(list\): Named labels for target varible \(y\).
 
-#### 適合率再現率曲線
+#### Precision Recall Curve
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.17-am.png)
 
-さまざまなしきい値の適合率と再現率の間のトレードオフを計算します。曲線の下の高い領域は、高い再現率と高い精度の両方を表します。高い精度は低い偽陽性率に関連し、高い再現率は低い偽陰性率に関連します。
+Computes the tradeoff between precision and recall for different thresholds. A high area under the curve represents both high recall and high precision, where high precision relates to a low false positive rate, and high recall relates to a low false negative rate.
 
-両方のスコアが高いことは、分類子が正確な結果（高精度）を返していること、およびすべての肯定的な結果の大部分を返している（再現率が高い）ことを示しています。PR曲線は、クラスのバランスが非常に悪い場合に役立ちます。
+High scores for both show that the classifier is returning accurate results \(high precision\), as well as returning a majority of all positive results \(high recall\). PR curve is useful when the classes are very imbalanced.
 
 `wandb.sklearn.plot_precision_recall(y_true, y_probas, labels)`
 
-* y\_true（arr）：テストセットのラベル。
-* y\_probas（arr）：テストセットの予測確率。
-* labels（list）：ターゲット変数（y）の名前付きラベル。
+* y\_true \(arr\): Test set labels.
+* y\_probas \(arr\): Test set predicted probabilities.
+* labels \(list\): Named labels for target varible \(y\).
 
-####  機能の重要性
+#### Feature Importances
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.31-am.png)
 
-分類タスクの各機能の重要性を評価してプロットします。ツリーのように、`featureimportances`属性を持つ分類子でのみ機能します。
+Evaluates and plots the importance of each feature for the classification task. Only works with classifiers that have a `feature_importances_` attribute, like trees.
 
 `wandb.sklearn.plot_feature_importances(model, ['width', 'height, 'length'])`
 
-*  model（clf）：適合した分類器を取り入れます。
-* feature\_names（list）：機能の名前。フィーチャインデックスを対応する名前に置き換えることにより、プロットを読みやすくします。
+* model \(clf\): Takes in a fitted classifier.
+* feature\_names \(list\): Names for features. Makes plots easier to read by replacing feature indexes with corresponding names.
 
-####  検量線
+#### Calibration Curve
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.49.00-am.png)
 
- 分類器の予測確率がどの程度適切に調整されているか、および未調整の分類器をどのように調整するかをプロットします。ベースラインロジスティック回帰モデル、引数として渡されたモデル、およびその等張キャリブレーションとシグモイドキャリブレーションの両方によって、推定された予測確率を比較します。検量線が対角線に近いほど好ましいです。転置されたシグモイドのような曲線は過剰適合の分類器を表し、シグモイドのような曲線は過適合の分類器を表します。モデルの等張およびシグモイドキャリブレーションをトレーニングし、それらの曲線を比較することで、モデルが過適合か過小適合か、および適合している場合はどのキャリブレーション（シグモイドまたは等張）がこれを修正するのに役立つかを判断できます。
+Plots how well calibrated the predicted probabilities of a classifier are and how to calibrate an uncalibrated classifier. Compares estimated predicted probabilities by a baseline logistic regression model, the model passed as an argument, and by both its isotonic calibration and sigmoid calibrations.
 
-詳細については、[sklearnのドキュメント](https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html)をご覧ください。 
+The closer the calibration curves are to a diagonal the better. A transposed sigmoid like curve represents an overfitted classifier, while a sigmoid like curve represents an underfitted classifier. By training isotonic and sigmoid calibrations of the model and comparing their curves we can figure out whether the model is over or underfitting and if so which calibration \(sigmoid or isotonic\) might help fix this.
+
+For more details, check out [sklearn's docs](https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html).
 
 `wandb.sklearn.plot_calibration_curve(clf, X, y, 'RandomForestClassifier')`
 
-*  model（clf）：適合した分類器を取り入れます。
-*    x（arr）：トレーニングセットの機能。
-*  y（arr）：トレーニングセットのラベル。
-* model\_name（str）：モデル名。デフォルトは「分類子」
+* model \(clf\): Takes in a fitted classifier.
+* X \(arr\): Training set features.
+* y \(arr\): Training set labels.
+* model\_name \(str\): Model name. Defaults to 'Classifier'
 
-####  混同行列
+#### Confusion Matrix
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.49.11-am.png)
 
- 混同行列を計算して、分類の精度を評価します。これは、モデル予測の品質を評価し、モデルが間違っている予測のパターンを見つけるのに役立ちます。対角線は、モデルが正しく行った予測を表します。つまり、実際のラベルが予測されたラベルと等しい場合です。
+Computes the confusion matrix to evaluate the accuracy of a classification. It's useful for assessing the quality of model predictions and finding patterns in the predictions the model gets wrong. The diagonal represents the predictions the model got right, i.e. where the actual label is equal to the predicted label.
 
 `wandb.sklearn.plot_confusion_matrix(y_true, y_pred, labels)`
 
-* y\_true（arr）：テストセットのラベル。
-*  y\_pred（arr）：テストセットの予測ラベル。
-*    labels（list）：ターゲット変数（y）の名前付きラベル。
+* y\_true \(arr\): Test set labels.
+* y\_pred \(arr\): Test set predicted labels.
+* labels \(list\): Named labels for target variable \(y\).
 
-####  メトリックサマリー
+#### Summary Metrics
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.49.28-am.png)
 
-回帰アルゴリズムと分類アルゴリズムの両方のメトリックサマリー（分類のf1、精度、適合率、再現率、回帰のmse、mae、r2スコアなど）を計算します。
+Calculates summary metrics \(like f1, accuracy, precision and recall for classification and mse, mae, r2 score for regression\) for both regression and classification algorithms.
 
 `wandb.sklearn.plot_summary_metrics(model, X_train, X_test, y_train, y_test)`
 
@@ -140,58 +141,63 @@ wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model
   * X\_test \(arr\): Test set features.
 * y\_test \(arr\): Test set labels.
 
-####  エルボープロット
+#### Elbow Plot
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.52.21-am.png)
 
- クラスター数の関数として説明される分散のパーセンテージを、トレーニング時間とともに測定してプロットします。クラスターの最適な数を選択するのに役立ちます。
+Measures and plots the percentage of variance explained as a function of the number of clusters, along with training times. Useful in picking the optimal number of clusters.
 
 `wandb.sklearn.plot_elbow_curve(model, X_train)`
 
-*  model（clusterer）：フィットしたclustererを取り込みます。
-*    x（arr）：トレーニングセットの機能。
+* model \(clusterer\): Takes in a fitted clusterer.
+* X \(arr\): Training set features.
 
-####  シルエットプロット
+#### Silhouette Plot
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.53.12-am.png)
 
-1つのクラスター内の各ポイントが隣接するクラスター内のポイントにどれだけ近いかを測定してプロットします。クラスターの厚さは、クラスターのサイズに対応します。縦線は、すべてのポイントの平均シルエットスコアを表します。+1に近いシルエット係数は、サンプルが隣接するクラスターから遠く離れていることを示します。値0は、サンプルが2つの隣接するクラスター間の決定境界上にあるか、非常に近いことを示し、負の値は、それらのサンプルが間違ったクラスターに割り当てられた可能性があることを示します。一般に、すべてのシルエットクラスタースコアを平均より上（赤い線を過ぎて）にし、可能な限り1に近づける必要があります。また、データの基になるパターンを反映するクラスターサイズも優先します。
+Measures & plots how close each point in one cluster is to points in the neighboring clusters. The thickness of the clusters corresponds to the cluster size. The vertical line represents the average silhouette score of all the points.
+
+Silhouette coefficients near +1 indicate that the sample is far away from the neighboring clusters. A value of 0 indicates that the sample is on or very close to the decision boundary between two neighboring clusters and negative values indicate that those samples might have been assigned to the wrong cluster.
+
+In general we want all silhouette cluster scores to be above average \(past the red line\) and as close to 1 as possible. We also prefer cluster sizes that reflect the underlying patterns in the data.
 
 `wandb.sklearn.plot_silhouette(model, X_train, ['spam', 'not spam'])`
 
-* model（clusterer）：フィットしたclustererを取り込みます。
-* x（arr）：トレーニングセットの機能。
-* cluster\_labels（list）：クラスターラベルの名前。クラスターインデックスを対応する名前に置き換えることにより、プロットを読みやすくします。
+* model \(clusterer\): Takes in a fitted clusterer.
+* X \(arr\): Training set features.
+  * cluster\_labels \(list\): Names for cluster labels. Makes plots easier to read by replacing cluster indexes with corresponding names.
 
-####  外れ値候補プロット
+#### Outlier Candidates Plot
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.52.34-am.png)
 
- クックの距離を介して回帰モデルに対するデータポイントの影響を測定します。影響が大きく歪んでいるインスタンスは、外れ値である可能性があります。これは、外れ値の検出に役立ちます。
+Measures a datapoint's influence on regression model via cook's distance. Instances with heavily skewed influences could potentially be outliers. Useful for outlier detection.
 
 `wandb.sklearn.plot_outlier_candidates(model, X, y)`
 
-* モデル（regressor）：適合した分類器を取り込みます。
-* x（arr）：トレーニングセットの機能。
-*   y（arr）：トレーニングセットのラベル。
+* model \(regressor\): Takes in a fitted classifier.
+* X \(arr\): Training set features.
+* y \(arr\): Training set labels.
 
-####  残差プロット
+#### Residuals Plot
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.52.46-am.png)
 
-予測された目標値（y軸）と実際の目標値と予測された目標値の差（x軸）、および残差の分布を測定してプロットします。
+Measures and plots the predicted target values \(y-axis\) vs the difference between actual and predicted target values \(x-axis\), as well as the distribution of the residual error.
 
-一般に、適切なモデルはランダムエラーを除いてデータセット内のほとんどの現象を説明するため、適切なモデルの残差はランダムに分布する必要があります。
+Generally, the residuals of a well-fit model should be randomly distributed because good models will account for most phenomena in a data set, except for random error.
 
 `wandb.sklearn.plot_residuals(model, X, y)`
 
-*  model（regressor）：適合した分類器を取り込みます。
-*  x（arr）：トレーニングセットの機能。
-* y（arr）：トレーニングセットのラベル。
-* ご不明な点がございましたら、[Slackコミュニティ](http://bit.ly/wandb-forum)でお答えしたいと思います。
+* model \(regressor\): Takes in a fitted classifier.
+* X \(arr\): Training set features.
+* y \(arr\): Training set labels.
 
-##  **例**
+  If you have any questions, we'd love to answer them in our [slack community](http://wandb.me/slack).
 
-*  [colabで実行](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ)：開始するためのシンプルなノートブック
-*  [Wandbダッシュボード](https://wandb.ai/wandb/iris)：W＆Bで結果を表示
+## Example
+
+* [Run in colab](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ): A simple notebook to get you started
+* [Wandb Dashboard](https://app.wandb.ai/wandb/iris): View result on W&B
 

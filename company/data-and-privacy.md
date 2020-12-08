@@ -1,45 +1,43 @@
 # Data and Privacy
 
-## あなたはあなたのデータを所有しています
+## You own your data
 
-トレーニングデータ、コード、構成とハイパーパラメータ、出力メトリック、分析、保存されたモデルファイルなど、Weights＆Biasesに記録するものはすべてあなたのものです。これらのいずれかをログに記録、エクスポート、公開、または削除することを選択できます。製品を改善するために、ユーザー全体の集計統計を収集します。データベースクエリを実行して、特定のライブラリを含むrequirements.txtをアップロードしたユーザーの数をカウントし、そのライブラリとのファーストクラスの統合を行うかどうかを決定します。当社は、[利用規約](https://www.wandb.com/terms)および[プライバシーポリシー](%20https://www.wandb.com/privacy)に準拠して、お客様の個人データ、ソースコード、または企業秘密を機密情報および企業秘密として扱います。
+Everything you log to Weights & Biases is yours, including your training data, code, configuration and hyperparameters, output metrics, analysis, and saved model files. You can choose to log, export, publish, or delete any of these. We collect aggregate statistics across our users to improve our product— we might do a database query to count how many users have uploaded a requirements.txt that includes a specific library to help decide if we want to do a first class integration with that library. We treat your private data, source code, or trade secrets as confidential and private, as consistent with our [Terms of Service](https://www.wandb.com/terms) and [Privacy Policy](https://www.wandb.com/privacy).‌
 
+## Data logging
 
+Our tool provides the ability to log 4 primary classes of data:
 
-### データロギング
+1. **Metrics and Parameters**: \_\*\*\_This is the core functionality of the tool— keeping track of the scalars and histograms you log with a run. You specify these directly in `wandb.log()` or set up an integration with one of the supported frameworks.
+2. **Code**: We support saving the latest git SHA and a diff patch, or saving the main file from your run for easy code comparison. This is off by default and needs to be manually enabled on your [settings page](https://app.wandb.ai/settings).
+3. **Media**: Users can log video, images, text, or custom plots to visualize how your model is doing on examples during training. This is entirely opt-in, and you must explicitly configure your script to log this class of data.
+4. **Artifacts**: Manually set up artifact logging to save and version datasets and model files. You explicitly specify which files you want to include in artifacts.
 
- 私たちのツールは、4つの主要なクラスのデータをログに記録する機能を提供します。
+All data is stored encrypted at rest and is encrypted in transit in our cloud offering. We respect all data takedown requests in a timely manner and can ensure it's been wiped from the system.
 
-1. **メトリックとパラメーター：**\_\*\*\_これはツールのコア機能であり、実行時にログに記録するスカラーとヒストグラムを追跡します。これらは`wandb.log（）`で直接指定するか、サポートされているフレームワークの1つとの統合を設定します。
-2. **コード**：最新のgit SHAとdiffパッチの保存、またはコード比較を容易にするための実行からのメインファイルの保存をサポートしています。これはデフォルトでオフになっており、[設定ページ](https://wandb.ai/settings)で手動で有効にする必要があります。
-3. **メディア**：ユーザーは、ビデオ、画像、テキスト、またはカスタムプロットをログに記録して、トレーニング中にモデルが例でどのように動作しているかを視覚化できます。これは完全にオプトインであり、このクラスのデータをログに記録するようにスクリプトを明示的に構成する必要があります。
-4.  **アーティファクト**：アーティファクトログを手動で設定して、データセットとモデルファイルを保存およびバージョン管理します。アーティファクトに含めるファイルを明示的に指定します。
+## Self hosted and private cloud
 
- すべてのデータは保存時に暗号化されて保存され、クラウドサービスでは転送中に暗号化されます。すべてのデータ削除リクエストをタイムリーに尊重し、システムから確実に消去されるようにします。
+We follow industry best practices for security and encryption in our cloud-hosted service. We also offer [private cloud and self hosted installations](../self-hosted/) for enterprise customers. [Contact us](getting-help.md) to learn about options for your business.
 
-## プロジェクトのプライバシーとチーム
+For personal use, we have a [local Docker installation](../self-hosted/local.md) that you can run on your own machine.‌
 
- デフォルトでは、Weights＆Biasesプロジェクトは非公開です。つまり、他のユーザーはあなたの作品を見ることができません。このデフォルトは、[設定ページ](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNgitmWwhiOG-bRHucG/v/japanese/self-hosted)で編集できます。プロジェクトを公開するか、特定の共同作業者とプライベートプロジェクトを共有するチームを作成することで、結果を他の人と共有することを選択できます。チームは企業にとってプレミアムな機能です。詳細については、[価格設定ページ](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNgitmWwhiOG-bRHucG/v/japanese/company/getting-help)をご覧ください。
+## Project privacy and teams
 
-MLエコシステムをサポートするために、学者やオープンソースプロジェクトに無料のプライベートチームを提供しています。アカウントにサインアップしてから、このフォームからお問い合わせいただき、無料のプライベートチームをリクエストしてください。
+By default Weights & Biases projects are private, which means other users won’t be able to view your work. You can edit this default on your [settings page](https://app.wandb.ai/settings). You can choose to share your results with others by making your project public or creating a team to share private projects with specific collaborators. Teams are a premium feature for companies. Learn more on our [pricing page](https://www.wandb.com/pricing).‌
 
-##  プロジェクトのプライバシーとチーム
+To support the ML ecosystem, we offer free private teams to academics and open source projects. Sign up for an account and then contact us via [this form](https://www.wandb.com/academic) to request a free private team.
 
-デフォルトでは、Weights＆Biasesプロジェクトは非公開です。つまり、他のユーザーはあなたの作品を見ることができません。このデフォルトは、[設定ページ](../sweeps/visualize-sweep-results.md)で編集できます。プロジェクトを公開するか、特定の共同作業者とプライベートプロジェクトを共有するチームを作成することで、結果を他の人と共有することを選択できます。チームは企業にとってプレミアムな機能です。詳細については、[価格設定ページ](https://www.wandb.com/academic)をご覧ください。
+## Code saving
 
-MLエコシステムをサポートするために、学者やオープンソースプロジェクトに無料のプライベートチームを提供しています。アカウントにサインアップしてから、[このフォーム](https://www.wandb.com/academic)からお問い合わせいただき、無料のプライベートチームをリクエストしてください。
-
-## コードの保存
-
-デフォルトでは、コードの最新のgit SHAのみを取得します。オプションでコード保存機能をオンにすることができます。これにより、UIのコード比較パネルとタブが有効になり、実行を実行したコードのバージョンを確認できます。[設定ページ](https://wandb.ai/settings)でコード保存をオンにできます。
+By default, we only pick up the latest git SHA for your code. You can optionally turn on code saving features— this will enable a code comparison panel and tab in the UI to see the version of the code that ran your run. You can turn on code saving in your [settings page](https://app.wandb.ai/settings).
 
 ![](../.gitbook/assets/project-defaults.png)
 
-## エクスポート
+## Exporting data
 
-APIを使用して、Weights＆Biasesで保存されたデータをダウンロードできます。ノートブックでカスタム分析を簡単に実行したり、ローカルコピーが必要な場合はデータをバックアップしたり、保存したログをMLワークフローの他のツールにプラグインしたりできるようにしたいと考えています。
+You can download data saved with Weights & Biases using our [export API](../ref/export-api/). We want to make it easy to do custom analysis in notebooks, back up your data if you'd like to have a local copy, or plug your saved logs into other tools in your ML workflow.
 
-##  リンクされたアカウント
+## Linked accounts
 
- GoogleまたはGitHub OAuthを使用してWeights＆Biasesアカウントを作成してログインする場合、リポジトリまたはフォルダーからデータを読み取ったり同期したりすることはありません。これらの接続は、純粋に認証を目的としています。W＆B[アーティファクト](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNgitmWwhiOG-bRHucG/v/japanese/artifacts)を使用して、実行に関連付けるファイルとコードをログに記録できます。
+If you use Google or GitHub OAuth to create and log in to a Weights & Biases account, we don't read or sync data from your repositories or folders. These connections are purely for authentication purposes. You can log files and code to associate with your runs using W&B [Artifacts](../artifacts/).
 

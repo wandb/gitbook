@@ -1,29 +1,28 @@
 ---
-description: インタラクティブな視覚化で実行データを探索するための遊び場
+description: A playground for exploring run data with interactive visualizations
 ---
 
 # Workspaces
 
-ワークスペースは、グラフをカスタマイズしてモデルの結果を調べるための個人的なサンドボックスです。
+Your workspace is your personal sandbox to customize charts and explore model results.
 
-1. **表**：プロジェクト内のすべての実行が表に一覧表示されます。実行のオンとオフを切り替え、色を変更し、表を展開して、各実行のメモ、構成、および要約メトリックを表示します。
-2. **パネル**：パネルはセクションに編成されています。新しいパネルを作成して整理し、レポートにエクスポートして、ワークスペースのスナップショットを保存します。
+1. **Table**: All the runs in your project are listed in the table. ****Turn on and off runs, change colors, and expand the table to see notes, config, and summary metrics for each run. 
+2. **Panels**: Panels are organized into sections. Create new panels, organize them, and export to reports to save snapshots of your workspace.
 
 ![](../../.gitbook/assets/workspace-table-and-panels.png)
 
 
 
-ページの下部には、ワークスペースコントロールバーがあります。
+At the bottom of the page is a workspace control bar:
 
-* **ワークスペース**：各ユーザーには1つのワークスペースがあります。自分のワークスペースを編集できるのはあなただけです。
-* **元に戻す/やり直し**：ワークスペースに加えた変更をすばやく元に戻します。
-* **共有**：結果を同僚と共有するためのレポートを作成します。右上の\[**レポートの作成**\]をクリックして、スナップショットを保存するグラフを選択します。
-*  レポートは、プロジェクトの進行状況の**静的スナップショット**または**動的ダッシュボード**にすることができます。
-*   レポートを使用して、プロジェクトの複数の異なる保存済みビューを作成できます。
-
-* レポートを使用すると、テキスト注釈を追加したり、それぞれに異なる表示実行を含む複数の異なるパネルセクションを作成したり、プライベートプロジェクト内からの表示専用リンクを共有したりすることができます。
-*    共同作業者とワークスペースへのリンクを共有することになった場合、共同編集者は元のレイアウトを上書きできませんが、一時的なビューでグラフを操作したり、結果を調べたり、レイアウトを好む場合は自分のワークスペースに保存したりできます。
-* **デフォルトのワークスペース**：これは、このプロジェクトに初めてアクセスする新規参入者のデフォルトのレイアウトです。これにより、公開プロジェクト用の優れた実行ディングページを設定したり、チームメンバーの開始を支援したりできます。
+* **Workspace**: Each user has one workspace. Only you can edit your own workspace.
+* **Undo/redo**: Quickly undo changes you made to your workspace.
+* **Sharing**: Create a report to share results with colleagues. Click **Create report** in the upper right and select what charts you'd like to save a snapshot of. 
+  * Reports can be **static snapshots** or **dynamic dashboards** of your project progress.
+  * You can create multiple different saved views of your project with reports.
+  * Reports let you add text annotations, create multiple different panel sections with different visible runs in each, and even share view-only links from inside private projects.
+  * If you do end up sharing a link to your workspace with a collaborator, they can't overwrite your original layout but they can play with the charts in a temporary view, explore the results, and save over their own workspace if they prefer your layout.
+* **Default workspace**: This is the default layout for any newcomers who land on this project for the first time. This lets you set up a nice landing page for your public project, or help your team members get started.
 
 ![](../../.gitbook/assets/workspace-bar2.png)
 

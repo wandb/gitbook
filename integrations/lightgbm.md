@@ -1,6 +1,6 @@
 # LightGBM
 
-コールバックを使用して、LightGBMのパフォーマンスを1行のコードで視覚化します。
+Use our callback to visualize your LightGBM’s performance in just one line of code.
 
 ```python
 from wandb.lightgbm import wandb_callback
@@ -16,5 +16,5 @@ gbm = lgb.train(params,
                 callbacks=[wandb_callback()])
 ```
 
-[ 例のリポジトリ](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/lightgbm-regression)で、または[colab](https://colab.research.google.com/drive/1R6_vcVM90Ephyu0HDFlPAZa0SgEC_3bE)ノートブックとして完全なコード例を参照してください。
+See a complete code example in our [examples repo](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/lightgbm-regression), or as a [colab](https://colab.research.google.com/drive/1R6_vcVM90Ephyu0HDFlPAZa0SgEC_3bE) notebook.
 

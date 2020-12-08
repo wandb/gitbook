@@ -1,23 +1,23 @@
 # TensorBoard
 
- W＆Bは、TensorBoardにパッチを適用して、スクリプトのすべての指標をネイティブチャートに自動的に記録することをサポートしています。
+W&B supports patching TensorBoard to automatically log all the metrics from your script into our native charts.
 
 ```python
 import wandb
 wandb.init(sync_tensorboard=True)
 ```
 
- TensorFlowのすべてのバージョンでTensorBoardをサポートしています。別のフレームワークでTensorBoardを使用している場合、W＆BはPyTorchおよびTensorBoardXでTensorBoard&gt; 1.14をサポートします。
+We support TensorBoard with all versions of TensorFlow. If you're using TensorBoard with another framework W&B supports TensorBoard &gt; 1.14 with PyTorch as well as TensorBoardX.
 
-### **カスタムメトリック**
+### Custom Metrics
 
-TensorBoardに記録されていない追加のカスタムメトリックをログに記録する必要がある場合は、TensorBoardが使用しているのと同じステップ引数を使用してコードで`wandb.log`を呼び出すことができます。つまり、`wandb.log({"custom": 0.8}, step=global_step)`です。
+If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code with the same step argument that TensorBoard is using: i.e. `wandb.log({"custom": 0.8}, step=global_step)`
 
-###  **高度な構成**
+### Advanced Configuration
 
-TensorBoardのパッチ適用方法をより細かく制御したい場合は、`sync_tensorboard = True`をinitに渡す代わりに、`wandb.tensorboard.patch`を呼び出すことができます。 このメソッドに`tensorboardX = False`を渡して、バニラTensorBoardにパッチが適用されていることを確認できます。PyTorchでTensorBoard&gt; 1.14を使用している場合は、`pytorch = True`を渡してパッチが適用されていることを確認できます。 これらのオプションはどちらも、インポートされたライブラリのバージョンに応じて、スマートなデフォルトになっています。
+If you want more control over how TensorBoard is patched you can call `wandb.tensorboard.patch` instead of passing `sync_tensorboard=True` to init. You can pass `tensorboardX=False` to this method to ensure vanilla TensorBoard is patched, if you're using TensorBoard &gt; 1.14 with PyTorch you can pass `pytorch=True` to ensure it's patched. Both of these options are have smart defaults depending on what versions of these libraries have been imported.
 
-デフォルトでは、tfeventsファイルと\*.pbtxtファイルも同期します。これにより、お客様に代わってTensorBoardインスタンスを起動できます。実行ページにTensorBoardタブが表示されます。この動作は、~~~~がsave = Falseを`wandb.tensorboard.patch`に渡すことで無効にできます。
+By default we also sync the tfevents files and any \*.pbtxt files. This enables us to launch a TensorBoard instance on your behalf. You will see a [TensorBoard tab](https://www.wandb.com/articles/hosted-tensorboard) on the run page. This behavior can be disabled by ~~~~passing `save=False` to `wandb.tensorboard.patch`
 
 ```python
 import wandb
@@ -25,11 +25,11 @@ wandb.init()
 wandb.tensorboard.patch(save=False, tensorboardX=True)
 ```
 
-### **以前のTensorBoard実行の同期**
+### Syncing Previous TensorBoard Runs
 
-wandbライブラリ統合を使用してすでに生成された既存のtfeventsファイルがローカルに保存されていて、それらをwandbにインポートする場合は、wandb sync log\_dirを実行できます。log\_dirは、tfeventsファイルを含むローカルディレクトリです。
+If you have existing tfevents files stored locally that were already generated using the wandb library integration and you would like to import them into wandb, you can run `wandb sync log_dir`, where `log_dir` is a local directory containing the tfevents files.
 
-`wandb syncdirectory_with_tf_event_file`を実行することもできます
+You can also run `wandb sync directory_with_tf_event_file`
 
 ```python
 """This script will import a directory of tfevents files into a single W&B run.
@@ -38,7 +38,7 @@ You must install wandb from a special branch until this feature is merged into t
 pip install --upgrade git+git://github.com/wandb/client.git@feature/import#egg=wandb
 ```
 
-このスクリプトは、python `no_image_import.pydir_with_tf_event_file`を使用して呼び出すことができます。これにより、そのディレクトリ内のイベントファイルからのメトリックを使用してwandbで単一の実行が作成されます。これを多くのディレクトリで実行する場合は、実行ごとに1回だけこのスクリプトを実行する必要があるため、ローダーは次のようになります。
+You can call this script with `python no_image_import.py dir_with_tf_event_file`. This will create a single run in wandb with metrics from the event files in that directory. If you want to run this on many directories, you should only execute this script once per run, so a loader might look like:
 
 ```python
 import glob
@@ -79,23 +79,20 @@ print\("Persisting %i events..." % total\_events\) con.shutdown\(\) print\("Impo
 
 \`\`\`
 
-###  **GoogleColabおよびTensorBoard**
+### Google Colab and TensorBoard
 
-Colabのコマンドラインからコマンドを実行するには、`！wandb syncdirectoryname`を実行する必要があります。現在、テンソルボードの同期は、Tensorflow2.1以降のノートブック環境では機能しません。Colabに以前のバージョンのTensorBoardを使用させるか、コマンドラインから！`pythonyour_script.py`を使用してスクリプトを実行することができます。
+To run commands from the command line in Colab, you must run `!wandb sync directoryname` . Currently tensorboard syncing does not work in a notebook environment for Tensorflow 2.1+. You can have your Colab use an earlier version of TensorBoard, or run a script from the command line with `!python your_script.py` .
 
-## **W＆BはTensorBoardとどう違うのですか？**
+## How is W&B different from TensorBoard?
 
-私たちは、すべての人のための実験追跡ツールを改善するように促されました。共同創設者がW＆Bに取り組み始めたとき、彼らはOpenAIで欲求不満のTensorBoardユーザーのためのツールを構築するように促されました。以下は、当社が改善する上で力を入れた項目です。
+We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
 
-1. **モデルの再現**：Weights＆Biasesは、実験、調査、および後でモデルを再現するのに適しています。メトリックだけでなく、ハイパーパラメータとコードのバージョンもキャプチャし、プロジェクトの再現性を高めるためにモデルのチェックポイントを保存できます。
-2. **自動編成**：プロジェクトを共同作業者に引き渡したり、休暇を取ったりした場合、W＆Bを使用すると、試したすべてのモデルを簡単に確認できるため、古い実験を再実行するのに時間を無駄にすることはありません。
-3. **高速で柔軟な統合**：5分でプロジェクトにW＆Bを追加します。無料のオープンソースPythonパッケージをインストールし、コードに数行追加すると、モデルを実行するたびに、ログに記録された優れたメトリックとレコードが得られます。
-4. **統一化および一元化されたダッシュボード**：ローカルマシン、ラボクラスター、クラウド内のスポットインスタンスなど、モデルをトレーニングする場所ならどこでも、同じ一元化されたダッシュボードを提供します。異なるマシンからTensorBoardファイルをコピーして整理するのに時間を費やす必要はありません。
-5. **効果的な表**：さまざまなモデルの結果を検索、フィルタリング、並べ替え、グループ化します。何千ものモデルバージョンを調べて、さまざまなタスクに最適なモデルを見つけるのは簡単です。TensorBoardは、大規模なプロジェクトでうまく機能するようには構築されていません。
-6. **コラボレーションのためのツール**：W＆Bを使用して、複雑な機械学習プロジェクトを整理します。 W＆Bへのリンクを共有するのは簡単で、プライベートチームを使用して、全員が共有プロジェクトに結果を送信することができます。また、レポートを介したコラボレーションもサポートしています。インタラクティブな視覚化を追加し、マークダウンで作業を説明します。これは、作業ログを保持したり、調査結果を上司と共有したり、調査結果をラボに提示したりするための優れた方法です。
+1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible. 
+2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
+3. **Fast, flexible integration**: Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
+4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
+5. **Powerful table**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
+6. **Tools for collaboration**: Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
 
-   | ·     |
-   | :--- |
-
-
+Get started with a [free personal account →](http://app.wandb.ai/)
 

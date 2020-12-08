@@ -1,32 +1,33 @@
 # Tags
 
-## タグを追加する方法 <a id="how-to-add-tags"></a>
+## How to add tags <a id="how-to-add-tags"></a>
 
- **プロジェクトページ**
+**On the project page**
 
-* 実行サイドバーで、左上隅のボタンをクリックして表を展開します。
-*  表の実行にカーソルを合わせると、左側のチェックボックスが表示されます。
-*  チェックボックスをクリックして、一括アクションを有効にします。
-* 実行の行の上にある\[タグ\]ボタンをクリックします。
-* 追加するタグを入力し、テキストボックスの下にある\[追加\]をクリックして、新しいタグを追加します。
+* In the runs sidebar, click the button in the upper left corner to expand the table.
+* Hover over a run in the table to see a checkbox on the left.
+* Click the checkbox to enable bulk actions.
+* Click the Tag button above the rows of runs.
+* Type a tag you'd like to add and click "Add" below the text box to add a new tag.
 
-**実行ページ**
+**On the run page**
 
-* 左側のサイドバーで、上部の\[概要\]タブをクリックします。
-*   \[タグ\]の横には灰色の➕ボタンがあります。 プラス記号をクリックしてタグを追加します。
-* 追加するタグを入力し、テキストボックスの下にある\[追加\]をクリックして、新しいタグを追加します。
+* In the left sidebar, click the top Overview tab.
+* Next to "Tags" is a gray ➕button. Click the plus to add a tag.
+* Type a tag you'd like to add and click "Add" below the text box to add a new tag.
 
-## タグを削除する方法 <a id="how-to-remove-tags"></a>
+## How to remove tags <a id="how-to-remove-tags"></a>
 
-**プロジェクトページ**·       実行サイドバーで、左上隅のボタンをクリックして表を展開します。·    
+**On the project page**
 
-*    表の実行にカーソルを合わせると、左側のチェックボックスが表示されます
-* チェックボックスをクリックして、一括アクションを有効にします。
-*  実行の行の上にある\[タグ\]ボタンをクリックします。
-* タグの横にあるチェックボックスをクリックして、実行からタグを削除します。
+* In the runs sidebar, click the button in the upper left corner to expand the table.
+* Hover over a run in the table to see a checkbox on the left.
+* Click the checkbox to enable bulk actions.
+* Click the Tag button above the rows of runs.
+* Click the checkbox next to a tag to remove it from the run.
 
-**実行ページ**
+**On the run page**
 
-*  左側のサイドバーで、上部の\[概要\]タブをクリックします。実行中のタグはここに表示されます。
-* タグにカーソルを合わせ、「x」をクリックして実行から削除します。
+* In the left sidebar, click the top Overview tab. The tags on the run are visible here.
+* Hover over a tag and click the "x" to remove it from the run.
 

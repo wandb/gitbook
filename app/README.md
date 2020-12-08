@@ -1,36 +1,36 @@
 ---
-description: 機械学習実験の追跡および視覚化
+description: Machine learning experiment tracking and visualizations
 ---
 
 # Dashboard
 
-機械学習モデルの結果を整理して視覚化するための中心的な場所として、Weights＆Biasesダッシュボードを使用します。
+Use the Weights & Biases Dashboard as a central place to organize and visualize results from your machine learning models.
 
 {% embed url="https://youtu.be/gnD8BFuyVUA" caption="" %}
 
-## **統一化および一元化**
+## **Persistent and Centralized**
 
-ローカルマシン、ラボクラスター、クラウド内のスポットインスタンスなど、モデルをトレーニングする場所ならどこでも、同じ集中ダッシュボードを提供します。端末からの出力をスプレッドシートにコピーしたり、さまざまな機器からTensorBoardファイルを整理したりするのに時間を費やす必要はありません。
+Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying outputs from your terminal into a spreadsheet or organizing TensorBoard files from different machines.
 
-## 自動編成
+## Automatic Organization
 
-プロジェクトを共同作業者に引き渡したり、休暇を取ったりした場合、W＆Bを使用すると、チームがすでに試したすべてのモデルを簡単に確認できるため、古い実験の再実行が非常に速いです。
+If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models your team has already tried so you're not wasting hours re-running old experiments.
 
-## 効果的な表
+## **Powerful Table**
 
-各トレーニングの実行を比較して、どのハイパーパラメータが変更されたかを確認します。さまざまなモデルの結果を検索、フィルタリング、並べ替え、グループ化します。何千ものモデルバージョンを調べて、さまざまなタスクに最適なモデルを見つけるのは簡単です。
+Compare each training run and see what hyperparameters changed. Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks.
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
-## モデルの再現
+## Reproduce Models
 
-Weights＆Biasesは、実験、調査、および後でモデルを再現するのに適しています。メトリックだけでなく、ハイパーパラメータとコードのバージョンもキャプチャし、プロジェクトの再現性を高めるためにモデルのチェックポイントを保存できます。
+Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.
 
-## 高速で柔軟な統合
+## Fast, Flexible Integration
 
-5分でプロジェクトにW＆Bを追加します。無料のオープンソースPythonパッケージをインストールし、コードに数行追加すると、モデルを実行するたびに、ログに記録された優れたメトリックとレコードが得られます.
+Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
 
-## コラボレーション向けのツール
+## Tools for Collaboration
 
-W＆Bを使用して、複雑な機械学習プロジェクトを整理します。W＆Bへのリンクを共有するのは簡単で、プライベートチームを使用して、全員が共有プロジェクトに結果を送信することができます。また、レポートを介したコラボレーションもサポートしています。インタラクティブな視覚化を追加し、マークダウンで作業を説明します。これは、作業ログを保持したり、調査結果を上司と共有したり、調査結果をラボに提示したりするための優れた方法です。
+Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
 

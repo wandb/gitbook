@@ -1,28 +1,30 @@
 ---
-description: 実行がクラッシュ、完了、またはwandb.alert（）を呼び出すたびに、Slack通知を受け取ります。
+description: >-
+  Receive a Slack notification whenever your runs crash, complete, or call
+  wandb.alert().
 ---
 
 # Alerts
 
-W＆Bは、実行がクラッシュ、完了、または[wandb.alert\(\)](/library/wandb.alert)を呼び出すたびに、電子メールまたはSlackに通知を投稿できます。
+W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
 
-###  ユーザーアラート
+### User Alerts
 
-実行が終了したとき、クラッシュしたとき、またはwandb.alert（）を呼び出したときに通知を設定します。これらは、個人プロジェクトとチームプロジェクトの両方を含む、実行を開始するすべてのプロジェクトに適用されます。
+Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects. 
 
- あなたの[ユーザー設定](https://wandb.ai/settings)：
+In your [User Settings](https://wandb.ai/settings):
 
-*  \[**アラート**\]セクションまで下にスクロールします
-*  \[**Connect Slack**\]をクリックして、アラートを投稿するチャネルを選択します。アラートを非公開に保つため、**Slackbot**チャネルをお勧めします。
-*  **電子メール**は、W＆Bにサインアップしたときに使用した電子メールアドレスに送信されます。これらのアラートがすべてフォルダに入り、受信トレイがいっぱいにならないように、電子メールにフィルタを設定することをお勧めします。
+* Scroll down to the **Alerts** section
+* Click **Connect Slack** to pick a channel to post alerts. We recommend the **Slackbot** channel because it keeps the alerts private.
+* **Email** will go to the email address you used when you signed up for W&B. We recommend setting up a filter in your email so all these alerts go into a folder and don't fill up your inbox.
 
 ![](../../.gitbook/assets/demo-connect-slack.png)
 
-### チームアラート
+### Team Alerts
 
- チーム管理者は、チーム設定ページwandb.ai/teams/your-teamでチームのアラートを設定できます。これらのアラートは、チームの全員に適用されます。アラートを非公開に保つため、**Slackbot**チャネルの使用をお勧めします。
+Team admins can set up alerts for the team on the team settings page: wandb.ai/teams/`your-team`. These alerts apply to everyone on your team. We recommend using the **Slackbot** channel because it keeps the alerts private.
 
-### Slackチャネルの変更
+### Changing Slack Channels
 
-### 投稿先のチャンネルを変更するには、\[**Disconnect Slack**\]をクリックしてから再接続し、別の宛先チャンネルを選択します。
+To change what channel you're posting to, click **Disconnect Slack** and then reconnect, picking a different destination channel.
 

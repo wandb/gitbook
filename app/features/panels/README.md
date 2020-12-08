@@ -1,28 +1,28 @@
 # Standard Panels
 
-視覚化を使用して、ログに記録されたデータ、ハイパーパラメータと出力メトリックの関係、およびデータセットの例を調べます。
+Use visualizations to explore your logged data, the relationships between hyperparameters and output metrics, and dataset examples.
 
-##  折れ線プロット
+## Line Plot
 
 ![Visualize a metric over time from multiple different runs](../../../.gitbook/assets/docs-line-plot.png)
 
-## よくある質問
+## Common Questions
 
-### 平行座標プロットで寸法を選択すると消えます
+### **I select dimensions on a parallel coordinates plot and it disappears**
 
-これは、構成パラメーター名にドットが含まれていることが原因である可能性があります。ドットを使用してネストされたパラメーターをフラット化し、バックエンドで3レベルのドットのみを処理します。別の文字を区切り文字として使用することをお勧めします。 
+This is likely because you have dots in your config parameter names. We flatten nested parameters using dots, and we only handle 3 levels of dots in the backend. I recommend using a different character as a separator.
 
 \*\*\*\*
 
-### グループで最大の精度を視覚化します
+### Visualize max accuracy in groups
 
-各グループのトップ実行の横にある「目」アイコンをオンにして、チャートの最大精度を視覚化します
+Turn on the "eye" icon next to the top run in each group to visualize the maximum accuracy on the charts
 
 ![](../../../.gitbook/assets/screen-shot-2020-02-12-at-3.45.09-pm.png)
 
-### チャートをダウンロード
+### Download charts
 
-下矢印をクリックしてグラフをダウンロードし、形式（.png、.svg、APIのエクスポート、またはCSVによるエクスポート）を選択できます。
+You can download charts by clicking the down arrow and select a format \(.png, .svg, export API or export by CSV\)
 
 ![](../../../.gitbook/assets/screen-shot-2020-02-20-at-10.07.09-am.png)
 

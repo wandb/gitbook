@@ -1,14 +1,10 @@
 ---
-description: モデルメトリックをログに記録するトレーニングループの前に、新しい実行を開始するたびにwandb.init（）を呼び出します
+description: Call wandb.init() at the top of your script to start a new run
 ---
 
 # wandb.init\(\)
 
-`wandb.init（）`を呼び出すと、[**Run**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTRmPsdM-fSSOyCL8w/v/japanese/ref/export-api/api#run)オブジェクトが返されます。wandb.runを呼び出してRunオブジェクトにアクセスすることもできます。
-
-通常、トレーニングスクリプトの開始時に一度`wandb.init（）`を呼び出す必要があります。これにより、新しい実行が作成され、単一のバックグラウンドプロセスが起動して、データがクラウドに同期されます。マシンをオフラインで実行し、後でデータをアップロードする場合は、[オフラインモード](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTRmPsdM-fSSOyCL8w/v/japanese/self-hosted)を使用します。
-
-wandb.init（）は、いくつかのキーワード引数を受け入れます。
+Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W&B and launches a background process to sync data. If you need a private cloud or local installation of W&B we support that in our [Self Hosted](../self-hosted/) offerings. `wandb.init()` returns a [**run**](../ref/export-api/api.md#run) object, and you can also access the run object with `wandb.run`.
 
 ### Optional Arguments
 
@@ -24,121 +20,170 @@ wandb.init（）は、いくつかのキーワード引数を受け入れます�
     <tr>
       <td style="text-align:left">project</td>
       <td style="text-align:left">str</td>
-      <td style="text-align:left">&#x3053;&#x306E;run&#x304C;&#x5C5E;&#x3059;&#x308B;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x540D;&#x524D;</td>
+      <td style="text-align:left">The name of the project where you&apos;re sending the new run. If the
+        project is not specified, the run is put in an &quot;uncategorized&quot;
+        project in your default entity. Change your default entity on your <a href="https://wandb.ai/settings">settings page</a> under
+        &quot;default location to create new projects&quot;, or set the <code>entity</code> argument.</td>
     </tr>
     <tr>
       <td style="text-align:left">entity</td>
       <td style="text-align:left">str</td>
-      <td style="text-align:left">&#x3053;&#x306E;run&#x3092;&#x6295;&#x7A3F;&#x3059;&#x308B;&#x30C1;&#x30FC;&#x30E0;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#x307E;&#x305F;&#x306F;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x30C1;&#x30FC;&#x30E0;&#xFF09;</td>
+      <td style="text-align:left">An entity is a username or team name where you&apos;re sending runs. This
+        entity <em>must exist</em> before you can send runs there, so make sure to
+        create your account or team in the UI before starting to log runs.</td>
     </tr>
     <tr>
       <td style="text-align:left">save_code</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">&#x30E1;&#x30A4;&#x30F3;&#x306E;Python&#x307E;&#x305F;&#x306F;&#x30CE;&#x30FC;&#x30C8;&#x30D6;&#x30C3;&#x30AF;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;wandb&#x306B;&#x4FDD;&#x5B58;&#x3057;&#x3066;&#x3001;&#x5DEE;&#x5206;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3057;&#x307E;&#x3059;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;
-        <a
-        href="https://wandb.ai/settings">&#x8A2D;&#x5B9A;</a>&#x30DA;&#x30FC;&#x30B8;&#x304B;&#x3089;&#x7DE8;&#x96C6;&#x53EF;&#x80FD;&#xFF09;</td>
+      <td style="text-align:left">Turn this on to save the main script or notebook to W&amp;B. This is valuable
+        for improving experiment reproducibility and to diff code across experiments
+        in the UI. By default this is off, but you can change the default to on
+        in <a href="https://wandb.ai/settings">Settings</a>.</td>
     </tr>
     <tr>
       <td style="text-align:left">group</td>
       <td style="text-align:left">str</td>
-      <td style="text-align:left">&#x4ED6;&#x306E;run&#x3092;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x5316;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3002;
-        <a
-        href="https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTRmPsdM-fSSOyCL8w/v/japanese/library/grouping">&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x5316;</a>&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;</td>
+      <td style="text-align:left">Specify a group to organize individual runs into a larger experiment.
+        For example, you might be doing k-fold cross validation, or you might have
+        multiple jobs that train and evaluate a model against different test sets.
+        Group gives you a way to organize runs together into a larger whole, and
+        you can toggle this on and off in the UI. For more details, see <a href="grouping.md">Grouping</a>.</td>
     </tr>
     <tr>
       <td style="text-align:left">job_type</td>
       <td style="text-align:left">str</td>
-      <td style="text-align:left">&#x30ED;&#x30B0;&#x306B;&#x8A18;&#x9332;&#x3057;&#x3066;&#x3044;&#x308B;&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x30BF;&#x30A4;&#x30D7;&#x3002;&#x4F8B;&#xFF1A;eval&#x3001;worker&#x3001;ps&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;&#x30C8;&#x30EC;&#x30FC;&#x30CB;&#x30F3;&#x30B0;&#xFF09;</td>
+      <td style="text-align:left">Specify the type of run, which is useful when you&apos;re grouping runs
+        together into larger experiments using <code>group</code>. For example,
+        you might have multiple jobs in a group, with job types like train and
+        eval. Setting this makes it easy to filter and group similar runs together
+        in the UI so you can compare apples to apples.</td>
     </tr>
     <tr>
       <td style="text-align:left">name</td>
       <td style="text-align:left">str</td>
-      <td style="text-align:left">&#x3053;&#x306E;run&#x306E;&#x8868;&#x793A;&#x540D;&#x3002;UI&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x3001;&#x7DE8;&#x96C6;&#x53EF;&#x80FD;&#x3067;&#x3042;&#x308A;&#x3001;&#x7279;&#x5225;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</td>
+      <td style="text-align:left">A short display name for this run, which is how you&apos;ll identify this
+        run in the UI. By default we generate a random two-word name that lets
+        you easily cross-reference runs from the table to charts. Keeping these
+        run names short makes the chart legends and tables easier to read. If you&apos;re
+        looking for a place to save your hyperparameters, we recommend saving those
+        to <code>config</code> (below).</td>
     </tr>
     <tr>
       <td style="text-align:left">notes</td>
       <td style="text-align:left">str</td>
-      <td style="text-align:left">run&#x306B;&#x95A2;&#x9023;&#x4ED8;&#x3051;&#x3089;&#x308C;&#x305F;&#x8907;&#x6570;&#x884C;&#x306E;&#x6587;&#x5B57;&#x5217;&#x306E;&#x8AAC;&#x660E;</td>
+      <td style="text-align:left">A longer description of the run, like a -m commit message in git. This
+        helps you remember what you were doing when you ran this run.</td>
     </tr>
     <tr>
       <td style="text-align:left">config</td>
       <td style="text-align:left">dict</td>
-      <td style="text-align:left">&#x521D;&#x671F;&#x69CB;&#x6210;&#x3068;&#x3057;&#x3066;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x8F9E;&#x66F8;&#x306E;&#x3088;&#x3046;&#x306A;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;</td>
+      <td style="text-align:left">A dictionary-like object for saving inputs to your job, like hyperparameters
+        for a model or settings for a data preprocessing job. The config will show
+        up in a table in the UI that you can use to group, filter, and sort runs.
+        Keys should not have <code>.</code> in the names, and values should be under
+        10 MB.</td>
     </tr>
     <tr>
       <td style="text-align:left">tags</td>
       <td style="text-align:left">str[]</td>
-      <td style="text-align:left">&#x3053;&#x306E;run&#x306B;&#x30BF;&#x30B0;&#x3068;&#x3057;&#x3066;&#x95A2;&#x9023;&#x4ED8;&#x3051;&#x308B;&#x6587;&#x5B57;&#x5217;&#x306E;&#x30EA;&#x30B9;&#x30C8;</td>
+      <td style="text-align:left">A list of strings, which will populate the list of tags on this run in
+        the UI. Tags are useful for organizing runs together, or applying temporary
+        labels like &quot;baseline&quot; or &quot;production&quot;. It&apos;s easy
+        to add and remove tags in the UI, or filter down to just runs with a specific
+        tag.</td>
     </tr>
     <tr>
       <td style="text-align:left">dir</td>
       <td style="text-align:left">path</td>
-      <td style="text-align:left">&#x30A2;&#x30FC;&#x30C6;&#x30A3;&#x30D5;&#x30A1;&#x30AF;&#x30C8;&#x304C;&#x66F8;&#x304D;&#x8FBC;&#x307E;&#x308C;&#x308B;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3078;&#x306E;&#x30D1;&#x30B9;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;/wandb&#xFF09;</td>
+      <td style="text-align:left">When you call <code>download()</code> on an artifact, this is the directory
+        where downloaded files will be saved. By default this is the ./wandb directory.</td>
     </tr>
     <tr>
       <td style="text-align:left">sync_tensorboard</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">&#x3059;&#x3079;&#x3066;&#x306E;TensorBoard&#x30ED;&#x30B0;wandb&#x3092;&#x30B3;&#x30D4;&#x30FC;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x793A;&#x3059;&#x30D6;&#x30FC;&#x30EB;&#x5024;&#x3002;Tensorboard&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;False&#xFF09;</td>
+      <td style="text-align:left">Whether to copy all TensorBoard logs to W&amp;B; see <a href="../integrations/tensorboard.md">Tensorboard</a> (default:
+        False)</td>
     </tr>
     <tr>
       <td style="text-align:left">resume</td>
       <td style="text-align:left">bool or str</td>
-      <td style="text-align:left">True&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3068;&#x3001;&#x81EA;&#x52D5;&#x5B9F;&#x884C;&#x304C;&#x518D;&#x958B;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x624B;&#x52D5;&#x3067;&#x518D;&#x958B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30E6;&#x30CB;&#x30FC;&#x30AF;&#x306A;&#x6587;&#x5B57;&#x5217;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x518D;&#x958B;&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;False&#xFF09;</td>
+      <td style="text-align:left">If True, the run auto-resumes. Set to a unique run ID to manually resume
+        a run. See <a href="resuming.md">Resuming</a>. (default: False)</td>
     </tr>
     <tr>
       <td style="text-align:left">reinit</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">&#x540C;&#x3058;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3067;wandb.init&#x3078;&#x306E;&#x8907;&#x6570;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;&#x8A31;&#x53EF;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;False&#xFF09;</td>
+      <td style="text-align:left">Whether to allow multiple <code>wandb.init()</code> calls in the same process.
+        (default: False)</td>
     </tr>
     <tr>
       <td style="text-align:left">anonymous</td>
       <td style="text-align:left">&quot;allow&quot; &quot;never&quot; &quot;must&quot;</td>
-      <td style="text-align:left">&#x8A31;&#x53EF;&#x300D;&#x3001;&#x300C;&#x6C7A;&#x3057;&#x3066;&#x300D;&#x3001;&#x307E;&#x305F;&#x306F;&#x300C;&#x5FC5;&#x9808;&#x300D;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x3001;&#x533F;&#x540D;&#x30ED;&#x30AE;&#x30F3;&#x30B0;&#x304C;&#x6709;&#x52B9;&#x307E;&#x305F;&#x306F;&#x660E;&#x793A;&#x7684;&#x306B;&#x7121;&#x52B9;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;&#x306A;&#x3057;&#xFF09;</td>
+      <td style="text-align:left">
+        <p>Enable or disable anonymous logging &#x2014; tracking this run in the
+          W&amp;B cloud without creating an account.</p>
+        <ul>
+          <li><b>&quot;allow&quot;</b> lets a logged-in user track runs with their account,
+            but lets someone who is running the script without a W&amp;B account see
+            the charts in the UI.</li>
+          <li><b>&quot;never&quot; </b> (default) requires you to link your W&amp;B account
+            before tracking the run so you don&apos;t accidentally create an anonymous
+            run.</li>
+          <li><b>&quot;must&quot;</b> sends the run to an anonymous account instead of
+            to a user account.</li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">force</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x306E;&#x5B9F;&#x884C;&#x6642;&#x306B;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3092;&#x5F37;&#x5236;&#x7684;&#x306B;wandb&#x306B;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3055;&#x305B;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;False&#xFF09;</td>
+      <td style="text-align:left">whether to force a user to be logged into wandb when running a script
+        (default: False)</td>
     </tr>
     <tr>
       <td style="text-align:left">magic</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">bool&#x3001;dict&#x3001;&#x307E;&#x305F;&#x306F;str&#x3001;optional&#xFF09;&#xFF1A;bool&#x3001;dict&#x3001;json
-        string&#x3001;yaml&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x3068;&#x3057;&#x3066;&#x306E;&#x9B54;&#x6CD5;&#x306E;&#x69CB;&#x6210;&#x3002;True&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3068;&#x3001;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x306E;&#x81EA;&#x52D5;&#x8A08;&#x6E2C;&#x304C;&#x8A66;&#x884C;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;&#x306A;&#x3057;&#xFF09;</td>
+      <td style="text-align:left">Whether to attempt to auto-instrument your script, capturing basic details
+        of your run without you having to add more wandb code. (default: False)</td>
     </tr>
     <tr>
       <td style="text-align:left">id</td>
       <td style="text-align:left">unique str</td>
-      <td style="text-align:left">&#x4E3B;&#x306B;<a href="https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTRmPsdM-fSSOyCL8w/v/japanese/library/resuming">&#x518D;&#x958B;</a>&#x306B;&#x4F7F;&#x7528;&#x3055;&#x308C;&#x308B;&#x3053;&#x306E;run&#x306E;&#x30E6;&#x30CB;&#x30FC;&#x30AF;&#x306A;ID&#x3002;&#x30B0;&#x30ED;&#x30FC;&#x30D0;&#x30EB;&#x306B;&#x30E6;&#x30CB;&#x30FC;&#x30AF;&#x3067;&#x3042;&#x308B;<b>&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;</b>&#x3001;run&#x3092;&#x524A;&#x9664;&#x3059;&#x308B;&#x3068;ID&#x3092;&#x518D;&#x5229;&#x7528;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;run&#x306E;&#x8AAC;&#x660E;&#x7684;&#x3067;&#x6709;&#x7528;&#x306A;&#x540D;&#x524D;&#x306B;&#x306F;&#x3001;<b>&#x540D;&#x524D;</b>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;ID&#x306B;&#x7279;&#x6B8A;&#x6587;&#x5B57;&#x3092;&#x542B;&#x3081;&#x3066;&#x306F;&#x3044;&#x3051;&#x307E;&#x305B;&#x3093;&#x3002;</td>
+      <td style="text-align:left">A <em>unique</em> ID for this run, used for <a href="resuming.md">Resuming</a>.
+        It <em>must</em> be unique in the project, and if you delete a run you can&apos;t
+        reuse the ID. Use the <code>name</code> field for a short descriptive name,
+        or <code>config</code> for saving hyperparameters to compare across runs.
+        The ID cannot contain special characters.</td>
     </tr>
     <tr>
       <td style="text-align:left">monitor_gym</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">OpenAI Gym&#x306B;&#x3088;&#x3063;&#x3066;&#x751F;&#x6210;&#x3055;&#x308C;&#x305F;&#x30D3;&#x30C7;&#x30AA;&#x3092;&#x30ED;&#x30B0;&#x306B;&#x8A18;&#x9332;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x793A;&#x3059;&#x30D6;&#x30FC;&#x30EB;&#x5024;&#x3002;
-        <a
-        href="../integrations/ray-tune.md">Ray Tune</a>&#x3092;&#x53C2;&#x7167;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;False&#xFF09;</td>
+      <td style="text-align:left">Whether to log videos from the OpenAI Gym; see <a href="../integrations/ray-tune.md">Ray Tune</a> (default:
+        False)</td>
     </tr>
     <tr>
       <td style="text-align:left">allow_val_change</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">
-        <p>wandb.<a href="config.md">config</a>&#x5024;&#x306E;&#x5909;&#x66F4;&#x3092;&#x8A31;&#x53EF;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3002;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F;&#x3001;&#x69CB;&#x6210;&#x5024;&#x304C;&#x4E0A;&#x66F8;&#x304D;&#x3055;&#x308C;&#x308B;&#x3068;&#x4F8B;&#x5916;&#x304C;&#x30B9;&#x30ED;&#x30FC;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#xFF08;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#xFF1A;False&#xFF09;</p>
-        <p>&#x3053;&#x308C;&#x3089;&#x306E;&#x8A2D;&#x5B9A;&#x306E;&#x307B;&#x3068;&#x3093;&#x3069;&#x306F;&#x3001;&#x74B0;&#x5883;&#x5909;&#x6570;&#x3092;&#x4ECB;&#x3057;&#x3066;&#x5236;&#x5FA1;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3001;&#x30AF;&#x30E9;&#x30B9;&#x30BF;&#x30FC;&#x3067;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x3044;&#x308B;&#x3068;&#x304D;&#x306B;&#x3088;&#x304F;&#x5F79;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;</p>
-      </td>
+      <td style="text-align:left">Whether to allow <a href="config.md">config</a> values to change after setting
+        the keys once. By default we throw an exception if a config value is overwritten.
+        If you want to track something like a varying learning_rate at multiple
+        times during training, use wandb.log() instead. (default: False)</td>
     </tr>
   </tbody>
 </table>
 
- wandb.init（）を実行するスクリプトのコピーが自動的に保存されます。コード比較機能の詳細については、[コード比較](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTRmPsdM-fSSOyCL8w/v/japanese/app/features/panels/code)機能をご覧ください。この機能を無効にするには、環境変数WANDB\_DISABLE\_CODE=trueを設定してください。
+Most of these settings can also be controlled via [Environment Variables](environment-variables.md). This is often useful when you're running jobs on a cluster.
 
-## **よくある質問**
+We automatically save a copy of the script where you run wandb.init\(\). Learn more about the code comparison feature here: [Code Comparer](../app/features/panels/code.md). To disable this feature, set the environment variable WANDB\_DISABLE\_CODE=true.
 
-**1つのスクリプトから複数のrunを起動するにはどうすればよいですか？**
+## Common Questions
 
-1つのスクリプトから複数のrunを開始しようとしている場合は、コードに次の2つを追加します。
+### How do I launch multiple runs from one script?
 
-1. run = wandb.init（**reinit=True**）：この設定を使用して、runの再初期化を許可します
-2. **run.finish\(\)**：runの最後にこれを使用して、そのrunのログ記録を終了します
+If you're trying to start multiple runs from one script, add two things to your code:
+
+1. run = wandb.init\(**reinit=True**\): Use this setting to allow reinitializing runs
+2. **run.finish\(\)**: Use this at the end of your run to finish logging for that run
 
 ```python
 import wandb
@@ -149,7 +194,7 @@ for x in range(10):
     run.finish()
 ```
 
-または、自動的にロギングを終了するPythonコンテキストマネージャーを使用することもできます。
+Alternatively you can use a python context manager which will automatically finish logging:
 
 ```python
 import wandb
@@ -160,17 +205,17 @@ for x in range(10):
             run.log({"metric": x+y})
 ```
 
-### **LaunchError：アクセスが拒否されました**
+### LaunchError: Permission denied
 
-**LaunchError：Launch exception：Permission denied**エラーが発生した場合、runを送信しようとしているプロジェクトにログを記録するためのアクセス許可がありません。これにはいくつかの様々な理由が考えられます。
+If you're getting a **LaunchError: Launch exception: Permission denied** error, you don't have permissions to log to the project you're trying to send runs to. This might be for a few different reasons.
 
-1.  このマシンにログインしていません。コマンドラインでwandbloginを実行します。
-2.  存在しないエンティティを設定しました。「エンティティ」は、ユーザー名または既存のチームの名前である必要があります。チームを作成する必要がある場合は、[サブスクリプションページ](https://app.wandb.ai/billing)にアクセスしてください。
-3. プロジェクトの権限がありません。プロジェクトの作成者に、プライバシーを**Open**に設定して、このプロジェクトの実行をログに記録できるようにするよう依頼してください。
+1. You aren't logged in on this machine. Run `wandb login` on the command line.
+2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
+3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
 
-### **読み取り可能な実行名を取得します**
+### Get the readable run name
 
-runに適した読みやすい名前を取得します。
+Get the nice, readable name for your run.
 
 ```python
 import wandb
@@ -179,9 +224,9 @@ wandb.init()
 run_name = wandb.run.name
 ```
 
-###  **実行名を生成されたrun IDに設定します**
+### Set the run name to the generated run ID
 
-実行名（snowy-owl-10など）をrun ID（qvlp96vkなど）で上書きする場合は、次のスニペットを使用できます。
+If you'd like to overwrite the run name \(like snowy-owl-10\) with the run ID \(like qvlp96vk\) you can use this snippet:
 
 ```python
 import wandb
@@ -190,22 +235,22 @@ wandb.run.name = wandb.run.id
 wandb.run.save()
 ```
 
-### **git commitを保存します**
+### Save the git commit
 
-スクリプトでwandb.init（）が呼び出されると、git情報が自動的に検索され、最新のコミットのSHAのリポジトリへのリンクが保存されます。git情報が実行ページに表示されます。そこに表示されない場合は、wandb.init（）を呼び出すスクリプトがgit情報のあるフォルダーにあるかをご確認ください。
+When wandb.init\(\) is called in your script, we automatically look for git information to save a link to your repo the SHA of the latest commit. The git information should show up on your [run page](../app/pages/run-page.md#overview-tab). If you aren't seeing it appear there, make sure that your script where you call wandb.init\(\) is located in a folder that has git information.
 
-実験の実行に使用されるgitcommitとコマンドは表示されますが、外部ユーザーには表示されないため、パブリックプロジェクトがある場合、これらの詳細は公開されません。
+The git commit and command used to run the experiment are visible to you but are hidden to external users, so if you have a public project, these details will remain private.
 
-###  **ログをオフラインで保存します**
+### Save logs offline
 
-デフォルトでは、wandb.init（）は、メトリックをクラウドでホストされているアプリにリアルタイムで同期するプロセスを開始します。マシンがオフラインであるか、またはインターネットにアクセスできない場合は、オフラインモードを使用してwandbを実行し、後で同期する方法を説明します。
+By default, wandb.init\(\) starts a process that syncs metrics in real time to our cloud hosted app. If your machine is offline or you don't have internet access, here's how to run wandb using the offline mode and sync later.
 
-2つの環境変数を設定します。
+Set two environment variables:
 
-1. **WANDB\_MODE**: dryrun **WANDB\_API\_KEY**：[設定ページ](https://wandb.ai/settings)でこれをアカウントのAPIキーに設定します
-2. **WANDB\_MODE**：dryrun
+1. **WANDB\_API\_KEY**: Set this to your account's API key, on your [settings page](https://app.wandb.ai/settings)
+2. **WANDB\_MODE**: dryrun
 
-スクリプトでこれがどのように表示されるかのサンプルを次に示します。
+Here's a sample of what this would look like in your script:
 
 ```python
 import wandb
@@ -228,11 +273,11 @@ for i in range(100):
   wandb.log({"accuracy": i})
 ```
 
- ターミナル出力の例を次に示します。
+Here's a sample terminal output:
 
 ![](../.gitbook/assets/image%20%2881%29.png)
 
-インターネットがつながりますと、syncコマンドを実行してそのフォルダーをクラウドに送信します。
+And once I have internet, I run a sync command to send that folder to the cloud.
 
 `wandb sync wandb/dryrun-folder-name`
 

@@ -1,16 +1,18 @@
 ---
-description: Python APIを使用してW＆Bからデータを取得するための一般的な使用例を次に示します。
+description: >-
+  Here are some common use cases for pulling down data from W&B using our Python
+  API.
 ---
 
 # Data Export API Examples
 
-### 実行パスを見つけます
+### Find the run path
 
-パブリックAPIを使用するには、多くの場合、`"<entity>/<project>/<run_id>"`の**実行パス**が必要になります。アプリで実行を開き、\[**概要**\]タブをクリックして、実行の実行パスを確認します。
+To use the public API, you'll often need the **Run Path** which is `"<entity>/<project>/<run_id>"`  In the app, open a run and click on the **Overview** tab to see the run path for any run.
 
-### 実行からメトリックを読み取ります
+### Read metrics from a run
 
-この例では、`<entity>/<project>/<run_id>`に保存された実行について、`wandb.log({"accuracy": acc})`で保存されたタイムスタンプと精度を出力します。
+This example outputs timestamp and accuracy saved with `wandb.log({"accuracy": acc})` for a run saved to `<entity>/<project>/<run_id>`.
 
 ```python
 import wandb
@@ -22,9 +24,9 @@ if run.state == "finished":
       print(row["_timestamp"], row["accuracy"])
 ```
 
-### 2つの実行を比較します
+### Compare two runs
 
-これにより、run1とrun2で異なる構成パラメータが出力されます。出力：
+This will output the config parameters that are different between run1 and run2.
 
 ```python
 import wandb
@@ -50,9 +52,9 @@ n_conv_layers                               5                    4
 optimizer                             rmsprop                 adam
 ```
 
-### 実行のメトリックを更新します（実行終了後）
+### Update metrics for a run \(after run finished\)
 
-この例では、前の実行の精度を0.9に設定します。また、前回の実行の精度ヒストグラムをnumpy\_arrayのヒストグラムに変更します
+This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_array
 
 ```python
 import wandb
@@ -64,9 +66,9 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
-### 実行時に構成を更新します
+### Update config in a run
 
-この例では、構成設定の1つを更新します
+This examples updates one of your configuration settings
 
 ```python
 import wandb
@@ -76,9 +78,9 @@ run.config["key"] = 10
 run.update()
 ```
 
-### 1回の実行からCSVファイルにメトリックをエクスポートします
+### Export metrics from a single run to a CSV file
 
-このスクリプトは、1回の実行で保存されたすべてのメトリックを検索し、それらをCSVに保存します。
+This script finds all the metrics saved for a single run and saves them to a CSV.
 
 ```python
 import wandb
@@ -92,9 +94,9 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 ```
 
-### サンプリングせずに大規模な単一実行からメトリックをエクスポートします
+### Export metrics from a large single run without sampling
 
-デフォルトの履歴メソッドは、メトリックを固定数のサンプルにサンプリングします（デフォルトは500です。これは、samples主張で変更できます）。大規模な実行ですべてのデータをエクスポートする場合は、run.scan\_history（）メソッドを使用できます。このスクリプトは、より長い実行のために、すべてのロスメトリックを可変ロスにロードします。
+The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. This script loads all of the loss metrics into a variable losses for a longer run.
 
 ```python
 import wandb
@@ -105,9 +107,9 @@ history = run.scan_history()
 losses = [row["Loss"] for row in history]
 ```
 
-### プロジェクト内のすべての実行からCSVファイルにメトリックをエクスポートします
+### Export metrics from all runs in a project to a CSV file
 
-このスクリプトはプロジェクトを検索し、名前、構成、要約統計量を含む実行のCSVを出力します。
+This script finds a project and outputs a CSV of runs with name, configs and summary stats.
 
 ```python
 import wandb
@@ -136,9 +138,9 @@ all_df = pd.concat([name_df, config_df,summary_df], axis=1)
 all_df.to_csv("project.csv")
 ```
 
-### 実行からファイルをダウンロードします
+### Download a file from a run
 
-### これにより、cifarプロジェクトの実行ID uxte44z7に関連付けられているファイル「model-best.h5」が検索され、ローカルに保存されます。
+This finds the file "model-best.h5" associated with with run ID uxte44z7 in the cifar project and saves it locally.
 
 ```python
 import wandb
@@ -147,9 +149,9 @@ run = api.run("<entity>/<project>/<run_id>")
 run.file("model-best.h5").download()
 ```
 
-### 実行からすべてのファイルをダウンロードします
+### Download all files from a run
 
-これにより、実行ID uxte44z7に関連付けられているすべてのファイルが検索され、ローカルに保存されます。（注：これは、コマンドラインからwandb restore &lt;RUN\_ID&gt;を実行することによっても実行できます。）
+This finds all files associated with run ID uxte44z7 and saves them locally.  \(Note: you can also accomplish this by running wandb restore &lt;RUN\_ID&gt; from the command line.\)
 
 ```python
 import wandb
@@ -159,7 +161,7 @@ for file in run.files():
     file.download()
 ```
 
-###  最高のモデルファイルをダウンロードします
+### Download the best model file
 
 ```python
 import wandb
@@ -172,7 +174,7 @@ runs[0].file("model-best.h5").download(replace=True)
 print("Best model saved to model-best.h5")
 ```
 
-### 特定のスイープから実行を取得します
+### Get runs from a specific sweep
 
 ```python
 import wandb
@@ -181,9 +183,9 @@ sweep = api.sweep("<entity>/<project>/<sweep_id>")
 print(sweep.runs)
 ```
 
-###  システムメトリクスデータをダウンロードします
+### Download system metrics data
 
- これにより、実行のすべてのシステムメトリックを含むデータフレームが得られます。
+This gives you a dataframe with all your system metrics for a run.
 
 ```python
 import wandb
@@ -200,9 +202,9 @@ You can pass your dictionary to update summary metrics.
 summary.update({“key”: val})
 ```
 
-###  サマリーメトリックを更新します
+### Get the command that ran the run
 
-あなたの辞書を渡して、サマリーメトリックを更新できます。
+Each run captures the command that launched it on the run overview page. To pull this command down from the API, you can run:
 
 ```python
 api = wandb.Api()
@@ -211,9 +213,9 @@ meta = json.load(run.file("wandb-metadata.json").download())
 program = ["python"] + [meta["program"]] + meta["args"]
 ```
 
-### 履歴からページ付けされたデータを取得します
+### Get paginated data from history
 
-バックエンドでメトリックがゆっくりとフェッチされ、またはAPIリクエストがタイムアウトしている場合は、`scan_history`のページサイズを小さくして、個々のリクエストがタイムアウトしないようにすることができます。デフォルトのページサイズは1000であるため、さまざまなサイズを試して、最適なサイズを確認できます。
+If metrics are being fetched slowly on our backend or API requests are timing out, you can try lowering the page size in `scan_history` so that individual requests don't time out. The default page size is 1000, so you can experiment with different sizes to see what works best:
 
 ```python
 api = wandb.Api()

@@ -1,78 +1,78 @@
 ---
-description: プロジェクトページのサイドバーと表の使用方法
+description: How to use the sidebar and table on the project page
 ---
 
 # Table
 
-プロジェクトページでは、実行がサイドバーに表示されます。サイドバーを展開して、実行全体のハイパーパラメータとサマリーメトリックの表を表示します。
+On the project page, we show runs in a sidebar. Expand the sidebar to view a table of hyperparameters and summary metrics across runs.
 
-## **実行名を検索**
+## Search run names
 
-表内の実行名の完全な[正規表現](https://dev.mysql.com/doc/refman/8.0/en/regexp.html)検索をサポートします。検索ボックスにクエリを入力すると、ワークスペースのグラフに表示されている実行がフィルタリングされ、表の行もフィルタリングされます。
+We support full [regex](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) search on run names in the table. When you type a query in the search box, that will filter down the visible runs in the graphs on the workspace as well as filtering the rows of the table.
 
-## **サイドバーのサイズを変更します**
+## Resize the sidebar
 
-プロジェクトページのグラフ用にもっとスペースを作りたいですか？列ヘッダーの端をクリックしてドラッグし、サイドバーのサイズを変更します。目のアイコンをクリックして、グラフの実行をオンまたはオフにすることはできます。
+Would you like to make more space for the graphs on the project page? Click and drag the edge of the column header to resize the sidebar. You'll still be able to click on the eye icon to turn on and off runs on the graphs.
 
 ![](https://downloads.intercomcdn.com/i/o/153755378/d54ae70fb8155657a87545b1/howto+-+resize+column.gif)
 
-##  **サイドバー列を追加します**
+## Add sidebar columns
 
-プロジェクトページでは、実行がサイドバーに表示されます。より多くの列を表示する方法：
+On the project page, we show runs in a sidebar. To show more columns:
 
-1. サイドバーの右上隅にあるボタンをクリックして、表を展開します。
-2. 列ヘッダーで、ドロップダウンメニューをクリックして列を固定します。
-3. 表を折りたたむと、サイドバーに固定された列が表示されます。
+1. Click the button in the upper right corner of the sidebar to expand the table.
+2. On a column header, click the dropdown menu to pin a column.
+3. Pinned columns will be available in the sidebar when you collapse the table.
 
-これがスクリーンキャプチャです。表を展開し、2つの列を固定し、表を折りたたんでから、サイドバーのサイズを変更します。
+Here's a screen capture. I expand the table, pin two columns, collapse the table, then resize the sidebar.
 
 ![](https://downloads.intercomcdn.com/i/o/152951680/cf8cbc6b35e923be2551ba20/howto+-+pin+rows+in+table.gif)
 
-## **一括選択実行**
+## Bulk select runs
 
-複数の実行を一度に削除するか、実行のグループにタグを付けます。一括選択により、実行表を整理しやすくなります。
+Delete multiple runs at once, or tag a group of runs— bulk selection makes it easier to keep the runs table organized.
 
 ![](../../.gitbook/assets/howto-bulk-select.gif)
 
-## **表内のすべての実行を選択します**
+## Select all runs in table
 
-表の左上隅にあるチェックボックスをクリックし、\[すべての実行を選択\]をクリックして、現在のフィルターのセットに一致するすべての実行を選択します。
+Click the checkbox in the upper left corner of the table, and click "Select all runs" to select every run that matches the current set of filters.
 
 ![](../../.gitbook/assets/all-runs-select.gif)
 
-## **プロジェクト間で実行を移動します**
+## Move runs between projects
 
-実行をあるプロジェクトから別のプロジェクトに移動する方法：
+To move runs from one project to another:
 
-1. 表を展開します
-2. 移動する実行の横にあるチェックボックスをクリックします
-3. \[移動\]をクリックして、宛先プロジェクトを選択します
+1. Expand the table
+2. Click the checkbox next to the runs  you want to move
+3. Click move and select the destination project
 
 ![](../../.gitbook/assets/howto-move-runs.gif)
 
-## **アクティブな実行を参照します**
+## See active runs
 
-実行の名前の横にある緑色の点を探します。これは、実行が表とグラフの凡例でアクティブであることを示します。
+Look for a green dot next to the name of runs— this indicates they're active in the table and on the graph legends.
 
-##  **望ましくない実行を隠します**
+## Hide uninteresting runs
 
-クラッシュした実行を非表示にしたいですか？ショート実行はあなたの表をいっぱいにしていますか？グループプロジェクトでの作業のみを表示しますか？フィルターでノイズを隠します。おすすめのフィルター：
+Do you want to hide crashed runs? Are short runs filling up your table? Do you want to only see your work in a group project? Hide the noise with a filter. Some filters we recommend:
 
-* **私の作業のみ**をフィルターして、ユーザー名で実行する
-* **クラッシュした実行を非表示**にして、クラッシュとマークされた実行を表から除外する
-* **期間**：新しいフィルターを追加し、「期間」を選択して短期間の実行を非表示にする
+* **Show only my work** filters down to runs under your username
+* **Hide crashed runs** filters out any runs marked crashed from the table
+* **Duration**: add a new filter and select "duration" to hide short runs
 
 ![](../../.gitbook/assets/image%20%2816%29.png)
 
-## **不要な実行をフィルタリングして削除します**
+## Filter and delete unwanted runs
 
-表を削除したいものだけに絞り込む場合は、すべてを選択し、削除を押してプロジェクトから削除できます。実行の削除はプロジェクトグローバルであるため、レポートから実行を削除すると、プロジェクトの残りの部分に反映されます。
+If you filter down the table to just the ones you want to delete, you can select all and press delete to remove them from your project. Deleting runs is project-global, so if you delete runs from a report that will be reflected in the rest of your project.
 
 ![](../../.gitbook/assets/2020-05-13-19.14.13.gif)
 
-##  **実行表をCSVにエクスポート**
+## Export runs table to CSV
 
-ダウンロードボタンを使用して、すべての実行、ハイパーパラメータ、およびサマリーメトリックの表をCSVにエクスポートします。
+Export the table of all your runs, hyperparameters, and summary metrics to a CSV with the download button.
 
 ![](../../.gitbook/assets/2020-07-06-11.51.01.gif)
 

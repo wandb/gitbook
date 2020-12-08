@@ -1,10 +1,6 @@
 ---
-description: APIと統合のために生成されたドキュメント
+description: Generated documentation for our API and integrations
 ---
 
 # API Reference
-
-
-
-このセクションの記事は次のとおりです。
 

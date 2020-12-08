@@ -1,33 +1,37 @@
 ---
-description: 実行とプロジェクトにメモを追加し、メモを使用してレポートで調査結果を説明します
+description: >-
+  Add notes to your runs and projects, and use notes to describe your findings
+  in reports
 ---
 
 # Notes
 
-Weights＆Biasesでの作業についてメモを取る方法はいくつかあります。
+There are a few ways to take notes about your work in Weights & Biases.
 
-1. 実行にメモを追加します。これらのメモは、概要タブの実行ページとプロジェクトページの実行表に表示されます。
-2. プロジェクトにメモを追加します。これらのメモは、プロジェクトページの\[概要\]タブに表示されます。
-3. 実行ページ、プロジェクトページ、またはレポートページにマークダウンパネルを追加します。
+1. Add notes to a run. These notes show up on the run page in the overview tab and in the table of runs on the project page.
+2. Add notes to a project. These notes show up on the project page in the overview tab.
+3. Add a markdown panel on the run page, project page, or report page.
 
-## **特定の実行にメモを追加します**
+## Add notes to a specific run
 
- 実行のメモは2か所で編集できます。
+You can edit the notes on a run in two places.
 
-1. **プロジェクトページ：表には編集可能なメモ列があります**
-2. **実行ページ：\[概要\]タブには実行に関する情報が表示され、次のことができます。**
+1. **Project Page**: the table has an editable notes column
+2. **Run Page**: the overview tab shows information about a run, and you can 
 
-プロジェクトページで、表を展開します。「メモを追加...」をクリックして、メモをインラインで入力します。 プロジェクトページの表のメモを編集する
+On the project page, expand the table. Click "Add notes..." to type notes in-line.
 
 ![Editing notes in the table on the project page](https://downloads.intercomcdn.com/i/o/148296355/34114b47362b0378e233a440/2019-09-13+08.05.17.gif)
 
-プロジェクトページで、表を展開します。「メモを追加...」をクリックして、メモをインラインで入力します。 プロジェクトページの表のメモを編集する
+This field also shows up on the individual run page. Click the name of the run in the table to go to the run page. Click the top tab on the left side to go to the Overview tab. The field has much more room to grow here. You can type as many notes as you'd like in this space, and a preview will be shown in the runs table when you mouse over the notes field.
 
+![Editing notes in the overview tab on the run page](https://downloads.intercomcdn.com/i/o/148297196/afdb48d2fb59aaa0c90c3aed/2019-09-13+08.06.45.gif)
 
+You can also create a report to add plots and markdown side by side. Use different sections to show different runs, and tell a story about what you worked on. These notes can be saved and shared with colleagues.
 
-## **実行を比較する説明的なメモをします**
+## Write descriptive notes comparing runs
 
-複数の実行を比較する場合は、レポートを使用して調査結果について記述してください。「視覚化の追加」をクリックして、マークダウンパネルを追加します。これらのパネルは、グラフのパネルの横に配置できます。
+Use reports to write about your findings when comparing multiple runs. Click "Add visualization" to add a markdown panel. You can arrange these panels beside panels of graphs.
 
 ![](https://downloads.intercomcdn.com/i/o/148297552/64e5baa86a48927158d17456/2019-09-13+08.08.31.gif)
 

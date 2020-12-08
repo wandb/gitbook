@@ -1,18 +1,18 @@
 # MLflow \(beta\)
 
-> MLFlow統合は現在ベータ版であり、公式のwandbpythonパッケージの一部ではありません。この統合を試すには、次のコマンドを実行してgitブランチからwandbをインストールします。
+> The MLFlow integration is currently in beta and is not a part of the official wandb python package. To try this integration you can install wandb from our git branch by running:
 
 ```bash
 pip install --upgrade git+git://github.com/wandb/client.git@feature/mlflow#egg=wandb
 ```
 
-## MLflow統合
+## MLflow Integration
 
-すでに[MLflow](https://www.mlflow.org/docs/latest/tracking.html)を使用して実験を追跡している場合は、W＆Bで簡単に視覚化できます。 mlflowスクリプトで`importwandb`を呼び出すだけで、すべてのメトリック、パラメータ、およびアーティファクトがW＆Bにミラーリングされます。これを行うには、[mlflowpython](https://github.com/mlflow/mlflow)ライブラリにパッチを適用します。現在の統合は書き込み専用です。すべてのデータは、[mlflow](https://www.mlflow.org/docs/latest/tracking.html)用に構成したバックエンドにも書き込まれます。
+If you're already using [MLflow](https://www.mlflow.org/docs/latest/tracking.html) to track your experiments it's easy to visualize them with W&B. Simply by calling `import wandb` in your mlflow scripts we'll mirror all metrics, params, and artifacts to W&B. We do this by patching the mlflow [python library](https://github.com/mlflow/mlflow). Our current integration is write only. All data will also be written to the [backend](https://www.mlflow.org/docs/latest/tracking.html#where-runs-are-recorded) you've configured for mlflow.
 
-## コンセプトマッピング
+## Concept mappings
 
-データをwandbとmlflowの両方の追跡バックエンドにミラーリングする場合、次の概念が相互にマッピングされます。
+When mirroring data to both a wandb and mlflow tracking backend, the following concepts are mapped to each-other.
 
 | MLflow | W&B |
 | :--- | :--- |
@@ -23,11 +23,11 @@ pip install --upgrade git+git://github.com/wandb/client.git@feature/mlflow#egg=w
 | [mlflow.log\_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact) | [wandb.save](../library/save.md) |
 | [mlflow.start\_run\(nested=True\)](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [Grouping](../library/grouping.md) |
 
-## 豊富なメトリックのロギング
+## Logging rich metrics
 
-画像、ビデオ、プロットなどのリッチメディアをログに記録する場合は、コードで[wandb.log](../library/log.md) を呼び出すこともできます。ログへの呼び出しにstep引数を渡して、mlflowでログに記録しているメトリックと一致させるようにしてください。
+If you want to log rich media like Images, Video, or Plots you can call [wandb.log](../library/log.md) in your code as well. Be sure to pass a step argument to your calls to log so they can be aligned with the metrics you're logging with mlflow.
 
-## 高度な構成
+## Advanced configuration
 
-デフォルトでは、wandbはメトリック、パラメータ、およびアーティファクトのみをログに記録します。wandbでアーティファクトを保存したくない場合は、`WANDB_SYNC_MLFLOW=metrics,params`を設定できます。wandbへのすべてのデータのミラーリングを無効にする場合は、`WANDB_SYNC_MLFLOW=false`を設定できます。
+By default wandb only logs metrics, params and artifacts. If you don't want to store artifacts with wandb, you can set `WANDB_SYNC_MLFLOW=metrics,params` . If you want to disable mirroring of all data to wandb you can set the `WANDB_SYNC_MLFLOW=false`.
 

@@ -1,26 +1,28 @@
 # Kubeflow
 
-##  Kubeflow統合
+## Kubeflow Integration
 
- 特定の機能を使用するには、追加の依存関係が必要です。`pip install wandb [kubeflow]`を実行して、すべてのKubeflow依存関係をインストールします。
+Using certain features require additional dependencies. Install all Kubeflow dependencies by running `pip install wandb[kubeflow]`.
 
-### トレーニングジョブ
+### Training Jobs
 
-現在、W＆BはTF\_CONFIG環境変数を自動的に読み取り、分散実行をグループ化します。
+Currently W&B automatically reads the **TF\_CONFIG** environment variable to group distributed runs.
 
 ### Arena
 
-wandbライブラリは、コンテナ環境に資格情報を自動的に追加することにより、[アリーナ](https://github.com/kubeflow/arena)と統合されます。wandbラッパーをローカルで使用する場合は、以下を`.bashrc`に追加します。
+The wandb library integrates with [arena](https://github.com/kubeflow/arena) by automatically adding credentials to container environments. If you want to use the wandb wrapper locally, add the following to your `.bashrc`
 
 ```text
 alias arena="python -m wandb.kubeflow.arena"
 ```
 
-アリーナがローカルにインストールされていない場合、上記のコマンドは`wandb/arena` dockerイメージを使用して、kubectl構成をマウントしようとします。
+If you don't have arena installed locally, the above command will use the `wandb/arena` docker image and attempt to mount your kubectl configs.
 
-###  パイプライン
+### Pipelines
 
-wandbは、[パイプライン](https://github.com/kubeflow/pipelines)で使用できる`arena_launcher_op`を提供します。独自のカスタムランチャー操作を作成する場合は、この[コード](https://github.com/wandb/client/blob/master/wandb/kubeflow/__init__.py)を使用してpipeline\_metadataを追加することもできます。wandbが認証するには、**WANDB\_API\_KEY**を操作に追加する必要があります。そうすると、ランチャーは同じ環境変数をトレーニングコンテナーに追加できます。
+wandb provides an `arena_launcher_op` that can be used in [pipelines](https://github.com/kubeflow/pipelines).
+
+If you want to build your own custom launcher op, you can also use this [code](https://github.com/wandb/client/blob/master/wandb/kubeflow/__init__.py) to add pipeline\_metadata. For wandb to authenticate you should add the **WANDB\_API\_KEY** to the operation, then your launcher can add the same environment variable to the training container.
 
 ```python
 import os

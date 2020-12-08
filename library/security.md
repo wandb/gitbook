@@ -1,14 +1,14 @@
 # Security
 
- 簡単にするために、W＆BはAPIにアクセスする際の認証にAPIキーを使用します。APIキーは設定で見つけることができます。あなたのAPIキーは[安全](https://app.wandb.ai/settings)に保存し、バージョン管理にチェックインしないでください。個人のAPIキーに加えて、サービスアカウントユーザーをチームに追加できます。
+For simplicity W&B uses API keys for authorization when accessing the API. You can find your API keys in your [settings](https://app.wandb.ai/settings). Your API key should be stored securely and never checked into version control. In addition to personal API keys, you can add Service Account users to your team.
 
-### キーローテーション
+## Key Rotation
 
-個人アカウントキーとサービスアカウントキーの両方をローテーションまたは取り消すことができます。新しいAPIキーまたはサービスアカウントユーザーを作成し、新しいキーを使用するようにスクリプトを再構成するだけです。すべてのプロセスが再構成されたら、プロファイルまたはチームから古いAPIキーを削除できます。
+Both personal and service account keys can be rotated or revoked. Simply create a new API Key or Service Account user and reconfigure your scripts to use the new key. Once all processes are reconfigured, you can remove the old API key from your profile or team.
 
-### アカウントの切り替え
+## Switching between accounts
 
-同じマシンで2つのW＆Bアカウントを使用している場合は、異なるAPIキーを切り替えるための優れた方法が必要になります。両方のAPIキーをマシン上のファイルに保存してから、次のようなコードをリポジトリに追加できます。これは、潜在的に危険なソース管理システムに秘密鍵をチェックインすることを避けるためです
+If you have two W&B accounts working from the same machine, you'll need a nice way to switch between your different API keys. You can store both API keys in a file on your machine then add code like the following to your repos. This is to avoid checking your secret key into a source control system, which is potentially dangerous.
 
 ```text
 if os.path.exists("~/keys.json"):

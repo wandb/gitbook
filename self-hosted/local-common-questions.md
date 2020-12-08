@@ -1,34 +1,34 @@
 ---
-description: •ローカルでホストされているバージョンのアプリの設定に関するよくある質問
+description: Frequently asked questions about setting up locally-hosted versions of our app
 ---
 
 # Local FAQ
 
-## サーバーはインターネットに接続する必要がありますか？
+## Does my server need a connection to the internet?
 
-いいえ。_wandb/local_はエアギャップ環境で実行できます。唯一の要件は、モデルをトレーニングする機器がネットワーク経由でこのサーバーに接続できることです。
+Nope, _wandb/local_ can run in air gapped environments. The only requirement is that the machines that train your models on can connect to this server over the network.
 
-## データはどこに保存されますか？
+## Where is my data stored?
 
-デフォルトのDockerイメージは、コンテナー内でMySQLとMinioを実行し、すべてのデータを/volのサブフォルダーに書き込みます。ライセンスを取得することで、外部MySQLとObject Storageを構成できます。詳細については、[contact@wandb.com](mailto:contact@wandb.com)に電子メールを送信してください。
+The default docker image runs MySQL and Minio inside of the container and writes all data in sub folders of `/vol` . You can configure external MySQL and Object Storage by getting a license. Email [contact@wandb.com](mailto:contact@wandb.com) for more details.
 
-## どのくらいの頻度でアップグレードをリリースしますか？
+## How often do you release upgrades?
 
-サーバーのアップグレードバージョンは、少なくとも月に1回はリリースするようお勧めしています。
+We strive to release upgraded versions of our server at least once a month.
 
-##  サーバーがダウンした場合はどうなりますか？
+## What happens if my server goes down?
 
-進行中の実験は、バックオフ再試行ループに入り、24時間接続を試み続けます。
+Experiments that are in progress will enter a backoff retry loop and continue attempting to connect for 24 hours.
 
-## このサービスのスケーリング特性は何ですか？
+## What are the scaling characteristics of this service?
 
-外部MySQLストアのない_wandb/local_の単一インスタンスは、一度に追跡される最大10の同時実験に拡張されます。外部MySQLストアに接続されたインスタンスは、数百回の同時実行に拡張されます。 り多くの同時実験を追跡する必要がある場合は、[contact@wandb.com](mailto:contact@wandb.com)にメモを送信して、マルチインスタンスの高可用性インストールオプションについてお問い合わせください。
+A single instance of _wandb/local_ without an external MySQL store will scale to up to 10's concurrent experiments being tracked at once. Instances connected to an external MySQL store will scale to 100's of concurrent runs. If you have a need for tracking more concurrent experiments send us a note at [contact@wandb.com](mailto:contact@wandb.com) to inquire about our multi instance high availability installation options.
 
-## インスタンスにアクセスできない場合、工場出荷時設定にリセットするにはどうすればよいですか？
+## How do I do a factory reset if I can't access my instance?
 
-インスタンスに接続できない場合は、ローカルの起動時にLOCAL\_RESTORE環境変数を設定することで、インスタンスを復元モードにすることができます。CLIを使用してwandb localを起動する場合は、`wandb local -e LOCAL_RESTORE=true`を使用して起動できます。起動時に出力されるログで、インスタンスにアクセスするための一時的なユーザー名/パスワードを確認します。
+If you're unable to connect to your instance you can put it in restore mode by setting the LOCAL\_RESTORE environment variable when you start local. If you're starting wandb local using our cli you can do so with `wandb local -e LOCAL_RESTORE=true` Look at the logs printed on startup for a temporary username / password to access the instance.
 
-## ローカルを使用した後、どうすればクラウドに戻すことができますか？
+## How can I switch back to the cloud after using local?
 
-機器をクラウドホストソリューションへのレポートメトリックに復元するには、`wandb login --host=https://api.wandb.ai`を実行します。
+To restore a machine to reporting metrics to our cloud hosted solution, run `wandb login --host=https://api.wandb.ai`.
 
