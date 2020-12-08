@@ -21,6 +21,8 @@ All configuration settings can be set via the UI however if you would like to ma
 | HOST | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net) |
 | AUTH0\_DOMAIN | The Auth0 domain of your tenant |
 | AUTH0\_CLIENT\_ID | The Auth0 Client ID of application |
+| SLACK\_CLIENT\_ID | The client ID of the Slack application you want to use for alerts |
+| SLACK\_SECRET | The secret of the Slack application you want to use for alerts |
 
 ## Authentication
 
@@ -202,4 +204,48 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/ad
 ![](../.gitbook/assets/image%20%28109%29.png)
 
 Press "Update settings" to apply the new settings.
+
+## Slack
+
+In order to integrate your local W&B installation with Slack, you'll need to create a suitable Slack application.
+
+#### Creating the Slack application
+
+Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Create New App** in the top right.
+
+![](../.gitbook/assets/image%20%28123%29.png)
+
+You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
+
+![](../.gitbook/assets/image%20%28121%29.png)
+
+#### Configuring the Slack application
+
+Now that we have a Slack application ready, we need to authorize for use as an OAuth bot. Select **OAuth & Permissions** in the sidebar to the left.
+
+![](../.gitbook/assets/image%20%28125%29.png)
+
+Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
+
+![](../.gitbook/assets/image%20%28128%29.png)
+
+Finally, configure the **Redirect URL** to point to your W&B installation. You should use the same value as what you set **Frontend Host** to ****in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
+
+![](../.gitbook/assets/image%20%28127%29.png)
+
+Hit **Save URLs** once finished.
+
+To further secure your Slack application and prevent abuse, you can specify an IP range under **Restrict API Token Usage**, whitelisting the IP or IP range of your W&B instance\(s\).
+
+#### Register your Slack application with W&B
+
+Navigate to the **System Settings** page of your W&B instance. Check the box to enable a custom Slack application:
+
+![](../.gitbook/assets/image%20%28126%29.png)
+
+You'll need to supply your Slack application's client ID and secret, which you can find in the **Basic Information** tab.
+
+![](../.gitbook/assets/image%20%28120%29.png)
+
+That's it! You can now verify that everything is working by setting up a Slack integration in the W&B app. Visit [this page](../app/features/alerts.md) for more detailed information.
 
