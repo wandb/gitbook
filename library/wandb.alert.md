@@ -4,7 +4,7 @@ description: 'Scriptable alerts triggered from Python, sent to you via Slack or 
 
 # wandb.alert\(\)
 
-Send a Slack or email alert, triggered from your Python script.
+ Slack 또는 이메일을 통해 경고 알림을 전송합니다.
 
 1. [Set up alerts in your account→](../app/features/alerts.md)
 2. [Try the code →](http://tiny.cc/wb-alerts)
