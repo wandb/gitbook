@@ -1,298 +1,540 @@
 # Run
 
-## wandb.sdk.wandb\_init
+## wandb.sdk.wandb\_run
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_init.py#L4)
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L4)
 
-**init**
+### Run Objects
 
 ```python
-init(job_type: Optional[str] = None, dir=None, config: Union[Dict, str, None] = None, project: Optional[str] = None, entity: Optional[str] = None, reinit: bool = None, tags: Optional[Sequence] = None, group: Optional[str] = None, name: Optional[str] = None, notes: Optional[str] = None, magic: Union[dict, str, bool] = None, config_exclude_keys=None, config_include_keys=None, anonymous: Optional[str] = None, mode: Optional[str] = None, allow_val_change: Optional[bool] = None, resume: Optional[Union[bool, str]] = None, force: Optional[bool] = None, tensorboard=None, sync_tensorboard=None, monitor_gym=None, save_code=None, id=None, settings: Union[Settings, Dict[str, Any], None] = None) -> Union[Run, Dummy]
+class Run(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_init.py#L35)
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L131)
 
-Start a new tracked run with wandb.init\(\). In an ML training pipeline, you could add wandb.init\(\) to the beginning of your training script as well as your evaluation script, and each piece would be tracked as a run in W&B.
+The run object corresponds to a single execution of your script, typically this is an ML experiment. Create a run with wandb.init\(\).
 
-wandb.init\(\) spawns a new background process to log data to a run, and it also syncs data to wandb.ai by default so you can see live visualizations. Call wandb.init\(\) to start a run before logging data with wandb.log\(\).
+In distributed training, use wandb.init\(\) to create a run for each process, and set the group argument to organize runs into a larger experiment.
+
+Currently there is a parallel Run object in the wandb.Api. Eventually these two objects will be merged.
+
+**Attributes**:
+
+* `history` _`History`_ - Time series values, created with wandb.log\(\).
+
+  History can contain scalar values, rich media, or even custom plots
+
+  across multiple steps.
+
+* `summary` _`Summary`_ - Single values set for each wandb.log\(\) key. By
+
+  default, summary is set to the last value logged. You can manually
+
+  set summary to the best value, like max accuracy, instead of the
+
+  final value.
+
+**dir**
+
+```python
+ | @property
+ | dir()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L333)
+
+str: The directory where all of the files associated with the run are placed.
+
+**config**
+
+```python
+ | @property
+ | config()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L340)
+
+\(`Config`\): A config object \(similar to a nested dict\) of key value pairs associated with the hyperparameters of the run.
+
+**name**
+
+```python
+ | @property
+ | name()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L351)
+
+str: the display name of the run. It does not need to be unique and ideally is descriptive.
+
+**notes**
+
+```python
+ | @property
+ | notes()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L367)
+
+str: notes associated with the run. Notes can be a multiline string and can also use markdown and latex equations inside $$ like $\{x}
+
+**tags**
+
+```python
+ | @property
+ | tags() -> Optional[Tuple]
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L383)
+
+Tuple\[str\]: tags associated with the run
+
+**id**
+
+```python
+ | @property
+ | id()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L397)
+
+str: the run\_id associated with the run
+
+**sweep\_id**
+
+```python
+ | @property
+ | sweep_id()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L402)
+
+\(str, optional\): the sweep id associated with the run or None
+
+**path**
+
+```python
+ | @property
+ | path()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L409)
+
+str: the path to the run \[entity\]/\[project\]/\[run\_id\]
+
+**start\_time**
+
+```python
+ | @property
+ | start_time()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L418)
+
+int: the unix time stamp in seconds when the run started
+
+**starting\_step**
+
+```python
+ | @property
+ | starting_step()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L426)
+
+int: the first step of the run
+
+**resumed**
+
+```python
+ | @property
+ | resumed()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L434)
+
+bool: whether or not the run was resumed
+
+**step**
+
+```python
+ | @property
+ | step()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L442)
+
+int: step counter
+
+Every time you call wandb.log\(\) it will by default increment the step counter.
+
+**mode**
+
+```python
+ | @property
+ | mode()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L455)
+
+For compatibility with 0.9.x and earlier, deprecate eventually.
+
+**group**
+
+```python
+ | @property
+ | group()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L468)
+
+str: name of W&B group associated with run.
+
+Setting a group helps the W&B UI organize runs in a sensible way.
+
+If you are doing a distributed training you should give all of the runs in the training the same group. If you are doing crossvalidation you should give all the crossvalidation folds the same group.
+
+**project**
+
+```python
+ | @property
+ | project()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L487)
+
+str: name of W&B project associated with run.
+
+**get\_url**
+
+```python
+ | get_url()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L491)
+
+Returns: \(str, optional\): URL for the W&B run or None if the run is offline
+
+**get\_project\_url**
+
+```python
+ | get_project_url()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L499)
+
+Returns: \(str, optional\): URL for the W&B project associated with the run or None if the run is offline
+
+**get\_sweep\_url**
+
+```python
+ | get_sweep_url()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L507)
+
+Returns: \(str, optional\): URL for the sweep associated with the run or None if there is no associated sweep or the run is offline.
+
+**url**
+
+```python
+ | @property
+ | url()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L516)
+
+str: name of W&B URL associated with run.
+
+**entity**
+
+```python
+ | @property
+ | entity()
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L521)
+
+str: name of W&B entity associated with run. Entity is either a user name or an organization name.
+
+**log**
+
+```python
+ | log(data, step=None, commit=None, sync=None)
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L675)
+
+Log a dict to the global run's history.
+
+wandb.log can be used to log everything from scalars to histograms, media and matplotlib plots.
+
+The most basic usage is wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\). This will save a history row associated with the run with train-loss=0.5 and accuracy=0.9. The history values can be plotted on app.wandb.ai or on a local server. The history values can also be downloaded through the wandb API.
+
+Logging a value will update the summary values for any metrics logged. The summary values will appear in the run table at app.wandb.ai or a local server. If a summary value is manually set with for example wandb.run.summary\["accuracy"\] = 0.9 wandb.log will no longer automatically update the run's accuracy.
+
+Logging values don't have to be scalars. Logging any wandb object is supported. For example wandb.log\({"example": wandb.Image\("myimage.jpg"\)}\) will log an example image which will be displayed nicely in the wandb UI. See [https://docs.wandb.com/library/reference/data\_types](https://docs.wandb.com/library/reference/data_types) for all of the different supported types.
+
+Logging nested metrics is encouraged and is supported in the wandb API, so you could log multiple accuracy values with wandb.log\({'dataset-1': {'acc': 0.9, 'loss': 0.3} ,'dataset-2': {'acc': 0.8, 'loss': 0.2}}\) and the metrics will be organized in the wandb UI.
+
+W&B keeps track of a global step so logging related metrics together is encouraged, so by default each time wandb.log is called a global step is incremented. If it's inconvenient to log related metrics together calling wandb.log\({'train-loss': 0.5, commit=False}\) and then wandb.log\({'accuracy': 0.9}\) is equivalent to calling wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\)
+
+wandb.log is not intended to be called more than a few times per second. If you want to log more frequently than that it's better to aggregate the data on the client side or you may get degraded performance.
 
 **Arguments**:
 
-* `project` _str, optional_ - The name of the project where you're sending
+* `row` _dict, optional_ - A dict of serializable python objects i.e str,
 
-  the new run. If the project is not specified, the run is put in an
+  ints, floats, Tensors, dicts, or wandb.data\_types
 
-  "Uncategorized" project.
+* `commit` _boolean, optional_ - Save the metrics dict to the wandb server
 
-* `entity` _str, optional_ - An entity is a username or team name where
+  and increment the step.  If false wandb.log just updates the current
 
-  you're sending runs. This entity must exist before you can send runs
+  metrics dict with the row argument and metrics won't be saved until
 
-  there, so make sure to create your account or team in the UI before
+  wandb.log is called with commit=True.
 
-  starting to log runs.
+* `step` _integer, optional_ - The global step in processing. This persists
 
-  If you don't specify an entity, the run will be sent to your default
+  any non-committed earlier steps but defaults to not committing the
 
-  entity, which is usually your username. Change your default entity
+  specified step.
 
-  in [Settings](wandb.ai/settings) under "default location to create
+* `sync` _boolean, True_ - This argument is deprecated and currently doesn't
 
-  new projects".
-
-  config \(dict, argparse, absl.flags, str, optional\):
-
-  This sets wandb.config, a dictionary-like object for saving inputs
-
-  to your job, like hyperparameters for a model or settings for a data
-
-  preprocessing job. The config will show up in a table in the UI that
-
-  you can use to group, filter, and sort runs. Keys should not contain
-
-  `.` in their names, and values should be under 10 MB.
-
-  If dict, argparse or absl.flags: will load the key value pairs into
-
-  the wandb.config object.
-
-  If str: will look for a yaml file by that name, and load config from
-
-  that file into the wandb.config object.
-
-* `save_code` _bool, optional_ - Turn this on to save the main script or
-
-  notebook to W&B. This is valuable for improving experiment
-
-  reproducibility and to diff code across experiments in the UI. By
-
-  default this is off, but you can flip the default behavior to "on"
-
-  in [Settings](wandb.ai/settings).
-
-* `group` _str, optional_ - Specify a group to organize individual runs into
-
-  a larger experiment. For example, you might be doing cross
-
-  validation, or you might have multiple jobs that train and evaluate
-
-  a model against different test sets. Group gives you a way to
-
-  organize runs together into a larger whole, and you can toggle this
-
-  on and off in the UI. For more details, see
-
-  [Grouping](docs.wandb.com/library/grouping).
-
-* `job_type` _str, optional_ - Specify the type of run, which is useful when
-
-  you're grouping runs together into larger experiments using group.
-
-  For example, you might have multiple jobs in a group, with job types
-
-  like train and eval. Setting this makes it easy to filter and group
-
-  similar runs together in the UI so you can compare apples to apples.
-
-* `tags` _list, optional_ - A list of strings, which will populate the list
-
-  of tags on this run in the UI. Tags are useful for organizing runs
-
-  together, or applying temporary labels like "baseline" or
-
-  "production". It's easy to add and remove tags in the UI, or filter
-
-  down to just runs with a specific tag.
-
-* `name` _str, optional_ - A short display name for this run, which is how
-
-  you'll identify this run in the UI. By default we generate a random
-
-  two-word name that lets you easily cross-reference runs from the
-
-  table to charts. Keeping these run names short makes the chart
-
-  legends and tables easier to read. If you're looking for a place to
-
-  save your hyperparameters, we recommend saving those in config.
-
-* `notes` _str, optional_ - A longer description of the run, like a -m commit
-
-  message in git. This helps you remember what you were doing when you
-
-  ran this run.
-
-* `dir` _str, optional_ - An absolute path to a directory where metadata will
-
-  be stored. When you call download\(\) on an artifact, this is the
-
-  directory where downloaded files will be saved. By default this is
-
-  the ./wandb directory.
-
-* `sync_tensorboard` _bool, optional_ - Whether to copy all TensorBoard logs
-
-  to W&B \(default: False\).
-
-  [Tensorboard](https://docs.wandb.com/integrations/tensorboard)
-
-* `resume` _bool, str, optional_ - Sets the resuming behavior. Options:
-
-  "allow", "must", "never", "auto" or None. Defaults to None.
-
-  Cases:
-
-* None \(default\): If the new run has the same ID as a previous run,
-
-  this run overwrites that data.
-
-* "auto" \(or True\): if the preivous run on this machine crashed,
-
-  automatically resume it. Otherwise, start a new run.
-
-* "allow": if id is set with init\(id="UNIQUE\_ID"\) or
-
-  WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run,
-
-  wandb will automatically resume the run with that id. Otherwise,
-
-  wandb will start a new run.
-
-* "never": if id is set with init\(id="UNIQUE\_ID"\) or
-
-  WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run,
-
-  wandb will crash.
-
-* "must": if id is set with init\(id="UNIQUE\_ID"\) or
-
-  WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run,
-
-  wandb will automatically resume the run with the id. Otherwise
-
-  wandb will crash.
-
-  See [https://docs.wandb.com/library/advanced/resuming](https://docs.wandb.com/library/advanced/resuming) for more.
-
-* `reinit` _bool, optional_ - Allow multiple wandb.init\(\) calls in the same
-
-  process. \(default: False\)
-
-* `magic` _bool, dict, or str, optional_ - The bool controls whether we try to
-
-  auto-instrument your script, capturing basic details of your run
-
-  without you having to add more wandb code. \(default: False\)
-
-  You can also pass a dict, json string, or yaml filename.
-
-* `config_exclude_keys` _list, optional_ - string keys to exclude from
-
-  wandb.config.
-
-* `config_include_keys` _list, optional_ - string keys to include in
-
-  wandb.config.
-
-* `anonymous` _str, optional_ - Controls anonymous data logging. Options:
-* "never" \(default\): requires you to link your W&B account before
-
-  tracking the run so you don't accidentally create an anonymous
-
-  run.
-
-* "allow": lets a logged-in user track runs with their account, but
-
-  lets someone who is running the script without a W&B account see
-
-  the charts in the UI.
-
-* "must": sends the run to an anonymous account instead of to a
-
-  signed-up user account.
-
-* `mode` _str, optional_ - Can be "online", "offline" or "disabled". Defaults to
-
-  online.
-
-* `allow_val_change` _bool, optional_ - Whether to allow config values to
-
-  change after setting the keys once. By default we throw an exception
-
-  if a config value is overwritten. If you want to track something
-
-  like a varying learning\_rate at multiple times during training, use
-
-  wandb.log\(\) instead. \(default: False in scripts, True in Jupyter\)
-
-* `force` _bool, optional_ - If True, this crashes the script if a user isn't
-
-  logged in to W&B. If False, this will let the script run in offline
-
-  mode if a user isn't logged in to W&B. \(default: False\)
-
-* `sync_tensorboard` _bool, optional_ - Synchronize wandb logs from tensorboard or
-
-  tensorboardX and saves the relevant events file. Defaults to false.
-
-* `monitor_gym` - \(bool, optional\): automatically logs videos of environment when
-
-  using OpenAI Gym. \(default: False\)
-
-  See [https://docs.wandb.com/library/integrations/openai-gym](https://docs.wandb.com/library/integrations/openai-gym)
-
-* `id` _str, optional_ - A unique ID for this run, used for Resuming. It must
-
-  be unique in the project, and if you delete a run you can't reuse
-
-  the ID. Use the name field for a short descriptive name, or config
-
-  for saving hyperparameters to compare across runs. The ID cannot
-
-  contain special characters.
-
-  See [https://docs.wandb.com/library/resuming](https://docs.wandb.com/library/resuming)
+  change the behaviour of wandb.log
 
 **Examples**:
 
 Basic usage
 
 ```text
-wandb.init()
+- `wandb.log({'accuracy'` - 0.9, 'epoch': 5})
 ```
 
-Launch multiple runs from the same script
+Incremental logging
 
 ```text
-for x in range(10):
-with wandb.init(project="my-projo") as run:
-for y in range(100):
-- `run.log({"metric"` - x+y})
+- `wandb.log({'loss'` - 0.2}, commit=False)
+# Somewhere else when I'm ready to report this step:
+- `wandb.log({'accuracy'` - 0.8})
 ```
+
+Histogram
+
+```text
+- `wandb.log({"gradients"` - wandb.Histogram(numpy_array_or_sequence)})
+```
+
+Image
+
+```text
+- `wandb.log({"examples"` - [wandb.Image(numpy_array_or_pil, caption="Label")]})
+```
+
+Video
+
+```text
+- `wandb.log({"video"` - wandb.Video(numpy_array_or_video_path, fps=4,
+format="gif")})
+```
+
+Matplotlib Plot
+
+```text
+- `wandb.log({"chart"` - plt})
+```
+
+PR Curve
+
+```text
+- `wandb.log({'pr'` - wandb.plots.precision_recall(y_test, y_probas, labels)})
+```
+
+3D Object
+
+```text
+wandb.log({"generated_samples":
+[wandb.Object3D(open("sample.obj")),
+wandb.Object3D(open("sample.gltf")),
+wandb.Object3D(open("sample.glb"))]})
+```
+
+For more examples, see [https://docs.wandb.com/library/log](https://docs.wandb.com/library/log)
 
 **Raises**:
 
-* `Exception` - if problem.
+wandb.Error - if called before wandb.init ValueError - if invalid data is passed
+
+**save**
+
+```python
+ | save(glob_str: Optional[str] = None, base_path: Optional[str] = None, policy: str = "live")
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L810)
+
+Ensure all files matching _glob\_str_ are synced to wandb with the policy specified.
+
+**Arguments**:
+
+* `glob_str` _string_ - a relative or absolute path to a unix glob or
+
+  regular path.  If this isn't specified the method is a noop.
+
+* `base_path` _string_ - the base path to run the glob relative to
+* `policy` _string_ - on of "live", "now", or "end"
+* `live` - upload the file as it changes, overwriting the previous
+
+  version now: upload the file once now
+
+* `end` - only upload file when the run ends
+
+**finish**
+
+```python
+ | finish(exit_code=None)
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L906)
+
+Marks a run as finished, and finishes uploading all data. This is used when creating multiple runs in the same process. We automatically call this method when your script exits.
+
+**join**
+
+```python
+ | join(exit_code=None)
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L920)
+
+Deprecated alias for finish\(\) - please use finish
+
+**plot\_table**
+
+```python
+ | plot_table(vega_spec_name, data_table, fields, string_fields=None)
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L924)
+
+Creates a custom plot on a table.
+
+**Arguments**:
+
+* `vega_spec_name` - the name of the spec for the plot
+* `table_key` - the key used to log the data table
+* `data_table` - a wandb.Table object containing the data to
+
+  be used on the visualization
+
+* `fields` - a dict mapping from table keys to fields that the custom
+
+  visualization needs
+
+* `string_fields` - a dict that provides values for any string constants
+
+  the custom visualization needs
+
+**use\_artifact**
+
+```python
+ | use_artifact(artifact_or_name, type=None, aliases=None)
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1566)
+
+Declare an artifact as an input to a run, call `download` or `file` on  the returned object to get the contents locally.
+
+**Arguments**:
+
+* `artifact_or_name` _str or Artifact_ - An artifact name.
+
+  May be prefixed with entity/project. Valid names
+
+  can be in the following forms:
+
+  name:version
+
+  name:alias
+
+  digest
+
+  You can also pass an Artifact object created by calling `wandb.Artifact`
+
+* `type` _str, optional_ - The type of artifact to use.
+* `aliases` _list, optional_ - Aliases to apply to this artifact
 
 **Returns**:
 
-A `Run` object.
+A `Artifact` object.
 
-### \_WandbInit Objects
-
-```python
-class _WandbInit(object)
-```
-
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_init.py#L271)
-
-**setup**
+**log\_artifact**
 
 ```python
- | setup(kwargs)
+ | log_artifact(artifact_or_path, name=None, type=None, aliases=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_init.py#L283)
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1621)
 
-Complete setup for wandb.init\(\). This includes parsing all arguments, applying them with settings and enabling logging.
+Declare an artifact as output of a run.
+
+**Arguments**:
+
+* `artifact_or_path` _str or Artifact_ - A path to the contents of this artifact,
+
+  can be in the following forms:
+
+  /local/directory
+
+  /local/directory/file.txt
+
+  s3://bucket/path
+
+  You can also pass an Artifact object created by calling
+
+  `wandb.Artifact`.
+
+* `name` _str, optional_ - An artifact name. May be prefixed with entity/project.
+
+  Valid names can be in the following forms:
+
+  name:version
+
+  name:alias
+
+  digest
+
+  This will default to the basename of the path prepended with the current
+
+  run id  if not specified.
+
+* `type` _str_ - The type of artifact to log, examples include "dataset", "model"
+* `aliases` _list, optional_ - Aliases to apply to this artifact,
+
+  defaults to \["latest"\]
+
+**Returns**:
+
+A `Artifact` object.
+
+**alert**
+
+```python
+ | alert(title, text, level=None, wait_duration=None)
+```
+
+[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1675)
+
+Launch an alert with the given title and text.
+
+**Arguments**:
+
+* `title` _str_ - The title of the alert, must be less than 64 characters long
+* `text` _str_ - The text body of the alert
+* `level` _str or wandb.AlertLevel, optional_ - The alert level to use, either: "INFO", "WARN", or "ERROR"
+* `wait_duration` _int, float, or timedelta, optional_ - The time to wait \(in seconds\) before sending another alert
+
+  with this title
 
