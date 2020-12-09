@@ -481,6 +481,8 @@ wandb.log(
 
 ## Incremental Logging
 
+If you want to plot your metrics against different x-axes, you can log the step as a metric, like `wandb.log({'loss': 0.1, 'epoch': 1, 'batch': 3})`. In the UI you can switch between x-axes in the chart settings.
+
 If you want to log to a single history step from lots of different places in your code you can pass a step index to `wandb.log()` as follows:
 
 ```python
