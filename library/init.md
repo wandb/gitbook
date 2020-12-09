@@ -1,10 +1,10 @@
 ---
-description: Call wandb.init() at the top of your script to start a new run
+description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로운 실행을 시작할 때 마다 wandb.init()을 호출합니다.'
 ---
 
 # wandb.init\(\)
 
-Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W&B and launches a background process to sync data. If you need a private cloud or local installation of W&B we support that in our [Self Hosted](../self-hosted/) offerings. `wandb.init()` returns a [**run**](../ref/export-api/api.md#run) object, and you can also access the run object with `wandb.run`.
+Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W&B and launches a background process to sync data. If you need a private cloud or local installation of W&B we support that in our [Self Hosted](../self-hosted/) offerings. `wandb.init()` returns a [**run**](../ref/export-api/api.md#run) object, and you can also access the run object with `wandb.run`. 모델 메트릭을 로깅하는 훈련 루프 이전에, 새로운 실행을 시작할 때 마다 wandb.init\(\)을 호출합니다.
 
 ### Optional Arguments
 

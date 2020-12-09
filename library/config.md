@@ -1,18 +1,18 @@
 ---
-description: Dictionary-like object to save your experiment configuration
+description: 실험 구성 저장을 위한 사전과 비슷한 객체
 ---
 
 # wandb.config
 
-## Overview
+##  **개요**
 
 [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-config/Configs_in_W%26B.ipynb)
 
-Set the `wandb.config` object in your script to save your training config: hyperparameters, input settings like dataset name or model type, and any other independent variables for your experiments. This is useful for analyzing your experiments and reproducing your work in the future. You'll be able to group by config values in the web interface, comparing the settings of different runs and seeing how these affect the output. Note that output metrics or dependent variables \(like loss and accuracy\) should be saved with `wandb.log`instead.
+ 훈련 구성\(training config\): 초매개변수, 데이터세트 이름 또는 모델 유형과 같은 입력 설정 및 실험을 위한 기타 독립 변수를 저장하기 위해 스크립트에 `wandb.config` 객체를 설정하십시오. 이는 실험을 분석하고 추후 작업 재현에 유용합니다. 웹 인터페이스의 구성 값\(config values\)를 통해 그룹화 할 수 있으며, 다른 실행의 세팅 비교 및 이러한 것들이 어떻게 출력에 영향을 끼치는지 확인하실 수 있습니다. 출력 매트릭 또는 종속 변수\(손실 및 정확성\)은 `wandb.log`를 통해 저장하셔야 합니다.
 
-You can send us a nested dictionary in config, and we'll flatten the names using dots in our backend. We recommend that you avoid using dots in your config variable names, and use a dash or underscore instead. Once you've created your wandb config dictionary, if your script accesses wandb.config keys below the root, use `[ ]` syntax instead of `.` syntax.
+구성\(config\)내 중첩된 사전\(nested dictionary\)으로 저희에게 전송하실 수 있으며, 저희 백엔드\(backend\)의 닷\(dots\)를 사용해 이름을 평면화하겠습니다. 구성 변수 이름\(config variable names\)에 점\(dot\) 사용을 하지 않으시는 것을 추천드리며, 대시\(dash\) 또는 밑줄\(underscore\)를 대신 사용 해 주십시오. 일단 wandb config 사전을 생성하고, 여러분의 스크립트가 루트\(root\) 아래의 wandb.config keys에 액세스 하는 경우, `.` 신택스\(syntax\)대신 `[ ]` 신택스를 사용하십시오.
 
-## Simple Example
+##  **단일 예시**
 
 ```python
 wandb.config.epochs = 4
@@ -21,9 +21,9 @@ wandb.config.batch_size = 32
 wandb.init(config={"epochs": 4})
 ```
 
-## Efficient Initialization
+## **효율적인 초기 설정**
 
-You can treat `wandb.config` as a dictionary, updating multiple values at a time.
+한 번에 여러 값을 업로드하여, `wandb.config`를 사전으로 취급하실 수 있습니다.
 
 ```python
 wandb.init(config={"epochs": 4, "batch_size": 32})
@@ -31,9 +31,9 @@ wandb.init(config={"epochs": 4, "batch_size": 32})
 wandb.config.update({"epochs": 4, "batch_size": 32})
 ```
 
-## Argparse Flags
+##  **Argparse 플래그**
 
-You can pass in the arguments dictionary from argparse. This is convenient for quickly testing different hyperparameter values from the command line.
+ Argparse에서 인자 사전에 제출 할 수 있습니다. 이를 통해 명령줄\(command line\)에서 신속하게 초매개변수 값을 실험할 수 있습니다.
 
 ```python
 wandb.init()
@@ -46,18 +46,18 @@ args = parser.parse_args()
 wandb.config.update(args) # adds all of the arguments as config variables
 ```
 
-## Absl Flags
+## **Absl 플래그**
 
-You can also pass in absl flags.
+또한 Absl 플래그를 제출할 수 있습니다.
 
 ```python
 flags.DEFINE_string(‘model’, None, ‘model to run’) # name, default, help
 wandb.config.update(flags.FLAGS) # adds all absl flags to config
 ```
 
-## File-Based Configs
+##  **파일 기반 구성\(File-Based Configs\)**
 
-You can create a file called **config-defaults.yaml,** \_\_and it will automatically be loaded into `wandb.config`
+**config-defaults.yaml** 라는 이름의 파일을 생성하실 수 있으며, `wandb.config`에 자동으로 로드 됩니다.
 
 ```yaml
 # sample config defaults file
@@ -69,9 +69,9 @@ batch_size:
   value: 32
 ```
 
-You can tell wandb to load different config files with the command line argument `--configs special-configs.yaml` which will load parameters from the file special-configs.yaml.
+ 명령행 인자 `--configs special-configs.yaml` 를 통해 wandb에 다른 구성 파일\(config files\)를 로드하도록 지시할 수 있습니다. 이 인자는 파일 special-configs.yaml 에서 매개변수를 로드합니다
 
-One example use case: you have a YAML file with some metadata for the run, and then a dictionary of hyperparameters in your Python script. You can save both in the nested config object:
+ 사용 케이스 예시: 실행을 위한 일부 메타데이터가 포함된 YAML 파일이 있고, Python 스크립트에 초매개변수 사전이 있습니다. 중첩된 구성 객체\(nested config object\)에 둘 다 저장할 수 있습니다:
 
 ```python
 hyperparameter_defaults = dict(
@@ -88,17 +88,17 @@ config_dictionary = dict(
 wandb.init(config=config_dictionary)
 ```
 
-## Dataset Identifier
+##  **데이터세트 식별기\(Dataset Identifier\)**
 
-You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking it as input to your experiment using `wandb.config`
+`wandb.config`를 사용하여 데이터세트를 실험의 입력으로 추적함으로써, 여러분의 데이터세트를 위한 실행 구성에 고유한 식별기\(예: 해시\(hash\) 또는 기타 식별기\)를 추가하실 수 있습니다.
 
 ```yaml
 wandb.config.update({'dataset':'ab131'})
 ```
 
-### Update Config Files
+### **구성 파일 업데이트**
 
-You can use the public API to update your config file
+ 공용 API를 사용하여 여러분의 config 파일을 업데이트할 수 있습니다
 
 ```yaml
 import wandb
@@ -108,13 +108,13 @@ run.config["foo"] = 32
 run.update()
 ```
 
-### Key Value Pairs
+###  **키-값 쌍**
 
-You can log any key value pairs into wandb.config. They will be different for every type of model you are training. i.e. `wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`
+모든 키-값 쌍을 `wand.config`에 로그할 수 있습니다. 훈련하는 모델의 유형에 따라 다를 것입니다. 예: `wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`
 
-## TensorFlow Flags \(deprecated in tensorflow v2\)
+## **TensorFlow 플래그 \(Tensorflow v2에서는 중요하지 않음\)**
 
-You can pass TensorFlow flags into the config object.
+ TensorFlow를 구성 객체\(config object\)로 전달할 수 있습니다.
 
 ```python
 wandb.init()

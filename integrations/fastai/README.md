@@ -1,15 +1,16 @@
 # Fast.ai
 
-If you're using **fastai** to train your models, W&B has an easy integration using the `WandbCallback`. Explore the details in[ interactive docs with examples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
+모델을 훈련시키기 위해 **fastai**를 사용하시는 경우, W&B는 WandbCallback을 사용하는 쉬운 통합을 가지고 있습니다. 더 자세한 사항은 다음에서 확인 하실 수 있습니다. [예시를 포함한 양방향식 doc\(isnteractive docs with examples\) →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)​  
 
-First install Weights & Biases and log in:
+
+ 우선 Weights & Biases를 설치하고 로그인 합니다:
 
 ```text
 pip install wandb
 wandb login
 ```
 
-Then add the callback to the `learner` or `fit` method:
+ 그 후, callback을 `learner` 또는 `fit` 수단에 추가합니다:
 
 ```python
 import wandb
@@ -26,74 +27,85 @@ learn = learner(..., cbs=WandbCallback())
 ```
 
 {% hint style="info" %}
-If you use version 1 of Fastai, refer to the [Fastai v1 docs](v1.md).
+Fastai version 1을 사용하시는 경우, 다음을 참조하시기 바랍니다: [Fastai v1 docs](https://docs.wandb.com/library/integrations/fastai/fastai)
 {% endhint %}
 
-`WandbCallback` accepts the following arguments:
+ `WandbCallback`은 다음의 전달인자를 허용합니다:
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Args</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">&#xC804;&#xB2EC;&#xC778;&#xC790;</th>
+      <th style="text-align:left">&#xC124;&#xBA85;</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">log</td>
-      <td style="text-align:left">&quot;gradients&quot; (default), &quot;parameters&quot;, &quot;all&quot;
-        or None. Losses &amp; metrics are always logged.</td>
+      <td style="text-align:left">&quot;gradients&quot; (default), &quot;parameters(&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;)&quot;,
+        &quot;all(&#xC804;&#xBD80;)&quot; or None(&#xC5C6;&#xC74C;). &#xC190;&#xC2E4;
+        &#xBC0F; &#xBA54;&#xD2B8;&#xB9AD;&#xC740; &#xC5B8;&#xC81C;&#xB098; &#xB85C;&#xADF8;
+        &#xB429;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left">log_preds</td>
-      <td style="text-align:left">whether we want to log prediction samples (default to True).</td>
+      <td style="text-align:left">&#xC608;&#xCE21; &#xC0D8;&#xD50C;&#xC744; &#xB85C;&#xADF8;&#xD560; &#xAC83;&#xC778;&#xC9C0;&#xC5D0;
+        &#xB300;&#xD55C; &#xC5EC;&#xBD80; (&#xAE30;&#xBCF8;&#xAC12;&#xC740; True(&#xCC38;).</td>
     </tr>
     <tr>
       <td style="text-align:left">log_model</td>
-      <td style="text-align:left">whether we want to log our model (default to True). This also requires
-        SaveModelCallback.</td>
+      <td style="text-align:left">&#xBAA8;&#xB378;&#xC5D0; &#xB85C;&#xADF8;&#xD560; &#xC9C0;&#xC5D0; &#xB300;&#xD55C;
+        &#xC5EC;&#xBD80; (&#xAE30;&#xBCF8;&#xAC12;&#xC740; True(&#xCC38;)). &#xB610;&#xD55C;
+        SaveModelCallback&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left">log_dataset</td>
       <td style="text-align:left">
         <ul>
-          <li>False (default)</li>
-          <li>True will log folder referenced by learn.dls.path.</li>
-          <li>a path can be defined explicitly to reference which folder to log.</li>
+          <li>False (&#xAE30;&#xBCF8;&#xAC12;)</li>
+          <li>True&#xB294; learn.dls.path&#xC5D0;&#xC11C; &#xCC38;&#xC870;&#xD558;&#xB294;
+            &#xD3F4;&#xB354;&#xB97C; &#xB85C;&#xADF8;&#xD569;&#xB2C8;&#xB2E4;.</li>
+          <li>&#xACBD;&#xB85C;&#xB97C; &#xC5B4;&#xB5A4; &#xD3F4;&#xB354;&#xB97C; &#xB85C;&#xADF8;&#xD560;
+            &#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xCC38;&#xC870;&#xC5D0; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C;
+            &#xC815;&#xC758;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
         </ul>
-        <p><em>Note: subfolder &quot;models&quot; is always ignored.</em>
-        </p>
+        <p>&#xCC38;&#xACE0;: &#xD558;&#xC704; &#xD3F4;&#xB354; &#x201C;models&#x201D;&#xB294;
+          &#xD56D;&#xC0C1; &#xBB34;&#xC2DC;&#xB429;&#xB2C8;&#xB2E4;.</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">dataset_name</td>
-      <td style="text-align:left">name of logged dataset (default to folder name).</td>
+      <td style="text-align:left">&#xB85C;&#xADF8;&#xB41C; &#xB370;&#xC774;&#xD130;&#xC138;&#xD2B8;&#xC758;
+        &#xC774;&#xB984; (&#xAE30;&#xBCF8;&#xAC12;&#xC740; &#xD3F4;&#xB354; &#xC774;&#xB984;).</td>
     </tr>
     <tr>
       <td style="text-align:left">valid_dl</td>
-      <td style="text-align:left"><code>DataLoaders</code> containing items used for prediction samples (default
-        to random items from <code>learn.dls.valid</code>.</td>
+      <td style="text-align:left">&#xC608;&#xCE21; &#xC0D8;&#xD50C;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294;
+        &#xD56D;&#xBAA9;(item)&#xC744; &#xD3EC;&#xD568; &#xD558;&#xB294; <code>DataLoaders </code>(&#xAE30;&#xBCF8;&#xAC12;&#xC740; <code>learn.dls.valid</code>&#xC5D0;&#xC11C;&#xC758;
+        &#xC784;&#xC758;&#xC758; &#xD56D;&#xBAA9;(random items)).</td>
     </tr>
     <tr>
       <td style="text-align:left">n_preds</td>
-      <td style="text-align:left">number of logged predictions (default to 36).</td>
+      <td style="text-align:left">&#xB85C;&#xADF8;&#xB41C; &#xC608;&#xCE21;&#xC758; &#xC218; (&#xAE30;&#xBCF8;&#xAC12;&#xC740;
+        36)</td>
     </tr>
     <tr>
       <td style="text-align:left">seed</td>
-      <td style="text-align:left">used for defining random samples.</td>
+      <td style="text-align:left">&#xC784;&#xC758;&#xC758; &#xC0D8;&#xD50C;&#xC744; &#xC815;&#xC758;&#xD558;&#xB294;
+        &#xB370; &#xC0AC;&#xC6A9;.</td>
     </tr>
   </tbody>
 </table>
 
-For custom workflows, you can manually log your datasets and models:
+ 사용자 정의 워크 플로우의 경우, 수동으로 데이터세트 및 모델을 로그 할 수 있습니다:
 
 * `log_dataset(path, name=None, medata={})`
 * `log_model(path, name=None, metadata={})` 
 
-_Note: any subfolder "models" will be ignored._
+ __참고: 모든 하위 폴더 “models”는 무시됩니다.
 
-## Examples
+##  **예시**
 
-* [Visualize, track, and compare Fastai models](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): A thoroughly documented walkthrough
-* [Image Segmentation on CamVid](http://bit.ly/fastai-wandb): A sample use case of the integration
+* [Fastai models 모델 시각화, 추적 및 비교](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): 완전하게 문서화 된 워크스루\(walkthrough\)
+* [CamVid에서 이미지 분할\(Image Segmentation\)](http://bit.ly/fastai-wandb): 통합 샘플 사용 케이스
 
