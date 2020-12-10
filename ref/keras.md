@@ -4,7 +4,7 @@ description: wandb.keras
 
 # Keras Reference
 
-[source](https://github.com/wandb/client/blob/master/wandb/keras/__init__.py#L148)
+ [소스](https://github.com/wandb/client/blob/master/wandb/keras/__init__.py#L148)
 
 ```python
 WandbCallback(self,
@@ -30,40 +30,40 @@ WandbCallback(self,
               log_best_prefix='best_')
 ```
 
-WandbCallback automatically integrates keras with wandb.
+WandbCallback은 자동으로 kreas를 wandb와 통합시킵니다.
 
-**Examples**:
+**예시**:
 
 ```python
 model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 callbacks=[WandbCallback()])
 ```
 
-WandbCallback will automatically log history data from any metrics collected by keras: loss and anything passed into keras\_model.compile\(\)
+WandbCallback은 자동으로 keras: loss and anything passed into keras\_model.compile\(\)가 수집한 모든 데이터에서 히스토리 데이터를 로그합니다.
 
-WandbCallback will set summary metrics for the run associated with the "best" training step, where "best" is defined by the `monitor` and `mode` attribues. This defaults to the epoch with the minimum val\_loss. WandbCallback will by default save the model associated with the best epoch..
+WandbCallback은 “best”가 `monitor` 및 `mode` 속성에 의해 정의되는 “best” 훈련 단계와 연관된 실행에 대한 요약 메트릭을 설정합니다.
 
-WandbCallback can optionally log gradient and parameter histograms.
+WandbCallback은 경사\(gradient\) 및 매개변수 히스토그램을 선택적으로 로그합니다.
 
-WandbCallback can optionally save training and validation data for wandb to visualize.
+WandbCallback은 wandb가 시각화 할 훈련 및 검증 데이터를 선택적으로 저장합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `monitor` _str_ - name of metric to monitor.  Defaults to val\_loss.
-* `mode` _str_ - one of {"auto", "min", "max"}. "min" - save model when monitor is minimized "max" - save model when monitor is maximized "auto" - try to guess when to save the model \(default\). save\_model: True - save a model when monitor beats all previous epochs False - don't save models
-* `save_weights_only` _boolean_ - if True, then only the model's weights will be saved \(`model.save_weights(filepath)`\), else the full model is saved \(`model.save(filepath)`\).
-* `log_weights` - \(boolean\) if True save histograms of the model's layer's weights.
-* `log_gradients` - \(boolean\) if True log histograms of the training gradients. The model must define a `total_loss`.
-* `training_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  This is needed for calculating gradients - this is mandatory if `log_gradients` is `True`.
-* `validation_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  A set of data for wandb to visualize.  If this is set, every epoch, wandb will make a small number of predictions and save the results for later visualization.
-* `generator` _generator_ - a generator that returns validation data for wandb to visualize.  This generator should return tuples \(X,y\).  Either validate\_data or generator should be set for wandb to visualize specific data examples.
-* `validation_steps` _int_ - if `validation_data` is a generator, how many steps to run the generator for the full validation set.
-* `labels` _list_ - If you are visualizing your data with wandb this list of labels will convert numeric output to understandable string if you are building a multiclass classifier.  If you are making a binary classifier you can pass in a list of two labels \["label for false", "label for true"\].  If validate\_data and generator are both false, this won't do anything.
-* `predictions` _int_ - the number of predictions to make for visualization each epoch, max is 100.
-* `input_type` _string_ - type of the model input to help visualization. can be one of: \("image", "images", "segmentation\_mask"\).
-* `output_type` _string_ - type of the model output to help visualziation. can be one of: \("image", "images", "segmentation\_mask"\).
-* `log_evaluation` _boolean_ - if True save a dataframe containing the full validation results at the end of training.
-* `class_colors` _\[float, float, float\]_ - if the input or output is a segmentation mask, an array containing an rgb tuple \(range 0-1\) for each class.
-* `log_batch_frequency` _integer_ - if None, callback will log every epoch. If set to integer, callback will log training metrics every log\_batch\_frequency batches.
-* `log_best_prefix` _string_ - if None, no extra summary metrics will be saved. If set to a string, the monitored metric and epoch will be prepended with this value and stored as summary metrics.
+* `monitor` _str_ - 모니터링 할 메트릭의 이름. 기본값은 val\_loss입니다.
+* `mode` _str_ - {"auto"\(자동\), "min"\(최소\), "max"\(최대\)} 중 하나입니다. “min” – monitor가 최소화 될 때 모델을 저장합니다. "max" – monitor가 최대화 될 때 모델을 저장합니다. "auto" – 모델이 언제 저장될 지 추측합니다 \(기본값\). save\_model: True – monitor가 모든 이전의 에포크\(epochs\)를 능가할 때 모델을 저장합니다. False – 모델을 저장하지 않습니다
+* `save_weights_only` _boolean_ - True인 경우, 모델의 가중치\(weights\)만 저장되며`(model.save_weights(filepath))`, 그렇지 않으면 전체 모델이 저장됩니다 `(model.save(filepath))`.
+* `log_weights` - \(boolean\(불린\)\) Ture인 경우 모델 레이어의 가중치\(weights\) 히스토그램을 저장합니다
+* `log_gradients` - \(boolean\(불린\)\) True인 경우 훈련 경사\(training gradients\)의 히스토그램을 로그합니다. 모델은 total\_loss를 정의해야만 합니다.
+* `training_data` - \(tuple\(튜플\)\) model.fit에 전달된 포맷 \(X.y\)와 동일합니다. 이 값은 경사\(gradients\)를 계산하는데 필요합니다. 이는 `log_gradients`가 `True`일 경우 필수입니다.
+* `validation_data` - \(tuple\(튜플\)\) model.fit에 전달된 포맷\(X.y\)와 동일합니다. wandb가 시각화 할 데이터 집합입니다. 이것이 설정된 경우, 모든 에포크\(epoch\), wandb는 적은 수의 예측을 수행하고 추후의 시각화를 위한 결과를 저장합니다.
+* `generator` _generator_ - wandb가 시각화 할 검증 데이터를 반환하는 생성기\(generator\)입니다. 이 생성기는 튜플 \(X.y\)를 반환해야만 합니다. validate\_data 또는 생성기는 wandb가 특정 데이터 예시를 시각화 하도록 설정되어야 합니다
+* `validation_steps` _int_ - `validation_data`가 생성기인 경우, 전체 검증 세트에 대해 생성기를 실행하는 단계의 수 입니다.
+* `labels` _list_ - wandb를 사용하여 데이터를 시각화 하고 있는 경우, 다중 분류기\(multiclass classifier\)를 만들고 있는 경우 라벨의 리스트는 숫자 출력을 이해 할 수 있는 스트링으로 변환합니다. 이항 분류기\(binary classifier\)를 만들고 있는 경우 두 레이블\["label for false", "label for true"\]의 리스트에 전달 할 수 있습니다. validate\_data 및 생성기 둘 다 false인 경우, 아무것도 하지 않습니다.
+* `predictions` _int_ - 각 에포트\(epoch\) 시각화를 위해 할 예측의 수이며, 최대는 100입니다.
+* `input_type` _string_ - 시각화를 지원하는 모델 입력의 유형이며, 다음 중 하나입니다: \("image", "images", "segmentation\_mask"\).
+* `output_type` _string_ -  시각화를 지원하는 모델 출력의 유형이며, 다음 중 하나입니다: \("image", "images", "segmentation\_mask"\).
+* `log_evaluation` _boolean_ - True인 경우, 훈련 종료 시 전체 검증 결과를 포함한 데이터프레임을 저장합니다.
+* `class_colors` _\[float, float, float\]_ - 입력 또는 출력이 분할 마스크\(segmentation mask\)인 경우, 각 클래스에 대한 rgb 튜플\(tuple\) \(범위 0-1\)을 포함한 배열입니다.
+* `log_batch_frequency` _integer_ - None일 경우, callback은 모든 에포크\(epoch\)를 로그합니다. 정수\(integer\)로 설정된 경우, callback은 모든 log\_batch\_frequency을 일괄적으로 함께 묶는\(batch\) 훈련 메트릭을 로그합니다
+* `log_best_prefix` _string_ - None인 경우, 추가 요약 메트릭이 저장되지 않습니다. 스트링으로 설정되면, 모니터링된 메트릭 및 에포크는 이 값 앞에 추가되고 요약 메트릭으로 저장됩니다.
 

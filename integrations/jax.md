@@ -1,8 +1,8 @@
 # JAX Example
 
-This is a complete example of JAX code that trains a MLP and saves to W&B.
+다음은 MLP를 훈련하고 W&B에 저장하는 JAX 코드의 전체 예시입니다.
 
-You can find this example on [GitHub](https://github.com/wandb/examples/tree/master/examples/jax/jax-mnist) and see the results on [W&B](https://app.wandb.ai/l2k2/examples-jax-mnist/runs/g0vgca81).
+[GitHub](https://github.com/wandb/examples/tree/master/examples/jax/jax-mnist)에서 이 예시를 확인하실 수 있고, [W&B](https://app.wandb.ai/l2k2/examples-jax-mnist/runs/g0vgca81)에서 결과를 보실 수 있습니다.
 
 ```python
 import time

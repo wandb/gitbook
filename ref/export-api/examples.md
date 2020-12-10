@@ -1,18 +1,16 @@
 ---
-description: >-
-  Here are some common use cases for pulling down data from W&B using our Python
-  API.
+description: 다음은 Python API를 사용하여 W&B에서 데이터를 풀 다운(pull down)하는 몇 가지 일반적인 사용 사례입니다.
 ---
 
 # Data Export API Examples
 
-### Find the run path
+###  **실행 경로 찾기**
 
-To use the public API, you'll often need the **Run Path** which is `"<entity>/<project>/<run_id>"`  In the app, open a run and click on the **Overview** tab to see the run path for any run.
+공용 API를 사용하려면, `<entity>/<project>/<run_id>`인 **Run Path**가 자주 필요합니다. 앱에서 실행을 열고 **Overview\(개요\)** 탭을 클릭하여 실행에 대한 실행 경로를 확인합니다.
 
-### Read metrics from a run
+###  **실행에서 메트릭 읽기**
 
-This example outputs timestamp and accuracy saved with `wandb.log({"accuracy": acc})` for a run saved to `<entity>/<project>/<run_id>`.
+ 이 예시는 //에 저장된 실행에 대한 `wandb.log({"accuracy": acc})`를 통해 저장된 타임스탬프 및 정확도를 출력합니다.
 
 ```python
 import wandb
@@ -24,9 +22,9 @@ if run.state == "finished":
       print(row["_timestamp"], row["accuracy"])
 ```
 
-### Compare two runs
+###  **두 개의 실행 비교하기**
 
-This will output the config parameters that are different between run1 and run2.
+run1와 run2 사이에 다른 구성 매개변수\(config parameters\)를 출력합니다.
 
 ```python
 import wandb
@@ -43,7 +41,7 @@ df.columns = [run1.name, run2.name]
 print(df[df[run1.name] != df[run2.name]])
 ```
 
-Outputs:
+출력:
 
 ```text
               c_10_sgd_0.025_0.01_long_switch base_adam_4_conv_2fc
@@ -52,9 +50,9 @@ n_conv_layers                               5                    4
 optimizer                             rmsprop                 adam
 ```
 
-### Update metrics for a run \(after run finished\)
+###  **실행에 대한 메트릭 업데이트 \(실행이 종료된 후\)** 
 
-This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_array
+ 이 예는 이전 실행의 정확도를 0.9로 설정합니다. 또한, 이전 실행의 정확도 히스토그램\(accuracy histogram\)을 numpy\_array의 히스토그램으로 수정합니다
 
 ```python
 import wandb
@@ -66,9 +64,9 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
-### Update config in a run
+###  **실행에서 config\(구성\) 업데이트**
 
-This examples updates one of your configuration settings
+ 이 예시는 구성 설정\(configuration settings\) 중 하나를 업데이트 합니다
 
 ```python
 import wandb
@@ -78,9 +76,9 @@ run.config["key"] = 10
 run.update()
 ```
 
-### Export metrics from a single run to a CSV file
+###  **단일 실행에서 CSV 파일로 메트릭 내보내기**
 
-This script finds all the metrics saved for a single run and saves them to a CSV.
+이 스크립트는 단일 실행에 대하여 저장된 모든 메트릭을 찾고, CSV에 저장합니다.
 
 ```python
 import wandb
@@ -94,9 +92,9 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 ```
 
-### Export metrics from a large single run without sampling
+###  **샘플링 없이 대형 단일 실행에서 메트릭 내보내기**
 
-The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. This script loads all of the loss metrics into a variable losses for a longer run.
+기본값 히스토리 방법\(history method\)는 메트릭을 고정된 수의 샘플로 샘플링합니다 \(기본값은 500이며, samples 전달인자를 통해 이를 변경할 수 있습니다\). 대형 실행에서 모든 데이터를 내보내기 하려면, run.scan\_history\(\) 방법을 사용하실 수 있습니다. 이 스크립트는 모든 손실 메트릭을 더 긴 실행에 대한 변수 손실\(variable losses\)로 로드합니다.
 
 ```python
 import wandb
@@ -107,9 +105,9 @@ history = run.scan_history()
 losses = [row["Loss"] for row in history]
 ```
 
-### Export metrics from all runs in a project to a CSV file
+###  **프로젝트의 모든 실행에서 메트릭을 CSV 파일로 내보내기**
 
-This script finds a project and outputs a CSV of runs with name, configs and summary stats.
+이 스크립트는 프로젝트를 찾고 이름, 구성\(configs\) 및 요약 통계와 함께 실행의 CSV를 출력합니다.
 
 ```python
 import wandb
@@ -138,9 +136,9 @@ all_df = pd.concat([name_df, config_df,summary_df], axis=1)
 all_df.to_csv("project.csv")
 ```
 
-### Download a file from a run
+###  **실행에서 파일 다운로드하기**
 
-This finds the file "model-best.h5" associated with with run ID uxte44z7 in the cifar project and saves it locally.
+파일 cifar 프로젝트의 실행 ID uxte44z7와 연관된 "model-best.h5"를 찾고 로컬로 저장합니다.
 
 ```python
 import wandb
@@ -149,9 +147,9 @@ run = api.run("<entity>/<project>/<run_id>")
 run.file("model-best.h5").download()
 ```
 
-### Download all files from a run
+###  **실행에서 모든 파일 다운로드하기**
 
-This finds all files associated with run ID uxte44z7 and saves them locally.  \(Note: you can also accomplish this by running wandb restore &lt;RUN\_ID&gt; from the command line.\)
+ 실행 ID uxte44z7와 관련된 모든 파일을 찾고, 로컬로 저장합니다. \(참조: 명령줄에서 wandb restore 를 실행하여 이를 달성할 수 있습니다.
 
 ```python
 import wandb
@@ -161,7 +159,7 @@ for file in run.files():
     file.download()
 ```
 
-### Download the best model file
+###  **최고 모델 파일 다운로드하기**
 
 ```python
 import wandb
@@ -174,7 +172,7 @@ runs[0].file("model-best.h5").download(replace=True)
 print("Best model saved to model-best.h5")
 ```
 
-### Get runs from a specific sweep
+###  **특정 스윕에서 실행 가져오기**
 
 ```python
 import wandb
@@ -183,9 +181,9 @@ sweep = api.sweep("<entity>/<project>/<sweep_id>")
 print(sweep.runs)
 ```
 
-### Download system metrics data
+###  **시스템 메트릭 데이터 다운로드하기**
 
-This gives you a dataframe with all your system metrics for a run.
+실행에 대한 모든 시스템 메트릭과 함께 데이터프레임을 얻을 수 있습니다.
 
 ```python
 import wandb
@@ -194,17 +192,17 @@ run = api.run("<entity>/<project>/<run_id>")
 system_metrics = run.history(stream = 'events')
 ```
 
-### Update summary metrics
+###  **요약 메트릭 업데이트하기**
 
-You can pass your dictionary to update summary metrics.
+ 사전을 전달하여 요약 메트릭을 업데이트합니다.
 
 ```python
 summary.update({“key”: val})
 ```
 
-### Get the command that ran the run
+### **실행을 실행한 명령 가져오기**
 
-Each run captures the command that launched it on the run overview page. To pull this command down from the API, you can run:
+각 실행은 실행 개요\(run overview\) 페이지에서 실행된 명령을 캡처합니다. 이 명령을 API에서 풀 다운 하려면 다음을 실행할 수 있습니다:
 
 ```python
 api = wandb.Api()
@@ -213,9 +211,9 @@ meta = json.load(run.file("wandb-metadata.json").download())
 program = ["python"] + [meta["program"]] + meta["args"]
 ```
 
-### Get paginated data from history
+### **히스토리에서 페이지 지정된 데이터 가져오기**
 
-If metrics are being fetched slowly on our backend or API requests are timing out, you can try lowering the page size in `scan_history` so that individual requests don't time out. The default page size is 1000, so you can experiment with different sizes to see what works best:
+ 백엔드에서 메트릭이 느리게 전달되거나 API 요청이 타임 아웃 된 경우, 개별 요청이 타임아웃 되지 않도록 `scan_history`에서 페이지 사이즈를 줄일 수 있습니다. 기본값 페이지 사이즈는 1000이며, 따라서 다른 사이즈로 실험하여 가장 잘 작동하는 것을 확인할 수 있습니다:
 
 ```python
 api = wandb.Api()

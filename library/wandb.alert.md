@@ -1,29 +1,29 @@
 ---
-description: 'Scriptable alerts triggered from Python, sent to you via Slack or email'
+description: Python에서 트리거 되어 Slack 또는 이메일로 전송되는 스크립트 가능 경보
 ---
 
 # wandb.alert\(\)
 
- Slack 또는 이메일을 통해 경고 알림을 전송합니다.
+Python 스크립트에서 트리거 되는 Slack 또는 이메일 경보를 전송합니다.
 
-1. [Set up alerts in your account→](../app/features/alerts.md)
-2. [Try the code →](http://tiny.cc/wb-alerts)
-3. Check your Slack or email to see the scriptable alerts.
+1.  [계정에 경보를 설정합니다 →](https://docs.wandb.com/app/features/alerts)
+2.  [코드를 시험합니다 →](http://tiny.cc/wb-alerts)
+3. Slack 또는 이메일을 체크하여 스크립트 가능 경보를 확인합니다.
 
-### Arguments
+### **전달인자**
 
 `wandb.alert(title="Low Acc", text="Accuracy is below the expected threshold")`
 
-* **title \(string\)**: A short description of the alert, for example "Low accuracy"
-* **text \(string\)**: A longer, more detailed description of what happened to trigger the alert
-* **level \(optional\):** How important the alert is — must be either `INFO`, `WARN`, or `ERROR`
-* **wait\_duration \(optional\):** How many seconds to wait before sending another alert with the same **title.** This helps reduce alert spam.
+* **title \(string\)**: 경보에 대한 간단한 설명. 예: “낮은 정확도”
+* **text \(string\)**: 경보를 트리거한 작업에 대한 보다 길고 상세한 설명.
+* **level \(optional\):**  경보의 중요도 — 반드시 `INFO`, `WARN`, 또는 `ERROR` 여야 합니다
+* **wait\_duration \(optional\):** 같은 **title\(제목\)**의 다른 경고를 전송하기 전에 대기하는 시간. 이를 통해 경보 스팸을 줄일 수 있습니다.
 
-### Example
+###  **예시**
 
-This simple alert sends a warning when accuracy falls below a threshold. To avoid spam, it only sends alerts at least 5 minutes apart.
+ 다음의 단순한 경보는 정확도가 임계값\(threshold\) 아래로 떨어질 때 경고를 전송합니다. 스팸을 방지하기 위해 최소 5분 간격으로만 경보를 전송합니다.
 
-[Run the code →](http://tiny.cc/wb-alerts)
+ [코드 실행하기 →](http://tiny.cc/wb-alerts)
 
 ```python
 from datetime import timedelta

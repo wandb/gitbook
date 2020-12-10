@@ -1,27 +1,27 @@
 # SageMaker
 
-## SageMaker Integration
+## **SageMaker 통합**
 
-W&B integrates with [Amazon SageMaker](https://aws.amazon.com/sagemaker/), automatically reading hyperparameters, grouping distributed runs, and resuming runs from checkpoints.
+ W&B는 [Amazon SageMaker](https://aws.amazon.com/sagemaker/)와 통합되어, 자동적으로 초매개변수를 읽고, 분배된 실행 그룹화, 체크포인트에서 실행 재개 등을 수행합니다.
 
-### Authentication
+###  **인증**
 
-W&B looks for a file named `secrets.env` relative to the training script and loads them into the environment when `wandb.init()` is called. You can generate a `secrets.env` file by calling `wandb.sagemaker_auth(path="source_dir")` in the script you use to launch your experiments. Be sure to add this file to your `.gitignore`!
+ W&B는 훈련 대본과 관련된 `secrets.env` 라는 이름의 파일을 탐색하여 `wandb.init()`이 요청되면 환경으로 로드합니다. 실험을 실행할 때 사용하는 스크립트에서 `wandb.sagemaker_auth(path="source_dir")`을 요청하여 secrets.env 파일을 생성하실 수 있습니다. 이 파일을 여러분의 `.gitignore`에 추가하셔야합니다!
 
-### Existing Estimators
+### **기존 추정기\(Estimator\)**
 
-If you're using one of SageMakers preconfigured estimators you need to add a `requirements.txt` to your source directory that includes wandb
+ SageMakers 사전 구성된 추정기\(preconfigured estimators\) 중 하나를 사용하시는 경우, `requirements.txt` 를 wandb가 포함된 여러분의 소스 디렉토리에 추가하셔야 합니다.
 
 ```text
 wandb
 ```
 
-If you're using an estimator that's running Python 2, you'll need to install psutil directly from a [wheel](https://pythonwheels.com/) before installing wandb:
+ Python 2를 실행하는 추정기\(estimator\)을 사용하는 경우, wandb를 설치하시기 전에 [wheel](https://pythonwheels.com/)에서 직접 psutil을 설치하셔야 합니다.
 
 ```text
 https://wheels.galaxyproject.org/packages/psutil-5.4.8-cp27-cp27mu-manylinux1_x86_64.whl
 wandb
 ```
 
-A complete example is available on [GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker) and you can read more on our [blog](https://www.wandb.com/blog/running-sweeps-with-sagemaker).
+ [GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker)에서 전체 예시를 확인하실 수 있으며, 자세한 내용은 저희 [블로그](https://www.wandb.com/blog/running-sweeps-with-sagemaker)에서 확인하실 수 있습니다.
 

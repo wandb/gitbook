@@ -1,8 +1,8 @@
 # Numpy Example
 
-This is a complete example of raw numpy code that trains a perceptron and logs the results to W&B.
+다음은 퍼셉트론\(perceptron\)을 훈련하고 결과를 W&B에 기록하는 raw numpy 코드의 전체 예시입니다.
 
-You can find the code on [GitHub](https://github.com/wandb/examples/blob/master/examples/machine-learning/numpy-boston/train.py).
+ [GitHub](https://github.com/wandb/examples/blob/master/examples/machine-learning/numpy-boston/train.py)에서 코드를 확인하실 수 있습니다.
 
 ```python
 from sklearn.datasets import load_boston
