@@ -10,11 +10,11 @@ The project **Workspace** gives you a personal sandbox to compare experiments. U
 
 Project page tabs:
 
-1. \*\*\*\*[**Overview**](project-page.md#overview-tab): snapshot of your project
-2. \*\*\*\*[**Workspace**](project-page.md#workspace-tab): personal visualization sandbox
-3. \*\*\*\*[**Table**](project-page.md#table-tab): bird's eye view of all runs
-4. \*\*\*\*[**Reports**](project-page.md#reports-tab): saved snapshots of notes, runs, and graphs
-5. \*\*\*\*[**Sweeps**](project-page.md#sweeps-tab): automated exploration and optimization
+1. [**Overview**](project-page.md#overview-tab): snapshot of your project
+2. [**Workspace**](project-page.md#workspace-tab): personal visualization sandbox
+3. [**Table**](project-page.md#table-tab): bird's eye view of all runs
+4. [**Reports**](project-page.md#reports-tab): saved snapshots of notes, runs, and graphs
+5. [**Sweeps**](project-page.md#sweeps-tab): automated exploration and optimization
 
 ## Overview Tab
 

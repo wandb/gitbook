@@ -17,7 +17,7 @@ pip install wandb
 ```
 
 {% hint style="info" %}
-If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at the documentation on [Running in Automated Environments](https://docs.wandb.com/advanced/automated).
+If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our [Environment Variables](library/environment-variables.md).
 {% endhint %}
 
 ## 2. Create Account
@@ -33,12 +33,12 @@ wandb login
 Add a few lines to your script to log hyperparameters and metrics.
 
 {% hint style="info" %}
-Weights and Biases is framework agnostic, but if you are using a common ML framework, you may find framework-specific examples even easier for getting started. We've built framework-specific hooks to simplify the integration for [Keras](https://docs.wandb.com/frameworks/keras), [TensorFlow](https://docs.wandb.com/frameworks/tensorflow), [PyTorch](https://docs.wandb.com/frameworks/pytorch), [Fast.ai](https://docs.wandb.com/frameworks/fastai), [Scikit-learn](https://docs.wandb.com/frameworks/scikit), [XGBoost](https://docs.wandb.com/frameworks/xgboost), [Catalyst](https://docs.wandb.com/frameworks/catalyst), and [Jax](https://docs.wandb.com/frameworks/jax-example).
+Weights and Biases is framework agnostic, but if you are using a common ML framework, you may find framework-specific examples even easier for getting started. We've built framework-specific hooks to simplify the integration for [Keras](integrations/keras.md), [TensorFlow](integrations/tensorflow.md), [PyTorch](integrations/pytorch.md), [Fast.ai](integrations/fastai/), [Scikit](integrations/scikit.md), [XGBoost](integrations/xgboost.md), [Catalyst](integrations/catalyst.md).
 {% endhint %}
 
-### Initialize Wandb
+### Initialize W&B
 
-Initialize `wandb` at the beginning of your script right after the imports.
+Initialize `wandb` at the beginning of your script, before you start logging. Some integrations, like our [Hugging Face](integrations/huggingface.md) integration, include wandb.init\(\) internally.
 
 ```python
 # Inside my model training code
@@ -93,8 +93,8 @@ Now you've got the instrumentation working, here's a quick overview of cool feat
 
 1. **Project Page**: Compare lots of different experiments in a project dashboard. Every time you run a model in a project, a new line appears in the graphs and in the table. Click the table icon on the left sidebar to expand the table and see all your hyperparameters and metrics. Create multiple projects to organize your runs, and use the table to add tags and notes to your runs.
 2. **Custom Visualizations**: Add parallel coordinates charts, scatter plots, and other advanced visualizations to explore your results.
-3. **Reports**: Add a Markdown panel to describe your research results alongside your live graphs and tables. Reports make it easy to share a snapshot of your project with collaborators, your professor, or your boss!
-4. **Frameworks**: We have special integrations for popular [frameworks](library/integrations/) like PyTorch, Keras, and XGBoost.
+3. \*\*\*\*[**Reports**](reports.md): Add a Markdown panel to describe your research results alongside your live graphs and tables. Reports make it easy to share a snapshot of your project with collaborators, your professor, or your boss!
+4. \*\*\*\*[**Integrations**](integrations/): We have special integrations for popular frameworks like PyTorch, Keras, and XGBoost.
 5. **Showcase**: Interested in sharing your research? We're always working on blog posts to highlight the amazing work of our community. Message us at contact@wandb.com.
 
 ### [Contact us with questions →](company/getting-help.md)

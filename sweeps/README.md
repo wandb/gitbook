@@ -30,7 +30,7 @@ Use Weights & Biases Sweeps to automate hyperparameter optimization and explore 
 
 {% page-ref page="quickstart.md" %}
 
-{% page-ref page="add-to-existing.md" %}
+{% page-ref page="existing-project.md" %}
 
 {% page-ref page="configuration.md" %}
 

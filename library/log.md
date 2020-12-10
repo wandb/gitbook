@@ -6,12 +6,12 @@ description: 'Keep track of metrics, video, custom plots, and more'
 
 Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a step. By default we increment the step each time, so you'll see outputs of your model over time in graphs and rich visualizations.
 
-Keyword arguments:
+**Keyword arguments**
 
 * **step** — Which time step to associate the logs with \(see [Incremental Logging](log.md#incremental-logging)\)
 * **commit** — By default commit=true, which means we increment the step each time you call wandb.log. Set commit=false to have multiple sequential wandb.log\(\) commands save data to the same step.
 
-Example usage:
+**Example usage**
 
 ```python
 wandb.log({'accuracy': 0.9, 'epoch': 5})
@@ -174,6 +174,12 @@ table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])
 table.add_data("I love my phone", "1", "1")
 table.add_data("My phone sucks", "0", "-1")
 wandb.log({"examples": table})
+```
+
+You can also pass a pandas `DataFrame` object.
+
+```python
+table = wandb.Table(dataframe=my_dataframe)
 ```
 {% endtab %}
 
@@ -474,6 +480,8 @@ wandb.log(
 {% endtabs %}
 
 ## Incremental Logging
+
+If you want to plot your metrics against different x-axes, you can log the step as a metric, like `wandb.log({'loss': 0.1, 'epoch': 1, 'batch': 3})`. In the UI you can switch between x-axes in the chart settings.
 
 If you want to log to a single history step from lots of different places in your code you can pass a step index to `wandb.log()` as follows:
 

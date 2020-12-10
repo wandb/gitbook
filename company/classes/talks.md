@@ -12,7 +12,7 @@ Try our free tools for experiment tracking with this [5 minute example →](http
 
 ## Deep Learning in the Real World
 
-Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf). If you want to join our Machine Learning community, join our [forum](https://bit.ly/wandb-forum).
+Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf). If you want to join our Machine Learning community, join our [forum](http://wandb.me/slack).
 
 If you're curious to learn more about some of the things I referenced in my talk, check out these resources:
 

@@ -12,9 +12,9 @@ With next to no modification of my code, I'm able to visualize metrics in real t
 
 I can't imagine going back to how I did things before.
 
-## **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
+## **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)
 
-Wandb has become the critical tool for us in bringing together the work of remote researchers across several continents. On a recent paper, we started using a wandb report as the central hub for collaboration, where everyone could see the most recent experimental results and essentially the latest draft of the paper. The flexibility and clarity of wand reports have enabled us to collaborate in ways that used to only be possible in person.
+WandB has become the critical tool for us in bringing together the work of remote researchers across several continents. On a recent paper, we started using a wandb report as the central hub for collaboration, where everyone could see the most recent experimental results and essentially the latest draft of the paper. The flexibility and clarity of wand reports have enabled us to collaborate in ways that used to only be possible in person.
 
 ## Daniel Bourke, ML engineer
 

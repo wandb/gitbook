@@ -68,8 +68,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 
 | Description | Dashboard | Code |
 | :--- | :--- | :--- |
-| Classifying Simpson's characters | [W&B Dashboard](https://app.wandb.ai/borisd13/simpsons-fastai) | [Github Repo](https://github.com/borisdayma/simpsons-fastai) |
-| Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/semantic-segmentation/?workspace=user-borisd13) | [Github Repo](https://github.com/borisdayma/semantic-segmentation/blob/master/src/train.py) |
+| Using WandbCallback with fastai | [W&B Report](https://wandb.ai/borisd13/demo_config/reports/Visualize-Track-Compare-Fastai-Models--Vmlldzo4MzAyNA) | [Colab Notebook](http://bit.ly/fastai-wandb) |
 
 ## Sweeps
 
