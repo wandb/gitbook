@@ -1,36 +1,36 @@
 ---
-description: Machine learning experiment tracking and visualizations
+description: 머신 러닝 실험 추적 및 시각화
 ---
 
 # Dashboard
 
-Use the Weights & Biases Dashboard as a central place to organize and visualize results from your machine learning models.
+Weights & Biases 대시보드를 머신러닝 모델의 결과 구성 및 시각화의 핵심으로 사용하세요
 
 {% embed url="https://youtu.be/gnD8BFuyVUA" caption="" %}
 
-## **Persistent and Centralized**
+##  **지속적 & 중앙 집중식**
 
-Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying outputs from your terminal into a spreadsheet or organizing TensorBoard files from different machines.
+여러분의 로컬 머신, 연구실 클러스터 또는 클라우드의 스팟 인스턴스\(spot instances\) 등 모델을 훈련하는 어느 곳이든, 저희는 여러분께 동일한 중앙 집중식 대시보드를 제공합니다. 터미널의 출역을 복사해 스프레드시트로 복사하시거나 다른 머신의 TensorBoard 파일 구성에 시간을 할애하실 필요가 없습니다.
 
-## Automatic Organization
+##  **자동 구성**
 
-If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models your team has already tried so you're not wasting hours re-running old experiments.
+프로젝트를 공동 작업자에게 넘겨주거나 휴가를 보내시는 경우, W&B는 여러분의 팀이 이미 시도한 모든 모델을 쉽고 간편하게 보실 수 있도록 해드립니다. 따라서, 여러분께서는 오래된 실험 재실행에 시간을 낭비하실 필요가 전혀 없습니다.
 
-## **Powerful Table**
+##  **강력한 테이블**
 
-Compare each training run and see what hyperparameters changed. Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks.
+ 각 각의 훈련 실행을 비교하고 초매개변수가 변경한 내용을 확인하세요. 여러 모델에서의 결과를 검색, 필터링, 정렬 및 그룹화 하실 수 있습니다. 수 천 개의 모델 버전을 살펴보고 여러 작업에서 최고 퍼포먼스의 모델을 쉽고 간편하게 찾으실 수 있습니다.
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
-## Reproduce Models
+##  **모델 재현**
 
-Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.
+Weights & Biases는 실험, 탐색 및 추 후 모델 재현에 뛰어납니다. 저희는 메트릭 뿐만 아니라 초매개변수 및 코드의 버전을 캡쳐하고 여러분의 프로젝트가 재현 될 수 있도록 모델 체크포인트를 저장합니다.
 
-## Fast, Flexible Integration
+##  **빠르고 유연한 통합**
 
-Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
+W&B를 여러분의 프로젝트에 추가하는데 단 5분이면 됩니다. 저희의 무료 오픈 소스 Python 패키지를 설치하고 코드에 몇 줄만 추가하시면 됩니다. 그러면 모델을 실행하실 때 마다, 잘 로그된 메트릭과 기록을 확인하실 수 있습니다.
 
-## Tools for Collaboration
+##  **공동작업을 위한 툴**
 
-Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+W&B를 사용하여 복잡한 머신 러닝 프로젝트를 구성하실 수 있습니다. W&B에 링크를 쉽고 간편하게 하실 수 있으며, 모든 사람들이 결과를 공유된 프로젝트에 전송할 수 있도록 개인 팀을 사용하실 수 있습니다. 또한 저희는 리포트를 통한 공동작업도 지원합니다. 양방향 시각화를 추가하고 마크다운\(markdown\)에 작업 내용을 설명하세요. 작업 로그 보관, 직장 상사와 결과 공유 또는 연구실에 결과 보고에 아주 좋은 방법입니다.
 

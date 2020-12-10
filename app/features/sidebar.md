@@ -1,78 +1,78 @@
 ---
-description: How to use the sidebar and table on the project page
+description: 프로젝트 페이지의 사이드 바 및 테이블 사용법
 ---
 
 # Table
 
-On the project page, we show runs in a sidebar. Expand the sidebar to view a table of hyperparameters and summary metrics across runs.
+ 프로젝트 페이지의 사이드 바에는 실행이 표시됩니다. 사이드 바를 확장하시면 여러 실행에 걸친 초매개변수 및 요약 메트릭 테이블을 확인하실 수 있습니다.
 
-## Search run names
+##  **실행 이름 검색하기**
 
-We support full [regex](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) search on run names in the table. When you type a query in the search box, that will filter down the visible runs in the graphs on the workspace as well as filtering the rows of the table.
+ 저희는 테이블의 실행이름에 대한 최대 [정규표현식\(regex\)](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) 검색을 지원합니다. 검색 박스에 쿼리를 입력하시면, 작업공간의 그래프에 표시되는 실행 및 테이블의 행을 필터링 하실 수 있습니다.
 
-## Resize the sidebar
+## **사이드 바 사이즈 조정**
 
-Would you like to make more space for the graphs on the project page? Click and drag the edge of the column header to resize the sidebar. You'll still be able to click on the eye icon to turn on and off runs on the graphs.
+프로젝트 페이지의 그래프를 위한 공간을 더 만들고 싶으신가요? 열 머리글\(header\)를 클릭 및 드래그 하시면 사이드 바의 크기를 조절하실 수 있습니다. 또한, 눈 모양 아이콘\(eye icon\)을 클릭하셔서 그래프의 실행을 계속 켜거나 끄실 수 있습니다.
 
 ![](https://downloads.intercomcdn.com/i/o/153755378/d54ae70fb8155657a87545b1/howto+-+resize+column.gif)
 
-## Add sidebar columns
+##  **사이드 바 열 추가하기**
 
-On the project page, we show runs in a sidebar. To show more columns:
+ 프로젝트 페이지의 사이드 바에는 실행이 표시됩니다. 더 많은 열을 표시하는 법은 다음과 같습니다:
 
-1. Click the button in the upper right corner of the sidebar to expand the table.
-2. On a column header, click the dropdown menu to pin a column.
-3. Pinned columns will be available in the sidebar when you collapse the table.
+1. 사이드 바의 우측상단의 버튼을 클릭해서 테이블을 확장합니다.
+2. 열 머리글\(header\)에서, 드롭다운 메뉴를 클릭하여 열을 고정합니다.
+3. 표를 축소할 때 고정된 열은 사이드 바에서 사용하실 수 있습니다.
 
-Here's a screen capture. I expand the table, pin two columns, collapse the table, then resize the sidebar.
+다음은 화면 캡쳐입니다. 테이블을 확장하고, 2개의 열을 고정하고, 테이블을 축소한 다음, 사이드 바 크기를 조절하고 있습니다.
 
 ![](https://downloads.intercomcdn.com/i/o/152951680/cf8cbc6b35e923be2551ba20/howto+-+pin+rows+in+table.gif)
 
-## Bulk select runs
+##  **실행 일괄 선택하기**
 
-Delete multiple runs at once, or tag a group of runs— bulk selection makes it easier to keep the runs table organized.
+ 한 번에 여러 개의 실행을 삭제하거나, 실행 그룹을 태그 하실 수 있습니다. 일괄 선택은 실행 테이블 정리를 보다 쉽고 간편하게 해드립니다.
 
 ![](../../.gitbook/assets/howto-bulk-select.gif)
 
-## Select all runs in table
+##  **테이블의 모든 실행 선택하기**
 
-Click the checkbox in the upper left corner of the table, and click "Select all runs" to select every run that matches the current set of filters.
+ 테이블 좌측 상단의 체크박스를 클릭하고, "Select all runs"\(모든 실행 선택\)을 클릭하여 현재 필터 세트와 일치하는 모든 실행을 선택합니다.
 
 ![](../../.gitbook/assets/all-runs-select.gif)
 
-## Move runs between projects
+##  **프로젝트 사이에 실행 이동하기**
 
-To move runs from one project to another:
+한 프로젝트에서 다른 프로젝트로 실행을 이동하는 방법은 다음과 같습니다:
 
-1. Expand the table
-2. Click the checkbox next to the runs  you want to move
-3. Click move and select the destination project
+1. 테이블을 확장합니다.
+2. 옮기고 싶은 실행 옆의 체크박스를 클릭합니다
+3. move\(이동\)을 클릭하고 대상 프로젝트를 선택합니다
 
 ![](../../.gitbook/assets/howto-move-runs.gif)
 
-## See active runs
+## **활성 실행 확인하기**
 
-Look for a green dot next to the name of runs— this indicates they're active in the table and on the graph legends.
+실행 이름 옆의 녹색 점을 찾습니다. 이 점은 테이블 및 그래프 범례에서 활성화 상태임을 나타냅니다.
 
-## Hide uninteresting runs
+##  **관심 없는 실행 숨기기**
 
-Do you want to hide crashed runs? Are short runs filling up your table? Do you want to only see your work in a group project? Hide the noise with a filter. Some filters we recommend:
+ 깨진 실행을 감추고 싶으신가요? 짧은 실행이 테이블을 가득 채웠나요? 그룹 프로젝트에서만 여러분의 작업을 보고 싶으신가요? 필터를 사용해서 노이즈를 숨기실 수 있습니다. 다음은 저희가 추천하는 필터입니다:
 
-* **Show only my work** filters down to runs under your username
-* **Hide crashed runs** filters out any runs marked crashed from the table
-* **Duration**: add a new filter and select "duration" to hide short runs
+* **Show only my work\(내 작업만 표시하기\)**는 여러분의 사용자 이름으로 실행되는 실행만 필터링합니다.
+* **Hide crashed runs\(깨진 실행 감추기\)**는 테이블에서 crashed\(깨진\)으로 표시된 모든 실행을 필터링해 제외합니다.
+*    **Duration\(기간\)**: 새로운 필터를 추가하고 “duration”을 선택해서 짧은 실행을 숨깁니다
 
 ![](../../.gitbook/assets/image%20%2816%29.png)
 
-## Filter and delete unwanted runs
+##  **원하지 않는 실행 필터링 및 삭제하기**
 
-If you filter down the table to just the ones you want to delete, you can select all and press delete to remove them from your project. Deleting runs is project-global, so if you delete runs from a report that will be reflected in the rest of your project.
+ 테이블을 여러분이 삭제하고 싶은 테이블로 필터링 하시는 경우, all\(전부\)를 선택하시고 delete\(삭제\)를 눌러 프로젝트에서 제거하실 수 있습니다. 실행을 삭제하는 것은 프로젝트 전역에 적용되므로, 리포트에서 실행을 삭제하신 경우, 이는 프로젝트 나머지 부분에 반영됩니다.
 
 ![](../../.gitbook/assets/2020-05-13-19.14.13.gif)
 
-## Export runs table to CSV
+## **실행 테이블을 CSV로 내보내기**
 
-Export the table of all your runs, hyperparameters, and summary metrics to a CSV with the download button.
+download\(다운로드\) 버튼을 통해 모든 실행, 초매개변수, 요약 메트릭 테이블을 CSV로 내보냅니다.
 
 ![](../../.gitbook/assets/2020-07-06-11.51.01.gif)
 

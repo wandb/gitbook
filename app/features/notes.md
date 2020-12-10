@@ -1,37 +1,35 @@
 ---
-description: >-
-  Add notes to your runs and projects, and use notes to describe your findings
-  in reports
+description: '실행 및 프로젝트에 노트를 추가하고, 노트를 사용해 리포트에 결과를 설명합니다'
 ---
 
 # Notes
 
-There are a few ways to take notes about your work in Weights & Biases.
+Weights & Biases에서 여러분의 작업에 대해 메모하는 몇 가지 방법이 있습니다.
 
-1. Add notes to a run. These notes show up on the run page in the overview tab and in the table of runs on the project page.
-2. Add notes to a project. These notes show up on the project page in the overview tab.
-3. Add a markdown panel on the run page, project page, or report page.
+1. 실행에 노트를 추가합니다. 이 노트는 overview\(개요\) 탭의 실행 페이지 및 프로젝트 페이지의 실행 테이블에 표시됩니다.
+2. 프로젝트에 노트를 추가합니다. 이 노트는 overview\(개요\) 탭의 프로젝트 페이지에 표시됩니다.
+3. 실행 페이지, 프로젝트 페이지 또는 리포트 페이지에 markdown\(마크다운\) 패널을 추가합니다.
 
-## Add notes to a specific run
+##  **특정 실행에 노트 추가하기**
 
-You can edit the notes on a run in two places.
+두 곳에서 실행에 대한 노트를 편집하실 수 있습니다.
 
-1. **Project Page**: the table has an editable notes column
-2. **Run Page**: the overview tab shows information about a run, and you can 
+1. **Project Page\(프로젝트 페이지\)**: 테이블에 편집 가능한 노트 열이 있습니다.
+2. **Run Page\(실행 페이지\)**: overview\(개요\) 탭에는 실행에 관한 정보가 표시되며, 추가하실 수 있습니다.
 
-On the project page, expand the table. Click "Add notes..." to type notes in-line.
+프로젝트 페이지에서 테이블을 확장하세요. “Add notes..."를 클릭하여 바로 노트를 입력합니다.
 
-![Editing notes in the table on the project page](https://downloads.intercomcdn.com/i/o/148296355/34114b47362b0378e233a440/2019-09-13+08.05.17.gif)
+![&#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xD398;&#xC774;&#xC9C0;&#xC758; &#xD14C;&#xC774;&#xBE14;&#xC5D0;&#xC11C; &#xB178;&#xD2B8; &#xD3B8;&#xC9D1;](https://downloads.intercomcdn.com/i/o/148296355/34114b47362b0378e233a440/2019-09-13+08.05.17.gif)
 
-This field also shows up on the individual run page. Click the name of the run in the table to go to the run page. Click the top tab on the left side to go to the Overview tab. The field has much more room to grow here. You can type as many notes as you'd like in this space, and a preview will be shown in the runs table when you mouse over the notes field.
+ ****이 영역은 개별 실행 페이지에도 표시됩니다. 테이블에서 실행 이름을 클릭하여 실행 페이지로 이동합니다. 왼쪽의 top탭을 클릭하여 Overview\(개요\) 탭으로 이동합니다. 이 영역에서 많은 것을 하실 수 있습니다. 이 공간에 여러분이 원하는 만큼의 노트를 입력하실 수 있으며, 마우스를 노트 영역에 두면 실행 테이블에 프리뷰가 표시됩니다.
 
-![Editing notes in the overview tab on the run page](https://downloads.intercomcdn.com/i/o/148297196/afdb48d2fb59aaa0c90c3aed/2019-09-13+08.06.45.gif)
+![&#xC2E4;&#xD589; &#xD398;&#xC774;&#xC9C0;&#xC758; overview\(&#xAC1C;&#xC694;\) &#xD0ED;&#xC5D0;&#xC11C; &#xB178;&#xD2B8; &#xD3B8;&#xC9D1;](https://downloads.intercomcdn.com/i/o/148297196/afdb48d2fb59aaa0c90c3aed/2019-09-13+08.06.45.gif)
 
-You can also create a report to add plots and markdown side by side. Use different sections to show different runs, and tell a story about what you worked on. These notes can be saved and shared with colleagues.
+또한, 리포트를 생성하여 플롯과 마크다운\(markdown\)을 나란히 추가하실 수도 있습니다. 다른 섹션을 사용하여 다른 실행을 표시하고, 작업에 관한 내용을 전달할 수도 있습니다. 이 노트는 저장해서 동료들과 공유하실 수 있습니다.
 
-## Write descriptive notes comparing runs
+## **실행을 비교하는 기술 노트 작성**
 
-Use reports to write about your findings when comparing multiple runs. Click "Add visualization" to add a markdown panel. You can arrange these panels beside panels of graphs.
+리포트를 사용하여 여러 실행을 비교했을 때의 결과에 대해 작성하실 수 있습니다. “Add visualization”\(시각화 추가\)를 클릭하여 마크다운\(markdown\)을 추가합니다. 사용자께서는 이 패널을 그래프 패널 옆에 정렬할 수 있습니다.
 
 ![](https://downloads.intercomcdn.com/i/o/148297552/64e5baa86a48927158d17456/2019-09-13+08.08.31.gif)
 

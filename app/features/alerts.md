@@ -1,30 +1,22 @@
 ---
-description: >-
-  Receive a Slack notification whenever your runs crash, complete, or call
-  wandb.alert().
+description: '실행이 충돌, 완료 또는 wandb.alert()을 호출 할 때 마다 Slack 알림을 받으실 수 있습니다.'
 ---
 
 # Alerts
 
-W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
+W&B는 실행이 충돌, 완료 또는 [wandb.alert\(\)](https://docs.wandb.com/library/wandb.alert)을 호출 할 때마다 Slack에 경보를 게시할 수 있습니다.
 
-### User Alerts
+**사용자 수준 경보**
 
-Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects. 
+여러분이 실행한 실행이 충돌, 완료 또는 wandb.alert\(\)을 호출할 때마다 경보를 받으시려면, 사용자 수준 경보를 설정하실 수 있습니다. 사용자 수준 경보는 팀 프로젝트를 포함한 모든 프로젝트에 적용되며, 사용자가 깨진 또는 실패한 실행이 있는 경우에 언제든지 작동합니다.
 
-In your [User Settings](https://wandb.ai/settings):
-
-* Scroll down to the **Alerts** section
-* Click **Connect Slack** to pick a channel to post alerts. We recommend the **Slackbot** channel because it keeps the alerts private.
-* **Email** will go to the email address you used when you signed up for W&B. We recommend setting up a filter in your email so all these alerts go into a folder and don't fill up your inbox.
+Personal Slack Integration섹션 아래의 user settings 페이지에서 Connect Slack 버튼을 선택하고, W&B가 경보를 게시할 채널을 승인합니다. slackbot 채널은 경보를 비공개로 유지하기에 아주 좋습니다. W&B가 경보를 게시할 Slack 채널을 변경해야 하는 경우, Disconnect Slack 버튼을 선택하고 여러분이 선택한 새 채널을 사용하는 Slack과 다시 연결합니다.
 
 ![](../../.gitbook/assets/demo-connect-slack.png)
 
-### Team Alerts
-
-Team admins can set up alerts for the team on the team settings page: wandb.ai/teams/`your-team`. These alerts apply to everyone on your team. We recommend using the **Slackbot** channel because it keeps the alerts private.
+일단 Slack이 연결되면, 여러분께서 자유롭게 경보를 활성화 및 비활성화 할 수 있습니다.
 
 ### Changing Slack Channels
 
-To change what channel you're posting to, click **Disconnect Slack** and then reconnect, picking a different destination channel.
+또한 이메일을 통해 알림을 수신하실 수도 있습니다. W&B는 여러분의 계정과 연결된 이메일을 사용해서 알림을 보냅니다.
 

@@ -1,141 +1,140 @@
 ---
-description: >-
-  Compare versions of your model, explore results in a scratch workspace, and
-  export findings to a report to save notes and visualizations
+description: '모델의 버전 비교, 스크래치 작업 공간에서 결과 탐색 및 노트 및 시각화 저장을 위한 결과를 보고서로 내보내기를 하실 수 있습니다.'
 ---
 
 # Project Page
 
-The project **Workspace** gives you a personal sandbox to compare experiments. Use projects to organize models that can be compared, working on the same problem with different architectures, hyperparameters, datasets, preprocessing etc.
+프로젝트 **작업공간\(Workspace\)**는 실험을 비교할 수 있는 개인 샌드박스를 제공합니다. 프로젝트를 사용해서 서로 다른 아키텍처, 초매개변수, 데이터세트, 사전프로세싱 등과 같은 경우 등의 동일한 문제를 다루면서, 비교할 수 있는 모델을 구성하실 수 있습니다.
 
-Project page tabs:
+ 프로젝트 페이지 탭
 
-1. [**Overview**](project-page.md#overview-tab): snapshot of your project
-2. [**Workspace**](project-page.md#workspace-tab): personal visualization sandbox
-3. [**Table**](project-page.md#table-tab): bird's eye view of all runs
-4. [**Reports**](project-page.md#reports-tab): saved snapshots of notes, runs, and graphs
-5. [**Sweeps**](project-page.md#sweeps-tab): automated exploration and optimization
+1.  [**개요\(Overview\)**](https://docs.wandb.com/app/pages/project-page#overview-tab): 프로젝트의 스냅샷
+2.   [**작업공간\(Workspace\)**](https://docs.wandb.com/app/pages/project-page#workspace-tab): 개인 시각화 샌드박스
+3.  [**테이블\(Table\)**](https://docs.wandb.com/app/pages/project-page#table-tab): 모든 실행의 조감도
+4.  [**리포트\(Reports\)**](https://docs.wandb.com/app/pages/project-page#reports-tab): 노트, 실행 및 그래프의 저장된 스냅샷
+5.  [**스윕\(Sweeps\)**](https://docs.wandb.com/app/pages/project-page#sweeps-tab): 자동화된 탐색 및 최적화
 
-## Overview Tab
+##  **개요\(Overview\) 탭**
 
-* **Project name**: click to edit the project name
-* **Project description**: click to edit the project description and add notes
-* **Delete project**: click the dot menu in the right corner to delete a project
-* **Project privacy**: edit who can view runs and reports— click the lock icon
-* **Last active**: see when the most recent data was logged to this project
-* **Total compute**: we add up all the run times in your project to get this total
-* **Undelete runs**: Click the dropdown menu and click "Undelete all runs" to recover deleted runs in your project.
+* **Project name\(프로젝트 이름\)**: 클릭해서 프로젝트 이름 편집
+* **Project description\(프로젝트 설명\)**: 클릭해서 프로젝트 설명 편집 및 노트 추가
+* **Delete project\(프로젝트 삭제\)**: 오른쪽 모서리의 점모양\(dot\) 메뉴를 클릭해서 프로젝트 삭제
+* **Project privacy\(프로젝트 프라이버시\)**: 실행 및 프로젝트를 볼 수 있는 사용자 편집 — 자물쇠 아이콘 클릭
+* **Last active\(마지막 활동\)**: 가창 최근 데이터가 언제 이 프로젝트에 로그 됐는지 확인
+* **Total compute\(총 계산\)**: 프로젝트의 모든 실행 시간 합산하여 총 시간 계산
+* **Undelete runs\(실행 삭제 취소\)**: 드롭다운 메뉴를 클릭하고 "Undelete all runs\(모든 실행 삭제 취소\)"를 클릭하여 프로젝트에서 삭제된 모든 실행 복구
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
+[라이브 예시 보기 →](https://app.wandb.ai/example-team/sweep-demo/overview)​ 
 
 ![](../../.gitbook/assets/image%20%2829%29.png)
 
 ![](../../.gitbook/assets/undelete.png)
 
-## Workspace Tab
+##  **작업공간\(Workspace\) 탭**
 
-**Runs Sidebar**: list of all the runs in your project
+ **실행 사이드바**: 프로젝트 내 모든 실행 리스트
 
-* **Dot menu**: hover over a row in the sidebar to see the menu appear on the left side. Use this menu to rename a run, delete a run, or stop and active run.
-* **Visibility icon**: click the eye to turn on and off runs on graphs
-* **Color**: change the run color to another one of our presets or a custom color
-* **Search**: search runs by name. This also filters visible runs in the plots.
-* **Filter**: use the sidebar filter to narrow down the set of runs visible
-* **Group**: select a config column to dynamically group your runs, for example by architecture. Grouping makes plots show up with a line along the mean value, and a shaded region for the variance of points on the graph.
-* **Sort**: pick a value to sort your runs by, for example runs with the lowest loss or highest accuracy. Sorting will affect which runs show up on the graphs.
-* **Expand button**: expand the sidebar into the full table
-* **Run count**: the number in parentheses at the top is the total number of runs in the project. The number \(N visualized\) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
+* **Dot menu\(점모양 메뉴\)**: 사이드바의 행 위로 마우스를 가져가면 왼쪽에 메뉴가 나타납니다. 이 메뉴를 사용해서 실행의 이름 재설정, 실행 삭제 또는 정지 및 활성 실행을 수행하실 수 있습니다.
+* **Visibility icon\(눈 모양 아이콘\)**: 눈 모양 아이콘을 클릭해서 그래프에서 실행을 켜고 끌 수 있습니다.
+* **Color\(색상\)**: 실행 색상을 프리셋 중 하나 또는 사용자 정의 색으로 변경합니다
+* **Search\(검색\)**: 이름으로 실행을 검색합니다. 플롯에서 볼 수 있는 실행도 필터링 됩니다.
+* **Filter\(필터링\)**: 사이드바 필터를 사용해서 표시되는 실행 세트의 범위를 줄입니다.
+* **Group\(그룹\)**: 구성 열\(config column\)을 선택해서 동적으로 실행을 그룹화합니다 \(예: 아키텍처별\). 그룹화는 플롯을 평균값과 그래프 상의 점 분산에 대한 음영 영역과 함께 나타나게 합니다.
+* **Sort\(정렬\)**: 실행을 정렬할 값을 선택합니다 \(예: 최소 손실 또는 최대 정확도의 실행\). 정렬은 그래프에 표시되는 실행에 영향을 줍니다.
+* **Expand button\(확장 버튼\)**: 사이드바를 전체 테이블로 확장합니다.
+* **Run count\(실행 횟수\)**: 상단의 괄호 안의 숫자는 해당 프로젝트의 총 실행 수를 나타냅니다. 해당 숫자는 \(N 시각화 됨\) “눈\(eye\)”를 켠 채로 각 그래프에서 시각화 할 수 있는 실행의 수 입니다. 아래의 예시에서, 그래프는 총 183개의 실행 중 처음 10개만 표시하고 있습니다. 그래프를 편집하여 표시되는 최대 실행 수를 늘릴 수 있습니다.
 
-**Panels layout**: use this scratch space to explore results, add and remove charts, and compare versions of your models based on different metrics
+**패널 레이아웃**: 이 스크래치 공간을 사용해서 결과 탐색, 차트 추가 및 제거, 다양한 메트릭을 기준으로 모델의 버전을 비교합니다.  
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo)
+
+​[라이브 예시 보기 →](https://app.wandb.ai/example-team/sweep-demo)​
 
 ![](../../.gitbook/assets/image%20%2832%29.png)
 
-### Search for runs
+###  **실행 검색**
 
-Search for a run by name in the sidebar. You can use regex to filter down your visible runs. The search box affects which runs are shown on the graph. Here's an example:
+사이드바에서 이름별로 실행을 검색합니다. 표시되는 실행을 필터링 하기 위해 정규 표현식\(regex\)를 사용하실 수 있습니다. 검색 상자\(search box\)는 그래프에 표시되는 실행에 영향을 줍니다. 다음은 해당 예시입니다:
 
 ![](../../.gitbook/assets/2020-02-21-13.51.26.gif)
 
-### Add a section of panels
+###  **패널 섹션 추가**
 
-Click the section dropdown menu and click "Add section" to create a new section for panels. You can rename sections, drag them to reorganize them, and expand and collapse sections.
+섹션 드롭다운 메뉴를 클릭하고 “Add section\(섹션 추가\)”를 클릭하여 패널에 대한 새 섹션을 생성합니다. 섹션의 이름 재설정, 드래그하여 재구성 및 색션 확장 및 축소를 할 수 있습니다.
 
-Each section has options in the upper right corner:
+각 섹션의 경우 우측 상단에 옵션이 있습니다.
 
-* **Switch to custom layout**: The custom layout allows you to resize panels individually.
-* **Switch to standard layout**: The standard layout lets you resize all panels in the section at once, and gives you pagination.
-* **Add section**: Add a section above or below from the dropdown menu, or click the button at the bottom of the page to add a new section.
-* **Rename section**: Change the title for your section.
-* **Export section to report**: Save this section of panels to a new report.
-* **Delete section**: Remove the whole section and all the charts. This can be undone with the undo button at the bottom of the page in the workspace bar.
-* **Add panel**: Click the plus button to add a panel to the section. 
+* **Switch to custom layout\(사용자 정의 레이아웃으로 전환\)**: 사용자 정의 레이아웃을 통해 패널의 크기를 개별적으로 조정하실 수 있습니다
+* **Switch to standard layout\(표준 레이아웃으로 전환\)**: 표준 레이아웃을 통해서 한 번에 모든 패널크기를 조정할 수 있으며, 페이지네이션\(pagination\)을 하실 수 있습니다.
+* **Add section\(섹션 추가\)**: 드롭다운 메뉴에서 위 또는 아래에 색션을 추가하거나, 페이지 하단의 버튼을 클릭하여 새 섹션을 추가할 수 있습니다.
+* **Rename section\(섹션 이름 변경\)**: 섹션의 제목을 변경합니다.
+* **Export section to report\(리포트에 섹션 내보내기\)**: 패널의 해당 섹션을 새 리포트에 저장합니다.
+* **Delete section\(섹션 삭제\)**: 전체 섹션 및 모든 차트를 제거합니다. 작업공간 바\(workspace bar\)의 페이지 하단에 있는 undo\(취소\)버튼을 통해 이 작업을 취소하실 수 있습니다.
+* **Add panel\(패널 추가\)**: plus\(더하기\) 버튼을 클릭하여 패널은 섹션에 추가합니다.
 
 ![](../../.gitbook/assets/add-section.gif)
 
-### Move panels between sections
+### **섹션간 패널 이동**
 
-Drag and drop panels to reorder and organize into sections. You can also click the "Move" button in the upper right corner of a panel to select a section to move the panel to.
+패널을 드래그 및 드롭하여 섹션에 재정렬 및 구성하실 수 있습니다. 패널 우측상단의 “Move\(이동\)” 버튼을 클릭하여 패널을 이동할 섹션을 선택하실 수도 있습니다.
 
 ![](../../.gitbook/assets/move-panel.gif)
 
-### Resize panels
+###  **패널 사이즈 조정**
 
-* **Standard layout**: All panels maintain the same size, and there are pages of panels. You can resize the panels by clicking and dragging the lower right corner. Resize the section by clicking and dragging the lower right corner of the section. 
-* **Custom layout**: All panels are sized individually, and there are no pages. 
+* **Standard layout\(표준 레이아웃\)**: 모든 패널의 사이즈는 동일하며, 패널 페이지가 있습니다. 우측 하단 모서리를 클릭 및 드래그해서 패널의 사이즈를 조정하실 수 있습니다. 섹션의 우측 하단 모서리를 클릭하여 섹션의 사이즈를 조절합니다.
+* **Custom layout\(사용자 지정 레이아웃\)**: 모든 페널의 사이즈는 개별적으로 지정되며, 페이지는 없습니다.
 
 ![](../../.gitbook/assets/resize-panel.gif)
 
-### Search for metrics
+###  **메트릭 검색**
 
-Use the search box in the workspace to filter down the panels. This search matches the panel titles, which are by default the name of the metrics visualized.
+ 작업공간\(workspace\)의 검색 상자\(search box\)를 통해 패널을 필터링 하실 수 있습니다. 이 검색은 기본값으로 시각화된 메트릭의 이름인 패널의 제목과 일치합니다.
 
 ![](../../.gitbook/assets/search-in-the-workspace.png)
 
-## Table Tab
+##  **테이블 탭**
 
-Use the table to filter, group, and sort your results.
+ 테이블을 사용해서 결과를 필터링, 그룹화, 정렬합니다.
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
+ [라이브 예시 보기 →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)​
 
 ![](../../.gitbook/assets/image%20%2886%29.png)
 
-## Reports Tab
+##  **리포트 탭**
 
-See all the snapshots of results in one place, and share findings with your team.
+모든 결과 스냅샷을 한 곳에서 확인하고, 팀과 결과를 공유하세요.
 
 ![](../../.gitbook/assets/reports-tab.png)
 
-## Sweeps Tab
+##  **스윕 탭**
 
-Start a new sweep from your project.
+ 프로젝트에서 새 스윕을 시작합니다.
 
 ![](../../.gitbook/assets/sweeps-tab.png)
 
-## Common Questions
+## **공통 질문**
 
-### Reset workspace
+###  **작업공간 재설정하기**
 
-If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
+프로젝트 페이지에서 아래와 같은 오류가 나타나는 경우, 작업공간을 재설정하는 방법은 다음과 같습니다.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
-Add **?workspace=clear** to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
+ URL의 끝에 **?workspace=clear**를 추가하고 엔터를 누릅니다. 이렇게 하시면 여러분의 프로젝트 페이지 작업공간의 정리된 버전으로 이동합니다.
 
-### Delete Projects
+###  **프로젝트 삭제**
 
-You can delete your project by clicking the three dots on the right of the overview tab.
+ 개요 탭 우측의 점 세 개 모양 아이콘을 클릭하여 프로젝트를 삭제하실 수 있습니다.
 
 ![](../../.gitbook/assets/howto-delete-project.gif)
 
-### Privacy settings
+### **개인 정보 설정**
 
-Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
+ 페이지 상단의 탐색\(navigation\)바에서 자물쇠 아이콘을 클릭하여 프로젝트 개인 정보 설정을 변경할 수 있습니다. 실행을 보거나 프로젝트에 실행을 제출할 수 있는 사용자를 편집할 수 있습니다. 이 설정은 프로젝트의 모든 실행 및 리포트를 포함합니다. 소수의 사람들과 결과를 공유하고 싶으신 경우 [private team\(개인 팀\)](https://docs.wandb.com/app/features/teams)을 생성하실 수 있습니다.
 
 ![](../../.gitbook/assets/image%20%2879%29.png)
 
-### Delete an empty project
+###  **빈 프로젝트 삭제**
 
-Delete a project with no runs by clicking the dropdown menu and selecting "Delete project".
+드롭다운 메뉴를 클릭하고 “Delete project\(프로젝트 삭제\)”를 선택하여 실행 되지 않는 프로젝트를 삭제합니다.
 
 ![](../../.gitbook/assets/image%20%2866%29.png)
 
