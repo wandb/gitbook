@@ -1,37 +1,35 @@
 ---
-description: >-
-  Run search and stopping algorithms locally, instead of using our cloud-hosted
-  service
+description: 클라우드 호스팅 서비스 사용 대신 검색 및 중지 알고리즘을 로컬에서 실행합니다.
 ---
 
 # Local Controller
 
-By default the hyper-parameter controller is hosted by W&B as a cloud service. W&B agents communicate with the controller to determine the next set of parameters to use for training. The controller is also responsible for running early stopping algorithms to determine which runs can be stopped.
+기본값으로 초매개변수 컨트롤러는 클라우드 서비스로써 W&B에 의해 호스팅됩니다. W&B 에이전트는 컨트롤러와 연결되어 훈련용으로 사용할 다음 매개변수 세트를 결정합니다. 컨트롤러는 또한 어떤 실행이 중지될 수 있는지 결정하기 위한 조기 중지 알고리듬 실행을 담당합니다.
 
-The local controller feature allows the user to run search and stopping algorithms locally. The local controller gives the user the ability to inspect and instrument the code in order to debug issues as well as develop new features which can be incorporated into the cloud service.
+로컬 컨트롤러의 기능은 사용자로 하여금 검색 및 중지 알고리듬을 로컬에서 실행할 수 있게끔 합니다. 로컬 컨트롤러는 사용자에게 문제를 디버깅하고 클라우드 서비스에 통합될 새로운 기능을 개발하기 위해 코드 검사 및 조직할 수 있는 권한을 부여합니다.
 
 {% hint style="info" %}
-The local controller is currently limited to running a single agent.
+로컬 컨트롤러는 현재 단일 에이전트 실행으로 제한되어 있습니다.
 {% endhint %}
 
-## Local controller configuration
+##  **로컬 컨트롤러 구성**
 
-To enable the local controller, add the following to the sweep configuration file:
+로컬 컨트롤러를 활성화하시려면, 스윕 구성 파일에 다음을 추가합니다:
 
 ```text
 controller:
   type: local
 ```
 
-## Running the local controller
+##  **로컬 컨트롤러 실행하기**
 
-The following command will launch a sweep controller:
+다음 명령은 스윕 컨트롤러를 실행합니다:
 
 ```text
 wandb controller SWEEP_ID
 ```
 
-Alternatively you can launch a controller when you initialize the sweep:
+다른 방법으로, 스윕을 초기화할 때 컨트롤러를 시작할 수도 있습니다.
 
 ```text
 wandb sweep --controller sweep.yaml

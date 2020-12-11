@@ -6,47 +6,48 @@ description: >-
 
 # Sweep from an existing project
 
-If you have an existing W&B project, it’s easy to start optimizing your models with hyperparameter sweeps. I’ll walk through the steps with a working example— you can open my [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion). I'm using the code from [this example repo](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), which trains a PyTorch convolutional neural network to classify images from the [Fashion MNIST dataset](https://github.com/zalandoresearch/fashion-mnist).
+ 기존 W&B 프로젝트가 있는 경우, 초매개변수 스윕으로 모델 최적화를 쉽고 간단하게 시작할 수 있습니다. 작업예시와 함께 각 단계를 설명해 드리겠습니다. 우선 저의 [W&B 대시보드](https://app.wandb.ai/carey/pytorch-cnn-fashion)를 열어보십시오. 저는 [이 예시 repo](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)의 코드를 사용하고 있으며, 이는 [패션 MNIST 데이터세트](https://github.com/zalandoresearch/fashion-mnist)에서 이미지를 분류하기 위해 PyTorch 합성곱 신경망\(convolutional neural network\)을 훈련합니다.  
 
-## 1. Create a project
 
-Run your first baseline run manually to check that W&B logging is working properly. You'll download this simple example model, train it for a few minutes, and see the example appear in the web dashboard.
+## **1. 프로젝트 생성하기**
 
-* Clone this repo `git clone https://github.com/wandb/examples.git`
-* Open this example `cd examples/pytorch/pytorch-cnn-fashion`
-* Run a run manually `python train.py`
+ 첫 번째 기준선 실행\(baseline run\)을 수동으로 실행 W&B 로깅이 제대로 작동하는지 확인하세요. 다음의 간단한 예제 모델을 다운로드하고, 몇 분 동안 훈련한 다음, 웹 대시보드에 나타는 예시를 확인하십시오
 
-[View an example project page →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+* 다음의 repo를 복제하세요 `git clone https://github.com/wandb/examples.git`
+* 다음의 예시를 여세요 `cd examples/pytorch/pytorch-cnn-fashion`
+* 실행을 수동 실행 하세요 `python train.py`
 
-## 2. Create a sweep
+ [예시 프로젝트 페이지 보기 →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-From your project page, open the Sweep tab in the sidebar and click "Create Sweep".
+## 2.  **스윕 생성하기**
+
+프로젝트 페이지에서, 사이드 바에서 Sweep\(스윕\) 탭을 열고 “Create Sweep\)을 클릭합니다.
 
 ![](../.gitbook/assets/sweep1.png)
 
-The auto-generated config guesses values to sweep over based on the runs you've done already. Edit the config to specify what ranges of hyperparameters you want to try. When you launch the sweep, it starts a new process on our hosted W&B sweep server. This centralized service coordinates the agents— your machines that are running the training jobs.
+자동 생성된 구성\(config\)는 여러분께서 이미 수행 한 실행을 기반으로 스윕할 값을 추측합니다. 구성\(config\)를 편집하여 사용자께서 수행 할 초매개변수의 범위를 지정합니다. 스윕을 실행하면, 저희의 호스팅된 W&B 스윕 서버에서 새 프로세스가 시작됩니다. 이 중앙집중식 서비스는, 훈련 작업을 실행하는 여러분의 머신인, 에이전트를 조정합니다.
 
 ![](../.gitbook/assets/sweep2.png)
 
-## 3. Launch agents
+## 3. **에이전트 실행하기**
 
-Next, launch an agent locally. You can launch dozens of agents on different machines in parallel if you want to distribute the work and finish the sweep more quickly. The agent will print out the set of parameters it’s trying next.
+ 다음 에이전트를 로컬범위로 시작합니다. 작업을 분배하고 스윕을 보다 빨리 끝내고 싶으시다면, 여러 머신에서 병렬로 수 십개의 에이전트를 실행하실 수 있습니다. 에이전트는 다음에 수행할 매개변수 세트를 출력합니다.
 
 ![](../.gitbook/assets/sweep3.png)
 
-That’s it! Now you're running a sweep. Here’s what the dashboard looks like as my example sweep gets started. [View an example project page →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+이제 다 됐습니다. 이제 스윕을 실행하고 있습니다. 다음은 저의 예시 스윕이 시작 될 때 대시보드가 어떤 모습인지를 나타낸 것입니다. [예시 프로젝트 페이지 보기 →](https://app.wandb.ai/carey/pytorch-cnn-fashion)​
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579066494222_image.png)
 
-## Seed a new sweep with existing runs
+## **새 스윕을 기존 실행으로 시드\(seed\)하기**
 
-Launch a new sweep using existing runs that you've previously logged.
+이전에 로그한 기존 실행을 사용하여 새 스윕을 실행합니다.
 
-1. Open your project table.
-2. Select the runs you want to use with checkboxes on the left side of the table.
-3. Click the dropdown to create a new sweep.
+1. 프로젝트 테이블을 엽니다.
+2. 테이블 좌측에 있는 체크박스에 사용할 실행을 선택합니다.
+3. 드롭다운을 클릭하여 새 스윕을 생성합니다.
 
-Your sweep will now be set up on our server. All you need to do is launch one or more agent to start running runs.
+이제 여러분의 스윕이 저희 서버에 설치됩니다. 이제 여러분이 하셔야 되는 것은 하나 또는 그 이상의 에이전트를 실행하여 실행을 실행하는 것입니다.
 
 ![](../.gitbook/assets/create-sweep-from-table%20%281%29.png)
 
