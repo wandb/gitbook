@@ -1,72 +1,72 @@
 ---
-description: How to configure the W&B Local Server installation
+description: W&B 로컬 서버 설치를 구성하는 방법
 ---
 
 # Advanced Configuration
 
-Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
+여러분의 W&B 로컬 서버는 부팅 시 바로 사용하실 수 있습니다. 하지만, 일단 작동을 시작하면, 여러분 서버의 `/system-admin` 페이지에서 여러 고급 구성 옵션을 사용 할 수 있습니다. 더 많은 사용자와 평가판 라이선스를 요청하여 더 많은 사용자와 팀을 지원하려면 [contact@wandb.com](mailto:contact@wandb.com)로 이메일을 보내주시기 바랍니다.
 
-## Configuration as code
+##  **코드로 구성하기**
 
-All configuration settings can be set via the UI however if you would like to manage these configuration options via code you can set the following environment variables:
+모든 구성 설정은 UI를 통해 설정할 수 있지만, 이러한 구성 옵션을 코드를 통해 관리하시려면, 다음의 환경변수를 설정하실 수 있습니다:
 
 | Environment Variable | Description |
 | :--- | :--- |
-| LICENSE | Your wandb/local license |
-| MYSQL | The MySQL connection string |
-| BUCKET | The S3 / GCS bucket for storing data |
-| BUCKET\_QUEUE | The SQS / Google PubSub queue for object creation events |
-| NOTIFICATIONS\_QUEUE | The SQS queue on which to publish run events |
-| AWS\_REGION | The AWS Region where your bucket lives |
-| HOST | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net) |
-| AUTH0\_DOMAIN | The Auth0 domain of your tenant |
-| AUTH0\_CLIENT\_ID | The Auth0 Client ID of application |
+| LICENSE | 여러분의 wandb/local 라이선스 |
+| MYSQL | MySQL 연결 스트링 |
+| BUCKET | 데이터 저장용 S3 / GCS 버킷 |
+| BUCKET\_QUEUE | 객체 생성 이벤트에 대한 The SQS / Google PubSub 대기열 |
+| NOTIFICATIONS\_QUEUE | 실행 이벤트를 게시할 SQS 대기열 |
+| AWS\_REGION | 여러분의 버킷이 있는 AWS 영역 |
+| HOST |  인스턴스의 FQD. 즉, [https://my.domain.net](https://my.domain.net/) |
+| AUTH0\_DOMAIN | 테넌트\(tenant\)의 Auth0 도메인 |
+| AUTH0\_CLIENT\_ID | 어플리케이션의 Auth0 클라이언트 ID |
 
-## Authentication
+##  **인증**
 
-By default, a W&B Local Server run with manual user management enabling up to 4 users. Licensed versions of _wandb/local_ also unlock SSO using Auth0.
+기본적으로 W&B 로컬 서버는 최대 4명의 사용자를 지원하는 수동 사용자 관리와 함께 실행됩니다. 또한, wandb/local 정식 라이선스 버전에서는 Auth0를 사용하는 SSO를 잠금 해제 할 수 있습니다.
 
-Your server supports any authentication provider supported by [Auth0](https://auth0.com/). You should set up your own Auth0 domain and application that will be under your teams' control.
+여러분의 서버는 [Auth0](https://auth0.com/)에서 지원하는 모든 인증 공급자\(authentication provider\)를 지원합니다. 여러분 팀의 통제하에 있는 고유의 Auth0 도메인 및 어플리케이션을 설정하셔야 합니다.
 
-After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
+Auth0 앱을 생성 한 후, 여러분의 Auth0 콜백을 W&B 서버의 호스트에 설정해야 합니다. 기본값으로 서버는 호스트에서 재공하는 공용 또는 개인 IP 주소의 http를 지원합니다. 또한, 선택하신 경우 DNS 호스트 이름과 SSL 인증서를 구성하실 수도 있습니다.
 
-* Set the Callback URL to `http(s)://YOUR-W&B-SERVER-HOST`
-* Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
-* Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
+* 콜백 URL을 다음에 설정: `http(s)://YOUR-W&B-SERVER-HOST`
+* 허용된 Web Origin을 다음에 설정 `http(s)://YOUR-W&B-SERVER-HOST`
+* 로그아웃 URL을 다음에 설정: `http(s)://YOUR-W&B-SERVER-HOST/logout`
 
-![Auth0 Settings](../.gitbook/assets/auth0-1.png)
+![Auth0 &#xC124;&#xC815;](../.gitbook/assets/auth0-1.png)
 
-Save the Client ID and domain from your Auth0 app.
+ Auth0 앱에서 클라이언트 ID와 도메인을 저장합니다.
 
-![Auth0 Settings](../.gitbook/assets/auth0-2.png)
+![Auth0 &#xC124;&#xC815;](../.gitbook/assets/auth0-2.png)
 
-Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Customize Authentication with Auth0" option, and fill in the Client ID and domain from your Auth0 app.
+T 그런 다음, W&B 설정 페이지 `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`로 이동합니다. “Customize Authentication with Auth0 \(Auth0로 인증 사용자 지정하기\)” 옵션을 활성화 하고, Auth0 앱에서 클라이언트 ID와 도메인을 입력합니다.
 
-![Enterprise authentication settings](../.gitbook/assets/enterprise-auth.png)
+![&#xAE30;&#xC5C5; &#xC778;&#xC99D; &#xC124;&#xC815;](../.gitbook/assets/enterprise-auth.png)
 
-Finally, press "Update settings and restart W&B".
+마지막으로 “Update settings and restart W&B \(설정 업데이트 및 W&B 재실행\)”를 누릅니다.
 
-## File Storage
+##  **파일 스토리지**
 
-By default, a W&B Enterprise Server saves files to a local data disk with a capacity that you set when you provision your instance. To support limitless file storage, you may configure your server to use an external cloud file storage bucket with an S3-compatible API.
+기본값으로, W&B 기업 서버는 인스턴스를 프로비저닝할 때 설정한 용량을 통해 로컬 데이터 디스크에 파일을 저장합니다. 무제한 파일 스토리지를 지원하기 위해, S3 호환 API와 함께 외부 클라우드 파일 스토리지를 사용하도록 서버를 구성할 수 있습니다.
 
-### Amazon Web Services
+### **Amazon 웹 서비스**
 
-To use an AWS S3 bucket as the file storage backend for W&B, you'll need to create a bucket, along with an SQS queue configured to receive object creation notifications from that bucket. Your instance will need permissions to read from this queue.
+AWS S3 버킷을 W&B 파일 스토리지 백엔드로 사용하시려면, 버킷에서 객체 생성\(object creation\) 알림을 수신하도록 설정된 SQS 대기열과 함께 해당 버킷을 생성해야 합니다. 여러분의 인스턴스가 이 대기열에서 읽을 수 있는 권한이 필요합니다.
 
-**Create an SQS Queue**
+ **SQS 대기열 생성하기**
 
-First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage` and `ReceiveMessage` actions as well as `GetQueueUrl` . \(If you like you can further lock this down using an advanced policy document.\)
+ 우선, SQS 표준 대기열을 생성합니다. `GetQueueUrl` 뿐만 아니라 `SendMessage` 및 `ReceiveMessage` 작업에 대한 모든 주체에 대한 권한을 추가합니다. \(원하시는 경우, 고급 정책 문서를 사용하여 이를 추가로 잠글 수 있습니다.\)
 
-![Enterprise file storage settings](../.gitbook/assets/sqs-perms.png)
+![&#xAE30;&#xC5C5; &#xD30C;&#xC77C; &#xC2A4;&#xD1A0;&#xB9AC;&#xC9C0; &#xC124;&#xC815;](../.gitbook/assets/sqs-perms.png)
 
-**Create an S3 Bucket and Bucket Notifications**
+**S3 버킷 및 버킷 알림 생성하기**
 
-Then, create an S3 bucket. Under the bucket properties page in the console, in the "Events" section of "Advanced Settings", click "Add notification", and configure all object creation events to be sent to the SQS Queue you configured earlier.
+그런 다음, S3 버킷을 생성합니다. 콘솔의 bucket properties\(버킷 속성\) 페이지의 “Advanced Settings\(고급 설정\)”의 “Events\(이벤트\)” 섹션에서 “Add notification\(알림 추가\)”를 클릭하고, 이전에 구성한 SQS 대기열에 보낼 모든 개체 생성 이벤트를 구성합니다.
 
-![Enterprise file storage settings](../.gitbook/assets/s3-notification.png)
+![&#xAE30;&#xC5C5; &#xD30C;&#xC77C; &#xC2A4;&#xD1A0;&#xB9AC;&#xC9C0; &#xC124;&#xC815;](../.gitbook/assets/s3-notification.png)
 
-Enable CORS access: your CORS configuration should look like the following:
+CORS 액세스를 활성화합니다. CORS 구성은 다음과 같아야 합니다:
 
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,39 +80,39 @@ Enable CORS access: your CORS configuration should look like the following:
 </CORSConfiguration>
 ```
 
-**Configure W&B Server**
+ **W&B 서버 구성하기**
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+마지막으로, W&B 설정 페이지 `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`로 이동합니다. “Use an external file storage backend\(외부 파일 스토리지 백엔드 사용\)” 옵션을 활성화하고, s3 버킷, 영역, SQS 대기열을 다음 포맷으로 작성합니다:
 
-* **File Storage Bucket**: `s3://<bucket-name>`
-* **File Storage Region**: `<region>`
-* **Notification Subscription**: `sqs://<queue-name>`
+* **File Storage Bucket\(파일 스토리지 버킷\)**: `s3://<bucket-name>`
+* **File Storage Region\(파일 스토리지 영역\)** `<region>`
+* **Notification Subscription \(알림 구독\)**:: `sqs://<queue-name>`
 
-![AWS file storage settings](../.gitbook/assets/aws-filestore.png)
+![AWS &#xD30C;&#xC77C; &#xC2A4;&#xD1A0;&#xB9AC;&#xC9C0; &#xC124;&#xC815;](../.gitbook/assets/aws-filestore.png)
 
-Press "update settings and restart W&B" to apply the new settings.
+“update settings and restart W&B\(설정 업데이트 및 W&B 재실행\)”을 눌러 새 설정을 적용합니다.
 
-### Google Cloud Platform
+### **Google 클라우드 플랫폼**
 
-To use a GCP Storage bucket as a file storage backend for W&B, you'll need to create a bucket, along with a pubsub topic and subscription configured to receive object creation messages from that bucket.
+GCP 스토리지 버킷을 W&B 파일 스토리지 백엔드로 사용하시려면, 버킷에서 객체 생성\(object creation\) 메시지를 수신하도록 설정된 pubsub 항목\(topic\) 및 구독\(subscription\)과 함께 버킷을 생성해야 합니다.
 
-**Create Pubsub Topic and Subscription**
+ **Pubsub 항목 및 구독 생성하기**
 
-Navigate to Pub/Sub &gt; Topics in the GCP Console, and click "Create topic". Choose a name and create a topic.
+GCP 콘솔에서 Pub/Sub &gt; Topics으로 이동하고, “Create topic\(항목 생성\)”을 클릭합니다. 이름을 선택하고 항목을 생성합니다.
 
-Then click "Create subscription" in the subscriptions table at the bottom of the page. Choose a name, and make sure Delivery Type is set to "Pull". Click "Create".
+그런 다음 페이지 하단의 구독테이블에서 “Create subscription\(구독 생성\)”을 클릭합니다. 이름을 선택하고, 전달 유형\(Delivery Type\)을 “Pull\(풀\)”로 설정합니다. “Create\(생성\)”를 클릭하세요.
 
-Make sure the service account or account that your instance is running as has access to this subscription.
+인스턴트가 실행 중인 서비스 계정 또는 계정이 이 구독에 액세스 할 수 있는지 확인하십시오.
 
-**Create Storage Bucket**
+ **스토리지 버킷 생성하기**
 
-Navigate to Storage &gt; Browser in the GCP Console, and click "Create bucket". Make sure to choose "Standard" storage class.
+GCP 콘솔에서 Storage &gt; Browser로 이동하고, “Create bucket\(버킷 생성\)”을 클릭합니다. “Standard\(표준\)” 스토리지 클래스를 선택하셔야 합니다.
 
-Make sure the service account or account that your instance is running as has access to this bucket.
+인스턴트가 실행 중인 서비스 계정 또는 계정이 이 버킷에 액세스 할 수 있는지 확인하십시오.
 
-**Create Pubsub Notification**
+ **Pubsub 알림 생성하기**
 
-Creating a notification stream from the Storage Bucket to the Pubsub Topic can unfortunately only be done in the console. Make sure you have `gsutil` installed, and logged into the correct GCP Project, then run the following:
+스토리지 버킷\(Storage Bucket\)에서 Pubsub 항목\(Topic\)으로의 알림 스트림 생성은 안타깝게도 콘솔에서만 수행하실 수 있습니다. `gsutil`가 설치되어 있는지 및 정확한 GCP Project\(프로젝트\)에 로그인 되어있는지 확인하시고, 다음을 실행합니다:
 
 ```bash
 gcloud pubsub topics list  # list names of topics for reference
@@ -122,84 +122,23 @@ gsutil ls                  # list names of buckets for reference
 gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 ```
 
-[Further reference is available on the Cloud Storage website.](https://cloud.google.com/storage/docs/reporting-changes)
+[클라우드 스토리지 웹사이트에서 추가 참고자료를 확인하실 수 있습니다.](https://cloud.google.com/storage/docs/reporting-changes)
 
-**Add Signing Permissions**
+ **서명 권한 추가하기**
 
-To create signed file URLs, your W&B instance also needs the `iam.serviceAccounts.signBlob` permission in GCP. You can add it by adding the `Service Account Token Creator` role to the service account or IAM member that your instance is running as.
+서명된 파일 URL을 생성하려면, W&B 인스턴스에도 GCP의 `iam.serviceAccounts.signBlob` 권한이 필요합니다. 인스턴스가 실행중인 서비스 계정 또는 IAM 구성원\(member\)에 `Service Account Token Creator`를 추가하여 이를 추가할 수 있습니다.
 
-**Configure W&B Server**
+ **W&B 서버 구성하기**
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+ 마지막으로 W&B 설정 페이지의 `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`로 이동합니다. “Use an external file storage backend\(외부 파일 스토리지 백엔드 사용\)” 옵션을 활성화하고, s3 버킷, 영역, 및 SQS 대기열을 다음 포맷으로 작성합니다.
 
-* **File Storage Bucket**: `gs://<bucket-name>`
-* **File Storage Region**: blank
-* **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
+* **File Storage Bucket\(파일 스토리지 버킷\)**: `gs://<bucket-name>`
+* **File Storage Region\(파일 스토리지 영역\)**: : blank
+* **Notification Subscription\(알림 구독\)**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![GCP file storage settings](../.gitbook/assets/gcloud-filestore.png)
+![GCP &#xD30C;&#xC77C; &#xC2A4;&#xD1A0;&#xB9AC;&#xC9C0; &#xC124;&#xC815;](../.gitbook/assets/gcloud-filestore.png)
 
-Press "update settings and restart W&B" to apply the new settings.
+마지막으로 “update settings and restart W&B \(설정 엎데이트 및 W&B 재실행\)”를 누릅니다.
 
-### Azure
 
-To use an Azure blob container as the file storage for W&B, you'll need to create a storage account \(if you don't already have one you want to use\), create a blob container and a queue within that storage account, and then create an event subscription that sends "blob created" notifications to the queue from the blob container.
-
-#### Create a Storage Account
-
-If you have a storage account you want to use already, you can skip this step.
-
-Navigate to [Storage Accounts &gt; Add ](https://portal.azure.com/#create/Microsoft.StorageAccount)in the Azure portal. Select an Azure subscription, and select any resource group or create a new one. Enter a name for your storage account.
-
-![Azure storage account setup](../.gitbook/assets/image%20%28106%29.png)
-
-Click Review and Create, and then, on the summary screen, click Create:
-
-![Azure storage account details review](../.gitbook/assets/image%20%28114%29.png)
-
-#### Creating the blob container
-
-Go to  [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service &gt; Containers in the menu:
-
-![](../.gitbook/assets/image%20%28102%29.png)
-
-Create a new container, and set it to Private:
-
-![](../.gitbook/assets/image%20%28110%29.png)
-
-Go to Settings &gt; CORS &gt; Blob service, and enter the IP of your wandb server as an allowed origin, with allowed methods `GET` and `PUT`, and all headers allowed and exposed, then save your CORS settings.
-
-![](../.gitbook/assets/image%20%28119%29.png)
-
-#### Creating the Queue
-
-Go to Queue service &gt; Queues in your storage account, and create a new Queue:
-
-![](../.gitbook/assets/image%20%28101%29.png)
-
-Go to Events in your storage account, and create an event subscription:
-
-![](../.gitbook/assets/image%20%28108%29.png)
-
-Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
-
-![](../.gitbook/assets/image%20%28116%29.png)
-
-In the Filters tab, enable subject filtering for subjects beginning with `/blobServices/default/containers/your-blob-container-name/blobs/`
-
-![](../.gitbook/assets/image%20%28105%29.png)
-
-#### Configure W&B Server
-
-Go to Settings &gt; Access keys in your storage account, click "Show keys", and then copy either key1 &gt; Key or key2 &gt; Key. Set this key on your W&B server as the environment variable `AZURE_STORAGE_KEY`.
-
-![](../.gitbook/assets/image%20%28115%29.png)
-
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
-
-* **File Storage Bucket**: `az://<storage-account-name>/<blob-container-name>`
-* **Notification Subscription**: `az://<storage-account-name>/<queue-name>`
-
-![](../.gitbook/assets/image%20%28109%29.png)
-
-Press "Update settings" to apply the new settings.
 
