@@ -1,22 +1,20 @@
 ---
-description: >-
-  Use Weights & Biases for free to track experiments, collaborate, and publish
-  results
+description: '무료로 Weights & Biases를 사용하여 실험 추적, 공동 작업 및 결과 게시를 하실 수 있습니다'
 ---
 
 # Academics
 
-## Free Academic Team
+##  **무료 아카데믹 팀**
 
-Collaborate easily, whether your colleagues are sitting in the same lab or thousands of miles away. W&B gives you a shared set of dashboards and a space to write notes on interactive graphs. This system of records makes it possible to look across all the experiments you've run in a project, not just the last few that you remembered to write down.
+ 동료들이 같은 연구소에 있든 수 천 마일 떨어진 곳에 있든 쉽게 협업 하실 수 있습니다. W&B는 공유 대시보드 세트와 양방향 그래프에 노트를 쓸 수 있는 공간을 제공합니다. 이 기록 시스템을 사용하시면 여러분이 기억하는 마지막 몇 가지 사항만이 아닌, 프로젝트에서 실행한 모든 실험을 살펴볼 수 있습니다.
 
-[Request a free academic team →](https://www.wandb.com/academic)
+[무료 아카데믹 팀 요청하기 →](https://www.wandb.com/academic)​
 
-## Cite Weights & Biases
+##  **Weights & Biases 인용**
 
-Are you writing an academic paper? Cite Weights & Biases as your experiment tracking tool. Here are some pre-generated citations for you:
+학술 논문을 작성 중이신가요? 실험 추적 도구로 Weights & Biases를 인용하십시오. 여기 여러분을 위한 몇 가지 미리 작성된 인용구 입니다.
 
-**Bibtex Citation Format**
+ **Bibtext 인용구 포맷**
 
 @misc{wandb,  
 title = {Experiment Tracking with Weights and Biases},  
@@ -26,12 +24,12 @@ url={[https://www.wandb.com/](https://www.wandb.com/),}
 author = {Biewald, Lukas},  
 }
 
-**IEEE Citation Format**
+ **IEEE 인용구 포맷**
 
 L. Biewald, “Experiment Tracking with Weights and Biases,” Weights & Biases. \[Online\]. Available: [http://wandb.com/](http://wandb.com/). \[Accessed: `Add date here`\].  
-Software available from [wandb.com](http://wandb.com/)
+소프트웨어는 [wandb.com](http://wandb.com/)에서 사용하실 수 있습니다
 
-## Papers published with Weights & Biases
+## **Weights & Biases 관련 논문**
 
 1. [Variational Learning with Disentanglement-PyTorch](https://arxiv.org/pdf/1912.05184.pdf) by Amir Abdi et al, at NeurIPS 2019
 2. [Climate Adaptation: Reliably Predicting from Imbalanced Satellite Data](https://openaccess.thecvf.com/content_CVPRW_2020/papers/w5/Rawal_Climate_Adaptation_Reliably_Predicting_From_Imbalanced_Satellite_Data_CVPRW_2020_paper.pdf) from CVPR 2020

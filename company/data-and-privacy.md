@@ -1,43 +1,44 @@
 # Data and Privacy
 
-## You own your data
+## **여러분이 여러분의 데이터를 소유합니다**
 
-Everything you log to Weights & Biases is yours, including your training data, code, configuration and hyperparameters, output metrics, analysis, and saved model files. You can choose to log, export, publish, or delete any of these. We collect aggregate statistics across our users to improve our product— we might do a database query to count how many users have uploaded a requirements.txt that includes a specific library to help decide if we want to do a first class integration with that library. We treat your private data, source code, or trade secrets as confidential and private, as consistent with our [Terms of Service](https://www.wandb.com/terms) and [Privacy Policy](https://www.wandb.com/privacy).‌
+훈련 데이터, 코드, 구성\(configuration\), 초매개변수, 출력 메트릭\(output metrics\), 분석, 및 저장된 모델 파일 등, 여러분이 Weights & Biases에 로그한 모든 내용은 여러분의 것입니다. 이 항목 중 하나를 로그, 내보내기, 게시 또는 삭제하실 수 있습니다. 저희는 제품 개선을 위해 사용자들에게서 집계 통계를 수집합니다. 즉, 데이터베이스 쿼리를 수행하여 특정 라이브러리를 포함하는 requirements.txt를 업로드한 사용자의 수를 계산하여 해당 라이브러리와 최고 수준의 통합을 수행할지 여부를 경정할 수 있습니다. 저희는 여러분의 개인 데이터, 소스 코드 또는 영업 비밀을 저희 [서비스 약관\(Terms of Service\)](https://www.wandb.com/terms) 및 [개인 정보 처리 방침\(Privacy Policy\)](https://www.wandb.com/privacy)과 일치하는 기밀 및 개인 정보로 취급합니다.
 
-## Data logging
+##  **데이터 로깅**
 
-Our tool provides the ability to log 4 primary classes of data:
+저희 툴은 다음의 4가지 기본 클래스의 데이터를 로그할 수 있는 기능을 제공합니다:
 
-1. **Metrics and Parameters**: \_\*\*\_This is the core functionality of the tool— keeping track of the scalars and histograms you log with a run. You specify these directly in `wandb.log()` or set up an integration with one of the supported frameworks.
-2. **Code**: We support saving the latest git SHA and a diff patch, or saving the main file from your run for easy code comparison. This is off by default and needs to be manually enabled on your [settings page](https://app.wandb.ai/settings).
-3. **Media**: Users can log video, images, text, or custom plots to visualize how your model is doing on examples during training. This is entirely opt-in, and you must explicitly configure your script to log this class of data.
-4. **Artifacts**: Manually set up artifact logging to save and version datasets and model files. You explicitly specify which files you want to include in artifacts.
+1. **메트릭 및 매개변수\(Metrics and Parameters\)**: 이 툴의 핵심 기능으로, 즉, 실행을 통해 로그한 스칼라\(scalars\) 및 히스토그램을 추적합니다. 직접 `wandb.log()`에 지정하거나 지원되는 프레임워크 중 하나와 통합을 설정합니다.
+2. **코드\(Code\)**: 저희는 간편한 코드 비교를 위해 최신 git SHA 및 diff 패치 저장 또는 실행에서 기본 파일\(main file\) 저장을 지원합니다. 이 설정은 기본값으로 꺼져 있으며 [설정 페이지](https://app.wandb.ai/settings)에서 수동으로 활성화하셔야 합니다.
+3. **미디어\(Media\)**: 사용자는 비디오, 이미지, 텍스트 또는 사용자 정의 플롯을 로그하여 훈련 중에 예시에서 모델이 어떻게 수행되고 있는지를 시각화 하실 수 있습니다. 이것은 전적으로 선택사항이며, 이 클래스의 데이터를 로그하도록 여러분의 스크립트를 분명하게 구성하셔야 합니다.
+4. **아티팩트\(Artifacts\)**: 수동으로 아티팩트 로깅\(artifact logging\)을 설정하여 데이터세트 및 모델 파일을 저장 및 버저닝\(version\)합니다. 아티팩트에 포함할 파일을 명시적으로 지정합니다.
 
-All data is stored encrypted at rest and is encrypted in transit in our cloud offering. We respect all data takedown requests in a timely manner and can ensure it's been wiped from the system.
+ 모든 데이터 파일은 미사용시 암호화되어 저장되며 클라우드 오퍼링\(cloud offering\)에서 전송 중 암호화 됩니다. 저희는 적시에 모든 데이터 테이크다운 요청을 존중하며 시스템에서 삭제 되었는지 확인하실 수 있습니다.
 
-## Self hosted and private cloud
+## **자체 호스팅 및 프라이빗 클라우드**
 
-We follow industry best practices for security and encryption in our cloud-hosted service. We also offer [private cloud and self hosted installations](../self-hosted/) for enterprise customers. [Contact us](getting-help.md) to learn about options for your business.
+저희는 저희 클라우드 호스팅 서비스에서 보안 및 암호화에 대한 업체 모범 사례를 준수합니다. 또한, 기업 고객을 위해 프라이빗 클라우드 및 자체 호스팅 설치도 제공합니다. 여러분의 비즈니스 옵션에 대해 좀 더 자세하게 알아보시려면 [문의해 주시기 바랍니다.](https://docs.wandb.com/company/getting-help)
 
-For personal use, we have a [local Docker installation](../self-hosted/local.md) that you can run on your own machine.‌
+ 개인 용도의 경우, 저희는 사용자 자신의 머신에서 실행할 수 있는 [로컬 도커 설치\(local Docker installation\)](https://docs.wandb.com/self-hosted/local)가 있습니다.
 
-## Project privacy and teams
+##  **프로젝트 프라이버시 및 팀**
 
-By default Weights & Biases projects are private, which means other users won’t be able to view your work. You can edit this default on your [settings page](https://app.wandb.ai/settings). You can choose to share your results with others by making your project public or creating a team to share private projects with specific collaborators. Teams are a premium feature for companies. Learn more on our [pricing page](https://www.wandb.com/pricing).‌
+‌ 기본값으로 Weights & Biases 프로젝트는 비공개이며, 즉, 다른 사용자들은 여러분의 작업을 볼 수 없습니다. [설정 페이지](https://app.wandb.ai/settings)에서 이 기본값을 편집하실 수 있습니다. 프로젝트를 공개하거나 팀을 생성하여 개인 프로젝트를 특정 공동작업자와 공유하여 다른 사용자와 결과를 공유 하도록 선택하실 수 있습니다. Teams\(팀\)은 기업을 위한 프리미엄 기능입니다. 자세한 사항은 [pricing\(견적\) page](https://www.wandb.com/pricing)에서 확인하실 수 있습니다.
 
-To support the ML ecosystem, we offer free private teams to academics and open source projects. Sign up for an account and then contact us via [this form](https://www.wandb.com/academic) to request a free private team.
+저희는 ML 생태계를 지원하기 위해 학계의 여러분께 무료 개인 팀을 제공하며 오픈 소스 프로젝트를 제공합니다. 계정을 등록하신 후 [이 양식](https://www.wandb.com/academic)을 통해 저희에게 연락하여 무료 개인 팀을 요청하시기 바랍니다.  
 
-## Code saving
 
-By default, we only pick up the latest git SHA for your code. You can optionally turn on code saving features— this will enable a code comparison panel and tab in the UI to see the version of the code that ran your run. You can turn on code saving in your [settings page](https://app.wandb.ai/settings).
+##  **코드 저장**
+
+ 기본값으로, 저희는 여러분의 코드에 대하여 최신 git SHA만을 찾습니다. 사용자는 선택적으로 코드 저장 기능을 켤 수 있습니다. 이렇게 하시면 UI에서 코드 비교 패널과 탭을 통해 실행을 실행한 코드의 버전을 확인하실 수 있습니다. [설정 페이지](https://app.wandb.ai/settings)에서 코드 저장을 켤 수 있습니다.
 
 ![](../.gitbook/assets/project-defaults.png)
 
-## Exporting data
+##  **데이터 내보내기**
 
-You can download data saved with Weights & Biases using our [export API](../ref/export-api/). We want to make it easy to do custom analysis in notebooks, back up your data if you'd like to have a local copy, or plug your saved logs into other tools in your ML workflow.
+저희 [export API](https://docs.wandb.com/library/api)를 사용하는 Weights & Biases를 통해 저장된 데이터를 다운로드 하실 수 있습니다. notebook에서 사용자 정의 분석 수행, 로컬 사본을 원하는 경우 데이터 백업하기 또는 저장된 로그를 ML 플로우의 다른 툴로 연결을 보다 쉽게 하실 수 있습니다.
 
-## Linked accounts
+##  **연결 계정**
 
-If you use Google or GitHub OAuth to create and log in to a Weights & Biases account, we don't read or sync data from your repositories or folders. These connections are purely for authentication purposes. You can log files and code to associate with your runs using W&B [Artifacts](../artifacts/).
+ Weights & Biases 계정 생성 및 로그인을 위해 Google 또는 GitHub OAuth를 사용하시는 경우, 저희는 여러분의 보관소\(repositories\) 또는 폴더의 데이터를 읽거나 동기화하지 않습니다. 이러한 연결은 순수하게 인증 목적으로면 사용됩니다. 사용자는 W&B [아티팩트\(Artifacts\)](https://docs.wandb.com/artifacts)를 사용하는 실행과 연결하기 위해 파일 밑 코드를 로그 하실 수 있습니다.
 

@@ -1,20 +1,20 @@
 ---
-description: Links and resources from our live presentations and talks
+description: 라이브 프레젠테이션 및 강연의 링크 및 리소스
 ---
 
 # Talks
 
-## Experiment Tracking
+##  **실험 추적**
 
-Try our free tools for experiment tracking with this [5 minute example →](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
+다음 [5분 예시](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)와 함께 시험 추적에 대한 무료 툴을 한 번 사용해 보시기 바랍니다 →​
 
 ![](../../.gitbook/assets/image%20%2876%29.png)
 
-## Deep Learning in the Real World
+## **현실에서의 딥러닝** 
 
-Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf). If you want to join our Machine Learning community, join our [forum](http://wandb.me/slack).
+여기 [슬라이드](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf)가 있습니다. 저희 머신 러닝 커뮤니티에 참여하시려면 [포럼](https://bit.ly/wandb-forum)에 참여하시기 바랍니다.
 
-If you're curious to learn more about some of the things I referenced in my talk, check out these resources:
+제가 강연에서 언급한 몇 가지 사안에 대해서 좀 더 알고 싶으시다면, 다음의 리소스를 확인해 주시기 바랍니다:
 
 1. IBM over promises and under delivers with Watson for cancer detection —[https://www.statnews.com/2017/09/05/watson-ibm-cancer/](https://www.statnews.com/2017/09/05/watson-ibm-cancer/)
 2. Deep learning models listen to machines to detect mechanical issues —[https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/deep-learning-ai-listens-to-machines-for-signs-of-trouble](https://spectrum.ieee.org/automaton/robotics/artificial-intelligence/deep-learning-ai-listens-to-machines-for-signs-of-trouble)
@@ -31,13 +31,13 @@ If you're curious to learn more about some of the things I referenced in my talk
 13. Explainable time series predictions — [https://www.ijcai.org/proceedings/2019/0932.pdf](https://www.ijcai.org/proceedings/2019/0932.pdf)
 14. The reproducibility crisis — [https://www.wired.com/story/artificial-intelligence-confronts-reproducibility-crisis/](https://www.wired.com/story/artificial-intelligence-confronts-reproducibility-crisis/)
 
-### Natural Language Examples
+###  **자연어 예시**
 
-1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
-2. [TalkToTransformer.com](https://talktotransformer.com): try GPT 2
-3. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
-4. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
-5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
-6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
-7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
+1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): 현실적인 텍스트 생성을 위한 모델
+2. [TalkToTransformer.com](https://talktotransformer.com): GPT 2 해보기
+3. [GLUE Benchmark](https://gluebenchmark.com/): 자연어 시스템 훈련 및 분석을 위한 리소스
+4. [SuperGLUE](https://super.gluebenchmark.com/): 업데이트되고 향상된 GLUE 벤치마크의 v2
+5. [Livox](http://impact-transfer.org/zero/livox/): 대체 의사소통 앱에서 NLP 사용
+6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): 트위터에서 NLP를 사용하는 것에 대한 의학 저널 기사
+7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): 0가지 흥미로운 어플리케이션에 관한 주제를 다룬 Medium 기사
 
