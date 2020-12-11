@@ -2,7 +2,7 @@
 
 ## wandb.sdk.wandb\_run
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L4)
+​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L4)​
 
 ### Run Objects
 
@@ -10,29 +10,18 @@
 class Run(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L132)
+​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L131)​
 
-The run object corresponds to a single execution of your script, typically this is an ML experiment. Create a run with wandb.init\(\).
+ 실행 객체\(run object\)는 단일 스크립트 수행에 해당하며, 일반적으로 ML 실험입니다. wandb.init\(\)로 실행을 생성합니다.
 
-In distributed training, use wandb.init\(\) to create a run for each process, and set the group argument to organize runs into a larger experiment.
+실행 객체\(run object\)는 단일 스크립트 수행에 해당하며, 일반적으로 ML 실험입니다. wandb.init\(\)로 실행을 생성합니다.
 
-Currently there is a parallel Run object in the wandb.Api. Eventually these two objects will be merged.
+분산 훈련에서 wandb.init\(\)를 사용하여 각 프로세스에 대한 실행을 생성하고, 실행을 더 큰 실험으로 구성하기 위해 그룹 전달인자를 설정합니다.
 
 **Attributes**:
 
-* `history` _`History`_ - Time series values, created with wandb.log\(\).
-
-  History can contain scalar values, rich media, or even custom plots
-
-  across multiple steps.
-
-* `summary` _`Summary`_ - Single values set for each wandb.log\(\) key. By
-
-  default, summary is set to the last value logged. You can manually
-
-  set summary to the best value, like max accuracy, instead of the
-
-  final value.
+* `history` _`History`_ - – 시계열 값으로, wandb.log\(\)와 함께 생성됩니다. 히스토리는 여러 단계에 걸친 스칼라 값, 리치 미디어\(rich media\) 및 사용자 정의 플롯이 포함될 수 있습니다.
+* `summary` _`Summary`_ - 각 wandb.log\(\) 키에 대해 설정된 단일 값. 기본값으로 요약\(summary\)은 마지막으로 로그된 값으로 설정됩니다. 요약을 수동으로 최종 값 대신 최대 정확도와 같은 최적 값으로 설정할 수 있습니다.
 
 **dir**
 
@@ -43,7 +32,7 @@ Currently there is a parallel Run object in the wandb.Api. Eventually these two 
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L334)
 
-str: The directory where all of the files associated with the run are placed.
+str: 실행과 연관된 모든 파일이 위치하는 디렉토리
 
 **config**
 
@@ -54,7 +43,7 @@ str: The directory where all of the files associated with the run are placed.
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L341)
 
-\(`Config`\): A config object \(similar to a nested dict\) of key value pairs associated with the hyperparameters of the run.
+\(`Config`\): 실행의 초매개변수와 연관된 키 값 쌍의 실행 객체\(config object\) \(중첩 dict와 유사\)
 
 **name**
 
@@ -63,9 +52,9 @@ str: The directory where all of the files associated with the run are placed.
  | name()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L352)
+[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L351)​
 
-str: the display name of the run. It does not need to be unique and ideally is descriptive.
+str: 실행의 표시이름. 고유한 이름일 필요 없으며, 이상적으로 서술적입니다
 
 **notes**
 
@@ -76,7 +65,7 @@ str: the display name of the run. It does not need to be unique and ideally is d
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L368)
 
-str: notes associated with the run. Notes can be a multiline string and can also use markdown and latex equations inside $$ like $\{x}
+str: 실행과 연관된 노트. 노트는 여러 줄의 스트링 일 수 있으며 또한 ${x}와 같은 $$내의 마크다운 및 라텍스 방정식을 사용할 수 있습니다.
 
 **tags**
 
@@ -87,7 +76,7 @@ str: notes associated with the run. Notes can be a multiline string and can also
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L384)
 
-Tuple\[str\]: tags associated with the run
+Tuple\[str\]: 실행과 연관된 태그
 
 **id**
 
@@ -98,7 +87,7 @@ Tuple\[str\]: tags associated with the run
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L398)
 
-str: the run\_id associated with the run
+str: 실행과 연관된 run\_id
 
 **sweep\_id**
 
@@ -107,9 +96,9 @@ str: the run\_id associated with the run
  | sweep_id()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L403)
+​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L402)
 
-\(str, optional\): the sweep id associated with the run or None
+\(str, optional\): 실행과 연관된 스윕 id 또는 None
 
 **path**
 
@@ -118,9 +107,9 @@ str: the run\_id associated with the run
  | path()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L410)
+ ​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L409)​
 
-str: the path to the run \[entity\]/\[project\]/\[run\_id\]
+str: 실행 \[entity\]/\[project\]/\[run\_id\] 으로의 경로
 
 **start\_time**
 
@@ -140,9 +129,9 @@ int: the unix time stamp in seconds when the run started
  | starting_step()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L427)
+ [\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L418)​
 
-int: the first step of the run
+실행이 시작되었을 때 유닉스 시간 스탬프 \(초\)
 
 **resumed**
 
@@ -151,9 +140,9 @@ int: the first step of the run
  | resumed()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L435)
+[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L426)​
 
-bool: whether or not the run was resumed
+bool: 실행이 재개되었는지 여부
 
 **step**
 
@@ -162,11 +151,11 @@ bool: whether or not the run was resumed
  | step()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L443)
+​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L442)​
 
-int: step counter
+int: 스탭 카운터
 
-Every time you call wandb.log\(\) it will by default increment the step counter.
+wandb.log\(\)를 호출할 때마다, 기본값으로, 스텝 카운터를 증가합니다.
 
 **mode**
 
@@ -175,9 +164,9 @@ Every time you call wandb.log\(\) it will by default increment the step counter.
  | mode()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L456)
+[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L455)
 
-For compatibility with 0.9.x and earlier, deprecate eventually.
+0.9x 및 이전 버전과의 호환을 위해, 결국 더 이상 사용되지 않습니다.
 
 **group**
 
@@ -186,13 +175,13 @@ For compatibility with 0.9.x and earlier, deprecate eventually.
  | group()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L465)
+ [\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L468)​
 
-str: name of W&B group associated with run.
+str: 실행과 연관된 W&B 그룹 이름
 
-Setting a group helps the W&B UI organize runs in a sensible way.
+그룹을 설정하면 W&B UI가 합리적인 방식으로 정리하는 데 도움이 됩니다.
 
-If you are doing a distributed training you should give all of the runs in the training the same group. If you are doing crossvalidation you should give all the crossvalidation folds the same group.
+ 분산 훈련을 수행하는 경우, 훈련의 모든 실행에 동일 그룹을 제공해야 합니다. 교차 검증을 수행하는 경우, 모든 교차 검증 겹\(corssvalidation folds\)에 동일 그룹을 제공해야 합니다.
 
 **project**
 
@@ -203,7 +192,7 @@ If you are doing a distributed training you should give all of the runs in the t
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L484)
 
-str: name of W&B project associated with run.
+str: 실행과 연관된 W&B 프로젝트 이름.
 
 **get\_url**
 
@@ -213,7 +202,7 @@ str: name of W&B project associated with run.
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L488)
 
-Returns: \(str, optional\): url for the W&B run or None if the run is offline
+Returns: \(str, optional\): W&B 실행 대한 URL 또는 실행이 오프라인인 경우 None
 
 **get\_project\_url**
 
@@ -221,9 +210,9 @@ Returns: \(str, optional\): url for the W&B run or None if the run is offline
  | get_project_url()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L496)
+ [\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L499)​
 
-Returns: \(str, optional\): url for the W&B project associated with the run or None if the run is offline
+Returns: \(str, optional\): 실행과 연관된 W&B 프로젝트에 대한 URL 또는 실행이 오프라인인 경우 None
 
 **get\_sweep\_url**
 
@@ -231,9 +220,9 @@ Returns: \(str, optional\): url for the W&B project associated with the run or N
  | get_sweep_url()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L504)
+ ​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L507)​
 
-Returns: \(str, optional\): url for the sweep associated with the run or None if there is no associated sweep or the run is offline.
+Returns: \(str, optional\): 실행과 연관된 스윕에 대한 URL 또는 연관된 스윕이 없거나 실행이 오프라인인 경우 None.
 
 **url**
 
@@ -244,7 +233,7 @@ Returns: \(str, optional\): url for the sweep associated with the run or None if
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L513)
 
-str: name of W&B url associated with run.
+str: 실행과 연관된 W&B URL의 이름.
 
 **entity**
 
@@ -253,9 +242,9 @@ str: name of W&B url associated with run.
  | entity()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L518)
+​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L521)​
 
-str: name of W&B entity associated with run. Entity is either a user name or an organization name.
+str: 실행과 연관된 W&B 개체의 이름. 개체는 사용자 이름 또는 기관 이름입니다.
 
 **log**
 
@@ -263,57 +252,43 @@ str: name of W&B entity associated with run. Entity is either a user name or an 
  | log(data, step=None, commit=None, sync=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L672)
+[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L675)​
 
-Log a dict to the global run's history.
+글로벌 실행 히스토리에 dict를 로그합니다.
 
-wandb.log can be used to log everything from scalars to histograms, media and matplotlib plots.
+스칼라, 히스토그램, 미디어 및 matplotlib 플롯에 이르는 모든 것을 기록하기 위해 wandb.log를 사용할 수 있습니다.
 
-The most basic usage is wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\). This will save a history row associated with the run with train-loss=0.5 and accuracy=0.9. The history values can be plotted on app.wandb.ai or on a local server. The history values can also be downloaded through the wandb API.
+가장 기본적인 용도는 wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\)입니다. train-loss=0.5 및accuracy=0.9로 실행과 연관된 히스토리 행에 저장됩니다. 히스토리 값은 app.wandb.ai 또는 로컬 서버에 작성될 수 있으며, 또한 wandb API를 통해서도 히스토리 값을 다운로드할 수 있습니다.
 
-Logging a value will update the summary values for any metrics logged. The summary values will appear in the run table at app.wandb.ai or a local server. If a summary value is manually set with for example wandb.run.summary\["accuracy"\] = 0.9 wandb.log will no longer automatically update the run's accuracy.
+값을 로깅하면 로그된 메트릭에 대한 요약 값이 업데이트됩니다. 요약 값은 app.wandb.ai 또는 로컬 서버의 실행 테이블에 나타납니다. 요약 값은 수동으로 wandb.run.summary\["accuracy"\] = 0.9 와 같이 설정되는 경우, wandb.log는 더 이상 자동으로 실행의 정확도를 업데이트하지 않습니다.
 
-Logging values don't have to be scalars. Logging any wandb object is supported. For example wandb.log\({"example": wandb.Image\("myimage.jpg"\)}\) will log an example image which will be displayed nicely in the wandb UI. See [https://docs.wandb.com/library/reference/data\_types](https://docs.wandb.com/library/reference/data_types) for all of the different supported types.
+로깅 값은 스칼라일 필요가 없습니다. 모든 wandb 객체 로깅이 지원됩니다.예컨대, wandb.log\({"example": wandb.Image\("myimage.jpg"\)}\)는 wandb UI에 깔끔하게 표시되는 예시 이미지를 로그합니다. 다른 모든 지원되는 유형의 경우 [https://docs.wandb.com/library/reference/data\_types](https://docs.wandb.com/library/reference/data_types)를 참조하시기 바랍니다.
 
-Logging nested metrics is encouraged and is supported in the wandb API, so you could log multiple accuracy values with wandb.log\({'dataset-1': {'acc': 0.9, 'loss': 0.3} ,'dataset-2': {'acc': 0.8, 'loss': 0.2}}\) and the metrics will be organized in the wandb UI.
+ 중첩된 메트릭 로깅을 권장하며, wandb API에 지원됩니다. 따라서 wandb.log\({'dataset-1': {'acc': 0.9, 'loss': 0.3} ,'dataset-2': {'acc': 0.8, 'loss': 0.2}}\)를 통해서 많은 정확도 값을 로그할 수 있으며, 메트릭은 wandb UI에 구성됩니다.
 
-W&B keeps track of a global step so logging related metrics together is encouraged, so by default each time wandb.log is called a global step is incremented. If it's inconvenient to log related metrics together calling wandb.log\({'train-loss': 0.5, commit=False}\) and then wandb.log\({'accuracy': 0.9}\) is equivalent to calling wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\)
+W&B는 글로벌 단계를 추적하므로 관련 메트릭을 함께 로그하는 것이 권장됩니다. 따라서, 기본값으로 wandb.log가 호출될 때마다, 글로벌 단계가 증가됩니다.
 
-wandb.log is not intended to be called more than a few times per second. If you want to log more frequently than that it's better to aggregate the data on the client side or you may get degraded performance.
+wandb.log를 초당 몇 번 이상 호출할 수 없습니다. 보다 자주 로그 하려는 경우, 클라이언트 측에서 데이터를 종합하는 것이 좋으며, 그렇지 않은 경우 퍼포먼스가 저하될 수 있습니다.
 
-**Arguments**:
+ **전달인자**
 
-* `row` _dict, optional_ - A dict of serializable python objects i.e str,
+* `row` _dict, optional_ - 직렬화 가능 Python 객체의 dict. 즉, str,
 
-  ints, floats, Tensors, dicts, or wandb.data\_types
+  ints, floats, Tensors, dicts, 또는 wandb.data\_types
 
-* `commit` _boolean, optional_ - Save the metrics dict to the wandb server
+* `commit` _boolean, optional_ - wandb 서버에 메트릭 dict를 저장하고 단계를 증가시킵니다. false wandb.log가 현재 메트릭 dict을 행 전달인자와 함께 업데이트하는 경우, wandb.log를 commit=True와 함께 호출할 때까지 메트릭은 저장되지 않습니다.
+* `step` _integer, optional_ - 프로세싱의 글로벌 단계. 이는 커밋되지 않은 이전 단계를 유지하지만 기본값으로 지정된 단계를 커밋하지 않습니다.
+* `sync` _boolean, True_ - 이 전달인자는 사용되지 않으며, 현재 wandb.log의 행위를 변경하지 않습니다.
 
-  and increment the step.  If false wandb.log just updates the current
+**예시**:
 
-  metrics dict with the row argument and metrics won't be saved until
-
-  wandb.log is called with commit=True.
-
-* `step` _integer, optional_ - The global step in processing. This persists
-
-  any non-committed earlier steps but defaults to not committing the
-
-  specified step.
-
-* `sync` _boolean, True_ - This argument is deprecated and currently doesn't
-
-  change the behaviour of wandb.log
-
-**Examples**:
-
-Basic usage
+ 기본 사용법
 
 ```text
 - `wandb.log({'accuracy'` - 0.9, 'epoch': 5})
 ```
 
-Incremental logging
+점진적 로깅
 
 ```text
 - `wandb.log({'loss'` - 0.2}, commit=False)
@@ -321,38 +296,38 @@ Incremental logging
 - `wandb.log({'accuracy'` - 0.8})
 ```
 
-Histogram
+ 히스토그램
 
 ```text
 - `wandb.log({"gradients"` - wandb.Histogram(numpy_array_or_sequence)})
 ```
 
-Image
+ 이미지
 
 ```text
 - `wandb.log({"examples"` - [wandb.Image(numpy_array_or_pil, caption="Label")]})
 ```
 
-Video
+비디오
 
 ```text
 - `wandb.log({"video"` - wandb.Video(numpy_array_or_video_path, fps=4,
 format="gif")})
 ```
 
-Matplotlib Plot
+Matplotlib 플롯
 
 ```text
 - `wandb.log({"chart"` - plt})
 ```
 
-PR Curve
+PR 곡선
 
 ```text
 - `wandb.log({'pr'` - wandb.plots.precision_recall(y_test, y_probas, labels)})
 ```
 
-3D Object
+3D 객체
 
 ```text
 wandb.log({"generated_samples":
@@ -361,33 +336,29 @@ wandb.Object3D(open("sample.gltf")),
 wandb.Object3D(open("sample.glb"))]})
 ```
 
-For more examples, see [https://docs.wandb.com/library/log](https://docs.wandb.com/library/log)
+더 자세한 예시는, [https://docs.wandb.com/library/log](https://docs.wandb.com/library/log)를 참조하시기 바랍니다
 
-**Raises**:
+**발생\(Raises\)**:
 
-wandb.Error - if called before wandb.init ValueError - if invalid data is passed
+wandb.Error - wandb.init이전에 호출된 경우 ValueError – 유효하지 않은 데이터가 전달된 경우
 
-**save**
+ **저장**
 
 ```python
  | save(glob_str: Optional[str] = None, base_path: Optional[str] = None, policy: str = "live")
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L807)
+ [\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L810)​
 
-Ensure all files matching _glob\_str_ are synced to wandb with the policy specified.
+glob\_str와 일치하는 모든 파일이 wandb에 지정된 정책과 함께 동기화 되는지 확인합니다.
 
-**Arguments**:
+**전달인자**:
 
-* `glob_str` _string_ - a relative or absolute path to a unix glob or regular
-
-  path.  If this isn't specified the method is a noop.
-
-* `base_path` _string_ - the base path to run the glob relative to
-* `policy` _string_ - on of "live", "now", or "end"
-* `live` - upload the file as it changes, overwriting the previous version
-* `now` - upload the file once now
-* `end` - only upload file when the run ends
+* `glob_str` _string_ - unix glob의 상대 또는 절대 경로 또는 일반 경로. 지정되지 않은 경우, 이 방법은 noop입니다.
+* `base_path` _string_ - glob를 실행하는 기본 경로
+* `policy` _string_ - “live”, “now”, 또는 “end” 중 하나
+* `live` - 파일이 변경 될 때 업로드하고, 이전 파일을 덮어씁니다: 파일을 지금 한 번만 업로드합니다.
+* `end` - 실행이 종료될 때만 파일을 업로드 합니다.
 
 **finish**
 
@@ -395,9 +366,9 @@ Ensure all files matching _glob\_str_ are synced to wandb with the policy specif
  | finish(exit_code=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L902)
+ ​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L906)​
 
-Marks a run as finished, and finishes uploading all data. This is used when creating multiple runs in the same process. We automatically call this method when your script exits.
+실행을 완료로 표시하고, 모든 데이터의 업로드를 완료합니다. 동일 프로세스에서 여러 실행을 생성할 때 사용됩니다. 스크립트가 종료되면 자동으로 이 방법을 호출합니다.
 
 **join**
 
@@ -405,9 +376,9 @@ Marks a run as finished, and finishes uploading all data. This is used when crea
  | join(exit_code=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L916)
+​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L920)​
 
-Deprecated alias for finish\(\) - please use finish
+finish\(\)를 위해서 사용되지 않는 별칭\(alias\) – finish를 사용하십시오
 
 **plot\_table**
 
@@ -415,25 +386,17 @@ Deprecated alias for finish\(\) - please use finish
  | plot_table(vega_spec_name, data_table, fields, string_fields=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L920)
+ ​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L924)​
 
-Creates a custom plot on a table.
+ 테이블에 사용자 정의 플롯을 생성합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `vega_spec_name` - the name of the spec for the plot
-* `table_key` - the key used to log the data table
-* `data_table` - a wandb.Table object containing the data to
-
-  be used on the visualization
-
-* `fields` - a dict mapping from table keys to fields that the custom
-
-  visualization needs
-
-* `string_fields` - a dict that provides values for any string constants
-
-  the custom visualization needs
+* `vega_spec_name` - 플롯에 대한 스펙\(spec\)의 이름
+* `table_key` - 데이터 테이블 로그에 사용되는 키
+* `data_table` - 데이터를 포함하는 wandb.Table 객체로 시각화에 사용됨
+* `fields` - 테이블 키에서 사용자 정의 시각화가 필요한 영역에 이르는 dict 매핑
+* `string_fields` - 사용자 지정 시각화에 필요한 모든 문자열 상수에 대한 값을 제공하는 dict
 
 **use\_artifact**
 
@@ -441,15 +404,15 @@ Creates a custom plot on a table.
  | use_artifact(artifact_or_name, type=None, aliases=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L1552)
+ [\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1566)​
 
-Declare an artifact as an input to a run, call `download` or `file` on  the returned object to get the contents locally.
+ 아티팩트를 실행에 대한 입력으로 선언\(declare\)하고 반환된 객체에 대한 다운로드 또는 파일을 호출하여 로컬로 컨텐츠를 가져옵니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `artifact_or_name` _str or Artifact_ - An artifact name.
+* `artifact_or_name` _str or Artifact_ - 아티팩트 이름.
 
-  May be prefixed with entity/project. Valid names
+  entity/project를 앞에 붙일 수 있습니다. 유효한 이름은 다음과 같은 형식입니다:
 
   can be in the following forms:
 
@@ -459,14 +422,14 @@ Declare an artifact as an input to a run, call `download` or `file` on  the retu
 
   digest
 
-  You can also pass an Artifact object created by calling `wandb.Artifact`
+  또한 wandb.Artifact를 호출하여 생성된 아티팩트 객체를 전달할 수도 있습니다.
 
-* `type` _str, optional_ - The type of artifact to use.
-* `aliases` _list, optional_ - Aliases to apply to this artifact
+* `type` _str, optional_ - 사용할 아티팩트의 유형.
+* `aliases` _list, optional_ - 이 아티팩트에 적용할 별칭
 
 **Returns**:
 
-A `Artifact` object.
+`Artifact` 객체.
 
 **log\_artifact**
 
@@ -474,15 +437,15 @@ A `Artifact` object.
  | log_artifact(artifact_or_path, name=None, type=None, aliases=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L1607)
+​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1621)​
 
-Declare an artifact as output of a run.
+ 실행의 출력으로 아티팩트를 선언\(declare\)합니다.
 
 **Arguments**:
 
-* `artifact_or_path` _str or Artifact_ - A path to the contents of this artifact,
+* `artifact_or_path` _str or Artifact_ - 이 아티팩트의 콘텐츠에 대한 경로.
 
-  can be in the following forms:
+  다음과 같은 형식입니다:
 
   /local/directory
 
@@ -490,13 +453,11 @@ Declare an artifact as output of a run.
 
   s3://bucket/path
 
-  You can also pass an Artifact object created by calling
+  `wandb.Artifact`를 호출하여 생성된 아티팩트 객체를 전달할 수도 있습니다.
 
-  `wandb.Artifact`.
+* `name` _str, optional_ - 아티팩트 이름. entity/project를 앞에 붙일 수 있습니다.
 
-* `name` _str, optional_ - An artifact name. May be prefixed with entity/project.
-
-  Valid names can be in the following forms:
+  유효한 이름은 다음과 같은 형식입니다:
 
   name:version
 
@@ -504,18 +465,14 @@ Declare an artifact as output of a run.
 
   digest
 
-  This will default to the basename of the path prepended with the current
+  이 값이 지정되지 않은 경우 현재 실행 ID를 경로의 기본이름 앞에 추가하도록 기본 값으로 설정됩니다.
 
-  run id  if not specified.
-
-* `type` _str_ - The type of artifact to log, examples include "dataset", "model"
-* `aliases` _list, optional_ - Aliases to apply to this artifact,
-
-  defaults to \["latest"\]
+* `type` _str_ - 로그할 아티팩트의 유형. 예를 들어 “dataset”, “model”를 포합합니다.
+* `aliases` _list, optional_ - 이 아티팩트에 적용할 별칭. 기본값은 \["latest"\]입니다.
 
 **Returns**:
 
-A `Artifact` object.
+Artifact 객체
 
 **alert**
 
@@ -523,16 +480,14 @@ A `Artifact` object.
  | alert(title, text, level=None, wait_duration=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_run.py#L1661)
+​[\[소스\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1675)​
 
-Launch an alert with the given title and text.
+ 지정된 제목과 텍스트로 경보를 실행합니다.
 
-**Arguments**:
+ **전달인자:**
 
-* `title` _str_ - The title of the alert, must be less than 64 characters long
-* `text` _str_ - The text body of the alert
-* `level` _str or wandb.AlertLevel, optional_ - The alert level to use, either: "INFO", "WARN", or "ERROR"
-* `wait_duration` _int, float, or timedelta, optional_ - The time to wait \(in seconds\) before sending another alert
-
-  with this title
+* `title` _str_ - 경보의 제목으로, 64자 미만이어야 합니다
+* `text` _str_ - 경보의 텍스트 본문
+* `level` _str or wandb.AlertLevel, optional_ - 사용할 경보의 수준으로, "INFO", "WARN", 또는 "ERROR" 중 하나입니다
+* `wait_duration` _int, float, or timedelta, optional_ - 이 제목의 다른 경보를 보내기 전 대기 시간 \(초\).
 
