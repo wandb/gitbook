@@ -55,7 +55,7 @@ Set up a **YAML file** to specify your training script, parameter ranges, search
 
 Here are some config resources:
 
-1. [Example YAML](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): a code example of a script and YAML file to do a sweep
+1. [Example YAML files](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion) : an example script and several different YAML files
 2. [Configuration](configuration.md): full specs to set up your sweep config
 3. [Jupyter Notebook](python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
 4. [Generate config from UI](existing-project.md): take an existing W&B project and generate a config file
