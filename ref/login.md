@@ -2,9 +2,9 @@
 
 ## wandb.sdk.wandb\_login
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L3)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L3) 
 
-Log in to Weights & Biases, authenticating your machine to log data to your account.
+Weights & Biases에 로그인 하여 사용자 계정에 로그 하도록 여러분의 머신을 인증합니다.
 
 **login**
 
@@ -12,29 +12,22 @@ Log in to Weights & Biases, authenticating your machine to log data to your acco
 login(anonymous=None, key=None, relogin=None, host=None, force=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L22)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L22)
 
-Log in to W&B.
+ W&B에 로그인합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `anonymous` _string, optional_ - Can be "must", "allow", or "never".
+* `anonymous` string, optional - "must"\(반드시 허용\), "allow"\(허용\), or "never"\(허용 안 함\). “must”로 설정된 경우, 사용자가 아직 로그인하지 않은 경우에만 익명 사용자를 생성합니다.
+* `key` _string, optional_ - 인증 키.
+* `relogin` _bool, optional_ - True인 경우 API 키를 확인하는 다시 메시지가 표시됩니다.
+* `host` _string, optional_ - 연결할 호스트
 
-  If set to "must" we'll always login anonymously, if set to
+ **반환:**
 
-  "allow" we'll only create an anonymous user if the user
+* `bool` - 키가 구성된 경우
 
-  isn't already logged in.
+ **발생\(Raises\)**:
 
-* `key` _string, optional_ - authentication key.
-* `relogin` _bool, optional_ - If true, will re-prompt for API key.
-* `host` _string, optional_ - The host to connect to.
-
-**Returns**:
-
-* `bool` - if key is configured
-
-**Raises**:
-
-UsageError - if api\_key can not configured and no tty
+UsageError - api\_key를 구성할 수 없고, tty가 없는 경우
 

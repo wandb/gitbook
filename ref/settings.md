@@ -2,17 +2,17 @@
 
 ## wandb.sdk.wandb\_settings
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L2)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L2) 
 
-This module configures settings for wandb runs.
+이 모듈은 wandb 실행에 대한 설정을 구성합니다.
 
-Order of loading settings: \(differs from priority\) defaults environment wandb.setup\(settings=\) system\_config workspace\_config wandb.init\(settings=\) network\_org network\_entity network\_project
+로딩 설정 순서: \(differs from priority\) defaults environment wandb.setup\(settings=\) system\_config workspace\_config wandb.init\(settings=\) network\_org network\_entity network\_project
 
-Priority of settings: See "source" variable.
+설정 우선순위: "source" 변수를 참조하시기 바랍니다.
 
-When override is used, it has priority over non-override settings
+오버라이드\(override\)를 사용하는 경우, 오버라이드가 아닌\(non-override\) 설정보다 우선합니다
 
-Override priorities are in the reverse order of non-override settings
+오버라이드 우선순위는 오버라이드가 아닌 설정의 역순입니다.
 
 ### Settings Objects
 
@@ -20,18 +20,18 @@ Override priorities are in the reverse order of non-override settings
 class Settings(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L187)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L187)​
 
-Settings Constructor
+ 설정 생성자\(Constructor\)
 
-**Arguments**:
+**전달인자**:
 
-* `entity` - personal user or team to use for Run.
-* `project` - project name for the Run.
+* `entity` - 실행을 위해 사용할 개인 사용자 또는 팀
+* `project` - 실행에 대한 프로젝트 이름
 
-**Raises**:
+ **발생\(Raises\)**:
 
-* `Exception` - if problem.
+* `Exception` - 문제인 경우.
 
 **\_\_copy\_\_**
 
@@ -39,7 +39,7 @@ Settings Constructor
  | __copy__()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L656)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L656)​
 
-Copy \(note that the copied object will not be frozen\).
+ 복사 \(복사된 객체는 고정\(frozen\) 되지 않습니다\).
 

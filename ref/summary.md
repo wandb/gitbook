@@ -2,7 +2,7 @@
 
 ## wandb.sdk.wandb\_summary
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L2)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L2)​ 
 
 ### SummaryDict Objects
 
@@ -11,9 +11,9 @@
 class SummaryDict(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L18)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L18)​ 
 
-dict-like which wraps all nested dictionraries in a SummarySubDict, and triggers self.\_root.\_callback on property changes.
+SummarySubDict에 모든 중첩된 사전을 래핑\(wrap\)하는 dict-like 객체이며 속성 변경 시에 self.\_root.\_callback을 트리거 합니다.
 
 ### Summary Objects
 
@@ -21,17 +21,17 @@ dict-like which wraps all nested dictionraries in a SummarySubDict, and triggers
 class Summary(SummaryDict)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L78)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L78)​
 
-Summary
+요약
 
-The summary statistics are used to track single metrics per model. Calling wandb.log\({'accuracy': 0.9}\) will automatically set wandb.summary\['accuracy'\] to be 0.9 unless the code has changed wandb.summary\['accuracy'\] manually.
+요약 통계는 모델 당 단일 메트릭을 추적하는 데 사용됩니다. wandb.log\({'accuracy': 0.9}\)를 호출하면 코드가 수동으로 wandb.summary\['accuracy'\]를 변경하지 않는 한 자동으로 wandb.summary\['accuracy'\]을 0.9로 설정합니다.
 
-Setting wandb.summary\['accuracy'\] manually can be useful if you want to keep a record of the accuracy of the best model while using wandb.log\(\) to keep a record of the accuracy at every step.
+wandb.summary\['accuracy'\]를 수동으로 설정하면 wandb.log\(\)를 사용하여 모든 단계의 정확도를 계속 기록하는 동안 최고 모델의 정확도를 계속 기록하려는 경우에 유용합니다.
 
-You may want to store evaluation metrics in a runs summary after training has completed. Summary can handle numpy arrays, pytorch tensors or tensorflow tensors. When a value is one of these types we persist the entire tensor in a binary file and store high level metrics in the summary object such as min, mean, variance, 95% percentile, etc.
+ 훈련이 완료된 후 평가 메트릭을 실행 요약\(runs summary\)에 저장하는 것이 좋습니다. 요약은 넘파이 배열\(numpy arrays\), pytorch tensor 또는 tensorflow tensors를 처리할 수 있습니다. 값이 이들 유형 중 하나인 경우, 전체 tensor를 이진 파일에 유지하고, 최고 수준 메트릭을 최소, 평균, 분산, 95 백분위수와 같은 요약 객체에 저장합니다.
 
-**Examples**:
+ **예시**:
 
 ```text
 wandb.init(config=args)
@@ -50,7 +50,7 @@ best_accuracy = test_accuracy
 class SummarySubDict(SummaryDict)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L128)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L128)​ 
 
-Non-root node of the summary data structure. Contains a path to itself from the root.
+요약 데이터 구조의 루트가 아닌 노드\(non-root node\)입니다. 루트에서 노드 자체로의 경로를 포함합니다.
 

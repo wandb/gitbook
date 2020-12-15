@@ -2,91 +2,91 @@
 
 ## wandb
 
-**Usage**
+ **사용법**
 
 `wandb [OPTIONS] COMMAND [ARGS]...`
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --version | Show the version and exit. |
-| --help | Show this message and exit. |
+| --version | 버전을 표시하고 종료합니다. |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
-**Commands**
+**명령**
 
-| **Commands** | **Description** |
+| **명령** | **설명** |
 | :--- | :--- |
-| agent | Run the W&B agent |
-| artifact | Commands for interacting with artifacts |
-| controller | Run the W&B local sweep controller |
-| disabled | Disable W&B. |
-| docker | docker lets you run your code in a docker image ensuring... |
-| docker-run | Simple wrapper for `docker run` which sets W&B environment... |
-| enabled | Enable W&B. |
-| init | Configure a directory with Weights & Biases |
-| local | Launch local W&B container \(Experimental\) |
-| login | Login to Weights & Biases |
-| offline | Disable W&B sync |
-| online | Enable W&B sync |
-| pull | Pull files from Weights & Biases |
-| restore | Restore code, config and docker state for a run |
-| status | Show configuration settings |
-| sweep | Create a sweep |
-| sync | Upload an offline training directory to W&B |
+| agent | W&B 에이전트를 실행합니다 |
+| artifact | 아티팩트와 상호작용하는 명령 |
+| controller | W&B 로컬 스윕 컨트롤러를 실행합니다 |
+| disabled | W&B를 비활성화합니다. |
+| docker | 도커\(docker\)를 사용하면 도커 이미지에 코드를 실행할 수 있습니다. |
+| docker-run | W&B 환경을 설정하는 도커 실행에 대한 간단한 래퍼\(wrapper\) |
+| enabled | W&B를 활성화합니다. |
+| init | Weights & Biases를 통해 디렉토리를 구성합니다. |
+| local | 로컬 W&B 컨테이너를 실행합니다 \(실험 중\) |
+| login | Weights & Biases에 로그인합니다 |
+| offline | W&B 동기화를 비활성화합니다 |
+| online | W&B 동기화를 활성화합니다 |
+| pull | Weights & Biases에서 파일을 가져옵니다 |
+| restore | 실행에 대한 코드, 구성\(config\) 및 도커\(docker\) 상태를 복원합니다. |
+| status | 구성\(configuration\) 설정을 표시합니다 |
+| sweep |  스윕을 생성합니다 |
+| sync | 오프라인 훈련 디렉토리를 W&B에 업로드합니다 |
 
 ## wandb agent
 
-**Usage**
+ **사용법**
 
 `wandb agent [OPTIONS] SWEEP_ID`
 
-**Summary**
+**요약**
 
-Run the W&B agent
+ W&B 에이전트를 실행합니다
 
-**Options**
+**옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| -p, --project | The project of the sweep. |
-| -e, --entity | The entity scope for the project. |
-| --count | The max number of runs for this agent. |
-| --help | Show this message and exit. |
+| -p, --project | 스윕의 프로젝트 |
+| -e, --entity | 프로젝트에 대한 개체 범위\(entity scope\) |
+| --count | 이 에이전트에 대한 실행의 최대 수 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb artifact
 
-**Usage**
+ **사용법**
 
 `wandb artifact [OPTIONS] COMMAND [ARGS]...`
 
-**Summary**
+ **요약**
 
-Commands for interacting with artifacts
+아티팩트와 상호작용하는 명령
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ### wandb artifact get
 
-**Usage**
+ **사용법**
 
 `wandb artifact get [OPTIONS] PATH`
 
-**Summary**
+ **요약**
 
-Download an artifact from wandb
+ wandb에서 아티팩트를 다운로드합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --root | The directory you want to download the artifact to |
-| --type | The type of artifact you are downloading |
-| --help | Show this message and exit. |
+| --root | 아티팩트를 다운로드할 디렉토리 |
+| --type | 다운로드하는 아티팩트의 유형 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ### wandb artifact ls
 
@@ -96,316 +96,316 @@ Download an artifact from wandb
 
 **Summary**
 
-List all artifacts in a wandb project
+wandb 프로젝트의 모든 아티팩트의 리스트를 작성합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| -t, --type | The type of artifacts to list |
-| --help | Show this message and exit. |
+| -t, --type | 리스트로 작성할 아티팩트의 유형 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ### wandb artifact put
 
-**Usage**
+ **사용법**
 
 `wandb artifact put [OPTIONS] PATH`
 
-**Summary**
+**요약**
 
-Upload an artifact to wandb
+ 아티팩트를 wandb에 업로드합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| -n, --name | The name of the artifact to push: |
-| -d, --description | A description of this artifact |
-| -t, --type | The type of the artifact |
-| -a, --alias | An alias to apply to this artifact |
-| --help | Show this message and exit. |
+| -n, --name | 푸시\(push\) 할 아티팩트의 이름: |
+| -d, --description | 이 아티팩트에 대한 설명 |
+| -t, --type | 아티팩트의 유형 |
+| -a, --alias | 이 아티팩트에 적용할 별칭\(alias\) |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb controller
 
-**Usage**
+ **사용법**
 
 `wandb controller [OPTIONS] SWEEP_ID`
 
-**Summary**
+ **요약**
 
-Run the W&B local sweep controller
+W&B 로컬 스윕 컨트롤러를 실행합니다
 
-**Options**
+**옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --verbose | Display verbose output |
-| --help | Show this message and exit. |
+| --verbose |  스윕의 프로젝트 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb disabled
 
-**Usage**
+**사용법**
 
 `wandb disabled [OPTIONS]`
 
-**Summary**
+**요약**
 
-Disable W&B.
+W&B를 비활성화합니다.
 
-**Options**
+**옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
 | --help | Show this message and exit. |
 
 ## wandb docker
 
-**Usage**
+ **사용법**
 
 `wandb docker [OPTIONS] [DOCKER_RUN_ARGS]... [DOCKER_IMAGE]`
 
-**Summary**
+ **요약**
 
-W&B docker lets you run your code in a docker image ensuring wandb is configured. It adds the WANDB\_DOCKER and WANDB\_API\_KEY environment variables to your container and mounts the current directory in /app by default. You can pass additional args which will be added to `docker run` before the image name is declared, we'll choose a default image for you if one isn't passed:
+ W&B 도커를 사용하면 wandb가 구성되었는지를 확인하는 도커 이미지에서 코드를 실행할 수 있습니다. WANDB\_DOCKER and WANDB\_API\_KEY 환경변수를 컨테이너에 추가하고, 현재 디렉토리를 /app에 기본값으로 마운트 합니다. 이미지 이름이 선언\(declare\) 되기 전에 `docker run`에 추가될 추가 args를 전달할 수 있으며, 전달되지 않은 경우, 저희는 기본 이미지를 선택합니다.
 
 wandb docker -v /mnt/dataset:/app/data wandb docker gcr.io/kubeflow- images-public/tensorflow-1.12.0-notebook-cpu:v0.4.0 --jupyter wandb docker wandb/deepo:keras-gpu --no-tty --cmd "python train.py --epochs=5"
 
-By default we override the entrypoint to check for the existance of wandb and install it if not present. If you pass the --jupyter flag we will ensure jupyter is installed and start jupyter lab on port 8888. If we detect nvidia-docker on your system we will use the nvidia runtime. If you just want wandb to set environment variable to an existing docker run command, see the wandb docker-run command.
+ 기본값으로, 진입점\(entrypoint\)을 오버라이드 하여 wandb의 존재를 확인하고 없는 경우 wandb를 설치합니다. --jupyter flag를 전달하는 경우, jupyter가 설치되었는지 확인하고 port 8888에 jupyter lab을 시작합니다. 시스템에서 nvidia-docker를 감지한 경우, nvidia 런타임을 사용합니다. wandb가 환경 변수를 기존의 도커 실행 명령으로 설정하도록 하려는 경우, wandb docker-run command를 참조하시기 바랍니다.
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --nvidia | / --no-nvidia    Use the nvidia runtime, defaults to nvidia if |
-| nvidia-docker | is present |
-| --digest | Output the image digest and exit |
-| --jupyter | / --no-jupyter  Run jupyter lab in the container |
-| --dir | Which directory to mount the code in the container |
-| --no-dir | Don't mount the current directory |
-| --shell | The shell to start the container with |
-| --port | The host port to bind jupyter on |
-| --cmd | The command to run in the container |
-| --no-tty | Run the command without a tty |
-| --help | Show this message and exit. |
+| --nvidia | / --no-nvidia nividia 런타임을 사용합니다. 다음의 경우 기본값은 nvidia입니다. |
+| nvidia-docker | 존재하는 경우 |
+| --digest | 이미지 다이제스트\(image digest\)를 출력하고 종료합니다 |
+| --jupyter | / --no-jupyter 컨테이너에 jupyter lab을 실행합니다 |
+| --dir | 컨테이너에 코드를 마운트할 디렉토리 |
+| --no-dir | 현재 디렉토리를 마운트 하지 않습니다. |
+| --shell | 컨테이너를 실행할 셸\(shell\) |
+| --port | jupyter를 바인딩 할 호스트 포트 |
+| --cmd | 컨테이너에 실행할 명령 |
+| --no-tty | tty 없이 명령을 실행합니다 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb enabled
 
-**Usage**
+ **사용법**
 
 `wandb enabled [OPTIONS]`
 
-**Summary**
+ **요약**
 
-Enable W&B.
+ W&B를 활성화합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb init
 
-**Usage**
+ **사용법**
 
 `wandb init [OPTIONS]`
 
-**Summary**
+ **요약**
 
-Configure a directory with Weights & Biases
+Weights & Biases를 통해 디렉토리를 구성합니다.
 
-**Options**
+**옵션**
 
-| **Options** | **Description** |
+|  **옵션** | **설명** |
 | :--- | :--- |
-| -p, --project | The project to use. |
-| -e, --entity | The entity to scope the project to. |
-| --reset | Reset settings |
-| -m, --mode | Can be "online", "offline" or "disabled". Defaults to |
-| --help | Show this message and exit. |
+| -p, --project | 사용할 프로젝트 |
+| -e, --entity | 프로젝트의 범위를 지정할 개체 |
+| --reset | 설정 재설정 |
+| -m, --mode | "online", "offline" 또는 "disabled". 기본값은 다음과 같습니다 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb local
 
-**Usage**
+ **사용법**
 
 `wandb local [OPTIONS]`
 
-**Summary**
+ **요약**
 
-Launch local W&B container \(Experimental\)
+로컬 W&B 컨테이너를 실행합니다 \(실험 중\)
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| -p, --port | The host port to bind W&B local on |
-| -e, --env | Env vars to pass to wandb/local |
-| --daemon | / --no-daemon  Run or don't run in daemon mode |
-| --upgrade | Upgrade to the most recent version |
-| --help | Show this message and exit. |
+| -p, --port | W&B로컬을 바인딩 할 호스트 포트 |
+| -e, --env | wandb/local에 전달할 Env vars |
+| --daemon | / --no-daemon 데몬 모드\(daemon mode\)에서 실행하거나 실행하지 않습니다 |
+| --upgrade | 최신 버전으로 업그레이드합니다 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb login
 
-**Usage**
+**사용법**
 
 `wandb login [OPTIONS] [KEY]...`
 
-**Summary**
+ **요약**
 
-Login to Weights & Biases
+ Weights & Biases로 로그인합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --cloud | Login to the cloud instead of local |
-| --host | Login to a specific instance of W&B |
-| --relogin | Force relogin if already logged in. |
-| --anonymously | Log in anonymously |
-| --help | Show this message and exit. |
+| --cloud | 로컬 대신 클라우드로 로그인합니다 |
+| --host | 지정된 W&B 인스턴스에 로그인합니다 |
+| --relogin | 이미 로그인한 경우, 재로그인을 강제합니다. |
+| --anonymously | 익명으로 로그인합니다 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb offline
 
-**Usage**
+ **사용법**
 
 `wandb offline [OPTIONS]`
 
-**Summary**
+ **요약**
 
-Disable W&B sync
+W&B 동기화를 비활성화합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | 이 메시지를 확인하고 종료합니다. |
 
 ## wandb online
 
-**Usage**
+ **사용법**
 
 `wandb online [OPTIONS]`
 
-**Summary**
+ **요약**
 
-Enable W&B sync
+ W&B 동기화를 활성화합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb pull
 
-**Usage**
+ **사용법**
 
 `wandb pull [OPTIONS] RUN`
 
-**Summary**
+ **요약**
 
-Pull files from Weights & Biases
+Weights & Biases에서 파일을 가져옵니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| -p, --project | The project you want to download. |
-| -e, --entity | The entity to scope the listing to. |
-| --help | Show this message and exit. |
+| -p, --project | 다운로드할 프로젝트 |
+| -e, --entity | 리스팅\(listing\)의 범위를 지정할 개체 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb restore
 
-**Usage**
+ **사용법**
 
 `wandb restore [OPTIONS] RUN`
 
-**Summary**
+ **요약**
 
-Restore code, config and docker state for a run
+ 실행에 대한 코드, 구성\(config\) 및 도커\(docker\) 상태를 복원합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
 | --no-git | Skupp |
-| --branch | / --no-branch  Whether to create a branch or checkout detached |
-| -p, --project | The project you wish to upload to. |
-| -e, --entity | The entity to scope the listing to. |
-| --help | Show this message and exit. |
+| --branch | / --no-branch 브랜치\(branch\) 또는 분리된 체크아웃\(checkout detached\) 생성 여부 |
+| -p, --project | 업로드할 프로젝트 |
+| -e, --entity | 리스팅\(listing\)의 범위를 지정할 개체 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb status
 
-**Usage**
+ **사용법**
 
 `wandb status [OPTIONS]`
 
-**Summary**
+**요약**
 
-Show configuration settings
+구성\(configuration\) 설정을 표시합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --settings | / --no-settings  Show the current settings |
-| --help | Show this message and exit. |
+| --settings | / --no-settings 현재 설정을 표시합니다 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb sweep
 
-**Usage**
+ **사용법**
 
 `wandb sweep [OPTIONS] CONFIG_YAML`
 
-**Summary**
+ **요약**
 
-Create a sweep
+ 스윕을 생성합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| -p, --project | The project of the sweep. |
-| -e, --entity | The entity scope for the project. |
-| --controller | Run local controller |
-| --verbose | Display verbose output |
-| --name | Set sweep name |
-| --program | Set sweep program |
-| --update | Update pending sweep |
-| --help | Show this message and exit. |
+| -p, --project | 스윕의 프로젝트 |
+| -e, --entity | 프로젝트에 대한 개체 범위 |
+| --controller |  로컬 컨트롤러를 실행합니다 |
+| --verbose | verbose 출력을 표시합니다 |
+| --name | 스윕 이름을 설정합니다 |
+| --program | 스윕 프로그램을 설정합니다 |
+| --update |  보류 중인 스윕\(pending sweep\)을 업데이트합니다 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 
 ## wandb sync
 
-**Usage**
+**사용법**
 
 `wandb sync [OPTIONS] [PATH]...`
 
-**Summary**
+ **요약**
 
-Upload an offline training directory to W&B
+ 오프라인 훈련 디렉토리를 W&B로 업로드합니다
 
-**Options**
+ **옵션**
 
-| **Options** | **Description** |
+| **옵션** | **설명** |
 | :--- | :--- |
-| --id | The run you want to upload to. |
-| -p, --project | The project you want to upload to. |
-| -e, --entity | The entity to scope to. |
-| --include-globs | Comma seperated list of globs to include. |
-| --exclude-globs | Comma seperated list of globs to exclude. |
+| --id | 업로드할 실행 |
+| -p, --project | 업로드할 프로젝트 |
+| -e, --entity | 범위를 지정할 개체 |
+| --include-globs | 포함할 콤마로 구분된 globs의 리스트 |
+| --exclude-globs | 포함할 콤마로 구분된 globs의 리스트 |
 | --include-online | / --no-include-online |
-| Include | online runs |
+| Include | 온라인 실행 |
 | --include-offline | / --no-include-offline |
-| Include | offline runs |
+| Include | 온라인 실행 |
 | --include-synced | / --no-include-synced |
-| Include | synced runs |
+| Include | 동기화된 실행 |
 | --mark-synced | / --no-mark-synced |
-| Mark | runs as synced |
-| --sync-all | Sync all runs |
-| --clean | Delete synced runs |
-| --clean-old-hours | Delete runs created before this many hours. |
-| To | be used alongside --clean flag. |
-| --clean-force | Clean without confirmation prompt. |
-| --show | Number of runs to show |
-| --help | Show this message and exit. |
+| Mark | 동기화 바와 같은 실행 |
+| --sync-all | 모든 실행 동기화 |
+| --clean | 동기화된 실행 삭제 |
+| --clean-old-hours | 오랜 시간 전에 생성된 실행 삭제 |
+| To | --clean flag 와 함께 사용됨 |
+| --clean-force | 확인 프롬프트 없이 청소\(clean\) 합니다. |
+| --show | 표시할 실행의 수 |
+| --help | 이 메시지를 표시하고 종료합니다. |
 

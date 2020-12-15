@@ -2,7 +2,7 @@
 
 ## wandb.sdk.wandb\_artifacts
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L2)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L2)​
 
 ### Artifact Objects
 
@@ -10,9 +10,9 @@
 class Artifact(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L69)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L69)​
 
-An artifact object you can write files into, and pass to log\_artifact.
+파일 작성 및 log\_artifact에 전달할 수 있는 아티팩트 객체.
 
 **add**
 
@@ -20,14 +20,14 @@ An artifact object you can write files into, and pass to log\_artifact.
  | add(obj, name)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L229)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L229)​
 
-Adds `obj` to the artifact, located at `name`. You can use Artifact\#get\(`name`\) after downloading the artifact to retrieve this object.
+ `name`에 위치한 아티팩트에 `obj`를 추가합니다. 아티팩트를 다운로드한 후 Artifact\#get\(name\)을 사용하여 이 객체를 검색할 수 있습니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `obj` _wandb.Media_ - The object to save in an artifact
-* `name` _str_ - The path to save
+* `obj` _wandb.Media_ - 아티팩트에 저장할 객체
+* `name` _str_ - 저장할 경로
 
 **get\_added\_local\_path\_name**
 
@@ -35,9 +35,9 @@ Adds `obj` to the artifact, located at `name`. You can use Artifact\#get\(`name`
  | get_added_local_path_name(local_path)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L278)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L278)​
 
-If local\_path was already added to artifact, return its internal name.
+ local\_path가 이미 아티팩트에 추가된 경우, 아티팩트의 내부 이름을 반환합니다.
 
 ### ArtifactManifestV1 Objects
 
@@ -45,7 +45,7 @@ If local\_path was already added to artifact, return its internal name.
 class ArtifactManifestV1(ArtifactManifest)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L328)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L328)​
 
 **to\_manifest\_json**
 
@@ -53,11 +53,11 @@ class ArtifactManifestV1(ArtifactManifest)
  | to_manifest_json()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L368)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L368)​
 
-This is the JSON that's stored in wandb\_manifest.json
+ wandb\_manifest.json에 저장된 JSON입니다.
 
-If include\_local is True we also include the local paths to files. This is used to represent an artifact that's waiting to be saved on the current system. We don't need to include the local paths in the artifact manifest contents.
+include\_local이 True인 경우, 파일에 대한 로컬 경로 또한 포함합니다. 이것은 현재 시스템에 저장 대기 중인 이티팩트를 나타내는 데 사용됩니다. 아티팩트 매니페스트 콘텐츠\(artifact manifest contents\)에 로컬 경로를 포함할 필요가 없습니다.
 
 ### TrackingHandler Objects
 
@@ -65,7 +65,7 @@ If include\_local is True we also include the local paths to files. This is used
 class TrackingHandler(StorageHandler)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L636)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L636)​
 
 **\_\_init\_\_**
 
@@ -73,11 +73,11 @@ class TrackingHandler(StorageHandler)
  | __init__(scheme=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L637)
+ [\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L637)​
 
-Tracks paths as is, with no modification or special processing. Useful when paths being tracked are on file systems mounted at a standardized location.
+ 수정 또는 특별한 프로세싱 없이 경로를 있는 그대로 추적합니다. 추적중인 경로가 표준화된 위치에 마운트된 파일 시스템에 있는 경우에 유용합니다.
 
-For example, if the data to track is located on an NFS share mounted on /data, then it is sufficient to just track the paths.
+예를 들어, 추적할 데이터가 /data 에 마운트 된 NFS share에 있는 경우, 경로만 추적하는 것으로 충분합니다.
 
 ### LocalFileHandler Objects
 
@@ -85,7 +85,7 @@ For example, if the data to track is located on an NFS share mounted on /data, t
 class LocalFileHandler(StorageHandler)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L682)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L682)​
 
 Handles file:// references
 
@@ -95,9 +95,9 @@ Handles file:// references
  | __init__(scheme=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L686)
+ ​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L686)​ 
 
-Tracks files or directories on a local filesystem. Directories are expanded to create an entry for each file contained within.
+로컬 파일시스템의 파일 또는 디렉토리를 추적합니다. 디렉토리는 내부에 포함된 각 파일에 대한 엔트리 생성을 위해 확장됩니다.
 
 ### WBArtifactHandler Objects
 
@@ -105,7 +105,7 @@ Tracks files or directories on a local filesystem. Directories are expanded to c
 class WBArtifactHandler(StorageHandler)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L1172)
+​[\[소스\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L1172)​
 
-Handles loading and storing Artifact reference-type files
+아티팩트 참조 유형 파일 로딩 및 저장을 처리합니다
 

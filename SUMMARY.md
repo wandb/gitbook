@@ -52,7 +52,6 @@
   * [Summary](ref/summary.md)
   * [Login](ref/login.md)
   * [Settings](ref/settings.md)
-  * [Run Reference](ref/run-1.md)
   * [Command Line Reference](ref/cli.md)
   * [Data Types Reference](ref/data-types.md)
   * [Artifacts Reference](ref/artifacts-1.md)

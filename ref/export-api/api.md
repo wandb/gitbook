@@ -6,7 +6,7 @@ description: wandb.apis.public
 
 ## wandb.apis.public
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1)​
 
 ### Api Objects
 
@@ -14,25 +14,21 @@ description: wandb.apis.public
 class Api(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L181)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L181)​
 
-Used for querying the wandb server.
+wandb 서버의 쿼리\(querying\)에 사용됩니다.
 
-**Examples**:
+ **예시**:
 
-Most common way to initialize
+가장 일반적인 초기화 방법입니다.
 
 ```text
 wandb.Api()
 ```
 
-**Arguments**:
+ **전달인자**:
 
-* `overrides` _dict_ - You can set `base_url` if you are using a wandb server
-
-  other than [https://api.wandb.ai](https://api.wandb.ai).
-
-  You can also set defaults for `entity`, `project`, and `run`.
+* `overrides` _dict_ -  [https://api.wandb.ai](https://api.wandb.ai/) 이외의 wandb server를 사용하는 경우 `base_url`을 설정할 수 있습니다. 또한 `entity`, `project`, 및 `run`에 대한 기본값을 설정할 수 있습니다.
 
 **flush**
 
@@ -40,9 +36,9 @@ wandb.Api()
  | flush()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L276)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L276)​​
 
-The api object keeps a local cache of runs, so if the state of the run may change while executing your script you must clear the local cache with `api.flush()` to get the latest values associated with the run.
+ api 객체는 실행의 로컬 캐시를 유지합니다. 따라서 실행 상태가 스크립트를 수행하는 동안 변경될 수 있는 경우, `api.flush()`를 통해 로컬 캐시를 지워 실행과 연관된 최신 값을 얻을 수 있습니다.
 
 **projects**
 
@@ -50,23 +46,18 @@ The api object keeps a local cache of runs, so if the state of the run may chang
  | projects(entity=None, per_page=200)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L338)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L338)​
 
-Get projects for a given entity.
+주어진 개체\(entity\)에 대한 프로젝트를 가져옵니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `entity` _str_ - Name of the entity requested.  If None will fallback to
+* `entity` _str_ - 요청된 개체의 이름. None인 경우, Api로 전달된 기본값 개체\(default entity\)로 돌아갑니다. 기본값 개체가 없는 경우, `ValueError`가 발생합니다..
+* `per_page` _int_ - 쿼리 페이지네이션\(query pagination\)에 대한 페이지 사이즈를 설정합니다. None은 기본 사이즈를 사용합니다. 일반적으로 이를 변경할 필요가 없습니다.
 
-  default entity passed to `Api`.  If no default entity, will raise a `ValueError`.
+ **반환**:
 
-* `per_page` _int_ - Sets the page size for query pagination.  None will use the default size.
-
-  Usually there is no reason to change this.
-
-**Returns**:
-
-A `Projects` object which is an iterable collection of `Project` objects.
+반복 가능한\(iterable\) `Project` 객체의 컬렉션인 `Project` 객체.
 
 **reports**
 
@@ -74,23 +65,21 @@ A `Projects` object which is an iterable collection of `Project` objects.
  | reports(path="", name=None, per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L360)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L360)​
 
-Get reports for a given project path.
+주어진 프로젝트 경로에 대한 리포트를 가져옵니다.
 
-WARNING: This api is in beta and will likely change in a future release
+경고: 이 api는 베타 버전이며, 향후 출시 시에 변경될 수 있습니다
 
-**Arguments**:
+**전달인자**:
 
-* `path` _str_ - path to project the report resides in, should be in the form: "entity/project"
-* `name` _str_ - optional name of the report requested.
-* `per_page` _int_ - Sets the page size for query pagination.  None will use the default size.
+* `path` _str_ - 리포트가 위치한 프로젝트 경로로, 다음의 형식이어야 합니다: "entity/project"
+* `name` _str_ - 요청된 리포트의 선택적 이름
+* `per_page` _int_ - 쿼리 페이지네이션\(query pagination\)에 대한 페이지 사이즈를 설정합니다. None은 기본 사이즈를 사용합니다. 일반적으로 이를 변경할 필요가 없습니다.
 
-  Usually there is no reason to change this.
+ **반환**:
 
-**Returns**:
-
-A `Reports` object which is an iterable collection of `BetaReport` objects.
+반복 가능한\(iterable\) `BetaReport` 객체의 컬렉션인 `Reports` 객체.
 
 **runs**
 
@@ -98,57 +87,46 @@ A `Reports` object which is an iterable collection of `BetaReport` objects.
  | runs(path="", filters={}, order="-created_at", per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L393)
+ [\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L393)​
 
-Return a set of runs from a project that match the filters provided. You can filter by `config.*`, `summary.*`, `state`, `entity`, `createdAt`, etc.
+`state`, `entity`, `createdAt`, etc. 제공된 필터와 일치하는 프로젝트에서 실행 세트를 반환합니다. `config.,` _`summary.`_, `entity`, `createdAt`, 등을 기준으로 필터링할 수 있습니다.
 
-**Examples**:
+ **예시**:
 
-Find runs in my\_project config.experiment\_name has been set to "foo"
+“foo”로 설정된 my\_project config.experiment\_name에서 실행을 찾기
 
 ```text
 api.runs(path="my_entity/my_project", {"config.experiment_name": "foo"})
 ```
 
-Find runs in my\_project config.experiment\_name has been set to "foo" or "bar"
+“foo” 또는 “bar”로 설정된 my\_project config.experiment\_name에서 실행을 찾기
 
 ```text
 api.runs(path="my_entity/my_project",
 - `{"$or"` - [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
 ```
 
-Find runs in my\_project sorted by ascending loss
+오름차순 손실별로 정렬된 my\_project에서 실행을 찾기
 
 ```text
 api.runs(path="my_entity/my_project", {"order": "+summary_metrics.loss"})
 ```
 
-**Arguments**:
+**전달인자**:
 
-* `path` _str_ - path to project, should be in the form: "entity/project"
-* `filters` _dict_ - queries for specific runs using the MongoDB query language.
+* 리포트가 위치한 프로젝트 경로로, 다음의 형식이어야 합니다: "entity/project"
+* `filters` _dict_ - MongoDB를 사용하는 특정 실행에 대한 쿼리. config.key, summary\_metrics.key, state, entity, createdAt, 등과 같은 실행 특성 별로 필터링 할 수 있습니다. 예: : {"config.experiment\_name": "foo"}은 실험 이름의 구성 엔트리\(config entry\)가 “foo”로 설정된 실행을 찾습니다. 연산\(operations\)을 구성하여 더 복잡한 쿼리를 생성할 수 있습니다. 언어에 대한 참조 사항은 다음에서 확인할 수 있습니다:[https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)​
+* `order` _str_ - 순서는 `created_at`, `heartbeat_at`, `config.*.value`, 또는summary\_metrics.\* 입니다.
 
-  You can filter by run properties such as config.key, summary\_metrics.key, state, entity, createdAt, etc.
+  +를 순서에 접두어로 붙이는 경우, 오름차순입니다.
 
-  For example: {"config.experiment\_name": "foo"} would find runs with a config entry
+  +를 순서에 접두어로 붙이는 경우, 내림차순입니다 \(기본값\).
 
-  of experiment name set to "foo"
+  기본 순서는 최신에서 오래된 순서로 run.created\_at입니다.
 
-  You can compose operations to make more complicated queries,
+**반환**:
 
-  see Reference for the language is at  [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)
-
-* `order` _str_ - Order can be `created_at`, `heartbeat_at`, `config.*.value`, or `summary_metrics.*`.
-
-  If you prepend order with a + order is ascending.
-
-  If you prepend order with a - order is descending \(default\).
-
-  The default order is run.created\_at from newest to oldest.
-
-**Returns**:
-
-A `Runs` object, which is an iterable collection of `Run` objects.
+A `Runs` object, which is an iterable collection of `Run` objects. 반복 가능한\(iterable\) Runs 객체의 컬렉션인 Runs 객체.
 
 **run**
 
@@ -157,21 +135,17 @@ A `Runs` object, which is an iterable collection of `Run` objects.
  | run(path="")
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L445)
+ [\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L445)​
 
-Returns a single run by parsing path in the form entity/project/run\_id.
+entity/project/run\_id 형식의 경로를 파싱\(parsing\)하여 단일 실행을 반환합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `path` _str_ - path to run in the form entity/project/run\_id.
+* `path` _str_ - path str - entity/project/run\_id 형식의 실행 경로. api.entity가 설정된 경우, project/run\_id의 형식일 수 있으며, api.project가 설정된 경우 run\_id 일 수 있습니다.
 
-  If api.entity is set, this can be in the form project/run\_id
+**반환**:
 
-  and if api.project is set this can just be the run\_id.
-
-**Returns**:
-
-A `Run` object.
+Run 객체
 
 **sweep**
 
@@ -180,21 +154,17 @@ A `Run` object.
  | sweep(path="")
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L462)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L462)​
 
-Returns a sweep by parsing path in the form entity/project/sweep\_id.
+entity/project/run\_id 형식의 경로를 파싱\(parsing\)하여 스윕을 반환합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `path` _str, optional_ - path to sweep in the form entity/project/sweep\_id.  If api.entity
+* `path` _str, optional_ - entity/project/run\_id 형식의 경로. api.entity가 설정된 경우, project/sweep\_id의 형식일 수 있으며, api.project가 설정된 경우 sweep\_id 일 수 있습니다.
 
-  is set, this can be in the form project/sweep\_id and if api.project is set
+ **반환**:
 
-  this can just be the sweep\_id.
-
-**Returns**:
-
-A `Sweep` object.
+ `Sweep` 객체
 
 **artifact**
 
@@ -203,27 +173,18 @@ A `Sweep` object.
  | artifact(name, type=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L496)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L496)​
 
-Returns a single artifact by parsing path in the form entity/project/run\_id.
+entity/project/run\_id 형식의 경로를 파싱\(parsing\)하여 단일 아티팩트를 반환합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `name` _str_ - An artifact name. May be prefixed with entity/project. Valid names
+* `name` _str_ - 아티팩트 이름. 앞에 entity/project를 붙일 수 있습니다. 유효한 이름의 다음의 형식입니다: name:version, name:alias, digest
+* `type` _str, optional_ - 가져올\(fetch\) 아티팩트 유형.
 
-  can be in the following forms:
+ **전달인자**:
 
-  name:version
-
-  name:alias
-
-  digest
-
-* `type` _str, optional_ - The type of artifact to fetch.
-
-**Returns**:
-
-A `Artifact` object.
+`Artifact` 객체
 
 ### Projects Objects
 
@@ -231,9 +192,9 @@ A `Artifact` object.
 class Projects(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L616)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L616)​
 
-An iterable collection of `Project` objects.
+An iterable collection of `Project` objects. 반복 가능한\(iterable\) `Project` 객체의 컬렉션
 
 ### Project Objects
 
@@ -241,9 +202,9 @@ An iterable collection of `Project` objects.
 class Project(Attrs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L678)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L678)​
 
-A project is a namespace for runs
+ 프로젝트는 실행에 대한 이름 공간\(namespace\)입니다.
 
 ### Runs Objects
 
@@ -251,9 +212,9 @@ A project is a namespace for runs
 class Runs(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L699)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L699)​
 
-An iterable collection of runs associated with a project and optional filter. This is generally used indirectly via the `Api`.runs method
+ 프로젝트 및 선택적 필터와 관련된 반복 가능한\(iterable\) 실행의 컬렉션. 일반적으로 Api.runs 방법을 통해 간접적으로 사용됩니다.
 
 ### Run Objects
 
@@ -261,33 +222,28 @@ An iterable collection of runs associated with a project and optional filter. Th
 class Run(Attrs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L804)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L804)​
 
-A single run associated with an entity and project.
+개체 및 프로젝트와 연관된 단일 실행
 
-**Attributes**:
+ **속성**:
 
-* `tags` _\[str\]_ - a list of tags associated with the run
-* `url` _str_ - the url of this run
-* `id` _str_ - unique identifier for the run \(defaults to eight characters\)
-* `name` _str_ - the name of the run
-* `state` _str_ - one of: running, finished, crashed, aborted
-* `config` _dict_ - a dict of hyperparameters associated with the run
-* `created_at` _str_ - ISO timestamp when the run was started
-* `system_metrics` _dict_ - the latest system metrics recorded for the run
-* `summary` _dict_ - A mutable dict-like property that holds the current summary.
-
-  Calling update will persist any changes.
-
-* `project` _str_ - the project associated with the run
-* `entity` _str_ - the name of the entity associated with the run
-* `user` _str_ - the name of the user who created the run
-* `path` _str_ - Unique identifier \[entity\]/\[project\]/\[run\_id\]
-* `notes` _str_ - Notes about the run
-* `read_only` _boolean_ - Whether the run is editable
-* `history_keys` _str_ - Keys of the history metrics that have been logged
-
-  with `wandb.log({key: value})`
+* `tags` _\[str\]_ - 실행과 연관된 태그 리스트
+* `url` _str_ - 이 실행의 url
+* `id` _str_ - 실행에 대한 고유 식별자\(identifier\) \(기본값으로 8자까지\)
+* `name` _str_ - 실행 이름
+* `state` _str_ - 다음 중 하나입니다: running\(실행 중\), finished\(완료됨\), crashed\(완료됨\), aborted\(중단됨\)
+* `config` _dict_ - 실행과 연관된 초매개변수의 dict
+* `created_at` _str_ - 실행이 시작 됐을때 ISO 타임스탬프
+* `system_metrics` _dict_ - 실행에 대해 기록된 최신 시스템 메트릭
+* `summary` _dict_ - 현재 요약을 포함하는 변경 가능한\(mutable\) dict-like 속성\(property\). 업데이트 호출은 변경 사항을 지속합니다.
+* `project` _str_ - 실행과 연관된 프로젝트
+* `entity` _str_ - 실행과 연관된 개체의 이름
+* `user` _str_ - 실행을 생성한 유저의 이름
+* `path` _str_ - 고유 식별자\(identifier\) \[entity\]/\[project\]/\[run\_id\]
+* `notes` _str_ - 실행에 대한 메모
+* `read_only` _boolean_ - 실행의 편집 가능 여부
+* `history_keys` _str_ -  `wandb.log({key: value})`와 함께 로그된 히스토리 메트릭의 키
 
 **\_\_init\_\_**
 
@@ -295,9 +251,9 @@ A single run associated with an entity and project.
  | __init__(client, entity, project, run_id, attrs={})
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L829)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L829)​ 
 
-Run is always initialized by calling api.runs\(\) where api is an instance of wandb.Api
+실행은 항상 api.runs\(\)을 호출하여 초기화되며, 여기서 api는 wandb.Api의 인스턴스입니다.
 
 **create**
 
@@ -306,9 +262,9 @@ Run is always initialized by calling api.runs\(\) where api is an instance of wa
  | create(cls, api, run_id=None, project=None, entity=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L887)
+ [\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L887)​
 
-Create a run for the given project
+지정된 프로젝트에 대한 실행을 생성합니다
 
 **update**
 
@@ -317,9 +273,9 @@ Create a run for the given project
  | update()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L993)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L993)​
 
-Persists changes to the run object to the wandb backend.
+ wandb 백엔드에 대한 실행 객체의 변경 사항을 지속합니다.
 
 **files**
 
@@ -328,16 +284,16 @@ Persists changes to the run object to the wandb backend.
  | files(names=[], per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1070)
+  ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1070)​
 
-**Arguments**:
+**전달인자**:
 
-* `names` _list_ - names of the requested files, if empty returns all files
-* `per_page` _int_ - number of results per page
+* `names` _list_ - 요청된 파일의 이름이며, 비어있는 경우 모든 파일을 반환합니다.
+* `per_page` _int_ - 페이지 당 결과 개수
 
-**Returns**:
+ **반환**:
 
-A `Files` object, which is an iterator over `File` obejcts.
+`Files` 객체이며, `File` 객체에 대한 이터레이터\(iterator\)입니다.
 
 **file**
 
@@ -346,15 +302,15 @@ A `Files` object, which is an iterator over `File` obejcts.
  | file(name)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1082)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1082)
 
-**Arguments**:
+ **전달인자**:
 
-* `name` _str_ - name of requested file.
+* `name` _str_ - 요청된 파일의 이름.
 
-**Returns**:
+ **반환**:
 
-A `File` matching the name argument.
+이름 전달인자와 일치하는 `File`
 
 **upload\_file**
 
@@ -363,20 +319,16 @@ A `File` matching the name argument.
  | upload_file(path, root=".")
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1093)
+ [\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1093)​
 
-**Arguments**:
+ **전달인자**:
 
-* `path` _str_ - name of file to upload.
-* `root` _str_ - the root path to save the file relative to.  i.e.
+* `path` _str_ - 업로드할 파일 이름
+* `root` _str_ - 관련된 파일을 저장할 루트 경로. 즉, "my\_dir/file.txt"로 실행에 파일을 저장하고 현재 "my\_dir"에 있는 경우, 루트를 "../"로 설정할 수 있습니다.
 
-  If you want to have the file saved in the run as "my\_dir/file.txt"
+ **반환**:
 
-  and you're currently in "my\_dir" you would set root to "../"
-
-**Returns**:
-
-A `File` matching the name argument.
+ 이름 전달인자와 일치하는 `File`
 
 **history**
 
@@ -385,21 +337,21 @@ A `File` matching the name argument.
  | history(samples=500, keys=None, x_axis="_step", pandas=True, stream="default")
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1116)
+ [\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1116)​
 
-Returns sampled history metrics for a run. This is simpler and faster if you are ok with the history records being sampled.
+ 실행에 대하여 샘플링된 히스토리 메트릭을 반환합니다. 히스토리 기록이 샘플링돼도 괜찮은 경우 이는 더 간단하고 빠른 방법입니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `samples` _int, optional_ - The number of samples to return
-* `pandas` _bool, optional_ - Return a pandas dataframe
-* `keys` _list, optional_ - Only return metrics for specific keys
-* `x_axis` _str, optional_ - Use this metric as the xAxis defaults to \_step
-* `stream` _str, optional_ - "default" for metrics, "system" for machine metrics
+* `samples` _int, optional_ - 반환할 샘플 개수
+* `pandas` _bool, optional_ - 판다스\(pandas\) 데이터프레임을 반환합니다
+* `keys` _list, optional_ - 특정 키에 대한 메트릭만 반환합니다
+* `x_axis` _str, optional_ - 이 메트릭을 xAxis로 사용합니다. 기본값은 \_step입니다.
+* `stream` _str, optional_ - 메트릭의 경우 “default”, 머신 메트릭의 경우 “system”
 
-**Returns**:
+**반환**:
 
-If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics.
+ pandas=True가 히스토리 메트릭의 `pandas.DataFrame`를 반환하는 경우. pandas=False가 히스토리 메트릭의 dicts 리스트를 반환하는 경우.
 
 **scan\_history**
 
@@ -408,13 +360,13 @@ If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False 
  | scan_history(keys=None, page_size=1000, min_step=None, max_step=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1150)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1150)​
 
-Returns an iterable collection of all history records for a run.
+실행에 대한 반복 가능한\(iterable\) 모든 히스토리 기록의 컬렉션을 반환합니다.
 
-**Example**:
+ **예시**:
 
-Export all the loss values for an example run
+예시 실행에 대한 모든 손실 값을 내보냅니다
 
 ```python
 run = api.run("l2k2/examples-numpy-boston/i0wt6xua")
@@ -422,14 +374,14 @@ history = run.scan_history(keys=["Loss"])
 losses = [row["Loss"] for row in history]
 ```
 
-**Arguments**:
+**전달인자**:
 
-* `keys` _\[str\], optional_ - only fetch these keys, and only fetch rows that have all of keys defined.
-* `page_size` _int, optional_ - size of pages to fetch from the api
+* `keys` _\[str\], optional_ - 이 키들만 가져오며, 모든 키가 정의된 행만 가져옵니다.
+* `page_size` _int, optional_ - api에서 가져올 페이지의 사이즈
 
-**Returns**:
+ **반환**:
 
-An iterable collection over history records \(dict\).
+A히스토리 기록 \(dict\)에 대한 반복 가능한 컬렉션
 
 **use\_artifact**
 
@@ -438,19 +390,17 @@ An iterable collection over history records \(dict\).
  | use_artifact(artifact)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1207)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1207)​
 
-Declare an artifact as an input to a run.
+실행에 대한 입력으로 아티팩트를 선언\(declare\) 합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `artifact` _`Artifact`_ - An artifact returned from
+* `artifact` _`Artifact`_ - `wandb.Api().artifact(name)` 에서 반환된 아티팩트
 
-  `wandb.Api().artifact(name)`
+ **반환**:
 
-**Returns**:
-
-A `Artifact` object.
+ `Artifact` 객체.
 
 **log\_artifact**
 
@@ -459,21 +409,18 @@ A `Artifact` object.
  | log_artifact(artifact, aliases=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1234)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1234)​ 
 
-Declare an artifact as output of a run.
+실행의 출력으로 아티팩트를 선언합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `artifact` _`Artifact`_ - An artifact returned from
+* `artifact` _`Artifact`_ - `wandb.Api().artifact(name)`에서 반환된 아티팩트
+* `aliases` _list, optional_ - 이 아티팩트에 적용할 별칭\(aliases\)
 
-  `wandb.Api().artifact(name)`
+**반환**:
 
-* `aliases` _list, optional_ - Aliases to apply to this artifact
-
-**Returns**:
-
-A `Artifact` object.
+ `Artifact` 객체
 
 ### Sweep Objects
 
@@ -481,16 +428,16 @@ A `Artifact` object.
 class Sweep(Attrs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1314)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1314)​
 
-A set of runs associated with a sweep Instantiate with: api.sweep\(sweep\_path\)
+스윕과 연관된 일련의 실행으로 다음과 함께 인스턴트화합니다: api.sweep\(sweep\_path\)
 
-**Attributes**:
+ **속성**:
 
-* `runs` _`Runs`_ - list of runs
-* `id` _str_ - sweep id
-* `project` _str_ - name of project
-* `config` _str_ - dictionary of sweep configuration
+* `runs` _`Runs`_ - 실행의 리스트
+* `id` _str_ - 스윕 id
+* `project` _str_ - 프로젝트 이름
+* `config` _str_ - 스윕 구성 사전
 
 **best\_run**
 
@@ -498,9 +445,9 @@ A set of runs associated with a sweep Instantiate with: api.sweep\(sweep\_path\)
  | best_run(order=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1400)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1400)​
 
-Returns the best run sorted by the metric defined in config or the order passed in
+성에 정의된 메트릭 또는 전달된 순서로 정렬된 최적의 실행을 반환합니다
 
 **get**
 
@@ -509,9 +456,9 @@ Returns the best run sorted by the metric defined in config or the order passed 
  | get(cls, client, entity=None, project=None, sid=None, withRuns=True, order=None, query=None, **kwargs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1440)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1440)​
 
-Execute a query against the cloud backend
+클라우드 백엔드에 대한 쿼리를 수행합니다
 
 ### Files Objects
 
@@ -519,9 +466,9 @@ Execute a query against the cloud backend
 class Files(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1495)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1495)
 
-Files is an iterable collection of `File` objects.
+파일은 반복 가능한 `File` 객체의 컬렉션입니다.
 
 ### File Objects
 
@@ -529,18 +476,18 @@ Files is an iterable collection of `File` objects.
 class File(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1561)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1561)
 
-File is a class associated with a file saved by wandb.
+파일은 wandb에 의해 저장된 파일과 연관된 클래스입니다.
 
-**Attributes**:
+ **속성**:
 
-* `name` _string_ - filename
-* `url` _string_ - path to file
+* `name` _string_ - 파일 이름
+* `url` _string_ - 파일 경로
 * `md5` _string_ - md5 of file
-* `mimetype` _string_ - mimetype of file
-* `updated_at` _string_ - timestamp of last update
-* `size` _int_ - size of file in bytes
+* `mimetype` _string_ - 파일의 mime 타입
+* `updated_at` _string_ - 마지막 업데이트의 타임스탬프
+* `size` _int_ - 파일 사이즈 \(바이트\)
 
 **download**
 
@@ -554,21 +501,18 @@ File is a class associated with a file saved by wandb.
  | download(root=".", replace=False)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1618)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1618)
 
-Downloads a file previously saved by a run from the wandb server.
+wandb 서버에서 실행에 의해 이전에 저장된 파일을 다운로드합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `replace` _boolean_ - If `True`, download will overwrite a local file
+* `replace` _boolean_ - `True`인 경우, 다운로드는 존재하는 경우 로컬파일을 덮어 씁니다. 기본값은 `False`입니다.
+* `root` _str_ - 파일을 저장할 로컬 디렉토리. 기본값은 “.”입니다.
 
-  if it exists. Defaults to `False`.
+**발생\(Raises\)**:
 
-* `root` _str_ - Local directory to save the file.  Defaults to ".".
-
-**Raises**:
-
-`ValueError` if file already exists and replace=False
+파일이 이미 존재하고 replace=False인 경우 `ValuError`
 
 ### Reports Objects
 
@@ -576,9 +520,9 @@ Downloads a file previously saved by a run from the wandb server.
 class Reports(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1641)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1641)​
 
-Reports is an iterable collection of `BetaReport` objects.
+리포트는 반복 가능한 `BetaRepor`t 객체의 컬렉션
 
 ### QueryGenerator Objects
 
@@ -586,9 +530,9 @@ Reports is an iterable collection of `BetaReport` objects.
 class QueryGenerator(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1721)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1721)​
 
-QueryGenerator is a helper object to write filters for runs
+QueryGenerator는 실행에 대한 필터를 작성하는 헬퍼\(helper\) 객체입니다.
 
 ### BetaReport Objects
 
@@ -596,19 +540,19 @@ QueryGenerator is a helper object to write filters for runs
 class BetaReport(Attrs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1818)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1818)​
 
-BetaReport is a class associated with reports created in wandb.
+BetaReport는 wandb에 생성된 리포트와 연관된 클래스입니다.
 
-WARNING: this API will likely change in a future release
+경고: 이 API는 향후 출시 시에 변경될 수 있습니다
 
-**Attributes**:
+ **속성**:
 
-* `name` _string_ - report name
-* `description` _string_ - report descirpiton;
-* `user` _User_ - the user that created the report
-* `spec` _dict_ - the spec off the report;
-* `updated_at` _string_ - timestamp of last update
+* `name` _string_ - 리포트 이름
+* `description` _string_ - 리포트 설명
+* `user` _User_ - 리포트를 생성한 사용자
+* `spec` _dict_ - 리포트의 스펙\(spec\)
+* `updated_at` _string_ - 마지막 업데이트의 타임스탬프
 
 ### ArtifactType Objects
 
@@ -616,7 +560,7 @@ WARNING: this API will likely change in a future release
 class ArtifactType(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2282)
+ [\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2282)​
 
 **collections**
 
@@ -625,9 +569,9 @@ class ArtifactType(object)
  | collections(per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2337)
+ [\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2337) 
 
-Artifact collections
+아티팩트 컬렉션
 
 ### ArtifactCollection Objects
 
@@ -635,7 +579,7 @@ Artifact collections
 class ArtifactCollection(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2352)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2352)​
 
 **versions**
 
@@ -644,9 +588,9 @@ class ArtifactCollection(object)
  | versions(per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2366)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2366)​
 
-Artifact versions
+아티팩트 버전
 
 ### Artifact Objects
 
@@ -654,7 +598,7 @@ Artifact versions
 class Artifact(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2381)
+​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2381)​
 
 **delete**
 
@@ -662,9 +606,9 @@ class Artifact(object)
  | delete()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2534)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2534)​
 
-Delete artifact and it's files.
+아티팩트를 삭제하며 파일입니다.
 
 **get**
 
@@ -674,15 +618,15 @@ Delete artifact and it's files.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2628)
 
-Returns the wandb.Media resource stored in the artifact. Media can be stored in the artifact via Artifact\#add\(obj: wandbMedia, name: str\)\`
+아티팩트에 저장된 wandb.Media 리소스를 반환합니다. Media을 Artifact\#add\(obj: wandbMedia, name: str\)\`를 통해 아티팩트에 저장할 수 있습니다.
 
-**Arguments**:
+**전달인자**:
 
-* `name` _str_ - name of resource.
+* `name` _str_ - 리소스의 이름
 
-**Returns**:
+ **반환**:
 
-A `wandb.Media` which has been stored at `name`
+name에 저장되어 있는 `wandb.Media`
 
 **download**
 
@@ -690,19 +634,17 @@ A `wandb.Media` which has been stored at `name`
  | download(root=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2663)
+ ​[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2663)​
 
-Download the artifact to dir specified by the 
+아티팩트를 the로 지정된 dir에 다운로드합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `root` _str, optional_ - directory to download artifact to. If None
+* `root` _str, optional_ - 아티팩트를 다운로드할 디렉토리. None인 경우, 아티팩트는 './artifacts//'로 다운로드됩니다.
 
-  artifact will be downloaded to './artifacts//'
+ **반환**:
 
-**Returns**:
-
-The path to the downloaded contents.
+다운로드된 콘텐츠의 경로
 
 **file**
 
@@ -710,19 +652,17 @@ The path to the downloaded contents.
  | file(root=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2702)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2702)​
 
-Download a single file artifact to dir specified by the 
+단일 파일 아티팩트를 the로 지정된 dir에 다운로드합니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `root` _str, optional_ - directory to download artifact to. If None
+* `root` _str, optional_ - 아티팩트를 다운로드할 디렉토리. None인 경우, 아티팩트는 './artifacts//'로 다운로드됩니다
 
-  artifact will be downloaded to './artifacts//'
+**반환**:
 
-**Returns**:
-
-The full path of the downloaded file
+다운로드한 파일의 전체 경로
 
 **save**
 
@@ -731,9 +671,9 @@ The full path of the downloaded file
  | save()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2737)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2737)​
 
-Persists artifact changes to the wandb backend.
+wandb 백엔드에 대한 아티팩트 변경 사항을 지속합니다.
 
 **verify**
 
@@ -741,17 +681,15 @@ Persists artifact changes to the wandb backend.
  | verify(root=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2776)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2776)​
 
-Verify an artifact by checksumming its downloaded contents.
+아티팩트의 다운로드된 콘텐츠를 체크섬\(checksumming\)하여 아티팩트를 인증합니다.
 
-Raises a ValueError if the verification fails. Does not verify downloaded reference files.
+인증에 실패한 경우 ValueError가 발생합니다. 다운로드된 참조 파일을 인증하지 않습니다.
 
-**Arguments**:
+ **전달인자**:
 
-* `root` _str, optional_ - directory to download artifact to. If None
-
-  artifact will be downloaded to './artifacts//'
+* `root` _str, optional_ - 아티팩트를 다운로드할 디렉토리. None인 경우, 아티팩트는 './artifacts//'로 다운로드됩니다
 
 ### ArtifactVersions Objects
 
@@ -759,7 +697,7 @@ Raises a ValueError if the verification fails. Does not verify downloaded refere
 class ArtifactVersions(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2930)
+[\[소스\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2930)
 
-An iterable collection of artifact versions associated with a project and optional filter. This is generally used indirectly via the `Api`.artifact\_versions method
+프로젝트 및 선택적 필터와 연관된 반복 가능한 아티팩트 버전의 컬렉션. 일반적으로 Api.artifact\_versions 방식을 통해 간접적으로 사용됩니다.
 
