@@ -8,7 +8,7 @@ description: wandb.apis.public
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1)
 
-### Api Objects
+### APIオブジェクト
 
 ```python
 class Api(object)
@@ -16,25 +16,23 @@ class Api(object)
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L181)
 
-Used for querying the wandb server.
+wandbサーバーのクエリに使用されます。
 
-**Examples**:
+ **例：**
 
-Most common way to initialize
+ 初期化する最も一般的な方法
 
 ```text
 wandb.Api()
 ```
 
-**Arguments**:
+ **引数：**
 
-* `overrides` _dict_ - You can set `base_url` if you are using a wandb server
+* `overrides` -[https://api.wandb.ai](https://api.wandb.ai/)以外のwandbサーバーを使用している場合は、base\_urlを設定できます。
 
-  other than [https://api.wandb.ai](https://api.wandb.ai).
+  エンティティ、プロジェクト、および試行のデフォルトを設定することもできます。
 
-  You can also set defaults for `entity`, `project`, and `run`.
-
-**flush**
+ **完了**
 
 ```python
  | flush()
@@ -42,9 +40,9 @@ wandb.Api()
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L276)
 
-The api object keeps a local cache of runs, so if the state of the run may change while executing your script you must clear the local cache with `api.flush()` to get the latest values associated with the run.
+apiオブジェクトは試行のローカルキャッシュを保持するため、スクリプトの試行中に試行の状態が変更される可能性がある場合は、`api.flush（）`を使用してローカルキャッシュをクリアし、試行に関連付けられた最新の値を取得する必要があります。
 
-**projects**
+ **プロジェクト**
 
 ```python
  | projects(entity=None, per_page=200)
@@ -52,23 +50,18 @@ The api object keeps a local cache of runs, so if the state of the run may chang
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L338)
 
-Get projects for a given entity.
+ 特定のエンティティのプロジェクトを取得します。
 
-**Arguments**:
+ **引数：**
 
-* `entity` _str_ - Name of the entity requested.  If None will fallback to
+* `entity` _str_ -–要求されたエンティティの名前。Noneの場合、Apiに渡されたデフォルトエンティティにフォールバックします。デフォルトのエンティティがない場合、ValueErrorが発生します。
+* `per_page` _int_ - クエリページネーションのページサイズを設定します。デフォルトのサイズを使用するものはありません。通常、これを変更する理由はありません。
 
-  default entity passed to `Api`.  If no default entity, will raise a `ValueError`.
+**戻り値：**
 
-* `per_page` _int_ - Sets the page size for query pagination.  None will use the default size.
+`Project`オブジェクトの反復可能なコレクションである`Projects`オブジェクト。
 
-  Usually there is no reason to change this.
-
-**Returns**:
-
-A `Projects` object which is an iterable collection of `Project` objects.
-
-**reports**
+**レポート**
 
 ```python
  | reports(path="", name=None, per_page=50)
@@ -76,23 +69,23 @@ A `Projects` object which is an iterable collection of `Project` objects.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L360)
 
-Get reports for a given project path.
+特定のプロジェクトパスのレポートを取得します。
 
-WARNING: This api is in beta and will likely change in a future release
+警告：このAPIはベータ版であり、将来のリリースで変更される可能性があります
 
-**Arguments**:
+ **引数：**
 
-* `path` _str_ - path to project the report resides in, should be in the form: "entity/project"
-* `name` _str_ - optional name of the report requested.
-* `per_page` _int_ - Sets the page size for query pagination.  None will use the default size.
+* `path` _str_ - レポートが存在するプロジェクトへのパス。「エンティティ/プロジェクト」の形式である必要があります。
+* `name` _str_ - 要求されたレポートのオプションの名前。
+* `per_page` _int_ - クエリページネーションのページサイズを設定します。 デフォルトのサイズを使用するものはありません。
 
-  Usually there is no reason to change this.
+  通常、これを変更する理由はありません。
 
-**Returns**:
+**戻り値：**
 
-A `Reports` object which is an iterable collection of `BetaReport` objects.
+`BetaReport`オブジェクトの反復可能なコレクションである`Reports`オブジェクト。
 
-**runs**
+試行
 
 ```python
  | runs(path="", filters={}, order="-created_at", per_page=50)
@@ -100,57 +93,55 @@ A `Reports` object which is an iterable collection of `BetaReport` objects.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L393)
 
-Return a set of runs from a project that match the filters provided. You can filter by `config.*`, `summary.*`, `state`, `entity`, `createdAt`, etc.
+提供されたフィルターに一致するプロジェクトからの一連の試行を返します。`config.*`, `summary.*`, `state`, `entity`, `createdAt`などでフィルタリングできます。
 
-**Examples**:
+**例**:
 
-Find runs in my\_project config.experiment\_name has been set to "foo"
+my\_projectでの検索の試行config.experiment\_nameが「foo」に設定されている
 
 ```text
 api.runs(path="my_entity/my_project", {"config.experiment_name": "foo"})
 ```
 
-Find runs in my\_project config.experiment\_name has been set to "foo" or "bar"
+my\_projectでの検索の試行config.experiment\_nameが「foo」または「bar」に設定されている
 
 ```text
 api.runs(path="my_entity/my_project",
 - `{"$or"` - [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
 ```
 
-Find runs in my\_project sorted by ascending loss
+損失の昇順でソートされたmy\_projectの試行を検索
 
 ```text
 api.runs(path="my_entity/my_project", {"order": "+summary_metrics.loss"})
 ```
 
-**Arguments**:
+**引数：**
 
-* `path` _str_ - path to project, should be in the form: "entity/project"
-* `filters` _dict_ - queries for specific runs using the MongoDB query language.
+* `path`  str-プロジェクトへのパス。「entity/project」の形式である必要があります。
+* `filters` dict-MongoDBクエリ言語を使用した特定の試行のクエリ。
 
-  You can filter by run properties such as config.key, summary\_metrics.key, state, entity, createdAt, etc.
+  config.key、summary\_metrics.key、state、entity、createdAtなどの試行プロパティでフィルタリングできます。
 
-  For example: {"config.experiment\_name": "foo"} would find runs with a config entry
+  例：{"config.experiment\_name"："foo"}は、構成エントリを含む試行を検索します
 
-  of experiment name set to "foo"
+  実験名を「foo」に設定
 
-  You can compose operations to make more complicated queries,
+  より複雑なクエリを作成するための操作を作成できます。
 
-  see Reference for the language is at  [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)
+  言語のリファレンスは[https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)にありますを参照してください。
 
-* `order` _str_ - Order can be `created_at`, `heartbeat_at`, `config.*.value`, or `summary_metrics.*`.
+* order str-順序はcreated\_at、heartbeat\_at、config。_。value、またはsummary\_metrics。_にすることができます。注文の前に+を付けると、注文が昇順になります。
 
-  If you prepend order with a + order is ascending.
+  順序の前に-を付けると、順序は降順になります（デフォルト）。
 
-  If you prepend order with a - order is descending \(default\).
+  デフォルトの順序は、新しいものから古いものへのrun.created\_atです。
 
-  The default order is run.created\_at from newest to oldest.
+ **戻り値：**
 
-**Returns**:
+Runsオブジェクト。これは、`Run`オブジェクトの反復可能なコレクションです。
 
-A `Runs` object, which is an iterable collection of `Run` objects.
-
-**run**
+ **試行**
 
 ```python
  | @normalize_exceptions
@@ -159,21 +150,17 @@ A `Runs` object, which is an iterable collection of `Run` objects.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L445)
 
-Returns a single run by parsing path in the form entity/project/run\_id.
+entity/project/run\_idの形式でパスを解析することにより、単一の試行を返します。
 
-**Arguments**:
+ **引数：**
 
-* `path` _str_ - path to run in the form entity/project/run\_id.
+* `path` str-entity/project/run\_idの形式で試行するパス。api.entityが設定されている場合、これはproject/run\_idの形式にすることができ、api.projectが設定されている場合、これは単にrun\_idにすることができます。.
 
-  If api.entity is set, this can be in the form project/run\_id
+**戻り値：**
 
-  and if api.project is set this can just be the run\_id.
+ `Run`オブジェクト。
 
-**Returns**:
-
-A `Run` object.
-
-**sweep**
+ **スイープ**
 
 ```python
  | @normalize_exceptions
@@ -182,21 +169,17 @@ A `Run` object.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L462)
 
-Returns a sweep by parsing path in the form entity/project/sweep\_id.
+entity/project/sweep\_idの形式でパスを解析してスイープを返します。
 
-**Arguments**:
+ **引数：**
 
-* `path` _str, optional_ - path to sweep in the form entity/project/sweep\_id.  If api.entity
+* `path` _str_、オプション-entity / project/sweep\_idの形式でスイープするパス。api.entityが設定されている場合、これはproject/swap\_idの形式にすることができ、api.projectが設定されている場合、これは単にsweep\_idにすることができます。
 
-  is set, this can be in the form project/sweep\_id and if api.project is set
+ **戻り値：**
 
-  this can just be the sweep\_id.
+スイープオブジェクト。
 
-**Returns**:
-
-A `Sweep` object.
-
-**artifact**
+**アーティファクト**
 
 ```python
  | @normalize_exceptions
@@ -205,27 +188,21 @@ A `Sweep` object.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L496)
 
-Returns a single artifact by parsing path in the form entity/project/run\_id.
+entity/project/run\_idの形式でパスを解析することにより、単一のアーティファクトを返します。
 
-**Arguments**:
+**引数：**
 
-* `name` _str_ - An artifact name. May be prefixed with entity/project. Valid names
+* name str -アーティファクト名。接頭辞としてエンティティ/プロジェクトを付けることができます。有効な名前は次の形式にすることができます。
+* 名前：バージョン
+* 名前：エイリアス
+* ダイジェスト
+* type str、オプション-フェッチするアーティファクトのタイプ。
 
-  can be in the following forms:
+ **戻り値：**
 
-  name:version
+ アーティファクトオブジェクト。
 
-  name:alias
-
-  digest
-
-* `type` _str, optional_ - The type of artifact to fetch.
-
-**Returns**:
-
-A `Artifact` object.
-
-### Projects Objects
+###  プロジェクトオブジェクト
 
 ```python
 class Projects(Paginator)
@@ -233,9 +210,9 @@ class Projects(Paginator)
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L616)
 
-An iterable collection of `Project` objects.
+ `Project`オブジェクトの反復可能なコレクション。
 
-### Project Objects
+###  プロジェクトオブジェクト
 
 ```python
 class Project(Attrs)
@@ -243,9 +220,9 @@ class Project(Attrs)
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L678)
 
-A project is a namespace for runs
+プロジェクトは試行用の名前空間です
 
-### Runs Objects
+###  オブジェクトを試行します
 
 ```python
 class Runs(Paginator)
@@ -253,9 +230,9 @@ class Runs(Paginator)
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L699)
 
-An iterable collection of runs associated with a project and optional filter. This is generally used indirectly via the `Api`.runs method
+ プロジェクトとオプションのフィルターに関連付けられた試行の反復可能なコレクション。これは通常、`Api.`runsメソッドを介して間接的に使用されます
 
-### Run Objects
+###  オブジェクトの試行
 
 ```python
 class Run(Attrs)
@@ -263,31 +240,31 @@ class Run(Attrs)
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L804)
 
-A single run associated with an entity and project.
+エンティティとプロジェクトに関連付けられた単一の試行。
 
-**Attributes**:
+ **属性：**
 
-* `tags` _\[str\]_ - a list of tags associated with the run
-* `url` _str_ - the url of this run
-* `id` _str_ - unique identifier for the run \(defaults to eight characters\)
-* `name` _str_ - the name of the run
-* `state` _str_ - one of: running, finished, crashed, aborted
-* `config` _dict_ - a dict of hyperparameters associated with the run
-* `created_at` _str_ - ISO timestamp when the run was started
-* `system_metrics` _dict_ - the latest system metrics recorded for the run
-* `summary` _dict_ - A mutable dict-like property that holds the current summary.
+* `tags` _\[str\]_ - 試行に関連付けられたタグのリスト
+* `url` _str_ - この試行のURL
+* `id` _str_ - 試行のユニークの識別子（デフォルトは8文字）
+* `name` _str_ - 試行の名前
+* `state` _str_ - 試行中、終了、クラッシュ、中止のいずれか
+* `config` _dict_ - 試行に関連付けられたハイパーパラメータのdict
+* `created_at` _str_ - 試行が開始されたときのISOタイムスタンプ
+* `system_metrics` _dict_ - 試行のために記録された最新のシステムメトリック
+* `summary` _dict_ - 現在の要約を保持する可変のdictのようなプロパティ。
 
-  Calling update will persist any changes.
+  updateを呼び出すと、変更が保持されます。
 
-* `project` _str_ - the project associated with the run
-* `entity` _str_ - the name of the entity associated with the run
-* `user` _str_ - the name of the user who created the run
-* `path` _str_ - Unique identifier \[entity\]/\[project\]/\[run\_id\]
-* `notes` _str_ - Notes about the run
-* `read_only` _boolean_ - Whether the run is editable
-* `history_keys` _str_ - Keys of the history metrics that have been logged
+* `project` _str_ - 試行に関連付けられたプロジェクト
+* `entity` _str_ - 試行に関連付けられたエンティティの名前
+* `user` _str_ - 試行を作成したユーザーの名前
+* `path` _str_ - ユニークの識別子\[entity\]/\[project\]/\[run\_id\]
+* `notes` _str_ - 試行に関するメモ
+* `read_only` _boolean_ - 試行が編集可能かどうか
+* `history_keys` _str_ - ログに記録された履歴メトリックのキー
 
-  with `wandb.log({key: value})`
+  wandb.log（{key：value}）を使用  
 
 **\_\_init\_\_**
 
@@ -297,9 +274,9 @@ A single run associated with an entity and project.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L829)
 
-Run is always initialized by calling api.runs\(\) where api is an instance of wandb.Api
+試行は常にapi.runs（）を呼び出すことによって初期化されます。ここで、apiはwandb.Apiのインスタンスです。
 
-**create**
+**作成する**
 
 ```python
  | @classmethod
@@ -308,9 +285,9 @@ Run is always initialized by calling api.runs\(\) where api is an instance of wa
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L887)
 
-Create a run for the given project
+ 指定されたプロジェクトの試行を作成します
 
-**update**
+ **更新**
 
 ```python
  | @normalize_exceptions
@@ -319,9 +296,9 @@ Create a run for the given project
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L993)
 
-Persists changes to the run object to the wandb backend.
+試行オブジェクトへの変更をwandbバックエンドに永続化します。
 
-**files**
+**ファイル**
 
 ```python
  | @normalize_exceptions
@@ -330,16 +307,16 @@ Persists changes to the run object to the wandb backend.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1070)
 
-**Arguments**:
+ **引数：**
 
-* `names` _list_ - names of the requested files, if empty returns all files
-* `per_page` _int_ - number of results per page
+* `names` _list_ - 空の場合はすべてのファイルを返す場合、要求されたファイルの名前
+* `per_page` ページあたりの結果の数
 
-**Returns**:
+ **戻り値：**
 
-A `Files` object, which is an iterator over `File` obejcts.
+`File`オブジェクトのイテレータである`Files`オブジェクト。
 
-**file**
+ **ファイル**
 
 ```python
  | @normalize_exceptions
@@ -348,13 +325,13 @@ A `Files` object, which is an iterator over `File` obejcts.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1082)
 
-**Arguments**:
+ **引数：**
 
-* `name` _str_ - name of requested file.
+* `name` _str_ - 要求されたファイルの名前。
 
-**Returns**:
+ **戻り値：**
 
-A `File` matching the name argument.
+name引数に一致するファイル。
 
 **upload\_file**
 
@@ -365,18 +342,14 @@ A `File` matching the name argument.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1093)
 
-**Arguments**:
+**引数：**
 
-* `path` _str_ - name of file to upload.
-* `root` _str_ - the root path to save the file relative to.  i.e.
+* `path` _str_ - アップロードするファイルの名前。
+* `root` _str_ - ファイルを保存するためのルートパス。つまり試行時にファイルを「my\_dir/file.txt」として保存し、現在「my\_dir」にいる場合は、rootを「../」に設定します。
 
-  If you want to have the file saved in the run as "my\_dir/file.txt"
+**戻り値：**
 
-  and you're currently in "my\_dir" you would set root to "../"
-
-**Returns**:
-
-A `File` matching the name argument.
+A `File` matching the name argument. 
 
 **history**
 

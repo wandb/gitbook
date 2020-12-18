@@ -2,410 +2,410 @@
 
 ## wandb
 
-**Usage**
+ **使用法**
 
 `wandb [OPTIONS] COMMAND [ARGS]...`
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --version | Show the version and exit. |
-| --help | Show this message and exit. |
+| --version | バージョンを表示して終了します。 |
+| --help | このメッセージを表示して終了します。 |
 
-**Commands**
+**コマンド**
 
-| **Commands** | **Description** |
+| **コマンド** | **説明** |
 | :--- | :--- |
-| agent | Run the W&B agent |
-| artifact | Commands for interacting with artifacts |
-| controller | Run the W&B local sweep controller |
-| disabled | Disable W&B. |
-| docker | docker lets you run your code in a docker image ensuring... |
-| docker-run | Simple wrapper for `docker run` which sets W&B environment... |
-| enabled | Enable W&B. |
-| init | Configure a directory with Weights & Biases |
-| local | Launch local W&B container \(Experimental\) |
-| login | Login to Weights & Biases |
-| offline | Disable W&B sync |
-| online | Enable W&B sync |
-| pull | Pull files from Weights & Biases |
-| restore | Restore code, config and docker state for a run |
-| status | Show configuration settings |
-| sweep | Create a sweep |
-| sync | Upload an offline training directory to W&B |
+| agent | W＆Bエージェントを試行 |
+| artifact | アーティファクトと対話するためのコマンド |
+| controller | W＆Bローカルスイープコントローラーを試行 |
+| disabled | W＆Bを無効にします。 |
+| docker | dockerを使用すると、dockerイメージでコードを試行して... |
+| docker-run | W＆B環境を設定する`docker run`のシンプルなラッパー... |
+| enabled | W＆Bを有効にします。 |
+| init | 重みとバイアスを使用してディレクトリを構成します |
+| local | ローカルW＆Bコンテナを起動します（実験的） |
+| login | ウェイト＆バイアスにログイン |
+| offline | W＆B同期を無効にする |
+| online | W＆B同期を有効にする |
+| pull | ウェイトとバイアスからファイルをプルする |
+| restore | 試行のためにコード、構成、およびDockerの状態を復元 |
+| status | 構成設定を表示 |
+| sweep | スイープを作成 |
+| sync | オフライントレーニングディレクトリをW＆Bにアップロードします |
 
 ## wandb agent
 
-**Usage**
+**使用法**
 
 `wandb agent [OPTIONS] SWEEP_ID`
 
-**Summary**
+ **概要**
 
-Run the W&B agent
+wandbエージェント
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| -p, --project | The project of the sweep. |
-| -e, --entity | The entity scope for the project. |
-| --count | The max number of runs for this agent. |
-| --help | Show this message and exit. |
+| -p, --project | スイープのプロジェクト。 |
+| -e, --entity | プロジェクトのエンティティスコープ。 |
+| --count | このエージェントの最大試行数。 |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb artifact
 
-**Usage**
+**使用法**
 
 `wandb artifact [OPTIONS] COMMAND [ARGS]...`
 
-**Summary**
+**概要**
 
-Commands for interacting with artifacts
+アーティファクトと対話するためのコマンド
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | このメッセージを表示して終了します。 |
 
 ### wandb artifact get
 
-**Usage**
+ **使用法**
 
 `wandb artifact get [OPTIONS] PATH`
 
-**Summary**
+ **概要**
 
-Download an artifact from wandb
+wandbからアーティファクトをダウンロードする
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --root | The directory you want to download the artifact to |
-| --type | The type of artifact you are downloading |
-| --help | Show this message and exit. |
+| --root | アーティファクトをダウンロードするディレクトリ |
+| --type | ダウンロードしているアーティファクトの種類 |
+| --help | このメッセージを表示して終了します。 |
 
 ### wandb artifact ls
 
-**Usage**
+ **使用法**
 
 `wandb artifact ls [OPTIONS] PATH`
 
-**Summary**
+**概要**
 
-List all artifacts in a wandb project
+wandbプロジェクトのすべてのアーティファクトを一覧表示します
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| -t, --type | The type of artifacts to list |
-| --help | Show this message and exit. |
+| -t, --type | リストするアーティファクトのタイプ |
+| --help | このメッセージを表示して終了します。 |
 
 ### wandb artifact put
 
-**Usage**
+ **使用法**
 
 `wandb artifact put [OPTIONS] PATH`
 
-**Summary**
+ **概要**
 
-Upload an artifact to wandb
+アーティファクトをwandbにアップロードします
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| -n, --name | The name of the artifact to push: |
-| -d, --description | A description of this artifact |
-| -t, --type | The type of the artifact |
-| -a, --alias | An alias to apply to this artifact |
-| --help | Show this message and exit. |
+| -n, --name | プッシュするアーティファクトの名前： |
+| -d, --description | このアーティファクトの説明 |
+| -t, --type | アーティファクトのタイプ |
+| -a, --alias | このアーティファクトに適用するエイリアス |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb controller
 
-**Usage**
+ **使用法**
 
 `wandb controller [OPTIONS] SWEEP_ID`
 
-**Summary**
+ **概要**
 
-Run the W&B local sweep controller
+W＆Bローカルスイープコントローラーを試行する
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --verbose | Display verbose output |
-| --help | Show this message and exit. |
+| --verbose | 詳細な出力を表示する |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb disabled
 
-**Usage**
+ **使用法**
 
 `wandb disabled [OPTIONS]`
 
-**Summary**
+ **概要**
 
-Disable W&B.
+W＆Bを無効にします。
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb docker
 
-**Usage**
+**使用法**
 
 `wandb docker [OPTIONS] [DOCKER_RUN_ARGS]... [DOCKER_IMAGE]`
 
-**Summary**
+ **概要**
 
-W&B docker lets you run your code in a docker image ensuring wandb is configured. It adds the WANDB\_DOCKER and WANDB\_API\_KEY environment variables to your container and mounts the current directory in /app by default. You can pass additional args which will be added to `docker run` before the image name is declared, we'll choose a default image for you if one isn't passed:
+W＆B `docker`を使用すると、コードをdockerイメージで試行して、wandbが構成されていることを確認できます。WANDB\_DOCKERおよびWANDB\_API\_KEY環境変数をコンテナに追加し、デフォルトで現在のディレクトリを/appにマウントします。イメージ名が宣言される前にdockerrunに追加される追加の引数を渡すことができます。渡されない場合は、デフォルトのイメージが選択されます。
 
 wandb docker -v /mnt/dataset:/app/data wandb docker gcr.io/kubeflow- images-public/tensorflow-1.12.0-notebook-cpu:v0.4.0 --jupyter wandb docker wandb/deepo:keras-gpu --no-tty --cmd "python train.py --epochs=5"
 
-By default we override the entrypoint to check for the existance of wandb and install it if not present. If you pass the --jupyter flag we will ensure jupyter is installed and start jupyter lab on port 8888. If we detect nvidia-docker on your system we will use the nvidia runtime. If you just want wandb to set environment variable to an existing docker run command, see the wandb docker-run command.
+デフォルトでは、エントリポイントをオーバーライドしてwandbの存在を確認し、存在しない場合はインストールします。--jupyterフラグを渡すと、jupyterがインストールされていることを確認し、ポート8888でjupyter labを開始します。システムでnvidia-dockerが検出された場合は、nvidiaランタイムを使用します。 wandbで環境変数を既存のdockerrunコマンドに設定するだけの場合は、wandbdocker-runコマンドを参照してください。
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --nvidia | / --no-nvidia    Use the nvidia runtime, defaults to nvidia if |
-| nvidia-docker | is present |
-| --digest | Output the image digest and exit |
-| --jupyter | / --no-jupyter  Run jupyter lab in the container |
-| --dir | Which directory to mount the code in the container |
-| --no-dir | Don't mount the current directory |
-| --shell | The shell to start the container with |
-| --port | The host port to bind jupyter on |
-| --cmd | The command to run in the container |
-| --no-tty | Run the command without a tty |
-| --help | Show this message and exit. |
+| --nvidia | / --no-nvidia nvidiaランタイムを使用します。デフォルトでは、nvidiaになります。 |
+| nvidia-docker | 存在します |
+| --digest | 画像ダイジェストを出力して終了します |
+| --jupyter | /-no-jupyterコンテナでjupyterlabを試行します |
+| --dir | コンテナにコードをマウントするディレクトリ |
+| --no-dir | 現在のディレクトリをマウントしない |
+| --shell | コンテナを開始するためのシェル |
+| --port | jupyterをバインドするホストポート |
+| --cmd | コンテナで試行するコマンド |
+| --no-tty | ttyなしでコマンドを試行 |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb enabled
 
-**Usage**
+ **使用法**
 
 `wandb enabled [OPTIONS]`
 
-**Summary**
+**概要**
 
-Enable W&B.
+W＆Bを有効にします。
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --**オプション** | このメッセージを表示して終了します。 |
 
 ## wandb init
 
-**Usage**
+ **使用法**
 
 `wandb init [OPTIONS]`
 
-**Summary**
+ **概要**
 
-Configure a directory with Weights & Biases
+Weights＆Biasesを使用してディレクトリを構成します
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| -p, --project | The project to use. |
-| -e, --entity | The entity to scope the project to. |
-| --reset | Reset settings |
-| -m, --mode | Can be "online", "offline" or "disabled". Defaults to |
-| --help | Show this message and exit. |
+| -p, --project | 使用するプロジェクト。 |
+| -e, --entity | プロジェクトのスコープを設定するエンティティ。 |
+| --reset | 設定をリセット |
+| -m, --mode | 「オンライン」、「オフライン」、「無効」のいずれかになります。 デフォルトは |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb local
 
-**Usage**
+ **使用法**
 
 `wandb local [OPTIONS]`
 
-**Summary**
+ **概要**
 
-Launch local W&B container \(Experimental\)
+ローカルW＆Bコンテナを起動します（実験的）
 
 **Options**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| -p, --port | The host port to bind W&B local on |
-| -e, --env | Env vars to pass to wandb/local |
-| --daemon | / --no-daemon  Run or don't run in daemon mode |
-| --upgrade | Upgrade to the most recent version |
-| --help | Show this message and exit. |
+| -p, --port | W＆Bローカルをバインドするホストポート |
+| -e, --env | wandb/localに渡す環境変数 |
+| --daemon | / --no-daemonデーモンモードで試行するか試行しない |
+| --upgrade | 最新バージョンにアップグレードする |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb login
 
-**Usage**
+ **使用法**
 
 `wandb login [OPTIONS] [KEY]...`
 
-**Summary**
+ **概要**
 
-Login to Weights & Biases
+ ウェイト＆バイアスにログイン
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --cloud | Login to the cloud instead of local |
-| --host | Login to a specific instance of W&B |
-| --relogin | Force relogin if already logged in. |
-| --anonymously | Log in anonymously |
-| --help | Show this message and exit. |
+| --cloud | ローカルではなくクラウドにログインする |
+| --host | W＆Bの特定のインスタンスにログインします |
+| --relogin | すでにログインしている場合は、強制的に再ログインします。 |
+| --anonymously | 匿名でログインする |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb offline
 
-**Usage**
+ **使用法**
 
 `wandb offline [OPTIONS]`
 
-**Summary**
+**概要** 
 
-Disable W&B sync
+W＆B同期を無効にする
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb online
 
-**Usage**
+ **使用法**
 
 `wandb online [OPTIONS]`
 
-**Summary**
+ **概要**
 
-Enable W&B sync
+W＆B同期を有効にする
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb pull
 
-**Usage**
+ **使用法**
 
 `wandb pull [OPTIONS] RUN`
 
-**Summary**
+ **概要**
 
-Pull files from Weights & Biases
+ ウェイトとバイアスからファイルをプルする
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| オプション | **説明** |
 | :--- | :--- |
-| -p, --project | The project you want to download. |
-| -e, --entity | The entity to scope the listing to. |
-| --help | Show this message and exit. |
+| -p, --project | ダウンロードしたいプロジェクト。 |
+| -e, --entity | リストのスコープを設定するエンティティ。 |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb restore
 
-**Usage**
+ **使用法**
 
 `wandb restore [OPTIONS] RUN`
 
-**Summary**
+**概要**
 
-Restore code, config and docker state for a run
+試行のためにコード、構成、およびDockerの状態を復元します
 
-**Options**
+ **オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
 | --no-git | Skupp |
-| --branch | / --no-branch  Whether to create a branch or checkout detached |
-| -p, --project | The project you wish to upload to. |
-| -e, --entity | The entity to scope the listing to. |
-| --help | Show this message and exit. |
+| --branch | /--no-branchブランチを作成するか、チェックアウトをデタッチするか |
+| -p, --project | アップロードしたいプロジェクト。 |
+| -e, --entity | リストのスコープを設定するエンティティ。 |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb status
 
-**Usage**
+ **使用法**
 
 `wandb status [OPTIONS]`
 
-**Summary**
+ **概要**
 
-Show configuration settings
+ 構成設定を表示します
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --settings | / --no-settings  Show the current settings |
-| --help | Show this message and exit. |
+| --settings | /--no-settings現在の設定を表示します |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb sweep
 
-**Usage**
+ **使用法**
 
 `wandb sweep [OPTIONS] CONFIG_YAML`
 
-**Summary**
+**概要**
 
-Create a sweep
+スイープを作成します
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| -p, --project | The project of the sweep. |
-| -e, --entity | The entity scope for the project. |
-| --controller | Run local controller |
-| --verbose | Display verbose output |
-| --name | Set sweep name |
-| --program | Set sweep program |
-| --update | Update pending sweep |
-| --help | Show this message and exit. |
+| -p, --project | スイープのプロジェクト。 |
+| -e, --entity | プロジェクトのエンティティスコープ。 |
+| --controller | ローカルコントローラーを試行する |
+| --verbose | 詳細な出力を表示する |
+| --name | スイープ名を設定する |
+| --program | スイーププログラムを設定する |
+| --update | 保留中のスイープを更新 |
+| --help | このメッセージを表示して終了します。 |
 
 ## wandb sync
 
-**Usage**
+ **使用法**
 
 `wandb sync [OPTIONS] [PATH]...`
 
-**Summary**
+**概要**
 
-Upload an offline training directory to W&B
+オフライントレーニングディレクトリをW＆Bにアップロードします
 
-**Options**
+**オプション**
 
-| **Options** | **Description** |
+| **オプション** | **説明** |
 | :--- | :--- |
-| --id | The run you want to upload to. |
-| -p, --project | The project you want to upload to. |
-| -e, --entity | The entity to scope to. |
-| --include-globs | Comma seperated list of globs to include. |
-| --exclude-globs | Comma seperated list of globs to exclude. |
+| --id | アップロードするラン。 |
+| -p, --project | アップロードするプロジェクト。 |
+| -e, --entity | スコープするエンティティ。 |
+| --include-globs | 含めるグロブのコンマ区切りリスト。 |
+| --exclude-globs | 除外するグロブのコンマ区切りリスト。 |
 | --include-online | / --no-include-online |
-| Include | online runs |
+| Include | オンライン試行 |
 | --include-offline | / --no-include-offline |
-| Include | offline runs |
+| Include | オフライン試行 |
 | --include-synced | / --no-include-synced |
-| Include | synced runs |
+| Include | 同期された試行 |
 | --mark-synced | / --no-mark-synced |
-| Mark | runs as synced |
-| --sync-all | Sync all runs |
-| --clean | Delete synced runs |
-| --clean-old-hours | Delete runs created before this many hours. |
-| To | be used alongside --clean flag. |
-| --clean-force | Clean without confirmation prompt. |
-| --show | Number of runs to show |
-| --help | Show this message and exit. |
+| Mark | 同期として試行 |
+| --sync-all | すべての試行を同期する |
+| --clean | 同期された試行を削除する |
+| --clean-old-hours | この数時間前に作成された試行を削除します。 |
+| To | --cleanフラグと一緒に使用します。 |
+| --clean-force | 確認プロンプトなしでクリーニングします。 |
+| --show | 表示する試行数 |
+| --help | このメッセージを表示して終了します。 |
 

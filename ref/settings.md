@@ -2,36 +2,36 @@
 
 ## wandb.sdk.wandb\_settings
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L2)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L2)
 
-This module configures settings for wandb runs.
+このモジュールは、wandb試行の設定を構成します。
 
-Order of loading settings: \(differs from priority\) defaults environment wandb.setup\(settings=\) system\_config workspace\_config wandb.init\(settings=\) network\_org network\_entity network\_project
+設定の読み込み順序:\(優先度とは異なります）デフォルト環境wandb.setup（settings=）system\_config Workspace\_config wandb.init（settings =）network\_org network\_entity network\_project
 
-Priority of settings: See "source" variable.
+ 設定の優先順位：「ソース」変数を参照してください。
 
-When override is used, it has priority over non-override settings
+ オーバーライドを使用する場合、オーバーライドしない設定よりも優先されます
 
-Override priorities are in the reverse order of non-override settings
+オーバーライドの優先順位は、非オーバーライド設定の逆の順序です
 
-### Settings Objects
+###  設定オブジェクト
 
 ```python
 class Settings(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L187)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L187)
 
-Settings Constructor
+設定コンストラクター
 
-**Arguments**:
+ **引数：**
 
-* `entity` - personal user or team to use for Run.
-* `project` - project name for the Run.
+*  `エンティティ`-試行に使用する個人ユーザーまたはチーム。
+* `project` - 試行のプロジェクト名。
 
-**Raises**:
+ **レイズ：**
 
-* `Exception` - if problem.
+* `例外`‐問題がある場合。
 
 **\_\_copy\_\_**
 
@@ -39,7 +39,9 @@ Settings Constructor
  | __copy__()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L656)
+[ \[ソースを表示\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L656)
 
-Copy \(note that the copied object will not be frozen\).
+コピー（コピーされたオブジェクトはフリーズされないことに注意してください）。
+
+試行リファレンス
 

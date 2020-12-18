@@ -4,28 +4,20 @@ description: Pythonからトリガーされ、Slackまたはメールで送信�
 
 # wandb.alert\(\)
 
-PythonスクリプトからトリガーされたSlackまたはEメールアラートを送信します。
-
-1. アカウントにアラートを設定する→
-
-2. コードを試す→
-
-3. SlackまたはEメールをチェックして、スクリプト可能なアラートを確認する。
-
 ### Arguments
 
 `wandb.alert(title="Low Acc", text="Accuracy is below the expected threshold")`
 
-* **title \(string\)**: A short description of the alert, for example "Low accuracy"
-* **text \(string\)**: A longer, more detailed description of what happened to trigger the alert
-* **level \(optional\):** How important the alert is — must be either `INFO`, `WARN`, or `ERROR`
-* **wait\_duration \(optional\):** How many seconds to wait before sending another alert with the same **title.** This helps reduce alert spam.
+* **title \(string\)**: 「低精度」などのアラートについての簡単な説明
+* **text \(string\)**: アラートをトリガーするために起こったことについてのより長く、より詳細な説明
+* **level \(optional\):** アラートの重要性—`INFO`、`WARN`、または`ERROR`のいずれかである必要があります
+* **wait\_duration \(optional\):** 同じ**タイトル**の別のアラートを送信するまでに待機する秒数。これにより、アラートスパムが減ります。
 
-### Example
+###  例
 
-This simple alert sends a warning when accuracy falls below a threshold. To avoid spam, it only sends alerts at least 5 minutes apart.
+この単純なアラートは、精度がしきい値を下回るとアラートを送信します。スパムを回避するために、少なくとも5分間隔でアラートを送信します。
 
-[Run the code →](http://tiny.cc/wb-alerts)
+ [コードを試行→ ](https://colab.research.google.com/drive/1zhll1i1usBPra5CmGuPONKheFBnr6Jc4)
 
 ```python
 from datetime import timedelta

@@ -2,31 +2,32 @@
 
 ## wandb.sdk.wandb\_config
 
-[\[view\_source\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L3)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L3)
 
-config.
+ 構成
 
-### Config Objects
+###  構成オブジェクト
 
 ```python
 class Config(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L28)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L28)
 
-Config object
+ 構成オブジェクト
 
-Config objects are intended to hold all of the hyperparameters associated with a wandb run and are saved with the run object when wandb.init is called.
+構成オブジェクトは、wandb試行に関連付けられたすべてのハイパーパラメーターを保持することを目的としており、wandb.initが呼び出されたときに試行オブジェクトとともに保存されます。
 
-We recommend setting wandb.config once at the top of your training experiment or setting the config as a parameter to init, ie. wandb.init\(config=my\_config\_dict\)
+トレーニング実験の先頭で一度wandb.configを設定するか、設定をinitのパラメータとして設定することをお勧めします。例：wandb.init（config=my\_config\_dict）
 
-You can create a file called config-defaults.yaml, and it will automatically be loaded into wandb.config. See [https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs).
+config-defaults.yamlというファイルを作成すると、自動的にwandb.configに読み込まれます。[https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs)を参照してください。
 
-You can also load a config YAML file with your custom name and pass the filename into wandb.init\(config="special\_config.yaml"\). See [https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs).
+  
+カスタム名を使用して構成YAMLファイルをロードし、ファイル名をwandb.init（config="special\_config.yaml"）に渡すこともできます。[https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs)を参照してください。
 
-**Examples**:
+**例：**
 
-Basic usage
+ 基本的な使い方
 
 ```text
 wandb.config.epochs = 4
@@ -35,7 +36,7 @@ for x in range(wandb.config.epochs):
 # train
 ```
 
-Using wandb.init to set config
+ wandb.initを使用して構成を設定する
 
 ```text
 - `wandb.init(config={"epochs"` - 4, "batch_size": 32})
@@ -43,7 +44,7 @@ for x in range(wandb.config.epochs):
 # train
 ```
 
-Nested configs
+ ネストされた構成
 
 ```text
 wandb.config['train']['epochs] = 4
@@ -52,14 +53,14 @@ for x in range(wandb.config['train']['epochs']):
 # train
 ```
 
-Using absl flags
+abslフラグの使用
 
 ```text
 flags.DEFINE_string(‘model’, None, ‘model to run’) # name, default, help
 wandb.config.update(flags.FLAGS) # adds all absl flags to config
 ```
 
-Argparse flags
+ Argparseフラグ
 
 ```text
 wandb.init()
@@ -72,7 +73,7 @@ args = parser.parse_args()
 wandb.config.update(args)
 ```
 
-Using TensorFlow flags \(deprecated in tensorflow v2\)
+TensorFlowフラグの使用（tensorflow v2では非推奨）
 
 ```text
 flags = tf.app.flags
@@ -81,13 +82,13 @@ flags.DEFINE_integer('batch_size', 128, 'Batch size.')
 wandb.config.update(flags.FLAGS)  # adds all of the tensorflow flags to config
 ```
 
-**persist**
+ **持続**
 
 ```python
  | persist()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L163)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/4a4de49c33117fcbb069439edeb509d54fd41176/wandb/sdk/wandb_config.py#L163)
 
-Calls the callback if it's set
+設定されている場合はコールバックを呼び出します
 

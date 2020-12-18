@@ -2,21 +2,21 @@
 
 ## wandb.sdk.wandb\_history
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_history.py#L3)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_history.py#L3)
 
-History tracks logged data over time. To use history from your script, call wandb.log\({"key": value}\) at a single time step or multiple times in your training loop. This generates a time series of saved scalars or media that is saved to history.
+履歴は、ログに記録されたデータを経時的に追跡します。 スクリプトの履歴を使用するには、トレーニングループで単一のタイムステップまたは複数回でwandb.log（{"key"：value}）を呼び出します。これにより、履歴に保存される保存されたスカラーまたはメディアの時系列が生成されます。
 
-In the UI, if you log a scalar at multiple timesteps W&B will render these history metrics as line plots by default. If you log a single value in history, compare across runs with a bar chart.
+UIでは、複数のタイムステップでスカラーをログに記録すると、W＆Bはこれらの履歴メトリックをデフォルトでラインプロットとしてレンダリングします。履歴に単一の値を記録する場合は、試行全体を棒グラフで比較します。
 
-It's often useful to track a full time series as well as a single summary value. For example, accuracy at every step in History and best accuracy in Summary. By default, Summary is set to the final value of History.
+多くの場合、単一の要約値だけでなく、完全な時系列を追跡すると便利です。たとえば、履歴のすべてのステップでの精度と要約での最高の精度。 デフォルトでは、SummaryはHistoryの最終値に設定されています。
 
-### History Objects
+###  履歴オブジェクト
 
 ```python
 class History(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_history.py#L23)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_history.py#L3)
 
-Time series data for Runs. This is essentially a list of dicts where each dict is a set of summary statistics logged.
+試行の時系列データ。これは基本的に、各辞書がログに記録された要約統計量のセットである辞書のリストです。
 

@@ -2,39 +2,32 @@
 
 ## wandb.sdk.wandb\_login
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L3)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L3)
 
-Log in to Weights & Biases, authenticating your machine to log data to your account.
+Weights＆Biasesにログインし、マシンを認証してデータをアカウントに記録します。
 
-**login**
+ **ログイン**
 
 ```python
 login(anonymous=None, key=None, relogin=None, host=None, force=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L22)
+ [\[ソースを表示\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L22)
 
-Log in to W&B.
+ W＆Bにログインします。
 
-**Arguments**:
+**引数：**
 
-* `anonymous` _string, optional_ - Can be "must", "allow", or "never".
+*  匿名文字列、オプション-「必須」、「許可」、または「なし」にすることができます。「must」に設定されている場合は常に匿名でログインし、「allow」に設定されている場合はユーザーがまだログインしていない場合にのみ匿名ユーザーを作成します。
+* まだログインしていません。
+* `relogin` bool、オプション-trueの場合、APIキーの再プロンプトが表示されま
+* ホスト文字列、オプション-接続するホスト。
 
-  If set to "must" we'll always login anonymously, if set to
+**戻り値：**
 
-  "allow" we'll only create an anonymous user if the user
+* `bool` ーが構成されている場合
 
-  isn't already logged in.
+**レイズ：**
 
-* `key` _string, optional_ - authentication key.
-* `relogin` _bool, optional_ - If true, will re-prompt for API key.
-* `host` _string, optional_ - The host to connect to.
-
-**Returns**:
-
-* `bool` - if key is configured
-
-**Raises**:
-
-UsageError - if api\_key can not configured and no tty
+UsageError-api\_keyを構成できず、ttyがない場合
 
