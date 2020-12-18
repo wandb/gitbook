@@ -12,7 +12,7 @@ Explore the basics of Artifacts for dataset versioning and model management with
 
 [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/artifacts-fast-colab)
 
-![](../.gitbook/assets/wandb-quickstart-notebook.png)
+![](../.gitbook/assets/weights-and-biases-quickstart-colab.png)
 
 ## How it works
 
