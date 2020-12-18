@@ -4,9 +4,11 @@ description: 'Versioned data, models and results across your pipelines'
 
 # Artifacts
 
-## Overview
-
 Use W&B Artifacts to store and keep track of datasets, models, and evaluation results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems.
+
+\*\*\*\*[**Quickstart**](http://wandb.me/artifacts-fast-colab)**:** Explore the basics of Artifacts for dataset versioning and model management with a quick, interactive notebook hosted in Google Colab.
+
+[![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/artifacts-fast-colab)
 
 ## How it works
 
