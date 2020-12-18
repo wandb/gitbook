@@ -78,7 +78,7 @@ Enable CORS access: your CORS configuration should look like the following:
 </CORSConfiguration>
 ```
 
-**Grant permissions to node running W&B**
+**Grant Permissions to Node Running W&B**
 
 The node on which W&B Local is running must be configured to perrmit access to s3 and sqs. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
 
