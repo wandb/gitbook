@@ -78,6 +78,31 @@ Enable CORS access: your CORS configuration should look like the following:
 </CORSConfiguration>
 ```
 
+**Grant permissions to node running W&B**
+
+The node on which W&B Local is running must be configured to perrmit access to s3 and sqs. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
+
+```
+{
+   "Statement":[
+      {
+         "Sid":"",
+         "Effect":"Allow",
+         "Action":"s3:*",
+         "Resource":"arn:aws:s3:::<WANDB_BUCKET>"
+      },
+      {
+         "Sid":"",
+         "Effect":"Allow",
+         "Action":[
+            "sqs:*"
+         ],
+         "Resource":"arn:aws:sqs:<REGION>:<ACCOUNT>:<WANDB_QUEUE>"
+      }
+   ]
+}
+```
+
 **Configure W&B Server**
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
