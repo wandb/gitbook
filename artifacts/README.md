@@ -24,3 +24,9 @@ Here's an [example artifact](https://app.wandb.ai/shawn/detectron2-11/artifacts/
 
 To learn how to use Artifacts, check out the [Artifacts API Docs →](https://docs.wandb.com/artifacts/api)
 
+## Video Tutorial for W&B Artifacts
+
+Follow along with our interactive [tutorial](https://www.youtube.com/watch?v=Hd94gatGMic) and learn how to track your machine learning pipeline with W&B Artifacts.
+
+![](../.gitbook/assets/wandb-artifacts-video.png)
+
