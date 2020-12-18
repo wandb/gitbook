@@ -1,7 +1,5 @@
 ---
-description: >-
-  If you're already using wandb.init, wandb.config, and wandb.log in your
-  project, start here!
+description: '이미 wandb.init, wandb.config, wandb.log을 사용 중이신 경우, 여기서 시작하세요!'
 ---
 
 # Sweep from an existing project
