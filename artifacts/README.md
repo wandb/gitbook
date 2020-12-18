@@ -8,11 +8,9 @@ Use W&B Artifacts to store and keep track of datasets, models, and evaluation re
 
 ### Quickstart
 
-Explore the basics of Artifacts for dataset versioning and model management with a quick, interactive notebook hosted in Google Colab.
+[Explore the basics of Artifacts](https://wandb.ai/wandb/arttest/reports/Artifacts-Quickstart--VmlldzozNTAzMDM) for dataset versioning and model management. with a quick, interactive notebook hosted in Google Colab.
 
 [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/artifacts-fast-colab)
-
-![](../.gitbook/assets/weights-and-biases-quickstart-colab.png)
 
 ## How it works
 
