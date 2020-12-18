@@ -48,5 +48,5 @@ Launch a new sweep using existing runs that you've previously logged.
 
 Your sweep will now be set up on our server. All you need to do is launch one or more agent to start running runs.
 
-![](../.gitbook/assets/create-sweep-from-table%20%281%29.png)
+![](../.gitbook/assets/create-sweep-from-table%20%281%29%20%281%29.png)
 

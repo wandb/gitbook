@@ -130,6 +130,31 @@ gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 
 To create signed file URLs, your W&B instance also needs the `iam.serviceAccounts.signBlob` permission in GCP. You can add it by adding the `Service Account Token Creator` role to the service account or IAM member that your instance is running as.
 
+**Grant Permissions to Node Running W&B**
+
+The node on which W&B Local is running must be configured to permit access to s3 and sqs. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
+
+```text
+{
+   "Statement":[
+      {
+         "Sid":"",
+         "Effect":"Allow",
+         "Action":"s3:*",
+         "Resource":"arn:aws:s3:::<WANDB_BUCKET>"
+      },
+      {
+         "Sid":"",
+         "Effect":"Allow",
+         "Action":[
+            "sqs:*"
+         ],
+         "Resource":"arn:aws:sqs:<REGION>:<ACCOUNT>:<WANDB_QUEUE>"
+      }
+   ]
+}
+```
+
 **Configure W&B Server**
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
