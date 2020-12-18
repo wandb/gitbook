@@ -1,47 +1,48 @@
 ---
-description: Iterate on datasets and understand model predictions.
+description: データセットを反復し、モデルの予測を理解します。
 ---
 
 # Datasets & Predictions \[Early Access\]
 
-_This feature is currently in the early-access phase. You can use it in our production service at wandb.ai, with_ [_some limitations_](https://docs.wandb.com/untitled#current-limitations)_. APIs are subject to change. We'd love to hear questions, comments, and ideas! Drop us a line at_ [_feedback@wandb.com_](mailto:feedback@wandb.com)_._
+ __この機能は現在、早期アクセス段階にあります。一定の制限はありますが、wandb.aiの本番サービスで使用できます。APIは変更を前提としています。質問、コメント、アイデアをぜひお聞かせください。[feedback@wandb.com](mailto:feedback@wandb.com)までご連絡ください
 
-Data is at the core of every ML workflow. We’ve added powerful new features to W&B Artifacts to let you visualize and query datasets and model evaluations at the example level. You can use this new tool to analyze and understand your datasets, and to measure and debug model performance.
+データはすべてのMLワークフローの中核にあります。私たちは、W＆B Artifactsに強力な新機能を追加して、データセットとモデル評価をサンプルレベルで視覚化しクエリできるようにしました。この新しいツールを使用して、あなたのデータセットを分析および理解し、モデルのパフォーマンスを測定およびデバッグできます。
 
-Dive in and try an end-to-end demo: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-demo-colab)
+勇気を出して、エンドツーエンドのデモ版を試しましょう。 [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-demo-colab)
 
-![Here&apos;s a preview of the Datasets &amp; Predictions dashboard](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673880422_image.png)
+![&#x3053;&#x308C;&#x304C;&#x30C7;&#x30FC;&#x30BF;&#x30BB;&#x30C3;&#x30C8;&#x304A;&#x3088;&#x3073;&#x4E88;&#x6E2C;&#x30C0;&#x30C3;&#x30B7;&#x30E5;&#x30DC;&#x30FC;&#x30C9;&#x306E;&#x30D7;&#x30EC;&#x30D3;&#x30E5;&#x30FC;&#x3067;&#x3059;](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673880422_image.png)
 
-## How it works
+## **使い方**
 
-Our goal is to give you highly scalable, flexible and configurable tools, with rich out-of-the-box visualizations available for common tasks. The system is constructed out of:
+私たちの目標は、一般タスクで利用できる革新的で豊富な視覚化を備えた、拡張性が高く、柔軟性があり、構成可能なツールを提供することです。システムは以下のもので構築されています：
 
-* The ability to save large wandb.Table objects, optionally containing rich media \(like images with bounding boxes\), inside of W&B Artifacts.
-* Support for cross-artifact file references, and the ability to join tables together in the UI. This is used, for example, to log a set of bounding box predictions against a ground-truth dataset artifact, without duplicating the source images and labels.
-* \[future\] Backend API support for large-scale queries over tables stored in W&B Artifacts.
-* An all new “typed, run-time-swappable UI-panel architecture”. This is what powers the rich visualizations and charts you see as you compare and group your data tables. Eventually we’ll open this up, so users can add completely custom visualizers that work everywhere in the W&B UI.
+* W＆B Artifacts内に、リッチメディア（バウンディングボックスの画像など）を選択的に含む大きなwandb.Tableオブジェクトを保存する機能。
+* クロスアーティファクトファイル参照のサポート、およびUIで表を結合する機能。これは、たとえば、ソース画像とラベルを複製することなく、グラウンドトゥルースデータセットアーティファクトに対する一連のバウンディングボックス予測をログに記録するために使用されます。
+* \[将来\]W＆B Artifactsに貯蔵されている表に対する大規模なクエリのバックエンドAPIサポート。
+* 斬新な「タイプの、実行時に交換可能なUIパネルアーキテクチャ」。これが、データ表を比較およびグループ化するときに表示される豊富な視覚化とグラフを強化するものです。したがって私たちがこれを開始すると、ユーザーはW＆B UIのどこでも機能する完全にカスタムのビジュアライザーを追加できるようになります。
 
 ## UI
 
-_Follow along by opening this_ [_example project_](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files)_, which was generated from our_ [_demo colab_](http://wandb.me/dsviz-demo-colab)_._
+ __続いて、[demo colab](http://wandb.me/dsviz-demo-colab)から生成されたこの[サンプルプロジェクト](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files)を開きます。
 
-To visualize logged tables and media objects, open an artifact, go to the **Files** tab, and click on the table or object. Switch to the **Graph view** to see how artifacts and runs in the project are connected. Toggle **Explode** to see the individual executions of each step in the pipeline.
+ログに記録された表とメディアオブジェクトを視覚化するには、アーティファクトを開き、\[**ファイル**\]タブに移動して、表またはオブジェクトをクリックします。**グラフビュー**に切り替えて、プロジェクト内のアーティファクトと試行がどのように接続されているかを確認します。**Explode関数**を切り替えて、パイプラインの各ステップの個々の実行を確認します。  
 
-### **Visualizing tables**
 
-Open the **Files** tab to see the main visualization UI. In the [example project](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files), click “train\_iou\_score\_table.table.json” to visualize it. To explore data, you can filter, group, and sort the table.
+### **表の視覚化**
+
+ \[**ファイル**\]タブを開いて、メインの視覚化UIを表示します。[サンプルプロジェクト](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files)では、「train\_iou\_score\_table.table.json」をクリックして視覚化します。データを探索するために、表をフィルタリング、グループ化、および並べ替えします。
 
 ![](.gitbook/assets/image%20%2899%29.png)
 
-### Filtering
+### **フィルタリング**
 
-Filters are specified in the [mongodb aggregation language](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/)**,** which has good support for querying into nested objects \[aside: we don't actually use mongodb in our backend!\]. Here are two examples:
+フィルタは[mongodbの集計言語](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/)で指定されており、ネストされたオブジェクトへのクエリを適切にサポートしています\[ただし、バックエンドでは実際にはmongodbを使用していません！\]。次に2つの例を示します。
 
-**Find examples that have &gt; 0.05 in the “road” column**
+**「道路」列で0.05以上の例を検索します**
 
 `{$gt: ['$0.road', 0.05]}` 
 
-**Find examples that have more one or more “car” bounding box predictions**
+**1つ以上の「車」のバウンディングボックスの予測がある例を検索します**
 
 `{  
   $gte: [   
@@ -56,67 +57,67 @@ Filters are specified in the [mongodb aggregation language](https://docs.mongodb
   1]  
 }`
 
-### **Grouping**
+### **グループ化**
 
-Try grouping by “dominant\_pred”. You’ll see that numeric columns automatically become histograms when the table is grouped.
+「dominant\_pred」でグループ化してみてください。表がグループ化されると、数値列が自動的にヒストグラムになることがわかります。
 
 ![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673736462_image.png)
 
 \*\*\*\*
 
-### **Sorting**
+###  **並べ替え**
 
-Click **Sort** and choose any column in the table to sort by it.
+ \[**並べ替え**\]タブをクリックし、表内の任意の列を選択して並べ替えます。
 
-### **Comparison**
+###  **比較**
 
-Compare any two artifact versions in the table. Hover over “v3” in the sidebar, and click the “Compare” button. This will show you predictions from both versions in a single table. Think of both tables being overlaid on top of each-other. The table decides to render bar charts for incoming numeric columns, with one bar for each table being compared.
+ 表内の任意の2つのアーティファクトバージョンを比較します。そして、サイドバーの「v3」にカーソルを合わせ、「比較」ボタンをクリックします。これにより、両方のバージョンからの予測が1つの表に表示されます。両方の表が互いに重なり合っていると考えてください。表は、入力される数値列の棒グラフをレンダリングすることを決定し、表ごとに1つの棒が比較されます。
 
-You can use the “Quick filters” at the top to limit your results to examples that are only present in both versions.
+上部の「クイックフィルター」を使用して、両方のバージョンにのみ存在する例にあなたの結果を制限できます。
 
 ![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673764298_image.png)
 
   
-Try comparing and grouping at the same time. You’ll get a “multi-histogram”, where we use one color for each incoming table.  
+ 比較とグループ化を同時に行ってみてください。入力表ごとに1つの色を使用する「マルチヒストグラム」が表示されます。  
 
 
 ![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673664913_image.png)
 
 ## Python API
 
-_Try our_ [_demo colab_](http://wandb.me/dsviz-demo-colab) _for an end-to-end example._
+ __エンドツーエンドの例については、私たちの[demo colab](http://wandb.me/dsviz-demo-colab)をお試しください。
 
-To visualize datasets and predictions, log rich media to an artifact. In addition to saving raw files in W&B Artifacts, you can now save, retrieve, and visualize other rich media types provided by the wandb API.
+ データセットと予測を視覚化するには、リッチメディアをアーティファクトに記録します。W＆B Artifactsにrawファイルを保存することにより、wandb APIによって提供される他のリッチメディアタイプの保存、取得、および視覚化ができます。
 
-The following types are currently supported:
+現在、次のタイプがサポートされています。
 
 * wandb.Table\(\)
 * wandb.Image\(\)
 
-Support for additional media types is coming soon.
+追加のメディアタイプに対するサポートは間もなく開始されます。
 
-### **New Artifacts methods**
+###  **新しいアーティファクトメソッド**
 
-There are two new methods on Artifact objects:
+アーティファクトオブジェクトには2つの新しいメソッドがあります。
 
 `artifact.add(object, name)`
 
-* Add a media object to an artifact. Currently supported types are wandb.Table and wandb.Image, with more coming soon.
-* This recursively adds any child media objects and assets \(like raw ‘.png’ files\) to the artifact.
+* メディアオブジェクトをアーティファクトに追加します。現在サポートされているタイプはwandb.Tableとwandb.Imageで、今後さらに追加される予定です。
+* これにより、幼児のメディアオブジェクトとアセット（生の「.png」ファイルなど）がアーティファクトに再帰的に追加されます。
 
 `artifact.get(name)`
 
-* Return a reconstructed media object from a stored artifact.
+* 保存されたアーティファクトから再構築されたメディアオブジェクトを返します。
 
-These methods are symmetrical. You can store an object in an artifact using .add\(\), and be sure you’ll get the same exact object back using .get\(\), on whatever machine you need it on.
+ これらの方法は対称的です。.add（）を使用してオブジェクトをアーティファクトに保存し、必要なマシンで.get（）を使用してまったく同じオブジェクトを取得できるようにします。
 
 ### **wandb.\* media objects**
 
 `wandb.Table`
 
-Tables are at the core of dataset and prediction visualization. To visualize a dataset, put it in a wandb.Table, adding wandb.Image objects, arrays, dictionaries, strings and numbers as needed, and then add your table to an artifact. Currently, each table is limited to 50,000 rows. You can log as many tables as you like to an artifact.
+表は、データセットと予測の視覚化の中核です。データセットを視覚化するには、データセットをwandb.Tableに配置し、必要に応じてwandb.Imageオブジェクト、配列、辞書、文字列、数値を追加してから、アーティファクトに表を追加します。現在、各表は50,000行に制限されています。アーティファクトには、必要な数の表をログに記録できます。
 
-The following example code saves 1000 images and labels from the Keras cifar10 test dataset as a wandb.Table inside an artifact:
+ 次のサンプルコードは、Keras cifar10テストデータセットから1000個の画像とラベルをアーティファクト内のwandb.Tableとして保存します。
 
 ```python
 import tensorflow as tf
@@ -139,16 +140,16 @@ dataset_artifact.add(table, 'dataset')
 wandb.log_artifact(dataset_artifact)
 ```
 
-After running this code, you’ll be able to visualize the table in the W&B UI. Click on “dataset.table.json” in the artifact Files tab. Try grouping by “label” to get examples of each class in the “image” column.
+ このコードを実行すると、W＆B UIで表を視覚化できるようになります。アーティファクトの\[ファイル\]タブで\[dataset.table.json\]をクリックします。「ラベル」でグループ化して、「画像」列の各クラスの例を取得してみてください。
 
   
 `wandb.Image`
 
-You can construct wandb.Image objects, as described in our [wandb.log documentation](https://docs.wandb.com/library/log#images-and-overlays)**.**
+ ****[wandb.logドキュメント](https://docs.wandb.com/library/log#images-and-overlays)で説明されているように、wandb.Imageオブジェクトを作成できます。
 
-wandb.Image allows you to attach segmentation masks and bounding boxes to images, as specified in the docs above. When saving wandb.Image\(\) objects in artifacts, there is one change: we’ve factored out “class\_labels”, which previously needed to be stored in each wandb.Image.
+ 上記のドキュメントで指定されているように、wandb.Imageを使用すると、セグメンテーションマスクとバウンディングボックスを画像に添付できます。wandb.Image（）オブジェクトをアーティファクトに保存する場合、1つの変更があります。以前は各wandb.Imageに保存すべきであった「class\_labels」を取り除きました。
 
-Now you should create class labels separately, if using bounding boxes or segmentation masks, like this:
+次のように、バウンディングボックスまたはセグメンテーションマスクを使用する場合は、クラスラベルを個別に作成する必要があります。
 
 ```python
 class_set = wandb.Classes(...)
@@ -156,7 +157,7 @@ example = wandb.Image(<path_to_image_file>, classes=class_set, masks={
             "ground_truth": {"path": <path_to_mask>}})
 ```
 
-You can also construct a wandb.Image that refers to a wandb.Image that has been logged to a different artifact. This will use a _cross-artifact-file-reference_ to avoid duplicating the underlying image.
+別のアーティファクトに記録されたwandb.Imageを参照するwandb.Imageを作成することもできます。これにより、クロスアーティファクトファイル参照を使用して、基礎となる画像の重複を回避できます。
 
 ```python
 artifact = wandb.use_artifact('my-dataset-1:v1')
@@ -168,7 +169,7 @@ predicted_image = wandb.Image(dataset_image, classes=class_set, masks={
   
 `wandb.Classes`
 
-Used to define a mapping from class id \(a number\) to label \(a string\):
+クラスID（数値）からラベル（文字列）へのマッピングを定義するために使用されます。
 
 ```python
 CLASSES = ['dog', 'cat']
@@ -179,60 +180,58 @@ class_set = wandb.Classes([{'name': c, 'id': i} for i, c in enumerate(CLASSES)])
 
 `wandb.JoinedTable`
 
-Used to tell the W&B UI to render the join of two tables. The tables may be stored in other artifacts.
+2つの表の結合をレンダリングするためのW＆B UIの指示に使用されます。表は他のアーティファクトに保存される場合があります。
 
 ```python
 jt = wandb.JoinedTable(table1, table2, 'id')
 artifact.add(jt, 'joined')
 ```
 
-## End-to-end examples
+##  **エンドツーエンドの例**
 
-Try our [colab notebook](http://wandb.me/dsviz-demo-colab) for an end-to-end example that covers:
+ 以下をカバーするエンドツーエンドの例については、[colabノートブック](http://wandb.me/dsviz-demo-colab)をお試しください。
 
-* dataset constructions and visualization
-* model training
-* logging predictions against the dataset and visualizing them
+*  データセットの構築と視覚化
+* モデルトレーニング
+* データセットに対する予測のロギング、およびその視覚化
 
-## FAQ
+## **よくある質問**
 
-**I pack my dataset into a binary format for training. How does that relate to W&B Dataset Artifacts?**
+**トレーニング用にデータセットをバイナリ形式にパックします。それはW＆Bデータセットアーティファクトとどのような関連がありますか？**
 
-There are a few approaches you can take here:
+ ここに取ることができるいくつかのアプローチがあります：
 
-1. Use the wandb.Table format as the system of record for your datasets. From here you can do one of two things:
-   1. at training time derive a packed format from the W&B format artifact.
-   2. OR, have a pipeline step that produces a packed format artifact, and train from that artifact
-2. Store your packed format and the wandb.Table in the same artifact
-3. Make a job that given your packed format, logs a wandb.Table artifact
+1. データセットの記録システムとしてwandb.Table形式を使用します。ここであなたは次の2つのいずれかを実行できます。
+   1. トレーニング時に、W＆Bフォーマットアーティファクトからパックフォーマットを導出します。
+   2. または、パック形式のアーティファクトを生成するパイプラインステップを用意し、そのアーティファクトからトレーニングします
+2. パックされたフォーマットとwandb.Tableを同じアーティファクトに保存します
+3. パックされた形式を指定して、wandb.Tableアーティファクトをログに記録するジョブを作成します
 
-\[note: in the Alpha phase there is a 50k row-limit in tables saved to W&B Artifacts\]  
-If you want to query and visualize model predictions, you need to consider how to pass example IDs through your training step, so that your prediction table can be joined back to source dataset table. See our linked examples for a few approaches.  
-Over time we’ll provide converters for common formats, many more examples, and deep integrations with popular frameworks.
+   \[注：アルファフェーズでは、W＆Bアーティファクトに保存される表に50kの行制限があります\]　モデル予測をクエリして視覚化する場合は、トレーニングステップでサンプルIDをパスする方法を検討する必要があります。これにより、予測表がソースデータセット表に再び結合されます。いくつかのアプローチについては、リンクされた例を参照してください。私たちは今後、一般的な形式のコンバーター、さらに多くの例、一般的なフレームワークとの緊密な統合を提供していくつもりです。
 
-## Current limitations
+## **現在の制限**
 
-_This feature is currently in the early-access phase, you can use it in our production service at wandb.ai, with some limitations. APIs are subject to change. If you have any questions, comments or ideas, we want to talk! Drop us a line at_ [_feedback@wandb.com_](mailto:feedback@wandb.com)_._
+   __この機能は現在早期アクセス段階にあり、wandb.aiの本番サービスで使用できますが、いくつかの制限があります。APIは変更される可能性があります。ご質問、コメント、アイデアがございましたら、お問い合わせください！[feedback@wandb.com](mailto:feedback@wandb.com)までご連絡ください。
 
-* Scale: tables logged to Artifacts are currently limited to 50,000 rows. We’ll be raising this with each release, with the goal of handling 100m+ rows per table in the future.
-* Currently supported wandb.\* media types:
+* スケール：アーティファクトに記録される表は現在、50,000行に制限されています。将来的には表ごと1億行以上の処理を目標とし、リリースごとに徐々に引き上げていきます。
+* 現在サポートされているwandb.\*メディアタイプ：
   * wandb.Table
   * wandb.Image
-* There is no way to save and persist queries and views in the W&B UI
-* There is no way to add visualizations to W&B Reports
+* W＆B UIでクエリとビューを保存および永続化できません
+* W＆Bレポートにビジュアライゼーションを追加できません
 
-## Upcoming work
+##  **今後の課題**
 
-* A whole heap of ongoing UX & UI improvements
-* Increase row-limit per table
-* Use a columnar binary format \(parquet\) for table storage
-* Handle dataframes and other common python table formats, in addition to wandb.Table
-* Add a more powerful query system, supporting deeper aggregation and analysis
-* Support more media types
-* Add the ability to persist UI state via save views / workspaces
-* Ability to save visualizations & analysis to W&B Reports, for sharing with colleagues
-* Ability to save queries and subsets for relabeling and other workflows
-* Ability to query from Python
-* Ability to add other visualizations that use large table data \(like a cluster visualizer\)
-* Support user-authored panels, for completely custom visualizations
+* 多数のUXおよびUIの継続的な改善
+* 表ごとの行制限の増加
+* 表ストレージ向けの列型バイナリ形式（Parquet形式）の使用
+* wandb.Tableと、データフレームやその他の一般的なPython表形式の処理
+* より強力なクエリシステムの追加、およびより詳細な集計と分析の提供
+* より多くのメディアタイプの提供
+* ビュー/ワークスペースの保存を介してUI状態を保持する機能の追加
+* 同僚と共有するために、視覚化と分析をW＆Bレポートに保存する機能
+* ラベルの付け直しやその他のワークフローのためにクエリとサブセットを保存する機能
+* Pythonからクエリを実行する機能
+* 大きな表データを使用する他のビジュアライゼーションを追加する機能（クラスタービジュアライザーなど）
+* 完全なるカスタムの視覚化のための、ユーザーが作成したパネルの提供
 
