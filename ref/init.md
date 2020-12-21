@@ -1,298 +1,118 @@
 # Init
 
-## wandb.sdk.wandb\_init
-
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_init.py#L4)
-
-**init**
-
-```python
-init(job_type: Optional[str] = None, dir=None, config: Union[Dict, str, None] = None, project: Optional[str] = None, entity: Optional[str] = None, reinit: bool = None, tags: Optional[Sequence] = None, group: Optional[str] = None, name: Optional[str] = None, notes: Optional[str] = None, magic: Union[dict, str, bool] = None, config_exclude_keys=None, config_include_keys=None, anonymous: Optional[str] = None, mode: Optional[str] = None, allow_val_change: Optional[bool] = None, resume: Optional[Union[bool, str]] = None, force: Optional[bool] = None, tensorboard=None, sync_tensorboard=None, monitor_gym=None, save_code=None, id=None, settings: Union[Settings, Dict[str, Any], None] = None) -> Union[Run, Dummy]
-```
-
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_init.py#L35)
-
-Start a new tracked run with wandb.init\(\). In an ML training pipeline, you could add wandb.init\(\) to the beginning of your training script as well as your evaluation script, and each piece would be tracked as a run in W&B.
-
-wandb.init\(\) spawns a new background process to log data to a run, and it also syncs data to wandb.ai by default so you can see live visualizations. Call wandb.init\(\) to start a run before logging data with wandb.log\(\).
-
-**Arguments**:
-
-* `project` _str, optional_ - The name of the project where you're sending
-
-  the new run. If the project is not specified, the run is put in an
-
-  "Uncategorized" project.
-
-* `entity` _str, optional_ - An entity is a username or team name where
-
-  you're sending runs. This entity must exist before you can send runs
-
-  there, so make sure to create your account or team in the UI before
-
-  starting to log runs.
-
-  If you don't specify an entity, the run will be sent to your default
-
-  entity, which is usually your username. Change your default entity
-
-  in [Settings](wandb.ai/settings) under "default location to create
-
-  new projects".
-
-  config \(dict, argparse, absl.flags, str, optional\):
-
-  This sets wandb.config, a dictionary-like object for saving inputs
-
-  to your job, like hyperparameters for a model or settings for a data
-
-  preprocessing job. The config will show up in a table in the UI that
-
-  you can use to group, filter, and sort runs. Keys should not contain
-
-  `.` in their names, and values should be under 10 MB.
-
-  If dict, argparse or absl.flags: will load the key value pairs into
-
-  the wandb.config object.
-
-  If str: will look for a yaml file by that name, and load config from
-
-  that file into the wandb.config object.
-
-* `save_code` _bool, optional_ - Turn this on to save the main script or
-
-  notebook to W&B. This is valuable for improving experiment
-
-  reproducibility and to diff code across experiments in the UI. By
-
-  default this is off, but you can flip the default behavior to "on"
-
-  in [Settings](wandb.ai/settings).
-
-* `group` _str, optional_ - Specify a group to organize individual runs into
-
-  a larger experiment. For example, you might be doing cross
-
-  validation, or you might have multiple jobs that train and evaluate
-
-  a model against different test sets. Group gives you a way to
-
-  organize runs together into a larger whole, and you can toggle this
-
-  on and off in the UI. For more details, see
-
-  [Grouping](docs.wandb.com/library/grouping).
-
-* `job_type` _str, optional_ - Specify the type of run, which is useful when
-
-  you're grouping runs together into larger experiments using group.
-
-  For example, you might have multiple jobs in a group, with job types
-
-  like train and eval. Setting this makes it easy to filter and group
-
-  similar runs together in the UI so you can compare apples to apples.
-
-* `tags` _list, optional_ - A list of strings, which will populate the list
-
-  of tags on this run in the UI. Tags are useful for organizing runs
-
-  together, or applying temporary labels like "baseline" or
-
-  "production". It's easy to add and remove tags in the UI, or filter
-
-  down to just runs with a specific tag.
-
-* `name` _str, optional_ - A short display name for this run, which is how
-
-  you'll identify this run in the UI. By default we generate a random
-
-  two-word name that lets you easily cross-reference runs from the
-
-  table to charts. Keeping these run names short makes the chart
-
-  legends and tables easier to read. If you're looking for a place to
-
-  save your hyperparameters, we recommend saving those in config.
-
-* `notes` _str, optional_ - A longer description of the run, like a -m commit
-
-  message in git. This helps you remember what you were doing when you
-
-  ran this run.
-
-* `dir` _str, optional_ - An absolute path to a directory where metadata will
-
-  be stored. When you call download\(\) on an artifact, this is the
-
-  directory where downloaded files will be saved. By default this is
-
-  the ./wandb directory.
-
-* `sync_tensorboard` _bool, optional_ - Whether to copy all TensorBoard logs
-
-  to W&B \(default: False\).
-
-  [Tensorboard](https://docs.wandb.com/integrations/tensorboard)
-
-* `resume` _bool, str, optional_ - Sets the resuming behavior. Options:
-
-  "allow", "must", "never", "auto" or None. Defaults to None.
-
-  Cases:
-
-* None \(default\): If the new run has the same ID as a previous run,
-
-  this run overwrites that data.
-
-* "auto" \(or True\): if the preivous run on this machine crashed,
-
-  automatically resume it. Otherwise, start a new run.
-
-* "allow": if id is set with init\(id="UNIQUE\_ID"\) or
-
-  WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run,
-
-  wandb will automatically resume the run with that id. Otherwise,
-
-  wandb will start a new run.
-
-* "never": if id is set with init\(id="UNIQUE\_ID"\) or
-
-  WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run,
-
-  wandb will crash.
-
-* "must": if id is set with init\(id="UNIQUE\_ID"\) or
-
-  WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run,
-
-  wandb will automatically resume the run with the id. Otherwise
-
-  wandb will crash.
-
-  See [https://docs.wandb.com/library/advanced/resuming](https://docs.wandb.com/library/advanced/resuming) for more.
-
-* `reinit` _bool, optional_ - Allow multiple wandb.init\(\) calls in the same
-
-  process. \(default: False\)
-
-* `magic` _bool, dict, or str, optional_ - The bool controls whether we try to
-
-  auto-instrument your script, capturing basic details of your run
-
-  without you having to add more wandb code. \(default: False\)
-
-  You can also pass a dict, json string, or yaml filename.
-
-* `config_exclude_keys` _list, optional_ - string keys to exclude from
-
-  wandb.config.
-
-* `config_include_keys` _list, optional_ - string keys to include in
-
-  wandb.config.
-
-* `anonymous` _str, optional_ - Controls anonymous data logging. Options:
-* "never" \(default\): requires you to link your W&B account before
-
-  tracking the run so you don't accidentally create an anonymous
-
-  run.
-
-* "allow": lets a logged-in user track runs with their account, but
-
-  lets someone who is running the script without a W&B account see
-
-  the charts in the UI.
-
-* "must": sends the run to an anonymous account instead of to a
-
-  signed-up user account.
-
-* `mode` _str, optional_ - Can be "online", "offline" or "disabled". Defaults to
-
-  online.
-
-* `allow_val_change` _bool, optional_ - Whether to allow config values to
-
-  change after setting the keys once. By default we throw an exception
-
-  if a config value is overwritten. If you want to track something
-
-  like a varying learning\_rate at multiple times during training, use
-
-  wandb.log\(\) instead. \(default: False in scripts, True in Jupyter\)
-
-* `force` _bool, optional_ - If True, this crashes the script if a user isn't
-
-  logged in to W&B. If False, this will let the script run in offline
-
-  mode if a user isn't logged in to W&B. \(default: False\)
-
-* `sync_tensorboard` _bool, optional_ - Synchronize wandb logs from tensorboard or
-
-  tensorboardX and saves the relevant events file. Defaults to false.
-
-* `monitor_gym` - \(bool, optional\): automatically logs videos of environment when
-
-  using OpenAI Gym. \(default: False\)
-
-  See [https://docs.wandb.com/library/integrations/openai-gym](https://docs.wandb.com/library/integrations/openai-gym)
-
-* `id` _str, optional_ - A unique ID for this run, used for Resuming. It must
-
-  be unique in the project, and if you delete a run you can't reuse
-
-  the ID. Use the name field for a short descriptive name, or config
-
-  for saving hyperparameters to compare across runs. The ID cannot
-
-  contain special characters.
-
-  See [https://docs.wandb.com/library/resuming](https://docs.wandb.com/library/resuming)
-
-**Examples**:
+wandb.init\(\) indicates the beginning of a new run. In an ML training pipeline, you could add wandb.init\(\) to the beginning of your training script as well as your evaluation script, and each piece steps would be tracked as a run in W&B.
+
+## init
+
+`def init( job_type: Optional[str] = None, dir=None, config: Union[Dict, str, None] = None, project: Optional[str] = None, entity: Optional[str] = None, reinit: bool = None, tags: Optional[Sequence] = None, group: Optional[str] = None, name: Optional[str] = None, notes: Optional[str] = None, magic: Union[dict, str, bool] = None, config_exclude_keys=None, config_include_keys=None, anonymous: Optional[str] = None, mode: Optional[str] = None, allow_val_change: Optional[bool] = None, resume: Optional[Union[bool, str]] = None, force: Optional[bool] = None, tensorboard=None, # alias for sync_tensorboard sync_tensorboard=None, monitor_gym=None, save_code=None, id=None, settings: Union[Settings, Dict[str, Any], None] = None, ) -> Union[Run, Dummy]: Union[Run, Dummy]`
+
+[![Badge](https://img.shields.io/badge/SOURCE-black?style=plastic&logo=github)](https://github.com/wandb/client/tree/master/wandb/sdk/wandb_init.py#L456-#L613)
+
+Initialize W&B Spawns a new process to start or resume a run locally and communicate with a wandb server. Should be called before any calls to wandb.log.
+
+**Arguments**
+
+config \(dict, argparse, or absl.flags, str, optional\): Sets the config parameters \(typically hyperparameters\) to store with the run. See also wandb.config.
+
+| **Filed** | **Type** | **Description** |
+| :--- | :--- | :--- |
+| job\_type | \(str, optional\) | The type of job running, defaults to 'train' |
+| dir | \(str, optional\) | An absolute path to a directory where metadata will be stored. |
+| flags |  | will load the key value pairs into the runs config object. If str: will look for a yaml file that includes config parameters and load them into the run's config object. |
+| project | \(str, optional\) | W&B Project. |
+| entity | \(str, optional\) | W&B Entity. |
+| reinit | \(bool, optional\) | Allow multiple calls to init in the same process. |
+| tags | \(list, optional\) | A list of tags to apply to the run. |
+| group | \(str, optional\) | A unique string shared by all runs in a given group. |
+| name | \(str, optional\) | A display name for the run which does not have to be unique. |
+| notes | \(str, optional\) | A multiline string associated with the run. |
+| magic | \(bool, dict, or str, optional\) | magic configuration as bool, dict, json string, yaml filename. |
+| config\_exclude\_keys | \(list, optional\) | string keys to exclude storing in W&B when specifying config. |
+| config\_include\_keys | \(list, optional\) | string keys to include storing in W&B when specifying config. |
+| anonymous | \(str, optional\) | Can be "allow", "must", or "never". Controls whether anonymous logging is allowed. Defaults to never. |
+| mode | \(str, optional\) | Can be "online", "offline" or "disabled". Defaults to online. |
+| allow\_val\_change | \(bool, optional\) | allow config values to be changed after setting. Defaults to true in jupyter and false otherwise. |
+| resume | \(bool, str, optional\) | Sets the resuming behavior. Should be one of: "allow", "must", "never", "auto" or None. Defaults to None. Cases: - "auto" \(or True\): automatically resume the previous run on the same machine. if the previous run crashed, otherwise starts a new run. - "allow": if id is set with init\(id="UNIQUE\_ID"\) or WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run, wandb will automatically resume the run with the id. Otherwise wandb will start a new run. - "never": if id is set with init\(id="UNIQUE\_ID"\) or WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run, wandb will crash. - "must": if id is set with init\(id="UNIQUE\_ID"\) or WANDB\_RUN\_ID="UNIQUE\_ID" and it is identical to a previous run, wandb will automatically resume the run with the id. Otherwise wandb will crash. - None: never resumes - if a run has a duplicate run\_id the previous run is overwritten. See [https://docs.wandb.com/library/advanced/resuming](https://docs.wandb.com/library/advanced/resuming) for more detail. |
+| force | \(bool, optional\) | If true, will cause script to crash if user can't or isn't logged in to a wandb server. If false, will cause script to run in offline modes if user can't or isn't logged in to a wandb server. Defaults to false. |
+| sync\_tensorboard | \(bool, optional\) | Synchronize wandb logs from tensorboard or tensorboardX and saves the relevant events file. Defaults to false. |
+| monitor\_gym |  | \(bool, optional\): automatically logs videos of environment when using OpenAI Gym \(see [https://docs.wandb.com/library/integrations/openai-gym](https://docs.wandb.com/library/integrations/openai-gym)\) Defaults to false. |
+| save\_code | \(bool, optional\) | Save the entrypoint or jupyter session history source code. |
+| id | \(str, optional\) | A globally unique \(per project\) identifier for the run. This is primarily used for resuming. |
+
+**Examples**
 
 Basic usage
 
-```text
+```python
 wandb.init()
 ```
 
 Launch multiple runs from the same script
 
-```text
+```python
 for x in range(10):
-with wandb.init(project="my-projo") as run:
-for y in range(100):
-- `run.log({"metric"` - x+y})
+    with wandb.init(project="my-projo") as run:
+        for y in range(100):
+            run.log({"metric": x+y})
 ```
 
-**Raises**:
+**Raises**
 
-* `Exception` - if problem.
+| **Filed** | **Type** | **Description** |
+| :--- | :--- | :--- |
+| Exception |  | if problem. |
 
-**Returns**:
+**Returns**
 
 A `Run` object.
 
-### \_WandbInit Objects
+## \_set\_logger
 
-```python
-class _WandbInit(object)
-```
+`def _set_logger(log_object):`
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_init.py#L271)
+[![Badge](https://img.shields.io/badge/SOURCE-black?style=plastic&logo=github)](https://github.com/wandb/client/tree/master/wandb/sdk/wandb_init.py#L40-#L43)
 
-**setup**
+Configure module logger.
 
-```python
- | setup(kwargs)
-```
+## \_WandbInit
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_init.py#L283)
+### setup
+
+`def setup(self, kwargs):`
+
+[![Badge](https://img.shields.io/badge/SOURCE-black?style=plastic&logo=github)](https://github.com/wandb/client/tree/master/wandb/sdk/wandb_init.py#L62-#L158)
 
 Complete setup for wandb.init\(\). This includes parsing all arguments, applying them with settings and enabling logging.
+
+### \_enable\_logging
+
+`def _enable_logging(self, log_fname, run_id=None):`
+
+[![Badge](https://img.shields.io/badge/SOURCE-black?style=plastic&logo=github)](https://github.com/wandb/client/tree/master/wandb/sdk/wandb_init.py#L167-#L200)
+
+Enable logging to the global debug log. This adds a run\_id to the log, in case of muliple processes on the same machine. Currently there is no way to disable logging after it's enabled.
+
+### \_jupyter\_teardown
+
+`def _jupyter_teardown(self):`
+
+[![Badge](https://img.shields.io/badge/SOURCE-black?style=plastic&logo=github)](https://github.com/wandb/client/tree/master/wandb/sdk/wandb_init.py#L232-#L245)
+
+Teardown hooks and display saving, called with wandb.finish
+
+### \_jupyter\_setup
+
+`def _jupyter_setup(self, settings):`
+
+[![Badge](https://img.shields.io/badge/SOURCE-black?style=plastic&logo=github)](https://github.com/wandb/client/tree/master/wandb/sdk/wandb_init.py#L247-#L269)
+
+Add magic, hooks, and session history saving
+
+### \_log\_setup
+
+`def _log_setup(self, settings):`
+
+[![Badge](https://img.shields.io/badge/SOURCE-black?style=plastic&logo=github)](https://github.com/wandb/client/tree/master/wandb/sdk/wandb_init.py#L271-#L304)
+
+Set up logging from settings.
 
