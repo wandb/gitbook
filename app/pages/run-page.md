@@ -41,7 +41,7 @@ description: 각 모델의 훈련 실행은 더 큰 프로젝트 내에서 구�
 
   [라이브 예시 보기 →](https://app.wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)​ 
 
-![](../../.gitbook/assets/image%20%2888%29.png)
+![](../../.gitbook/assets/image%20%2888%29%20%281%29.png)
 
 ##  **모델 탭**
 
@@ -49,7 +49,7 @@ description: 각 모델의 훈련 실행은 더 큰 프로젝트 내에서 구�
 
 [라이브 예시 보기 →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)​ 
 
-![](../../.gitbook/assets/image%20%2834%29.png)
+![](../../.gitbook/assets/image%20%2829%29%20%281%29.png)
 
 ##  **로그\(Logs\) 탭**
 
@@ -58,7 +58,7 @@ description: 각 모델의 훈련 실행은 더 큰 프로젝트 내에서 구�
 
  [라이브 예시 보기 →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)​
 
-![](../../.gitbook/assets/image%20%2874%29.png)
+![](../../.gitbook/assets/image%20%2869%29%20%284%29.png)
 
 ##  **파일 탭**
 

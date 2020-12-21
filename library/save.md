@@ -51,7 +51,7 @@ model.save(os.path.join(wandb.run.dir, "model.h5"))
 
  [라이브 예시 보기 →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)​
 
-![](../.gitbook/assets/image%20%2844%29.png)
+![](../.gitbook/assets/image%20%2839%29%20%285%29.png)
 
 ## **공통 질문**
 

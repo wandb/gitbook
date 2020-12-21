@@ -47,5 +47,5 @@ description: '이미 wandb.init, wandb.config, wandb.log을 사용 중이신 경
 
 이제 여러분의 스윕이 저희 서버에 설치됩니다. 이제 여러분이 하셔야 되는 것은 하나 또는 그 이상의 에이전트를 실행하여 실행을 실행하는 것입니다.
 
-![](../.gitbook/assets/create-sweep-from-table%20%281%29.png)
+![](../.gitbook/assets/create-sweep-from-table%20%281%29%20%281%29.png)
 

@@ -58,13 +58,13 @@ You can set \[\[$x: $y\]\] to display point specific values in the crosshair
 
 **라인 플롯:**
 
-![](../../../../.gitbook/assets/image%20%284%29.png)
+![](../../../../.gitbook/assets/image%20%285%29.png)
 
  **영역 플롯:**
 
-![](../../../../.gitbook/assets/image%20%2830%29.png)
+![](../../../../.gitbook/assets/image%20%2835%29.png)
 
 **백분율 영역 플롯:**
 
-![](../../../../.gitbook/assets/image%20%2854%29.png)
+![](../../../../.gitbook/assets/image%20%2869%29.png)
 
