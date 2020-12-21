@@ -8,7 +8,7 @@ description: 现场演示和讲座的链接和资源
 
 尝试使用我们的免费工具进行[5分钟的示例实验跟踪→ ](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
 
-![](../../.gitbook/assets/image%20%2876%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29.png)
 
 ##  **现实世界中的深度学习**
 

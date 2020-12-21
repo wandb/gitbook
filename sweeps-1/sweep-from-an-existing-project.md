@@ -49,5 +49,5 @@ description: 如果您已经在项目中使用wandb.init，wandb.config和wandb.
 
 现在，您的扫描将在我们的服务器上进行设置。您需要做的就是启动一个或多个代理以开始运行。
 
-![](../.gitbook/assets/create-sweep-from-table%20%281%29.png)
+![](../.gitbook/assets/create-sweep-from-table%20%281%29%20%281%29.png)
 
