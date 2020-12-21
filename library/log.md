@@ -225,7 +225,7 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 These presets have builtin `wandb.plot` methods that make it fast to log charts directly from your script and see the exact visualizations you're looking for in the UI.
 
 {% tabs %}
-{% tab title="Line plot" %}
+{% tab title="Line" %}
 `wandb.plot.line()`
 
 Log a custom line plot—a list of connected and ordered points \(x,y\) on arbitrary axes x and y.
@@ -245,7 +245,7 @@ You can use this to log curves on any two dimensions. Note that if you're plotti
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Scatter plot" %}
+{% tab title="Scatter" %}
 `wandb.plot.scatter()`
 
 Log a custom scatter plot—a list of points \(x, y\) on a pair of arbitrary axes x and y.
@@ -265,7 +265,7 @@ You can use this to log scatter points on any two dimensions. Note that if you'r
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Bar chart" %}
+{% tab title="Bar" %}
 `wandb.plot.bar()`
 
 Log a custom bar chart—a list of labeled values as bars—natively in a few lines:
@@ -305,7 +305,7 @@ You can use this to log arbitrary histograms. Note that `data` is a list of list
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="PR curve" %}
+{% tab title="PR" %}
 `wandb.plot.pr_curve()`
 
 Log a [Precision-Recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) in one line:
@@ -329,7 +329,7 @@ You can log this whenever your code has access to:
 [Run the code →](https://colab.research.google.com/drive/1mS8ogA3LcZWOXchfJoMrboW3opY1A8BY?usp=sharing)
 {% endtab %}
 
-{% tab title="ROC curve" %}
+{% tab title="ROC" %}
 `wandb.plot.roc_curve()`
 
 Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
@@ -352,7 +352,34 @@ You can log this whenever your code has access to:
 
 [Run the code →](https://colab.research.google.com/drive/1_RMppCqsA8XInV_jhJz32NCZG6Z5t1RO?usp=sharing)
 {% endtab %}
+
+{% tab title="Confusion Matrix" %}
+`wandb.plot.confusion_matrix()`
+
+Log a multi-class [confusion matrix](https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html) in one line:
+
+```text
+wandb.log({"conf_mat" : wandb.plot.confusion_matrix(
+                        predictions, ground_truth, class_names})
+```
+
+You can log this wherever your code has access to:
+
+* a model's predicted scores on a set of examples \(`predictions`\)
+* the corresponding ground truth labels for those examples \(`ground_truth`\)
+* a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 means cat, 1 = dog, 2 = bird, etc\)
+
+![](../.gitbook/assets/image.png)
+
+​[See in the app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)​
+
+​[Run the code →](https://colab.research.google.com/drive/1OlTbdxghWdmyw7QPtSiWFgLdtTi03O8f?usp=sharing)
+{% endtab %}
 {% endtabs %}
+
+
+
+
 
 ### **Custom presets**
 
