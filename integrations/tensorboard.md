@@ -17,7 +17,7 @@ If you need to log additional custom metrics that aren't being logged to TensorB
 
 If you want more control over how TensorBoard is patched you can call `wandb.tensorboard.patch` instead of passing `sync_tensorboard=True` to init. You can pass `tensorboardX=False` to this method to ensure vanilla TensorBoard is patched, if you're using TensorBoard &gt; 1.14 with PyTorch you can pass `pytorch=True` to ensure it's patched. Both of these options are have smart defaults depending on what versions of these libraries have been imported.
 
-By default we also sync the tfevents files and any \*.pbtxt files. This enables us to launch a TensorBoard instance on your behalf. You will see a [TensorBoard tab](https://www.wandb.com/articles/hosted-tensorboard) on the run page. This behavior can be disabled by ~~~~passing `save=False` to `wandb.tensorboard.patch`
+By default we also sync the tfevents files and any `*.pbtxt files`. This enables us to launch a TensorBoard instance on your behalf. You will see a [TensorBoard tab](https://www.wandb.com/articles/hosted-tensorboard) on the run page. This behavior can be disabled by passing `save=False` to `wandb.tensorboard.patch`
 
 ```python
 import wandb
@@ -46,17 +46,37 @@ for run_dir in glob.glob("logdir-*"):
   subprocess.Popen(["python", "no_image_import.py", run_dir], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 ```
 
-""" import glob import os import wandb import sys import time import tensorflow as tf from wandb.tensorboard.watcher import Consumer, Event from six.moves import queue
-
-if len\(sys.argv\) == 1: raise ValueError\("Must pass a directory as the first argument"\)
-
-paths = glob.glob\(sys.argv\[1\]+"/_\*/_.tfevents.\*", recursive=True\) root = os.path.dirname\(os.path.commonprefix\(paths\)\).strip\("/"\) namespaces = {path: path.replace\(root, ""\).replace\( path.split\("/"\)\[-1\], ""\).strip\("/"\) for path in paths} finished = {namespace: False for path, namespace in namespaces.items\(\)} readers = \[\(namespaces\[path\], tf.train.summary\_iterator\(path\)\) for path in paths\] if len\(readers\) == 0: raise ValueError\("Couldn't find any event files in this directory"\)
-
-directory = os.path.abspath\(sys.argv\[1\]\) print\("Loading directory %s" % directory\) wandb.init\(project="test-detection"\)
-
-Q = queue.PriorityQueue\(\) print\("Parsing %i event files" % len\(readers\)\) con = Consumer\(Q, delay=5\) con.start\(\) total\_events = 0 while True:
-
 ```text
+import glob
+import os
+import wandb
+import sys
+import time
+import tensorflow as tf
+from wandb.tensorboard.watcher import Consumer, Event
+from six.moves import queue
+
+if len(sys.argv) == 1:
+    raise ValueError("Must pass a directory as the first argument")
+
+paths = glob.glob(sys.argv[1]+"/*/.tfevents.*", recursive=True)
+root = os.path.dirname(os.path.commonprefix(paths)).strip("/")
+namespaces = {path: path.replace(root, "").replace( path.split("/")[-1], "").strip("/")for path in paths}
+finished = {namespace: False for path, namespace in namespaces.items()}
+readers = [(namespaces[path], tf.train.summary_iterator(path)) for path in paths] 
+if len(readers) == 0: 
+    raise ValueError("Couldn't find any event files in this directory")
+directory = os.path.abspath(sys.argv[1]) print("Loading directory %s" % directory)
+wandb.init(project="test-detection")
+
+Q = queue.PriorityQueue()
+print("Parsing %i event files" % len(readers))
+con = Consumer(Q, delay=5)
+con.start()
+total_events = 0
+
+while True:
+
 # Consume 500 events at a time from all readers and push them to the queue
 for namespace, reader in readers:
     if not finished[namespace]:
@@ -73,11 +93,9 @@ for namespace, reader in readers:
                 break
 if all(finished.values()):
     break
+
+print("Persisting %i events..." % total_events) con.shutdown() print("Import complete")
 ```
-
-print\("Persisting %i events..." % total\_events\) con.shutdown\(\) print\("Import complete"\)
-
-\`\`\`
 
 ### Google Colab and TensorBoard
 
