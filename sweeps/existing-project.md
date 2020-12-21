@@ -38,5 +38,5 @@ description: プロジェクトですでにwandb.init、wandb.config、および
 2. テーブルの左側にあるチェックボックスで使用する実行を選択します。
 3. ドロップダウンをクリックして、新しいスイープを作成します。これで、スイープがサーバーに設定されます。実行を開始するには、1つ以上のエージェントを起動するだけです。
 
-![](../.gitbook/assets/create-sweep-from-table%20%281%29.png)
+![](../.gitbook/assets/create-sweep-from-table%20%281%29%20%281%29.png)
 

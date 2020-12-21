@@ -28,5 +28,5 @@ Wandbはトレーニングを視覚化するためのツールであり、専門
 
 [W＆Bのレポートを見る→](https://wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%2818%29.png)
 
