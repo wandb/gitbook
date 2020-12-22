@@ -35,6 +35,21 @@ artifact.add_file('bicycle-data.h5')
 run.log_artifact(artifact)
 ```
 
+{% hint style="warning" %}
+**NOTE:** Calls to `log_artifact` are performed asynchronously for performant uploads. This can cause surprising behavior when logging artifacts in a loop. For example:
+
+```text
+for i in range(10):
+    a = wandb.Artifact('race', type='dataset', metadata={
+        "index": i,
+    })
+    # ... add files to artifact a ...
+    run.log_artifact(a)
+```
+
+The artifact version **v0** is NOT guaranteed to have an index of 0 in its metadata, as the artifacts may be logged in an arbitrary order.
+{% endhint %}
+
 ## 3. Use an artifact
 
 You can use an artifact as input to a run. For example, we could take `bike-dataset:v0` , the first version of `bike-dataset`, and use it in the next script in our pipeline. When you call **use\_artifact**, your script queries W&B to find that named artifact and marks it as input to the run.
