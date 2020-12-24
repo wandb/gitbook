@@ -47,7 +47,8 @@ This will **NOT** work:
 _Sweep configuration_  
 `metric:   
     name: my_metric.nested`   
-_Code_`nested_metrics = {"nested": 4} wandb.log({"my_metric", nested_metrics}`
+_Code_  
+`nested_metrics = {"nested": 4} wandb.log({"my_metric", nested_metrics}`
 
 Workaround: log the metric at the top level
 
