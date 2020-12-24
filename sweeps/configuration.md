@@ -37,28 +37,26 @@ wandb.log({"val_loss" : valid_loss})
 | :--- | :--- |
 | name | Name of the metric to optimize |
 | goal | `minimize` or `maximize` \(Default is `minimize`\) |
-| target | Value that you'd like to achieve for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to "Finished." This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
+| target | Goal value for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to **finished**. This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
 
-{% hint style="danger" %}
-The metric specified needs to be a "top level" metric:
+ ⚠️ **Can't optimize nested metrics**
+
+The metric you're optimizing to be at the **top level** of the config.
 
 This will **NOT** work:  
-Sweep configuration:  
-metric:  
-name: my\_metric.nested  
-Code:  
-`nested_metrics = {"nested": 4}    
-wandb.log({"my_metric", nested_metrics}`
+_Sweep configuration_  
+`metric:   
+    name: my_metric.nested`   
+_Code_`nested_metrics = {"nested": 4} wandb.log({"my_metric", nested_metrics}`
 
-To work around this limitation the script should log the nested metric at the top level like this:  
-Sweep configuration:  
-metric:  
-name: my\_metric\_nested  
-Code:  
-`nested_metrics = {"nested": 4}    
-wandb.log{{"my_metric", nested_metric}    
-wandb.log({"my_metric_nested", nested_metric["nested"]})`
-{% endhint %}
+Workaround: log the metric at the top level
+
+_Sweep configuration_  
+`metric:   
+    name: my_metric_nested`   
+_Code_`nested_metrics = {"nested": 4} wandb.log{{"my_metric", nested_metric} wandb.log({"my_metric_nested", nested_metric["nested"]})`
+
+
 
 **Examples**
 
