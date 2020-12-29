@@ -118,5 +118,4 @@
   * [Classes](company/classes/README.md)
     * [Talks](company/classes/talks.md)
 * [Marketing Site](http://wandb.com/)
-* [Docs](docs.md)
 
