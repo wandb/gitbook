@@ -29,15 +29,19 @@ We've created a few examples for you to see how the integration works:
 
 ### `WandbLogger`
 
-Parameters:
+Optional parameters:
 
 * **name** \(_str_\) – display name for the run.
-* **save\_dir** \(_str_\) – path where data is saved.
+* **save\_dir** \(_str_\) – path where data is saved \(wandb dir by default\).
 * **offline** \(_bool_\) – run offline \(data can be streamed later to wandb servers\).
-* **version** \(_id_\) – sets the version, mainly used to resume a previous run.
+* **id** \(_str_\) – sets the version, mainly used to resume a previous run.
+* **version** \(_str_\) – same as version \(legacy\).
 * **anonymous** \(_bool_\) – enables or explicitly disables anonymous logging.
 * **project** \(_str_\) – the name of the project to which this run will belong.
-* **tags** \(_list of str_\) – tags associated with this run.
+* **log\_model** \(_bool_\) – save checkpoints in wandb dir to upload on W&B servers.
+* **prefix** \(_str_\) – string to put at the beginning of metric keys.
+* **sync\_step** \(_bool_\) - Sync Trainer step with wandb step \(True by default\).
+* **\*\*kwargs** – Additional arguments like `entity`, `group`, `tags`, etc. used by `wandb.init` can be passed as keyword arguments in this logger.
 
 ### **`WandbLogger.watch`**
 
