@@ -55,13 +55,13 @@ Parameters:
 
 * **model** \(_nn.Module_\) – model to be logged.
 * **log** \(_str_\) – can be "gradients" \(default\), "parameters", "all" or None.
-* **log\_freq** \(_int_\) – step count between logging of gradients and parameters.
+* **log\_freq** \(_int_\) – step count between logging of gradients and parameters \(100 by default\).
 
 ### **`WandbLogger.log_hyperparams`**
 
 Record hyperparameter configuration.
 
-_Note: this function is called automatically by `Trainer`_
+_Note: this function is called automatically when using `LightningModule.save_hyperparameters()`_
 
 ```python
 wandb_logger.log_hyperparams(params)
@@ -75,7 +75,7 @@ Parameters:
 
 Record training metrics.
 
-_Note: this function is called automatically by `Trainer`_
+_Note: this function is called automatically by `LightningModule.log('metric', value)`_
 
 ```python
 wandb_logger.log_metrics(metrics, step=None)
