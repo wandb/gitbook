@@ -6,7 +6,7 @@ description: Dictionary-like object to save your experiment configuration
 
 ## Overview
 
-[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-config/Configs_in_W%26B.ipynb)
+[![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/colab)
 
 Set the `wandb.config` object in your script to save your training config: hyperparameters, input settings like dataset name or model type, and any other independent variables for your experiments. This is useful for analyzing your experiments and reproducing your work in the future. You'll be able to group by config values in the web interface, comparing the settings of different runs and seeing how these affect the output. Note that output metrics or dependent variables \(like loss and accuracy\) should be saved with `wandb.log`instead.
 
