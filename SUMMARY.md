@@ -34,7 +34,6 @@
   * [Kubeflow](integrations/kubeflow.md)
   * [Docker](integrations/docker.md)
   * [Jupyter](integrations/jupyter.md)
-  * [MLflow \(beta\)](integrations/mlflow.md)
   * [Databricks](integrations/databricks.md)
   * [Ray Tune](integrations/ray-tune.md)
   * [Catalyst](integrations/catalyst.md)
