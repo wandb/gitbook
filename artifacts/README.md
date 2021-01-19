@@ -46,8 +46,7 @@ artifact = wandb.Artifact('my-dataset', type='dataset')
 artifact.add_file('my-dataset.txt')
 # Log that artifact, and we identify the changed file
 run.log_artifact(artifact)
-# Now you have a new version of the 'my-dataset' artifact
-# Tracked in the W&B system of record
+# Now you have a new version of the artifact, tracked in W&B
 ```
 
 ## How it works
