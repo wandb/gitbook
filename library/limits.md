@@ -11,7 +11,7 @@ For fast page loading in the W&B UI, we recommend keeping logged data amounts wi
 * **Scalars**: ****you can have tens of thousands of steps and hundreds of metrics
 * **Histograms**: we recommend limiting to thousands of steps
 
-If you send us more that that, your data will be saved and tracked, but pages may load more slowly.
+If you send us more than that, your data will be saved and tracked, but pages may load more slowly.
 
 ### Python Script Performance
 
