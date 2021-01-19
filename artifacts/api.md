@@ -342,6 +342,19 @@ artifact.aliases = ['replaced']
 artifact.save()
 ```
 
+## Artifacts Lineage from the API
+
+Walk up and down the dependency graph of artifacts.
+
+* `artifact.logged_by()` returns the run that produced that artifact
+* `run.used_artifacts()` returns the inputs to that run
+
+```python
+artifact = wandb.use_artifact('data:v0')
+producer_run = artifact.logged_by()
+input_artifacts = producer_run.used_artifacts()
+```
+
 ## Data privacy
 
 Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
