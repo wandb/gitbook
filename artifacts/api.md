@@ -342,17 +342,22 @@ artifact.aliases = ['replaced']
 artifact.save()
 ```
 
-## Artifacts Lineage from the API
+## Traversing the artifact graph
 
-Walk up and down the dependency graph of artifacts.
-
-* `artifact.logged_by()` returns the run that produced that artifact
-* `run.used_artifacts()` returns the inputs to that run
+W&B automatically tracks the artifacts a given run has logged as well as the artifacts a given run has used. You can walk this graph by using the following APIs:
 
 ```python
-artifact = wandb.use_artifact('data:v0')
+api = wandb.Api()
+
+artifact = api.artifact('data:v0')
+
+# Walk up and down the graph from an artifact:
 producer_run = artifact.logged_by()
-input_artifacts = producer_run.used_artifacts()
+consumer_runs = artifact.used_by()
+
+# Walk up and down the graph from a run:
+logged_artifacts = run.logged_artifacts()
+used_artifacts = run.used_artifacts()
 ```
 
 ## Data privacy
