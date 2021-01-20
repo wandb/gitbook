@@ -28,22 +28,23 @@ If one of your collaborators has edited the report in the meantime, you'll get a
 
 ![](.gitbook/assets/collaborative-reports.gif)
 
-### Upload a CSV to a report
 
-## Add panels
 
-Click the **Add panel** button to add a new visualization to the report.
+### Comment on reports
 
-![](https://downloads.intercomcdn.com/i/o/142935595/d1422f30460a39b8b4868885/image.png)
+Click the comment button on a panel in a report to add a comment directly to that panel.
+
+![](.gitbook/assets/demo-comment-on-panels-in-reports.gif)
 
 ## Panel Grids
 
 If you'd like to compare a different set of runs, create a new panel grid. Each section's graphs are controlled by the **Run Sets** at the bottom of that section.
 
-## Static and dynamic run sets
+## Run Sets
 
 * **Dynamic run sets**: If you start from "Visualize all" and filter or deselect runs to visualize, the run set will automatically update to show any new runs that match the filters.
 * **Static run sets**: If you start from "Visualize none" and select the runs you want to include in your run set, you will only ever get those runs in the run set. No new runs will be added.
+* **Defining keys**: If you have multiple Run Sets in a section, the columns are defined by the first run set. To show different keys from different projects, you can click "Add Panel Grid" to add a new section of graphs and run sets with that second set of keys. You can also duplicate a grid section.
 
 ## Exporting reports
 
@@ -69,7 +70,7 @@ Share a view-only link to a report that is in a private project or team project.
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](.gitbook/assets/demo-export-to-existing-report.gif)
+![](.gitbook/assets/demo-export-to-existing-report%20%281%29.gif)
 
 ## Reports FAQ
 

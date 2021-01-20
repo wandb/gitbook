@@ -8,11 +8,11 @@ description: Links and resources from our live presentations and talks
 
 Try our free tools for experiment tracking with this [5 minute example →](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
 
-![](../../.gitbook/assets/image%20%2876%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29.png)
 
 ## Deep Learning in the Real World
 
-Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf). If you want to join our Machine Learning community, join our [forum](https://bit.ly/wandb-forum).
+Here are the [slides](https://storage.googleapis.com/wandb/CVP%20UCSD%20Deep%20Learning%20Real%20World.pdf). If you want to join our Machine Learning community, join our [forum](http://wandb.me/slack).
 
 If you're curious to learn more about some of the things I referenced in my talk, check out these resources:
 

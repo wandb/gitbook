@@ -48,6 +48,8 @@ Pick **multiple y-axes** in the line plot settings to compare different metrics 
 * **Legend**: Select field that you want to see in the legend of the plot for each line. You could, for example, show the name of the run and the learning rate. 
 * **Legend template**: Fully customizable, this powerful template allows you to specify exactly what text and variables you want to show up in the template at the top of the line plot as well as the legend that appears when you hover your mouse over the plot.
 
+![Editing the line plot legend to show hyperparameters](../../../../.gitbook/assets/screen-shot-2021-01-08-at-11.33.04-am.png)
+
 **Expressions**
 
 * **Y Axis Expressions**: Add calculated metrics to your graph. You can use any of the logged metrics as well as configuration values like hyperparameters to calculate custom lines.
@@ -63,7 +65,7 @@ Here is what the graph looks like before averaging:
 
 Here I have grouped the lines to see the average value across runs.
 
-![](../../../../.gitbook/assets/demo-average-precision-lines%20%281%29.png)
+![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29.png)
 
 ## Compare two metrics on one chart
 
