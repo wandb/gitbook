@@ -1,44 +1,44 @@
 ---
 description: >-
-  Easily instrument a script to see our experiment tracking and visualization
-  features on your own project
+  Facilement instrumenter un script pour voir nos suivis d’expériences et nos
+  fonctionnalités de visualisation sur votre propre projet
 ---
 
 # Quickstart
 
-Start logging machine learning experiments in three quick steps.
+Commencez vos expériences d’apprentissage automatique en trois étapes rapides.
 
-## 1. Install Library
+## 1. Installer la librairie
 
-Install our library in an environment using Python 3.
+Installez notre librairie dans un environnement qui utilise Python 3.
 
 ```bash
 pip install wandb
 ```
 
 {% hint style="info" %}
-If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at the documentation on [Running in Automated Environments](https://docs.wandb.com/advanced/automated).
+Si vous entraînez des modèles dans un environnement automatisé où il n’est pas pratique d’avoir des commandes shell, comme le CloudML de Google, n’hésitez pas à consulter nos [Variables d’Environnement](https://docs.wandb.ai/library/environment-variables).
 {% endhint %}
 
-## 2. Create Account
+## 2. Créer un compte
 
-Sign up for a free account in your shell or go to our [sign up page](https://app.wandb.ai/login?signup=true).
+Inscrivez-vous avec un compte gratuit depuis votre shell ou rendez-vous sur notre [page d’inscription](https://app.wandb.ai/login?signup=true).
 
 ```bash
 wandb login
 ```
 
-## 3. Modify your training script
+## 3.  Modifier votre script d’entraînement
 
-Add a few lines to your script to log hyperparameters and metrics.
+Ajoutez quelques lignes à votre script pour enregistrer des hyperparamètres et des mesures.
 
 {% hint style="info" %}
-Weights and Biases is framework agnostic, but if you are using a common ML framework, you may find framework-specific examples even easier for getting started. We've built framework-specific hooks to simplify the integration for [Keras](https://docs.wandb.com/frameworks/keras), [TensorFlow](https://docs.wandb.com/frameworks/tensorflow), [PyTorch](https://docs.wandb.com/frameworks/pytorch), [Fast.ai](https://docs.wandb.com/frameworks/fastai), [Scikit-learn](https://docs.wandb.com/frameworks/scikit), [XGBoost](https://docs.wandb.com/frameworks/xgboost), [Catalyst](https://docs.wandb.com/frameworks/catalyst), and [Jax](https://docs.wandb.com/frameworks/jax-example).
+Weights and Biases est agnostique en framework, mais si vous utilisez un framework d’apprentissage automatique courant, vous pourrez trouver des exemples relatifs à ce framework pour débuter encore plus facilement. Nous avons préparé des exemples spécifiques pour l’intégration de [Keras](file:///C:/integrations/keras), [TensorFlow](file:///C:/integrations/tensorflow), [PyTorch](file:///C:/integrations/pytorch), [Fast.ai](file:///C:/integrations/fastai), [Scikit](file:///C:/integrations/scikit), [XGBoost](file:///C:/integrations/xgboost), [Catalyst](file:///C:/integrations/catalyst).
 {% endhint %}
 
-### Initialize Wandb
+### Initialiser W&B
 
-Initialize `wandb` at the beginning of your script right after the imports.
+Initialiser `wandb` au début de votre script, avant de commencer à enregistrer. Certaines intégrations, comme notre intégration [Hugging Face](https://docs.wandb.ai/integrations/huggingface), comprennent déjà wandb.init\(\) de manière interne.
 
 ```python
 # Inside my model training code
@@ -46,20 +46,20 @@ import wandb
 wandb.init(project="my-project")
 ```
 
-We automatically create the project for you if it doesn't exist. Runs of the training script above will sync to a project named "my-project". See the [wandb.init](library/init.md) documentation for more initialization options.
+Nous créons automatiquement le projet pour vous s’il n’existe pas. Les répétitions de ce script d’entraînement ci-dessus se synchroniseront sur un projet appelé « my-project ». Consultez la documentation [wandb.init](file:///C:/library/init) pour explorer d’autres options d’initialisation.
 
-### Declare Hyperparameters
+## Déclarer des Hyperparamètres
 
-It's easy to save hyperparameters with the [wandb.config](library/config.md) object.
+Il est facile d’enregistrer des hyperparamètres avec l’objet [wandb.config](file:///C:/library/config).
 
 ```python
 wandb.config.dropout = 0.2
 wandb.config.hidden_layer_size = 128
 ```
 
-### Log Metrics
+### Enregistrer des mesures
 
-Log metrics like loss or accuracy as your model trains \(in many cases we provide framework-specific defaults\). Log more complicated output or results like histograms, graphs, or images with [wandb.log](library/log.md).
+Enregistrez des mesures comme vos pertes ou votre précision pendant que votre modèle s’entraîne \(dans de nombreux cas, nous en fournissons par défaut pour chaque framework\). Enregistrez des rendements ou des résultats plus complexes comme des histogrammes, des graphiques ou des images avec [wandb.log](file:///C:/library/log).
 
 ```python
 def my_train_loop():
@@ -68,9 +68,9 @@ def my_train_loop():
         wandb.log({'epoch': epoch, 'loss': loss})
 ```
 
-### Save Files
+### Sauvegarder des fichiers
 
-Anything saved in the `wandb.run.dir` directory will be uploaded to W&B and saved along with your run when it completes. This is especially convenient for saving the literal weights and biases in your model:
+Tout ce qui est sauvegardé dans le répertoire `wandb.run.dir` sera téléchargé sur W&B et sauvegardé, ainsi que votre essai lorsqu’il se termine. C’est particulièrement pratique pour littéralement sauvegarder les poids \(weights\) et les biais \(biases\) de votre modèle :
 
 ```python
 # by default, this will save to a new subfolder for files associated
@@ -81,25 +81,25 @@ wandb.save("mymodel.h5")
 model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 ```
 
-Great! Now run your script normally and we'll sync the logs in a background process. Your terminal output, metrics, and files will be synced to the cloud, along with a record of your git state if you're running from a git repo.
+Super ! Maintenant, exécutez votre script normalement et nous synchroniserons les enregistrements en tâche de fond. Vos résultats, mesures, et fichiers seront synchronisés au cloud, ainsi qu’un enregistrement de votre état git, si vous utilisez un répertoire git \(git repo\).
 
 {% hint style="info" %}
-If you're testing and want to disable wandb syncing, set the [environment variable](library/environment-variables.md) WANDB\_MODE=dryrun
+Si vous faites des tests et que vous voulez désactiver la synchronisation wandb, ajoutez la [variable d’environnement](https://docs.wandb.ai/library/environment-variables) WANDB\_MODE=dryrun
 {% endhint %}
 
-## Next Steps
+### Étapes suivantes
 
-Now you've got the instrumentation working, here's a quick overview of cool features:
+Maintenant que l’instrumentation est en place, voici un rapide aperçu de ses fonctionnalités sympa :
 
-1. **Project Page**: Compare lots of different experiments in a project dashboard. Every time you run a model in a project, a new line appears in the graphs and in the table. Click the table icon on the left sidebar to expand the table and see all your hyperparameters and metrics. Create multiple projects to organize your runs, and use the table to add tags and notes to your runs.
-2. **Custom Visualizations**: Add parallel coordinates charts, scatter plots, and other advanced visualizations to explore your results.
-3. **Reports**: Add a Markdown panel to describe your research results alongside your live graphs and tables. Reports make it easy to share a snapshot of your project with collaborators, your professor, or your boss!
-4. **Frameworks**: We have special integrations for popular [frameworks](library/integrations/) like PyTorch, Keras, and XGBoost.
-5. **Showcase**: Interested in sharing your research? We're always working on blog posts to highlight the amazing work of our community. Message us at contact@wandb.com.
+1.  **Page de Projet** : Comparez de nombreux expériences grâce au tableau de bord du projet. À chaque fois que vous lancez un essai de modèle dans un projet, une nouvelle ligne apparaît sur les graphiques et dans le tableau. Cliquez sur l’icône du tableau dans la barre de gauche pour augmenter la taille du tableau et visualiser tous vos hyperparamètres et vos mesures. Créez plusieurs projets pour organisez vos essais, et utilisez le tableau pour ajouter des étiquettes et des notes à vos essais.
+2. **Visualisation personnalisée** : Ajoutez des graphiques de coordonnées parallèles, des diagrammes de dispersion et d'autres visualisations avancées pour explorer vos résultats.
+3.  [**Rapports**](https://docs.wandb.ai/reports) ****: Ajoutez un panneau Markdown pour décrire les résultats de vos recherches à côté des graphiques et des tableaux que vous obtenez en direct. Avec les rapports, il est facile de partager votre projet en une seule image pour vos collaborateurs, votre professeur, ou votre patron !
+4. [**Intégrations**](https://docs.wandb.ai/integrations) ****: Nous avons des intégrations spéciales pour les frameworks les plus utilisés comme PyTorch, Keras et XGBoost.
+5. **Mise en valeur** : Vous êtes intéressé et vous voulez partagez vos recherches ? Nous travaillons en permanence sur des articles de blog pour mettre en avant le travail incroyable de notre communauté. Envoyez-nous un message à l’adresse contact@wandb.com.
 
-### [Contact us with questions →](company/getting-help.md)
+###  [**Contactez-nous avec vos questions**](https://docs.wandb.ai/company/getting-help)
 
-### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
+### [**Voir l’étude de cas d’OpenAI**](https://bit.ly/wandb-learning-dexterity)[ →](https://bit.ly/wandb-learning-dexterity)
 
 ![](.gitbook/assets/image%20%2891%29.png)
 

@@ -16,17 +16,19 @@ Collaborate easily, whether your colleagues are sitting in the same lab or thous
 
 Are you writing an academic paper? Cite Weights & Biases as your experiment tracking tool. Here are some pre-generated citations for you:
 
-**Bibtex Citation Format**
+"We used [Weights & Biases](http://wandb.ai/) for experiment tracking and visualizations to develop insights for this paper."
+
+### Bibtex Citation
 
 @misc{wandb,  
 title = {Experiment Tracking with Weights and Biases},  
 year = {2020},  
 note = {Software available from wandb.com},  
-url={[https://www.wandb.com/](https://www.wandb.com/),}  
+url={https://www.wandb.com/},  
 author = {Biewald, Lukas},  
 }
 
-**IEEE Citation Format**
+### IEEE Citation
 
 L. Biewald, “Experiment Tracking with Weights and Biases,” Weights & Biases. \[Online\]. Available: [http://wandb.com/](http://wandb.com/). \[Accessed: `Add date here`\].  
 Software available from [wandb.com](http://wandb.com/)
