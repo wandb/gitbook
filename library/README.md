@@ -1,32 +1,32 @@
 ---
 description: >-
-  Weights & Biases for experiment tracking, dataset versioning, and model
-  management
+  Weights & Biases permet un suivi de vos expériences, d’avoir de multiples
+  versions de dataset, et de gérer votre modèle
 ---
 
 # Library
 
-Use the `wandb` Python library to track machine learning experiments with a few lines of code. If you're using a popular framework like [PyTorch](../integrations/pytorch.md) or [Keras](../integrations/keras.md), we have lightweight [integrations](../integrations/).
+Utilisez la librairie Python `wandb` pour suivre vos expériences d’apprentissage automatique avec quelques lignes de code. Si vous utilisez un framework populaire comme [Pytorch](https://docs.wandb.ai/integrations/pytorch) ou [Keras](https://docs.wandb.ai/integrations/keras), nous avons des [intégrations](https://docs.wandb.ai/integrations) simplifiées.
 
-## Integrating W&B in your script
+## Intégrer W&B à votre script
 
-Below are the simple building blocks to track an experiment with W&B. We also have a whole host of special integrations for [PyTorch](../integrations/pytorch.md), [Keras](../integrations/keras.md), [Scikit](../integrations/scikit.md), etc. See [**Integrations**](../integrations/).
+Ci-dessous, vous trouverez des blocs de construction simples pour vous permettre de suivre une expérience avec W&B. Nous avons aussi un très grand nombre d’intégrations spéciales pour [Pytorch](https://docs.wandb.ai/integrations/pytorch), [Keras](https://docs.wandb.ai/integrations/keras), [Scikit](https://docs.wandb.ai/integrations/scikit), etc. Voir nos [**Intégrations**](https://docs.wandb.ai/integrations).
 
-1. \*\*\*\*[**wandb.init\(\)**](init.md): Initialize a new run at the top of your script. This returns a Run object and creates a local directory where all logs and files are saved, then streamed asynchronously to a W&B server. If you want to use a private server instead of our hosted cloud server, we offer [Self-Hosting](../self-hosted/).
-2. \*\*\*\*[**wandb.config**](config.md): Save a dictionary of hyperparameters such as learning rate or model type. The model settings you capture in config are useful later to organize and query your results.
-3. \*\*\*\*[**wandb.log\(\)**](log.md): Log metrics over time in a training loop, such as accuracy and loss. By default, when you call wandb.log\(\) it appends a new step to the history object and updates the summary object. 
-   * **history**: An array of dictionary-like objects that tracks metrics over time. These time series values are shown as default line plots in the UI.
-   * **summary**: By default, the final value of a metric logged with wandb.log\(\). You can set the summary for a metric manually to capture the highest accuracy or lowest loss instead of the final value. These values are used in the table, and plots that compare runs — for example, you could visualize at the final accuracy for all runs in your project.
-4. \*\*\*\*[**Artifacts**](../artifacts/): Save outputs of a run, like the model weights or a table of predictions. This lets you track not just model training, but all the pipeline steps that affect the final model.
+1.  [**wandb.init\(\)** ](https://docs.wandb.ai/library/init): Initialise un nouvel essai au début de votre script. Cela retourne un objet Run et crée un dossier local où tous vos enregistrements et vos fichiers sont sauvegardés, puis envoyés de manière asynchrone à un serveur W&B. Si vous voulez utiliser un serveur privé plutôt que notre serveur cloud dédié, nous proposons un [auto-hébergement](https://docs.wandb.ai/self-hosted).
+2. [**wandb.config** ](https://docs.wandb.ai/library/config): Sauvegarde un dictionnaire d’hyperparamètres, comme le taux d’apprentissage ou le type de modèle. Les paramètres du modèle que vous capturez en config sont utiles plus tard, pour organiser et faire des recherches dans vos résultats.
+3. [**wandb.log\(\)** ](https://docs.wandb.ai/library/log): Enregistre des mesures pendant un loop d’entrainement, comme la précision et les pertes. Par défaut, quand vous appelez wandb.log\(\), une nouvelle étape est ajoutée à l’historique de l’objet et le sommaire de l’objet est mis à jour.
+   * **historique** : Un ensemble d’objets, comme un dictionnaire, qui enregistre les mesures en fonction du temps. Ces séries de valeurs de temps sont montrées sous forme de graphique linéaire par défaut dans l’IU.
+   * **sommaire** : Par défaut, la valeur finale d’une mesure enregistrée avec wandb.log\(\). Vous pouvez régler le sommaire d’une mesure manuellement pour capturer la plus grande précision ou la moins grande perte, à la place de la valeur finale. Ces valeurs sont utilisées dans le tableau, et sur des graphiques linéaires qui comparent les essais – par exemple, vous pouvez visualiser la précision finale de tous vos essais pour votre projet.
+4.  [Artéfacts](https://docs.wandb.ai/artifacts) : Enregistre les résultats d’un essai, comme les poids du modèle ou le tableau des prédictions. Ceci vous permet d’observer non seulement le modèle en entraînement, mais aussi les étapes internes en pipeline qui affectent votre modèle final.
 
-## Best Practices
+##  Meilleures utilisations
 
-The `wandb` library is incredibly flexible. Here are some suggested guidelines.
+La librairie `wandb` est incroyablement flexible. Voici quelques lignes directrices pour vous aiguiller.
 
-1. **Config**: Track hyperparameters, architecture, dataset, and anything else you'd like to use to reproduce your model. These will show up in columns— use config columns to group, sort, and filter runs dynamically in the app.
-2. **Project**: A project is a set of experiments you can compare together. Each project gets a dedicated dashboard page, and you can easily turn on and off different groups of runs to compare different model versions.
-3. **Notes**: A quick commit message to yourself, the note can be set from your script and is editable in the table.
-4. **Tags**: Identify baseline runs and favorite runs. You can filter runs using tags, and they're editable in the table.
+1. **Config**: Garde une trace de l’évolution des hyperparamètres, de l’architecture, du dataset, et tout ce que vous souhaitez utiliser pour reproduire votre modèle. Ces valeurs s’afficheront dans des colonnes – utilisez Configurer Colonnes pour regrouper, classifier et filtrer vos essais de manière dynamique dans l’application.
+2. **Project**: Un projet est un ensemble d’expériences que vous pouvez comparer les unes avec les autres. Chaque projet obtient une page dédiée sur le tableau de bord, et vous pouvez facilement activer ou désactiver les différents groupes d’essai pour comparer les différentes versions de modèle.
+3. **Notes**: Un rapide message commit à votre attention. Cette note peut être paramétrée depuis votre script et est éditable dans le tableau.
+4. **Tags**: Identifiez vos essais de base et vos essais favoris. Vous pouvez filtrer en utilisant ces étiquettes, et elles sont éditables dans le tableau.
 
 ```python
 import wandb
@@ -47,26 +47,26 @@ wandb.init(
 )
 ```
 
-## What data is logged?
+##  Quelles sont les données enregistrées ?
 
-All the data logged from your script is saved locally to your machine in a **wandb** directory, then sync'd to the W&B cloud or your [private server](../self-hosted/).
+ Toutes les données de votre script sont enregistrées localement sur votre appareil dans un dossier **wandb**, puis synchronisées avec le cloud W&B ou avec votre [serveur privé](https://docs.wandb.ai/self-hosted).
 
-### **Logged Automatically**
+### Enregistrées automatiquement
 
-* **System metrics**: CPU and GPU utilization, network, etc. These come from [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) and are shown in the System tab on the run page.
-* **Command line**: The stdout and stderr are picked up and show in the logs tab on the run page.
+* **Mesures du système** : Utilisation CPU et GPU, réseau, etc. Ces mesures viennent de [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) et sont montrées dans l’onglet Système, sur la page run.
+* **Ligne de commande** : Les stdout et stderr sont relevés et sont affichés dans l’onglet Enregistrement sur la page run.
 
-Turn on [Code Saving](http://wandb.me/code-save-colab) in your account's [Settings page](https://wandb.ai/settings) to get:
+ Activer la [Sauvegarde de Code](http://wandb.me/code-save-colab) sur votre [page de Paramètres](https://wandb.ai/settings) pour obtenir :
 
-* **Git commit**: Pick up the latest git commit and see it on the overview tab of the run page, as well as a diff.patch file if there are any uncommitted changes.
-* **Files**: The `requirements.txt` file will be uploaded and shown on the files tab of the run page, along with any files you save to the **wandb** directory for the run.
+* **Git commit** : Relève le dernier git commit et l’affiche sur l’onglet Vision d’ensemble sur la page run, ainsi qu’un fichier diff.patch s’il y a des changements qui n’ont pas été effectués.
+* **Fichiers** : Le fichier `requirements.txt` \(prérequis\) et tout fichier que vous sauvegardez dans le fichier **wandb**pour votre essai seront téléchargés et seront affichés dans l’onglet Fichiers sur la page run.
 
-### Logged with specific calls
+###  Enregistrées avec demandes spécifiques
 
-Where data and model metrics are concerned, you get to decide exactly what you want to log.
+Lorsqu’il est question des mesures de données et de modèles, vous pouvez décider exactement ce que vous voulez enregistrer.
 
-* **Dataset**: You have to specifically log images or other dataset samples for them to stream to W&B.
-* **PyTorch gradients**: Add `wandb.watch(model)` to see gradients of the weights as histograms in the UI.
-* **Config**: Log hyperparameters, a link to your dataset, or the name of the architecture you're using as config parameters, passed in like this: `wandb.init(config=your_config_dictionary)`.
-* **Metrics**: Use `wandb.log()` to see metrics from your model. If you log metrics like accuracy and loss from inside your training loop, you'll get live updating graphs in the UI.
+* **Dataset**: Vous devez enregistrer des images spécifiques ou d’autres échantillons de dataset pour qu’ils soient envoyés à W&B.
+* **PyTorch gradients**: Ajoutez `wandb.watch(model)` pour visualiser les gradients des poids sous forme d’histogrammes dans l’IU.
+* **Config**:  Enregistrez les hyperparamètres, un lien vers votre dataset, ou le nom de l’architecture que vous utilisez en tant que paramètres de config, sous cette forme : `wandb.init(config=your_config_dictionary)`
+* **Metrics**:  Utilisez `wandb.log()` pour visualiser les mesures de votre modèle. Si vous enregistrez des mesures comme la précision et les pertes depuis l’intérieur de votre boucle d’entraînement, vous pourrez voir l’évolution de vos graphiques en direct depuis l’IU.
 
