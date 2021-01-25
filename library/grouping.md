@@ -1,49 +1,57 @@
 ---
-description: Group training and evaluation runs into larger experiments
+description: >-
+  Regroupez vos essais d’entraînement et d’évaluation en expériences plus
+  grandes
 ---
 
 # Grouping
 
-Group individual runs into experiments by passing a unique **group** name to **wandb.init\(\)**.
+Regroupez des essais individuels en expériences en passant un nom de **groupe** \(group\) unique dans **wandb.init\(\)**.
 
-### **Use Cases**
+### Cas d’utilisation
 
-1. **Distributed training:** Use grouping if your experiments are split up into different pieces with separate training and evaluation scripts that should be viewed as parts of a larger whole.
-2. **Multiple processes**: Group multiple smaller processes together into an experiment.
-3. **K-fold cross-validation**: Group together runs with different random seeds to see a larger experiment. Here's [an example](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation) of k-fold cross validation with sweeps and grouping.
+1. **Entraînement distribué** : Utilisez les regroupements si vos expériences sont divisées en différentes parties avec des entraînements séparés et des scripts d’évaluation qui devraient être vus comme des parties d’un plus grand tout.
+2. **Processus multiples** : Regroupez de multiples petits processus ensemble dans une expérience.
+3. **Validation croisée à k blocs** : Regroupez des essais avec des seeds aléatoires différentes pour visualiser une expérience plus grande. Voici [un exemple](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation) de validation croisée à k blocs avec des balayages et des regroupements.
 
-### What it looks like
+### À quoi ça ressemble
 
-If you set grouping in your script, we will group the runs by default in the table in the UI. You can toggle this on and off by clicking the **Group** button at the top of the table. Here's an example of grouping on the project page.
+Si vous programmez des regroupements dans votre script, nous regrouperons les essais par défaut dans le tableau de l’IU. Vous pouvez activer ou désactiver ceci en cliquant sur le bouton **Groupe** en haut du tableau. Voici un exemple de regroupement sur la page de projet.
 
-* **Sidebar**: Runs are grouped by the number of epochs.
-* **Graphs**: Each line represents the mean of the group, and the shading indicates the variance. This behavior can be change in the graph settings.
+*   **Barre Latérale** : Les essais \(runs\) sont regroupés par le nombre d’epochs.
+* **Graphiques** : Chaque ligne représente la moyenne du groupe, et le dégradé indique la variance. Ce comportement peut être modifié dans les paramètres de graphique.
 
 ![](../.gitbook/assets/demo-grouping.png)
 
-There are a few ways to use grouping:
+Il existe plusieurs moyens d’utiliser le regroupement :
 
-**Setting a group in your script**
+**Programmer un groupe dans votre script**
 
-Pass an optional group and job\_type to wandb.init\(\). For example:`wandb.init(group="experiment_1", job_type="eval")`**. Group** should be unique within your project and shared by all runs in the group.  You can use `wandb.util.generate_id()` to generate a unique 8 character string to use in all your processes— for example:`os.environ["WANDB_RUN_GROUP"] = "experiment-" + wandb.util.generate_id()`
+  
+Il existe plusieurs moyens d’utiliser le regroupement :
 
-**Set a group environment variable**
+#### Programmer un groupe dans votre script
 
-Use `WANDB_RUN_GROUP` to specify a group for your runs as an environment variable. For more on this, check our docs for [**Environment Variables**](environment-variables.md)**.**
+Passez un groupe optionnel et un job\_type dans wandb.init\(\). Par exemple :`wandb.init(group="experiment_1", job_type="eval")`**.** Le groupe doit être unique dans votre projet, et partagé par tous les essais de ce groupe. Vous pouvez utiliser `wandb.util.generate_id()`pour générer une ligne de 8 caractères uniques à utiliser dans tous vos processus – par exemple :`os.environ["WANDB_RUN_GROUP"] = "experiment-" + wandb.util.generate_id()`
 
-**Toggle grouping in the UI**
+#### Programmer une variable d’environnement de groupe
 
-You can dynamically group by any config column. For example, if you use `wandb.config` to log batch size or learning rate, you can then group by those hyperparameters dynamically in the web app. 
+Utilisez `WANDB_RUN_GROUP` pour spécifier un groupe dans vos essais en tant que variable d’environnement. Pour plus d’informations, consultez notre documentation sur les ****[**Variables d’Environnement**](https://docs.wandb.ai/library/environment-variables)**.**
 
-### Turn off grouping
+ **Activer le regroupement dans l’IU**
 
-Click the grouping button and clear group fields at any time, which returns the table and graphs to their ungrouped state.
+Vous pouvez dynamiquement regrouper n’importe quelle colonne config. Par exemple, si vous utilisez `wandb.config`pour enregistrer la taille de lot ou le taux d’apprentissage, vous pourrez ensuite regrouper selon ces hyperparamètres de manière dynamique dans l’application web.
+
+###  Désactiver le regroupement
+
+Cliquez sur le bouton regroupement et sur Supprimer les champs de groupe à tout moment \(clear group fields at any time\), ce qui fait retourner le tableau et les graphiques dans leur état sans groupe.
 
 ![](../.gitbook/assets/demo-no-grouping.png)
 
-### Grouping graph settings
+###  Paramètres de regroupement de graphique
 
-Click the edit button in the upper right corner of a graph and select the **Advanced** tab to change the line and shading. You can select the mean, minimum, or maximum value to for the line in each group. For the shading, you can turn off shading, show the min and max, the standard deviation, and the standard error.
+Cliquez sur le bouton Editer en haut à droite d’un graphique et sélectionner l’onglet **Avancé** pour changer la ligne et le dégradé. Vous pouvez sélectionner la moyenne \(mean\), la valeur minimum ou maximum pour la ligne de chaque groupe. Pour le dégradé, vous pouvez désactiver le dégradé, montrer le minimum et le maximum, la déviation standard, et l’erreur standard.  
+
 
 ![](../.gitbook/assets/demo-grouping-options-for-line-plots.gif)
 

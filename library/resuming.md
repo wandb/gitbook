@@ -1,6 +1,6 @@
 # Resuming
 
-You can have wandb automatically resume runs by passing `resume=True` to `wandb.init()`. If your process doesn't exit successfully, the next time you run it wandb will start logging from the last step. Below is a simple example in Keras:
+ Vous pouvez faire en sorte que wandb reprenne automatiquement vos essais en passant resume=True dans wandb.init\(\). Si votre processus ne s’est pas fermé avec succès, la prochaine fois que vous le lancerez, wandb reprendra l’enregistrement depuis la dernière étape. Ci-dessous, un exemple simple dans Keras :
 
 ```python
 import keras
@@ -25,7 +25,7 @@ model.fit(np.random.rand(100, 32), np.random.rand(100, 10),
     callbacks=[WandbCallback(save_model=True, monitor="loss")])
 ```
 
-Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set the **WANDB\_RUN\_ID**: a globally unique string \(per project\) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
+La reprise automatique fonctionne uniquement si le processus recommence depuis le haut du même fichier système que le processus qui a échoué. Si vous ne pouvez pas partager un fichier système, nous vous permettons de régler **WANDB\_RUN\_ID** : une chaîne globalement unique \(par projet\) qui correspond à un seul essai de votre script. Elle ne doit pas excéder 64 caractères. Tous les caractères non-reconnus seront transformés en tiret.
 
 ```python
 # store this id to use it later when resuming
@@ -37,19 +37,19 @@ os.environ["WANDB_RUN_ID"] = wandb.util.generate_id()
 wandb.init()
 ```
 
-If you set **WANDB\_RESUME** equal to "allow", you can always set **WANDB\_RUN\_ID** to a unique string and restarts of the process will be handled automatically. If you set **WANDB\_RESUME** equal to "must", wandb will throw an error if the run to be resumed does not exist yet instead of auto-creating a new run.
+Si vous réglez **WANDB\_RESUME** égale à "allow" \(permettre\), vous pouvez toujours régler **WANDB\_RUN\_ID** sur une chaîne unique, et les reprises depuis le début du processus seront automatiquement gérées. Si vous réglez **WANDB\_RESUME** égale à "must" \(devoir\), wandb vous enverra une erreur si l’essai à reprendre n’existe pas encore, plutôt que de créer automatiquement un nouvel essai.
 
-| Method | Syntax | Never Resume \(default\) | Always Resume | Resume specifying run id | Resume from same directory |
+| Méthode | Syntaxe | Jamais reprendre \(défaut\) | Toujours reprendre | Reprendre en spécifiant un ID d’essai \(run\_id\) | Reprendre depuis le même dossier |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| command line | wandb run --resume= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
-| environment | WANDB\_RESUME= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
+| ligne de commande | wandb run --resume= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
+| environnement | WANDB\_RESUME= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
 | init | wandb.init\(resume=\) |  | \(not available\) | resume=RUN\_ID | resume=True |
 
 {% hint style="warning" %}
-If multiple processes use the same run\_id concurrently unexpected results will be recorded and rate limiting will occur.
+Si plusieurs processus utilisent le même run\_id de manière concurrente, des résultats inattendus seront enregistrés et une limite de taux interviendra.
 {% endhint %}
 
 {% hint style="info" %}
-If you resume a run and you have **notes** specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
+Si vous reprenez un essai et que vous avez des **notes** spécifiées dans wand.init\(\) , ces notes écraseront toutes notes que vous avez ajoutées dans l’IU.
 {% endhint %}
 

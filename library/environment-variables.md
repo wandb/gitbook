@@ -1,6 +1,6 @@
-# Environment Variables
+# Variables d’Environnement
 
-When you're running a script in an automated environment, you can control **wandb** with environment variables set before the script runs or within the script.
+Lorsque vous exécutez un script dans un environnement automatisé, vous pouvez contrôler **wandb** avec des variables d’environnement placées avant les essais de script ou à l’intérieur du script.
 
 ```bash
 # This is secret and shouldn't be checked into version control
@@ -21,66 +21,67 @@ WANDB_PROJECT=$project
 os.environ['WANDB_MODE'] = 'dryrun'
 ```
 
-## Optional Environment Variables
+## Variables d’environnement optionnelles
 
-Use these optional environment variables to do things like set up authentication on remote machines.
+Utilisez ces variables d’environnement optionnelles pour faire des actions comme mettre en place une authentification sur des machines à distance.
 
-| Variable name | Usage |
+| Nom de variable | Utilisation |
 | :--- | :--- |
-| **WANDB\_API\_KEY** | Sets the authentication key associated with your account. You can find your key on [your settings page](https://app.wandb.ai/settings). This must be set if `wandb login` hasn't been run on the remote machine. |
-| **WANDB\_BASE\_URL** | If you're using [wandb/local](../self-hosted/) you should set this environment variable to `http://YOUR_IP:YOUR_PORT` |
-| **WANDB\_NAME** | The human-readable name of your run. If not set it will be randomly generated for you |
-| **WANDB\_NOTES** | Longer notes about your run.  Markdown is allowed and you can edit this later in the UI. |
-| **WANDB\_ENTITY** | The entity associated with your run. If you have run `wandb init` in the directory of your training script, it will create a directory named _wandb_ and will save a default entity which can be checked into source control. If you don't want to create that file or want to override the file you can use the environmental variable. |
-| **WANDB\_USERNAME** | The username of a member of your team associated with the run. This can be used along with a service account API key to enable attribution of automated runs to members of your team. |
-| **WANDB\_PROJECT** | The project associated with your run. This can also be set with `wandb init`, but the environmental variable will override the value. |
-| **WANDB\_MODE** | By default this is set to _run_ which saves results to wandb. If you just want to save your run metadata locally, you can set this to _dryrun_. |
-| **WANDB\_TAGS** | A comma separated list of tags to be applied to the run. |
-| **WANDB\_DIR** | Set this to an absolute path to store all generated files here instead of the _wandb_ directory relative to your training script. _be sure this directory exists and the user your process runs as can write to it_ |
-| **WANDB\_RESUME** | By default this is set to _never_. If set to _auto_ wandb will automatically resume failed runs. If set to _must_ forces the run to exist on startup. If you want to always generate your own unique ids, set this to _allow_ and always set **WANDB\_RUN\_ID**. |
-| **WANDB\_RUN\_ID** | Set this to a globally unique string \(per project\) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes. This can be used to resume an existing run in cases of failure. |
-| **WANDB\_IGNORE\_GLOBS** | Set this to a comma separated list of file globs to ignore. These files will not be synced to the cloud. |
-| **WANDB\_ERROR\_REPORTING** | Set this to false to prevent wandb from logging fatal errors to its error tracking system. |
+| **WANDB\_API\_KEY** |  Définit la clef d’authentification associée à votre compte. Vous pouvez trouver votre clef sur votre [page de paramètres.](https://app.wandb.ai/settings) Elle doit être définie si wandb login n’a pas été run sur la machine à distance. |
+| **WANDB\_BASE\_URL** | Si vous utilisez [wandb/local](file:////self-hosted) , vous devriez régler cette variable d’environnement sur http://VOTRE\_IP:VOTRE\_PORT |
+| **WANDB\_NAME** | Le nom humainement lisible de votre essai. S’il n’est pas défini, il sera généré au hasard pour vous. |
+| **WANDB\_NOTES** | Des notes plus longues sur votre essai. Les Markdown sont autorisés et vous pouvez les éditer plus tard dans l’IU. |
+| **WANDB\_ENTITY** | L’entité associée à votre essai. Si vous avez lancé `wandb init` dans le dossier de votre script d’entraînement, cela créera un dossier nommé wandb et cela sauvegardera une entité par défaut qui peut être vue dans le contrôle de source. Si vous ne souhaitez pas créer ce fichier ou que vous souhaitez écraser le fichier, vous pouvez utiliser la variable d’environnement. |
+| **WANDB\_USERNAME** | Le nom d’utilisateur d’un membre de votre équipe associé à cet essai. Vous pouvez l’utiliser en même temps qu’une clef API de compte de service pour permettre l’attribution d’essais automatisés à des membres de votre équipe. |
+| **WANDB\_PROJECT** | Le projet associé à votre essai. Cette variable peut aussi être réglée avec wandb init , mais la variable d’environnement écrasera la valeur. |
+| **WANDB\_MODE** | Par défaut, elle est réglée sur run, ce qui sauvegarde les résultats sur wandb. Si vous voulez sauvegarder localement les métadonnées de votre essai, vous pouvez régler cette variable sur dryrun. |
+| **WANDB\_TAGS** | Une liste d’étiquettes séparées par des virgules qui seront appliquées à cet essai. |
+| **WANDB\_DIR** | Réglez cette variable sur un chemin de sauvegarde absolu pour stocker tous les fichiers générés dedans plutôt que dans le dossier wandb relatif à votre script d’entraînement. assurez-vous que ce dossier existe et que l’utilisateur depuis lequel vous lancez le projet a les autorisations pour y écrire |
+| **WANDB\_RESUME** | Par défaut, cette variable est réglée sur never \(jamais\). Si elle est réglée sur auto, wandb reprendra automatiquement les essais qui ont échoué. Si elle est réglée sur must, force l’existence de l’essai au démarrage. Si vous voulez toujours générer vos propres ID uniques, réglez cette variable sur allow et programmez toujours **WANDB\_RUN\_ID**. |
+| **WANDB\_RUN\_ID** | Réglez ceci sur une ligne globale unique \(par projet\) qui correspond à un seul essai de votre script. Ne doit pas excéder 64 caractères. Tous les caractères non-reconnus seront transformés en tiret. Ceci peut être utilisé pour reprendre un essai existant en cas d’échec. |
+| **WANDB\_IGNORE\_GLOBS** | Réglez cette variable sur une liste de fichiers globs que vous voulez ignorer, séparée par des virgules. Ces fichiers ne seront pas synchronisés au cloud. |
+| **WANDB\_ERROR\_REPORTING** | Réglez sur false pour empêcher wandb d’enregistrer des erreurs critiques dans son système de traçage d’erreur. |
 | **WANDB\_SHOW\_RUN** | Set this to **true** to automatically open a browser with the run url if your operating system supports it. |
 | **WANDB\_DOCKER** | Set this to a docker image digest to enable restoring of runs. This is set automatically with the wandb docker command. You can obtain an image digest by running `wandb docker my/image/name:tag --digest` |
-| **WANDB\_DISABLE\_CODE** | Set this to true to prevent wandb from storing a reference to your source code |
-| **WANDB\_ANONYMOUS** | Set this to "allow", "never", or "must" to let users create anonymous runs with secret urls. |
-| **WANDB\_CONSOLE** | Set this to "off" to disable stdout / stderr logging.  This defaults to "on" in environments that support it. |
-| **WANDB\_CONFIG\_PATHS** | Comma separated list of yaml files to load into wandb.config.  See [config](config.md#file-based-configs). |
-| **WANDB\_CONFIG\_DIR** | This defaults to ~/.config/wandb, you can override this location with this environment variable |
-| **WANDB\_NOTEBOOK\_NAME** | If you're running in jupyter you can set the name of the notebook with this variable. We attempt to auto detect this. |
-| **WANDB\_HOST** | Set this to the hostname you want to see in the wandb interface if you don't want to use the system provided hostname |
-| **WANDB\_SILENT** | Set this to **true** to silence wandb log statements. If this is set all logs will be written to **WANDB\_DIR**/debug.log |
-| **WANDB\_RUN\_GROUP** | Specify the experiment name to automatically group runs together. See [grouping](grouping.md) for more info. |
-| **WANDB\_JOB\_TYPE** | Specify the job type, like "training" or "evaluation" to indicate different types of runs. See [grouping](grouping.md) for more info. |
+| **WANDB\_DISABLE\_CODE** | Réglez cette variable sur truepour empêcher wandb de stocker une référence à votre code source |
+| **WANDB\_ANONYMOUS** | Réglez sur "allow" \(permettre\), "never"\(jamais\), or "must"\(obliger\) pour permettre aux utilisateurs de créer des essais anonymes avec des URL secrètes. |
+| **WANDB\_CONSOLE** | Réglez sur "off" pour désactiver l’enregistrement stdout / stderr. Cette variable est réglée sur "on" par défaut dans les environnements qui le permettent. |
+| **WANDB\_CONFIG\_PATHS** | Une liste de fichiers yaml séparée par des virgules à charger dans wandb.config. Voir [config](https://docs.wandb.ai/library/config#file-based-configs). |
+| **WANDB\_CONFIG\_DIR** | Par défaut, ~/.config/wandb. Vous pouvez réécrire l’emplacement avec cette variable d’environnement. |
+| **WANDB\_NOTEBOOK\_NAME** | Si vous programmez dans jupyter, vous pouvez régler le nom de votre notebook avec cette variable. Nous essayons de le détecter automatiquement. |
+| **WANDB\_HOST** | Réglez ceci sur le nom d’hôte que vous voulez voir dans l’interface wandb, si vous ne voulez pas utiliser le système fourni de nom d’hôte. |
+| **WANDB\_SILENT** | Réglez cette variable sur true pour rendre silencieuses toutes les déclarations d’enregistrement wandb. Si elle est réglée, tous les enregistrements seront écrits dans |
+| **WANDB\_RUN\_GROUP** | Spécifiez le nom de l’expérience pour automatiquement regrouper les essais ensemble. Voir [regroupements](https://docs.wandb.ai/library/grouping) pour plus d’infos. |
+| **WANDB\_JOB\_TYPE** | Spécifiez le type de travail, comme "entraînement" ou "évaluation" pour indiquer différents types d’essais. Voir [regroupements](https://docs.wandb.ai/library/grouping) pour plus d’infos. |
 
-## Singularity Environments
+##  Environnements Singularity
 
-If you're running containers in [Singularity](https://singularity.lbl.gov/index.html) you can pass environment variables by pre-pending the above variables with **SINGULARITYENV\_**. More details about Singularity environment variables can be found [here](https://singularity.lbl.gov/docs-environment-metadata#environment).
+  
+Si vous exécutez des conteneurs dans [Singularity](https://singularity.lbl.gov/index.html), vous pouvez passer des variables d’environnement en faisant précéder les variables vues ci-dessus avec **SINGULARITYENV\_**. Plus de détails sur les variables d’environnement Singularity [ici](https://singularity.lbl.gov/docs-environment-metadata#environment).
 
-## Running on AWS
+## Essais sur AWS
 
-If you're running batch jobs in AWS, it's easy to authenticate your machines with your W&B credentials. Get your API key from your [settings page](https://app.wandb.ai/settings), and set the WANDB\_API\_KEY environment variable in the [AWS batch job spec](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters).
+Si vous faites des traitements par lots sur AWS, il est facile d’authentifier vos machines avec vos identifiants W&B. Obtenez votre clef API depuis votre [page de paramètres](https://app.wandb.ai/settings), et inscrivez la variable d’environnement WANDB\_API\_KEY dans les [specs de traitement par lot de AWS.](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters)
 
-## Common Questions
+##  Questions fréquentes
 
-### Automated runs and service accounts
+**Essais automatisés et comptes de service**
 
-If you have automated tests or internal tools that launch runs logging to W&B, create a **Service Account** on your team settings page. This will allow you to use a service API key for your automated jobs. If you want to attribute service account jobs to a specific user, you can use the WANDB\_USER\_NAME or WANDB\_USER\_EMAIL environment variables.
+Si vous avez des tests automatisés ou des outils internes qui lancent des runs qui s’enregistrent dans W&B, créez un **Compte de Service** sur la page de paramètres de votre équipe. Ceci vous permettra d’utiliser une clef API de service pour vos traitements automatisés. Si vous voulez attribuer les traitements de compte de service à un utilisateur particulier, vous pouvez utiliser les variables d’environnement WANDB\_USER\_NAME \(nom d’utilisateur\) ou WANDB\_USER\_EMAIL \(email de l’utilisateur\).
 
-![Create a service account on your team settings page for automated jobs](../.gitbook/assets/image%20%2892%29.png)
+![Cr&#xE9;ez un compte de service sur la page de param&#xE8;tres de votre &#xE9;quipe pour vos traitements automatis&#xE9;s](../.gitbook/assets/image%20%2892%29.png)
 
-This is useful for continuous integration and tools like TravisCI or CircleCI if you're setting up automated unit tests.
+C’est utile pour avoir une intégration continue et pour des outils comme TravisCI ou CircleCI si vous mettez en place des tests d’unité automatisés.
 
-### Do environment variables overwrite the parameters passed to wandb.init\(\)?
+### **Est-ce que les variables d’environnement écrasent les paramètres passés dans wandb.init\(\) ?**
 
-Arguments passed to `wandb.init` take precedence over the environment. You could call `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` if you want to have a default other than the system default when the environment variable isn't set.
+Les arguments passés dans `wandb.init` ont la priorité sur l’environnement. Vous pouvez appeler `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` si vous voulez avoir un défaut autre que celui du système lorsque la variable d’environnement n’est pas programmé.
 
-### Turn off logging
+###  **Désactiver l’enregistrement**
 
-The command `wandb off` sets an environment variable, `WANDB_MODE=dryrun` . This stops any data from syncing from your machine to the remote wandb server. If you have multiple projects, they will all stop syncing logged data to W&B servers.
+La commande `wandb off` met en place une variable d’environnement, `WANDB_MODE=dryrun` . Ceci empêche toute donnée de se synchroniser depuis votre machine au serveur cloud wandb. Si vous avez plusieurs projets, ils arrêteront tous de synchroniser les données enregistrées sur les serveurs W&B
 
-To quiet the warning messages:
+ Pour rendre les messages d’avertissement silencieux :
 
 ```python
 import logging
@@ -88,9 +89,9 @@ logger = logging.getLogger("wandb")
 logger.setLevel(logging.WARNING)
 ```
 
-### Multiple wandb users on shared machines
+## **Multiples utilisateurs W&B sur des machines partagées**
 
-If you're using a shared machine and another person is a wandb user, it's easy to make sure your runs are always logged to the proper account. Set the [WANDB\_API\_KEY environment variable](environment-variables.md) to authenticate. If you source it in your env, when you log in you'll have the right credentials, or you can set the environment variable from your script.
+ Si vous utilisez une machine partagée et qu’une autre personne est un utilisateur wandb, il est facile de vous assurer que vos essais soient toujours enregistrés sur le bon compte. Utilisez la [variable d’environnement WANDB\_API\_KEY](https://docs.wandb.ai/library/environment-variables)pour vous authentifier. Si vous le sourcez depuis votre env, lorsque vous vous connectez, vous aurez les bons identifiants. Vous pouvez aussi régler la variable d’environnement depuis votre script.
 
-Run this command `export WANDB_API_KEY=X` where X is your API key. When you're logged in, you can find your API key at [wandb.ai/authorize](https://app.wandb.ai/authorize).
+Exécutez cette commande `export WANDB_API_KEY=X` où X est votre clef API. Une fois que vous vous êtes identifié, vous pouvez trouver votre clef API dans [wandb.ai/authorize](https://app.wandb.ai/authorize).
 

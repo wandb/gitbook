@@ -1,48 +1,49 @@
 ---
 description: >-
-  Log in, restore code state, sync local directories to our servers, and run
-  hyperparameter sweeps with our command line interface
+  Identifiez-vous, restaurez l’état de votre code, synchronisez vos dossiers
+  locaux sur nos serveurs, et exécutez des balayages d’hyperparamètres avec
+  notre interface de ligne de commande
 ---
 
 # Command Line Interface
 
-After running `pip install wandb` you should have a new command available, **wandb**.
+ Après avoir exécuté `pip install wandb`, vous devriez avoir une nouvelle commande disponible, **wandb**.
 
-The following sub-commands are available:
+Les sous-commandes suivantes sont disponibles :
 
-| Sub-command | Description |
+| Sous-commande | Description |
 | :--- | :--- |
-| docs | Open documentation in a browser |
-| init | Configure a directory with W&B |
-| login | Login to W&B |
-| offline | Only save run data locally, no cloud syncing \(`off` deprecated\) |
-| online | Ensure W&B is enabled in this directory \(`on` deprecated\) |
-| disabled | Disables all API calls, useful for testing |
-| enabled | Same as `online`, resumes normal W&B logging, once you've finished testing |
-| docker | Run a docker image, mount cwd, and ensure wandb is installed |
-| docker-run | Add W&B environment variables to a docker run command |
-| projects | List projects |
-| pull | Pull files for a run from W&B |
-| restore | Restore code and config state for a run |
-| run | Launch a non-python program, for python use wandb.init\(\) |
-| runs | List runs in a project |
-| sync | Sync a local directory containing tfevents or previous runs files |
-| status | List current directory status |
-| sweep | Create a new sweep given a YAML definition |
-| agent | Start an agent to run programs in the sweep |
+| docs | Ouvre la documentation dans un navigateur |
+| init | Configure un dossier avec W&B |
+| login | Se connecte à W&B |
+| offline | Sauvegarde les données de l’essai localement, sans synchronisation cloud \( `off` obsolète\) |
+| online | S’assure que W&B est activé dans ce dossier \( `on` obsolète\) |
+| disabled | Désactive tous les appels API, utile pour faire des tests |
+| enabled | Même chose que online, reprend un enregistrement normal W&B, une fois que vous avez fini vos tests. |
+| docker | Exécute une image docker, mount cwd, et s’assure que wandb est installée |
+| docker-run | Ajoute des variables d’environnement W&B à une commande docker run |
+| projects | Liste les projets |
+| pull | Extrait des fichiers d’un essai depuis W&B |
+| restore | Restaure le code et l’état config pour un essai |
+| run | Lance un programme non-python. Pour python, utiliser wandb.init\(\) |
+| runs | Liste les essais \(runs\) dans un projet |
+| sync | Synchronise un dossier local contenant des tfevents ou des fichiers d’essais précédents |
+| status | Liste les statuts du dossier courant |
+| sweep | Crée un nouveau balayage avec une définition YAML à donner |
+| agent | Démarre un agent pour exécuter des programmes dans le balayage |
 
-## Restore the state of your code
+## Restaurer l’état de votre code
 
-Use `restore` to return to the state of your code when you ran a given run.
+Utilisez `restore` pour retourner à l’état de votre code lorsque vous avez fait un essai \(run\) particulier.
 
-### Example
+### Exemple
 
 ```python
 # creates a branch and restores the code to the state it was in when run $RUN_ID was executed
 wandb restore $RUN_ID
 ```
 
-**How do we capture the state of the code?**
+**Comment capturons-nous l’état du code ?**
 
-When `wandb.init` is called from your script, a link is saved to the last git commit if the code is in a git repository. A diff patch is also created in case there are uncommitted changes or changes that are out of sync with your remote.
+ Lorsque `wandb.init` est appelé depuis votre script, un lien est sauvegardé dans le dernier git commit si votre code est dans un répertoire git. Un patch diff est aussi créé, au cas-où il y aurait des changements qui ne seraient pas commit, ou des changements qui seraient non-synchronisés.
 
