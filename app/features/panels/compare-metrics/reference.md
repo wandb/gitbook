@@ -62,9 +62,9 @@ Select a style for your line plot.
 
 **Area plot:**
 
-![](../../../../.gitbook/assets/image%20%2835%29.png)
+![](../../../../.gitbook/assets/image%20%2835%29%20%281%29.png)
 
 **Percentage area plot:**
 
-![](../../../../.gitbook/assets/image%20%2869%29.png)
+![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%281%29.png)
 
