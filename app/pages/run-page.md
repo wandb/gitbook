@@ -40,7 +40,7 @@ description: モデルの各トレーニング実行には、より大きなプ�
 
 [実例を見る→](https://wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
 
-![](../../.gitbook/assets/image%20%2888%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2888%29%20%282%29.png)
 
 ## **［モデル］タブ**
 
@@ -48,7 +48,7 @@ description: モデルの各トレーニング実行には、より大きなプ�
 
 [実例を見る→](https://wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
-![](../../.gitbook/assets/image%20%2829%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29.png)
 
 ##  **\[ログ\]タブ**
 
@@ -57,7 +57,7 @@ description: モデルの各トレーニング実行には、より大きなプ�
 
  [実例を見る→](https://wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
-![](../../.gitbook/assets/image%20%2869%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2869%29%20%284%29%20%285%29.png)
 
 ##  **\[ファイル\]タブ**
 

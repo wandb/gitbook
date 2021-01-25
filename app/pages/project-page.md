@@ -26,7 +26,7 @@ description: モデルのバージョンを比較し、スクラッチワーク�
 
 [実例を見る→](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](../../.gitbook/assets/image%20%2829%29.png)
+![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%281%29.png)
 
 ![](../../.gitbook/assets/undelete.png)
 
@@ -47,7 +47,7 @@ description: モデルのバージョンを比較し、スクラッチワーク�
 
  [実例を見る→](https://wandb.ai/example-team/sweep-demo)
 
-![](../../.gitbook/assets/image%20%2838%29.png)
+![](../../.gitbook/assets/image%20%2838%29%20%281%29.png)
 
 ### の検索
 

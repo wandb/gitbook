@@ -4,7 +4,7 @@
 
 ##  
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%282%29.png)
 
 {% hint style="info" %}
 ## すでにWeights＆Biasesプロジェクトがありますか？[次のスイープチュートリアルにスキップ→](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/sweeps/existing-project)
