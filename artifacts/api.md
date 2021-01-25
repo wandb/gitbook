@@ -360,6 +360,20 @@ logged_artifacts = run.logged_artifacts()
 used_artifacts = run.used_artifacts()
 ```
 
+## Cleaning up unused versions
+
+As an artifact evolves over time, you might end up with a large number of versions that clutter the UI. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged `latest`\) of your artifact is useful. W&B makes it easy to clean up these unneeded versions:
+
+```python
+api = wandb.Api()
+
+artifact_type, artifact_name = ... # fill in the desired type + name
+for version in api.artifact_versions(artifact_type, artifact_name):
+    # Clean up all versions that don't have an alias such as 'latest'.
+    if len(version.aliases) == 0:
+        version.delete()
+```
+
 ## Data privacy
 
 Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
