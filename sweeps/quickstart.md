@@ -2,7 +2,7 @@
 
 Start from any machine learning model and get a hyperparameter sweep running in minutes. Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%282%29.png)
 
 {% hint style="info" %}
 Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](existing-project.md)
