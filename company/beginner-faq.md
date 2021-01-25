@@ -28,5 +28,5 @@ Wandb는 훈련 시각화를 위한 툴이며 저희는 전문가부터 지금 �
 
  [W&B에서 리포트 보기 →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)​
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2818%29%20%283%29.png)
 

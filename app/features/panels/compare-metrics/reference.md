@@ -62,9 +62,9 @@ You can set \[\[$x: $y\]\] to display point specific values in the crosshair
 
  **영역 플롯:**
 
-![](../../../../.gitbook/assets/image%20%2835%29.png)
+![](../../../../.gitbook/assets/image%20%2835%29%20%281%29.png)
 
 **백분율 영역 플롯:**
 
-![](../../../../.gitbook/assets/image%20%2869%29.png)
+![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%281%29.png)
 
