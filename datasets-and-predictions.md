@@ -10,7 +10,7 @@ Data is at the core of every ML workflow. We’ve added powerful new features to
 
 Dive in and try an end-to-end demo: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-demo-colab)
 
-![Here&apos;s a preview of the Datasets &amp; Predictions dashboard](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673880422_image.png)
+![Here&apos;s a preview of the dataset table UI](.gitbook/assets/table-ui.png)
 
 ## How it works
 
