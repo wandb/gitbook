@@ -56,7 +56,7 @@ wandb login
 
  你可在权阈的指示板（W&B Dashboard）查看动态结果。纵观多个实验，仔细观察有意思的发现，可视化高维数据，这些都轻而易举。
 
-![](../.gitbook/assets/hf-gif-15%20%282%29.gif)
+![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29.gif)
 
  这个例子是比较[BERT与DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU)——利用自动绘制线条可视化功能，很容易看清不同的架构如何影响评估准确率。
 
