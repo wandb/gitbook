@@ -17,7 +17,7 @@
   * [Resuming](library/resuming.md)
   * [Limits](library/limits.md)
   * [FAQ technique](library/technical-faq.md)
-* [Integrations](integrations/README.md)
+* [Intégrations](integrations/README.md)
   * [PyTorch](integrations/pytorch.md)
   * [Keras](integrations/keras.md)
   * [TensorFlow](integrations/tensorflow.md)

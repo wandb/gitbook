@@ -4,7 +4,7 @@ description: How to integrate a Keras script to log metrics to W&B
 
 # Keras
 
-Use the Keras callback to automatically save all the metrics and the loss values tracked in `model.fit`.
+Utilisez le callback Keras pour sauvegarder automatiquement toutes les mesures et toutes les valeurs de perte retracées dans `model.fit` .
 
 {% code title="example.py" %}
 ```python
@@ -19,40 +19,41 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 ```
 {% endcode %}
 
-Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb), complete with [video tutorial](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases), or see our [example projects](../examples.md) for a complete script example.
+ Essayez notre intégration dans un [notebook colab](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb), complété par un [tutoriel vidéo](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases), ou regardez nos [exemples de projets](https://docs.wandb.ai/examples) pour avoir un exemple de script complet.  
+
 
 #### Options
 
-Keras `WandbCallback()` class supports a number of options:
+La classe Keras `WandbCallback()` permet un certain nombre d’options :
 
-| Keyword argument | Default | Description |
+| Argument mot-clef | Par défaut | Description |
 | :--- | :--- | :--- |
-| monitor | val\_loss | The training metric used to measure performance for saving the best model. i.e. val\_loss |
-| mode | auto | 'min', 'max', or 'auto': How to compare the training metric specified in `monitor` between steps |
-| save\_weights\_only | False | only save the weights instead of the entire model |
-| save\_model | True | save the model if it's improved at each step |
-| log\_weights | False | log the values of each layers parameters at each epoch |
-| log\_gradients | False | log the gradients of each layers parametres at each epoch |
-| training\_data | None | tuple \(X,y\) needed for calculating gradients |
-| data\_type | None | the type of data we're saving, currently only "image" is supported |
-| labels | None | only used if data\_type is specified, list of labels to convert numeric output to if you are building classifier. \(supports binary classification\) |
-| predictions | 36 | the number of predictions to make if data\_type is specified. Max is 100. |
-| generator | None | if using data augmentation and data\_type you can specify a generator to make predictions with. |
+| monitor | val\_loss | Mesure d’entraînement utilisée pour mesurer les performances pour sauvegarder le meilleur modèle. i. e. val\_loss |
+| mode | auto |  'min', 'max', ou 'auto' : comment comparer la mesure d’entraînement spécifiée dans `monitor` entre les étapes |
+| save\_weights\_only | False | ne sauvegarde que les poids plutôt que le modèle intégral |
+| save\_model | True | sauvegarde le modèle s’il s’est amélioré à chaque étape |
+| log\_weights | False | enregistre les valeurs de chaque paramètres de couches à chaque epoch |
+| log\_gradients | False | enregistre les dégradés de chaque paramètres de couches à chaque epoch |
+| training\_data | None | tuple \(X, y\) nécessaire pour calculer les dégradés |
+| data\_type | None | le type de données que l’on sauvegarde, pour l’instant seul "image" est accepté |
+| labels | None | utilisé seulement si data\_type est spécifié ; liste de labels sur laquelle convertir des sorties numériques si vous construisez une classification. \(accepte une classification binaire\) |
+| predictions | 36 | le nombre de prédictions à faire si le data\_type est spécifié. Max de 100. |
+| generator | None | si vous utilisez de l’augmentation de données et un data\_type, vous pouvez spécifier un générateur avec lequel faire des prédictions |
 
-## Common Questions
+## Questions fréquentes
 
-### **Use Keras multiprocessing with wandb**
+### Utiliser le multiprocessing Keras avec wandb
 
-If you're setting `use_multiprocessing=True` and seeing the error `Error('You must call wandb.init() before wandb.config.batch_size')` then try this:
+Si vous paramètrez `use_multiprocessing=True`et que vous voyez l’erreur`Error('You must call wandb.init() before wandb.config.batch_size')` essayez ceci :
 
-1. In the Sequence class init, add: `wandb.init(group='...')` 
-2. In your main program, make sure you're using `if __name__ == "__main__":` and then put the rest of your script logic inside that.
+1. Dans l’init Sequence class, ajoutez : `wandb.init(group='...')` 
+2. Dans votre programme principal, assurez-vous que vous utilisez  `if __name__ == "__main__":` puis ajouter le reste de votre logique de script à l’intérieur de ça.
 
-## Examples
+## Exemples
 
-We've created a few examples for you to see how the integration works:
+Nous avons créé quelques exemples pour que vous voyiez comment cette intégration fonctionne :
 
-* [Example on Github](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py):  Fashion MNIST example in a Python script
-* Run in Google Colab: A simple notebook example to get you started
-* [Wandb Dashboard](https://app.wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs): View result on W&B
+*  [Exemple sur Github ](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py): Exemple Fashion MNIST dans un script Python
+* Exécutez dans Google Colab : Un exemple notebook simple pour bien commencer
+* [Tableau de bord Wandb ](https://app.wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs): Visualiser les résultats sur W&B
 

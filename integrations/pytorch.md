@@ -4,7 +4,7 @@ description: How to integrate a PyTorch script to log metrics to W&B
 
 # PyTorch
 
-W&B provides first class support for PyTorch. To automatically log gradients and store the network topology, you can call `watch` and pass in your PyTorch model.
+Pour automatiquement enregistrer des dégradés et stocker la topologie du réseau, vous pouvez appeler `watch` et passer votre modèle PyTorch.
 
 ```python
 import wandb
@@ -23,13 +23,13 @@ for batch_idx, (data, target) in enumerate(train_loader):
         wandb.log({"loss": loss})
 ```
 
-> Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward and backward pass.
+> Les gradients, les mesures et le tableau ne seront pas enregistrés jusqu’à ce que `wandb.log` soit appelé après une première passe avant-arrière \(forward/backward\).
 
-See this [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) for an end to end example of integrating wandb with PyTorch, including a [video tutorial](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases). You can also find more examples in our [example projects](../examples.md) section.
+Consultez ce [notebook colab](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) pour voir un exemple intégral d’intégration de wandb avec PyTorch, avec un [tutoriel vidéo](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases). Vous pouvez aussi trouver d’autres exemples dans notre section [exemples de projets](https://docs.wandb.ai/examples).
 
 ### Options
 
-By default the hook only logs gradients.
+Par défaut, le crochet \(hook\) n’enregistre que les dégradés \(gradients\).
 
 <table>
   <thead>
@@ -43,39 +43,40 @@ By default the hook only logs gradients.
       <td style="text-align:left">log</td>
       <td style="text-align:left">
         <ul>
-          <li>all: log histograms of gradients and parameters</li>
+          <li>all : enregistre les histogrammes de d&#xE9;grad&#xE9;s et de param&#xE8;tres</li>
           <li>gradients (default)</li>
-          <li>parameters (weights of the model)</li>
-          <li>None</li>
+          <li>parameters (poids du mod&#xE8;le)</li>
+          <li>Aucun</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">log_freq</td>
-      <td style="text-align:left">integer (default 1000): The number of steps between logging gradients</td>
+      <td style="text-align:left">integer (default 1000): Le nombre d&#x2019;&#xE9;tapes entre l&#x2019;enregistrement
+        de d&#xE9;grad&#xE9;s</td>
     </tr>
   </tbody>
 </table>
 
 ## Images
 
-You can pass PyTorch tensors with image data into `wandb.Image` and torchvision utils will be used to log them automatically.
+Vous pouvez passer des tenseurs Pytorch avec des données d’images dans `wandb.Image` et des utils torchvision seront utilisées pour les enregistrer automatiquement.
 
-To log images and view them in the Media panel, you can use the following syntax:
+Pour enregistrer des images et les visualiser dans le panneau Médias, vous pouvez utiliser la syntaxe suivante :
 
 ```python
 wandb.log({"examples" : [wandb.Image(i) for i in images]})
 ```
 
-## Multiple Models
+## Modèles multiples
 
-If you need to track multiple models in the same script, you can wall wandb.watch\(\) on each model separately.
+Si vous avez besoin de tracer plusieurs modèles dans le même script, vous pouvez inscrire wandb.watch\(\) sur chaque modèle de manière séparée.
 
-## Example
+##  Exemple
 
-We've created a few examples for you to see how the integration works:
+ Nous avons créé quelques exemples pour que vous puissiez voir comment l’intégration fonctionne :
 
-* [Run in Google Colab](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb): A simple notebook example to get you started
-* [Example on Github](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-mnist/main.py): MNIST example in a Python script
-* [Wandb Dashboard](https://app.wandb.ai/wandb/pytorch-mnist/runs/): View result on W&B
+*  [Exécuter dans Google Colab ](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb): Un exemple simple de notebook pour bien commencer
+*   [Exemple sur Github ](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-mnist/main.py): Exemple MNIST dans un script Python
+*   [Tableau de bord Wandb ](https://app.wandb.ai/wandb/pytorch-mnist/runs/): Visualiser des résultats sur W&B
 
