@@ -4,9 +4,9 @@ description: Visualize PyTorch Lightning models with W&B
 
 # PyTorch Lightning
 
-PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/multi_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/amp.html). W&B provides a lightweight wrapper for logging your ML experiments. We're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/latest/loggers.html#weights-and-biases).
+PyTorch Lightning fournit un wrapper léger pour organiser votre code PyTorch et facilement ajouter des caractéristiques avancées comme [l’entraînement distribué](https://pytorch-lightning.readthedocs.io/en/latest/multi_gpu.html) ou la [précision 16-bit](https://pytorch-lightning.readthedocs.io/en/latest/amp.html). W&B fournit un wrapper léger pour enregistrer vos expériences d’apprentissage automatique. Nous sommes incorporés directement depuis la librairie de PyTorch Lightning, et vous pouvez toujours vous référer à [leur documentation](https://pytorch-lightning.readthedocs.io/en/latest/loggers.html#weights-and-biases). 
 
-## ⚡ Get going lightning-fast with just two lines:
+## ⚡ Allez à la vitesse de l’éclair en deux lignes à peine :
 
 ```python
 from pytorch_lightning.loggers import WandbLogger
@@ -16,75 +16,75 @@ wandb_logger = WandbLogger()
 trainer = Trainer(logger=wandb_logger)
 ```
 
-## ✅ Check out **real** examples!
+## ✅ Consultez de vrais exemples !
 
-We've created a few examples for you to see how the integration works:
+Nous avons créé quelques exemples pour que vous puissiez voir comment fonctionne cette intégration :
 
-* [Demo in Google Colab](https://colab.research.google.com/drive/16d1uctGaw2y9KhGBlINNTsWpmlXdJwRW?usp=sharing) with hyperparameter optimization
-* [Tutorial](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch-lightning/Supercharge_your_Training_with_Pytorch_Lightning_%2B_Weights_%26_Biases.ipynb): Supercharge your Training with Pytorch Lightning + Weights & Biases
-* [Semantic Segmentation with Lightning](https://app.wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw): optimize neural networks for self-driving cars
-* [A step by step guide](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) to tracking your Lightning model performance
+*  [Démo dans Google Colab](https://colab.research.google.com/drive/16d1uctGaw2y9KhGBlINNTsWpmlXdJwRW?usp=sharing) avec optimisation d’hyperparamètres
+* [Tutoriel ](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch-lightning/Supercharge_your_Training_with_Pytorch_Lightning_%2B_Weights_%26_Biases.ipynb): Boostez votre Entraînement avec Pytorch Lightning + Weights & Biases
+* [Segmentation sémantique avec Lightning ](https://app.wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw): optimiser les réseaux neuronaux pour les voitures autonomes
+*  [Un guide pas-à-pas](https://app.wandb.ai/cayush/pytorchlightning/reports/Use-Pytorch-Lightning-with-Weights-%26-Biases--Vmlldzo2NjQ1Mw) pour retracez les performances de votre modèle Lightning
 
-## **💻 API Reference**
+## **💻** Référence API
 
 ### `WandbLogger`
 
-Optional parameters:
+Paramètres optionnels :
 
-* **name** \(_str_\) – display name for the run.
-* **save\_dir** \(_str_\) – path where data is saved \(wandb dir by default\).
-* **offline** \(_bool_\) – run offline \(data can be streamed later to wandb servers\).
-* **id** \(_str_\) – sets the version, mainly used to resume a previous run.
-* **version** \(_str_\) – same as version \(legacy\).
-* **anonymous** \(_bool_\) – enables or explicitly disables anonymous logging.
-* **project** \(_str_\) – the name of the project to which this run will belong.
-* **log\_model** \(_bool_\) – save checkpoints in wandb dir to upload on W&B servers.
-* **prefix** \(_str_\) – string to put at the beginning of metric keys.
-* **sync\_step** \(_bool_\) - Sync Trainer step with wandb step \(True by default\).
-* **\*\*kwargs** – Additional arguments like `entity`, `group`, `tags`, etc. used by `wandb.init` can be passed as keyword arguments in this logger.
+* **name** \(_str_\) – affiche le nom pour l’essai.
+* **save\_dir** \(_str_\) – chemin où les données sont enregistrées \(par défaut, dossier wandb\).
+* **offline** \(_bool_\) – exécuter hors-ligne \(les données peuvent être transmises plus tard aux serveurs wandb\)
+* **id** \(_str_\) – fixe la version, surtout utilisé pour reprendre un essai précédent.
+* **version** \(_str_\) – même chose que version \(legacy\).
+* **anonymous** \(_bool_\) – permet ou empêche explicitement l’enregistrement anonyme.
+* **project** \(_str_\) – le nom du projet auquel cet essai se rapportera.
+* **log\_model** \(_bool_\) – sauvegarde les checkpoints dans le wandb dir pour les envoyer aux serveurs W&B.
+* **prefix** \(_str_\) – chaîne à mettre au début des clefs de mesure.
+* **sync\_step** \(_bool_\) - synchronise les étapes Trainer avec les étapes wandb \(par défaut, True\).
+* **\*\*kwargs** – des ****arguments additionnels comme `entity`, `group`, `tags`, etc. utilisés par wandb.init peuvent être passés comme arguments mots-clefs dans ce logger. 
 
 ### **`WandbLogger.watch`**
 
-Log model topology as well as optionally gradients and weights.
+Enregistrez la topologie de votre modèle ainsi que des dégradés et des poids optionnels.
 
 ```python
 wandb_logger.watch(model, log='gradients', log_freq=100)
 ```
 
-Parameters:
+Paramètres :
 
-* **model** \(_nn.Module_\) – model to be logged.
-* **log** \(_str_\) – can be "gradients" \(default\), "parameters", "all" or None.
-* **log\_freq** \(_int_\) – step count between logging of gradients and parameters \(100 by default\).
+* **model** \(_nn.Module_\) – modèle à enregistrer.
+* **log** \(_str_\) – peut être "gradients" \(dégradés, par défaut\), "parameters" \(paramètres\), "all" \(tout\) ou None \(Aucun\).
+* **log\_freq** \(_int_\) – compteur d’étape entre l’enregistrement des dégradés et des paramètres \(par défaut, 100\).
 
 ### **`WandbLogger.log_hyperparams`**
 
-Record hyperparameter configuration.
+Enregistrez la configuration d’hyperparamètres.
 
-_Note: this function is called automatically when using `LightningModule.save_hyperparameters()`_
+Note : cette fonction est automatiquement appelée lorsque _`LightningModule.save_hyperparameters()`_ est utilisée.
 
 ```python
 wandb_logger.log_hyperparams(params)
 ```
 
-Parameters:
+ Paramètres :
 
-* **params** \(dict\)  – dictionary with hyperparameter names as keys and configuration values as values
+* **params** \(dict\)  – dictionnaire avec les noms d’hyperparamètres en tant que clefs et les valeurs de configuration en tant que valeurs
 
 ### `WandbLogger.log_metrics`
 
-Record training metrics.
+Enregistrez les mesures d’entraînement.
 
-_Note: this function is called automatically by `LightningModule.log('metric', value)`_
+_Note : cette fonction est automatiquement appelée par   `LightningModule.log('metric', value)`_
 
 ```python
 wandb_logger.log_metrics(metrics, step=None)
 ```
 
-Parameters:
+Paramètres :
 
-* **metric** \(numeric\) – dictionary with metric names as keys and measured quantities as values
-* **step** \(int\|None\) – step number at which the metrics should be recorded
+* **metric** \(numeric\) – dictionnaire avec les noms de mesures en tant que clefs et les quantités mesurées en tant que valeurs
+* **step** \(int\|None\) – nombre d’étapes auxquelles les mesures doivent être enregistrées.
 
 \*\*\*\*
 

@@ -1,28 +1,28 @@
 # Kubeflow
 
-## Kubeflow Integration
+### Intégration Kubeflow
 
-Using certain features require additional dependencies. Install all Kubeflow dependencies by running `pip install wandb[kubeflow]`.
+L’utilisation de certaines fonctionnalités exige des dépendances supplémentaires. Installez toutes les dépendances Kubeflow en exécutant `pip install wandb[kubeflow]`.
 
-### Training Jobs
+###  Traitement d’entraînement
 
-Currently W&B automatically reads the **TF\_CONFIG** environment variable to group distributed runs.
+W&B lit automatiquement la variable d’environnement **TF\_CONFIG** pour regrouper les essais distribués.
 
 ### Arena
 
-The wandb library integrates with [arena](https://github.com/kubeflow/arena) by automatically adding credentials to container environments. If you want to use the wandb wrapper locally, add the following to your `.bashrc`
+La librairie wandb s’intègre avec [arena](https://github.com/kubeflow/arena) en ajoutant automatiquement des références \(credentials\) aux environnements containers. Si vous souhaitez utiliser le wrapper wandb de manière locale, ajoutez ce qui suit à votre`.bashrc`
 
 ```text
 alias arena="python -m wandb.kubeflow.arena"
 ```
 
-If you don't have arena installed locally, the above command will use the `wandb/arena` docker image and attempt to mount your kubectl configs.
+Si vous n’avez pas installé arena localement, la commande ci-dessus utilisera l’image docker `wandb/arena` et essayera de monter vos configs kubectl.
 
 ### Pipelines
 
-wandb provides an `arena_launcher_op` that can be used in [pipelines](https://github.com/kubeflow/pipelines).
+ wandb fournit un `arena_launcher_op` qui peut être utilisé dans les [pipelines](https://github.com/kubeflow/pipelines).
 
-If you want to build your own custom launcher op, you can also use this [code](https://github.com/wandb/client/blob/master/wandb/kubeflow/__init__.py) to add pipeline\_metadata. For wandb to authenticate you should add the **WANDB\_API\_KEY** to the operation, then your launcher can add the same environment variable to the training container.
+Si vous voulez construire votre propre launcher op personnalisé, vous pouvez aussi utiliser ce [code](https://github.com/wandb/client/blob/master/wandb/kubeflow/__init__.py) pour ajouter pipeline\_metadata. Pour que wandb s’authentifie, vous devriez ajouter **WANDB\_API\_KEY** à l’opération, et ensuite, votre launcher pourra ajouter la même variable d’environnement au container d’entraînement.
 
 ```python
 import os

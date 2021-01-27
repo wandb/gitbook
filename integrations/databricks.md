@@ -1,16 +1,16 @@
 # Databricks
 
-W&B integrates with [Databricks](https://www.databricks.com/) by customizing the W&B Jupyter notebook experience in the Databricks environment.
+ W&B s’intègre avec [Databricks](https://www.databricks.com/) en personnalisant l’expérience W&B Jupyter notebook dans l’environnement Databricks.
 
-## Databricks Configuration
+## Configuration Databricks
 
-### Install wandb in the cluster
+### Installer wandb dans le cluster
 
-Navigate to your cluster configuration, choose your cluster, click on Libraries, then on Install New, Choose PyPI and add the package `wandb`.
+Naviguez dans la configuration de votre cluster, choisissez votre cluster, cliquez sur Libraries, puis sur Install New, Choose PyPI et ajoutez le package `wandb`.
 
-### Authentication
+### Authentification
 
-In order to authenticate your W&B account you can add a databricks secret which your notebooks can query.
+Pour authentifier votre compte W&B, vous pouvez ajouter un secret databricks que vos notebooks peuvent quérir.
 
 ```bash
 # install databricks cli
@@ -29,9 +29,9 @@ databricks secrets create-scope --scope wandb --initial-manage-principal users
 databricks secrets put --scope wandb --key api_key
 ```
 
-## Examples
+## Exemples
 
-### Simple
+###  Simple
 
 ```python
 import os
@@ -44,9 +44,9 @@ wandb.init()
 wandb.log({"foo": 1})
 ```
 
-### Sweeps
+### Balayages
 
-Setup required \(temporary\) for notebooks attempting to use wandb.sweep\(\) or wandb.agent\(\):
+Set-up \(temporairement\) nécessaire pour les notebooks qui essayent d’utiliser wandb.sweep\(\) ou wandb.agent\(\) :
 
 ```python
 import os
@@ -55,7 +55,7 @@ os.environ['WANDB_ENTITY'] = "my-entity"
 os.environ['WANDB_PROJECT'] = "my-project-that-exists"
 ```
 
-We cover more details of how to run a sweep in a notebook here:
+Nous expliquons plus en détails comment effectuer un balayage dans un notebook ici :
 
 {% page-ref page="../sweeps/python-api.md" %}
 

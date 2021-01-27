@@ -1,8 +1,8 @@
 # Numpy Example
 
-This is a complete example of raw numpy code that trains a perceptron and logs the results to W&B.
+Voici un exemple complet de code numpy brut qui entraîne un perceptron et enregistre les résultats dans W&B.
 
-You can find the code on [GitHub](https://github.com/wandb/examples/blob/master/examples/machine-learning/numpy-boston/train.py).
+ Vous pouvez trouver ce code sur [GitHub](https://github.com/wandb/examples/blob/master/examples/machine-learning/numpy-boston/train.py).
 
 ```python
 from sklearn.datasets import load_boston

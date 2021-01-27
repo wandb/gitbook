@@ -1,16 +1,15 @@
 # Skorch
 
-You can use Weights & Biases with Skorch to automatically log the model with the best performance – along with all model performance metrics, the model topology and compute resources after each epoch. Every file saved in wandb\_run.dir is automatically logged to W&B servers.
+Vous pouvez utiliser Weights & Biases avec Skorch pour enregistrer automatiquement le modèle avec la meilleure performance – ainsi que les mesures de performance de tous les modèles, la topologie du modèle et les ressources de calcul après chaque epoch. Chaque fichier sauvegardé dans wandb\_run.dir est automatiquement enregistré sur les serveurs W&B.
 
-See [example run](https://app.wandb.ai/borisd13/skorch/runs/s20or4ct?workspace=user-borisd13).
+Voir un [exemple d’essai](https://app.wandb.ai/borisd13/skorch/runs/s20or4ct?workspace=user-borisd13).
 
-## **Parameters**
+### Paramètres
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left"><b>Parameter</b>
-      </th>
+      <th style="text-align:left">Param&#xE8;tre</th>
       <th style="text-align:left">Description</th>
     </tr>
   </thead>
@@ -20,29 +19,29 @@ See [example run](https://app.wandb.ai/borisd13/skorch/runs/s20or4ct?workspace=u
         <p><b>wandb_run</b>:</p>
         <p>wandb.wandb_run.Run</p>
       </td>
-      <td style="text-align:left">wandb run used to log data.</td>
+      <td style="text-align:left">l&#x2019;essai wandb utilis&#xE9; pour enregistrer les donn&#xE9;es.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>save_model<br /></b>bool (default=True)</td>
-      <td style="text-align:left">Whether to save a checkpoint of the best model and upload it to your Run
-        on W&amp;B servers.</td>
+      <td style="text-align:left">S&#x2019;il faut ou non enregistrer un checkpoint du meilleur mod&#xE8;le
+        et l&#x2019;envoyer &#xE0; votre Run sur les serveurs W&amp;B.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>keys_ignored<br /></b>str or list of str (default=None)</td>
-      <td style="text-align:left">Key or list of keys that should not be logged to tensorboard. Note that
-        in addition to the keys provided by the user, keys such as those starting
-        with &#x2018;event_&#x2019; or ending on &#x2018;_best&#x2019; are ignored
-        by default.</td>
+      <td style="text-align:left">Clef ou liste de clefs qui ne doivent pas &#xEA;tre enregistr&#xE9;es
+        dans le tensorboard. Notez qu&#x2019;en plus des clefs fournies par l&#x2019;utilisateur,
+        les clefs comme celles qui commencent par &#x2018;event_&#x2019; ou qui
+        finissent par &#x2018;_best&#x2019; seront ignor&#xE9;es par d&#xE9;faut.</td>
     </tr>
   </tbody>
 </table>
 
-## Example Code
+##  Exemple de code
 
-We've created a few examples for you to see how the integration works:
+Nous avons préparé quelques exemples pour que vous puissiez voir comment fonctionne cette intégration :
 
-* [Colab](https://colab.research.google.com/drive/1Bo8SqN1wNPMKv5Bn9NjwGecBxzFlaNZn?usp=sharing): A simple demo to try the integration
-* [A step by step guide](https://app.wandb.ai/cayush/uncategorized/reports/Automate-Kaggle-model-training-with-Skorch-and-W%26B--Vmlldzo4NTQ1NQ): to tracking your Skorch model performance
+* [**Colab**](https://colab.research.google.com/drive/1Bo8SqN1wNPMKv5Bn9NjwGecBxzFlaNZn?usp=sharing)**:** une démo simple pour essayer l’intégration
+* \*\*\*\*[**Un guide pas-à-pas** ](https://app.wandb.ai/cayush/uncategorized/reports/Automate-Kaggle-model-training-with-Skorch-and-W%26B--Vmlldzo4NTQ1NQ)**:** pour suivre les évolutions de performance de votre modèle Skorch
 
 ```python
 # Install wandb
@@ -63,16 +62,16 @@ net = NeuralNet(..., callbacks=[WandbLogger(wandb_run)])
 net.fit(X, y)
 ```
 
-## Methods
+##  Méthode
 
-| Method | Description |
+| Méthode | Description |
 | :--- | :--- |
-| `initialize`\(\) | \(Re-\)Set the initial state of the callback. |
-| `on_batch_begin`\(net\[, X, y, training\]\) | Called at the beginning of each batch. |
-| `on_batch_end`\(net\[, X, y, training\]\) | Called at the end of each batch. |
-| `on_epoch_begin`\(net\[, dataset\_train, …\]\) | Called at the beginning of each epoch. |
-| `on_epoch_end`\(net, \*\*kwargs\) | Log values from the last history step and save best model |
-| `on_grad_computed`\(net, named\_parameters\[, X, …\]\) | Called once per batch after gradients have been computed but before an update step was performed. |
-| `on_train_begin`\(net, \*\*kwargs\) | Log model topology and add a hook for gradients |
-| `on_train_end`\(net\[, X, y\]\) | Called at the end of training. |
+| `initialize`\(\) | \(Re-\)Paramètre l’état initial du callback. |
+| `on_batch_begin`\(net\[, X, y, training\]\) | Appelé au début de chaque lot \(batch\). |
+| `on_batch_end`\(net\[, X, y, training\]\) | Appelé à la fin de chaque lot \(batch\). |
+| `on_epoch_begin`\(net\[, dataset\_train, …\]\) | Appelé au début de chaque epoch. |
+| `on_epoch_end`\(net, \*\*kwargs\) | Enregistre les valeurs depuis la dernière étape d’historique et sauvegarde le meilleur modèle |
+| `on_grad_computed`\(net, named\_parameters\[, X, …\]\) | Appelé une fois par lot après le calcul des dégradés mais avant qu’une étape d’update n’ait été effectuée. |
+| `on_train_begin`\(net, \*\*kwargs\) | Enregistre la topologie du modèle et ajoute un crochet \(hook\) pour les dégradés |
+| `on_train_end`\(net\[, X, y\]\) | Appelé à la fin de l’entraînement. |
 

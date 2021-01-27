@@ -1,15 +1,15 @@
 # Fast.ai
 
-If you're using **fastai** to train your models, W&B has an easy integration using the `WandbCallback`. Explore the details in[ interactive docs with examples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
+Si vous utilisez **fastai** pour entraîner vos modèles, W&B propose une intégration facile en utilisant le `WandbCallback`. Retrouvez tous les détails dans des [documents interactifs avec des exemples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
 
-First install Weights & Biases and log in:
+D’abord, installez Weights & Biases et connectez-vous :
 
 ```text
 pip install wandb
 wandb login
 ```
 
-Then add the callback to the `learner` or `fit` method:
+ Puis, ajoutez le callback à la méthode `learner` ou `fit` :
 
 ```python
 import wandb
@@ -26,10 +26,10 @@ learn = learner(..., cbs=WandbCallback())
 ```
 
 {% hint style="info" %}
-If you use version 1 of Fastai, refer to the [Fastai v1 docs](v1.md).
+ \(i\) Si vous utilisez la version 1 de Fastai, référez-vous à la [documentation Fastai v1.](https://docs.wandb.ai/integrations/fastai/v1)  
 {% endhint %}
 
-`WandbCallback` accepts the following arguments:
+`WandbCallback` accepte les arguments suivants :
 
 <table>
   <thead>
@@ -41,59 +41,62 @@ If you use version 1 of Fastai, refer to the [Fastai v1 docs](v1.md).
   <tbody>
     <tr>
       <td style="text-align:left">log</td>
-      <td style="text-align:left">&quot;gradients&quot; (default), &quot;parameters&quot;, &quot;all&quot;
-        or None. Losses &amp; metrics are always logged.</td>
+      <td style="text-align:left">&quot;gradients&quot; (par d&#xE9;faut), &quot;parameters&quot;, &quot;all&quot;
+        ou Aucun. Les pertes et les mesures sont toujours enregistr&#xE9;es.</td>
     </tr>
     <tr>
       <td style="text-align:left">log_preds</td>
-      <td style="text-align:left">whether we want to log prediction samples (default to True).</td>
+      <td style="text-align:left">si vous voulez ou non enregistrer les &#xE9;chantillons de pr&#xE9;dictions
+        (par d&#xE9;faut, True).</td>
     </tr>
     <tr>
       <td style="text-align:left">log_model</td>
-      <td style="text-align:left">whether we want to log our model (default to True). This also requires
-        SaveModelCallback.</td>
+      <td style="text-align:left">si vous voulez ou non enregistrer votre mod&#xE8;le (par d&#xE9;faut,
+        True). Requiert &#xE9;galement SaveModelCallback.</td>
     </tr>
     <tr>
       <td style="text-align:left">log_dataset</td>
       <td style="text-align:left">
         <ul>
-          <li>False (default)</li>
-          <li>True will log folder referenced by learn.dls.path.</li>
-          <li>a path can be defined explicitly to reference which folder to log.</li>
+          <li>False (par d&#xE9;faut)</li>
+          <li>True enregistrera un dossier r&#xE9;f&#xE9;renc&#xE9; par learn.dls.path.</li>
+          <li>le chemin (path) peut &#xEA;tre explicitement d&#xE9;fini pour r&#xE9;f&#xE9;rencer
+            dans quel dossier enregistrer.</li>
         </ul>
-        <p><em>Note: subfolder &quot;models&quot; is always ignored.</em>
+        <p><em>Note : Les &quot;models&quot; de sous-dossiers sont toujours ignor&#xE9;s.</em>
         </p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">dataset_name</td>
-      <td style="text-align:left">name of logged dataset (default to folder name).</td>
+      <td style="text-align:left">Nom du dataset enregistr&#xE9; (par d&#xE9;faut, nom du dossie</td>
     </tr>
     <tr>
       <td style="text-align:left">valid_dl</td>
-      <td style="text-align:left"><code>DataLoaders</code> containing items used for prediction samples (default
-        to random items from <code>learn.dls.valid</code>.</td>
+      <td style="text-align:left"><code>DataLoaders</code> contenant des objets (items) utilis&#xE9;s pour
+        les &#xE9;chantillons de pr&#xE9;diction (par d&#xE9;faut, des objets al&#xE9;atoires
+        issus de<code> learn.dls.valid</code> .)</td>
     </tr>
     <tr>
       <td style="text-align:left">n_preds</td>
-      <td style="text-align:left">number of logged predictions (default to 36).</td>
+      <td style="text-align:left">nombre de pr&#xE9;dictions enregistr&#xE9;es (par d&#xE9;faut, 36).</td>
     </tr>
     <tr>
       <td style="text-align:left">seed</td>
-      <td style="text-align:left">used for defining random samples.</td>
+      <td style="text-align:left">utilis&#xE9;e pour d&#xE9;finir les &#xE9;chantillons al&#xE9;atoires.</td>
     </tr>
   </tbody>
 </table>
 
-For custom workflows, you can manually log your datasets and models:
+Pour les flux de travaux personnalisés, vous pouvez manuellement enregistrer vos datasets et vos modèles :
 
 * `log_dataset(path, name=None, medata={})`
 * `log_model(path, name=None, metadata={})` 
 
-_Note: any subfolder "models" will be ignored._
+Note : Tout sous-dossier "models" sera ignoré.
 
-## Examples
+## Exemples
 
-* [Visualize, track, and compare Fastai models](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): A thoroughly documented walkthrough
-* [Image Segmentation on CamVid](http://bit.ly/fastai-wandb): A sample use case of the integration
+* [Visualisez, retracez et comparez des modèles Fastai ](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): Un suivi pas-à-pas très documenté
+* [Segmentation d’image sur CamVid ](http://bit.ly/fastai-wandb): Un exemple d’utilisation d’échantillon de l’intégration
 
