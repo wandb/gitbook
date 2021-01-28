@@ -6,9 +6,9 @@ description: wandb.data_types
 
 [source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L0)
 
-Wandb has special data types for logging rich visualizations.
+Wandb a des types de données spécifiques pour enregistrer des visuels riches.
 
-All of the special data types are subclasses of WBValue. All of the data types serialize to JSON, since that is what wandb uses to save the objects locally and upload them to the W&B server.
+Tous les types de données spécifiques sont des sous-classes de WBValue. Tous les types de données se sérialise sur JSON, puisque c’est ce que wandb utilise pour sauvegarder des objets de manière locale avant de les télécharger sur le serveur W&B.
 
 ## WBValue
 
@@ -18,15 +18,15 @@ All of the special data types are subclasses of WBValue. All of the data types s
 WBValue(self)
 ```
 
-Abstract parent class for things that can be logged by wandb.log\(\) and visualized by wandb.
+Classe parent abstraite pour des éléments qui peuvent être enregistrés par wandb.log\(\) et visualisés par wandb.
 
-The objects will be serialized as JSON and always have a \_type attribute that indicates how to interpret the other fields.
+Les objets seront sérialisés sous JSON et auront toujours un attribut \_type qui indique comment interpréter les autres champs.
 
-**Returns**:
+**Renvoie :**
 
-JSON-friendly `dict` representation of this object that can later be serialized to a string.
+Une représentation  `dict` compatible avec JSON de cet objet, qui peut ensuite être sérialisé en chaîne de données \(string\).
 
-## Histogram
+## Histogramme
 
 [source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L64)
 
@@ -34,19 +34,19 @@ JSON-friendly `dict` representation of this object that can later be serialized 
 Histogram(self, sequence=None, np_histogram=None, num_bins=64)
 ```
 
-wandb class for histograms
+classe wandb pour les histograms
 
-This object works just like numpy's histogram function [https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html](https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html)
+Cet objet fonctionne exactement comme la fonction numpy histogram [https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html](https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html)
 
-**Examples**:
+**Exemples :**
 
-Generate histogram from a sequence
+Génère un histogramme depuis une séquence
 
 ```python
 wandb.Histogram([1,2,3])
 ```
 
-Efficiently initialize from np.histogram.
+Initialise efficacement depuis np.histogram.
 
 ```python
 hist = np.histogram(data)
@@ -55,16 +55,16 @@ wandb.Histogram(np_histogram=hist)
 
 **Arguments**:
 
-* `sequence` _array\_like_ - input data for histogram
-* `np_histogram` _numpy histogram_ - alternative input of a precoomputed histogram
-* `num_bins` _int_ - Number of bins for the histogram.  The default number of bins is 64.  The maximum number of bins is 512
+* `sequence` _array\_like_ - input des données pour l’histogramme
+* `np_histogram` _numpy histogram_ - input alternatif d’un histogramme pré-calculé
+* `num_bins` _int_ - Nombre de regroupements pour l’histogramme. Par défaut, le nombre de regroupements est 64. Le nombre maximum de regroupements est 512
 
-**Attributes**:
+**Attributs :**
 
-* `bins` _\[float\]_ - edges of bins
-* `histogram` _\[int\]_ - number of elements falling in each bin
+* `bins` _\[float\]_ - bords des regroupements
+* `histogram` _\[int\]_ - nombre d’éléments qui se trouve dans chaque regroupement
 
-## Media
+## Médias
 
 [source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L122)
 
@@ -72,9 +72,9 @@ wandb.Histogram(np_histogram=hist)
 Media(self, caption=None)
 ```
 
-A WBValue that we store as a file outside JSON and show in a media panel on the front end.
+Une WBValue que nous stockons comme un fichier extérieur à JSON et qui montre un panneau média sur le front end.
 
-If necessary, we move or copy the file into the Run's media directory so that it gets uploaded.
+Si nécessaire, nous déplaçons ou copions le fichier dans le répertoire de médias du Run pour qu’il soit mis en ligne.
 
 ## BatchableMedia
 
@@ -84,11 +84,11 @@ If necessary, we move or copy the file into the Run's media directory so that it
 BatchableMedia(self, caption=None)
 ```
 
-Parent class for Media we treat specially in batches, like images and thumbnails.
+Classe parent pour Média que nous traitons spécialement en lots \(batch\) comme des images ou des miniatures.
 
-Apart from images, we just use these batches to help organize files by name in the media directory.
+À part les images, nous utilisons ces lots pour aider à organiser les fichiers par nom dans le répertoire média.
 
-## Table
+### Tableau
 
 [source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L244)
 
@@ -100,13 +100,13 @@ Table(self,
       dataframe=None)
 ```
 
-This is a table designed to display small sets of records.
+C’est un tableau fait pour afficher de petits sets d’enregistrement.
 
 **Arguments**:
 
-* `columns` _\[str\]_ - Names of the columns in the table. Defaults to \["Input", "Output", "Expected"\].
-* `data` _array_ - 2D Array of values that will be displayed as strings.
-* `dataframe` _pandas.DataFrame_ - DataFrame object used to create the table. When set, the other arguments are ignored.
+* `columns` _\[str\]_ - Noms des colonnes du tableau. Par défaut, \["Input", "Output", "Expected"\].
+* `data` _array_ - Array 2D de valeurs qui seront affichées comme chaînes de données. 
+* `dataframe` _pandas.DataFrame_ - Objet Dataframe utilisé pour créer ce tableau. Lorsqu’il est réglé, les autres arguments sont ignorés.
 
 ## Audio
 
@@ -116,13 +116,13 @@ This is a table designed to display small sets of records.
 Audio(self, data_or_path, sample_rate=None, caption=None)
 ```
 
-Wandb class for audio clips.
+Classe Wandb pour les clips audio.
 
 **Arguments**:
 
-* `data_or_path` _string or numpy array_ - A path to an audio file or a numpy array of audio data.
-* `sample_rate` _int_ - Sample rate, required when passing in raw numpy array of audio data.
-* `caption` _string_ - Caption to display with audio.
+* `data_or_path` _chaîne ou numpy array_ – Un chemin vers un fichier audio ou un numpy array de données audio.
+* `sample_rate` _int_ - Taux d’échantillonnage, requis lorsqu’on passe un numpy array de données audio en brut.
+* `caption` _string_ - Libellé à afficher avec l’audio.
 
 ## Object3D
 
@@ -132,15 +132,15 @@ Wandb class for audio clips.
 Object3D(self, data_or_path, **kwargs)
 ```
 
-Wandb class for 3D point clouds.
+Classe Wandb pour les points de nuages 3D.
 
 **Arguments**:
 
-data\_or\_path \(numpy array \| string \| io \): Object3D can be initialized from a file or a numpy array.
+data\_or\_path \(numpy array \| string \| io \): Object3D peut être initialisé depuis un fichier ou un numpy array.
 
-The file types supported are obj, gltf, babylon, stl. You can pass a path to a file or an io object and a file\_type which must be one of `'obj', 'gltf', 'babylon', 'stl'`.
+Les formats de fichier pris en charge sont obj, gltf, babylon, stl. Vous pouvez passer un chemin à un fichier ou à un objet io et un file\_type \(type de fichier\) qui doit être l’un des suivants `'obj', 'gltf', 'babylon', 'stl'`
 
-The shape of the numpy array must be one of either:
+La forme du numpy array doit être l’une des suivantes :
 
 ```python
 [[x y z],       ...] nx3
@@ -156,11 +156,11 @@ The shape of the numpy array must be one of either:
 Molecule(self, data_or_path, **kwargs)
 ```
 
-Wandb class for Molecular data
+Classe Wandb pour les données Moléculaires
 
 **Arguments**:
 
-data\_or\_path \( string \| io \): Molecule can be initialized from a file name or an io object.
+data\_or\_path \( string \| io \): Molecule peut être initialisé depuis un nom de fichier ou un objet io.
 
 ## Html
 
@@ -170,14 +170,14 @@ data\_or\_path \( string \| io \): Molecule can be initialized from a file name 
 Html(self, data, inject=True)
 ```
 
-Wandb class for arbitrary html
+Classe Wandb pour html arbitraire
 
 **Arguments**:
 
-* `data` _string or io object_ - HTML to display in wandb
-* `inject` _boolean_ - Add a stylesheet to the HTML object.  If set to False the HTML will pass through unchanged.
+* `data` _chaîne ou objet io_ - _TML à afficher dans wandb._
+* `inject` _booléen_ – Ajoute une fiche de style \(stylesheet\) à l’objet HTML. Si réglé sur False, l’HTML passera sans être changé.
 
-## Video
+## Vidéo
 
 [source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L680)
 
@@ -185,15 +185,15 @@ Wandb class for arbitrary html
 Video(self, data_or_path, caption=None, fps=4, format=None)
 ```
 
-Wandb representation of video.
+Représentation Wandb de video.
 
 **Arguments**:
 
-data\_or\_path \(numpy array \| string \| io\): Video can be initialized with a path to a file or an io object. The format must be "gif", "mp4", "webm" or "ogg". The format must be specified with the format argument. Video can be initialized with a numpy tensor. The numpy tensor must be either 4 dimensional or 5 dimensional. Channels should be \(time, channel, height, width\) or \(batch, time, channel, height width\)
+data\_or\_path \(numpy array \| chaîne \| io\): Video peut être initialisé avec un chemin vers un fichier ou un objet io. Le format doit être "gif", "mp4", "webm" ou "ogg". Le format doit être spécifié avec l’argument de format. Video peut être initialisé par un tenseur numpy. Le tenseur numpy doit comporter soit 4 soit 5 dimensions. Les canaux doivent être \(time, channel, height, width\) ou \(batch, time, channel, height, width\) – \(\(lot, temps, canal, hauteur, largeur\)\).
 
-* `caption` _string_ - caption associated with the video for display
-* `fps` _int_ - frames per second for video. Default is 4.
-* `format` _string_ - format of video, necessary if initializing with path or io object.
+* `caption` _chaîne_ – Libellé associé avec la vidéo pour affichage
+* `fps` _int_ - _int_ – images par seconde de vidéo. Par défaut, 4.
+* `format` _chaîne_ – format de vidéo, nécessaire si initialisation par chemin ou objet io.
 
 ## Image
 
@@ -209,13 +209,13 @@ Image(self,
       masks=None)
 ```
 
-Wandb class for images.
+ Classe Wandb pour les images.
 
 **Arguments**:
 
-* `data_or_path` _numpy array \| string \| io_ - Accepts numpy array of image data, or a PIL image. The class attempts to infer the data format and converts it.
-* `mode` _string_ - The PIL mode for an image. Most common are "L", "RGB", "RGBA". Full explanation at [https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html\#concept-modes](https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes).
-* `caption` _string_ - Label for display of image.
+* `data_or_path` _numpy array \| chaîne \| io_ – Accepte les numpy array de données d’images, ou une image PIL. La classe essaye d’inférer le format de données et de le convertir.
+* `mode` _chaîne_ – Le mode PIL pour une image. Les plus communs sont "L", "RGB", "RGBA". Explication complète à [https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html\#concept-modes](https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes).
+* `caption` c_haîne_ – Libellé pour l’affichage de l’image.
 
 ## JSONMetadata
 
@@ -225,7 +225,7 @@ Wandb class for images.
 JSONMetadata(self, val, **kwargs)
 ```
 
-JSONMetadata is a type for encoding arbitrary metadata as files.
+JSONMetadata est un type pour encoder des métadonnées arbitraires sous forme de fichiers.
 
 ## BoundingBoxes2D
 
@@ -235,7 +235,7 @@ JSONMetadata is a type for encoding arbitrary metadata as files.
 BoundingBoxes2D(self, val, key, **kwargs)
 ```
 
-Wandb class for 2D bounding Boxes
+Classe Wandb pour les boîtes à limite minimum 2D.
 
 ## ImageMask
 
@@ -245,7 +245,7 @@ Wandb class for 2D bounding Boxes
 ImageMask(self, val, key, **kwargs)
 ```
 
-Wandb class for image masks, useful for segmentation tasks
+Classe Wandb pour les masques d’images, utile pour les tâches de segmentation.
 
 ## Plotly
 
@@ -255,11 +255,11 @@ Wandb class for image masks, useful for segmentation tasks
 Plotly(self, val, **kwargs)
 ```
 
-Wandb class for plotly plots.
+ Classe Wandb pour les graphiques plotly.
 
 **Arguments**:
 
-* `val` - matplotlib or plotly figure
+* `val` - figure matplotlib ou plotly
 
 ## Graph
 
@@ -269,25 +269,25 @@ Wandb class for plotly plots.
 Graph(self, format='keras')
 ```
 
-Wandb class for graphs
+ Classe Wandb pour les graphiques
 
-This class is typically used for saving and diplaying neural net models. It represents the graph as an array of nodes and edges. The nodes can have labels that can be visualized by wandb.
+Cette classe est typiquement utilisée pour sauvegarder et afficher les modèles de filet neuronaux. Elle représente le graphique comme un array de nœuds \(nodes\) et d’arêtes \(edges\). Les nœuds peuvent avoir des libellés visionnables dans wandb.
 
-**Examples**:
+**Exemples :**
 
-Import a keras model:
+ Import d’un modèle keras :
 
 ```python
 Graph.from_keras(keras_model)
 ```
 
-**Attributes**:
+**Attributs :**
 
-* `format` _string_ - Format to help wandb display the graph nicely.
-* `nodes` _\[wandb.Node\]_ - List of wandb.Nodes
-* `nodes_by_id` _dict_ - dict of ids -&gt; nodes edges \(\[\(wandb.Node, wandb.Node\)\]\): List of pairs of nodes interpreted as edges
-* `loaded` _boolean_ - Flag to tell whether the graph is completely loaded
-* `root` _wandb.Node_ - root node of the graph
+* `format` _chaîne_ – Format pour aider à wandb à afficher joliment le graphique.
+* `nodes` _\[wandb.Node\]_ - Liste de wandb.Nodes
+* `nodes_by_id` _dict_ -dict of ids -&gt; nodes edges \(\[\(wandb.Node, wandb.Node\)\]\): Liste de paires de nodes interprétées comme des arêtes.
+* `loaded` _boolean_ - Flag pour indiquer si le graphique est complétement chargé
+* `root` _wandb.Node_ - _Nœud central du graphique \(root node\)_
 
 ## Node
 
@@ -306,7 +306,7 @@ Node(self,
      node=None)
 ```
 
-Node used in [`Graph`](data-types.md#graph)
+Nœud utilisé dans [`Graph`](data-types.md#graph)
 
 ## Edge
 
@@ -316,5 +316,5 @@ Node used in [`Graph`](data-types.md#graph)
 Edge(self, from_node, to_node)
 ```
 
-Edge used in [`Graph`](data-types.md#graph)
+Arête utilisée dans [`Graph`](data-types.md#graph)
 

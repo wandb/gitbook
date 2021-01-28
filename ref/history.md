@@ -2,21 +2,21 @@
 
 ## wandb.sdk.wandb\_history
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_history.py#L3)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_history.py#L3)
 
-History tracks logged data over time. To use history from your script, call wandb.log\({"key": value}\) at a single time step or multiple times in your training loop. This generates a time series of saved scalars or media that is saved to history.
+ L’historique garde une trace des données enregistrées au fil du temps. Pour utiliser l’historique de votre script, appelez wandb.log {"key": value}\) à une seule ou plusieurs étapes dans le temps dans votre boucle d’entraînement. Cela génère une série de temps de scalaires ou de médias sauvegardés dans l’historique.
 
-In the UI, if you log a scalar at multiple timesteps W&B will render these history metrics as line plots by default. If you log a single value in history, compare across runs with a bar chart.
+Dans l’IU, si vous enregistrez un scalaire à plusieurs étapes dans le temps, W&B tracera ces mesures d’historiques sous forme de graphique linéaire par défaut. Si vous enregistrez une seule valeur d’historique, vous pouvez la comparer à travers tous vos essais avec un graphique en barre.
 
-It's often useful to track a full time series as well as a single summary value. For example, accuracy at every step in History and best accuracy in Summary. By default, Summary is set to the final value of History.
+Il est souvent pratique de retracer une série chronologie complète, ainsi qu’une valeur unique de sommaire. Par exemple, précision à chaque étape dans Historique et meilleure précision dans Sommaire. Par défaut, Sommaire est paramétré sur la valeur finale d’Historique.
 
-### History Objects
+### Objets History
 
 ```python
 class History(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_history.py#L23)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_history.py#L23)
 
-Time series data for Runs. This is essentially a list of dicts where each dict is a set of summary statistics logged.
+Données de série chronologique. Essentiellement, une liste de dicts où chaque dict est un set de statistiques de sommaire enregistrées.
 

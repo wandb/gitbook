@@ -2,18 +2,18 @@
 
 ## wandb.sdk.wandb\_summary
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L2)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L2)
 
-### SummaryDict Objects
+### Objets SummaryDict
 
 ```python
 @six.add_metaclass(abc.ABCMeta)
 class SummaryDict(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L18)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L18)
 
-dict-like which wraps all nested dictionraries in a SummarySubDict, and triggers self.\_root.\_callback on property changes.
+Un dict-like qui enveloppe tous les dictionnaires imbriqués dans un SummarySubDict, et déclenche self.\_root.\_callback sur des changements de propriété.
 
 ### Summary Objects
 
@@ -21,17 +21,17 @@ dict-like which wraps all nested dictionraries in a SummarySubDict, and triggers
 class Summary(SummaryDict)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L78)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L78)
 
 Summary
 
-The summary statistics are used to track single metrics per model. Calling wandb.log\({'accuracy': 0.9}\) will automatically set wandb.summary\['accuracy'\] to be 0.9 unless the code has changed wandb.summary\['accuracy'\] manually.
+Les statistiques de sommaire sont utilisées pour retracer les mesures uniques par modèle. Appeler wandb.log\({'accuracy': 0.9}\) paramètrera automatiquement wandb.summary\['accuracy'\] sur 0.9 à moins que le code ait manuellement changé wandb.summary\['accuracy'\].
 
-Setting wandb.summary\['accuracy'\] manually can be useful if you want to keep a record of the accuracy of the best model while using wandb.log\(\) to keep a record of the accuracy at every step.
+Paramétrer manuellement wandb.summary\['accuracy'\] peut être utile si vous voulez avoir un enregistrement de la précision \(accuracy\) de votre meilleur modèle tout en utilisant wandb.log\(\) pour avoir un enregistrement de la précision à chaque étape.
 
-You may want to store evaluation metrics in a runs summary after training has completed. Summary can handle numpy arrays, pytorch tensors or tensorflow tensors. When a value is one of these types we persist the entire tensor in a binary file and store high level metrics in the summary object such as min, mean, variance, 95% percentile, etc.
+Vous pouvez vouloir enregistrer des mesures d’évaluations dans un sommaire de runs après la fin de l’entraînement. Les sommaires prennent en charge les numpy arrays, les tenseurs pytorch et les tenseurs tensorflow. Lorsqu’une valeur est de l’un de ces formats, nous faisons persister tout le tenseur dans un fichier binaire et nous enregistrons des mesures de haut niveau dans l’objet de sommaire, telles que min, moyenne, variance, percentile 95%, etc.
 
-**Examples**:
+ **Exemples :**
 
 ```text
 wandb.init(config=args)
@@ -44,13 +44,13 @@ wandb.run.summary["best_accuracy"] = test_accuracy
 best_accuracy = test_accuracy
 ```
 
-### SummarySubDict Objects
+###  Objets SummarySubDict
 
 ```python
 class SummarySubDict(SummaryDict)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L128)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_summary.py#L128)
 
-Non-root node of the summary data structure. Contains a path to itself from the root.
+Node non-root de la structure de données du sommaire. Contient un chemin vers lui-même depuis la root.
 

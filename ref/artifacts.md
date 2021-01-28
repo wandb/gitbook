@@ -2,17 +2,17 @@
 
 ## wandb.sdk.wandb\_artifacts
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L2)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L2)
 
-### Artifact Objects
+### Objets Artefacts
 
 ```python
 class Artifact(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L69)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L69)
 
-An artifact object you can write files into, and pass to log\_artifact.
+Un objet artefact dans lequel vous pouvez écrire des fichiers, et passer dans log\_artifact.
 
 **add**
 
@@ -20,14 +20,14 @@ An artifact object you can write files into, and pass to log\_artifact.
  | add(obj, name)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L229)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L229)
 
-Adds `obj` to the artifact, located at `name`. You can use Artifact\#get\(`name`\) after downloading the artifact to retrieve this object.
+ Ajoute `obj` à l’artefact, localisé à name. Vous pouvez utiliser Artifact\#get\(`name`\) après avoir téléchargé l’artefact pour récupérer cet objet.
 
 **Arguments**:
 
-* `obj` _wandb.Media_ - The object to save in an artifact
-* `name` _str_ - The path to save
+* `obj` _wandb.Media_ - L’objet à sauvegarder dans un artefact
+* `name` _str_ - Le chemin à sauvegarder
 
 **get\_added\_local\_path\_name**
 
@@ -35,11 +35,11 @@ Adds `obj` to the artifact, located at `name`. You can use Artifact\#get\(`name`
  | get_added_local_path_name(local_path)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L278)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L278)
 
-If local\_path was already added to artifact, return its internal name.
+Si local\_path a déjà été ajouté à artefact, renvoie son nom interne.
 
-### ArtifactManifestV1 Objects
+###  Objets ArtifactManifestV1
 
 ```python
 class ArtifactManifestV1(ArtifactManifest)
@@ -55,11 +55,11 @@ class ArtifactManifestV1(ArtifactManifest)
 
 [\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L368)
 
-This is the JSON that's stored in wandb\_manifest.json
+C’est le JSON qui est stocké dans wandb\_manifest.json
 
-If include\_local is True we also include the local paths to files. This is used to represent an artifact that's waiting to be saved on the current system. We don't need to include the local paths in the artifact manifest contents.
+Si include\_local est True, nous incluons aussi les chemins locaux aux fichiers. C’est utilisé pour représenter un artefact qui attend d’être enregistré dans le système actuel. Nous n’avons pas besoin d’inclure les chemins locaux dans les contenus manifestes d’artefact.
 
-### TrackingHandler Objects
+### Objets TrackingHandler
 
 ```python
 class TrackingHandler(StorageHandler)
@@ -73,19 +73,19 @@ class TrackingHandler(StorageHandler)
  | __init__(scheme=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L637)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L637)
 
-Tracks paths as is, with no modification or special processing. Useful when paths being tracked are on file systems mounted at a standardized location.
+Trace les chemins comme tels, sans modification ni traitement spécial. Utile lorsque les chemins qui sont tracés sont sur des fichiers systèmes montés à un endroit standardisé.
 
-For example, if the data to track is located on an NFS share mounted on /data, then it is sufficient to just track the paths.
+Par exemple, si les données à tracer sont localisées sur un partage NFS monté sur /data, alors il est suffisant de simplement tracer les chemins comme tels.
 
-### LocalFileHandler Objects
+### Objets LocalFileHandler
 
 ```python
 class LocalFileHandler(StorageHandler)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L682)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L682)
 
 Handles file:// references
 
@@ -95,9 +95,9 @@ Handles file:// references
  | __init__(scheme=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L686)
+ [\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L686)
 
-Tracks files or directories on a local filesystem. Directories are expanded to create an entry for each file contained within.
+Garde une trace des fichiers ou des répertoires sur un système de fichier local. Les répertoires sont étendus pour créer une entrée pour chaque fichier compris dedans.
 
 ### WBArtifactHandler Objects
 
@@ -105,7 +105,7 @@ Tracks files or directories on a local filesystem. Directories are expanded to c
 class WBArtifactHandler(StorageHandler)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L1172)
+[\[voir\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_artifacts.py#L1172)
 
-Handles loading and storing Artifact reference-type files
+ Gère le chargement et le stockage des fichiers Artefact de type référence
 

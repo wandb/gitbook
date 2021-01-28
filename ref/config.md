@@ -4,9 +4,9 @@
 
 [\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_config.py#L3)
 
-Config is a dictionary-like object useful for tracking inputs to your script, like hyperparameters. We suggest you set this once at the beginning of your job, when you initialize the run like so: `wandb.init(config={"key": "value"})`. For example, if you're training an ML model, you might track learning\_rate and batch\_size in config.
+Config est un objet comme un dictionnaire utile pour garder une trace des entrées \(inputs\) de votre script, comme les hyperparamètres. Nous suggérons que vous le paramétriez une fois au début de votre tâche, lorsque vous initialisez votre essai, comme ceci : `wandb.init(config={"key": "value"})`  . Par exemple, si vous entraînez un modèle d’apprentissage automatique, vous pouvez garder une trace du learning\_rate \(taux d’apprentissage\) ou de la batch\_size \(taille de lots\) dans config.
 
-### Config Objects
+###  Objets Config
 
 ```python
 class Config(object)
@@ -14,13 +14,13 @@ class Config(object)
 
 [\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_config.py#L32)
 
-Use the config object to save your run's hyperparameters. When you call wandb.init\(\) to start a new tracked run, a run object is saved. We recommend saving the config object with the run at the same time, like so: `wandb.init(config=my_config_dict)`.
+Utilisez l’objet config pour sauvegarder les hyperparamètres de votre essai. Lorsque vous appelez wandb.init\(\) pour commencer un nouvel essai enregistré, un objet run est sauvegardé. Nous recommandons de sauvegarder l’objet config avec celui run au même moment, comme suit :`wandb.init(config=my_config_dict)`.
 
-You can create a file called config-defaults.yaml, and wandb will auto-load your config into wandb.config. Alternatively, you can use a YAML file with a custom name and pass the filename: `wandb.init(config="my_config_file.yaml")` See [https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs).
+Vous pouvez créer un fichier appelé config-defaults.yaml, et wandb chargera automatiquement votre config dans wandb.config. Alternativement, vous pouvez utiliser un fichier YAML avec un nom personnalisé et faire passer ce nom de fichier : `wandb.init(config="my_config_file.yaml")` Voir [https://docs.wandb.com/library/config\#file-based-configs](https://docs.wandb.com/library/config#file-based-configs).
 
-**Examples**:
+**Exemples :**
 
-Basic usage
+Utilisation basique
 
 ```text
 wandb.config.epochs = 4
@@ -29,7 +29,7 @@ for x in range(wandb.config.epochs):
 # train
 ```
 
-Using wandb.init to set config
+Utiliser wandb.init pour paramétrer config
 
 ```text
 - `wandb.init(config={"epochs"` - 4, "batch_size": 32})
@@ -37,7 +37,7 @@ for x in range(wandb.config.epochs):
 # train
 ```
 
-Nested configs
+Configs imbriquées
 
 ```text
 wandb.config['train']['epochs] = 4
@@ -46,14 +46,14 @@ for x in range(wandb.config['train']['epochs']):
 # train
 ```
 
-Using absl flags
+Utiliser flags absl
 
 ```text
 flags.DEFINE_string(‘model’, None, ‘model to run’) # name, default, help
 wandb.config.update(flags.FLAGS) # adds all absl flags to config
 ```
 
-Argparse flags
+Flags argparse
 
 ```text
 wandb.init()
@@ -66,7 +66,7 @@ args = parser.parse_args()
 wandb.config.update(args)
 ```
 
-Using TensorFlow flags \(deprecated in tensorflow v2\)
+Utiliser flags TensorFlow \(obsolète dans tensorflow v2\)
 
 ```text
 flags = tf.app.flags
@@ -83,5 +83,5 @@ wandb.config.update(flags.FLAGS)  # adds all of the tensorflow flags to config
 
 [\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_config.py#L162)
 
-Calls the callback if it's set
+Appelle le callback s’il est paramétré
 

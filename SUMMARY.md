@@ -42,7 +42,7 @@
   * [OpenAI Gym](integrations/openai-gym.md)
   * [Numpy Example](integrations/numpy.md)
   * [JAX Example](integrations/jax.md)
-* [API Reference](ref/README.md)
+* [Référence API](ref/README.md)
   * [Run](ref/run.md)
   * [Artifacts](ref/artifacts.md)
   * [Init](ref/init.md)
