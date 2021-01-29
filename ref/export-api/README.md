@@ -1,17 +1,17 @@
 # Data Import/Export API
 
-Export a dataframe for custom analysis, or asynchronously add data to a completed run. For more details see the [API Reference](api.md).
+Exporte une dataframe pour analyse personnalisée, ou ajoute des données de manière asynchrone à un essai complété. Pour plus de détails, voir la [Référence API](https://docs.wandb.ai/ref/export-api/api).
 
 ### Authentication
 
-Authenticate your machine with your [API key](https://wandb.ai/authorize) in one of two ways:
+Authentifiez votre machine avec votre [clef API](https://wandb.ai/authorize) d’une de ces deux manières :
 
-1. Run `wandb login`  on the command line and paste in your API key.
-2. Set the **WANDB\_API\_KEY** environment variable to your API key.
+1.  Exécutez `wandb login` sur votre ligne de command et copiez votre clef API.
+2. Paramètre la variable d’environnement **WANDB\_API\_KEY** sur votre clef API.
 
-### Export Run Data
+### Exporter des données d’essai
 
-Download data from a finished or active run. Common usage includes downloading a dataframe for custom analysis in a Jupyter notebook, or using custom logic in an automated environment.
+ Téléchargez des données d’un essai actif ou complété. Une utilisation courante inclut de télécharger une dataframe pour une analyse personnalisée dans un Jupyter notebook, ou utiliser une logique personnalisée dans un environnement automatisé.
 
 ```python
 import wandb
@@ -19,25 +19,25 @@ api = wandb.Api()
 run = api.run("<entity>/<project>/<run_id>")
 ```
 
-The most commonly used attributes of a run object are:
+Les attributs les plus utilisés pour un objet run sont :
 
-| Attribute | Meaning |
+| Attribut | Signification |
 | :--- | :--- |
-| run.config | A dictionary for model inputs, such as hyperparameters |
-| run.history\(\) | A list of dictionaries meant to store values that change while the model is training such as loss.  The command wandb.log\(\) appends to this object. |
-| run.summary | A dictionary of outputs. This can be scalars like accuracy and loss, or large files. By default, wandb.log\(\) sets the summary to the final value of a logged timeseries. This can also be set directly. |
+| run.config | Un dictionnaire pour les inputs de modèle, comme les hyperparamètres |
+| run.history\(\) | Une liste de dictionnaires destinés à stocker des valeurs qui changent pendant l’entraînement du modèle, comme les pertes. La commande wandb.log\(\) est annexé à cet objet. |
+| run.summary | Un dictionnaire d’outputs. Ce peut être des scalaires comme la précision et la perte, ou de grands fichiers. Par défaut, wandb.log\(\) paramètre le sommaire sur la valeur finale d’une série chronologique enregistrée. Peut aussi être paramétré directement. |
 
-You can also modify or update the data of past runs. By default a single instance of an api object will cache all network requests. If your use case requires real time information in a running script, call api.flush\(\) to get updated values.
+Vous pouvez aussi modifier ou mettre à jour les données d’essais précédents. Par défaut, une seule instance d’un objet api mettra en cache toutes les requêtes de réseaux. Si votre cas d’utilisation requiert des informations en temps réel dans un script en cours d’exécution, appelez api.flush\(\) pour obtenir les valeurs mises à jour.
 
-### Sampling
+###  Échantillonnage
 
-The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. For more details see the [API Reference](api.md).
+La méthode d’historique par défaut échantillonne les mesures pour un nombre fixé d’échantillons \(par défaut, 500. Vous pouvez modifier ceci avec l’argument samples\). Si vous voulez exporter toutes les données d’un essai conséquent, vous pouvez utiliser la méthode run.scan\_history\(\). Pour plus de détails, voir la [Référence API](https://docs.wandb.ai/ref/export-api/api). 
 
-### Querying Multiple Runs
+### Requérir plusieurs essais
 
 {% tabs %}
 {% tab title="MongoDB Style" %}
-The W&B API also provides a way for you to query across runs in a project with api.runs\(\). The most common use case is exporting runs data for custom analysis.  The query interface is the same as the one [MongoDB uses](https://docs.mongodb.com/manual/reference/operator/query).
+L’API W&B fournit également un moyen de requérir plusieurs essais dans un projet avec api.runs\(\). Le cas d’utilisation le plus courant est l’export de données d’essais pour analyses personnalisées. L’interface de requête est la même que celle [utilisée par MongoDB](https://docs.mongodb.com/manual/reference/operator/query).
 
 ```python
 runs = api.runs("username/project", {"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
@@ -45,8 +45,8 @@ print("Found %i" % len(runs))
 ```
 {% endtab %}
 
-{% tab title="Dataframes and CSVs" %}
-This example script finds a project and outputs a CSV of runs with name, configs and summary stats.
+{% tab title="Dataframes et CSV" %}
+Cet exemple de script trouve un projet et output un CSV d’essais avec nom, configurations, et statistiques de sommaire.
 
 ```python
 import wandb
@@ -78,35 +78,35 @@ all_df.to_csv("project.csv")
 {% endtab %}
 {% endtabs %}
 
-Calling `api.runs(...)` returns a **Runs** object that is iterable and acts like a list. The object loads 50 runs at a time in sequence as required, you can change the number loaded per page with the **per\_page** keyword argument.
+Appeler `api.runs(...)` renvoie un objet **Runs** qui est itératif et agit comme une liste. L’objet charge 50 essais \(runs\) d’un coup en séquence comme requis, vous pouvez changer le nombre d’essais chargés par page avec l’argument mot-clef **per\_page**.
 
-`api.runs(...)` also accepts an **order** keyword argument. The default order is `-created_at`, specify `+created_at` to get results in ascending order. You can also sort by config or summary values i.e. `summary.val_acc` or `config.experiment_name`
+`api.runs(...)` accepte aussi un argument mot-clef **order**. L’ordre par défaut est `-created_at`, spécifiez `-created_at`pour obtenir des résultats par ordre croissant. Vous pouvez aussi trier par config ou valeur de sommaire, i.e. `summary.val_acc` ou `config.experiment_name`
 
-### Error Handling
+### Gestion d’erreur
 
-If errors occur while talking to W&B servers a `wandb.CommError` will be raised. The original exception can be introspected via the **exc** attribute.
+ Si des erreurs surviennent en communiquant avec les serveurs W&B, une erreur `wandb.CommError sera soulevée. L’exception originale peut être retrouvée via l’attribut` **`exc`**`.`
 
-### Get the latest git commit through the API
+### Obtenir le dernier git commit par l’API
 
-In the UI, click on a run and then click the Overview tab on the run page to see the latest git commit. It's also in the file `wandb-metadata.json` . Using the public API, you can get the git hash with **run.commit**.
+ Dans l’IU, cliquez sur un run puis sur l’onglet Vue d’ensemble sur la page de run pour voir le dernier git commit. Il est aussi présent dans le fichier `wandb-metadata.json` . En utilisant l’API publique, vous pouvez aussi obtenir le git hash avec **run.commit**.
 
-## Common Questions
+## Questions fréquentes
 
-### Export data to visualize in matplotlib or seaborn
+### Exporter les données pour visualisation dans matplotlib ou seaborn
 
-Check out our [API examples](examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
+ Vous pouvez regarder nos [exemples API](https://docs.wandb.ai/ref/export-api/examples) pour avoir quelques schémas d’exports fréquents. Vous pouvez aussi cliquer sur le bouton télécharger sur un graphique personnalisé ou sur le tableau étendu de vos essais pour télécharger un CSV depuis votre navigateur.
 
-### Get the random run ID and run name from your script
+### Obtenir l’ID d’essai aléatoire et le nom d’essai depuis votre script
 
-After calling `wandb.init()`  you can access the random run ID or the human readable run name from your script like this:
+ Après avoir appelé `wandb.init()` vous pouvez accéder à l’ID d’essai aléatoire ou le nom d’essai humainement lisible depuis votre script, comme ceci :
 
-* Unique run ID \(8 character hash\): `wandb.run.id`
-* Random run name \(human readable\): `wandb.run.name`
+* ID de run unique \(8 caractères de long\) : `wandb.run.id`
+* Nom d’essai aléatoire \(humainement lisible\) : `wandb.run.name`
 
- If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
+Si vous vous demandez comment paramétrer des identificateurs utiles pour vos essais, voici ce que nous vous recommandons :
 
-* **Run ID**: leave it as the generated hash. This needs to be unique across runs in your project.
-* **Run name**: This should be something short, readable, and preferably unique so that you can tell the difference between different lines on your charts.
-* **Run notes**: This is a great place to put a quick description of what you're doing in your run. You can set this with `wandb.init(notes="your notes here")` 
-* **Run tags**: Track things dynamically in run tags, and use filters in the UI to filter your table down to just the runs you care about. You can set tags from your script and then edit them in the UI, both in the runs table and the overview tab of the run page.
+* **Run ID**: Laissez le nombre généré tel quel. Cette ID doit être unique à travers tous les essais de votre projet.
+* **Run name**: **Doit être court, lisible, et de préférence unique pour que vous puissiez dire la différence entre les différentes lignes sur vos graphiques.**
+* **Run notes**:  C’est un endroit parfait pour mettre une description rapide de ce que vous faites dans votre essai. Vous pouvez les paramétrer avec `wandb.init(notes="your notes here")` 
+* **Run tags**: Gardez une trace dynamique des événements avec les étiquettes d’essai, et utilisez vos filtres dans l’IU pour épurer vos tableaux et ne voir que les essais qui vous intéressent. Vous pouvez paramétrer les étiquettes \(tags\) depuis votre script puis les éditer dans l’IU, à la fois sur le tableau des runs et sur l’onglet de vue d’ensemble de la page de run.
 

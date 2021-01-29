@@ -1,12 +1,13 @@
 ---
-description: Overview of our Java client library
+description: Aperçu de notre librairie de client Java
 ---
 
 # Java Library \[Beta\]
 
-Similar to our Python library, we offer a Java client to instrument your machine learning model and track experiments. This library consists of two simple classes that are used as a wrapper around the Python Library.
+Similaire à notre librairie Python, nous proposons un client Java pour instrumenter votre modèle d’apprentissage automatique et garder une trace de vos expériences. Cette librairie est constituée de deux classes simples qui sont utilisées comme wrapper autour de la Librairie Python.
 
-You can find the source code for the Java Client in the [Github repository](https://github.com/wandb/client-ng-java).
+Vous pouvez trouver le code source pour le Client Java dans le [répertoire Github](https://github.com/wandb/client-ng-java).  
+
 
 {% page-ref page="wandbrun-builder.md" %}
 
@@ -14,11 +15,12 @@ You can find the source code for the Java Client in the [Github repository](http
 
 ### Installation
 
-1. Install the latest version of the wandb Python client: `pip install wandb[grpc] --upgrade`
-2. Simply include the Wandb jar file in your Java Project.
+1. Installer la dernière version de notre client Python wandb `pip install wandb[grpc] --upgrade`
+2. Inclure simplement le fichier jar Wandb dans votre Projet Java.
 
-   **Maven**: this can be included by adding the jar file to your `pom.xml`  file.  
-   Using maven repository:
+   **Maven** : peut être inclus en ajoutant votre fichier jar à vote fichier `pom.xml.`
+
+               En utilisant répertoire maven :
 
    ```markup
    <dependency>
@@ -28,7 +30,7 @@ You can find the source code for the Java Client in the [Github repository](http
    </dependency>
    ```
 
-   Or you can download the jar file directly from the [Github Package](https://github.com/wandb/client-ng-java/packages/381057):
+   Ou vous pouvez télécharger le fichier jar directement depuis le Package [Github](https://github.com/wandb/client-ng-java/packages/381057) :
 
    ```markup
    <dependencies>

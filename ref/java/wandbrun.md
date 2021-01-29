@@ -1,20 +1,20 @@
 ---
-description: WandbRun object represents an instance of a run in Java.
+description: L’objet WandbRun représente une instance d’un essai dans Java.
 ---
 
 # WandbRun
 
-### Overview
+###  Vue d’ensemble
 
-A run can be created by using the [WandbRun Builder](wandbrun-builder.md). This object is used to track runs  
+Un essai peut être créé en utilisant le [WandbRun Builder](https://docs.wandb.ai/ref/java/wandbrun-builder). Cet objet est utilisé pour surveiller les essais 
 
-* **run.log\(JSONObject data\)** — logs data for a run, equivalent to [wand.log\(\)](../../library/log.md)
-* **run.log\(int step, JSONObject data\)** — logs data for a run, equivalent to [wand.log\(\)](../../library/log.md) at a specific step
-* **run.finish\(int exitCode\)** — finishes a run with an exit code \(_default: 0_\)
+* **run.log\(JSONObject data\)** — enregistre les données pour un essai, équivalent à [wandb.log\(\)](https://docs.wandb.ai/library/log)
+* **run.log\(int step, JSONObject data\)** — enregistre les données pour un essai, équivalent à [wandb.log\(\)](https://docs.wandb.ai/library/log) à une étape spécifique
+* **run.finish\(int exitCode\)** — finit un essai avec un code de sortie \(par défaut : 0\)
 
-### Examples
+### Exemples
 
-Plotting a sin wave with the Java client
+Tracer un signal sinusoïdal avec le client Java
 
 ```java
 // Initalize a run

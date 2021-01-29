@@ -1,35 +1,35 @@
 ---
 description: >-
-  The Builder is used to help configure and initialize a run before the training
-  loop where you log model metrics.
+  Ce Builder est utilisé pour aider à configurer et initialiser un essai avant
+  la boucle d’entraînement lorsque vous enregistrez les mesures de modèle.
 ---
 
 # WandbRun.Builder
 
-### Overview
+### Vue d’ensemble
 
-The Builder pattern allows us to write readable code to set up a WandbRun. The builder contains a few functions used to help initialize these values.
+ Le schéma du Builder nous permet d’écrire du code lisible pour mettre en place un WandbRun. Ce builder contient quelques fonctions utilisées pour aider à initialiser ces valeurs.
 
-* **builder.build\(\)** — returns a WandbRun instance, representing a run 
-* **builder.withName\(String name\)** — a display name for this run, which shows up in the UI and is editable, doesn't have to be unique
-* **builder.withConfig\(JSONObject data\)** — a Java JSON Object that contains any initial config values
-* **builder.withProject\(String project\)** — the name of the project to which this run will belong
-* **builder.withNotes\(String notes\)** — a description associated with the run
-* **builder.setTags\(List&lt;String&gt; tags\)** — an array of tags to be used with the run
-* **builder.setJobType\(String type\)** — the type of job you are logging, e.g. eval, worker, ps \(_default: training_\)
-* **builder.withGroup\(String group\)** — a string by which to group other runs; see [Grouping](../../library/grouping.md)
+* **builder.build\(\)** — renvoie une instance WandbRun, représentant un essai \(run\)
+* **builder.withName\(String name\)** — un nom d’affichage pour cet essai, qui se retrouve dans l’IU et est modifiable, n’a pas besoin d’être unique
+* **builder.withConfig\(JSONObject data\)** — un Objet JSON Java qui contient toute valeur de config initiale
+* **builder.withProject\(String project\)** — le nom du projet auquel appartient cet essai
+* **builder.withNotes\(String notes\)** — une description associée avec cet essai
+* **builder.setTags\(List&lt;String&gt; tags\)** —un array d’étiquettes \(tags\) à utiliser dans cet essai
+* **builder.setJobType\(String type\)** — le type de tache que vous enregistrez, e.g. eval, worker, ps \(par défaut : entraînement\)
+* **builder.withGroup\(String group\)** — une chaîne de données avec laquelle regrouper les autres essais ; voir [Regroupements](https://docs.wandb.ai/library/grouping)
 
-Most of these settings can also be controlled via [Environment Variables](../../library/environment-variables.md). This is often useful when you're running jobs on a cluster.
+La plupart de ces paramètres peuvent être contrôlés par les [Variables d’Environnement](https://docs.wandb.ai/library/environment-variables). Souvent utile lorsque vous effectuez des taches sur un cluster.
 
-### Examples
+###  Exemples
 
-Initializing a default run
+ Initialiser un essai par défaut
 
 ```java
 WandbRun run = new WandbRun.Builder().build();
 ```
 
-Initializing a run with a config object and name
+Initialiser un essai avec un objet config et un nom
 
 ```java
 // Create JSONObject config

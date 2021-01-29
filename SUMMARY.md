@@ -56,7 +56,6 @@
   * [Keras Reference](ref/keras.md)
   * [Data Import/Export API](ref/export-api/README.md)
     * [Public API Reference](ref/export-api/api.md)
-    * [Data Export API Examples](ref/export-api/examples.md)
   * [Java Library \[Beta\]](ref/java/README.md)
     * [WandbRun](ref/java/wandbrun.md)
     * [WandbRun.Builder](ref/java/wandbrun-builder.md)
