@@ -1,107 +1,109 @@
 ---
-description: 'Visualize metrics, customize axes, and compare multiple lines on the same plot'
+description: >-
+  Visualiser des mesures, personnaliser des axes, et comparer plusieurs lignes
+  sur un même graphique
 ---
 
 # Line Plot
 
-Line plots show up by default when you plot metrics over time with **wandb.log\(\)**. Customize with chart settings to compare multiple lines on the same plot, calculate custom axes, and rename labels.
+Les graphiques linéaires s’affichent par défaut lorsque vous enregistrez des mesures au fil du temps avec **wandb.log\(\)**. Personnalisez vos paramètres de graphique pour comparer plusieurs lignes sur le même graphique, calculer des axes personnalisés, et renommer des libellés.
 
 ![](../../../../.gitbook/assets/line-plot-example.png)
 
-## Settings
+##  Paramètres
 
-**Data**
+**Data \(données\)**
 
-* **X axis**: Select default x-axes including Step and Relative Time, or select a custom x-axis. If you'd like to use a custom x-axis, make sure it's logged in the same call to `wandb.log()` that you use to log the y-axis.
-  * **Relative Time \(Wall\)** is clock time since the process started, so if you started a run and resumed it a day later and logged something that would be plotted a 24hrs.
-  * **Relative Time \(Process\)** is time inside the running process, so if you started a run and ran for 10 seconds and resumed a day later that point would be plotted at 10s
-  * **Wall Time** is minutes elapsed since the start of the first run on the graph
-  * **Step** increments by default each time `wandb.log()` is called, and is supposed to reflect the number of training steps you've logged from your model
-* **Y axes**: Select y-axes from the logged values, including metrics and hyperparameters that change over time.
-* **Min, max, and log scale**: Minimum, maximum, and log scale settings for x axis and y axis in line plots
-* **Smoothing and exclude outliers**: Change the smoothing on the line plot or rescale to exclude outliers from the default plot min and max scale
-* **Max runs to show**: Show more lines on the line plot at once by increasing this number, which defaults to 10 runs. You'll see the message "Showing first 10 runs" on the top of the chart if there are more than 10 runs available but the chart is constraining the number visible.
-* **Chart type**: Change between a line plot, an area plot, and a percentage area plot
+*  **X axis :** Sélectionnez un axe-x par défaut, comme Step \(Étape\) ou Relative Time \(Temps relatif\) ou sélectionnez un axe-x personnalisé. Si vous voulez utiliser un axe personnalisé, assurez-vous qu’il soit enregistré dans le même appel à `wandb.log()` que celui que vous utilisez pour enregistrer l’axe-y. 
+  *  **Relative Time \(Wall**\) est le temps en heures depuis lequel le processus a commencé, donc, si vous commencez un essai et que vous le reprenez un jour plus tard en enregistrant quelque chose, le point s’affichera à 24h.
+  * **Relative Time \(Process**\) est le temps à l’intérieur du processus de calcul, donc si vous commencez un essai qui dure dix secondes, et que vous reprenez un jour plus tard, le point s’affichera à 10s.
+  * **Wall Time** représente les minutes passées depuis le début du premier essai sur le graphique
+  * **Step** incrémente par défaut à chaque fois que `wandb.log()` est appelé, et est censé refléter le nombre d’étapes d’entraînement que vous avez enregistré depuis votre modèle
+*  **Y axes** : Sélectionnez des axes y parmi les valeurs enregistrées, ce qui inclue les mesures et les hyperparamètres qui changent au fil du temps.
+* **Min, max, and log scale** : Paramètres de minimum, de maximum, et d’échelle logarithmique pour les axes x et y dans des graphiques linéaires
+* **Smoothing and exclude outliers** : Changez le lissage du graphique linéaire ou remettez à l’échelle pour exclure les données aberrantes des échelles min et max du graphique par défaut
+* **Max runs to show :** Affichez plus de lignes sur le graphique linéaire d’un coup en augmentant ce nombre, qui est par défaut réglé sur 10 essais. Vous verrez le message "Showing first 10 runs" \(10 premiers essais affichés\) en haut du graphique s’il y a plus de 10 essais disponibles, mais que le graphique restreint le nombre d’essais visibles.
+*      **Chart type :** Changez entre graphique linéaire, graphique en aires, graphique en aires par pourcentage.
 
-**X Axis Settings**  
-The x-axis can be set at the graph level, as well as globally for the project page or report page. Here's what the global settings look like:
+**Paramètres d’axe X**  
+L’axe X peut être paramétré au niveau du graphique, ainsi que de manière globale pour la page de projet ou la page de rapport. Voici ce à quoi ressemblent les paramètres globaux :
 
 ![](../../../../.gitbook/assets/x-axis-global-settings.png)
 
 {% hint style="info" %}
-Pick **multiple y-axes** in the line plot settings to compare different metrics on the same chart, like accuracy and validation accuracy for example.
+Choisissez **plusieurs axes y** dans les paramètres de graphique linéaire pour comparer différentes mesures sur le même graphique, comme la précision et la précision de validation, par exemple.
 {% endhint %}
 
-**Grouping**
+ **Grouping \(regroupements\)**
 
-* Turn on grouping to see settings for visualizing averaged values.
-* **Group key**: Select a column, and all the runs with the same value in that column will be grouped together.
-* **Agg**: Aggregation— the value of the line on the graph. The options are mean, median, min, and max of the group.
-* **Range**: Switch the behavior for the shaded area behind the grouped curve. None means there is no shaded area. Min/Max shows a shaded region that covers the whole range of points in the group. Std Dev shows the standard deviation of values in the group. Std Err shows the standard error as the shaded area.
-* **Sampled runs**: If you have hundreds of runs selected, we default to only sampling the first 100. You can select to have all your runs included in the grouping calculation, but it might slow things down in the UI.
+*     **Activez les regroupements pour voir les paramètres de visualisation des valeurs moyennes.**
+*       **Group key : Sélectionnez une colonne, et tous les essais avec la même valeur dans cette colonne seront regroupés ensemble.**
+* **Agg : Agrégation – la valeur de la ligne sur le graphique. Les options sont moyenne, médiane, min et max du groupe.**
+* **Range : Changez le comportement de la zone ombrée derrière la courbe regroupée. None signifie qu’il n’y a pas de zone ombrée. Min/Max montre une région ombrée qui couvre l’intégralité des points dans ce groupe. Std Dev montre la déviation standard des valeurs de ce groupe. Std Err montre l’erreur standard comme la zone ombrée.**
+* **Sampled runs : Si vous avez des centaines d’essais sélectionnés, nous n’échantillonnons que les 100 premiers par défaut. Vous pouvez choisir d’avoir tous vos essais inclus dans le calcul de regroupement, mais il est possible que ça ralentisse les choses dans l’IU.**
 
-**Legend**
+**Legend \(légende\)**
 
-* **Title**: Add a custom title for line plot, which shows up at the top of the chart
-* **X-Axis title**: Add a custom title for the x-axis of the line plot, which shows up in the lower right corner of the chart.
-* **Y-Axis title**: Add a custom title for the y-axis of the line plot, which shows up in the upper left corner of the chart.
-* **Legend**: Select field that you want to see in the legend of the plot for each line. You could, for example, show the name of the run and the learning rate. 
-* **Legend template**: Fully customizable, this powerful template allows you to specify exactly what text and variables you want to show up in the template at the top of the line plot as well as the legend that appears when you hover your mouse over the plot.
+*   **Title : Ajoute un titre personnalisé pour le graphique linéaire, affiché en haut du graphique**
+*  **X-Axis title : Ajoute un titre personnalisé pour l’axe X du graphique linéaire, qui s’affiche en bas à droite du graphique.**
+*  **Y-Axis title : Ajoute un titre personnalisé pour l’axe Y du graphique linéaire, qui s’affiche en haut à gauche du graphique.**
+*  **Legend : Sélectionnez un champ que vous voulez voir dans la légende du graphique pour chaque ligne. Par exemple, vous pouvez montrer le nom de votre essai et le taux d’apprentissage.**
+* **Legend template : Totalement personnalisable, ce document-type puissant vous permet de spécifier exactement quel texte et quelles variables vous voulez afficher dans le document-type en haut du graphique linéaire ainsi que la légende qui apparaît lorsque vous passez votre souris au-dessus du graphique.**
 
 ![Editing the line plot legend to show hyperparameters](../../../../.gitbook/assets/screen-shot-2021-01-08-at-11.33.04-am.png)
 
-**Expressions**
+ **Expressions**
 
-* **Y Axis Expressions**: Add calculated metrics to your graph. You can use any of the logged metrics as well as configuration values like hyperparameters to calculate custom lines.
-* **X Axis Expressions**: Rescale the x-axis to use calculated values using custom expressions. Useful variables include**\_step** for the default x-axis, and the syntax for referencing summary values is `${summary:value}`
+* Y Axis Expressions : Ajoutez des mesures calculées à votre graphique. Vous pouvez utiliser n’importe lesquelles de vos mesures enregistrées, ainsi que des valeurs de configuration comme des hyperparamètres pour calculer des lignes personnalisées.
+* X Axis Expressions : Changez l’échelle de l’axe x pour utiliser les valeurs calculées comme expressions personnalisées. Certaines variables utiles sont \_step pour l’axe x par défaut, et la syntaxe pour référence aux valeurs du sommaire est `${summary:value}`
 
-## Visualize average values on a plot
+## Visualiser des valeurs moyennes sur un graphique
 
-If you have several different experiments and you'd like to see the average of their values on a plot, you can use the Grouping feature in the table. Click "Group" above the run table and select "All" to show averaged values in your graphs.
+Si vous avez plusieurs expériences différentes et que vous aimeriez voir la moyenne de leurs valeurs sur un graphique, vous pouvez utiliser la fonctionnalité de Regroupement du tableau. Cliquez sur "Group" dans le tableau d’essai et sélectionnez "All" pour montrer les valeurs moyennes dans vos graphiques.
 
-Here is what the graph looks like before averaging:
+Voici ce à quoi ressemble le graphique avant de faire la moyenne :
 
 ![](../../../../.gitbook/assets/demo-precision-lines.png)
 
-Here I have grouped the lines to see the average value across runs.
+Ici, j’ai regroupé les lignes pour voir la valeur moyenne à travers les essais.
 
 ![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%281%29.png)
 
-## Compare two metrics on one chart
+## Comparer deux mesures sur un graphique
 
-Click on a run to go to the run page. Here's an [example run](https://app.wandb.ai/stacey/estuary/runs/9qha4fuu?workspace=user-carey) from Stacey's Estuary project. The auto-generated charts show single metrics.
+Cliquez sur un essai pour vous rendre sur la page d’essai. Voici un [exemple d’essai](https://app.wandb.ai/stacey/estuary/runs/9qha4fuu?workspace=user-carey) du projet Estuary de Stacey. Les graphiques générés automatiquement montrent des mesures simples.
 
 ![](https://downloads.intercomcdn.com/i/o/146033177/0ea3cdea62bdfca1211ce408/Screen+Shot+2019-09-04+at+9.08.55+AM.png)
 
-Click **Add a visualization** at the top right of the page, and select the **Line Plot**.
+ Cliquez sur **Add a visualization** \(ajouter un visuel\) en haut à droite de la page, et sélectionnez le **Line plot** \(graphique linéaire\).
 
 ![](https://downloads.intercomcdn.com/i/o/142936481/d0648728180887c52ab46549/image.png)
 
-In the **Y variables** field, select a few metrics you'd like to compare. They'll show up together on the line graph.
+Dans le champ de **variables Y**, sélectionnez quelques mesures que vous voudriez comparer. Elles s’afficheront ensemble sur le graphique linéaire.
 
 ![](https://downloads.intercomcdn.com/i/o/146033909/899fc05e30795a1d7699dc82/Screen+Shot+2019-09-04+at+9.10.52+AM.png)
 
-## Visualize on different x axes
+##  Visualiser sur des axes x différents
 
-If you'd like to see the absolute time that an experiment has taken, or see what day an experiment ran, you can switch the x axis. Here's an example of switching from steps to relative time and then to wall time.
+Si vous aimeriez voir le temps absolu qu’une expérience a pris, ou le jour auquel une expérience a été exécutée, vous pouvez changer l’axe x. Voici un exemple où on change les **Steps** en **Relative time**, puis en **Wall time**.
 
 ![](../../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
 
-## Area plots
+### Graphiques en aires
 
-In the line plot settings, in the advanced tab, click on different plot styles to get an area plot or a percentage area plot.
+ Dans les paramètres de graphique linéaire, dans l’onglet Advanced, cliquez sur les différents types de graphiques pour obtenir un graphique en aires ou un graphique en aires par pourcentage.
 
 ![](../../../../.gitbook/assets/2020-02-27-10.49.10.gif)
 
 ## Zoom
 
-Click and drag a rectangle to zoom vertically and horizontally at the same time. This changes the x-axis and y-axis zoom.
+Cliquez et dessinez un rectangle avant de relâcher pour zoomer verticalement et horizontalement à la fois. Ceci modifie le zoom de l’axe x et de l’axe y.
 
 ![](../../../../.gitbook/assets/2020-02-24-08.46.53.gif)
 
-## Hide chart legend
+##  Cacher la légende du graphique
 
-Turn off the legend in the line plot with this simple toggle:
+Désactivez la légende sur le graphique avec ce simple bouton :
 
 ![](../../../../.gitbook/assets/demo-hide-legend.gif)
 

@@ -1,141 +1,142 @@
 ---
 description: >-
-  Compare versions of your model, explore results in a scratch workspace, and
-  export findings to a report to save notes and visualizations
+  Comparez les versions de votre modèle, explorez les résultats dans un espace
+  de travail isolé, et exportez vos découvertes dans un rapport pour sauvegarder
+  vos notes et vos visuels
 ---
 
 # Project Page
 
-The project **Workspace** gives you a personal sandbox to compare experiments. Use projects to organize models that can be compared, working on the same problem with different architectures, hyperparameters, datasets, preprocessing etc.
+Le projet **Workspace** \(espace de travail\) vous donne un bac à sable personnel dans lequel comparer des expériences. Utilisez des projets pour organiser des modèles qui peuvent être comparés, en travaillant sur le même problème avec différentes architectures, hyperparamètres, datasets, prétraitements, etc.
 
-Project page tabs:
+Onglets de page de projet :
 
-1. [**Overview**](project-page.md#overview-tab): snapshot of your project
-2. [**Workspace**](project-page.md#workspace-tab): personal visualization sandbox
-3. [**Table**](project-page.md#table-tab): bird's eye view of all runs
-4. [**Reports**](project-page.md#reports-tab): saved snapshots of notes, runs, and graphs
-5. [**Sweeps**](project-page.md#sweeps-tab): automated exploration and optimization
+1. [**Vue d’ensemble** ](https://docs.wandb.ai/app/pages/project-page#overview-tab): aperçu de votre projet
+2. [**Workspace**](project-page.md#workspace-tab): bac à sable de visualisation personnel
+3. [**Tableau**](https://docs.wandb.ai/app/pages/project-page#table-tab)**:**  vue globale de tous vos essais
+4.  [**Rapports**](https://docs.wandb.ai/app/pages/project-page#reports-tab): aperçus sauvegardés de vos notes, vos essais, et vos graphiques
+5.  ****[**Balayages**](https://docs.wandb.ai/app/pages/project-page#sweeps-tab) ****: exploration et optimisation automatiques.
 
-## Overview Tab
+##  Onglet de vue d’ensemble
 
-* **Project name**: click to edit the project name
-* **Project description**: click to edit the project description and add notes
-* **Delete project**: click the dot menu in the right corner to delete a project
-* **Project privacy**: edit who can view runs and reports— click the lock icon
-* **Last active**: see when the most recent data was logged to this project
-* **Total compute**: we add up all the run times in your project to get this total
-* **Undelete runs**: Click the dropdown menu and click "Undelete all runs" to recover deleted runs in your project.
+* **Nom de projet** : cliquez pour éditer le nom du projet 
+* **Description de projet** : cliquez pour éditer la description du projet et ajouter des notes
+* **Suppression de projet** : cliquer sur les trois petits points en haut à droite pour supprimer un projet
+* **Confidentialité du projet** : éditez les personnes qui peuvent voir les essais et les rapports – cliquez sur l’icône de cadenas
+* **Calcul total** : nous ajoutons tous les temps d’essais de votre projet pour obtenir ce total
+* **Restaurez des essais** : Cliquez sur le menu déroulant et cliquez sur "Undelete all runs" pour restaurez les essais supprimés de votre projet.
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
+ [Voir un exemple en direct →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
 ![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%281%29.png)
 
 ![](../../.gitbook/assets/undelete.png)
 
-## Workspace Tab
+## Onglet de Workspace
 
-**Runs Sidebar**: list of all the runs in your project
+**Barre latérale d’essais** : Liste de tous les essais de votre projet
 
-* **Dot menu**: hover over a row in the sidebar to see the menu appear on the left side. Use this menu to rename a run, delete a run, or stop and active run.
-* **Visibility icon**: click the eye to turn on and off runs on graphs
-* **Color**: change the run color to another one of our presets or a custom color
-* **Search**: search runs by name. This also filters visible runs in the plots.
-* **Filter**: use the sidebar filter to narrow down the set of runs visible
-* **Group**: select a config column to dynamically group your runs, for example by architecture. Grouping makes plots show up with a line along the mean value, and a shaded region for the variance of points on the graph.
-* **Sort**: pick a value to sort your runs by, for example runs with the lowest loss or highest accuracy. Sorting will affect which runs show up on the graphs.
-* **Expand button**: expand the sidebar into the full table
-* **Run count**: the number in parentheses at the top is the total number of runs in the project. The number \(N visualized\) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
+*  **Menu …** : passez sur une ligne dans la barre latérale pour voir le menu apparaître sur le côté gauche. Utilisez ce menu pour renommer un essai, supprimer un essai, ou arrêter un essai en cours.
+* **Icône de visibilité :** cliquez sur l’œil pour activer ou désactiver les essais sur graphiques
+* **Couleur :** change la couleur de l’essai en une autre tirée de nos presets ou en une couleur personnalisée
+* **Recherche : r**echerchez les essais par nom. Filtre aussi les essais visibles sur les graphiques linéaires.
+* **Filtre** : utilisez le filtre dans la barre latérale pour réduire le champ des essais visibles
+* **Groupe : s**électionnez une colonne de config pour regrouper vos essais de manière dynamique, par exemple par architecture. Les regroupements font s’afficher les graphiques avec une ligne le long de la valeur moyenne, et une région ombrée pour la variance des points sur le graphique.
+* **Trier :** Choisissez une valeur selon laquelle trier vos essais, par exemple les essais avec le moins de perte ou le plus de précision. Trier affectera quels essais seront affichés sur les graphiques.
+* **Bouton agrandir :** agrandit la barre latérale en tableau complet
+* **Compte d’essais :** le nombre entre parenthèses tout en haut est le nombre total d’essais pour ce projet. Le nombre \(N visualisé\) est le nombre d’essais qui ont l’œil activé et qui sont disponibles à la visualisation dans chaque graphique. Dans l’exemple ci-dessous, les graphiques ne montrent que les 10 premiers essais parmi 183. Éditez un graphique pour augmenter le nombre maximum d’essais visibles.
 
-**Panels layout**: use this scratch space to explore results, add and remove charts, and compare versions of your models based on different metrics
+**Disposition des panneaux** : Utilisez cet espace libre pour explorer les résultats, ajouter et retirer des graphiques, et comparer des versions de vos modèles en vous basant sur différentes mesures
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo)
+[Voir un exemple en direct →](https://app.wandb.ai/example-team/sweep-demo)
 
 ![](../../.gitbook/assets/image%20%2838%29%20%281%29.png)
 
-### Search for runs
+###  Rechercher des essais
 
-Search for a run by name in the sidebar. You can use regex to filter down your visible runs. The search box affects which runs are shown on the graph. Here's an example:
+Cherchez un essai avec son nom dans la barre latérale. Vous pouvez utiliser regex pour filtrer les essais qui sont visibles. La barre de recherche affecte les essais qui sont montrés sur le graphique. Voici un exemple :
 
 ![](../../.gitbook/assets/2020-02-21-13.51.26.gif)
 
-### Add a section of panels
+### Ajouter une section de panneaux
 
-Click the section dropdown menu and click "Add section" to create a new section for panels. You can rename sections, drag them to reorganize them, and expand and collapse sections.
+Cliquez sur la section de menu déroulant et cliquer sur "Ajouter section" pour créer une nouvelle section de panneaux. Vous pouvez renommer les sections, les tirer pour les réorganiser, et agrandir ou réduire des sections.
 
-Each section has options in the upper right corner:
+Chaque section possède des options dans le coin en haut à droite :
 
-* **Switch to custom layout**: The custom layout allows you to resize panels individually.
-* **Switch to standard layout**: The standard layout lets you resize all panels in the section at once, and gives you pagination.
-* **Add section**: Add a section above or below from the dropdown menu, or click the button at the bottom of the page to add a new section.
-* **Rename section**: Change the title for your section.
-* **Export section to report**: Save this section of panels to a new report.
-* **Delete section**: Remove the whole section and all the charts. This can be undone with the undo button at the bottom of the page in the workspace bar.
-* **Add panel**: Click the plus button to add a panel to the section. 
+*   **Passer en disposition personnalisée :** Cette disposition personnalisée vous permet de changer les tailles de vos panneaux de manière individuelle.
+* **Passer en disposition standard :** La disposition standard vous permet de changer les tailles de tous les panneaux de la section d’un seul coup, et vous donne une pagination.
+* **Ajouter section :** Ajoute une section au-dessus ou en-dessous depuis le menu déroulant, ou cliquez sur le bouton en bas de la page pour ajouter une nouvelle section.
+*  **Renommer section :** Change le titre de votre section.
+* **Exportez section dans rapport :** Sauvegarde cette section de panneaux dans un nouveau rapport.
+* **Supprimer section :** Retire la section entière et tous les graphiques. Peut être annulé avec le bouton annuler en bas de la page, dans la barre de workspace.
+* **Ajouter panneau :** Cliquez sur le bouton plus pour ajouter un panneau à la section.
 
 ![](../../.gitbook/assets/add-section.gif)
 
-### Move panels between sections
+### Déplacer des panneaux entre des sections
 
-Drag and drop panels to reorder and organize into sections. You can also click the "Move" button in the upper right corner of a panel to select a section to move the panel to.
+Cliquez et déplacez des panneaux pour les organiser en sections. Vous pouvez aussi cliquer sur le bouton "Move" \(Déplacer\) en haut à droite d’un panneau pour sélectionner une section vers laquelle déplacer ce panneau.
 
 ![](../../.gitbook/assets/move-panel.gif)
 
-### Resize panels
+### Modifier la taille des panneaux
 
-* **Standard layout**: All panels maintain the same size, and there are pages of panels. You can resize the panels by clicking and dragging the lower right corner. Resize the section by clicking and dragging the lower right corner of the section. 
-* **Custom layout**: All panels are sized individually, and there are no pages. 
+**Disposition standard :** Tous les panneaux conservent la même taille, et il y a des pages de panneaux. Vous pouvez modifier la taille des panneaux en cliquant et en déplaçant le coin inférieur droit. Changer la taille d’une section en cliquant et en déplaçant le coin inférieur droit de cette section.
+
+**Disposition personnalisée :** Tous les panneaux ont une taille qui leur est propre, et il n’y a pas de pages.
 
 ![](../../.gitbook/assets/resize-panel.gif)
 
-### Search for metrics
+### Rechercher des mesures
 
-Use the search box in the workspace to filter down the panels. This search matches the panel titles, which are by default the name of the metrics visualized.
+Utilisez la barre de recherches dans le workspace pour filtrer vos panneaux. Cette recherche correspond aux titres de panneaux, qui sont par défaut les noms des mesures visualisées.
 
 ![](../../.gitbook/assets/search-in-the-workspace.png)
 
-## Table Tab
+## Onglet Tableau
 
-Use the table to filter, group, and sort your results.
+Utilisez ce tableau pour filtrer, regrouper, et trier vos résultats.
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
+ [Voir un exemple en direct →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
 
 ![](../../.gitbook/assets/image%20%2886%29.png)
 
-## Reports Tab
+## Onglet Rapports
 
-See all the snapshots of results in one place, and share findings with your team.
+Visualisez tous les instantanés de vos résultats à un seul endroit, et partagez vos découvertes avec votre équipe.
 
 ![](../../.gitbook/assets/reports-tab.png)
 
-## Sweeps Tab
+##  Onglet Balayages
 
-Start a new sweep from your project.
+Commencez un nouveau balayage pour votre projet.
 
 ![](../../.gitbook/assets/sweeps-tab.png)
 
-## Common Questions
+## Questions fréquentes
 
-### Reset workspace
+### Réinitialiser le workspace
 
-If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
+Si vous voyez une erreur comme celle ci-dessous sur votre page de projet, voici comment réinitialiser votre workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
-Add **?workspace=clear** to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
+Ajoutez **?workspace=clear à la fin de l’URL et appuyez sur Entrée. Cela devrait vous emmener jusqu’à une version nettoyée du workspace de votre page de projet.**
 
-### Delete Projects
+### Supprimer des projets
 
-You can delete your project by clicking the three dots on the right of the overview tab.
+Vous pouvez supprimer votre projet en cliquant sur les trois petits points sur la droite de l’onglet Vue d’ensemble.
 
 ![](../../.gitbook/assets/howto-delete-project.gif)
 
-### Privacy settings
+###  Paramètres de confidentialité
 
-Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
+Cliquez sur le cadenas dans la barre de navigation en haut de la page pour changer les paramètres de confidentialité du projet. Vous pouvez éditer les personnes qui peuvent voir ou ajouter des essais à votre projet. Ces paramètres incluent tous les essais et les rapports de ce projet. Si vous aimeriez partager vos résultats avec seulement quelques personnes, vous pouvez créer une [équipe privée](https://docs.wandb.ai/app/features/teams).
 
 ![](../../.gitbook/assets/image%20%2879%29.png)
 
-### Delete an empty project
+### Supprimer un projet vide
 
-Delete a project with no runs by clicking the dropdown menu and selecting "Delete project".
+Supprimer un projet sans aucun essai en cliquant sur le menu déroulant et sélectionnez "Delete project".
 
 ![](../../.gitbook/assets/image%20%2866%29.png)
 

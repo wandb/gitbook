@@ -1,33 +1,33 @@
 # Tags
 
-## How to add tags <a id="how-to-add-tags"></a>
+##  Comment ajouter des étiquettes <a id="how-to-add-tags"></a>
 
-**On the project page**
+ **Sur la page de projet**
 
-* In the runs sidebar, click the button in the upper left corner to expand the table.
-* Hover over a run in the table to see a checkbox on the left.
-* Click the checkbox to enable bulk actions.
-* Click the Tag button above the rows of runs.
-* Type a tag you'd like to add and click "Add" below the text box to add a new tag.
+* Dans la barre latérale d’essais, cliquez sur le bouton en haut à gauche pour agrandir le tableau.
+* Passez la souris au-dessus d’un essai pour voir une case à cocher sur la gauche.
+* Cochez la case pour permettre les actions groupées.
+* Cliquez sur le bouton Étiquette \(Tag\) au-dessus des lignes d’essais.
+* Écrivez une étiquette que vous aimeriez ajouter et cliquez sur "Ajouter" \(Add\) sous la barre de texte pour ajouter une nouvelle étiquette.
 
-**On the run page**
+ **Sur la page d’essai**
 
-* In the left sidebar, click the top Overview tab.
-* Next to "Tags" is a gray ➕button. Click the plus to add a tag.
-* Type a tag you'd like to add and click "Add" below the text box to add a new tag.
+* Dans la barre latérale de gauche, cliquez sur l’onglet Vue d’ensemble \(Overview\) en haut.
+*  À côté de "Tags" se trouve un bouton ➕. Cliquez sur le plus pour ajouter une étiquette.
+* Écrivez une étiquette que vous aimeriez ajouter et cliquez sur "Ajouter" \(Add\) sous la barre de texte pour ajouter une nouvelle étiquette.
 
-## How to remove tags <a id="how-to-remove-tags"></a>
+##  Comment retirer des étiquettes <a id="how-to-remove-tags"></a>
 
-**On the project page**
+**Sur la page de projet**
 
-* In the runs sidebar, click the button in the upper left corner to expand the table.
-* Hover over a run in the table to see a checkbox on the left.
-* Click the checkbox to enable bulk actions.
-* Click the Tag button above the rows of runs.
-* Click the checkbox next to a tag to remove it from the run.
+* Dans la barre latérale d’essais, cliquez sur le bouton en haut à gauche pour agrandir le tableau.
+* Passez la souris au-dessus d’un essai pour voir une case à cocher sur la gauche.
+* Cochez la case pour permettre les actions groupées.
+* Cliquez sur le bouton Étiquette \(Tag\) au-dessus des lignes d’essais.
+* Cliquez dans la case à cocher à côté d’une étiquette pour la retirer de cet essai.
 
-**On the run page**
+ **Sur la page d’essai**
 
-* In the left sidebar, click the top Overview tab. The tags on the run are visible here.
-* Hover over a tag and click the "x" to remove it from the run.
+* Dans la barre latérale de gauche, cliquez sur l’onglet Vue d’ensemble \(Overview\) en haut. Les étiquettes d’essai sont visibles ici.
+* Passez la souris au-dessus d’une étiquette et cliquez sur le "x" pour le retirer de l’essai.
 

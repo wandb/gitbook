@@ -1,70 +1,70 @@
 # Reference
 
-## X-Axis
+##  Axe X
 
-![Selecting X-Axis](../../../../.gitbook/assets/image%20%2815%29.png)
+![S&#xE9;lection de l&#x2019;axe X](../../../../.gitbook/assets/image%20%2815%29.png)
 
-You can set the X-Axis of a line plot to any value that you have logged with wandb.log as long as it's always logged as a number.
+ Vous pouvez paramétrer l’axe X d’un graphique linéaire sur n’importe quelle valeur que vous avez enregistrée avec wandb.log tant qu’elle est toujours enregistrée sous forme de nombre.
 
-## Y-Axis Variables
+## Variables d’axe Y
 
-You can set the y-axis variables to any value you have logged with wandb.log as long as you were logging numbers, arrays of numbers or a histogram of numbers. If you logged more than 1500 points for a variable, wandb samples down to 1500 points.
+ Vous pouvez paramétrer les variables de l’axe y sur n’importe quelle valeur du moment que vous enregistriez des nombres, des arrays de nombres ou un histogramme de nombres. Si vous avez enregistré plus de 1 500 points pour une variable, wandb échantillonnera seulement 1 500 points.
 
 {% hint style="info" %}
-You can change the color of your y axis lines by changing the color of the run in the runs table.
+\(i\) Vous pouvez changer la couleur des lignes de vos axes y en changeant la couleur de l’essai dans le tableau d’essai.
 {% endhint %}
 
-## X Range and Y Range
+## Plages X et Y
 
-You can change the maximum and minimum values of X and Y for the plot.
+Vous pouvez changer les valeurs maximum et minimum de X et Y pour le graphique.
 
-X range default is from the smallest value of your x-axis to the largest.
+La plage X par défaut s’étend de la plus petite valeur de votre axe X à la plus grande.
 
-Y range default is from the smallest value of your metrics and zero to the largest value of your metrics.
+La plage Y par défaut s’étend de la plus petite valeur de vos mesures et zéro et va jusqu’à la plus grande valeur de vos mesures.
 
-## Max Runs/Groups
+##  Essais/Groupes max
 
-By default you will only plot 10 runs or groups of runs. The runs will be taken from the top of your runs table or run set, so if you sort your runs table or run set you can change the runs that are shown.
+Par défaut, vous ne tracerez que 10 essais ou groupes d’essais. Ces essais seront pris du haut de votre tableau d’essai ou de set d’essai, donc, si vous triez votre tableau d’essai ou votre set d’essai, vous pouvez modifier les essais qui sont affichés.
 
-## Legend
+## Légende
 
-You can control the legend of your chart to show for any run any config value that you logged and meta data from the runs such as the created at time or the user who created the run.
+ Vous pouvez contrôler la légende de votre graphique pour montrer n’importe quelle valeur de config que vous avez enregistrée sur n’importe quel essai, et les métadonnées des essais, comme l’heure de création ou l’utilisateur qui a créé cet essai.
 
-Example:
+ Exemple :
 
-${config:x} will insert the config value of x for a run or group.
+${config:x} insèrera la valeur de config de x pour un essai ou groupe.
 
-You can set \[\[$x: $y\]\] to display point specific values in the crosshair
+Vous pouvez paramétrer \[\[$x: $y\]\] pour afficher des valeurs spécifiques de point dans le pointeur
 
-## Grouping
+## Regroupements
 
-You can aggregate all of the runs by turning on grouping, or group over an individual variable. You can also turn on grouping by grouping inside the table and the groups will automatically populate into the graph.
+Vous pouvez agréger tous vos essais en activant les regroupements, ou regrouper en fonction d’une variable individuelle. Vous pouvez aussi activer les regroupements en regroupant depuis le tableau, et les regroupements peupleront automatiquement le graphique.
 
-## Smoothing
+## Lissage
 
-You can set the [smoothing coefficient](../../../../library/technical-faq.md#what-formula-do-you-use-for-your-smoothing-algorithm) to be between 0 and 1 where 0 is no smoothing and 1 is maximum smoothing.
+ Vous pouvez paramétrer le [coefficient de lissage](https://docs.wandb.ai/library/technical-faq#what-formula-do-you-use-for-your-smoothing-algorithm) pour qu’il soit entre 0 et 1, où 0 correspond à aucun lissage et 1 au lissage maximum.
 
-## Ignore Outliers
+## Ignorer les données aberrantes
 
-Ignore outliers makes the graph set the yaxis min and max to the 5th and 95th percentile of the data instead of setting it to make all data visible.
+Ignorer les données aberrantes \(ignore outliers\) fait que le graphique paramètre le min de l’axe y sur le 5e percentile et son max sur le 95e percentile des données, plutôt que de rendre toutes les données visibles.
 
-## Expression
+##  Expression
 
-Expression lets you plot values derived from metrics like 1-accuracy. It currently only works if you are plotting a single metric. You can do simple arithmetic expressions, +, -, \*, / and % as well as \*\* for powers.
+L’expression vous permet de tracer des valeurs dérivées de mesures, comme 1-précision. Pour l’instant, ne fonctionne que si vous tracez une mesure à la fois. Vous pouvez faire des expressions arithmétiques simples, +, -, _, / et %, ainsi que \*_ pour les puissances.
 
-## Plot style
+### Style de graphique
 
-Select a style for your line plot.
+Sélectionnez un style pour votre graphique linéaire.
 
-**Line plot:**
+**Graphique linéaire :**
 
 ![](../../../../.gitbook/assets/image%20%285%29.png)
 
-**Area plot:**
+**Graphique en aires :**
 
 ![](../../../../.gitbook/assets/image%20%2835%29%20%281%29.png)
 
-**Percentage area plot:**
+**Graphique en aires par pourcentage :**
 
 ![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%281%29.png)
 

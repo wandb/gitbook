@@ -1,76 +1,76 @@
 ---
 description: >-
-  Each training run of your model gets a dedicated page, organized within the
-  larger project
+  Chaque essai d’entraînement de votre modèle obtient une page dédiée, organisée
+  en un plus grand projet
 ---
 
 # Run Page
 
-Use the run page to explore detailed information about a single version of your model.
+Utilisez la page d’essai pour explorer les informations détaillées d’une version unique de votre modèle.
 
-## Overview Tab
+## Onglet Vue d’ensemble
 
-* Run name, description, and tags
-* Host name, operating system, Python version, and command that launched the run
-* List of config parameters saved with [wandb.config](../../library/config.md)
-* List of summary parameters saved with [wandb.log\(\)](../../library/log.md), by default set to the last value logged
+* Nom d’essai, description, et étiquettes
+* Nom d’hôte, système d’exploitation, version Python, et commande qui a lancé l’essai
+* Liste des paramètres de config sauvegardés avec [wandb.config](../../library/config.md)
+* Liste des paramètres de sommaire sauvegardés avec [wandb.log\(\)](https://d.docs.live.net/library/log), par défaut réglé sur la dernière valeur enregistrée
 
-[View a live example →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
+ [Voir un exemple en direct →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
 
-![W&amp;B Dashboard run overview tab](../../.gitbook/assets/wandb-run-overview-page.png)
+![L&#x2019;onglet de vue d&#x2019;ensemble d&#x2019;essai du Tableau de Bord W&amp;B](../../.gitbook/assets/wandb-run-overview-page.png)
 
-The Python details are private, even if you make the page itself public. Here is an example of my run page in incognito on the left and my account on the right.
+Les détails Python sont privés, même si vous rendez la page en elle-même publique. Voici un exemple de ma page d’essai en navigation privée sur le côté, et mon compte sur la droite.
 
 ![](../../.gitbook/assets/screen-shot-2020-04-07-at-7.46.39-am.png)
 
-## Charts Tab
+## Onglet de Graphiques
 
-* Search, group, and arrange visualizations
-* Click the pencil icon ✏️ on a graph to edit
-  * change x-axis, metrics, and ranges
-  * edit legends, titles, and colors of charts
-* View examples predictions from your validation set
-* To get these charts, log data with [wandb.log\(\)](../../library/log.md)
+* Cherchez, regroupez, et arrangez vos visuels
+* Cliquez sur l’icône de crayon ✏️ sur un graphique pour éditer :
+  * changer l’axe x, les mesures, et les portées
+  * éditer les légendes, les titres, et les couleurs de graphiques
+* Voir des prédictions d’exemple de votre set de validation
+*  Pour obtenir ces graphiques, enregistrez des données avec [wandb.log\(\)](https://docs.wandb.ai/library/log)
 
-[View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
+ [Voir un exemple en direct →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
 ![](../../.gitbook/assets/wandb-run-page-workspace-tab%20%281%29.png)
 
-## System Tab
+##  Onglet Système
 
-* Visualize CPU utilization, system memory, disk I/O, network traffic, GPU utilization, GPU temperature, GPU time spent accessing memory, GPU memory allocated, and GPU power usage
-* Lambda Labs highlighted how to use W&B system metrics in a[ blog post →](https://lambdalabs.com/blog/weights-and-bias-gpu-cpu-utilization/)
+* Visualisez l’utilisation du CPU, la mémoire système, les IOPS de disque, le trafic réseau, l’utilisation GPU, la température GPU, le temps passé par le GPU en accès mémoire, la mémoire allouée par le GPU, et l’utilisation de puissance GPU
+*  Lambda Labs a mis en avant comment utiliser les mesures de système W&B dans un [article de blog →](https://lambdalabs.com/blog/weights-and-bias-gpu-cpu-utilization/)
 
-[View a live example →](https://wandb.ai/stacey/deep-drive/runs/ki2biuqy/system?workspace=user-carey)
+[Voir un exemple en direct →](https://wandb.ai/stacey/deep-drive/runs/ki2biuqy/system?workspace=user-carey)
 
 ![](../../.gitbook/assets/wandb-system-utilization.png)
 
-## Model Tab
+##  Onglet Modèle
 
-* See the layers of your model, the number of parameters, and the output shape of each layer
+* Voir les couches de votre modèle, le nombre de paramètres, et la forme output de chaque couche.
 
-[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
+ [Voir un exemple en direct →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
 ![](../../.gitbook/assets/wandb-run-page-model-tab.png)
 
-## Logs Tab
+## Onglet Enregistrements
 
-* Output printed on the command line, the stdout and stderr from the machine training the model
-* We show the last 1000 lines. After the run has finished, if you'd like to download the full log file, click the download button in the upper right corner.
+* Output imprimé sur la ligne de commande, le stdout et le stderr de la machine qui entraîne le modèle
+* Nous montrons les 1 000 dernières lignes. Après la fin d’un essai, si vous préférez télécharger le fichier complet d’enregistrements, cliquez sur le bouton télécharger en haut à droite.
 
-[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
+ [Voir un exemple en direct →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
 ![](../../.gitbook/assets/wandb-run-page-log-tab.png)
 
-## Files Tab
+## Onglet Fichiers
 
-* Save files to sync with the run using [wandb.save\(\)](../../library/save.md)
-* Keep model checkpoints, validation set examples, and more
-* Use the diff.patch to [restore](../../library/restore.md) the exact version of your code
+* Sauvegarde les fichiers à synchroniser avec l’essai en utilisant [wandb.save\(\)](../../library/save.md)
+* Conserve les checkpoints de modèles, les exemples de set de validation, et plus
+* Utilise le diff.patch pour [restaurer](https://docs.wandb.ai/library/restore) une version exacte de votre code.
 
-🌟New recommendation: Try [Artifacts](../../artifacts/) for tracking inputs and outputs
+🌟Nouvelle recommandation : Essayez les [Artefacts](https://docs.wandb.ai/artifacts) pour garder une trace de vos inputs et de vos outputs
 
-[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
+ [Voir un exemple en direct →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images) 
 
 ![](../../.gitbook/assets/wandb-run-page-files-tab.png)
 

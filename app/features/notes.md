@@ -1,37 +1,37 @@
 ---
 description: >-
-  Add notes to your runs and projects, and use notes to describe your findings
-  in reports
+  Ajouter des notes à vos essais et vos projets, et les utiliser pour décrire
+  des découvertes dans des rapports
 ---
 
 # Notes
 
-There are a few ways to take notes about your work in Weights & Biases.
+Il y a plusieurs manières de prendre des notes sur votre travail dans Weights & Biases.
 
-1. Add notes to a run. These notes show up on the run page in the overview tab and in the table of runs on the project page.
-2. Add notes to a project. These notes show up on the project page in the overview tab.
-3. Add a markdown panel on the run page, project page, or report page.
+1. Ajoutez des notes à un essai. Ces notes s’afficheront sur la page d’essai dans l’onglet de vue d’ensemble et dans le tableau des essais sur la page de projet.
+2. Ajoutez des notes à un projet. Ces notes s’afficheront sur la page de projet dans l’onglet de vue d’ensemble.
+3. Ajoutez un panneau markdown sur la page d’essai, sur la page de projet, ou sur la page de rapport.
 
-## Add notes to a specific run
+## Ajouter des notes à un essai spécifique
 
-You can edit the notes on a run in two places.
+Vous pouvez éditer les notes d’un essai à deux endroits.
 
-1. **Project Page**: the table has an editable notes column
-2. **Run Page**: the overview tab shows information about a run, and you can 
+1.  **Page de projet :** le tableau à une colonne de notes éditables.
+2. **Page d’essai** : l’onglet de vue d’ensemble montre les informations relatives à un essai, et vous pouvez 
 
-On the project page, expand the table. Click "Add notes..." to type notes in-line.
+Sur la page de projet, agrandissez le tableau. Cliquez sur "Ajouter notes…" \(Add notes…\) pour écrire les notes sur une ligne.
 
-![Editing notes in the table on the project page](https://downloads.intercomcdn.com/i/o/148296355/34114b47362b0378e233a440/2019-09-13+08.05.17.gif)
+![&#xC9;diter les notes dans le tableau sur la page de projet](https://downloads.intercomcdn.com/i/o/148296355/34114b47362b0378e233a440/2019-09-13+08.05.17.gif)
 
-This field also shows up on the individual run page. Click the name of the run in the table to go to the run page. Click the top tab on the left side to go to the Overview tab. The field has much more room to grow here. You can type as many notes as you'd like in this space, and a preview will be shown in the runs table when you mouse over the notes field.
+ Ce champ s’affiche aussi sur la page d’essai individuel. Cliquez sur le nom de l’essai dans le tableau pour vous rendre à la page d’essai. Cliquez sur l’onglet en haut à gauche pour vous rendre à l’onglet Vue d’ensemble. Ce champ a beaucoup plus d’espace pour s’afficher. Vous pouvez taper autant de notes que ce que vous souhaitez dans cet espace, et une prévisualisation sera affichée dans le tableau des essais lorsque vous passez le curseur au-dessus du champ de notes.
 
-![Editing notes in the overview tab on the run page](https://downloads.intercomcdn.com/i/o/148297196/afdb48d2fb59aaa0c90c3aed/2019-09-13+08.06.45.gif)
+![&#xC9;diter les notes dans l&#x2019;onglet de vue d&#x2019;ensemble sur la page d&#x2019;essai](https://downloads.intercomcdn.com/i/o/148297196/afdb48d2fb59aaa0c90c3aed/2019-09-13+08.06.45.gif)
 
-You can also create a report to add plots and markdown side by side. Use different sections to show different runs, and tell a story about what you worked on. These notes can be saved and shared with colleagues.
+Vous pouvez aussi créer un rapport pour ajouter des graphiques et des markdowns côte à côte. Utilisez des sections différentes pour montrer des essais différents, et raconter l’histoire de ce sur quoi vous travaillez. Ces notes peuvent être sauvegardées et partagées avec des collègues.
 
-## Write descriptive notes comparing runs
+## Écrire des notes descriptives pour comparer des essais
 
-Use reports to write about your findings when comparing multiple runs. Click "Add visualization" to add a markdown panel. You can arrange these panels beside panels of graphs.
+Utilisez les rapports pour écrire sur vos découvertes lorsque vous comparez plusieurs essais. Cliquez sur "Ajouter visuel" \(Add visualization\) pour ajouter un panneau mardown. Vous pouvez arranger ces panneaux à côté de panneaux de graphiques.
 
 ![](https://downloads.intercomcdn.com/i/o/148297552/64e5baa86a48927158d17456/2019-09-13+08.08.31.gif)
 

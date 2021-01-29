@@ -1,36 +1,36 @@
 ---
-description: Machine learning experiment tracking and visualizations
+description: Retracer et visualiser des expériences d’apprentissage automatique
 ---
 
 # Dashboard
 
-Use the Weights & Biases Dashboard as a central place to organize and visualize results from your machine learning models.
+Utilisez le Tableau de bord Weights & Biases comme endroit central pour organiser et visualiser les résultats de vos modèles d’apprentissage automatique.
 
 {% embed url="https://youtu.be/gnD8BFuyVUA" caption="" %}
 
-## **Persistent and Centralized**
+### Tableau de bord centralisé persistant
 
-Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying outputs from your terminal into a spreadsheet or organizing TensorBoard files from different machines.
+Où que vous souhaitiez entraîner vos modèles, que ce soit sur votre machine locale, dans votre laboratoire, ou pour des exemples ponctuels dans le cloud, nous vous offrons le même tableau de bord centralisé. Vous n’avez pas besoin de passer votre temps à copier et à organiser des fichiers TensorBoard depuis différentes machines.
 
-## Automatic Organization
+##  Organisation automatique
 
-If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models your team has already tried so you're not wasting hours re-running old experiments.
+Si vous passez un projet à un collaborateur ou que vous partez en vacances, W&B rend facile la visualisation de tous les modèles que vous avez déjà essayés, pour que vous ne passiez pas des heures à remodéliser d’anciennes expériences.
 
-## **Powerful Table**
+##  ****Tableau puissant
 
-Compare each training run and see what hyperparameters changed. Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks.
+Recherchez, filtrez, organisez, et regroupez vos résultats depuis différents modèles. Il est facile de visualiser des milliers de versions de modèle et de trouver ceux qui offrent les meilleures performances dans différentes tâches.
 
 ![](../.gitbook/assets/image%20%2819%29.png)
 
-## Reproduce Models
+##  Reproduire les modèles
 
-Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.
+Weights & Biases est efficace pour expérimenter, explorer, et reproduire les modèles plus tard. Nous enregistrons non seulement les mesures, mais aussi les hyperparamètres et la version du code, et nous pouvons sauvegarder les checkpoints de votre modèle pour vous pour que votre projet soit reproductible.
 
-## Fast, Flexible Integration
+## Intégration rapide et flexible
 
-Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
+Ajoutez W&B à votre projet en 5 minutes. Installez notre package Python gratuit et open-source, ajoutez quelques lignes à votre code, et à chaque fois que vous essaierez votre modèle, vous aurez de magnifiques enregistrements de données et de mesures.
 
-## Tools for Collaboration
+##  Des outils pour la collaboration
 
-Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+Utilisez W&B pour organiser des projets complexes d’apprentissage automatique. Il est facile de partager un lien vers W&B, et vous pouvez utiliser des équipes privées pour que tout le monde envoie des résultats sur un projet en commun. Nous soutenons aussi la collaboration par les rapports – ajoutez des visuels interactifs et décrivez votre travail dans un Markdown. C’est une manière excellente de garder un journal de travail, de partager vos découvertes avec votre superviseur, ou de présenter vos découvertes à votre laboratoire.
 

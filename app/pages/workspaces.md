@@ -1,28 +1,32 @@
 ---
-description: A playground for exploring run data with interactive visualizations
+description: >-
+  Un terrain de jeu pour explorer des données d’essai avec des visuels
+  interactifs
 ---
 
 # Workspaces
 
-Your workspace is your personal sandbox to customize charts and explore model results.
+Votre Workspace est votre bac à sable personnel pour personnaliser des graphiques et explorer des résultats de modèle.
 
-1. **Table**: All the runs in your project are listed in the table. ****Turn on and off runs, change colors, and expand the table to see notes, config, and summary metrics for each run. 
-2. **Panels**: Panels are organized into sections. Create new panels, organize them, and export to reports to save snapshots of your workspace.
+1. **Tableau** : Tous les essais de votre projet sont listés dans ce tableau. Activez ou désactivez des essais, changez les couleurs, et agrandissez le tableau pour voir les notes, les configs, et les mesures de sommaire pour chaque essai.
+2. **Panneaux :** Les panneaux sont organisés en sections. Créez de nouveaux panneaux, organisez-les, et exportez-les dans des rapports pour sauvegarder des instantanés de votre workspace.
 
 ![](../../.gitbook/assets/workspace-table-and-panels.png)
 
 
 
-At the bottom of the page is a workspace control bar:
+En bas de cette page se trouve une barre de contrôle de workspace.
 
-* **Workspace**: Each user has one workspace. Only you can edit your own workspace.
-* **Undo/redo**: Quickly undo changes you made to your workspace.
-* **Sharing**: Create a report to share results with colleagues. Click **Create report** in the upper right and select what charts you'd like to save a snapshot of. 
-  * Reports can be **static snapshots** or **dynamic dashboards** of your project progress.
-  * You can create multiple different saved views of your project with reports.
-  * Reports let you add text annotations, create multiple different panel sections with different visible runs in each, and even share view-only links from inside private projects.
-  * If you do end up sharing a link to your workspace with a collaborator, they can't overwrite your original layout but they can play with the charts in a temporary view, explore the results, and save over their own workspace if they prefer your layout.
-* **Default workspace**: This is the default layout for any newcomers who land on this project for the first time. This lets you set up a nice landing page for your public project, or help your team members get started.
+* **Workspace** : Chaque utilisateur a un workspace. Seul vous pouvez éditer votre propre workspace.
+* **Annuler/refaire : Annulez rapidement des changements apportés à votre workspace.**
+*    **Partager : Créez un rapport pour partager vos résultats avec des collègues. Cliquez sur Créer rapport en haut à droite et sélectionnez de quels graphiques vous aimeriez sauvegarder un instantané.**
+*  **Les rapports peuvent être des instantanés statiques ou des tableaux de bord dynamiques de la progression de votre projet.**
+*  **Vous pouvez créer plusieurs visualisations sauvegardées de votre projet avec les rapports.**
+* **Les rapports vous permettent d’ajouter des annotations de texte, de créer de multiples sections de panneaux différentes avec des essais visibles différents dans chacune, et même de partager des liens en lecture seule pour vos projets privés en développement interne.**
+* **Si vous partagez un lien vers votre workspace avec un collaborateur, ils ne peuvent pas écraser la disposition originale mais ils peuvent jouer avec les graphiques dans une visualisation temporaire, explorer les résultats, et sauvegarder votre disposition sur leur propre workspace s’il la préfère à la leur.**
+* **Workspace par défaut : La disposition par défaut pour toutes les personnes qui arrivent sur ce projet pour la première fois. Ceci vous permet de mettre en place une belle page d’arrivée pour votre projet public, ou d’aider vos membres d’équipes à bien commencer.**
+
+   ****
 
 ![](../../.gitbook/assets/workspace-bar2.png)
 
