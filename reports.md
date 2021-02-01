@@ -1,84 +1,85 @@
 ---
-description: Project management and collaboration tools for machine learning projects
+description: >-
+  Gestion de projet et outils de collaboration pour les projets d’apprentissage
+  automatique
 ---
 
 # Reports
 
-Reports let you organize visualizations, describe your findings, and share updates with collaborators.
+Les rapports vous permettent d’organiser vos visuels, de décrire vos découvertes, et de partager des mises à jour avec des collaborateurs.
 
-### Use Cases
+### Cas d’utilisation
 
-1. **Notes**: Add a graph with a quick note to yourself.
-2. **Collaboration**: Share findings with your colleagues.
-3. **Work log**: Track what you've tried, and plan next steps.
+1.  **Notes** : Ajoutez un graphique avec une note pour vous.
+2. **Collaboration :** Partagez vos découvertes avec vos collègues.
+3. **Journal de travail :** Retracez ce que vous avez essayé, et planifiez vos prochaines étapes.
 
-### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
+###  ​[Voir l’étude de cas OpenAI →](https://bit.ly/wandb-learning-dexterity)​
 
-Once you have [experiments in W&B](quickstart.md), easily visualize results in reports. Here's a quick overview video.
+Une fois que vous avez des[ expériences sur W&B](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MSS0wIG8p8DoTkCvnaD/v/francais/quickstart), visualisez facilement des résultats dans vos rapports. Voici une rapide vidéo pour en expliquer les grandes lignes.
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" caption="" %}
 
-## Collaborate on reports
+## Collaborez sur les rapports
 
-Once you've saved a report, you can click the **Share** button to collaborate. Make sure the visibility settings on your project allow your collaborators to access the report— you'll need an open project or a team project to share a report that you can edit together.
+Une fois que vous avez sauvegardé un rapport, vous pouvez cliquer sur le bouton **Partager** pour collaborer. Assurez-vous que les paramètres de visibilité sur votre projet permettent à vos collaborateurs d’avoir accès au rapport – vous aurez besoin d’un projet ouvert ou d’un projet d’équipe pour partager un rapport que vous pouvez éditer ensemble.
 
-When you press edit, you'll be editing a draft copy of the report. This draft auto-saves, and when you press **Save to report** you'll be publishing your changes to the shared report.
-
-If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
+ Quand vous cliquez sur éditer, vous éditerez une copie de brouillon du rapport. Ce brouillon se sauvegarde automatiquement, et lorsque vous cliquez sur **Sauvegarder dans le rapport** \(Save to report\), vous publierez vos changements sur le rapport partagé.  
+Si l’un de vos collaborateurs a édité le rapport dans l’intervalle de temps, vous obtiendrez un avertissement pour vous aider à résoudre les potentiels conflits d’édition.
 
 ![](.gitbook/assets/collaborative-reports.gif)
 
 
 
-### Comment on reports
+### Commenter sur les rapports
 
-Click the comment button on a panel in a report to add a comment directly to that panel.
+Cliquez sur le bouton de commentaire d’un panneau dans un rapport pour ajouter un commentaire directement à ce panneau.
 
 ![](.gitbook/assets/demo-comment-on-panels-in-reports.gif)
 
-## Panel Grids
+## Grilles de panneaux
 
-If you'd like to compare a different set of runs, create a new panel grid. Each section's graphs are controlled by the **Run Sets** at the bottom of that section.
+ Si vous voudriez comparer un set différent d’essais, créez une nouvelle grille de panneau. Chaque graphique de section sont contrôlés par les **Sets d’essai** \(Run Sets\) ****en bas de cette sectin.
 
-## Run Sets
+## Sets de run
 
-* **Dynamic run sets**: If you start from "Visualize all" and filter or deselect runs to visualize, the run set will automatically update to show any new runs that match the filters.
-* **Static run sets**: If you start from "Visualize none" and select the runs you want to include in your run set, you will only ever get those runs in the run set. No new runs will be added.
-* **Defining keys**: If you have multiple Run Sets in a section, the columns are defined by the first run set. To show different keys from different projects, you can click "Add Panel Grid" to add a new section of graphs and run sets with that second set of keys. You can also duplicate a grid section.
+*  **Sets d’essai dynamiques** : Si vous commencez par "Tout visualiser" \(Visualize all\) et que vous filtrez ou désélectionnez des essais à visualiser, le set d’essai se mettra automatiquement à jour pour vous montrer tout nouvel essai qui correspond aux filtres.
+* **Sets d’essai statiques** : Si vous commencez par "Ne rien visualiser" \(Visualize none\) et que vous sélectionnez les essais que vous voulez inclure dans votre set d’essai, vous n’obtiendrez que ces essais dans votre set de run. Aucun nouvel essai ne sera ajouté.
+* **Définir des clefs :** si vous avez plusieurs Sets d’essais dans une section, les colonnes seront définies par le premier set d’essai. Pour montrer les différents clefs de différents projets, vous pouvez cliquer sur "Ajouter Grille de panneau" \(Add Panel Grid\) pour ajouter une nouvelle section de graphiques et de sets d’essais avec ce deuxième set de clefs. Vous pouvez aussi dupliquer une section de grille.
 
-## Exporting reports
+## Exporter les rapports
 
-Click the download button to export your report as a LaTeX zip file. Check the README.md in your downloaded folder to find instructions on how to convert this file to PDF. It's easy to upload the zip file to [Overleaf](https://www.overleaf.com/) to edit the LaTeX.
+Cliquez sur le bouton téléchargement pour exporter votre rapport sous forme de fichier LaTeX zippé. Consultez le README.md dans votre dossier téléchargé pour comprendre comment convertir ce fichier en PDF. Il est facile d’envoyer un fichier zip vers [Overleaf](https://www.overleaf.com/) pour éditer le LaTeX.
 
-## Cross-project reports
+## Rapports sur différents projets
 
-Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
+Comparez des essais de deux projets différents avec les rapports sur différents projets \(cross-project reports\). Utilisez le sélecteur de projet dans le tableau de set d’essais pour sélectionner un projet.
 
 ![](.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
 
-The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
+Les visuels de cette section prennent des colonnes depuis le premier set d’essai actif. Si vous ne voyez pas les mesures que vous recherchez dans le graphique linéaire, assurez-vous que le premier set d’essai sélectionné dans la section a cette colonne de disponible. Cette fonctionnalité prend en charge les données historiques sur des lignes de séries chronologiques, mais nous ne prenons pas en charge l’extraction de différentes mesures de sommaire depuis différents projets – donc, un nuage de points ne fonctionnerait pas pour des colonnes qui sont seulement enregistrées dans un autre projet.
 
-If you really need to compare runs from two projects and the columns aren't working, add a tag to the runs in one project and then move those runs to the other project. You'll still be able to filter to just the runs from each project, but you'll have all the columns for both sets of runs available in the report.
+Si vous avez vraiment besoin de comparer des essais de deux projets et que les colonnes ne fonctionnent pas, ajoutez une étiquette aux essais dans un des projets, puis déplacez ces essais dans l’autre projet. Vous serez toujours capable de filtrer les essais de chaque projet, mais vous aurez toutes les colonnes pour les deux sets d’essais qui seront disponibles dans le rapport.
 
-### View-only report links
+### Lien pour rapport en lecture seule
 
-Share a view-only link to a report that is in a private project or team project.
+ Partagez un lien en lecture seule vers un rapport qui est dans un projet privé ou dans un projet d’équipe.
 
 ![](.gitbook/assets/share-view-only-link.gif)
 
-### Send a graph to a report
+###  Envoyer un graphique à un rapport
 
-Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
+Envoyez un graphique depuis votre workspace à un rapport pour garder une trace de vos progrès. Cliquez sur le menu déroulant sur le graphique ou le panneau que vous souhaitez copier dans un rapport et cliquez sur **Ajouter à rapport** \(Add a report\) pour sélectionner le rapport de destination.
 
 ![](.gitbook/assets/demo-export-to-existing-report%20%281%29.gif)
 
-## Reports FAQ
+##  FAQ des Rapports
 
-### Upload a CSV to a report
+### Envoyer un CSV vers un rapport
 
-If you currently want to upload a CSV to a report you can do it via the `wandb.Table` format. Loading the CSV in your Python script and logging it as a `wandb.Table` object will allow you to render the data as a table in a report.
+ Actuellement, si vous souhaitez envoyer un CSV local vers un rapport, vous pouvez le faire via le format `wandb.Table`. Chargez le CSV dans votre script Python et enregistrez-le dans un objet `wandb.Table` pour vous permettre d’avoir un rendering des données comme un tableau dans un rapport.
 
-### Refreshing data
+###  Rafraîchir les données
 
-Reload the page to refresh data in a report and get the latest results from your active runs. Workspaces automatically load fresh data if you have the **Auto-refresh** option active \(available in the dropdown menu in the upper right corner of your page\). Auto-refresh does not apply to reports, so this data will not refresh until you reload the page.
+ Faites un nouveau chargement de page pour rafraîchir les données dans un rapport et obtenir les derniers résultats depuis vos essais actifs. Les Workspaces chargent automatiquement des données nouvelles si vous avez l’option **Auto-refresh** activée \(disponible dans le menu déroulant dans le coin supérieur droit de votre page\). L’auto-refresh ne s’applique pas aux rapports, donc les données ne se rafraîchiront pas tant que vous ne ferez pas un nouveau chargement de page.
 
