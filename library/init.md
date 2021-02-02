@@ -1,28 +1,30 @@
 ---
-description: Call wandb.init() at the top of your script to start a new run
+description: >-
+  Llama a wandb.init() al principio de tu script para comenzar una nueva
+  ejecución
 ---
 
 # wandb.init\(\)
 
-Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W&B and launches a background process to sync data. 
+Llama a `wandb.init()` una vez al comienzo de tu script para inicializar un nuevo trabajo. Esto crea una nueva ejecución en W&B y lanza un proceso en segundo plano para sincronizar los datos.
 
-* **On Prem**: If you need a private cloud or local instance of W&B, see our [Self Hosted](../self-hosted/) offerings. 
-* **Automated Environments**: Most of these settings can also be controlled via [Environment Variables](environment-variables.md). This is often useful when you're running jobs on a cluster.
+* **Instalación Local**: Si necesitas una nube privada o una instancia local de W&B, mira nuestros ofrecimientos [Self Hosted](https://docs.wandb.ai/self-hosted).
+*  **Entornos Automatizados:** La mayoría de estos ajustes también pueden ser controlados a través de las [Variables de Entorno](https://docs.wandb.ai/library/environment-variables). A menudo, esto es útil cuando estés corriendo trabajos en un cluster.
 
-### Reference Docs
+###  Documentación de Referencia
 
-Check the reference docs for arguments.
+Verifica la documentación de referencia para los argumentos
 
 {% page-ref page="../ref/init.md" %}
 
-## Common Questions
+##  Preguntas Comunes
 
-### How do I launch multiple runs from one script?
+### Cómo lanzo múltiples ejecuciones desde un script?
 
-If you're trying to start multiple runs from one script, add two things to your code:
+Si estás intentando empezar múltiples ejecuciones desde un script, agrega dos cosas a tu código:
 
-1. run = wandb.init\(**reinit=True**\): Use this setting to allow reinitializing runs
-2. **run.finish\(\)**: Use this at the end of your run to finish logging for that run
+1. **run = wandb.init\(reinit=True\):** Usa este ajuste para permitir la reinicialización de la ejecuciones.
+2. **run.finish\(\):** Usa esto al final de tu ejecución para finalizar el registro para dicha ejecución.
 
 ```python
 import wandb
@@ -33,7 +35,7 @@ for x in range(10):
     run.finish()
 ```
 
-Alternatively you can use a python context manager which will automatically finish logging:
+Alternativamente, puedes utilizar un administrador de contexto de python, que automáticamente finalizará el registro:
 
 ```python
 import wandb
@@ -46,15 +48,15 @@ for x in range(10):
 
 ### LaunchError: Permission denied
 
-If you're getting a **LaunchError: Launch exception: Permission denied** error, you don't have permissions to log to the project you're trying to send runs to. This might be for a few different reasons.
+Si estás obteniendo un error **LaunError: Launch exception:** Permission denied, es porque no tienes permiso para registrar al proyecto al que estás intentando enviar ejecuciones. Esto podría ocurrir por algunas razones diferentes.
 
-1. You aren't logged in on this machine. Run `wandb login` on the command line.
-2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
-3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
+1. No has iniciado sesión en esta máquina. Corre `wandb login` desde la línea de comandos.
+2.  Has establecido una entidad que no existe. La “entidad” debería ser tu nombre de usuario o el nombre de un equipo existente. Si necesitas crear un equipo, ve a nuestra [página ](https://app.wandb.ai/billing)[de ](https://app.wandb.ai/billing)[Subscripciones](https://app.wandb.ai/billing).
+3. No tienes permisos en el proyecto. Pídele al creador del proyecto que establezca la privacidad a Abierta, para que así puedas registrar las ejecuciones para este proyecto.
 
-### Get the readable run name
+### Obtén el nombre de ejecución legible
 
-Get the nice, readable name for your run.
+Obtén el nombre de ejecución legible y amigable para tu ejecución.
 
 ```python
 import wandb
@@ -63,9 +65,9 @@ wandb.init()
 run_name = wandb.run.name
 ```
 
-### Set the run name to the generated run ID
+###  Establece el nombre de la ejecución al ID de la ejecución generado
 
-If you'd like to overwrite the run name \(like snowy-owl-10\) with the run ID \(like qvlp96vk\) you can use this snippet:
+Si quisieras sobrescribir el nombre de la ejecución \(como por ejemplo, snowy-owl-10\) con el ID de la ejecución \(como por ejemplo, qvlp96vk\), puedes usar este fragmento de código:
 
 ```python
 import wandb
@@ -74,22 +76,22 @@ wandb.run.name = wandb.run.id
 wandb.run.save()
 ```
 
-### Save the git commit
+###  Guarda el git commit
 
-When wandb.init\(\) is called in your script, we automatically look for git information to save a link to your repo the SHA of the latest commit. The git information should show up on your [run page](../app/pages/run-page.md#overview-tab). If you aren't seeing it appear there, make sure that your script where you call wandb.init\(\) is located in a folder that has git information.
+Cuando wandb.init\(\) es llamado en tu script, automáticamente buscamos información del git para guardar un enlace a tu repositorio del SHA del último commit. La información del git debería mostrarse en tu [página de ejecución](https://docs.wandb.ai/app/pages/run-page#overview-tab). Si ves que no está apareciendo allí, asegúrate de que tu script, desde donde llamas de wandb.init\(\), esté ubicado en un directorio que tenga información de git.
 
-The git commit and command used to run the experiment are visible to you but are hidden to external users, so if you have a public project, these details will remain private.
+El git commit y el comando utilizado para correr el experimento están visibles para que los veas, pero permanecen ocultos a los usuarios externos, así que si tienes un proyecto público, estos detalles seguirán siendo privados.
 
-### Save logs offline
+### Guarda el registro cuando estés desconectado
 
-By default, wandb.init\(\) starts a process that syncs metrics in real time to our cloud hosted app. If your machine is offline or you don't have internet access, here's how to run wandb using the offline mode and sync later.
+Por defecto, wandb.init\(\) comienza un proceso que sincroniza las métricas en tiempo real con nuestra aplicación almacenada en la nube. Si tu máquina está fuera de línea, o no tienes acceso a internet, aquí está cómo hay que correr wandb utilizando el modo offline, y sincronizar después.
 
-Set two environment variables:
+Establece dos variables de entorno:
 
-1. **WANDB\_API\_KEY**: Set this to your account's API key, on your [settings page](https://app.wandb.ai/settings)
+1. **WANDB\_API\_KEY**: Establece esto con un valor igual a la clave de la API de tu cuenta, en la [página de ajustes](https://app.wandb.ai/settings).
 2. **WANDB\_MODE**: dryrun
 
-Here's a sample of what this would look like in your script:
+ Aquí hay un ejemplo de cómo debería verse en tu script:
 
 ```python
 import wandb
@@ -112,11 +114,11 @@ for i in range(100):
   wandb.log({"accuracy": i})
 ```
 
-Here's a sample terminal output:
+Aquí hay una salida de ejemplo en la terminal:
 
 ![](../.gitbook/assets/image%20%2881%29.png)
 
-And once I have internet, I run a sync command to send that folder to the cloud.
+Y una vez que tengo internet, corro un comando de sincronización para enviar ese directorio a la nube.
 
 `wandb sync wandb/dryrun-folder-name`
 
