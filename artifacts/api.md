@@ -1,29 +1,29 @@
 # Artifacts API
 
-Use W&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. You can use artifacts to track and save files, or track external URIs.
+ Utilisez les Artefacts W&B pour garder une trace de vos datasets et faire du versioning du modèle. Initialisez un essai, créez un artefact, puis utilisez-le dans la partie suivante de votre flux de travail. Vous pouvez utiliser les artefacts pour garder une trace de vos fichiers et les sauvegarder, ou garder une trace des URI externes.
 
-This feature is available in the client starting from `wandb` version 0.9.0.
+Cette fonctionnalité est disponible dans le client à partir de la version 0.9.0 de `wandb` 
 
-## 1. Initialize a run
+## 1. Initialiser un essai
 
-To track a step of your pipeline, initialize a run in your script. Specify a string for **job\_type** to differentiate different pipeline steps— preprocessing, training, evaluation, etc. If you've never instrumented a run with W&B, we have more detailed guidance for experiment tracking in our [Python Library](../library/) docs.
+ Pour suivre une étape dans votre pipeline, initialisez un essai dans votre script. Spécifiez une chaîne de données pour **job\_type** pour différencier différentes étapes de pipeline – prétraitement \(preprocessing\), entraînement \(training\), évaluation \(evaluation\), etc. Si vous n’avez jamais instrumenté d’essai avec W&B, nous avons des guides plus détaillés sur le suivi d’expérience dans notre docu de [Librairie Python](https://docs.wandb.ai/library).
 
 ```python
 run = wandb.init(job_type='train')
 ```
 
-## 2. Create an artifact
+## 2. Créer un artefact
 
-An artifact is like a folder of data, with contents that are actual files stored in the artifact or references to external URIs. To create an artifact, log it as the output of a run. Specify a string for **type** to differentiate different artifacts— dataset, model, result etc. Give this artifact a **name**, like `bike-dataset`, to help you remember what is inside the artifact. In a later step of your pipeline, you can use this name along with a version like `bike-dataset:v1` to download this artifact.
+ Un artefact est comme un dossier de données, avec des contenus qui sont de vrais fichiers stockés dans l’artefact ou des références à des URI externes. Pour créer un artefact, enregistrez-le comme la sortie \(output\) d’un essai. Spécifiez une chaîne de données de **type** pour différencier les artefacts entre eux – dataset \(dataset\), modèle \(model\), résultat \(result\), etc. Donnez un **name** à cet artefact, comme `bike-dataset`, pour vous aider à vous rappeler ce que cet artefact contient. Dans une étape plus lointaine de votre pipeline, vous pouvez utiliser ce nom avec une version ajoutée dessus, comme `bike-dataset:v1 pour télécharger cet artefact.`
 
-When you call **log\_artifact**, we check to see if the contents of the artifact has changed, and if so we automatically create a new version of the artifact: v0, v1, v2 etc.
+ Lorsque vous appelez **log\_artifact**, nous vérifions si les contenus de l’artefact ont changé, et si c’est le cas, nous créons automatiquement une nouvelle version de cet artefact : v0, v1, v2 etc.
 
 **wandb.Artifact\(\)**
 
-* **type \(str\)**: Differentiate kinds of artifacts, used for organizational purposes. We recommend sticking to "dataset", "model" and "result".
-* **name \(str\)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, hyphens, and dots in the name.
-* **description \(str, optional\)**: Free text displayed next to the artifact version in the UI
-* **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
+*    **type \(str\)** : Différencie les sortes d’artefacts, utilisé à des fins d’organisation. Nous vous recommandons de rester sur "dataset", "model" et "result".
+* **name \(str\) :** Donne un nom unique à votre artefact, utilisé lorsque vous faites référence à votre artefact autre part. Vous pouvez utiliser des chiffres, des lettres, des tirets du bas et du haut, et des points dans le nom.
+*   **description \(str, optionnel\) :** Texte libre affiché à côté de la version d’artefact dans l’IU
+*   **metadata \(dict, optionnel\) :** Données structurées associées avec l’artefact, par exemple la distribution de classe d’un dataset. Grâce à la manière dont nous avons construit l’interface web, vous pourrez utiliser ces données pour faire des requêtes et tracer des graphiques.
 
 ```python
 artifact = wandb.Artifact('bike-dataset', type='dataset')
@@ -36,7 +36,7 @@ run.log_artifact(artifact)
 ```
 
 {% hint style="warning" %}
-**NOTE:** Calls to `log_artifact` are performed asynchronously for performant uploads. This can cause surprising behavior when logging artifacts in a loop. For example:
+**Note : Les appels pour** `log_artifact sont faits de manière asynchrone pour les téléchargements en cours vers le cloud. Cela peut créer un comportement surprenant lorsqu’on enregistre des artefacts dans une boucle. Par exemple :`
 
 ```text
 for i in range(10):
@@ -47,12 +47,12 @@ for i in range(10):
     run.log_artifact(a)
 ```
 
-The artifact version **v0** is NOT guaranteed to have an index of 0 in its metadata, as the artifacts may be logged in an arbitrary order.
+ La version d’artefact **v0** n’est pas garantie d’avoir un index de 0 dans ses métadonnées, puisque les artefacts peuvent être enregistrés dans un ordre aléatoire.
 {% endhint %}
 
-## 3. Use an artifact
+## 3. Utiliser un artefact
 
-You can use an artifact as input to a run. For example, we could take `bike-dataset:v0` , the first version of `bike-dataset`, and use it in the next script in our pipeline. When you call **use\_artifact**, your script queries W&B to find that named artifact and marks it as input to the run.
+Vous pouvez utiliser un artefact comme entrée \(input\) d’un essai. Par exemple, nous pourrions prendre `bike-dataset:v0` , la première version de `bike-dataset`, et l’utiliser dans le prochain script de notre pipeline. Lorsque vous appelez **use\_artefact**, votre script W&B envoie une requête pour trouver cet artefact nommé et le marquer comme entrée à l’essai.
 
 ```python
 # Query W&B for an artifact and mark it as input to this run
@@ -62,8 +62,8 @@ artifact = run.use_artifact('bike-dataset:v0')
 artifact_dir = artifact.download()
 ```
 
-**Using an artifact from a different project**  
-You can freely reference artifacts from any project to which you have access by qualifying the name of the artifact with its project name. You can also reference artifacts across entities by further qualifying the name of the artifact with its entity name.
+**Utiliser un artefact depuis un projet différent**  
+Vous pouvez librement faire référence à vos artefacts depuis n’importe quel projet auquel vous avez accès en qualifiant le nom de l’artefact avec son nom de projet. Vous pouvez aussi faire référence à des artefacts à travers des entités en qualifiant encore plus le nom de l’artefact avec son nom d’entité.
 
 ```python
 # Query W&B for an artifact from another project and mark it
@@ -75,8 +75,8 @@ artifact = run.use_artifact('my-project/bike-model:v0')
 artifact = run.use_artifact('my-entity/my-project/bike-model:v0')
 ```
 
-**Using an artifact that has not been logged**  
-You can also construct an artifact object and pass it to **use\_artifact**. We check if the artifact already exists in W&B, and if not we creates a new artifact. This is idempotent— you can pass an artifact to use\_artifact as many times as you like, and we'll deduplicate it as long as the contents stay the same.
+**Utiliser un artefact qui n’a pas été enregistré**  
+Vous pouvez aussi construire un objet artefact et le passer dans **use\_artifact**. Nous vérifions si cet artefact existe déjà dans W&B, et si ce n’est pas le cas, nous créons un nouvel artefact. Ceci est idempotent – vous pouvez passer un artefact dans use\_artifact autant de fois que vous le souhaitez, et nous le dédupliquerons tant que son contenu restera le même.
 
 ```python
 artifact = wandb.Artifact('bike-model', type='model')
@@ -84,19 +84,19 @@ artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
 
-## Versions and aliases
+## Versions et alias
 
-When you log an artifact for the first time, we create version **v0**. When you log again to the same artifact, we checksum the contents, and if the artifact has changed we save a new version **v1**.
+Lorsque vous enregistrez un artefact pour la première fois, nous créons la version **v0**. Lorsque vous enregistrez de nouveau ce même artefact, nous faisons une somme de contrôle, et si l’artefact a changé, nous sauvegardons une nouvelle version, **v1**.
 
-You can use aliases as pointers to specific versions. By default, run.log\_artifact adds the **latest** alias to the logged version.
+Vous pouvez utiliser les alias comme des pointeurs vers des versions spécifiques. Par défaut, run.log\_artifact ajoute l’alias **le plus récent** \(latest\) à la version enregistrée.
 
-You can fetch an artifact using an alias. For example, if you want your training script to always pull the most recent version of a dataset, specify **latest** when you use that artifact.
+Vous pouvez aller chercher un artefact en utilisant un alias. Par exemple, si vous voulez que votre script d’entraînement tire toujours la version la plus récente d’un dataset, spécifiez **latest** lorsque vous utilisez cet artefact.
 
 ```python
 artifact = run.use_artifact('bike-dataset:latest')
 ```
 
-You can also apply a custom alias to an artifact version. For example, if you want to mark which model checkpoint is the best on the metric AP-50, you could add the string **best-ap50** as an alias when you log the model artifact.
+ Vous pouvez aussi utiliser un alias personnalisé pour une version d’artefact. Par exemple, si vous voulez marquer lequel de vos checkpoints de modèle est le meilleur pour la mesure AP-50, vous pouvez ajouter la chaîne **best-ap50** en tant qu’alias lorsque vous enregistrez l’artefact de modèle.
 
 ```python
 artifact = wandb.Artifact('run-3nq3ctyy-bike-model', type='model')
@@ -104,21 +104,21 @@ artifact.add_file('model.h5')
 run.log_artifact(artifact, aliases=['latest','best-ap50'])
 ```
 
-## Constructing artifacts
+##  Construire des artefacts
 
-An artifact is like a folder of data. Each entry is either an actual file stored in the artifact, or a reference to an external URI. You can nest folders inside an artifact just like a regular filesystem. Construct new artifacts by initializing the `wandb.Artifact()` class.
+Un artefact est comme un dossier de données. Chaque entrée est soit un vrai fichier qui est stocké dans l’artefact, soit une référence à un URI externe. Vous pouvez imbriquer des dossiers à l’intérieur de l’artefact, comme dans un système de fichier classique. Construisez de nouveaux artefacts en initialisant la classe `wandb.Artifact()` class.
 
-You can pass the following fields to an `Artifact()` constructor, or set them directly on an artifact object:
+Vous pouvez passer les champs suivants dans un constructeur `Artifact()`, ou paramétrez-les directement sur un objet artefact
 
-* **type:** Should be ‘dataset’, ‘model’, or ‘result’
-* **description**: Freeform text that will be displayed in the UI.
-* **metadata**: A dictionary that can contain any structured data. You’ll be able to use this data for querying and making plots. E.g. you may choose to store the class distribution for a dataset artifact as metadata.
+* **type:** devrait être ‘dataset’, ‘model’, ou ‘result’
+* **description**: texte libre qui sera affiché dans l’IU.
+* **metadata**:Un dictionnaire qui peut contenir tout type de données structurées. Vous serez capable d’utiliser ces données pour faire des requêtes et tracer des graphiques. E.g vous pourriez choisir de stocker la distribution de classe pour l’artefact de dataset comme métadonnées \(metadata\).
 
 ```python
 artifact = wandb.Artifact('bike-dataset', type='dataset')
 ```
 
-Use **name** to specify an optional file name, or a file path prefix if you're adding a directory.
+Utilisez **name** pour spécifier le nom d’un fichier optionnel, ou un préfixe de chemin de fichier si vous ajoutez un répertoire.
 
 ```python
 # Add a single file
@@ -135,9 +135,9 @@ with artifact.new_file(name) as f:
 artifact.add_reference(uri, name='optional-name')
 ```
 
-### Adding files and directories
+### Ajouter des fichiers et des répertoires
 
-For the following examples, assume we have a project directory with these files:
+Pour les exemples suivants, supposons que nous avons un répertoire de projet avec ces fichiers :
 
 ```text
 project-directory
@@ -152,7 +152,7 @@ project-directory
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">API call</th>
+      <th style="text-align:left"></th>
       <th style="text-align:left">Resulting artifact contents</th>
     </tr>
   </thead>
@@ -192,23 +192,23 @@ project-directory
   </tbody>
 </table>
 
-### Adding references
+### Ajouter des références
 
 ```python
 artifact.add_reference(uri, name=None, checksum=True)
 ```
 
-* **uri \(string\):** The reference URI to track.
-* **name \(string\):** An optional name override. If not provided, a name is inferred from **uri**.
-* **checksum \(bool\):** If true, the reference collects checksum information and metadata from **uri** for validation purposes.
+* **uri \(string\):**  L’URI de référence à suivre.
+* **name \(string\):** Un écrasement optionnel du nom. S’il n’est pas fourni, un nom sera inféré depuis **uri**.
+* **checksum \(bool\):** Si True, la référence récolte les informations de somme de contrôles et les métadonnées depuis **uri** dans un but de validation.
 
-You can add references to external URIs to artifacts, instead of actual files. If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility. Artifacts currently support the following URI schemes:
+Vous pouvez ajouter des références à des URI externes à des artefacts, plutôt que de vrais fichiers. Si un URI possède un schéma que wandb sait gérer, l’artefact gardera une trace des sommes de contrôle et d’autres informations dans un but de reproductibilité. Les artefacts prennent actuellement en charge les schémas URI suivants :
 
-* `http(s)://`: A path to a file accessible over HTTP. The artifact will track checksums in the form of etags and size metadata if the HTTP server supports the `ETag` and `Content-Length` response headers.
-* `s3://`: A path to an object or object prefix in S3. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
-* `gs://`: A path to an object or object prefix in GCS. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
+* `http(s)://`: Un fichier à un fichier accessible par http. Cet artefact gardera une trace des sommes de contrôles sous la forme d’etags et de métadonnées de taille si le serveur http prend en charge les en-têtes de réponses \(response headers\) `ETag` et `Content-Length.`
+* `s3://`: Un chemin vers un objet ou un préfixe d’objet dans S3. Cet artefact gardera une trace des sommes de contrôle et des informations de versioning \(si le versioning objet du bucket est activé\) pour les objets référencés. Les préfixes d’objets sont agrandis pour inclure les objets sous le préfixe, jusqu’à un maximum de 10 000 objets.
+* `gs://`: Un chemin vers un objet ou un préfixe d’objet dans GCS. L’artefact gardera une trace des sommes de contrôles et des informations de versioning \(si le versioning objet du bucket est activé\) pour les objets référencés. Les préfixes d’objets sont agrandis pour inclure les objets sous le préfixe, jusqu’à un maximum de 10 000 objets..
 
-For the following examples, assume we have an S3 bucket with these files:
+Pour les exemples suivants, supposons que nous avons un bucket S3 avec ces fichiers :
 
 ```text
 s3://my-bucket
@@ -224,7 +224,8 @@ s3://my-bucket
   <thead>
     <tr>
       <th style="text-align:left">API call</th>
-      <th style="text-align:left">Resulting artifact contents</th>
+      <th style="text-align:left"><b>Contenus artefacts r&#xE9;sultants</b>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -260,43 +261,43 @@ s3://my-bucket
   </tbody>
 </table>
 
-## Using and downloading artifacts
+## Utiliser et télécharger les artefacts
 
 ```python
 run.use_artifact(artifact=None)
 ```
 
-* Marks an artifact as an input to your run.
+* Marque un artefact comme entrée \(input\) de votre essai.
 
-There are two patterns for using artifacts. You can use an artifact name that is explicitly stored in W&B, or you can construct an artifact object and pass it in to be deduplicated as necessary.
+Il y a deux schémas pour utiliser les artefacts. Vous pouvez utiliser un nom d’artefact qui est explicitement stocké dans W&B, ou vous pouvez construire un objet artefact et le passer pour qu’il soit dédupliqué si nécessaire.
 
-### Use an artifact stored in W&B
+###  Utiliser un artefact stocké dans W&B
 
 ```python
 artifact = run.use_artifact('bike-dataset:latest')
 ```
 
-You can call the following methods on the returned artifact:
+ Vous pouvez appeler les méthodes suivantes sur l’artefact renvoyé :
 
 ```python
 datadir = artifact.download(root=None)
 ```
 
-* Download all of the artifact’s contents that aren't currently present. This returns a path to a directory containing the artifact’s contents. You can explicitly specify the download destination by setting **root**.
+* Télécharge tous les contenus de l’artefact qui ne sont pas présents pour l’instant. Cela renvoie un chemin vers un répertoire qui contient les contenus de l’artefact. Vous pouvez explicitement spécifier la destination de téléchargement en paramétrant **root**.
 
 ```python
 path = artifact.get_path(name)
 ```
 
-* Fetches only the file at the path `name`. Returns an `Entry` object with the following methods:
-  * **Entry.download\(\)**: Downloads file from the artifact at path `name`
-  * **Entry.ref\(\)**: If the entry was stored as a reference using `add_reference`, returns the URI
+*   Ne ramène que le fichier au `name` du chemin. Renvoie un objet `Entry` avec les méthodes suivantes :
+  * **Entry.download\(\)**: Télécharge le fichier depuis l’artefact au `name` du chemin
+  * **Entry.ref\(\)**: Si cette entrée a été stockée sous forme de référence en utilisant `add_reference`, renvoie l’URI
 
-References that have schemes that W&B knows how to handle can be downloaded just like artifact files. The consumer API is the same.
+ Les références qui ont des schémas que W&B sait prendre en charge peuvent être téléchargées comme des fichiers artefacts. L’API du consommateur est la même.
 
-### Construct and use an artifact
+###  Construire et utiliser un artefact
 
-You can also construct an artifact object and pass it to **use\_artifact**. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, so you can do it as many times as you like. The artifact will only be created once, as long as the contents of `model.h5` remain the same.
+Vous pouvez aussi construire un objet artefact et le passer dans **use\_artifact**. Cela créera un artefact dans W&B s’il n’existe pas encore. Ceci est idempotent, vous pouvez donc le faire autant de fois que vous le souhaitez. Cet artefact ne sera créé qu’une seule fois, tant que les contenus de `model.h5 restent les mêmes.`
 
 ```python
 artifact = wandb.Artifact('reference model')
@@ -304,7 +305,7 @@ artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
 
-### Download an artifact outside of a run
+### Télécharger un artefact en dehors d’un essai
 
 ```python
 api = wandb.Api()
@@ -312,9 +313,9 @@ artifact = api.artifact('entity/project/artifact:alias')
 artifact.download()
 ```
 
-## Updating artifacts
+##  Mettre les artefacts à jour
 
-You can update the `description`, `metadata`, and `aliases` of an artifact by just setting them to the desired values and then calling `save()`.
+Vous pouvez mettre à jour la `description (description)`, les `métadonnées (metadata)` et les `alias (aliases)` d’un artefact en les paramétrant simplement sur les valeurs désirées puis en appelant `save()`.
 
 ```python
 api = wandb.Api()
@@ -342,12 +343,12 @@ artifact.aliases = ['replaced']
 artifact.save()
 ```
 
-## Artifacts Lineage from the API
+## Parcourir le graphique artefact
 
-Walk up and down the dependency graph of artifacts.
+W&B garde automatiquement une trace des artefacts qu’un essai donné a enregistré ainsi que des artefacts qu’un essai donné a utilisés. Vous pouvez parcourir ce graphique en utilisant les APIs suivantes :
 
-* `artifact.logged_by()` returns the run that produced that artifact
-* `run.used_artifacts()` returns the inputs to that run
+* `artifact.logged_by()` Parcourir de haut en bas le graphique depuis un artefact :
+* `run.used_artifacts()` Parcourir de haut en bas le graphique depuis un essai :
 
 ```python
 artifact = wandb.use_artifact('data:v0')
@@ -355,7 +356,7 @@ producer_run = artifact.logged_by()
 input_artifacts = producer_run.used_artifacts()
 ```
 
-## Data privacy
+## Confidentialité des données
 
-Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
+Les artefacts utilisent un contrôle d’accès sécurisé par API. Les fichiers sont cryptés lorsqu’ils sont stockés et en transit. Les artefacts peuvent aussi garder une trace des références vers des buckets privés sans envoyer de contenu de fichiers à W&B. Pour d’autres alternatives, contactez-nous sur [contact@wandb.com](mailto:contact@wandb.com) pour parler de cloud privé et d’installations sur site. 
 
