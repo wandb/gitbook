@@ -1,176 +1,176 @@
 # Technical FAQ
 
-### What does this do to my training process?
+###  ¿Qué hace esto a mi proceso de entrenamiento?
 
-When `wandb.init()` is called from your training script an API call is made to create a run object on our servers. A new process is started to stream and collect metrics, thereby keeping all threads and logic out of your primary process. Your script runs normally and writes to local files, while the separate process streams them to our servers along with system metrics. You can always turn off streaming by running `wandb off` from your training directory, or setting the **WANDB\_MODE** environment variable to "dryrun".
+Cuando `wandb.init()` es llamado desde tu script de entrenamiento, se hace una llamada a una API para crear un objeto de ejecución en nuestro servidores. Es iniciado un nuevo proceso para transmitir y recoger métricas, consecuentemente manteniendo todos los hilos y la lógica fuera de tu proceso principal. Tu script corre normalmente y escribe a los archivos locales, mientras que el proceso separado los transmite a nuestros servidores, junto con las métricas del sistema. Siempre puedes desactivar la transmisión al correr `wandb off` desde tu directorio de entrenamiento, o estableciendo la variable de entorno **WANDB\_MODE** a “dryrun”.
 
-### If wandb crashes, will it possibly crash my training run?
+### Si wandb colapsa, ¿posiblemente colapsará mi ejecución de entrenamiento?
 
-It is extremely important to us that we never interfere with your training runs. We run wandb in a separate process to make sure that if wandb somehow crashes, your training will continue to run. If the internet goes out, wandb will continue to retry sending data to wandb.com.
+Es extremadamente importante para nosotros nunca interferir con tus ejecuciones de entrenamiento. Corremos wandb en un proceso separado para asegurarnos de que si wandb se rompe de alguna manera, tu entrenamiento siga corriendo. Si internet se cae, wandb seguirá intentando enviar datos a wandb.com.
 
-### Will wandb slow down my training?
+### ¿Wandb va a ralentizar a mi entrenamiento?
 
-Wandb should have negligible effect on your training performance if you use it normally. Normal use of wandb means logging less than once a second and logging less than a few megabytes of data at each step. Wandb runs in a separate process and the function calls don't block, so if the network goes down briefly or there are intermittent read write issues on disk it should not affect your performance. It is possible to log a huge amount of data quickly, and if you do that you might create disk I/O issues. If you have any questions, please don't hesitate to contact us.
+Wandb debería tener un efecto insignificante en el desempeño del entrenamiento si lo utilizas normalmente. Un uso normal de wandb significa registrar menos de una vez por segundo y registrar menos de algunos pocos megabytes de datos en cada paso. Wandb corre en un proceso separado y las llamadas a las funciones no son bloqueantes, así que si la red se cae brevemente, o hay problemas de lectura/escritura intermitentes en el disco, esto no debería afectar tu desempeño. Es posible registrar una enorme cantidad de datos rápidamente, y si lo haces podrías crear problemas de entrada/salida en en disco. Si tienes alguna pregunta, por favor no dudes en contactarnos.
 
-### Can I run wandb offline?
+### ¿Puedo correr wandb cuando estoy desconectado?
 
-If you're training on an offline machine and want to upload your results to our servers afterwards, we have a feature for you!
+Si estás entrenando una máquina que está fuera de línea y después quieres subir los resultados a nuestros servidores, ¡tenemos una característica para ti!
 
-1. Set the environment variable `WANDB_MODE=dryrun` to save the metrics locally, no internet required.
-2. When you're ready, run `wandb init` in your directory to set the project name.
-3. Run `wandb sync YOUR_RUN_DIRECTORY` to push the metrics to our cloud service and see your results in our hosted web app.
+1. Establece la variable de entorno `WANDB_MODE=dryrun` para guardar las métricas localmente, no es requerido internet.
+2. Cuando estés listo, corre `wandb init` en tu directorio para establecer el nombre del proyecto.
+3.  Corre `wandb sync YOUR_RUN_DIRECTORY` para subir las métricas a nuestro servicio de nube y ver los resultados en nuestra aplicación web.
 
-### Does your tool track or store training data?
+### ¿La herramienta hace seguimiento o almacena datos de entrenamiento?
 
-You can pass a SHA or other unique identifier to `wandb.config.update(...)` to associate a dataset with a training run. W&B does not store any data unless `wandb.save` is called with the local file name.
+ Puedes pasar un SHA, u otro identificador único, a `wandb.config.update(…)` para asociar un conjunto de datos con una ejecución de entrenamiento. W&B no almacena ningún dato a menos que `wandb.save` sea llamado con el nombre del archivo local.
 
-### How often are system metrics collected?
+###  ¿Con qué frecuencia son recogidas las métricas del sistema?
 
-By default metrics are collected every 2 seconds and averaged over a 30 second period. If you need higher resolution metrics, email us a [contact@wandb.com](mailto:contact@wandb.com).
+Por defecto, las métricas son recogidas cada 2 segundos y promediadas sobre un período de 30 segundos. Si necesitas métricas de resolución más grandes, mándanos un email a [contact@wandb.com](mailto:contact@wandb.com).
 
-### Does this only work for Python?
+### ¿Sólo funciona con Python?
 
-Currently the library only works with Python 2.7+ & 3.6+ projects. The architecture mentioned above should enable us to integrate with other languages easily. If you have a need for monitoring other languages, send us a note at [contact@wandb.com](mailto:contact@wandb.com).
+Actualmente, la biblioteca sólo funciona con proyectos de Python 2.7+ y  3.6+. La arquitectura mencionada anteriormente debería permitirnos una fácil integración con otros lenguajes. Si tienes la necesidad de monitorear otros lenguajes, envíanos una nota a [contact@wandb.com](mailto:contact@wandb.com).
 
-### Can I just log metrics, no code or dataset examples?
+###  ¿Puedo registrar sólo métricas, sin hacerlo con el código o los ejemplos de conjuntos de datos?
 
-**Dataset Examples**
+**Ejemplos de conjuntos de datos**
 
-By default, we don't log any of your dataset examples. You can explicitly turn this feature on to see example predictions in our web interface.
+Por defecto, no registramos ninguno de los ejemplos de tus conjuntos de datos. Puedes activar explícitamente esta característica para ver las predicciones de los ejemplos en nuestra interfaz web.
 
-**Code Logging**
+ **Registro del código**
 
-There's two ways to turn off code logging:
+Hay dos maneras de desactivar el registro del código:
 
-1. Set **WANDB\_DISABLE\_CODE** to **true** to turn off all code tracking. We won't pick up the git SHA or the diff patch.
-2. Set **WANDB\_IGNORE\_GLOBS** to **\*.patch** to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](cli.md#restore-the-state-of-your-code) command.
+1. Establecer **WANDB\_DISABLE\_CODE** a true para desactivar todo el seguimiento del código. No vamos a recoger el SHA de git o el parche diff.
+2. Establecer **WANDB\_IGNORE\_GLOBS** a \*.patch para desactivar la sincronización del parche diff con nuestros servidores. Aún lo tendrás localmente, y serás capaz de aplicarlo con el comando [wandb restore](https://docs.wandb.ai/library/cli#restore-the-state-of-your-code).
 
-### Does logging block my training? 
+### ¿El registro bloquea mi entrenamiento?
 
-"Is the logging function lazy? I don't want to be dependent on the network to send the results to your servers and then carry on with my local operations."
+“¿Es la función de registro perezosa? No quiero esperar a que la red envie los resultados a sus servidores y entonces continuar con mis operaciones locales.”
 
-Calling **wandb.log** writes a line to a local file; it does not block on any network calls. When you call wandb.init we launch a new process on the same machine that listens for filesystem changes and talks to our web service asynchronously from your training process.
+Al llamar a **wandb.log** se escribe una línea en un archivo local; esto no bloquea ninguna llamada de red. Cuando llamas a wandb.init, lanzamos un nuevo proceso en la misma máquina que escucha los cambios en el sistema de archivos y habla asincrónicamente con nuestro servicio web desde tu proceso de entrenamiento.
 
-### What formula do you use for your smoothing algorithm?
+### ¿Qué fórmula utilizan para su algoritmo de alisado?
 
-We use the same exponential moving average formula as TensorBoard. You can find an explanation here: [https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar).
+Utilizamos la misma fórmula del promedio móvil exponencial que es usada por TensorFlow. Puedes encontrar una explicación aquí: [https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar).
 
-### How is W&B different from TensorBoard?
+### ¿Qué tiene de diferente W&B respecto de TensorBoard?
 
-We love the TensorBoard folks, and we have a [TensorBoard integration](../integrations/tensorboard.md)! We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
+¡Amamos a la gente de TensorBoard, y tenemos una [integración con TensorBoard](https://docs.wandb.ai/integrations/tensorboard)! Nos inspiramos en ellos para mejorar las herramientas de seguimiento de experimentos para todo el mundo. Cuando los cofundadores comenzaron a trabajar en W&B, se inspiraron en construir una herramienta para los usuarios insatisfechos de TensorBoard en OpenAI. Aquí hay algunas cosas en las que nos enfocamos para mejorar:
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible. 
-2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
-3. **Fast, flexible integration**: Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
-4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
-5. **Powerful table**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
-6. **Tools for collaboration**: Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+1. **Reproducir modelos:** Weights & Biases es bueno para la experimentación, la exploración, y la reproducción de modelos. No solo que capturamos las métricas, sino también los hiperparámetros y la versión del código, y podemos guardar los puntos de control de tu modelo para que tu proyecto sea reproducible.
+2. **Organización automática**: Si le pasas un proyecto a un colaborador o te tomas unas vacaciones, W&B te facilita ver todos los modelos que hayas probado, así no pierdes horas volviendo a correr los viejos experimentos.
+3. **Integración rápida y flexible**: Agrega W&B a tu proyecto en 5 minutos. Instala nuestro paquete Python, libre y de código abierto, y agrega un par de líneas a tu código, y cada vez que corras tu modelo vas a registrar las métricas y los registros.
+4. **Tablero de control persistente y centralizado:** Dondequiera que entrenes tus modelos, sea en tu máquina local, tu cluster del laboratorio, o instancias de spot en la nube, te damos el mismo tablero de control centralizado. No necesitas perder el tiempo copiando y organizando archivos de TensorBoard de diferentes máquinas.
+5. **Tabla poderosa**: Busca, filtra, ordena y agrupa los resultados de diferentes modelos. Es fácil revisar miles de versiones de modelos y encontrar al más adecuado para diferentes tareas. TensorBoard no funciona adecuadamente en proyectos grandes.
+6. **Herramientas para la colaboración:** Utiliza W&B para organizar proyectos de aprendizaje de máquinas complejos. Es fácil compartir un enlace a W&B, y puedes utilizar equipos privados para hacer que todos envíen resultados a un proyecto compartido. También soportamos la colaboración a través de repositorios – agrega visualizaciones interactivas y describe tu trabajo con markdown. Esta es una gran forma de mantener un trabajo registrado, de compartir resultados con tu supervisor, o de presentar resultados a tu laboratorio.
 
-Get started with a [free personal account →](http://app.wandb.ai/)
+ Empieza con una [cuenta personal gratuita →](http://app.wandb.ai/)
 
-### How can I configure the name of the run in my training code?
+### ¿Cómo puedo configurar el nombre de la ejecución en mi código de entrenamiento?
 
-At the top of your training script when you call wandb.init, pass in an experiment name, like this: `wandb.init(name="my awesome run")`
+Al principio de tu script de entrenamiento, cuando llames a wandb.init, pasa un nombre de experimento de esta forma:`wandb.init(name="my awesome run")`
 
-### How do I get the random run name in my script?
+### ¿Cómo obtengo el nombre de ejecución aleatorio en mi script?
 
-Call `wandb.run.save()` and then get the name with `wandb.run.name` .
+Llama a `wandb.run.save()` y entonces obtén el nombre con `wandb.run.name`.
 
-### Is there an anaconda package?
+###  ¿Hay algún paquete anaconda?
 
-We don't have an anaconda package but you should be able to install wandb using:
+No tenemos ningún paquete anaconda, pero deberías ser capaz de instalar wandb al usar:
 
 ```text
 conda activate myenv
 pip install wandb
 ```
 
-If you run into issues with this install, please let us know. This Anaconda [doc on managing packages](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) has some helpful guidance.
+Si tienes problemas con esta instalación, por favor háznoslo saber. Esta documentación de Anaconda acerca de [administrar paquetes](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) tiene alguna guía útil.
 
-### How do I stop wandb from writing to my terminal or my jupyter notebook output?
+### ¿Cómo evito que wandb escriba a la salida de mi terminal o de mi jupyter notebook?
 
-Set the environmental variable [WANDB\_SILENT](environment-variables.md).
+Establece la variable de entorno [WANDB\_SILENT](https://docs.wandb.ai/library/environment-variables).
 
-In a notebook:
+ En una notebook:
 
 ```text
 %env WANDB_SILENT true
 ```
 
-In a python script:
+En un script de python:
 
 ```text
 os.environ["WANDB_SILENT"] = "true"
 ```
 
-### How do I kill a job with wandb?
+###  ¿Cómo mato un trabajo con wandb?
 
-Press ctrl+D on your keyboard to stop a script that is instrumented with wandb.
+Presiona ctrl+D en tu teclado para detener un script que esté instrumentado con wandb.
 
-### How do I deal with network issues?
+###  ¿Qué hago con mis problemas de red?
 
-If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), entering retry loop.` you can try a couple of different approaches to solving this issue:
+Si estás viendo errores SSL o de red:`wandb: Network error (ConnectionError), entering retry loop.` puedes intentar algunas metodologías diferentes para resolver el problema:
 
-1. Upgrade your SSL certificate. If you're running the script on an Ubuntu server, run `update-ca-certificates`  We can't sync training logs without a valid SSL certificate because it's a security vulnerability.
-2. If your network is flakey, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
-3. Try running [W&B Local](../self-hosted/local.md), which operates on your machine and doesn't sync files to our cloud servers.
+1. Actualiza tu certificado SSL. Si estás corriendo el script en un servidor Ubuntu, corre `update-ca-certificates`. No podemos sincronizar los registros de entrenamiento sin un certificado SSL válido, puesto que se trataría de una vulnerabilidad de seguridad.
+2.  Si tu red es rara, corre el entrenamiento en [modo offline](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) y sincroniza los archivos desde una máquina que tenga acceso a internet.
+3.  Intenta correr [W&B Local](https://docs.wandb.ai/self-hosted/local), que opera en tu máquina y no sincroniza los archivos con nuestros servidores en la nube.
 
-**SSL CERTIFICATE\_VERIFY\_FAILED:** this error could be due to your company's firewall. You can set up local CAs and then use:
+ **SSL CERTIFICATE\_VERIFY\_FAILED:** este error podría ocurrir debido al firewall de tu compañía. Puedes establecer CAs locales y entonces usar:
 
 `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
 
-### What happens if internet connection is lost while I'm training a model? 
+###  ¿Qué pasa si se cae la conexión a internet mientras estoy entrenando un modelo?
 
-If our library is unable to connect to the internet it will enter a retry loop and keep attempting to stream metrics until the network is restored.  During this time your program is able to continue running.  
+Si nuestra biblioteca es incapaz de conectarse a internet, ingresará en un ciclo de reconexión y seguirá intentando enviar métricas hasta que la red sea restituida. Durante ese momento, tu programa es capaz de seguir corriendo.
 
-If you need to run on a machine without internet, you can set WANDB\_MODE=dryrun to only have metrics stored locally on your harddrive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
+Si necesitas correr en una máquina sin internet, puedes establecer WANDB\_MODE=dryrun para hacer que las métricas sean almacenas localmente, sólo en tu disco rígido. Después puedes llamar a `wandb sync DIRECTORY` para hacer que los datos sean transmitidos a nuestro servidor. 
 
-### Can I log metrics on two different time scales?  \(For example I want to log training accuracy per batch and validation accuracy per epoch.\)
+### ¿Puedo registrar métricas en dos escalas de tiempo diferentes? \(Por ejemplo, quiero registrar la precisión del entrenamiento por lote, y la precisión de la validación por época.\)
 
-Yes, you can do this by logging multiple metrics and then setting them a x axis values.  So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`
+Sí, puedes hacerlo al registrar múltiples métricas y entonces establecerles valores de un eje x. Así, en un paso podrías llamar a `wandb.log({'train_accuracy': 0.9, 'batch': 200})`, y en otro paso llamar a `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`
 
-### How can I log a metric that doesn't change over time such as a final evaluation accuracy?
+### ¿Cómo puedo registar una métrica que no cambia a través del tiempo, tal como la precisión de la evaluación final?
 
-Using wandb.log\({'final\_accuracy': 0.9} will work fine for this.  By default wandb.log\({'final\_accuracy'}\) will update wandb.settings\['final\_accuracy'\] which is the value shown in the runs table.
+Usar wandb.log\({'final\_accuracy': 0.9} funcionará bien para esto. Por defecto, wandb.log\({'final\_accuracy'}\) actualizará a wandb.settings\['final\_accuracy'\], que es el valor mostrado en la tabla de las ejecuciones.
 
-### How can I log additional metrics after a run completes?
+### ¿Cómo puedo registrar diferentes métricas después de que una ejecución se completa?
 
-There are several ways to do this.
+Hay varias formas de hacerlo.
 
-For complicated workflows, we recommend using multiple runs and setting group parameter in [wandb.init](init.md) to a unique value in all the processes that are run as part of a single experiment. The [runs table](../app/pages/run-page.md) will automatically group the table by the group ID and the visualizations will behave as expected. This will allow you to run multiple experiments and training runs as separate processes log all the results into a single place.
+Para procesos de trabajo complicados, recomendamos usar múltiples ejecuciones y ajustar el parámetro del grupo en [wandb.init](https://docs.wandb.ai/library/init) a un valor único en todos los procesos que sean corridos como parte del experimento simple. La [tabla de ejecuciones](https://docs.wandb.ai/app/pages/run-page) agrupará automáticamente a la tabla por ID de grupo, y las visualizaciones se comportarán como es esperado. Esto te permitirá correr múltiples experimentos y ejecuciones de entrenamiento, mientras que los procesos separados registran todos los resultados en un lugar simple.
 
-For simpler workflows, you can call wandb.init with resume=True and id=UNIQUE\_ID and then later call wandb.init with the same id=UNIQUE\_ID. Then you can log normally with [wandb.log](log.md) or wandb.summary and the runs values will update.
+Para los procesos de trabajo más simples, puedes llamar a wandb.init con resume=True y id=UNIQUE\_ID, entonces después llama a wandb.init con el mismo id=UNIQUE\_ID. Entonces puedes registrar normalmente con [wandb.log](https://docs.wandb.ai/library/log) o wandb.summary, y los valores de las ejecuciones se actualizarán.
 
-At any point you can always use the[ API](../ref/export-api/) to add additional evaluation metrics.
+En cualquier momento, siempre puedes usar la [API](https://docs.wandb.ai/ref/export-api) para agregar métricas de evaluación adicionales.
 
-### What is the difference between  .log\(\) and .summary?  
+###  ¿Cuál es la diferencia entre .log\(\) y .summary?
 
-The summary is the value that shows in the table while log will save all the values for plotting later.  
+El summary es el valor que se muestra en la tabla, mientras que el log almacenará todos los valores para graficar más tarde.
 
-For example you might want to call `wandb.log` every time the accuracy changes.   Usually you can just use .log.  `wandb.log()` will also update the summary value by default unless you have set summary manually for that metric
+Por ejemplo, puede que quieras llamar a `wandb.log` cada vez que accuracy cambia. Usualmente, puedes usar solamente .log. `wandb.log()`, por defecto,  también actualizará el valor de summary, a menos que hayas establecido summary manualmente para esa métrica.
 
-The scatterplot and parallel coordinate plots will also use the summary value while the line plot plots all of the values set by .log
+El diagrama de dispersión y el diagrama de coordenadas paralelas también utilizarán el valor summary, mientras que el diagrama de líneas traza todos los valores establecidos por .log.
 
-The reason we have both is that some people like to set the summary manually because they want the summary to reflect for example the optimal accuracy instead of the last accuracy logged.
+La razón por la que tenemos ambas opciones es que a algunas personas les gusta establecer summary manualmente, puesto que quieren que summary refleje, por ejemplo, la precisión óptima en lugar de la última precisión registrada.
 
-### How do I install the wandb Python library in environments without gcc?
+### ¿Cómo instalo la biblioteca de Python wandb en entornos sin gcc?
 
-If you try to install `wandb` and see this error:
+Si intentas instalar `wandb` y ves este error:
 
 ```text
 unable to execute 'gcc': No such file or directory
 error: command 'gcc' failed with exit status 1
 ```
 
-You can install psutil directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)  
+Puedes instalar psutil directamente desde una wheel pre construida. Encuentra la versión de tu Python y a tu sistema operativo aquí: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)  
 
-For example, to install psutil on python 3.8 in linux:
+Por ejemplo, para instalar psutil en python 3.8 en linux:
 
 ```text
 pip install https://github.com/pywharf/pywharf-pkg-repo/releases/download/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl#sha256=adc36dabdff0b9a4c84821ef5ce45848f30b8a01a1d5806316e068b5fd669c6d
 ```
 
-After psutil has been installed, you can install wandb with `pip install wandb`
+Después de que hayas instalado psutil, puedes instalar wandb con `pip install wandb`
 
   
 

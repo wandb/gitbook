@@ -1,14 +1,14 @@
 # Security
 
-For simplicity W&B uses API keys for authorization when accessing the API. You can find your API keys in your [settings](https://app.wandb.ai/settings). Your API key should be stored securely and never checked into version control. In addition to personal API keys, you can add Service Account users to your team.
+Por simplicidad W&B usa las claves de la API para la autorización cuando se accede a la API. Puedes encontrar tus claves de la API en tus [ajustes](https://app.wandb.ai/settings). Tu clave de la API debería ser almacenada de forma segura y nunca debería estar bajo el control de versiones. En adición a las claves de la API personales, puedes agregar usuarios de la Cuenta de Servicios a tu equipo.
 
-## Key Rotation
+## Rotación de Claves
 
-Both personal and service account keys can be rotated or revoked. Simply create a new API Key or Service Account user and reconfigure your scripts to use the new key. Once all processes are reconfigured, you can remove the old API key from your profile or team.
+Tanto las claves personales como las de la cuenta de servicios pueden ser rotadas o revocadas. Simplemente crea una nueva Clave de la API, o un usuario de la Cuenta de Servicios, y reconfigura a tus scripts para que usen la nueva clave. Una vez que todos los procesos sean reconfigurados, puedes eliminar la clave de la API vieja de tu perfil o de tu equipo.
 
-## Switching between accounts
+## Intercambio entre cuentas
 
-If you have two W&B accounts working from the same machine, you'll need a nice way to switch between your different API keys. You can store both API keys in a file on your machine then add code like the following to your repos. This is to avoid checking your secret key into a source control system, which is potentially dangerous.
+Si tienes dos cuentas W&B funcionando desde la misma máquina, necesitarás una buena forma para intercambiar entre tus diferentes claves de la API. Puedes almacenar ambas claves de la API en un archivo en tu máquina y entonces agregar código como el siguiente a tus repositorios. Esto es para evitar incluir tu clave secreta en el sistema de control del código fuente, lo cual es potencialmente peligroso.
 
 ```text
 if os.path.exists("~/keys.json"):

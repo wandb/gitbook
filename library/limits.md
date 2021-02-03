@@ -1,43 +1,43 @@
 ---
-description: Appropriate limits and guidelines for logging data to Weights & Biases
+description: Límites apropiados y guías para registrar datos en Weights & Biases
 ---
 
 # Limits
 
-### Best Practices for Fast Page Loading
+###  Mejores Prácticas para la Carga Rápida de Páginas
 
-For fast page loading in the W&B UI, we recommend keeping logged data amounts within these bounds.
+ Para la carga rápida de páginas en la Interfaz de Usuario de W&B, recomendamos mantener las cantidades de datos regsitrados dentro de estos límites.
 
-* **Scalars**: ****you can have tens of thousands of steps and hundreds of metrics
-* **Histograms**: we recommend limiting to thousands of steps
+* **Escalares:** puedes tener decenas de miles de pasos y cientos de métricas
+* **Histogramas:** recomendamos que te limites a miles de pasos
 
-If you send us more than that, your data will be saved and tracked, but pages may load more slowly.
+ Si nos envías más que eso, tus datos serán guardados y se les hará un seguimiento, pero puede que las páginas se carguen más lentamente.
 
-### Python Script Performance
+### Desempeño del Script de Python
 
-Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds. 
+Por lo general, no deberías estar llamando a `wandb.log` más que algunas pocas ve ces por segundo, o sino wandb puede comenzar a interferir con el desempeño de tu ejecución de entrenamiento. No establecemos ningún límite más allá de limitar la frecuencia. Nuestro cliente Python automáticamente hará un retraso exponencial y reintentará las solicitudes que excedan los límites, así que esto debería ser transparente para ti. Se verá “Network failure” en la línea de comandos. Para cuentas que no sean pagas, podríamos comunicarnos en casos extremos donde el uso exceda los umbrales razonables.
 
-### Rate Limits
+### Límites de frecuencia
 
-The W&B API is rate limited by IP and API key. New accounts are restricted to 200 requests per minute. This rate allows you to run approximately 15 processes in parallel and have them report without being throttled. If the **wandb** client detects it's being limited, it will backoff and retry sending the data in the future. If you need to run more than 15 processes in parallel send an email to [contact@wandb.com](mailto:contact@wandb.com).
+La API de W&B tiene una frecuencia limitada por IP y por clave de la API. Las nuevas cuentas están restringidas a 200 solicitudes por minuto. Esta frecuencia te permite correr aproximadamente 15 procesos en paralelo y hacerlos reportar sin afectar al desempeño. Si el cliente `wandb detecta` que está siendo limitado, se retrasará y reintentará el envío de datos en el futuro. Si necesitas correr más de 15 procesos en paralelo, envía un email a [contact@wandb.com](mailto:contact@wandb.com).
 
-### Size Limits
+###  Límites de los tamaños
 
-#### Files
+#### Archivos
 
-The maximum file size for new accounts is 2GB. A single run is allowed to store 10 GB of data. If you need to store larger files or more data per run, contact us at [contact@wandb.com](mailto:contact@wandb.com).
+El tamaño máximo de archivos para las cuentas nuevas es de 2GB. Se permite que una ejecución simple almacene 10GB de datos. Si necesitas almacenar archivos más grandes, o almacenar más datos por ejecución, contáctanos a través de [contact@wandb.com](mailto:contact@wandb.com).
 
-#### Metrics
+#### Métricas
 
-Metrics are sampled to 1500 data points by default before displaying in the UI. 
+Las métricas son muestreadas a 1500 puntos de datos, por defecto, antes de visualizarlas en la Interfaz de Usuario.
 
-#### Logs
+#### Registros
 
-While a run is in progress we tail the last 5000 lines of your log for you in the UI. After a run is completed the entire log is archived and can be downloaded from an individual run page.
+Mientras una ejecución está en progreso, tomamos las últimas 5000 líneas de tu registro para que las veas en la Interfaz de Usuario. Después de que la ejecución se completa, se archiva el registro entero, y este puede ser descargado desde una página de ejecución individual.
 
-### Logging Guidance
+### Guías para el Registro
 
-Here are some additional guidelines for logging data to W&B.
+Aquí hay algunas guías adicionales para registrar datos a W&B
 
-* **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
+* **Parámetros anidados:** Automáticamente aplanamos a los parámetros anidados, así que si nos pasas un diccionario, lo convertiremos en un nombre separado por puntos. Para valores de configuración, soportamos 3 puntos en el nombre. Para valores de la síntesis, soportamos 4 puntos.
 

@@ -1,29 +1,31 @@
 ---
-description: 'Scriptable alerts triggered from Python, sent to you via Slack or email'
+description: >-
+  Alertas programables lanzadas desde Python, que se te envían a través de Slack
+  o de la casilla de correos.
 ---
 
 # wandb.alert\(\)
 
-Send a Slack or email alert, triggered from your Python script.
+Envía una alerta a Slack o a tu casilla de correos, disparada desde tu script de Python.
 
-1. [Set up alerts in your account→](../app/features/alerts.md)
-2. [Try the code →](http://tiny.cc/wb-alerts)
-3. Check your Slack or email to see the scriptable alerts.
+1.   [Establece alertas en tu cuenta →](https://docs.wandb.ai/app/features/alerts)
+2.  [Prueba el código →](http://tiny.cc/wb-alerts)
+3. Verifica tu Slack o tu casilla de correos para ver las alertas programables.
 
-### Arguments
+###  Argumentos
 
 `wandb.alert(title="Low Acc", text="Accuracy is below the expected threshold")`
 
-* **title \(string\)**: A short description of the alert, for example "Low accuracy"
-* **text \(string\)**: A longer, more detailed description of what happened to trigger the alert
-* **level \(optional\):** How important the alert is — must be either `INFO`, `WARN`, or `ERROR`
-* **wait\_duration \(optional\):** How many seconds to wait before sending another alert with the same **title.** This helps reduce alert spam.
+* **title \(string\)**: Una descripción corta de la alerta, por ejemplo “Baja precisión”
+* **text \(string\)**: Una descripción más larga y más detallada de lo que ocurrió para disparar la alerta
+* **level \(optional\):** Describe la importancia de la alerta – debe ser `INFO`, `WARN` o `ERROR`
+* **wait\_duration \(optional\):** Cuántos segundos hay que esperar antes de enviar otra alerta con el mismo title. Esto ayuda a reducir el spam de alertas.
 
-### Example
+###  Ejemplo
 
-This simple alert sends a warning when accuracy falls below a threshold. To avoid spam, it only sends alerts at least 5 minutes apart.
+ Esta alerta simple envía una advertencia cuando la precisión cae por debajo de un umbral. Para evitar el spam, solamente envía alertas con un intervalo de al menos 5 minutos.
 
-[Run the code →](http://tiny.cc/wb-alerts)
+ [Ejecuta](http://tiny.cc/wb-alerts)[ el código→](http://tiny.cc/wb-alerts)
 
 ```python
 from datetime import timedelta
