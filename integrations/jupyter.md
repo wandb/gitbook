@@ -1,16 +1,18 @@
 # Jupyter
 
-Use Weights & Biases in your Jupyter notebooks to get interactive visualizations and do custom analysis on training runs.
+ Utiliza Weight & Biases en tus notebooks de Jupyter para obtener visualizaciones interactivas y para hacer análisis personalizados sobre las ejecuciones de entrenamiento.
 
-## **Use Cases for W&B with Jupyter notebooks**
+##  ****Casos de Uso para W&B con notebooks de Jupyter
 
-1. **Iterative experimentation**: Run and re-run experiments, tweaking parameters, and have all the runs you do saved automatically to W&B without having to take manual notes along the way.
-2. **Code saving**: When reproducing a model, it's hard to know which cells in a notebook ran, and in which order. Turn on code saving on your [settings page ](https://app.wandb.ai/settings)to save a record of cell execution for each experiment.
-3. **Custom analysis**: Once runs are logged to W&B, it's easy to get a dataframe from the API and do custom analysis, then log those results to W&B to save and share in reports.
+1. **Experimentación iterativa:** Corre y vuelve a correr los experimentos, afinando parámetros, y obtén todas las ejecuciones que hayas guardado automáticamente a W&B, sin tener que tomar notas de forma manual en el camino.
 
-## Configuring notebooks
+   2. **Guardado código:** Cuando se reproduce un modelo, es difícil saber que celdas de la notebooks se ejecutaron, y en qué orden. Activa el guardado de código en tu [página de ajustes](https://app.wandb.ai/settings) para guardar un registro de la ejecución de las celdas por cada experimento.
 
-Start your notebook with the following code to install W&B and link your account:
+   3. **Análisis personalizado:** Una vez que las ejecuciones son registradas en W&B, es fácil obtener un dataframe desde la API y hacer análisis personalizados, y entonces registrar aquellos resultados en W&B para guardarlos y compartirlos en los reportes.
+
+##  Configurando notebooks
+
+Comienza tu notebook con el siguiente código para instalar W&B y enlaza tu cuenta:
 
 ```python
 !pip install wandb -qqq
@@ -18,7 +20,7 @@ import wandb
 wandb.login()
 ```
 
-Next, set up your experiment and save hyperparameters:
+A continuación, establece tu experimento y guarda los hiperparámetros:
 
 ```python
 wandb.init(project="jupyter-projo",
@@ -29,7 +31,7 @@ wandb.init(project="jupyter-projo",
            })
 ```
 
-After running `wandb.init()` , start a new cell with `%%wandb` to see live graphs in the notebook. If you run this cell multiple times, data will be appended to the run.
+ Después de ejecutar `wandb.init()`, comienza una nueva celda con `%%wandb` para ver los gráficos en tiempo real en la notebook. Si ejecutas esta celda múltiples veces, los datos serán anexados a la ejecución.
 
 ```python
 %%wandb
@@ -37,11 +39,11 @@ After running `wandb.init()` , start a new cell with `%%wandb` to see live graph
 # Your training loop here
 ```
 
-Try it for yourself in this [quick example script →](https://bit.ly/wandb-jupyter-widgets-colab)
+Prueba por ti mismo en el [script de este ejemplo simple →](https://bit.ly/wandb-jupyter-widgets-colab)
 
 ![](../.gitbook/assets/jupyter-widget.png)
 
-As an alternative to the `%%wandb` decorator, after running `wandb.init()` you can end any cell with `wandb.run` to show in-line graphs:
+Después de ejecutar `wandb.init()`, comienza una nueva celda con `%%wandb` para ver los gráficos en tiempo real en la notebook. Si ejecutas esta celda múltiples veces, los datos serán anexados a la ejecución.
 
 ```python
 # Initialize wandb.run first
@@ -51,11 +53,11 @@ wandb.init()
 wandb.run
 ```
 
-## Additional Jupyter features in W&B
+##  Características adicionales de Jupyter en W&B
 
-1. **Colab**: When you call `wandb.init()` for the first time in a Colab, we automatically authenticate your runtime if you're currently logged in to W&B in your browser. On the overview tab of your run page, you'll see a link to the Colab. If you turn on code saving in [settings](https://app.wandb.ai/settings), you can also see the cells that were executed to run the experiment, enabling better reproducibility.
-2. **Launch Docker Jupyter**: Call `wandb docker --jupyter` to launch a docker container, mount your code in it, ensure Jupyter is installed, and launch on port 8888.
-3. **run.finish\(\)**: By default, we wait until the next time wandb.init\(\) is called to mark a run as finished. That allows you to run individual cells and have them all log to the same run. To mark a run as complete manually in a Jupyter notebook, use the **run.finish\(\)** feature.
+1.  Colab: Cuando llamas a wandb.init\(\) por primera vez en un Colab, automáticamente autenticamos tu runtime si actualmente has iniciado sesión con W&B desde el navegador. En la pestaña resumen de tu página de ejecuciones, verás un enlace a Colab. Si activas el guardado de código en los [ajustes](https://app.wandb.ai/settings), también puedes ver las celdas que fueron ejecutadas para correr el experimento, permitiendo una mejor reproducibilidad.
+2. Lanzar Docker Jupyter: Llama a `wandb docker –jupyter` para lanzar un contender de docker, montar tu código en él, asegurarte de que Jupyter sea instalado y lanzarlo en el `puerto 8888`.
+3. run.finish\(\): Por defecto, esperamos hasta la próxima vez que `wandb.init()` se llamado para marcar a una ejecución como finalizada. Esto te permite ejecutar celdas individuales y hacer que todas se registren en la misma ejecución. Para marcar manualmente a una ejecución como completada en una notebook de Jupyter, utiliza la característica run.finish\(\).
 
 ```python
 import wandb
@@ -64,9 +66,9 @@ run = wandb.init()
 run.finish()
 ```
 
-### **Silence W&B info messages**
+###  ****Silenciar los mensajes de información de W&B
 
-To disable info messages, run the following in a notebook cell:
+Para deshabilitar los mensajes de información, ejecuta lo siguiente en una celda de la notebook:
 
 ```python
 import logging
@@ -74,9 +76,9 @@ logger = logging.getLogger("wandb")
 logger.setLevel(logging.ERROR)
 ```
 
-## Common Questions
+## Preguntas Comunes
 
-### Notebook name
+### Nombre de la notebook
 
-If you're seeing the error message "Failed to query for notebook name, you can set it manually with the WANDB\_NOTEBOOK\_NAME environment variable," you can solve this by setting the environment variable from your script like so: `os.environ['WANDB_NOTEBOOK_NAME'] = 'some text here'`
+Si estás viendo el mensaje de error "Failed to query for notebook name, you can set it manually with the WANDB\_NOTEBOOK\_NAME environment variable", puedes resolverlo al establecer la variable de entorno desde tu script de esta manera: `os.environ['WANDB_NOTEBOOK_NAME'] = 'some text here'`
 

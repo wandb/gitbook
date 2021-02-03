@@ -1,8 +1,8 @@
 # JAX Example
 
-This is a complete example of JAX code that trains a MLP and saves to W&B.
+Este es un ejemplo completo de código JAX que entrena un MLP y lo guarda en W&B.
 
-You can find this example on [GitHub](https://github.com/wandb/examples/tree/master/examples/jax/jax-mnist) and see the results on [W&B](https://app.wandb.ai/l2k2/examples-jax-mnist/runs/g0vgca81).
+Puedes encontrar este ejemplo en [GitHub](https://github.com/wandb/examples/tree/master/examples/jax/jax-mnist) y ver los resultados en [W&B](https://app.wandb.ai/l2k2/examples-jax-mnist/runs/g0vgca81).
 
 ```python
 import time

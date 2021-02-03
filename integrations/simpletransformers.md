@@ -1,32 +1,32 @@
 # SimpleTransformers
 
-This library is based on the Transformers library by HuggingFace. Simple Transformers lets you quickly train and evaluate Transformer models. Only 3 lines of code are needed to initialize a model, train the model, and evaluate a model. It supports Sequence Classification, Token Classification \(NER\),Question Answering,Language Model Fine-Tuning, Language Model Training, Language Generation, T5 Model, Seq2Seq Tasks , Multi-Modal Classification and Conversational AI.
+Esta biblioteca está basada en la biblioteca Transformers de HuggingFace. Simple Transformers te permiten entrenar y evaluar rápidamente a los modelos de Transformer. Sólo son necesarias 3 líneas de código para inicializar un modelo, entrenarlo, y evaluarlo. Soporta Clasificación de Secuencias, Clasificación de Tokens \(NER\), Resolución de Preguntas, Mejoras del Modelo Idiomático, Entrenamiento del Modelo Idiomático, Generación Idiomática, Modelo T5, Tareas Seq2Seq, Clasificación Multimodal, e Inteligencia Artificial Conversacional.
 
-## The Weights & Biases framework
+##  El framework de Weights & Biases
 
-Weights and Biases is supported for visualizing model training. To use this, simply set a project name for W&B in the `wandb_project` attribute of the `args` dictionary. This will log all hyperparameter values, training losses, and evaluation metrics to the given project.
+Weights and Biases es soportado para visualizar el entrenamiento del modelo. Para usar esta característica, simplemente establece un nombre de proyecto para W&B en el atributo `wandb_project` del diccionario `args`. Esto registrará todos los valores de los hiperparámetros, las pérdidas del entrenamiento, y las métricas de evaluación para el proyecto dado.
 
 ```text
 model = ClassificationModel('roberta', 'roberta-base', args={'wandb_project': 'project-name'})
 ```
 
-Any additional arguments that go into `wandb.init` can be passed as `wandb_kwargs`.
+Cualquier argumento adicional que vaya a `wandb.init` puede ser pasado como `wandb_kwargs`.
 
-## Structure
+## Estructura
 
-The library is designed to have a separate class for every NLP task. The classes that provide similar functionality are grouped together.
+La biblioteca está diseñada para tener una clase separada por cada tarea NLP. Las clases que proveen funcionalidad similar se agrupan juntas.
 
-* `simpletransformers.classification` - Includes all Classification models.
+* `simpletransformers.classification` - Incluye todos los modelos de Clasificación.
   * `ClassificationModel`
   * `MultiLabelClassificationModel`
-* `simpletransformers.ner` - Includes all Named Entity Recognition models.
+* `simpletransformers.ner` - Incluye todos los modelos de Reconocimiento de Entidades Nombradas.
   * `NERModel`
-* `simpletransformers.question_answering` - Includes all Question Answering models.
+* `simpletransformers.question_answering` - ncluye todos los modelos de Resolución de Preguntas.
   * `QuestionAnsweringModel`
 
-Here are some minimal examples
+Aquí hay algunos ejemplos mínimos.
 
-## MultiLabel Classification
+##  Clasificación Multietiqueta
 
 ```text
   model = MultiLabelClassificationModel("distilbert","distilbert-base-uncased",num_labels=6,
@@ -40,13 +40,13 @@ Here are some minimal examples
   result, model_outputs, wrong_predictions = model.eval_model(eval_df)
 ```
 
-Here are some visualizations generated from the above training script after running a hyper-parameter sweep.
+Aquí hay algunas visualizaciones generadas a partir del script de entrenamiento anterior, después de ejecutar un barrido de hiperparámetros.
 
 [![](https://camo.githubusercontent.com/3beab1ca06813523711ff7750cb592430b786834/68747470733a2f2f692e696d6775722e636f6d2f6f63784e676c642e706e67)](https://camo.githubusercontent.com/3beab1ca06813523711ff7750cb592430b786834/68747470733a2f2f692e696d6775722e636f6d2f6f63784e676c642e706e67)
 
 [![](https://camo.githubusercontent.com/b864ca220ddd4228027743790ac30741d1f435ad/68747470733a2f2f692e696d6775722e636f6d2f5252423432374d2e706e67)](https://camo.githubusercontent.com/b864ca220ddd4228027743790ac30741d1f435ad/68747470733a2f2f692e696d6775722e636f6d2f5252423432374d2e706e67)
 
-## Question Answering
+##  Resolución de Preguntas
 
 ```text
   train_args = {
@@ -65,13 +65,13 @@ model = QuestionAnsweringModel('distilbert', 'distilbert-base-cased', args=train
 model.train_model(train_data)
 ```
 
-Here are some visualizations generated from the above training script after running a hyper-parameter sweep.
+Aquí hay algunas visualizaciones generadas a partir del script de entrenamiento anterior, después de ejecutar un barrido de hiperparámetros.
 
 [![](https://camo.githubusercontent.com/1411cacec6226ebfa23c2e2dddc76ff5e41c136d/68747470733a2f2f692e696d6775722e636f6d2f7664636d7855532e706e67)](https://camo.githubusercontent.com/1411cacec6226ebfa23c2e2dddc76ff5e41c136d/68747470733a2f2f692e696d6775722e636f6d2f7664636d7855532e706e67)
 
 [![](https://camo.githubusercontent.com/b8e12316520d4ad6d16449db2d13ab70e4d4a6e9/68747470733a2f2f692e696d6775722e636f6d2f395732775677732e706e67)](https://camo.githubusercontent.com/b8e12316520d4ad6d16449db2d13ab70e4d4a6e9/68747470733a2f2f692e696d6775722e636f6d2f395732775677732e706e67)
 
-SimpleTransformers provides classes as well as trainig scripts for all common natural language tasks. Here is the complete list of global arguments that are supported by the library, with their default arguments.
+SimpleTransformers provee clases, así también como scripts de entrenamiento, para todas las tareas comunes relacionadas al lenguaje natural. Aquí hay una lista completa de los argumentos globales que son soportados por la biblioteca, con sus argumentos por defecto.
 
 ```text
 global_args = {
@@ -128,7 +128,7 @@ global_args = {
 }
 ```
 
-Refer to [simpletransformers on github](https://github.com/ThilinaRajapakse/simpletransformers) for more detailed documentation.
+Consulta a [simpletransformers en github](https://github.com/ThilinaRajapakse/simpletransformers) para obtener una documentación más detallada.
 
-Checkout [this Weights and Baises report](https://app.wandb.ai/cayush/simpletransformers/reports/Using-simpleTransformer-on-common-NLP-applications---Vmlldzo4Njk2NA) that covers training transformers on some the most popular GLUE benchmark datasets. Try it out yourself on colab [![Open In Colab](https://camo.githubusercontent.com/52feade06f2fecbf006889a904d221e6a730c194/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667)](https://colab.research.google.com/drive/1oXROllqMqVvBFcPgTKJRboTq96uWuqSz?usp=sharing)
+Comprueba [este reporte de Weights and Biases](https://app.wandb.ai/cayush/simpletransformers/reports/Using-simpleTransformer-on-common-NLP-applications---Vmlldzo4Njk2NA) que cubre los transformadores de entrenamiento sobre algunos de los conjuntos de datos de referencia de GLUE más populares. [![Open In Colab](https://camo.githubusercontent.com/52feade06f2fecbf006889a904d221e6a730c194/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667)](https://colab.research.google.com/drive/1oXROllqMqVvBFcPgTKJRboTq96uWuqSz?usp=sharing)
 

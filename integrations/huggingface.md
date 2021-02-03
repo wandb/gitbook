@@ -6,26 +6,26 @@ description: >-
 
 # Hugging Face
 
-[Hugging Face Transformers](https://huggingface.co/transformers/) provides general-purpose architectures for Natural Language Understanding \(NLU\) and Natural Language Generation \(NLG\) with pretrained models in 100+ languages and deep interoperability between TensorFlow 2.0 and PyTorch.
+[Los Transformadores de Hugging Face](https://huggingface.co/transformers/) proveen arquitecturas de propósito general para el Entendimiento del Lenguaje Natural \(NLU\) y la Generación del Lenguaje Natural \(NLG\) con modelos pre-entrenados en más de 100 idiomas, y con una profunda interoperabilidad entre TensorFlow 2.0 y PyTorch.
 
-To get training logged automatically, just install the library and log in:
+Para hacer que el entrenamiento sea registrado automáticamente, solo instala la biblioteca e inicia sesión:
 
 ```text
 pip install wandb
 wandb login
 ```
 
-The `Trainer` or `TFTrainer` will automatically log losses, evaluation metrics, model topology and gradients.
+`Trainer` o `TFTrainer` registrarán automáticamente las pérdidas, las métricas de la evaluación, la topología del modelo y los gradientes.
 
-Advanced configuration is possible through [wandb environment variables](https://docs.wandb.com/library/environment-variables).
+ La configuración avanzada es posible a través de las [variables de entorno de wandb](https://docs.wandb.com/library/environment-variables).
 
-Additional variables are available with transformers:
+Hay variables adicionales disponibles con los transformadores:
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Environment Variables</th>
-      <th style="text-align:left">Options</th>
+      <th style="text-align:left">Variables de Entorno</th>
+      <th style="text-align:left">Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -33,38 +33,39 @@ Additional variables are available with transformers:
       <td style="text-align:left">WANDB_WATCH</td>
       <td style="text-align:left">
         <ul>
-          <li><b>gradients</b> (default): Log histograms of the gradients</li>
-          <li><b>all</b>: Log histograms of gradients and parameters</li>
-          <li><b>false</b>: No gradient or parameter logging</li>
+          <li><b>gradients (por defecto,):</b> Registra histogramas de los gradientes</li>
+          <li><b>all:</b> Registra histogramas de los gradientes y de los par&#xE1;metros</li>
+          <li><b>false</b>: No registra ni a los gradientes ni a los par&#xE1;metros</li>
         </ul>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">WANDB_DISABLED</td>
-      <td style="text-align:left"><em><b>boolean</b>:</em> Set to <b>true</b> to disable logging entirely</td>
+      <td style="text-align:left"><b>booleano: </b>Establ&#xE9;celo a true para deshabilitar el registro
+        por completo</td>
     </tr>
   </tbody>
 </table>
 
-### Examples
+### Ejemplos
 
-We've created a few examples for you to see how the integration works:
+Hemos creado algunos ejemplos para que veas cómo funciona la integración:
 
-* [Run in colab](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8?usp=sharing): A simple notebook example to get you started
-* [A step by step guide: ](https://app.wandb.ai/jxmorris12/huggingface-demo/reports/A-Step-by-Step-Guide-to-Tracking-Hugging-Face-Model-Performance--VmlldzoxMDE2MTU)track your Hugging Face model performance
-* [Does model size matter?](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) A comparison of BERT and DistilBERT
+* [Ejecuta en colab](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8?usp=sharing): Una notebook de ejemplo simple para que des los primeros pasos
+* [Una guía paso a paso](https://app.wandb.ai/jxmorris12/huggingface-demo/reports/A-Step-by-Step-Guide-to-Tracking-Hugging-Face-Model-Performance--VmlldzoxMDE2MTU): haz el seguimiento del desempeño del modelo de Hugging Face
+*  [¿Importa el tamaño del modelo?](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) Una comparación de BERT y DistilBERT
 
-### Feedback
+### Comentarios
 
-We'd love to hear feedback and we're excited to improve this integration. [Contact us](../company/getting-help.md) with any questions or suggestions.
+Nos encantaría oír los comentarios y estamos entusiasmados por mejorar esta integración. [Comunícate con nosotros](https://docs.wandb.ai/company/getting-help) para hacer cualquier pregunta o plantear sugerencias.
 
-## Visualize Results
+## Visualizar Resultados
 
-Explore your results dynamically in the W&B Dashboard. It's easy to look across dozens of experiments, zoom in on interesting findings, and visualize highly dimensional data.
+Explora tus resultados dinámicamente en el Tablero de Control de W&B. Es fácil buscar a través de docenas de experimentos, enfocarte en los resultados interesantes, y visualizar los datos multidimensionales.
 
 ![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29.gif)
 
-Here's an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations.
+Aquí hay un ejemplo que compara [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) – es fácil ver cómo las diferentes arquitecturas afectan a la precisión de la evaluación durante todo el entrenamiento, a través de las visualizaciones de los diagramas de líneas automáticos.
 
 ![](../.gitbook/assets/gif-for-comparing-bert.gif)
 

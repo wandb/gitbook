@@ -1,8 +1,8 @@
 # Ray Tune
 
-W&B integrates with [Ray](https://github.com/ray-project/ray) by offering two lightweight integrations.
+W&B se integra con [Ray](https://github.com/ray-project/ray) al ofrecer dos integraciones livianas.
 
-One is the `WandbLogger`, which automatically logs metrics reported to Tune to the Wandb API. The other one is the `@wandb_mixin` decorator, which can be used with the function API. It automatically initializes the Wandb API with Tune’s training information. You can just use the Wandb API like you would normally do, e.g. using `wandb.log()` to log your training process.
+Una es WandbLogger, que automáticamente registra métricas reportadas a Tune para la API de Wandb. La otra es el decorador `@wandb_mixin`, que puede ser usado con la API Function. Automáticamente, inicializa la API de Wandb con la información de entrenamiento de Tune. Puedes usar solamente la API de Wandb como lo harías normalmente, por ejemplo usando `wandb.log()` para registrar tu proceso de entrenamiento.
 
 ## WandbLogger
 
@@ -10,21 +10,21 @@ One is the `WandbLogger`, which automatically logs metrics reported to Tune to t
 from ray.tune.integration.wandb import WandbLogger
 ```
 
-Wandb configuration is done by passing a wandb key to the config parameter of `tune.run()` \(see example below\).
+La configuración de Wandb es realizada al pasar una clave de wandb al parámetro config de tune.run\(\) \(ver el ejemplo de abajo\).
 
-The content of the wandb config entry is passed to `wandb.init()` as keyword arguments. The exception are the following settings, which are used to configure the `WandbLogger` itself:
+El contenido de la entrada config de wandb es pasado a wandb.init\(\) como argumentos de palabras claves. Las excepciones son los siguientes ajustes, que son usados para configurar al WandbLogger mismo:
 
-### Parameters
+### Parámetros
 
-`api_key_file (str)` – Path to file containing the `Wandb API KEY`.
+`api_key_file (str)` – Ruta al archivo que contiene la CLAVE de la API de Wandb.
 
-`api_key (str)` – Wandb API Key. Alternative to setting `api_key_file`.
+`api_key (str)` – Clave de la API de Wanndb. Alternativa al ajuste `api_key_file`.
 
-`excludes (list)` – List of metrics that should be excluded from the `log`.
+`excludes (list)` – Lista de métricas que deberían ser excluidas del registro.
 
-`log_config (bool)` – Boolean indicating if the config parameter of the results dict should be logged. This makes sense if parameters will change during training, e.g. with `PopulationBasedTraining`. Defaults to False.
+`log_config (bool)` – Booleano que indica si el parámetro config del diccionario de resultados debería ser registrado. Esto tiene sentido si los parámetros van a cambiar durante el entrenamiento, por ejemplo con PopulationBasedTraining. Por defecto es False.
 
-### Example
+### Ejemplo
 
 ```python
 from ray.tune.logger import DEFAULT_LOGGERS
@@ -51,9 +51,9 @@ tune.run(
 ray.tune.integration.wandb.wandb_mixin(func)
 ```
 
-This Ray Tune Trainable `mixin` helps initializing the Wandb API for use with the `Trainable` class or with `@wandb_mixin` for the function API.
+Este mixin de Ray Tune Trainable ayuda a inicializar la API de Wandb para usarla con la clase `Trainable` o con `@wandb_mixin` para la API Function.
 
-For basic usage, just prepend your training function with the `@wandb_mixin` decorator:
+Para su uso básico, solamente antepone el decorador `@wandb_mixin` a tu función de entrenamiento:
 
 ```python
 from ray.tune.integration.wandb import wandb_mixin
@@ -63,21 +63,21 @@ def train_fn(config):
     wandb.log()
 ```
 
-Wandb configuration is done by passing a `wandb key` to the `config` parameter of `tune.run()` \(see example below\).
+La configuración de `wandb` se hace al pasar la clave de wandb al parámetro `config de tune.run()` \(ver el ejemplo de abajo\).
 
-The content of the wandb config entry is passed to `wandb.init()` as keyword arguments. The exception are the following settings, which are used to configure the `WandbTrainableMixin` itself:
+El contenido de la entrada config de wandb es pasado a `wandb.init()` como argumentos de palabras claves. Las excepciones son los siguientes ajustes, que son utilizados para configurar al `WandbTrainableMixin` mismo:
 
-### Parameters
+### Parámetros
 
-`api_key_file (str)` – Path to file containing the Wandb `API KEY`.
+`api_key_file (str)` –  Ruta al archivo que contiene la CLAVE de la API de Wandb.
 
-`api_key (str)` – Wandb API Key. Alternative to setting `api_key_file`.
+`api_key (str)` – Clave de la API de Wanndb. Alternativa al ajuste `api_key_file`.
 
-Wandb’s `group`, `run_id` and `run_name` are automatically selected by Tune, but can be overwritten by filling out the respective configuration values.
+`group`, `rund_id` y `run_name` de Wandb son seleccionados automáticamente por Tune, pero pueden ser sobrescritos al completar los respectivos valores de configuración.
 
-Please see here for all other valid configuration settings: [https://docs.wandb.com/library/init](https://docs.wandb.com/library/init)
+Por favor, observa aquí para ver todos los otros ajustes de configuración válidos: [https://docs.wandb.com/library/init](https://docs.wandb.com/library/init)
 
-### Example:
+###  Ejemplo:
 
 ```python
 from ray import tune
@@ -104,10 +104,10 @@ tune.run(
     })
 ```
 
-## Example Code
+## Example Code Código de Ejemplo
 
-We've created a few examples for you to see how the integration works:
+Hemos creado algunos ejemplos para que veas cómo funciona la integración:
 
-* [Colab](https://colab.research.google.com/drive/1an-cJ5sRSVbzKVRub19TmmE4-8PUWyAi?usp=sharing): A simple demo to try the integration
-* [Dashboard](https://app.wandb.ai/authors/rayTune?workspace=user-cayush): View dashboard generated from the example
+* [Colab](https://colab.research.google.com/drive/1an-cJ5sRSVbzKVRub19TmmE4-8PUWyAi?usp=sharing): Una demostración simple para probar la integración
+*  [Tablero de Control](https://app.wandb.ai/authors/rayTune?workspace=user-cayush): Ver el tablero de control generado a partir del ejemplo
 

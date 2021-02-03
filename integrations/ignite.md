@@ -4,12 +4,12 @@ description: Use wandb with PyTorch Ignite
 
 # PyTorch Ignite
 
-* See the resulting visualizations in this [example W&B report →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
-* Try running the code yourself in this [example hosted notebook →](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)
+* Mira las visualizaciones resultantes en este [reporte de ejemplo de W&B →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
+* Intenta ejecutar el código tú mismo en este [notebook alojada de ejemplo →](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)
 
-Ignite supports Weights & Biases handler to log metrics, model/optimizer parameters, gradients during training and validation. It can also be used to log model checkpoints to the Weights & Biases cloud. This class is also a wrapper for the wandb module. This means that you can call any wandb function using this wrapper. See examples on how to save model parameters and gradients.
+Ignite soporta el manejador de Weights & Biases para registrar métricas, parámetros del modelo/optimizador, gradientes durante el entrenamiento y la validación. También puede ser usado para registrar puntos de control del modelo en la nube de Weights & Biases. Esta clase también es un wrapper para el módulo wandb. Esto significa que puedes llamar a cualquier función de wandb usando este wrapper. Mira los ejemplos de cómo guardar parámetros y gradientes del modelo.
 
-## The basic PyTorch setup
+## El ajuste básico de PyTorch
 
 ```python
 from argparse import ArgumentParser
@@ -58,12 +58,12 @@ def get_data_loaders(train_batch_size, val_batch_size):
     return train_loader, val_loader
 ```
 
-Using WandBLogger in ignite is a 2-step modular process: First, you need to create a WandBLogger object. Then it can be attached to any trainer or evaluator to automatically log the metrics. We'll do the following tasks sequentially: 1\) Create a WandBLogger object 2\) Attach the Object to the output handlers to:
+Usar WandbLogger en ignite es un proceso modular de 2 pasos: Primero, necesitas crear un objeto WandBLogger. Entonces, éste puede ser anexado a cualquier entrenador o evaluador para registrar métricas automáticamente. Haremos las siguientes tareas de forma secuencial: 1\) Crear un objeto WandBLogger 2\) Anexar el Objeto a los manejadores de salida para:
 
-* Log training loss - attach to trainer object
-* Log validation loss - attach to evaluator
-* Log optional Parameters - Say, learning rate
-* Watch the model
+* Registrar la pérdida del entrenamiento – anexar al objeto entrenador
+* Registrar la pérdida de la validación – anexar al evaluador
+* Registrar Parámetros opcionales – digamos, tasa de aprendizaje
+* Mirar el modelo
 
 ```python
 from ignite.contrib.handlers.wandb_logger import *
@@ -120,7 +120,7 @@ def run(train_batch_size, val_batch_size, epochs, lr, momentum, log_interval):
     wandb_logger.watch(model)
 ```
 
-Optionally, we can also utilize ignite `EVENTS` to log the metrics directly to the terminal
+Opcionalmente, también podemos utilizar `EVENTS` de ignite para registrar métricas directamente en la terminal
 
 ```python
     @trainer.on(Events.ITERATION_COMPLETED(every=log_interval))
@@ -175,7 +175,7 @@ if __name__ == "__main__":
     run(args.batch_size, args.val_batch_size, args.epochs, args.lr, args.momentum, args.log_interval)
 ```
 
-We get these visualizations on running the above code:
+Obtenemos estas visualizaciones al ejecutar el código anterior:
 
 ![](https://i.imgur.com/CoBDShx.png)
 
@@ -185,5 +185,5 @@ We get these visualizations on running the above code:
 
 ![](https://i.imgur.com/rHNPyw3.png)
 
-Refer [Ignite Docs](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger) for more detailed documentation
+Consulta la [documentación de Ignite](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger) para obtener una documentación más detallada
 

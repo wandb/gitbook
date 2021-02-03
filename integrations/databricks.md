@@ -1,16 +1,16 @@
 # Databricks
 
-W&B integrates with [Databricks](https://www.databricks.com/) by customizing the W&B Jupyter notebook experience in the Databricks environment.
+W&B se integra con [Databricks](https://www.databricks.com/) al personalizar la experiencia de la notebook de Jupyter con W&B en el entorno de Databricks.
 
-## Databricks Configuration
+## Configuración de Databricks
 
-### Install wandb in the cluster
+### Instala wandb en el cluster
 
-Navigate to your cluster configuration, choose your cluster, click on Libraries, then on Install New, Choose PyPI and add the package `wandb`.
+ Navega a la configuración de tu cluster, elige tu cluster, haz click en Libraries, entonces en Install New, Choose PyPI, y agrega el paquete `wandb`.
 
-### Authentication
+###  Autenticación
 
-In order to authenticate your W&B account you can add a databricks secret which your notebooks can query.
+Para autenticar tu cuenta de W&B, puedes agregar un secreto de databricks, que tus notebooks pueden consultar.
 
 ```bash
 # install databricks cli
@@ -29,7 +29,7 @@ databricks secrets create-scope --scope wandb --initial-manage-principal users
 databricks secrets put --scope wandb --key api_key
 ```
 
-## Examples
+##  Ejemplos
 
 ### Simple
 
@@ -44,9 +44,9 @@ wandb.init()
 wandb.log({"foo": 1})
 ```
 
-### Sweeps
+###  Barridos
 
-Setup required \(temporary\) for notebooks attempting to use wandb.sweep\(\) or wandb.agent\(\):
+Ajuste requerido \(temporalmente\) para las notebooks intentando usar wandb.sweep\(\) o wandb.agent\(\):
 
 ```python
 import os
@@ -55,7 +55,7 @@ os.environ['WANDB_ENTITY'] = "my-entity"
 os.environ['WANDB_PROJECT'] = "my-project-that-exists"
 ```
 
-We cover more details of how to run a sweep in a notebook here:
+Cubrimos más detalles de cómo ejecutar un barrido en una noteboob aquí:
 
 {% page-ref page="../sweeps/python-api.md" %}
 

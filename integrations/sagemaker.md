@@ -1,27 +1,29 @@
 # SageMaker
 
-## SageMaker Integration
+## Integración de SageMaker
 
-W&B integrates with [Amazon SageMaker](https://aws.amazon.com/sagemaker/), automatically reading hyperparameters, grouping distributed runs, and resuming runs from checkpoints.
+ W&B se integra con [Amazon SageMaker](https://aws.amazon.com/sagemaker/), leyendo automáticamente los hiperparámetros, agrupando las ejecuciones distribuidas, y reanudando ejecuciones a partir de los puntos de control.
 
-### Authentication
+### Autenticación
 
-W&B looks for a file named `secrets.env` relative to the training script and loads them into the environment when `wandb.init()` is called. You can generate a `secrets.env` file by calling `wandb.sagemaker_auth(path="source_dir")` in the script you use to launch your experiments. Be sure to add this file to your `.gitignore`!
+W&B busca un archivo llamado `secrets.env`, relativo al script de entrenamiento, y lo carga en el entorno cuando es llamado `wandb.init()`. Puedes generar un archivo `secrets.env` al llamar a wandb.sagemaker\_auth\(path="source\_dir"\) en el script que usas para lanzar tus experimentos. ¡Asegúrate de agregar este archivo a tu `.gitignore`!
 
-### Existing Estimators
+###  Estimadores Existentes
 
-If you're using one of SageMakers preconfigured estimators you need to add a `requirements.txt` to your source directory that includes wandb
+ Si estás usando uno de los estimadores preconfigurados de SageMaker, necesitas agregar un `requirements.txt` a tu directorio fuente, que incluya a wandb
 
 ```text
 wandb
 ```
 
-If you're using an estimator that's running Python 2, you'll need to install psutil directly from a [wheel](https://pythonwheels.com/) before installing wandb:
+Si estás usando un estimador que esté corriendo Python 2, necesitarás instalar psutil directamente desde un [wheel](https://pythonwheels.com/) antes de instalar wandb:
 
 ```text
 https://wheels.galaxyproject.org/packages/psutil-5.4.8-cp27-cp27mu-manylinux1_x86_64.whl
 wandb
 ```
 
-A complete example is available on [GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker) and you can read more on our [blog](https://www.wandb.com/blog/running-sweeps-with-sagemaker).
+  
+Hay un ejemplo completo disponible en [GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker), y puedes leer más en nuestro [blog](https://www.wandb.com/blog/running-sweeps-with-sagemaker).  
+
 

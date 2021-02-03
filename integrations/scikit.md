@@ -1,10 +1,12 @@
 # Scikit
 
-You can use wandb to visualize and compare your scikit-learn models' performance with just a few lines of code. [**Try an example →**](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)
+Puedes utilizar wandb para visualizar y comparar el desempeño de tus modelos de aprendizaje de scikit con solo algunas líneas de código.
 
-### Making Plots
+[Prueba un ejemplo →](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)
 
-#### Step 1: Import wandb and initialize a new run.
+### Haciendo Diagramas
+
+#### Paso 1: Importa wandb e inicializa una nueva ejecución.
 
 ```python
 import wandb
@@ -14,14 +16,14 @@ wandb.init(project="visualize-sklearn")
 # train a model
 ```
 
-#### Step 2: Visualize individual plots.
+#### Paso 2: Visualiza los diagramas individuales.
 
 ```python
 # Visualize single plot
 wandb.sklearn.plot_confusion_matrix(y_true, y_pred, labels)
 ```
 
-#### Or visualize all plots at once:
+#### O visualiza a todos los diagramas a la vez:
 
 ```python
 # Visualize all classifier plots
@@ -35,169 +37,167 @@ wandb.sklearn.plot_regressor(reg, X_train, X_test, y_train, y_test,  model_name=
 wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model_name='KMeans')
 ```
 
-### Supported Plots
+### Diagramas soportados
 
-#### Learning Curve
+####  Curva de aprendizaje
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.46.34-am.png)
 
-Trains model on datasets of varying lengths and generates a plot of cross validated scores vs dataset size, for both training and test sets.
+Entrena el modelo sobre los conjuntos de datos de longitudes variables y genera un diagrama de puntuaciones de validación cruzada versus el tamaño del conjunto de datos, tanto para los conjuntos de entrenamiento como los de test.
 
 `wandb.sklearn.plot_learning_curve(model, X, y)`
 
-* model \(clf or reg\): Takes in a fitted regressor or classifier.
-* X \(arr\): Dataset features.
-* y \(arr\): Dataset labels.
+* model \(clf or reg\): Toma un clasificador o un regresor de entrenamiento.
+* X \(arr\): Características del conjunto de datos.
+* y \(arr\): Etiquetas del conjunto de datos.
 
 #### ROC
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.02-am.png)
 
-ROC curves plot true positive rate \(y-axis\) vs false positive rate \(x-axis\). The ideal score is a TPR = 1 and FPR = 0, which is the point on the top left. Typically we calculate the area under the ROC curve \(AUC-ROC\), and the greater the AUC-ROC the better.
+Las curvas ROC trazan tasas positivas verdaderas \(TPR, sobre el eje y\) versus tasas positivas falsas \(FPR, sobre el eje x\). La puntuación ideal es TPR = 1 y FPR = 0, que es el punto en la esquina superior izquierda. Típicamente, calculamos el área debajo de la curva ROC \(AUC-ROC\), y cuanto mayor sea AUC-ROC, mejor.
 
 `wandb.sklearn.plot_roc(y_true, y_probas, labels)`
 
-* y\_true \(arr\): Test set labels.
-* y\_probas \(arr\): Test set predicted probabilities.
-* labels \(list\): Named labels for target varible \(y\).
+* y\_true \(arr\): Etiquetas del conjunto de test.
+* y\_probas \(arr\): Probabilidades predichas del conjunto de test.
+* labels \(list\): Etiquetas nombradas para la variable objetivo \(y\).
 
-#### Class Proportions
+#### Proporciones de clase
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.46-am.png)
 
-Plots the distribution of target classes in training and test sets. Useful for detecting imbalanced classes and ensuring that one class doesn't have a disproportionate influence on the model.
+ Diagrama la distribución de las clases objetivo en los conjuntos de entrenamiento y de test. Es útil para detectar clases desbalanceadas, y asegurarse de que una clase no tenga una influencia desproporcionada sobre el modelo.
 
 `wandb.sklearn.plot_class_proportions(y_train, y_test, ['dog', 'cat', 'owl'])`
 
-* y\_train \(arr\): Training set labels.
-* y\_test \(arr\): Test set labels.
-* labels \(list\): Named labels for target varible \(y\).
+* y\_train \(arr\): Etiquetas del conjunto de entrenamiento.
+* y\_test \(arr\): Etiquetas del conjunto de test.
+* labels \(list\): Etiquetas nombradas para la variable objetivo \(y\).
 
-#### Precision Recall Curve
+####  Curva de Precisión y Exhaustividad
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.17-am.png)
 
-Computes the tradeoff between precision and recall for different thresholds. A high area under the curve represents both high recall and high precision, where high precision relates to a low false positive rate, and high recall relates to a low false negative rate.
+Computa el compromiso entre la precisión y la exhaustividad para diferentes umbrales. Un área elevada por debajo de la curva representa alta exhaustividad y alta precisión, en donde la alta precisión se relaciona con una baja tasa de falsos positivos, y una alta exhaustividad se relaciona con una baja tasa de falsos negativos.
 
-High scores for both show that the classifier is returning accurate results \(high precision\), as well as returning a majority of all positive results \(high recall\). PR curve is useful when the classes are very imbalanced.
+La alta puntuación para ambas demuestra que el clasificador está devolviendo resultados precisos \(alta precisión\), así también como una mayoría de todos los resultados positivos \(alta exhaustividad\). La curva PR es útil cuando las clases están muy desbalanceadas.
 
 `wandb.sklearn.plot_precision_recall(y_true, y_probas, labels)`
 
-* y\_true \(arr\): Test set labels.
-* y\_probas \(arr\): Test set predicted probabilities.
-* labels \(list\): Named labels for target varible \(y\).
+* y\_true \(arr\): Etiquetas del conjunto de test.
+* y\_probas \(arr\): Probabilidades predichas del conjunto de test.
+* labels \(list\): Etiquetas nombradas para la variable objetivo \(y\)
 
-#### Feature Importances
+####  Importancias de las Características
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.31-am.png)
 
-Evaluates and plots the importance of each feature for the classification task. Only works with classifiers that have a `feature_importances_` attribute, like trees.
+Evalúa y diagrama la importancia de cada característica para la tarea de clasificación. Sólo funciona con clasificadores que tengan un atributo `featureimportances`, como los árboles.
 
 `wandb.sklearn.plot_feature_importances(model, ['width', 'height, 'length'])`
 
-* model \(clf\): Takes in a fitted classifier.
-* feature\_names \(list\): Names for features. Makes plots easier to read by replacing feature indexes with corresponding names.
+* model \(clf\): Toma un clasificador de entrenamiento.
+* feature\_names \(list\): Nombres para las características. Hace que los diagramas sean más fáciles de leer al reemplazar los índices de las características con los nombres correspondientes.
 
-#### Calibration Curve
+#### Curva de calibración
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.49.00-am.png)
 
-Plots how well calibrated the predicted probabilities of a classifier are and how to calibrate an uncalibrated classifier. Compares estimated predicted probabilities by a baseline logistic regression model, the model passed as an argument, and by both its isotonic calibration and sigmoid calibrations.
+Diagrama cuán bien están calibradas las probabilidades predichas de un clasificador, y cómo calibrar a un clasificador descalibrado. Compara las probabilidades predichas estimadas por un modelo de regresión logística de referencia \(el modelo pasado como argumento\), y por sus calibraciones isotónicas y sigmoides.
 
-The closer the calibration curves are to a diagonal the better. A transposed sigmoid like curve represents an overfitted classifier, while a sigmoid like curve represents an underfitted classifier. By training isotonic and sigmoid calibrations of the model and comparing their curves we can figure out whether the model is over or underfitting and if so which calibration \(sigmoid or isotonic\) might help fix this.
+Cuanto más cerca estén las curvas de calibración a una diagonal, mejor. Un sigmoide transpuesto como una curva representa a un clasificador sobreajustado, mientras que un sigmoide como una curva, representa a un clasificador subajustado. Al entrenar calibraciones isotónicas y sigmoides del modelo, y comparar sus curvas, podemos darnos cuenta de si el modelo está sobreajustado o subajustado y, de esta forma, qué calibración \(sigmoide o isotónica\) podría ayudarnos a solucionarlo.
 
-For more details, check out [sklearn's docs](https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html).
+Para obtener más detalles, revisa la [documentación de sklearn](https://scikit-learn.org/stable/auto_examples/calibration/plot_calibration_curve.html).
 
 `wandb.sklearn.plot_calibration_curve(clf, X, y, 'RandomForestClassifier')`
 
-* model \(clf\): Takes in a fitted classifier.
-* X \(arr\): Training set features.
-* y \(arr\): Training set labels.
-* model\_name \(str\): Model name. Defaults to 'Classifier'
+* model \(clf\): Toma un clasificador de entrenamiento.
+* X \(arr\): Características del conjunto de entrenamiento.
+* y \(arr\): Etiquetas del conjunto de entrenamiento.
+* model\_name \(str\): Nombre del modelo. Por defecto es ‘Classifier’
 
-#### Confusion Matrix
+####  Matriz de Confusión
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.49.11-am.png)
 
-Computes the confusion matrix to evaluate the accuracy of a classification. It's useful for assessing the quality of model predictions and finding patterns in the predictions the model gets wrong. The diagonal represents the predictions the model got right, i.e. where the actual label is equal to the predicted label.
+ Computa la matriz de confusión para evaluar la precisión de una clasificación. Es útil para evaluar la calidad de las predicciones del modelo, y para encontrar patrones en las predicciones que el modelo obtiene erróneamente. La diagonal representa las predicciones que el modelo obtuvo correctamente, es decir, donde la etiqueta real es igual a la etiqueta predicha.
 
 `wandb.sklearn.plot_confusion_matrix(y_true, y_pred, labels)`
 
-* y\_true \(arr\): Test set labels.
-* y\_pred \(arr\): Test set predicted labels.
-* labels \(list\): Named labels for target variable \(y\).
+* y\_true \(arr\): Etiquetas del conjunto de test.
+* y\_pred \(arr\): Etiquetas predichas del conjunto de test.
+* labels \(list\): Etiquetas nombradas para la variable objetivo \(y\).
 
-#### Summary Metrics
+#### Métricas de Síntesis
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.49.28-am.png)
 
-Calculates summary metrics \(like f1, accuracy, precision and recall for classification and mse, mae, r2 score for regression\) for both regression and classification algorithms.
+Calcula las métricas de síntesis \(como f1, precisión, exactitud y exhaustividad para la clasificación, y puntuación de mse, mae, r2 para la regresión\), tanto para los algoritmos de regresión como de clasificación.
 
 `wandb.sklearn.plot_summary_metrics(model, X_train, X_test, y_train, y_test)`
 
-* model \(clf or reg\): Takes in a fitted regressor or classifier.
-* X \(arr\): Training set features.
-* y \(arr\): Training set labels.
-  * X\_test \(arr\): Test set features.
-* y\_test \(arr\): Test set labels.
+* model \(clf or reg\): Toma un regresor o un clasificador de entrenamiento.
+* X \(arr\): Características del conjunto de entrenamiento.
+* y \(arr\): Etiquetas del conjunto de entrenamiento.
+  * X\_test \(arr\): Características del conjunto de test.
+* y\_test \(arr\): Etiquetas del conjunto de test.
 
-#### Elbow Plot
+#### Diagrama del Codo
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.52.21-am.png)
 
-Measures and plots the percentage of variance explained as a function of the number of clusters, along with training times. Useful in picking the optimal number of clusters.
+Mide y diagrama el porcentaje de la varianza explicada como una función de números de agrupamientos, conjuntamente con los tiempos de entrenamiento. Útil para seleccionar el número óptimo de agrupamientos.
 
 `wandb.sklearn.plot_elbow_curve(model, X_train)`
 
-* model \(clusterer\): Takes in a fitted clusterer.
-* X \(arr\): Training set features.
+* model \(clusterer\): Toma un agrupador de entrenamiento.
+* X \(arr\): Características del conjunto de entrenamiento.
 
-#### Silhouette Plot
+#### Diagrama Silhouette
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.53.12-am.png)
 
-Measures & plots how close each point in one cluster is to points in the neighboring clusters. The thickness of the clusters corresponds to the cluster size. The vertical line represents the average silhouette score of all the points.
+Los coeficientes Silhouette cercanos a +1 indican que la muestra está alejada de los agrupamientos vecinos. Un valor de 0 indica que la muestra está en el límite de decisión \(o muy cerca del mismo\) entre dos agrupamientos vecinos, y los valores negativos indican que aquellas muestras podrían haber sido asignadas a un agrupamiento erróneo.
 
-Silhouette coefficients near +1 indicate that the sample is far away from the neighboring clusters. A value of 0 indicates that the sample is on or very close to the decision boundary between two neighboring clusters and negative values indicate that those samples might have been assigned to the wrong cluster.
-
-In general we want all silhouette cluster scores to be above average \(past the red line\) and as close to 1 as possible. We also prefer cluster sizes that reflect the underlying patterns in the data.
+En general, queremos que todos los valores de los agrupamientos Silhouette estén por encima del promedio \(después de la línea roja\), y tan cerca de 1 como sea posible. También preferimos que los tamaños de los agrupamientos reflejen patrones subyacentes en los datos.
 
 `wandb.sklearn.plot_silhouette(model, X_train, ['spam', 'not spam'])`
 
-* model \(clusterer\): Takes in a fitted clusterer.
-* X \(arr\): Training set features.
-  * cluster\_labels \(list\): Names for cluster labels. Makes plots easier to read by replacing cluster indexes with corresponding names.
+* model \(clusterer\): Toma un agrupador de entrenamiento.
+* X \(arr\): Características del conjunto de entrenamiento.
+  * cluster\_labels \(list\): Nombres para las etiquetas de los agrupamientos. Facilita la lectura de los diagramas al reemplazar los índices de los agrupamientos con los nombres correspondientes.
 
-#### Outlier Candidates Plot
+#### Diagrama de Candidatos Atípicos
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.52.34-am.png)
 
-Measures a datapoint's influence on regression model via cook's distance. Instances with heavily skewed influences could potentially be outliers. Useful for outlier detection.
+Mide la influencia de los puntos de datos sobre el modelo de regresión a través de la distancia de Cook. Las instancias con influencias fuertemente sesgadas podrían ser potencialmente atípicas. Es útil para la detección de atípicos.
 
 `wandb.sklearn.plot_outlier_candidates(model, X, y)`
 
-* model \(regressor\): Takes in a fitted classifier.
-* X \(arr\): Training set features.
-* y \(arr\): Training set labels.
+* model \(regressor\): Toma un clasificador de entrenamiento.
+* X \(arr\): Características del conjunto de entrenamiento.
+* y \(arr\): Etiquetas del conjunto de entrenamiento.
 
-#### Residuals Plot
+####  Diagrama de Residuales
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.52.46-am.png)
 
-Measures and plots the predicted target values \(y-axis\) vs the difference between actual and predicted target values \(x-axis\), as well as the distribution of the residual error.
+Mide y diagrama los valores objetivos predichos \(eje y\) versus la diferencia entre los valores reales y los valores objetivo predichos \(eje x\), así también como la distribución del error residual.
 
-Generally, the residuals of a well-fit model should be randomly distributed because good models will account for most phenomena in a data set, except for random error.
+Generalmente, los residuales de un modelo bien adaptado deberían ser distribuidos aleatoriamente, dado que los buenos modelos tendrán en cuenta la mayoría de los fenómenos en un conjunto de datos, excepto por los errores aleatorios.
 
 `wandb.sklearn.plot_residuals(model, X, y)`
 
-* model \(regressor\): Takes in a fitted classifier.
-* X \(arr\): Training set features.
-* y \(arr\): Training set labels.
+* model \(regressor\): Toma un clasificador de entrenamiento.
+* X \(arr\): Características del conjunto de entrenamiento.
+* y \(arr\): Etiquetas del conjunto de entrenamiento.
 
-  If you have any questions, we'd love to answer them in our [slack community](http://wandb.me/slack).
+   Si tienes alguna pregunta, nos encantaría responderlas en nuestra [comunidad de Slack](http://wandb.me/slack).
 
-## Example
+## Ejemplo
 
-* [Run in colab](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ): A simple notebook to get you started
-* [Wandb Dashboard](https://app.wandb.ai/wandb/iris): View result on W&B
+*  [Ejecución](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ)[ en colab](https://colab.research.google.com/drive/1tCppyqYFCeWsVVT4XHfck6thbhp3OGwZ): Una notebook simple para dar los primeros pasos
+*  [Tablero de ](https://app.wandb.ai/wandb/iris)[C](https://app.wandb.ai/wandb/iris)[ontrol de Wandb](https://app.wandb.ai/wandb/iris): Mira los resultados en W&B
 

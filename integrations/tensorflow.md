@@ -4,7 +4,7 @@ description: How to integrate a TensorFlow script to log metrics to W&B
 
 # TensorFlow
 
-If you're already using TensorBoard, it's easy to integrate with wandb.
+Si ya estás usando TensorBoard, es fácil integrarlo con wandb.
 
 ```python
 import tensorflow as tf
@@ -12,15 +12,15 @@ import wandb
 wandb.init(config=tf.flags.FLAGS, sync_tensorboard=True)
 ```
 
-See our [example projects](../examples.md) for a complete script example.
+Mira nuestros [proyectos de ejemplo](https://docs.wandb.ai/examples) para obtener un ejemplo de un script completo.
 
-## Custom Metrics
+##  Métricas personalizadas
 
-If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code with the same step argument that TensorBoard is using: ie. `wandb.log({"custom": 0.8}, step=global_step)`
+Si necesitas registrar métricas personalizadas adicionales, que no están siendo registradas a TensorBoard, puedes llamar a `wandb.log` en tu código con el mismo argumento step que está usando TensorFlow: es decir, `wandb.log({"custom": 0.8}, step=global_step)`
 
-## TensorFlow Hook
+## Enganche a TensoFlow
 
-If you want more control over what get's logged, wandb also provides a hook for TensorFlow estimators. It will log all `tf.summary` values in the graph.
+ Si quieres más control sobre lo que es registrado, wandb también provee un enganche para los estimadores de TensorFlow. Esto registrará todos los valores de `tf.summary` en el gráfico.
 
 ```python
 import tensorflow as tf
@@ -31,7 +31,7 @@ wandb.init(config=tf.FLAGS)
 estimator.train(hooks=[wandb.tensorflow.WandbHook(steps_per_log=1000)])
 ```
 
-## Manual Logging
+##  Registro Manual
 
 The simplest way to log metrics in TensorFlow is by logging `tf.summary` with the TensorFlow logger:
 
@@ -43,7 +43,7 @@ with tf.Session() as sess:
     wandb.tensorflow.log(tf.summary.merge_all())
 ```
 
-With TensorFlow 2, the recommended way of training a model with a custom loop is via using `tf.GradientTape`. You can read more about it [here](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough). If you want to incorporate `wandb` to log metrics in your custom TensorFlow training loops you can follow this snippet -
+Con TensorFlow 2, la forma recomendada de entrenar un modelo con un ciclo personalizado es utilizando `tf.GradientTape`. Puedes leer más acerca de esto [aquí](https://www.tensorflow.org/tutorials/customization/custom_training_walkthrough). Si deseas incorporar wandb a las métricas del registro en tus ciclos de entrenamiento personalizados de TensorFlow, puedes seguir este extracto de código
 
 ```python
     with tf.GradientTape() as tape:
@@ -60,27 +60,27 @@ With TensorFlow 2, the recommended way of training a model with a custom loop is
     optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 ```
 
-A full example is available [here](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2).
+Hay disponible un ejemplo completo [aquí](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2).
 
-## How is W&B different from TensorBoard?
+##  ¿Qué tiene de diferente W&B respecto a TensorBoard?
 
-We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
+Nos inspiramos en mejorar las herramientas de seguimiento de experimentos para todo el mundo. Cuando los cofundadores comenzaron a trabajar en W&B, se inspiraron en construir una herramienta para los usuarios de OpenAI insatisfechos con TensorBoard. Aquí hay algunas cosas en las que nos enfocamos para mejorar:
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.
-2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
-3. **Fast, flexible integration**: Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
-4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
-5. **Powerful table**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
-6. **Tools for collaboration**: Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+1. **Reproducir modelos**: Weights & Biases es bueno para la experimentación, la exploración, y la reproducción de los modelos en el futuro. No solo que capturamos las métricas, sino también los hiperparámetros y la versión del código, y podemos guardar los puntos de control de tu modelo para que tu proyecto sea reproducible.
+2. **Organización automática**: Si le pasas un proyecto a un colaborador o te tomas unas vacaciones, W&B te facilita ver todos los modelos que hayas probado, así no pierdes horas volviendo a correr los viejos experimentos.
+3. **Integración rápida y flexible**: Agrega W&B a tu proyecto en 5 minutos. Instala nuestro paquete Python, libre y de código abierto, y agrega un par de líneas a tu código, y cada vez que corras tu modelo vas a registrar las métricas y los registros.
+4. **Tablero de control persistente y centralizado:** Dondequiera que entrenes tus modelos, ya sea en tu máquina local, tu cluster del laboratorio, o en instancias de spot en la nube, te ofrecemos el mismo tablero de control centralizado. No necesitas perder el tiempo copiando y organizando archivos de TensorFlow desde diferentes máquinas.
+5. **Tabla poderosa:** Busca, filtra, ordena y agrupa resultados de diferentes modelos. Es fácil revisar miles de versiones de los modelos y encontrar al más adecuado para diferentes tareas. TensorBoard no funciona adecuadamente en proyectos grandes.
+6. **Herramientas para la colaboración:** Utiliza W&B para organizar proyectos de aprendizaje de máquinas complejos. Es fácil compartir un enlace a W&B, y puedes utilizar equipos privados y hacer que todos envíen resultados a un proyecto compartido. También soportamos la colaboración a través de los repositorios – agrega visualizaciones interactivas y describe tu trabajo en markdown. Esta es una gran forma de mantener un trabajo registrado, de compartir resultados con tu supervisor, o de presentar resultados a tu laboratorio.
 
-Get started with a [free personal account →](http://app.wandb.ai/)
+ Empieza con una [cuenta personal gratuita](http://app.wandb.ai/) →
 
-## Example
+## Ejemplo
 
-We've created a few examples for you to see how the integration works:
+Hemos creado algunos ejemplos para que veas cómo funciona la integración:
 
-* [Example on Github](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-estimator-mnist/mnist.py): MNIST example Using TensorFlow Estimators
-* [Example on Github](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-cnn-fashion/train.py): Fashion MNIST example Using Raw TensorFlow
-* [Wandb Dashboard](https://app.wandb.ai/l2k2/examples-tf-estimator-mnist/runs/p0ifowcb): View result on W&B
-* Customizing Training Loops in TensorFlow 2 - [Article](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2) \| [Colab Notebook](https://colab.research.google.com/drive/1JCpAbjkCFhYMT7LCQ399y35TS3jlMpvM) \| [Dashboard](https://app.wandb.ai/sayakpaul/custom_training_loops_tf)
+*  [Ejemplo en Github](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-estimator-mnist/mnist.py): Ejemplo de MNIST Usando Estimadores de TensorFlow
+*  [Ejemplo en Github](https://github.com/wandb/examples/blob/master/examples/tensorflow/tf-cnn-fashion/train.py): Ejemplo de Moda MNIST Usando TensorFlow Puro
+* [Tablero de ](https://app.wandb.ai/l2k2/examples-tf-estimator-mnist/runs/p0ifowcb)[C](https://app.wandb.ai/l2k2/examples-tf-estimator-mnist/runs/p0ifowcb)[ontrol de wandb](https://app.wandb.ai/l2k2/examples-tf-estimator-mnist/runs/p0ifowcb): Ver resultados en W&B
+* Personalizando Ciclos de Entrenamiento en TensorFlow 2- [Artículo](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2) \| [Notebook ](https://colab.research.google.com/drive/1JCpAbjkCFhYMT7LCQ399y35TS3jlMpvM)[de Colab](https://colab.research.google.com/drive/1JCpAbjkCFhYMT7LCQ399y35TS3jlMpvM) \| [Tablero de Control](https://app.wandb.ai/sayakpaul/custom_training_loops_tf)
 

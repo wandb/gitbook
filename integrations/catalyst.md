@@ -1,6 +1,6 @@
 # Catalyst
 
-Sergey Kolesnikov, creator of [Catalyst](https://github.com/catalyst-team/catalyst), has built an awesome W&B integration. If you are using Catalyst, we have a runner that can automatically log all hyperparameters, metrics, TensorBoard, the best trained model, and all `stdout` during training.
+Sergey Kolesnikov, creador de [Catalyst](https://github.com/catalyst-team/catalyst), ha construido una maravillosa integración con W&B. Si estás usando Catalyst, tenemos un runner que puede registrar automáticamente todos los hiperparámetros, las métricas, TensorBoard, al mejor modelo entrenado, y a todas las salidas a stdout durante el entrenamiento.
 
 ```python
 import torch
@@ -36,7 +36,7 @@ runner.train(
 )
 ```
 
-Custom parameters can also be given at that stage. Forward and backward passes alsong with the handling of data batches can also be customized by extending the `runner` class. Following is a custom runner used to train a MNIST classifier.
+En esta etapa, también pueden ser dados los parámetros personalizado. Las pasadas hacia adelante y hacia atrás, conjuntamente con el manejo de los lotes de datos, también pueden ser personalizados al extender la clase runner. El siguiente es un runner personalizado utilizado para entrenar a un clasificador MNIST.
 
 ```python
 from catalyst import dl
@@ -75,9 +75,9 @@ runner.train(
     timeit=False)
 ```
 
-## Options
+## Opciones
 
-`logging_params`: any parameters of function `wandb.init` except `reinit` which is automatically set to `True` and `dir` which is set to `<logdir>`
+`logging_params`: cualquier parámetro de la función `wandb.init`, excepto por reinit que es automáticamente establecido a True y dir que es establecido a 
 
 ```python
 runner.train(...,
