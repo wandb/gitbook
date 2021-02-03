@@ -260,6 +260,53 @@ s3://my-bucket
   </tbody>
 </table>
 
+### Adding files from parallel runs
+
+For large datasets or distributed training, multiple parallel runs might need to contribute to a single artifact. You can use the following pattern to construct such parallel artifacts:
+
+```text
+import wandb
+
+# We will use ray to launch our runs in parallel
+# for demonstration purposes. You can orchestrate
+# your parallel runs however you want.
+import ray
+
+ray.init()
+
+artifact_type = "dataset"
+artifact_name = "parallel-artifact"
+num_parallel = 5
+
+# Each batch of parallel writers should have its own
+# unique group name.
+group_name = "writer-group-{}".format(round(time.time()))
+
+@ray.remote
+def train(i):
+  """
+  Our writer job. Each writer will add one image to the artifact.
+  """
+  with wandb.init(group=group_name) as run:
+    artifact = wandb.Artifact(name=artifact_name, type=artifact_type)
+    image = wandb.Image(np.random.randint(255, size=(10, 10, 3)))
+    artifact.add(image, "image_{}".format(i))
+    run.upsert_artifact(artifact)
+  
+# Launch your runs in parallel
+result_ids = [train.remote(i) for i in range(num_parallel)]
+
+# Join on all the writers to make sure their files have
+# been added before finishing the artifact. 
+ray.get(result_ids)
+
+# Once all the writers arefinished, finish the artifact
+# to mark it ready.
+with wandb.init(group=group_name) as run:
+  artifact = wandb.Artifact(artifact_name, type=artifact_type)
+  run.finish_artifact(artifact)
+```
+
 ## Using and downloading artifacts
 
 ```python
