@@ -301,7 +301,6 @@ def train(i):
     
     # Upserting the artifact creates or appends data to the artifact
     run.upsert_artifact(artifact)
-    run.finish()
   
 # Launch your runs in parallel
 result_ids = [train.remote(i) for i in range(num_parallel)]
@@ -322,7 +321,6 @@ with wandb.init(group=group_name) as run:
   # Finish artifact finalizes the artifact, disallowing future "upserts"
   # to this version.
   run.finish_artifact(artifact)
-  run.finish()
 ```
 
 ## Using and downloading artifacts
