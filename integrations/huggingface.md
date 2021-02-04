@@ -6,7 +6,18 @@ description: >-
 
 # Hugging Face
 
-[Hugging Face Transformers](https://huggingface.co/transformers/) provides general-purpose architectures for Natural Language Understanding \(NLU\) and Natural Language Generation \(NLG\) with pretrained models in 100+ languages and deep interoperability between TensorFlow 2.0 and PyTorch.
+[Hugging Face Transformers](https://huggingface.co/transformers/) provides provides tools to quickly train neural networks for NLP \(Natural Language Processing\) on any task \(classification, translation, question answering, etc\) and any dataset with PyTorch and TensorFlow 2.0
+
+W&B integration with 🤗 Hugging Face can automatically:
+
+* log your configuration parameters
+* log your losses and metrics
+* log gradients and parameter distributions
+* log your model
+* keep track of your code
+* log your system metrics \(GPU, CPU, memory, temperature, etc\)
+
+## 🤗 Get going with no extra line of code!
 
 To get training logged automatically, just install the library and log in:
 
@@ -17,9 +28,21 @@ wandb login
 
 The `Trainer` or `TFTrainer` will automatically log losses, evaluation metrics, model topology and gradients.
 
-Advanced configuration is possible through [wandb environment variables](https://docs.wandb.com/library/environment-variables).
+{% hint style="info" %}
+Use `wandb.login()` in notebook environments \(Jupyter/Colab\)
+{% endhint %}
 
-Additional variables are available with transformers:
+## 📚 Check out real examples!
+
+We've created a few examples for you to see how the integration works:
+
+* [Demo in Google Colab](https://colab.research.google.com/drive/1Me2goAjjIhdCWtpyGSIHELJCF-jC3m7-?usp=sharing) with model logging
+* [Huggingtweets ](https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI)- Train a model to generate tweets
+* [Does model size matter?](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) A comparison of BERT and DistilBERT
+
+## 💻 Configuration options
+
+Advanced configuration is possible by setting environment variables:
 
 <table>
   <thead>
@@ -29,6 +52,10 @@ Additional variables are available with transformers:
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align:left">WANDB_LOG_MODEL</td>
+      <td style="text-align:left">Log the model as artifact at the end of training (<b>false</b> by default)</td>
+    </tr>
     <tr>
       <td style="text-align:left">WANDB_WATCH</td>
       <td style="text-align:left">
@@ -40,25 +67,21 @@ Additional variables are available with transformers:
       </td>
     </tr>
     <tr>
+      <td style="text-align:left">WANDB_PROJECT</td>
+      <td style="text-align:left">Organize runs by project</td>
+    </tr>
+    <tr>
       <td style="text-align:left">WANDB_DISABLED</td>
-      <td style="text-align:left"><em><b>boolean</b>:</em> Set to <b>true</b> to disable logging entirely</td>
+      <td style="text-align:left">Set to <b>true</b> to disable logging entirely</td>
     </tr>
   </tbody>
 </table>
 
-### Examples
+Set run names with `run_name` argument present in scripts or as part of `TrainingArguments`.
 
-We've created a few examples for you to see how the integration works:
+Additional configuration options are available through generic [wandb environment variables](https://docs.wandb.com/library/environment-variables).
 
-* [Run in colab](https://colab.research.google.com/drive/1NEiqNPhiouu2pPwDAVeFoN4-vTYMz9F8?usp=sharing): A simple notebook example to get you started
-* [A step by step guide: ](https://app.wandb.ai/jxmorris12/huggingface-demo/reports/A-Step-by-Step-Guide-to-Tracking-Hugging-Face-Model-Performance--VmlldzoxMDE2MTU)track your Hugging Face model performance
-* [Does model size matter?](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) A comparison of BERT and DistilBERT
-
-### Feedback
-
-We'd love to hear feedback and we're excited to improve this integration. [Contact us](../company/getting-help.md) with any questions or suggestions.
-
-## Visualize Results
+## 📊 Visualize Results
 
 Explore your results dynamically in the W&B Dashboard. It's easy to look across dozens of experiments, zoom in on interesting findings, and visualize highly dimensional data.
 
