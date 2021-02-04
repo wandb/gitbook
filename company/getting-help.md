@@ -1,16 +1,16 @@
 # Support
 
-## Resources
+## Ressources
 
-1. [Example Projects](../examples.md) - full scripts of models using Keras, PyTorch, and TensorFlow
-2. [Articles](https://www.wandb.com/articles) - blog posts about best practices and trends in machine learning
-3. [Slack](http://wandb.me/slack) - join our open forum to ask questions and discuss projects
+1. \*\*\*\*[Projets d’exemple](https://docs.wandb.ai/examples) – scripts complets de modèles utilisant Keras, PyTorch, et TensorFlow
+2. [Articles](https://www.wandb.com/articles) – articles de blog sur les meilleures pratiques et les tendances dans l’apprentissage automatique
+3.  [Slack](http://wandb.me/slack) – rejoignez notre forum ouvert pour nous poser des questions et discuter des projets
 
-## Contact us
+## Contactez-nous
 
-We really appreciate hearing from people who are using our tools. If you have questions or suggestions, please reach out!
+Nous sommes vraiment ravis d’entendre le retour des personnes qui utilisent nos outils. Si vous avez des questions ou des suggestions, n’hésitez pas à nous envoyer un message !
 
-1. Email - support@wandb.com goes directly to the team
-2. Intercom - click the yellow widget in the lower right corner of the page to chat with us
-3. [Issues](https://github.com/wandb/client) - if you'd prefer, you can file issues in our public issue tracker
+1.  Email - [support@wandb.com](mailto:support@wandb.com) va directement à l’équipe
+2. Intercom – cliquez sur le widget jaune en bas à droite de la page pour discuter avec nous
+3.  [Problèmes](https://github.com/wandb/client) – si vous préférez, vous pouvez signaler des problèmes dans notre tracker public de problèmes
 
