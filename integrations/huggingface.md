@@ -36,7 +36,7 @@ Use `wandb.login()` in notebook environments \(Jupyter/Colab\)
 
 We've created a few examples for you to see how the integration works:
 
-* [Demo in Google Colab](https://colab.research.google.com/drive/1Me2goAjjIhdCWtpyGSIHELJCF-jC3m7-?usp=sharing) with model logging
+* [Demo in Google Colab](http://wandb.me/hf) with model logging
 * [Huggingtweets ](https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI)- Train a model to generate tweets
 * [Does model size matter?](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) A comparison of BERT and DistilBERT
 
