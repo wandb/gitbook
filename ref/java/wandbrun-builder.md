@@ -1,35 +1,35 @@
 ---
 description: >-
-  The Builder is used to help configure and initialize a run before the training
-  loop where you log model metrics.
+  El Builder es utilizado para ayudar a configurar y a inicializar una ejecución
+  antes del ciclo de entrenamiento, en donde registras las métricas del modelo.
 ---
 
 # WandbRun.Builder
 
-### Overview
+### Resumen
 
-The Builder pattern allows us to write readable code to set up a WandbRun. The builder contains a few functions used to help initialize these values.
+El patrón Builder nos permite escribir código legible para establecer un WandbRun. El builder contiene algunas funciones utilizadas para ayudar a inicializar estos valores.
 
-* **builder.build\(\)** — returns a WandbRun instance, representing a run 
-* **builder.withName\(String name\)** — a display name for this run, which shows up in the UI and is editable, doesn't have to be unique
-* **builder.withConfig\(JSONObject data\)** — a Java JSON Object that contains any initial config values
-* **builder.withProject\(String project\)** — the name of the project to which this run will belong
-* **builder.withNotes\(String notes\)** — a description associated with the run
-* **builder.setTags\(List&lt;String&gt; tags\)** — an array of tags to be used with the run
-* **builder.setJobType\(String type\)** — the type of job you are logging, e.g. eval, worker, ps \(_default: training_\)
-* **builder.withGroup\(String group\)** — a string by which to group other runs; see [Grouping](../../library/grouping.md)
+* builder.build\(\) - devuelve una instancia de WandbRun, que representa una ejecución
+* builder.withName\(String name\) – un nombre para visualizar esta ejecución, que se muestra en la Interfaz de Usuario y es editable, no tiene que ser único
+*  builder.withConfig\(JSONObject data\) – un objeto JSON  de Java que contiene cualquier valor de configuración inicial
+*  builder.withProject\(String project\) – el nombre del proyecto al que va a pertenecer esta ejecución
+* builder.withNotes\(String notes\) – una descripción asociada con la ejecución
+* builder.setTags\(List&lt;String&gt; tags\) – un arreglo de etiquetas que se va a usar con la ejecución
+* builder.setJobType\(String type\) – el tipo de trabajo que estás registrando, por ejemplo, eval, worker, ps \(por defecto es training\)
+* builder.withGroup\(String group\) – un string por el que se agrupa a otras ejecuciones; ver [Agrupamiento](https://docs.wandb.ai/library/grouping)
 
-Most of these settings can also be controlled via [Environment Variables](../../library/environment-variables.md). This is often useful when you're running jobs on a cluster.
+La mayoría de estos ajustes también pueden ser controlados a través de las [Variables de Entorno](https://docs.wandb.ai/library/environment-variables). Por lo general, esto es útil cuando estés ejecutando trabajos en un cluster.
 
-### Examples
+### Ejemplos
 
-Initializing a default run
+Inicializar una ejecución por defecto
 
 ```java
 WandbRun run = new WandbRun.Builder().build();
 ```
 
-Initializing a run with a config object and name
+Inicializar una ejecución con un objeto de configuración y un nombre
 
 ```java
 // Create JSONObject config

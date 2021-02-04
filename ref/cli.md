@@ -2,207 +2,207 @@
 
 ## wandb
 
-**Usage**
+ **Uso**
 
 `wandb [OPTIONS] COMMAND [ARGS]...`
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| **Opciones** | Descripción |
 | :--- | :--- |
-| --version | Show the version and exit. |
-| --help | Show this message and exit. |
+| --version | Muestra la versión y sale. |
+| --help | Muestra este mensaje y sale. |
 
-**Commands**
+ **Comandos**
 
-| **Commands** | **Description** |
+| Comandos | Descripción |
 | :--- | :--- |
-| agent | Run the W&B agent |
-| artifact | Commands for interacting with artifacts |
-| controller | Run the W&B local sweep controller |
-| disabled | Disable W&B. |
-| docker | docker lets you run your code in a docker image ensuring... |
-| docker-run | Simple wrapper for `docker run` which sets W&B environment... |
-| enabled | Enable W&B. |
-| init | Configure a directory with Weights & Biases |
-| local | Launch local W&B container \(Experimental\) |
-| login | Login to Weights & Biases |
-| offline | Disable W&B sync |
-| online | Enable W&B sync |
-| pull | Pull files from Weights & Biases |
-| restore | Restore code, config and docker state for a run |
-| status | Show configuration settings |
-| sweep | Create a sweep |
-| sync | Upload an offline training directory to W&B |
+| agent | Ejecuta el agente de W&B |
+| artifact | Comandos para interactuar con los artefactos |
+| controller | Ejecuta el controlador de barrido local de W&B |
+| disabled | Deshabilita a W&B. |
+| docker | docker te permite ejecutar tu código en una imagen de docker asegurando que... |
+| docker-run | wrapper simple para docker run que establece el entorno de W&B... |
+| enabled | Habilita a W&B |
+| init | Configura un directorio con Weights and Biases |
+| local | Lanza al contenedor local de W&B \(Experimental\) |
+| login | Inicia Sesión en Weights & Biases |
+| offline | Deshabilita la sincronización con W&B |
+| online | Habilita la sincronización con W&B |
+| pull | Toma archivos desde Weights & Biases |
+| restore | Restituye código, configuración y el estado de docker para un ejecución |
+| status | Muestra los ajustes de configuración |
+| sweep | Crea un barrido |
+| sync | Sube un directorio de entrenamiento fuera de línea a W&B |
 
 ## wandb agent
 
-**Usage**
+**Uso**
 
 `wandb agent [OPTIONS] SWEEP_ID`
 
-**Summary**
+ **Resumen**
 
-Run the W&B agent
+ Corre el agente de W&B
 
-**Options**
+ **Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| -p, --project | The project of the sweep. |
-| -e, --entity | The entity scope for the project. |
-| --count | The max number of runs for this agent. |
-| --help | Show this message and exit. |
+| -p, --project | El proyecto del barrido. |
+| -e, --entity | El alcance de la entidad para el proyecto. |
+| --count | El número máximo de ejecuciones para este agente. |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb artifact
 
-**Usage**
+**Uso**
 
 `wandb artifact [OPTIONS] COMMAND [ARGS]...`
 
-**Summary**
+**Resumen**
 
-Commands for interacting with artifacts
+ Comandos para interactuar con los artefactos
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | Muestra este mensaje y sale. |
 
 ### wandb artifact get
 
-**Usage**
+**Uso**
 
 `wandb artifact get [OPTIONS] PATH`
 
-**Summary**
+**Resumen**
 
-Download an artifact from wandb
+Descarga un artefacto de wandb
 
 **Options**
 
-| **Options** | **Description** |
+| Opciones | Descripciñon |
 | :--- | :--- |
-| --root | The directory you want to download the artifact to |
-| --type | The type of artifact you are downloading |
-| --help | Show this message and exit. |
+| --root | El directorio al que quieres descargar el artefacto |
+| --type | El tipo del artefacto que estás descargando |
+| --help | Muestra este mensaje y sale. |
 
 ### wandb artifact ls
 
-**Usage**
+**Uso**
 
 `wandb artifact ls [OPTIONS] PATH`
 
-**Summary**
+**Resumen**
 
-List all artifacts in a wandb project
+Lista todos los artefactos en un proyecto de wandb
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| -t, --type | The type of artifacts to list |
-| --help | Show this message and exit. |
+| -t, --type | El tipo de artefacto que se va a listar |
+| --help | Muestra este mensaje y sale. |
 
 ### wandb artifact put
 
-**Usage**
+**Uso**
 
 `wandb artifact put [OPTIONS] PATH`
 
-**Summary**
+**Resumen**
 
-Upload an artifact to wandb
+Sube un artefacto a wandb
 
-**Options**
+ **Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| -n, --name | The name of the artifact to push: |
-| -d, --description | A description of this artifact |
-| -t, --type | The type of the artifact |
-| -a, --alias | An alias to apply to this artifact |
-| --help | Show this message and exit. |
+| -n, --name | El nombre del artefacto que hay que enviar: |
+| -d, --description | Una descripción de este artefacto |
+| -t, --type | El tipo del artefacto |
+| -a, --alias | Un alias que se va a aplicar a este artefacto |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb controller
 
-**Usage**
+**Uso**
 
 `wandb controller [OPTIONS] SWEEP_ID`
 
-**Summary**
+ **Resumen**
 
-Run the W&B local sweep controller
+ Ejecuta el controlador de barrido local de W&B
 
-**Options**
+ **Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| --verbose | Display verbose output |
-| --help | Show this message and exit. |
+| --verbose | Exhibe una salida verbosa. |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb disabled
 
-**Usage**
+**Uso**
 
 `wandb disabled [OPTIONS]`
 
-**Summary**
+ **Resumen**
 
-Disable W&B.
+Deshabilita a W&B.
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb docker
 
-**Usage**
+**Uso**
 
 `wandb docker [OPTIONS] [DOCKER_RUN_ARGS]... [DOCKER_IMAGE]`
 
-**Summary**
+**Resumen** 
 
-W&B docker lets you run your code in a docker image ensuring wandb is configured. It adds the WANDB\_DOCKER and WANDB\_API\_KEY environment variables to your container and mounts the current directory in /app by default. You can pass additional args which will be added to `docker run` before the image name is declared, we'll choose a default image for you if one isn't passed:
+wandb docker te permite ejecutar tu código en una imagen de docker, que se asegura de que wandb esté configurado. Agrega las variables de entorno WANDB\_DOCKER y WANDB\_API\_KEY a tu contenedor y monta al directorio actual por defecto en /app. Puedes pasar argumentos adicionales que van a ser agregados a docker run antes de que sea declarado el nombre de la imagen, elegiremos una imagen predeterminada por ti si no has pasado ninguna:
 
-wandb docker -v /mnt/dataset:/app/data wandb docker gcr.io/kubeflow- images-public/tensorflow-1.12.0-notebook-cpu:v0.4.0 --jupyter wandb docker wandb/deepo:keras-gpu --no-tty --cmd "python train.py --epochs=5"
+wandb docker -v /mnt/dataset:/app/data wandb docker gcr.io/kubeflow- images-public/tensorflow-1.12.0-notebook-cpu:v0.4.0 --jupyter wandb docker wandb/deepo:keras-gpu --no-tty --cmd "python train.py –epochs=5"
 
-By default we override the entrypoint to check for the existance of wandb and install it if not present. If you pass the --jupyter flag we will ensure jupyter is installed and start jupyter lab on port 8888. If we detect nvidia-docker on your system we will use the nvidia runtime. If you just want wandb to set environment variable to an existing docker run command, see the wandb docker-run command.
+Por defecto, sobrescribimos el punto de entrada para verificar la existencia de wandb y lo instalamos si no está presente. Si pasas la bandera --jupyter, nos aseguraremos de que jupyter esté instalado y arrancaremos un laboratorio de juypyter en el puerto 8888. Si detectamos a nvidia-docker en tu sistema, utilizaremos el runtime de nvidia. Si solo quieres que wandb establezca la variable de entorno a un comando docker run existente, mira el comando wandb docker-run.
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| --nvidia | / --no-nvidia    Use the nvidia runtime, defaults to nvidia if |
-| nvidia-docker | is present |
-| --digest | Output the image digest and exit |
-| --jupyter | / --no-jupyter  Run jupyter lab in the container |
-| --dir | Which directory to mount the code in the container |
-| --no-dir | Don't mount the current directory |
-| --shell | The shell to start the container with |
-| --port | The host port to bind jupyter on |
-| --cmd | The command to run in the container |
-| --no-tty | Run the command without a tty |
-| --help | Show this message and exit. |
+| --nvidia | / --no-nvidia Utiliza el runtime de nvidia, por defecto a nvidia si |
+| nvidia-docker | está presente |
+| --digest | Imprime el digest de la imagen y sale |
+| --jupyter | / --no-jupyter Corre el laboratorio de jupyter en el contenedor |
+| --dir | A qué directorio se monta el código en el contenedor |
+| --no-dir | No monta el directorio actual |
+| --shell | El shell con el cual comenzar el contenedor |
+| --port | El puerto del host sobre el que se vincula a jupyter |
+| --cmd | El comando que se va a correr en el contenedor |
+| --no-tty | Corre el comando sin un tty |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb enabled
 
-**Usage**
+**Uso**
 
 `wandb enabled [OPTIONS]`
 
-**Summary**
+ **Resumen**
 
-Enable W&B.
+ Habilita a W&B
 
-**Options**
+ **Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb init
 
@@ -210,202 +210,202 @@ Enable W&B.
 
 `wandb init [OPTIONS]`
 
-**Summary**
+**Resumen**
 
-Configure a directory with Weights & Biases
+Configura un directorio con Weights and Biases
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| -p, --project | The project to use. |
-| -e, --entity | The entity to scope the project to. |
-| --reset | Reset settings |
-| -m, --mode | Can be "online", "offline" or "disabled". Defaults to |
-| --help | Show this message and exit. |
+| -p, --project | El proyecto que se va a usar. |
+| -e, --entity | La entidad a la que se le va a dar alcance al proyecto. |
+| --reset | Ajustes de reinicialización |
+| -m, --mode | Puede ser “online”, “offline” o “disabled”. El valor predeterminado es |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb local
 
-**Usage**
+**Uso**
 
 `wandb local [OPTIONS]`
 
-**Summary**
+**Resumen**
 
-Launch local W&B container \(Experimental\)
+Lanza al contenedor local de W&B \(Experimental\)
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| -p, --port | The host port to bind W&B local on |
-| -e, --env | Env vars to pass to wandb/local |
-| --daemon | / --no-daemon  Run or don't run in daemon mode |
-| --upgrade | Upgrade to the most recent version |
-| --help | Show this message and exit. |
+| -p, --port | El puerto del host sobre el que se vincula localmente a wandb |
+| -e, --env | Variables de entorno que se pasan a wandb/local |
+| --daemon | / --no-daemon Ejecuta, o no, en modo demonio |
+| --upgrade | Actualiza a la versión más reciente |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb login
 
-**Usage**
+**Uso**
 
 `wandb login [OPTIONS] [KEY]...`
 
-**Summary**
+ **Resumen**
 
-Login to Weights & Biases
+Inicia Sesión en Weights & Biases
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+|  **Opciones** | Descripción |
 | :--- | :--- |
-| --cloud | Login to the cloud instead of local |
-| --host | Login to a specific instance of W&B |
-| --relogin | Force relogin if already logged in. |
-| --anonymously | Log in anonymously |
-| --help | Show this message and exit. |
+| --cloud | Inicia sesión en la nube, en vez de localmente |
+| --host | Inicia sesión con una instancia específica de W&B |
+| --relogin | Fuerza el reinicio de sesión en el caso en que ésta ya se haya realizado |
+| --anonymously | Inicia sesión anónimamente |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb offline
 
-**Usage**
+**Uso**
 
 `wandb offline [OPTIONS]`
 
-**Summary**
+ **Resumen**
 
-Disable W&B sync
+Deshabilita la sincronización con W&B
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb online
 
-**Usage**
+**Uso**
 
 `wandb online [OPTIONS]`
 
-**Summary**
+**Resumen**
 
-Enable W&B sync
+Habilita la sincronización con W&B
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| --help | Show this message and exit. |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb pull
 
-**Usage**
+**Uso**
 
 `wandb pull [OPTIONS] RUN`
 
-**Summary**
+ **Resumen**
 
-Pull files from Weights & Biases
+Toma archivos desde Weights & Biases
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| -p, --project | The project you want to download. |
-| -e, --entity | The entity to scope the listing to. |
-| --help | Show this message and exit. |
+| -p, --project | El proyecto que quieres descargar |
+| -e, --entity | La entidad a la que se le va a dar alcance al listado. |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb restore
 
-**Usage**
+**Uso**
 
 `wandb restore [OPTIONS] RUN`
 
-**Summary**
+**Resumen**
 
-Restore code, config and docker state for a run
+Restituye código, configuración y el estado de docker para un ejecución
 
-**Options**
+Opciones
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
 | --no-git | Skupp |
-| --branch | / --no-branch  Whether to create a branch or checkout detached |
-| -p, --project | The project you wish to upload to. |
-| -e, --entity | The entity to scope the listing to. |
-| --help | Show this message and exit. |
+| --branch | / --no-branch  Si crear una rama o un checkout detached |
+| -p, --project | El proyecto al que deseas subir |
+| -e, --entity | La entidad a la que se le va a dar alcance al listado. |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb status
 
-**Usage**
+**Uso**
 
 `wandb status [OPTIONS]`
 
-**Summary**
+**Resumen**
 
-Show configuration settings
+Muestra los ajustes de la configuración
 
 **Options**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| --settings | / --no-settings  Show the current settings |
-| --help | Show this message and exit. |
+| --settings | / --no-settings  Muestra los ajustes actuales |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb sweep
 
-**Usage**
+ **Uso**
 
 `wandb sweep [OPTIONS] CONFIG_YAML`
 
-**Summary**
+**Resumen**
 
-Create a sweep
+Crea un barrido
 
-**Options**
+**Opciones**
 
-| **Options** | **Description** |
+| Opciones | Descripción |
 | :--- | :--- |
-| -p, --project | The project of the sweep. |
-| -e, --entity | The entity scope for the project. |
-| --controller | Run local controller |
-| --verbose | Display verbose output |
-| --name | Set sweep name |
-| --program | Set sweep program |
-| --update | Update pending sweep |
-| --help | Show this message and exit. |
+| -p, --project | El proyecto del barrido. |
+| -e, --entity | El alcance de la entidad para el proyecto. |
+| --controller | Corre un controlador local |
+| --verbose | Exhibe salida verbosa |
+| --name | Establece el nombre del barrido |
+| --program | Establece el programa del barrido |
+| --update | Actualiza un barrido pendiente |
+| --help | Muestra este mensaje y sale. |
 
 ## wandb sync
 
-**Usage**
+**Uso**
 
 `wandb sync [OPTIONS] [PATH]...`
 
-**Summary**
+**Resumen**
 
-Upload an offline training directory to W&B
+ Sube un directorio de entrenamiento fuera de línea a W&B
 
-**Options**
+ **Opciones**
 
-| **Options** | **Description** |
+|  ****Opciones | Descripción |
 | :--- | :--- |
-| --id | The run you want to upload to. |
-| -p, --project | The project you want to upload to. |
-| -e, --entity | The entity to scope to. |
-| --include-globs | Comma seperated list of globs to include. |
-| --exclude-globs | Comma seperated list of globs to exclude. |
+| --id | La ejecución a la que deseas subir. |
+| -p, --project | El proyecto al que deseas subir |
+| -e, --entity | La entidad a la cual darle alcance. |
+| --include-globs | Lista separada por comas de los globs que se van a incluir. |
+| --exclude-globs | Lista separada por comas de los globs que se van a excluir. |
 | --include-online | / --no-include-online |
-| Include | online runs |
+| Include | ejecuciones en línea |
 | --include-offline | / --no-include-offline |
-| Include | offline runs |
+| Include | ejecuciones fuera de línea |
 | --include-synced | / --no-include-synced |
-| Include | synced runs |
+| Include | ejecuciones sincronizadas |
 | --mark-synced | / --no-mark-synced |
-| Mark | runs as synced |
-| --sync-all | Sync all runs |
-| --clean | Delete synced runs |
-| --clean-old-hours | Delete runs created before this many hours. |
-| To | be used alongside --clean flag. |
-| --clean-force | Clean without confirmation prompt. |
-| --show | Number of runs to show |
-| --help | Show this message and exit. |
+| Mark | las ejecuciones como sincronizadas |
+| --sync-all | Sincroniza todas las ejecuciones |
+| --clean | Borra las ejecuciones sincronizadas |
+| --clean-old-hours | Borra las ejecuciones creadas antes de tantas horas. |
+| Para | ser usado con la bandera –clean. |
+| --clean-force | Limpia sin pedir la confirmación. |
+| --show | Número de ejecuciones que se van a mostrar. |
+| --help | Muestra este mensaje y sale. |
 

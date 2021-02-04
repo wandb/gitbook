@@ -4,7 +4,7 @@ description: wandb.keras
 
 # Keras Reference
 
-[source](https://github.com/wandb/client/blob/master/wandb/keras/__init__.py#L148)
+[fuente](https://github.com/wandb/client/blob/master/wandb/keras/__init__.py#L148)
 
 ```python
 WandbCallback(self,
@@ -30,40 +30,41 @@ WandbCallback(self,
               log_best_prefix='best_')
 ```
 
-WandbCallback automatically integrates keras with wandb.
+WandbCallback integra automáticamente a keras con wandb.
 
-**Examples**:
+ **Ejemplos:**
 
 ```python
 model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 callbacks=[WandbCallback()])
 ```
 
-WandbCallback will automatically log history data from any metrics collected by keras: loss and anything passed into keras\_model.compile\(\)
+WandbCallback registrará automáticamente datos del historial de cualquier métrica recogida por keras: pérdida y cualquier cosa pasada a keras\_model.compile\(\).
 
-WandbCallback will set summary metrics for the run associated with the "best" training step, where "best" is defined by the `monitor` and `mode` attribues. This defaults to the epoch with the minimum val\_loss. WandbCallback will by default save the model associated with the best epoch..
+WandbCallback va a establecer métricas de la síntesis para la ejecución asociada con el paso del “mejor” entrenamiento, en donde “mejor” está definido por los atributos `monitor` y `mode`. Esto deja a la época con un valor por defecto igual al mínimo de val\_loss. WandbCallback va a guardar por defecto al modelo asociado con la mejor época.
 
-WandbCallback can optionally log gradient and parameter histograms.
+WandbCallback opcionalmente puede registrar histogramas de gradientes y parámetros.
 
-WandbCallback can optionally save training and validation data for wandb to visualize.
+WandbCallback opcionalmente puede guardar los datos del entrenamiento y de la validación para que wandb los visualice.
 
-**Arguments**:
+**Argumentos:**
 
-* `monitor` _str_ - name of metric to monitor.  Defaults to val\_loss.
-* `mode` _str_ - one of {"auto", "min", "max"}. "min" - save model when monitor is minimized "max" - save model when monitor is maximized "auto" - try to guess when to save the model \(default\). save\_model: True - save a model when monitor beats all previous epochs False - don't save models
-* `save_weights_only` _boolean_ - if True, then only the model's weights will be saved \(`model.save_weights(filepath)`\), else the full model is saved \(`model.save(filepath)`\).
-* `log_weights` - \(boolean\) if True save histograms of the model's layer's weights.
-* `log_gradients` - \(boolean\) if True log histograms of the training gradients. The model must define a `total_loss`.
-* `training_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  This is needed for calculating gradients - this is mandatory if `log_gradients` is `True`.
-* `validation_data` - \(tuple\) Same format \(X,y\) as passed to model.fit.  A set of data for wandb to visualize.  If this is set, every epoch, wandb will make a small number of predictions and save the results for later visualization.
-* `generator` _generator_ - a generator that returns validation data for wandb to visualize.  This generator should return tuples \(X,y\).  Either validate\_data or generator should be set for wandb to visualize specific data examples.
-* `validation_steps` _int_ - if `validation_data` is a generator, how many steps to run the generator for the full validation set.
-* `labels` _list_ - If you are visualizing your data with wandb this list of labels will convert numeric output to understandable string if you are building a multiclass classifier.  If you are making a binary classifier you can pass in a list of two labels \["label for false", "label for true"\].  If validate\_data and generator are both false, this won't do anything.
-* `predictions` _int_ - the number of predictions to make for visualization each epoch, max is 100.
-* `input_type` _string_ - type of the model input to help visualization. can be one of: \("image", "images", "segmentation\_mask"\).
-* `output_type` _string_ - type of the model output to help visualziation. can be one of: \("image", "images", "segmentation\_mask"\).
-* `log_evaluation` _boolean_ - if True save a dataframe containing the full validation results at the end of training.
-* `class_colors` _\[float, float, float\]_ - if the input or output is a segmentation mask, an array containing an rgb tuple \(range 0-1\) for each class.
-* `log_batch_frequency` _integer_ - if None, callback will log every epoch. If set to integer, callback will log training metrics every log\_batch\_frequency batches.
-* `log_best_prefix` _string_ - if None, no extra summary metrics will be saved. If set to a string, the monitored metric and epoch will be prepended with this value and stored as summary metrics.
+* `monitor str` – nombre de la métrica que hay que monitorear. El valor predeterminado es val\_loss.
+* `mode str` – uno de {“auto”, “min”, “max”}. “min” - guarda el modelo cuando el monitor es minimizado; “max” - guarda el modelo cuando el monitor es maximizado; “auto” - intenta darse cuenta de cuándo guardar el modelo \(por defecto\).
+* `save_model`: True – guarda un modelo cuando el monitor supera todas las épocas previas. False – no guarda los modelos.
+*  `save_weights_only boolean` – si es True, entonces van a ser guardados solamente los pesos del modelo \(model.save\_weights\(filepath\)\), sino el modelo completo \(model.save\(filepath\)\).
+* `low_weights` – \(booleano\) si es True guarda los histogramas de los pesos de las capas del modelo.
+* `log_gradients` – \(booleano\) si es True registra los histogramas de los gradientes del entrenamiento. El modelo debe definir un total\_loss.
+*  `training_data` – \(tupla\) El mismo formato \(X,y\) que se le pasa a mode.fit. Esto es necesario para calcular los gradientes. Es obligatorio si log\_gradients es True.
+* `validation_data` – \(tupla\) El mismo formato \(X,y\) que se le pasa a mode.fit. Un conjunto de datos para que visualice wandb. Si está establecido, en cada época, wandb hará un pequeño número de predicciones y guardará los resultados para una visualización posterior.
+*  `generator generator` – un generador que devuelve datos de validación para que wandb visualice. Este generador debería devolver tuplas \(X,y\). Debería ser establecido ya sea validate\_data o generator para que wandb visualice ejemplos de datos específicos.
+* `validation_steps` int – si validation\_data es un generador, cuántos pasos hay que correr al generador para que la validación completa sea establecida.
+* `labels lista` – Si estás visualizando tus datos con wandb, esta lista de etiquetas va a convertir la salida numérica a strings entendibles, si es que estás construyendo un clasificador de múltiples clases. Si estás haciendo un clasificador binario, puedes pasarle una lista de dos etiquetas \[“etiqueta para falso”, “etiqueta para verdadero”\]. Si tanto validate\_data como generator son falsos, no va a hacer nada.
+*  `predictions int` – el número de predicciones que hay que realizar para la visualización de cada época. El máximo es 100.
+*  `input_type` string – tipo de la entrada del modelo para ayudar a la visualización. Puede ser uno de estos: \(“image”, “images”, “segmentation\_mask”\).
+* `output_type` string - tipo de la salida del modelo para ayudar la visualización. Puede ser uno de estos: \(“image”, “images”, “segmentation\_mask”\).
+*  `log_evaluation` booleano – Si es True guarda un dataframe que contiene los resultados de validación completos al final del entrenamiento.
+*  `class_colors` \[float, float, float\] – si la entrada o la salida es una máscara de segmentación, es un arreglo conteniendo una tupla rgb \(en el rango 0-1\) por cada clase.
+* `log_batch_frequency` intreger – si en None, el callback va a registrar cada época. Si es establecido a un entero, el callback va a registrar las métricas de entrenamiento cada uno de los  log\_batch\_frequency lotes.
+* `log_best_prefix` string – si es None, no va a ser guardada ninguna métrica extra de la síntesis. Si es establecido a string, la métrica y la época monitoreadas serán antepuestas con este valor y van a ser almacenadas como métricas de síntesis.
 

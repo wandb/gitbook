@@ -6,33 +6,31 @@ description: wandb.apis.public
 
 ## wandb.apis.public
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1)
 
-### Api Objects
+###  Objetos Api
 
 ```python
 class Api(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L181)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L181)
 
-Used for querying the wandb server.
+ Usados para consultar al servidor de wandb.
 
-**Examples**:
+ **Ejemplos:**
 
-Most common way to initialize
+ La forma más común de inicializar
 
 ```text
 wandb.Api()
 ```
 
-**Arguments**:
+ **Argumentos:**
 
-* `overrides` _dict_ - You can set `base_url` if you are using a wandb server
+* `overrides` _dict_ -Puedes establecer `base_url` si estás usando un servidor de wandb distinto a [https://api.wandb.ai](https://api.wandb.ai/).
 
-  other than [https://api.wandb.ai](https://api.wandb.ai).
-
-  You can also set defaults for `entity`, `project`, and `run`.
+  También puedes establecer los valores predeterminados `para entity`, `project` y run.
 
 **flush**
 
@@ -40,9 +38,9 @@ wandb.Api()
  | flush()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L276)
+ [\[fuen](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L276)[te](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L276)[\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L276)
 
-The api object keeps a local cache of runs, so if the state of the run may change while executing your script you must clear the local cache with `api.flush()` to get the latest values associated with the run.
+Este objeto de la api mantiene un caché local de las ejecuciones, así que si el estado de la ejecución puede cambiar mientras se ejecuta tu script, debes limpiar el caché con `api.flush()` para obtener los últimos valores asociados con la ejecución.
 
 **projects**
 
@@ -50,23 +48,18 @@ The api object keeps a local cache of runs, so if the state of the run may chang
  | projects(entity=None, per_page=200)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L338)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L338)
 
-Get projects for a given entity.
+Obtiene los proyectos para una entidad dada.
 
-**Arguments**:
+**Argumentos:**
 
-* `entity` _str_ - Name of the entity requested.  If None will fallback to
+* `entity str` – Nombre de la entidad solicitada. Si es None, va a tomar como opción alternativa a la entidad por defecto pasada a Api. Si no hay ninguna entidad por defecto, levantará un ValueError.
+* `per_page int` – Establece el tamaño de la página para la paginación de consultas. None va a usar el valor por defecto. Por lo general, no hay razón para cambiarlo.
 
-  default entity passed to `Api`.  If no default entity, will raise a `ValueError`.
+ **Devuelve:**
 
-* `per_page` _int_ - Sets the page size for query pagination.  None will use the default size.
-
-  Usually there is no reason to change this.
-
-**Returns**:
-
-A `Projects` object which is an iterable collection of `Project` objects.
+Un objeto `Projects` que es una colección iterable de objetos `Project`.
 
 **reports**
 
@@ -74,23 +67,21 @@ A `Projects` object which is an iterable collection of `Project` objects.
  | reports(path="", name=None, per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L360)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L360)
 
-Get reports for a given project path.
+Obtiene reportes para una ruta dada de un proyecto.
 
-WARNING: This api is in beta and will likely change in a future release
+AVISO: Esta api está en estado beta y probablemente cambie en una entrega futura.
 
-**Arguments**:
+**Argumentos:**
 
-* `path` _str_ - path to project the report resides in, should be in the form: "entity/project"
-* `name` _str_ - optional name of the report requested.
-* `per_page` _int_ - Sets the page size for query pagination.  None will use the default size.
+* `path str` – ruta al proyecto en el que reside el reporte, debería estar en la forma: “entity/project”.
+* `name str` – nombre opcional del reporte solicitado.
+* `per_page int` – Establece el tamaño de la página para la paginación de las consultas. None va a usar el valor por defecto. Por lo general, no hay razón para cambiarlo.
 
-  Usually there is no reason to change this.
+Devuelve:
 
-**Returns**:
-
-A `Reports` object which is an iterable collection of `BetaReport` objects.
+Un objeto Reports que es una colección iterable de objetos `BetaReport`.
 
 **runs**
 
@@ -98,57 +89,51 @@ A `Reports` object which is an iterable collection of `BetaReport` objects.
  | runs(path="", filters={}, order="-created_at", per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L393)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L393)
 
-Return a set of runs from a project that match the filters provided. You can filter by `config.*`, `summary.*`, `state`, `entity`, `createdAt`, etc.
+Return a set of runs from a project that match the filters provided. You can filter by `config.*`, `summary.*`, `state`, `entity`, `createdAt`, etc. Devuelve un conjunto de ejecuciones desde un proyecto que se corresponde con los filtros provistos. Puedes filtrar por `config.`_, `summary.`_,  `state`, `entity`, createdAt, etc.
 
-**Examples**:
+**Ejemplos:**
 
-Find runs in my\_project config.experiment\_name has been set to "foo"
+Encuentra las ejecuciones en my\_project config.experiment\_name que hayan sido establecidas a “foo”
 
 ```text
 api.runs(path="my_entity/my_project", {"config.experiment_name": "foo"})
 ```
 
-Find runs in my\_project config.experiment\_name has been set to "foo" or "bar"
+Encuentra las ejecuciones en my\_project config.experiment\_name que hayan sido establecidas a “foo” o a “bar”
 
 ```text
 api.runs(path="my_entity/my_project",
 - `{"$or"` - [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
 ```
 
-Find runs in my\_project sorted by ascending loss
+Encuentra las ejecuciones en my\_project ordenadas de forma ascendente por pérdida
 
 ```text
 api.runs(path="my_entity/my_project", {"order": "+summary_metrics.loss"})
 ```
 
-**Arguments**:
+Argumentos:
 
-* `path` _str_ - path to project, should be in the form: "entity/project"
-* `filters` _dict_ - queries for specific runs using the MongoDB query language.
+* path str – Ruta al proyecto, debería estar en la forma: “entity/project”.
+* filters diccionario – Consulta por ejecuciones específicas, utilizando el lenguaje de consultas de MongoDB.
 
-  You can filter by run properties such as config.key, summary\_metrics.key, state, entity, createdAt, etc.
+Puedes filtrar por las propiedades de la ejecución, tales como config.key, summary\_metrics.key, state, entity, createdAt, etc. Por ejemplo:{"config.experiment\_name": "foo"} encontraría ejecuciones con una entrada de configuración con un nombre de experimento establecido a “foo”.
 
-  For example: {"config.experiment\_name": "foo"} would find runs with a config entry
+Puedes componer operaciones para hacer consultas más complicadas, mira la Referencia para el lenguaje en https://docs.mongodb.com/manual/reference/operator/query
 
-  of experiment name set to "foo"
+* order str – order puede ser created\_at, heartbeat\_at, config.\*.value, or summary\_metrics.\*.
 
-  You can compose operations to make more complicated queries,
+Si antepones a order con un +, el orden es ascendente.
 
-  see Reference for the language is at  [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query)
+Si antepones a order con un -, el orden es de descendente.
 
-* `order` _str_ - Order can be `created_at`, `heartbeat_at`, `config.*.value`, or `summary_metrics.*`.
+El valor predeterminado de order es run.created\_at, desde el más nuevo al más viejo.
 
-  If you prepend order with a + order is ascending.
+**Devuelve:**
 
-  If you prepend order with a - order is descending \(default\).
-
-  The default order is run.created\_at from newest to oldest.
-
-**Returns**:
-
-A `Runs` object, which is an iterable collection of `Run` objects.
+Un objeto `Runs`, que es una colección iterable de objetos `Run`.
 
 **run**
 
@@ -157,17 +142,15 @@ A `Runs` object, which is an iterable collection of `Run` objects.
  | run(path="")
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L445)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L445)
 
-Returns a single run by parsing path in the form entity/project/run\_id.
+Devuelve una ejecución simple al analizar la ruta en la forma de entity/project/run\_id..
 
-**Arguments**:
+**Argumentos:**
 
-* `path` _str_ - path to run in the form entity/project/run\_id.
+* path str – ruta a la ejecución en la forma de entity/project/run\_id.
 
-  If api.entity is set, this can be in the form project/run\_id
-
-  and if api.project is set this can just be the run\_id.
+Si está establecido api.entity, puede estar en la forma project/run\_id, y si api.project también está establecido puede estar en la forma run\_id.   
 
 **Returns**:
 
@@ -182,19 +165,17 @@ A `Run` object.
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L462)
 
-Returns a sweep by parsing path in the form entity/project/sweep\_id.
+Devuelve un barrido al analizar la ruta en la forma de entity/project/sweep\_id.
 
-**Arguments**:
+**Argumentos:**
 
-* `path` _str, optional_ - path to sweep in the form entity/project/sweep\_id.  If api.entity
+* path str – ruta a la ejecución en la forma de entity/project/run\_id.
 
-  is set, this can be in the form project/sweep\_id and if api.project is set
+Si está establecido api.entity, puede estar en la forma project/run\_id, y si api.project también está establecido puede estar en la forma run\_id.   
 
-  this can just be the sweep\_id.
+**Devuelve:**
 
-**Returns**:
-
-A `Sweep` object.
+ Un objeto `Sweep`.
 
 **artifact**
 
@@ -203,15 +184,13 @@ A `Sweep` object.
  | artifact(name, type=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L496)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L496)
 
-Returns a single artifact by parsing path in the form entity/project/run\_id.
+Devuelve un artefacto simple al analizar la ruta en la forma de entity/project/run\_id.
 
-**Arguments**:
+**Argumentos:**
 
-* `name` _str_ - An artifact name. May be prefixed with entity/project. Valid names
-
-  can be in the following forms:
+* `name` _str_ - Un nombre de un artefacto. Puede estar prefijado con entity/project. Los nombres válidos pueden estar en las siguientes formas:
 
   name:version
 
@@ -219,75 +198,70 @@ Returns a single artifact by parsing path in the form entity/project/run\_id.
 
   digest
 
-* `type` _str, optional_ - The type of artifact to fetch.
+* `type` _str, optional_ - El tipo del artefacto que hay que buscar.
 
-**Returns**:
+ **Devuelve:**
 
-A `Artifact` object.
+Un objeto `Artifact`.
 
-### Projects Objects
+###  Objetos Projects
 
 ```python
 class Projects(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L616)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L616)
 
-An iterable collection of `Project` objects.
+Una colección iterable de objetos `Project`
 
-### Project Objects
+###  Objetos Project
 
 ```python
 class Project(Attrs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L678)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L678)
 
-A project is a namespace for runs
+Un proyecto es un namespace para las ejecuciones.
 
-### Runs Objects
+### Objetos Runs
 
 ```python
 class Runs(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L699)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L699)
 
-An iterable collection of runs associated with a project and optional filter. This is generally used indirectly via the `Api`.runs method
+Una colección iterable de ejecuciones asociadas con un proyecto y con un filtro opcional. Por lo general, es usado indirectamente a través del método .runs de Api.
 
-### Run Objects
+### Objetos Run
 
 ```python
 class Run(Attrs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L804)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L804)
 
-A single run associated with an entity and project.
+ Una ejecución simple asociada con una entidad y un proyecto.
 
-**Attributes**:
+**Atributos:**
 
-* `tags` _\[str\]_ - a list of tags associated with the run
-* `url` _str_ - the url of this run
-* `id` _str_ - unique identifier for the run \(defaults to eight characters\)
-* `name` _str_ - the name of the run
-* `state` _str_ - one of: running, finished, crashed, aborted
-* `config` _dict_ - a dict of hyperparameters associated with the run
-* `created_at` _str_ - ISO timestamp when the run was started
-* `system_metrics` _dict_ - the latest system metrics recorded for the run
-* `summary` _dict_ - A mutable dict-like property that holds the current summary.
-
-  Calling update will persist any changes.
-
-* `project` _str_ - the project associated with the run
-* `entity` _str_ - the name of the entity associated with the run
-* `user` _str_ - the name of the user who created the run
-* `path` _str_ - Unique identifier \[entity\]/\[project\]/\[run\_id\]
-* `notes` _str_ - Notes about the run
-* `read_only` _boolean_ - Whether the run is editable
-* `history_keys` _str_ - Keys of the history metrics that have been logged
-
-  with `wandb.log({key: value})`
+* tags \[str\] – una lista de etiquetas asociada con la ejecución
+* url str – la url de esta ejecución
+*  id str – identificador único para la ejecución \(el valor predeterminado tiene ocho caracteres\)
+* name str – el nombre de la ejecución
+* state str – uno de los siguientes: running, finished, crashed, aborted
+* config diccionario – un diccionario de hiperparámetros asociados con la ejecución
+*  created\_at str – marca horaria ISO de cuando la ejecución fue iniciada
+*  system\_metrics diccionario – las últimas métricas del sistema registradas para la ejecución
+* summary diccionario – una propiedad de tipo diccionario mutable que mantiene la síntesis actual. Al llamar a la actualización persistirá cualquier cambio.
+* project str – el proyecto asociado con la ejecución
+* entity str – el nombre de la entidad asociado con la ejecución
+* user str – el nombre del usuario que creó la ejecución
+* path str – identificador único en la forma \[entity\]/\[project\]/\[run\_id\]
+* notes str – notas acerca de la ejecución
+* read\_only booleano – Si la ejecución es editable
+*  history\_keys str – Claves de las métricas del historial que han sido registradas con wandb.log\({key: value}\)
 
 **\_\_init\_\_**
 
@@ -295,9 +269,9 @@ A single run associated with an entity and project.
  | __init__(client, entity, project, run_id, attrs={})
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L829)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L829)
 
-Run is always initialized by calling api.runs\(\) where api is an instance of wandb.Api
+Las ejecuciones siempre son inicializadas al llamar a api.runs\(\), donde api es una instancia de wandb.Api.
 
 **create**
 
@@ -306,9 +280,9 @@ Run is always initialized by calling api.runs\(\) where api is an instance of wa
  | create(cls, api, run_id=None, project=None, entity=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L887)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L829)
 
-Create a run for the given project
+Las ejecuciones siempre son inicializadas al llamar a api.runs\(\), donde api es una instancia de wandb.Api.
 
 **update**
 
@@ -317,9 +291,9 @@ Create a run for the given project
  | update()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L993)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L887)
 
-Persists changes to the run object to the wandb backend.
+Crea una ejecución para un proyecto dado.
 
 **files**
 
@@ -328,16 +302,16 @@ Persists changes to the run object to the wandb backend.
  | files(names=[], per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1070)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1070)
 
-**Arguments**:
+**Argumentos:**
 
-* `names` _list_ - names of the requested files, if empty returns all files
-* `per_page` _int_ - number of results per page
+* names lista – nombres de los archivos solicitados, si está vacía devuelve todos los archivos
+*  per\_page int – número de resultados por página
 
-**Returns**:
+**Devuelve:**
 
-A `Files` object, which is an iterator over `File` obejcts.
+* Un objeto Files, que es un iterador sobre los objetos File.
 
 **file**
 
@@ -346,15 +320,15 @@ A `Files` object, which is an iterator over `File` obejcts.
  | file(name)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1082)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1082)
 
-**Arguments**:
+**Argumentos:**
 
-* `name` _str_ - name of requested file.
+* `name` _str_ -  nombre del archivo solicitado.
 
-**Returns**:
+ **Devuelve:**
 
-A `File` matching the name argument.
+Un `File` que se corresponde con el argumento name.
 
 **upload\_file**
 
@@ -363,20 +337,16 @@ A `File` matching the name argument.
  | upload_file(path, root=".")
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1093)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1093)
 
-**Arguments**:
+**Argumentos:** 
 
-* `path` _str_ - name of file to upload.
-* `root` _str_ - the root path to save the file relative to.  i.e.
+* path str – nombre de archivo que se va a subir.
+*  root str – la ruta raíz relativa en la cual se va a guardar el archivo. Es decir, si quieres guardar el archivo en la ejecución como “my\_dir/file.txt”, y actualmente estás posicionado en “my\_dir”, entonces deberías establecer la raíz a “../”.
 
-  If you want to have the file saved in the run as "my\_dir/file.txt"
+**Devuelve:**
 
-  and you're currently in "my\_dir" you would set root to "../"
-
-**Returns**:
-
-A `File` matching the name argument.
+Un `File` que se corresponde con el argumento name.
 
 **history**
 
@@ -385,21 +355,21 @@ A `File` matching the name argument.
  | history(samples=500, keys=None, x_axis="_step", pandas=True, stream="default")
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1116)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1116)
 
-Returns sampled history metrics for a run. This is simpler and faster if you are ok with the history records being sampled.
+Devuelve métricas muestreadas del historial para una ejecución. Es lo más simple y lo más rápido si estás de acuerdo en que lo registros del historial sean muestreados.
 
-**Arguments**:
+ **Argumentos:**
 
-* `samples` _int, optional_ - The number of samples to return
-* `pandas` _bool, optional_ - Return a pandas dataframe
-* `keys` _list, optional_ - Only return metrics for specific keys
-* `x_axis` _str, optional_ - Use this metric as the xAxis defaults to \_step
-* `stream` _str, optional_ - "default" for metrics, "system" for machine metrics
+* samples int, optional – El número de muestras que se van a devolver
+*  pandas booleano, optional – Devuelve un dataframe de pandas
+* keys lista, optional – Sólo devuelve las métricas para claves específicas
+*  x\_axis str, optional – Usa esta métrica como un valor predeterminado de xAxis para \_step
+* stream str, optional - “default” para métricas, “system” para métricas de la máquina
 
-**Returns**:
+ **Devuelve:**
 
-If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics.
+. Si pandas=True, devuelve un `pandas.DataFrame` de las métricas del historial. Si pandas=False, devuelve una lista de diccionarios de las métricas del historial.
 
 **scan\_history**
 
@@ -408,13 +378,13 @@ If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False 
  | scan_history(keys=None, page_size=1000, min_step=None, max_step=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1150)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1150)
 
-Returns an iterable collection of all history records for a run.
+Devuelve una colección iterable de todos los registros del historial para una ejecución.
 
-**Example**:
+**Ejemplo:**
 
-Export all the loss values for an example run
+Exporta todos los valores de la pérdida para una ejecución de ejemplo
 
 ```python
 run = api.run("l2k2/examples-numpy-boston/i0wt6xua")
@@ -422,14 +392,14 @@ history = run.scan_history(keys=["Loss"])
 losses = [row["Loss"] for row in history]
 ```
 
-**Arguments**:
+**Argumentos:**
 
-* `keys` _\[str\], optional_ - only fetch these keys, and only fetch rows that have all of keys defined.
-* `page_size` _int, optional_ - size of pages to fetch from the api
+* keys \[str\], optional – solamente busca estas claves, y solamente busca las filas que tengan a todas las claves definidas.
+*  page\_size int, optional – tamaño de las páginas para las búsquedas desde la api
 
-**Returns**:
+**Devuelve:**
 
-An iterable collection over history records \(dict\).
+Una colección iterable sobre los registros del historial \(diccionario\).
 
 **use\_artifact**
 
@@ -438,19 +408,19 @@ An iterable collection over history records \(dict\).
  | use_artifact(artifact)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1207)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1207)
 
-Declare an artifact as an input to a run.
+Declara un artefacto como una entrada para una ejecución.
 
 **Arguments**:
 
-* `artifact` _`Artifact`_ - An artifact returned from
+* `artifact` _`Artifact`_ - Un artefacto devuelto desde
 
   `wandb.Api().artifact(name)`
 
-**Returns**:
+ **Devuelve:**
 
-A `Artifact` object.
+ Un objeto `Artifact`.
 
 **log\_artifact**
 
@@ -459,38 +429,35 @@ A `Artifact` object.
  | log_artifact(artifact, aliases=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1234)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1234)
 
-Declare an artifact as output of a run.
+Declara a un artefacto como la salida de una ejecución.
 
-**Arguments**:
+Argumentos:
 
-* `artifact` _`Artifact`_ - An artifact returned from
+* artifact Artifact – Un artefacto devuelto desde wandb.Api\(\).artifact\(name\)
+* aliases lista, optional – Alias que se va a aplicar a este artefacto
 
-  `wandb.Api().artifact(name)`
+ **Devuelve:**
 
-* `aliases` _list, optional_ - Aliases to apply to this artifact
+Un objeto `Artifact`.
 
-**Returns**:
-
-A `Artifact` object.
-
-### Sweep Objects
+###  Objetos Sweep
 
 ```python
 class Sweep(Attrs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1314)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1314)
 
-A set of runs associated with a sweep Instantiate with: api.sweep\(sweep\_path\)
+Un conjunto de ejecuciones asociadas con una instancia de barrido con: api.sweep\(sweep\_path\)
 
-**Attributes**:
+ ****Atributos:
 
-* `runs` _`Runs`_ - list of runs
-* `id` _str_ - sweep id
-* `project` _str_ - name of project
-* `config` _str_ - dictionary of sweep configuration
+* runs Runs – lista de ejecuciones
+*  id str – id del barrido
+*  project str – nombre del proyecto
+* config str – diccionario con la configuración del barrido
 
 **best\_run**
 
@@ -498,9 +465,9 @@ A set of runs associated with a sweep Instantiate with: api.sweep\(sweep\_path\)
  | best_run(order=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1400)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1440)
 
-Returns the best run sorted by the metric defined in config or the order passed in
+Ejecuta una consulta contra el backend de la nube
 
 **get**
 
@@ -509,17 +476,17 @@ Returns the best run sorted by the metric defined in config or the order passed 
  | get(cls, client, entity=None, project=None, sid=None, withRuns=True, order=None, query=None, **kwargs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1440)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1495)
 
-Execute a query against the cloud backend
+Files es una colección iterable de objetos File.
 
-### Files Objects
+### Objetos File
 
 ```python
 class Files(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1495)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1561)
 
 Files is an iterable collection of `File` objects.
 
@@ -529,18 +496,18 @@ Files is an iterable collection of `File` objects.
 class File(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1561)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1561)
 
-File is a class associated with a file saved by wandb.
+File es una clase que está asociada con un archivo guardado por wandb.
 
-**Attributes**:
+**Atributos:**
 
-* `name` _string_ - filename
-* `url` _string_ - path to file
-* `md5` _string_ - md5 of file
-* `mimetype` _string_ - mimetype of file
-* `updated_at` _string_ - timestamp of last update
-* `size` _int_ - size of file in bytes
+* name string – nombre del archivo
+*  url string – ruta al archivo
+* md5 string – md5 del archivo
+* mimetype string – tipo mime del archivo
+* updated\_at string – marca horaria de la última actualización
+* size int – tamaño del archivo en bytes
 
 **download**
 
@@ -554,21 +521,19 @@ File is a class associated with a file saved by wandb.
  | download(root=".", replace=False)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1618)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1618)
 
-Downloads a file previously saved by a run from the wandb server.
+Descarga un archivo desde el servidor de wandb que previamente ha sido guardado por una ejecución.
 
-**Arguments**:
+  
+**Argumentos:**
 
-* `replace` _boolean_ - If `True`, download will overwrite a local file
+* replace booleano – Si es `True`, la descarga va a sobrescribir al archivo local, si el mismo existe. Su valor predeterminado es `False`.
+* root str – Directorio local en el que se va a guardar el archivo. El valor por defecto es “.”.
 
-  if it exists. Defaults to `False`.
+Levanta:
 
-* `root` _str_ - Local directory to save the file.  Defaults to ".".
-
-**Raises**:
-
-`ValueError` if file already exists and replace=False
+ValueError si el archivo ya existe y replace=False
 
 ### Reports Objects
 
@@ -576,47 +541,47 @@ Downloads a file previously saved by a run from the wandb server.
 class Reports(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1641)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1641)
 
-Reports is an iterable collection of `BetaReport` objects.
+Reports es una colección iterable de objetos `BetaReport`.
 
-### QueryGenerator Objects
+###  Objetos QueryGenerator
 
 ```python
 class QueryGenerator(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1721)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1721)
 
-QueryGenerator is a helper object to write filters for runs
+QueryGenerator es un objeto auxiliar para escribir filtros para las ejecuciones.
 
-### BetaReport Objects
+###  Objetos BetaReport
 
 ```python
 class BetaReport(Attrs)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1818)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L1818)
 
-BetaReport is a class associated with reports created in wandb.
+BetaReport es una clase que esta asociada con los reportes creados en wandb.
 
-WARNING: this API will likely change in a future release
+AVISO: esta API probablemente cambie en futuras entregas
 
 **Attributes**:
 
-* `name` _string_ - report name
-* `description` _string_ - report descirpiton;
-* `user` _User_ - the user that created the report
-* `spec` _dict_ - the spec off the report;
-* `updated_at` _string_ - timestamp of last update
+* name string – nombre del reporte
+* description string – descripción del reporte
+* user User – el usuario que creó el reporte
+*  spec diccionario – la especificación del proyecto
+*  updated\_at string – marca horaria de la última actualización
 
-### ArtifactType Objects
+###  Objetos ArtifactType
 
 ```python
 class ArtifactType(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2282)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2282)
 
 **collections**
 
@@ -625,17 +590,17 @@ class ArtifactType(object)
  | collections(per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2337)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2337)
 
-Artifact collections
+ Colecciones de artefactos
 
-### ArtifactCollection Objects
+### Objetos ArtifactCollection
 
 ```python
 class ArtifactCollection(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2352)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2352)
 
 **versions**
 
@@ -644,17 +609,17 @@ class ArtifactCollection(object)
  | versions(per_page=50)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2366)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2366)
 
-Artifact versions
+Versiones del artefacto
 
-### Artifact Objects
+### Objetos Artifact
 
 ```python
 class Artifact(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2381)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2381)
 
 **delete**
 
@@ -662,9 +627,9 @@ class Artifact(object)
  | delete()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2534)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2534)
 
-Delete artifact and it's files.
+Borra al artefacto y a sus archivos.
 
 **get**
 
@@ -672,17 +637,17 @@ Delete artifact and it's files.
  | get(name)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2628)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2628)
 
-Returns the wandb.Media resource stored in the artifact. Media can be stored in the artifact via Artifact\#add\(obj: wandbMedia, name: str\)\`
+Devuelve el recurso wandb.Media almacenado en el artefacto. Los medios puede ser almacenado en el artefacto a través de Artifact\#add\(obj: wandbMedia, name: str\)\`
 
-**Arguments**:
+**Argumentos:**
 
-* `name` _str_ - name of resource.
+* name str – nombre del recurso.
 
-**Returns**:
+**Devuelve:**
 
-A `wandb.Media` which has been stored at `name`
+Un `wandb.Media` que ha sido almacenado en name.
 
 **download**
 
@@ -690,19 +655,17 @@ A `wandb.Media` which has been stored at `name`
  | download(root=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2663)
+[\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2663)
 
-Download the artifact to dir specified by the 
+Descarga el artefacto al directorio especificado por el
 
-**Arguments**:
+**Argumentos:**
 
-* `root` _str, optional_ - directory to download artifact to. If None
+*  root str, optional – directorio en el que se va a descargar el artefacto. Si es None, el artefacto va a ser descargado en ‘./artifacts//
 
-  artifact will be downloaded to './artifacts//'
+ **Devuelve:**
 
-**Returns**:
-
-The path to the downloaded contents.
+La ruta a los contenidos descargados.
 
 **file**
 
@@ -710,19 +673,17 @@ The path to the downloaded contents.
  | file(root=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2702)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2702)
 
-Download a single file artifact to dir specified by the 
+Descarga un artefacto de archivo simple al directorio especificado por el
 
-**Arguments**:
+**Argumentos:**
 
-* `root` _str, optional_ - directory to download artifact to. If None
+* `root str,` optional – directorio en el que se va a descargar el artefacto. Si es None, el artefacto va a ser descargado en ‘./artifacts//
 
-  artifact will be downloaded to './artifacts//'
+**Devuelve:**
 
-**Returns**:
-
-The full path of the downloaded file
+La ruta completa al archivo descargado
 
 **save**
 
@@ -733,7 +694,7 @@ The full path of the downloaded file
 
 [\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2737)
 
-Persists artifact changes to the wandb backend.
+Persiste los cambios del artefacto en el backend de wandb.
 
 **verify**
 
@@ -741,25 +702,23 @@ Persists artifact changes to the wandb backend.
  | verify(root=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2776)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2776)
 
-Verify an artifact by checksumming its downloaded contents.
+Verifica un artefacto por la suma de comprobación de sus contenidos descargados.
 
-Raises a ValueError if the verification fails. Does not verify downloaded reference files.
+Levanta un ValueError si falla la verificación. No verifica los archivos de referencia descargados.
 
 **Arguments**:
 
-* `root` _str, optional_ - directory to download artifact to. If None
+* `root` _str, optional_ - directorio en el que se va a descargar el artefacto. Si es None, el artefacto va a ser descargado en ‘./artifacts//’
 
-  artifact will be downloaded to './artifacts//'
-
-### ArtifactVersions Objects
+###  Objetos ArtifactVersions
 
 ```python
 class ArtifactVersions(Paginator)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2930)
+ [\[fuente\]](https://github.com/wandb/client/blob/21787ccda9c60578fcf0c7f7b0d06c887b48a343/wandb/apis/public.py#L2930)
 
-An iterable collection of artifact versions associated with a project and optional filter. This is generally used indirectly via the `Api`.artifact\_versions method
+Una colección iterable de las versiones del artefacto, asociada con un proyecto y un filtro optativo. En general, es utilizado indirectamente a través del método .artifact\_versions de `Api`
 

@@ -1,18 +1,18 @@
 ---
 description: >-
-  Here are some common use cases for pulling down data from W&B using our Python
-  API.
+  Aquí hay algunos casos de uso comunes para bajar datos desde W&B utilizando
+  nuestra API de Pyhton.
 ---
 
 # Data Export API Examples
 
-### Find the run path
+### Encuentra la ruta de la ejecución
 
-To use the public API, you'll often need the **Run Path** which is `"<entity>/<project>/<run_id>"`  In the app, open a run and click on the **Overview** tab to see the run path for any run.
+Para usar la API pública, a menudo necesitarás la Ruta de la Ejecución, que es "//". En la aplicación, abre una ejecución y haz click en la pestaña Overview para ver la ruta de la ejecución, para cualquier ejecución.
 
-### Read metrics from a run
+###  Lee las métricas de una ejecución
 
-This example outputs timestamp and accuracy saved with `wandb.log({"accuracy": acc})` for a run saved to `<entity>/<project>/<run_id>`.
+Este ejemplo imprime la marca horaria y la precisión guardadas con `wandb.log({"accuracy": acc})` para una ejecución guardada en //.
 
 ```python
 import wandb
@@ -24,9 +24,9 @@ if run.state == "finished":
       print(row["_timestamp"], row["accuracy"])
 ```
 
-### Compare two runs
+### Compara a dos ejecuciones
 
-This will output the config parameters that are different between run1 and run2.
+Esto sacará los parámetros de configuración que sean diferentes entre la run1 y la run2.
 
 ```python
 import wandb
@@ -43,7 +43,7 @@ df.columns = [run1.name, run2.name]
 print(df[df[run1.name] != df[run2.name]])
 ```
 
-Outputs:
+ Salidas:
 
 ```text
               c_10_sgd_0.025_0.01_long_switch base_adam_4_conv_2fc
@@ -52,9 +52,9 @@ n_conv_layers                               5                    4
 optimizer                             rmsprop                 adam
 ```
 
-### Update metrics for a run \(after run finished\)
+### Actualiza las métricas para una ejecución \(después de que la misma haya finalizado\)
 
-This example sets the accuracy of a previous run to 0.9. It also modifies the accuracy histogram of a previous run to be the histogram of numpy\_array
+Este ejemplo establece la precisión de una ejecución previa a 0.9. También modifica el histograma de las precisiones de una ejecución previa para que sea el histograma de numpy\_array
 
 ```python
 import wandb
@@ -66,9 +66,9 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
-### Update config in a run
+###  Actualiza la configuración en una ejecución
 
-This examples updates one of your configuration settings
+Este ejemplo actualiza uno de los ajustes de la configuración
 
 ```python
 import wandb
@@ -78,9 +78,9 @@ run.config["key"] = 10
 run.update()
 ```
 
-### Export metrics from a single run to a CSV file
+### Exporta las métricas desde una ejecución simple a un archivo CSV
 
-This script finds all the metrics saved for a single run and saves them to a CSV.
+Este script encuentra todas las métricas guardadas para una ejecución simple, y las guarda a un CSV.
 
 ```python
 import wandb
@@ -94,9 +94,9 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 ```
 
-### Export metrics from a large single run without sampling
+### Exporta las métricas desde una ejecución simple grande sin muestreos
 
-The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. This script loads all of the loss metrics into a variable losses for a longer run.
+El método history, por defecto, muestrea las métricas a un número fijo de muestras \(el valor predeterminado es 500, pero puedes cambiarlo con el argumento samples\). Si deseas exportar todos los datos que hay de una ejecución grande, puedes usar el método run.scan\_history\(\). Este script carga todas las métricas de la pérdida en una variable llamada losses para una ejecución más grande.
 
 ```python
 import wandb
@@ -107,9 +107,9 @@ history = run.scan_history()
 losses = [row["Loss"] for row in history]
 ```
 
-### Export metrics from all runs in a project to a CSV file
+### Exporta las métricas de todas las ejecuciones correspondientes a un proyecto en un archivo CSV
 
-This script finds a project and outputs a CSV of runs with name, configs and summary stats.
+Este script encuentra un proyecto y produce un CSV de sus ejecuciones con nombre, configuraciones y estadísticas de la síntesis.
 
 ```python
 import wandb
@@ -138,9 +138,9 @@ all_df = pd.concat([name_df, config_df,summary_df], axis=1)
 all_df.to_csv("project.csv")
 ```
 
-### Download a file from a run
+### Descarga un archivo desde una ejecución
 
-This finds the file "model-best.h5" associated with with run ID uxte44z7 in the cifar project and saves it locally.
+Encuentra al archivo “model-best.h5”, que está asociado con el ID de la ejecución uxte44z7 en el proyecto cifar, y lo guarda localmente.
 
 ```python
 import wandb
@@ -149,9 +149,9 @@ run = api.run("<entity>/<project>/<run_id>")
 run.file("model-best.h5").download()
 ```
 
-### Download all files from a run
+### Descarga todos los archivos de una ejecución
 
-This finds all files associated with run ID uxte44z7 and saves them locally.  \(Note: you can also accomplish this by running wandb restore &lt;RUN\_ID&gt; from the command line.\)
+Encuentra todos los archivos asociados con el ID de la ejecución uxte44z7 y los guarda localmente. \(Nota: también puedes conseguir esto al ejecutar wandb restore  desde la línea de comandos\).
 
 ```python
 import wandb
@@ -161,7 +161,7 @@ for file in run.files():
     file.download()
 ```
 
-### Download the best model file
+### Descarga el archivo del mejor modelo
 
 ```python
 import wandb
@@ -174,7 +174,7 @@ runs[0].file("model-best.h5").download(replace=True)
 print("Best model saved to model-best.h5")
 ```
 
-### Get runs from a specific sweep
+###   Descarga los datos de las métricas del sistema
 
 ```python
 import wandb
@@ -185,7 +185,7 @@ print(sweep.runs)
 
 ### Download system metrics data
 
-This gives you a dataframe with all your system metrics for a run.
+Esto te da un dataframe con todas las métricas de tu sistema para una ejecución.
 
 ```python
 import wandb
@@ -194,17 +194,17 @@ run = api.run("<entity>/<project>/<run_id>")
 system_metrics = run.history(stream = 'events')
 ```
 
-### Update summary metrics
+### Actualiza las métricas de la síntesis
 
-You can pass your dictionary to update summary metrics.
+Puedes pasar tu diccionario para actualizar las métricas de la síntesis.
 
 ```python
 summary.update({“key”: val})
 ```
 
-### Get the command that ran the run
+###  Obtén el comando que corrió la ejecución
 
-Each run captures the command that launched it on the run overview page. To pull this command down from the API, you can run:
+Cada ejecución captura al comando que la lanzó en la página del resumen de la ejecución. Para bajar el comando desde la API, puedes ejecutar:
 
 ```python
 api = wandb.Api()
@@ -213,9 +213,9 @@ meta = json.load(run.file("wandb-metadata.json").download())
 program = ["python"] + [meta["program"]] + meta["args"]
 ```
 
-### Get paginated data from history
+###  Obtén los datos paginados del historial
 
-If metrics are being fetched slowly on our backend or API requests are timing out, you can try lowering the page size in `scan_history` so that individual requests don't time out. The default page size is 1000, so you can experiment with different sizes to see what works best:
+ Si las métricas se están trayendo muy lentamente desde nuestro backend, o si las solicitudes a la API están excediendo el tiempo permitido, puedes intentar reducir el tamaño de la página en `scan_history`, de esta forma las solicitudes individuales no van a expirar. El tamaño por defecto de la página es 1000, así que puedes experimentar con diferentes tamaños para ver que es lo que funciona mejor:
 
 ```python
 api = wandb.Api()

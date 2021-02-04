@@ -2,37 +2,26 @@
 
 ## wandb.sdk.wandb\_run
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L4)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L4)
 
-### Run Objects
+### Objetos Run
 
 ```python
 class Run(object)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L131)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L131)
 
-The run object corresponds to a single execution of your script, typically this is an ML experiment. Create a run with wandb.init\(\).
+El objeto run se corresponde con una ejecución simple de tu script, siendo esto típicamente un experimento de ML. Crea un run con wandb.init\(\).            
 
-In distributed training, use wandb.init\(\) to create a run for each process, and set the group argument to organize runs into a larger experiment.
+En el entrenamiento distribuido, utiliza wandb.init\(\) para crear una ejecución por cada proceso, y establece el argumento del grupo para organizar las ejecuciones en un experimento más grande.
 
-Currently there is a parallel Run object in the wandb.Api. Eventually these two objects will be merged.
+Actualmente, existe un objeto Run paralelo en wandb.Api. Con el tiempo, estos dos objetos van a ser mezclados.
 
-**Attributes**:
+**Atributos:**
 
-* `history` _`History`_ - Time series values, created with wandb.log\(\).
-
-  History can contain scalar values, rich media, or even custom plots
-
-  across multiple steps.
-
-* `summary` _`Summary`_ - Single values set for each wandb.log\(\) key. By
-
-  default, summary is set to the last value logged. You can manually
-
-  set summary to the best value, like max accuracy, instead of the
-
-  final value.
+* `history` _`History`_ - Valores de series de tiempo creados con wandb.log\(\). History puede contener valores escalares, medios avanzados, e incluso gráficos personalizados a través de múltiples pasos.
+* `summary` _`Summary`_ - Valores simples establecidos por cada clave de wandb.log\(\). Por defecto, summary es establecido al último valor registrado. Puedes establecer summary de forma manual al mejor valor, como la precisión máxima, en lugar del valor final.
 
 **dir**
 
@@ -41,9 +30,9 @@ Currently there is a parallel Run object in the wandb.Api. Eventually these two 
  | dir()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L333)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L333)
 
-str: The directory where all of the files associated with the run are placed.
+str: El directorio donde son ubicados todos los archivos asociados con la ejecución.
 
 **config**
 
@@ -52,9 +41,9 @@ str: The directory where all of the files associated with the run are placed.
  | config()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L340)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L333)
 
-\(`Config`\): A config object \(similar to a nested dict\) of key value pairs associated with the hyperparameters of the run.
+\(`Config`\):Un objeto config \(similar a un diccionario anidado\) de pares de clave-valor asociado con los hiperparámetros de la ejecución.
 
 **name**
 
@@ -63,9 +52,9 @@ str: The directory where all of the files associated with the run are placed.
  | name()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L351)
+[\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L351) 
 
-str: the display name of the run. It does not need to be unique and ideally is descriptive.
+str: el nombre que se muestra de la ejecución. No necesita ser único e idealmente es descriptivo.
 
 **notes**
 
@@ -74,9 +63,9 @@ str: the display name of the run. It does not need to be unique and ideally is d
  | notes()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L367)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L367)
 
-str: notes associated with the run. Notes can be a multiline string and can also use markdown and latex equations inside $$ like $\{x}
+str: notas asociadas con la ejecución. Las notas pueden ser un string de múltiples líneas, y también puede usar markdown o ecuaciones latex dentro de $$ como ${x}
 
 **tags**
 
@@ -85,9 +74,9 @@ str: notes associated with the run. Notes can be a multiline string and can also
  | tags() -> Optional[Tuple]
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L383)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L383)
 
-Tuple\[str\]: tags associated with the run
+ Tupla\[str\]: etiquetas asociadas con la ejecución
 
 **id**
 
@@ -96,9 +85,9 @@ Tuple\[str\]: tags associated with the run
  | id()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L397)
+[\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L397)
 
-str: the run\_id associated with the run
+str: el run\_id asociado con la ejecución
 
 **sweep\_id**
 
@@ -107,9 +96,9 @@ str: the run\_id associated with the run
  | sweep_id()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L402)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L402)
 
-\(str, optional\): the sweep id associated with the run or None
+\(str, optional\): el id del barrido asociado con la ejecución, o None
 
 **path**
 
@@ -118,9 +107,9 @@ str: the run\_id associated with the run
  | path()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L409)
+[\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L409)
 
-str: the path to the run \[entity\]/\[project\]/\[run\_id\]
+str: la ruta a la ejecución \[entity\]/\[project\]/\[run\_id\]
 
 **start\_time**
 
@@ -129,9 +118,9 @@ str: the path to the run \[entity\]/\[project\]/\[run\_id\]
  | start_time()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L418)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L418)
 
-int: the unix time stamp in seconds when the run started
+int: la marca horaria de tipo unix en segundos, desde cuando comenzó la ejecución
 
 **starting\_step**
 
@@ -142,7 +131,7 @@ int: the unix time stamp in seconds when the run started
 
 [\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L426)
 
-int: the first step of the run
+ int: el primer paso de la ejecución
 
 **resumed**
 
@@ -151,9 +140,9 @@ int: the first step of the run
  | resumed()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L434)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L434)
 
-bool: whether or not the run was resumed
+ bool: si la ejecución fue reiniciada o no
 
 **step**
 
@@ -162,11 +151,11 @@ bool: whether or not the run was resumed
  | step()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L442)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L442)
 
-int: step counter
+int: contador de pasos.
 
-Every time you call wandb.log\(\) it will by default increment the step counter.
+Cada vez que llamas a wandb.log\(\), por defecto incrementará el contador de pasos.
 
 **mode**
 
@@ -175,9 +164,9 @@ Every time you call wandb.log\(\) it will by default increment the step counter.
  | mode()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L455)
+[\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L455)
 
-For compatibility with 0.9.x and earlier, deprecate eventually.
+Para la compatibilidad con las versiones 0.9.x y anteriores. Con el tiempo va a quedar obsoleto.
 
 **group**
 
@@ -186,13 +175,13 @@ For compatibility with 0.9.x and earlier, deprecate eventually.
  | group()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L468)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L468)
 
-str: name of W&B group associated with run.
+str: nombre del grupo de W&B asociado con la ejecución.
 
-Setting a group helps the W&B UI organize runs in a sensible way.
+Establecer un grupo ayuda a organizar las ejecuciones en la Interfaz de Usuario de W&B en una forma razonable.
 
-If you are doing a distributed training you should give all of the runs in the training the same group. If you are doing crossvalidation you should give all the crossvalidation folds the same group.
+Si estás haciendo un entrenamiento distribuido, deberías darle el mismo nombre de grupo a todas las ejecuciones en dicho entrenamiento. Si estás realizando una validación cruzada, deberías darle el mismo nombre de grupo a todos los pliegues de dicha validación.
 
 **project**
 
@@ -203,7 +192,7 @@ If you are doing a distributed training you should give all of the runs in the t
 
 [\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L487)
 
-str: name of W&B project associated with run.
+ str: nombre del proyecto de W&B asociado con la ejecución
 
 **get\_url**
 
@@ -213,7 +202,7 @@ str: name of W&B project associated with run.
 
 [\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L491)
 
-Returns: \(str, optional\): URL for the W&B run or None if the run is offline
+Devuelve: \(str, optional\): URL para la ejecución de W&B, o None si la ejecución está fuera de línea
 
 **get\_project\_url**
 
@@ -221,9 +210,9 @@ Returns: \(str, optional\): URL for the W&B run or None if the run is offline
  | get_project_url()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L499)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L499)
 
-Returns: \(str, optional\): URL for the W&B project associated with the run or None if the run is offline
+Devuelve: \(str, optional\): URL para el proyecto de W&B asociado con la ejecución, o None si la ejecución está fuera de línea.
 
 **get\_sweep\_url**
 
@@ -231,9 +220,9 @@ Returns: \(str, optional\): URL for the W&B project associated with the run or N
  | get_sweep_url()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L507)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L507)
 
-Returns: \(str, optional\): URL for the sweep associated with the run or None if there is no associated sweep or the run is offline.
+Devuelve: \(str, optional\): URL para el barrido asociado con la ejecución, o None si no hay asociado ningún barrido o si la ejecución está fuera de línea.
 
 **url**
 
@@ -242,9 +231,9 @@ Returns: \(str, optional\): URL for the sweep associated with the run or None if
  | url()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L516)
+[\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L516)
 
-str: name of W&B URL associated with run.
+str: nombre de la URL de W&B asociada con la ejecución.
 
 **entity**
 
@@ -253,9 +242,9 @@ str: name of W&B URL associated with run.
  | entity()
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L521)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L521)
 
-str: name of W&B entity associated with run. Entity is either a user name or an organization name.
+str: nombre de la entidad de W&B asociada con la ejecución. La entidad es un nombre de usuario o un nombre de una organización
 
 **log**
 
@@ -263,57 +252,40 @@ str: name of W&B entity associated with run. Entity is either a user name or an 
  | log(data, step=None, commit=None, sync=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L675)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L675)
 
-Log a dict to the global run's history.
+Registra un diccionario en el historial de la ejecución global.
 
-wandb.log can be used to log everything from scalars to histograms, media and matplotlib plots.
+wandb.log puede ser usado para registrar todo, desde escalares a histogramas, medios y gráficos de matplotlib.
 
-The most basic usage is wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\). This will save a history row associated with the run with train-loss=0.5 and accuracy=0.9. The history values can be plotted on app.wandb.ai or on a local server. The history values can also be downloaded through the wandb API.
+El uso más básico es wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\). Esto va a guardar una fila del historial asociada con la ejecución con train-loss=0.5 y accuracy=0.9. Los valores del historial pueden ser graficados en app.wandb.ai o en un servidor local. Los valores del historial también pueden ser descargados a través de la API de wandb.
 
-Logging a value will update the summary values for any metrics logged. The summary values will appear in the run table at app.wandb.ai or a local server. If a summary value is manually set with for example wandb.run.summary\["accuracy"\] = 0.9 wandb.log will no longer automatically update the run's accuracy.
+Al registrar un valor se van a actualizar todos los valores de la síntesis para cualquier métrica registrada. Los valores de la síntesis van a aparecer en la tabla de las ejecuciones en app.wandb.ai o en un servidor local. Si un valor de la síntesis es establecido manualmente, por ejemplo con wandb.run.summary\["accuracy"\] = 0.9, wandb.log no va a actualizar más de forma automática la precisión de la ejecución.
 
-Logging values don't have to be scalars. Logging any wandb object is supported. For example wandb.log\({"example": wandb.Image\("myimage.jpg"\)}\) will log an example image which will be displayed nicely in the wandb UI. See [https://docs.wandb.com/library/reference/data\_types](https://docs.wandb.com/library/reference/data_types) for all of the different supported types.
+Los valores registrados no tienen que ser escalares. Es posible registrar cualquier objeto de wandb. Por ejemplo, wandb.log\({"example": wandb.Image\("myimage.jpg"\)}\) va a registrar una imagen de ejemplo que va a ser visualizada en la Interfaz de Usuario de wandb. Mirar [https://docs.wandb.com/library/reference/data\_types](https://docs.wandb.com/library/reference/data_types) para ver todos los diferentes tipos soportados.
 
-Logging nested metrics is encouraged and is supported in the wandb API, so you could log multiple accuracy values with wandb.log\({'dataset-1': {'acc': 0.9, 'loss': 0.3} ,'dataset-2': {'acc': 0.8, 'loss': 0.2}}\) and the metrics will be organized in the wandb UI.
+El registro de métricas anidadas es alentado y soportado en la API de wandb, de este modo podrías registrar múltiples valores de precisión con wandb.log\({'dataset-1': {'acc': 0.9, 'loss': 0.3} ,'dataset-2': {'acc': 0.8, 'loss': 0.2}}\), y las métricas van a ser organizadas en la Interfaz de Usuario de wandb.
 
-W&B keeps track of a global step so logging related metrics together is encouraged, so by default each time wandb.log is called a global step is incremented. If it's inconvenient to log related metrics together calling wandb.log\({'train-loss': 0.5, commit=False}\) and then wandb.log\({'accuracy': 0.9}\) is equivalent to calling wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\)
+W&B lleva el rastro de un paso global y alienta a registrar de forma conjunta a las métricas relacionadas, así que, por defecto, cada vez que se llama a wandb.log, también se incrementa dicho paso global. Si resulta inapropiado registrar en forma conjunta a las métricas relacionadas, hay que llamar a  wandb.log\({'train-loss': 0.5, commit=False}\) y entonces a wandb.log\({'accuracy': 0.9}\), que es equivalente a llamar a wandb.log\({'train-loss': 0.5, 'accuracy': 0.9}\).
 
-wandb.log is not intended to be called more than a few times per second. If you want to log more frequently than that it's better to aggregate the data on the client side or you may get degraded performance.
+No es deseado que se llame a wandb.log más de unas pocas veces por segundo. Si deseas hacer registros de forma más frecuente, es mejor agregar los datos en el lado del cliente o podrías tener un desempeño degradado.    
 
-**Arguments**:
+ **Argumentos:**
 
-* `row` _dict, optional_ - A dict of serializable python objects i.e str,
+* `row` _dict, optional_ - Un diccionario de objetos python serializables, es decir, str, ints, floats, Tensor, diccionarios, o wandb.data\_types.
+* `commit` _boolean, optional_ - Guarda el diccionario de las métricas al servidor de wandb e incrementa el paso. Si está en false, wandb.log sólo actualiza el diccionario de las métricas actuales con el argumento row, y las métricas no van a ser guardadas hasta que wandb.log sea llamado con commit=True.
+* `step` _integer, optional_ - El paso global en procesamiento. Esto persiste cualquier paso anterior que no haya sido ingresado, pero la acción predeterminada es no ingresar el paso especificado.
+* `sync` _boolean, True_ - Este argumento es obsoleto y actualmente no cambia el comportamiento de wandb.log
 
-  ints, floats, Tensors, dicts, or wandb.data\_types
+**Ejemplos:**
 
-* `commit` _boolean, optional_ - Save the metrics dict to the wandb server
-
-  and increment the step.  If false wandb.log just updates the current
-
-  metrics dict with the row argument and metrics won't be saved until
-
-  wandb.log is called with commit=True.
-
-* `step` _integer, optional_ - The global step in processing. This persists
-
-  any non-committed earlier steps but defaults to not committing the
-
-  specified step.
-
-* `sync` _boolean, True_ - This argument is deprecated and currently doesn't
-
-  change the behaviour of wandb.log
-
-**Examples**:
-
-Basic usage
+Uso básico
 
 ```text
 - `wandb.log({'accuracy'` - 0.9, 'epoch': 5})
 ```
 
-Incremental logging
+Registro incremental
 
 ```text
 - `wandb.log({'loss'` - 0.2}, commit=False)
@@ -321,13 +293,13 @@ Incremental logging
 - `wandb.log({'accuracy'` - 0.8})
 ```
 
-Histogram
+Histograma
 
 ```text
 - `wandb.log({"gradients"` - wandb.Histogram(numpy_array_or_sequence)})
 ```
 
-Image
+Imagen
 
 ```text
 - `wandb.log({"examples"` - [wandb.Image(numpy_array_or_pil, caption="Label")]})
@@ -340,19 +312,19 @@ Video
 format="gif")})
 ```
 
-Matplotlib Plot
+Gráfico de Matplotlib
 
 ```text
 - `wandb.log({"chart"` - plt})
 ```
 
-PR Curve
+ Curva PR
 
 ```text
 - `wandb.log({'pr'` - wandb.plots.precision_recall(y_test, y_probas, labels)})
 ```
 
-3D Object
+Objeto en 3D
 
 ```text
 wandb.log({"generated_samples":
@@ -361,11 +333,11 @@ wandb.Object3D(open("sample.gltf")),
 wandb.Object3D(open("sample.glb"))]})
 ```
 
-For more examples, see [https://docs.wandb.com/library/log](https://docs.wandb.com/library/log)
+para más ejemplos, ve a [https://docs.wandb.com/library/log](https://docs.wandb.com/library/log)
 
-**Raises**:
+ **Levanta:**
 
-wandb.Error - if called before wandb.init ValueError - if invalid data is passed
+wandb.Error, si es llamado antes que wand.init. ValueError, si se pasan datos inválidos.
 
 **save**
 
@@ -373,23 +345,17 @@ wandb.Error - if called before wandb.init ValueError - if invalid data is passed
  | save(glob_str: Optional[str] = None, base_path: Optional[str] = None, policy: str = "live")
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L810)
+[\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L810)
 
-Ensure all files matching _glob\_str_ are synced to wandb with the policy specified.
+Se asegura de que todos los archivos que se correspondan con glob\_str estén sincronizados con wandb, usando la política especificada.
 
-**Arguments**:
+ **Argumentos:**
 
-* `glob_str` _string_ - a relative or absolute path to a unix glob or
-
-  regular path.  If this isn't specified the method is a noop.
-
-* `base_path` _string_ - the base path to run the glob relative to
-* `policy` _string_ - on of "live", "now", or "end"
-* `live` - upload the file as it changes, overwriting the previous
-
-  version now: upload the file once now
-
-* `end` - only upload file when the run ends
+* `glob_str string` – una ruta relativa o absoluta a un glob de unix, o una ruta regular. Si esto no está especificado el método es una noop.
+* `base_path string` – la ruta base relativa a la ejecución del glob
+* `policy string` – aceptando los valores “live”, “now” o “end”
+* `live` – sube el archivo a medida que éste cambia, sobrescribiendo la versión previa: ahora sube el archivo una vez
+* `end` – sólo sube archivos cuando la ejecución finaliza.
 
 **finish**
 
@@ -397,9 +363,9 @@ Ensure all files matching _glob\_str_ are synced to wandb with the policy specif
  | finish(exit_code=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L906)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L906)
 
-Marks a run as finished, and finishes uploading all data. This is used when creating multiple runs in the same process. We automatically call this method when your script exits.
+Marca a una ejecución como finalizada, y termina de subir todos los datos. Es usado cuando se crean múltiples ejecuciones en el mismo proceso. Llamamos automáticamente a este método cuando tu script termina.
 
 **join**
 
@@ -407,9 +373,9 @@ Marks a run as finished, and finishes uploading all data. This is used when crea
  | join(exit_code=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L920)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L920)
 
-Deprecated alias for finish\(\) - please use finish
+Alias obsoleto para finish\(\) - por favor, utiliza finish
 
 **plot\_table**
 
@@ -417,25 +383,17 @@ Deprecated alias for finish\(\) - please use finish
  | plot_table(vega_spec_name, data_table, fields, string_fields=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L924)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L924)
 
-Creates a custom plot on a table.
+Crea un gráfico personalizado en la tabla
 
-**Arguments**:
+ **Argumentos:**
 
-* `vega_spec_name` - the name of the spec for the plot
-* `table_key` - the key used to log the data table
-* `data_table` - a wandb.Table object containing the data to
-
-  be used on the visualization
-
-* `fields` - a dict mapping from table keys to fields that the custom
-
-  visualization needs
-
-* `string_fields` - a dict that provides values for any string constants
-
-  the custom visualization needs
+* `vega_spec_name` - el nombre de la especificación para el gráfico
+* `table_key` - la clave utilizada para registrar la tabla de datos
+* `data_table` - un objeto wandb.Table que contiene los datos que van a ser usados en la visualización
+* `fields` - un diccionario que mapea las claves de la tabla a los campos que necesita la visualización personalizada
+* `string_fields` - un diccionario que provee valores para cualquier constante de tipo string que necesite la visualización personalizada
 
 **use\_artifact**
 
@@ -443,17 +401,13 @@ Creates a custom plot on a table.
  | use_artifact(artifact_or_name, type=None, aliases=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1566)
+[\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1566)
 
-Declare an artifact as an input to a run, call `download` or `file` on  the returned object to get the contents locally.
+ Declara un artefacto como una entrada para una ejecución, llama a `download` o a `file` sobre el objeto devuelto para obtener los contenidos localmente
 
-**Arguments**:
+**Argumentos:**
 
-* `artifact_or_name` _str or Artifact_ - An artifact name.
-
-  May be prefixed with entity/project. Valid names
-
-  can be in the following forms:
+* `artifact_or_name` str o Artifact – Un nombre de un artefacto. Puede estar prefijado con entity/project. Los nombres validos pueden tener los siguientes formatos:
 
   name:version
 
@@ -461,12 +415,12 @@ Declare an artifact as an input to a run, call `download` or `file` on  the retu
 
   digest
 
-  You can also pass an Artifact object created by calling `wandb.Artifact`
+  También puedes pasar un objeto Artifact creado al llamar a wandb.Artifact
 
-* `type` _str, optional_ - The type of artifact to use.
-* `aliases` _list, optional_ - Aliases to apply to this artifact
+*  `type str`, `optional` – El tipo de artefacto que se va a usar.
+* `aliases lista`, `optional` – Alias que se aplican al artefacto
 
-**Returns**:
+ **Un objeto Artifact**
 
 A `Artifact` object.
 
@@ -476,15 +430,13 @@ A `Artifact` object.
  | log_artifact(artifact_or_path, name=None, type=None, aliases=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1621)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1621)
 
-Declare an artifact as output of a run.
+Declara un artefacto como la salida de una ejecución.
 
-**Arguments**:
+ **Argumentos:**
 
-* `artifact_or_path` _str or Artifact_ - A path to the contents of this artifact,
-
-  can be in the following forms:
+* artifact\_or\_path str o Artifact – Una ruta a los contenidos de este artefacto, puede ser de las siguientes formas:
 
   /local/directory
 
@@ -492,13 +444,9 @@ Declare an artifact as output of a run.
 
   s3://bucket/path
 
-  You can also pass an Artifact object created by calling
+  También puedes pasar un objeto Artifact creado al llamar a wandb.Artifact.
 
-  `wandb.Artifact`.
-
-* `name` _str, optional_ - An artifact name. May be prefixed with entity/project.
-
-  Valid names can be in the following forms:
+* name str, optional – Un nombre de un artefacto. Puede estar prefijado con entity/project. Los nombres válidos pueden ser de las siguientes formas:
 
   name:version
 
@@ -506,35 +454,29 @@ Declare an artifact as output of a run.
 
   digest
 
-  This will default to the basename of the path prepended with the current
+  El valor por defecto será el nombre de la ruta antepuesto con el id de la ejecución actual, si no está especificado.
 
-  run id  if not specified.
+* type str – El tipo del artefacto a registrar, los ejemplos incluyen “dataset”, ”model
+* aliases lista, optional – Alias para aplicar a este artefacto, el valor predeterminado es \[“latest\]
 
-* `type` _str_ - The type of artifact to log, examples include "dataset", "model"
-* `aliases` _list, optional_ - Aliases to apply to this artifact,
-
-  defaults to \["latest"\]
-
-**Returns**:
+ **Devuelve:**
 
 A `Artifact` object.
 
-**alert**
+ **Un objeto Artifact.**
 
 ```python
  | alert(title, text, level=None, wait_duration=None)
 ```
 
-[\[source\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1675)
+ [\[fuente\]](https://github.com/wandb/client/blob/025b586d2951e741c7fbac2df201b9836211b679/wandb/sdk/wandb_run.py#L1675)
 
-Launch an alert with the given title and text.
+Lanza una alerta con el título y el texto dados.
 
-**Arguments**:
+  **Argumentos:**
 
-* `title` _str_ - The title of the alert, must be less than 64 characters long
-* `text` _str_ - The text body of the alert
-* `level` _str or wandb.AlertLevel, optional_ - The alert level to use, either: "INFO", "WARN", or "ERROR"
-* `wait_duration` _int, float, or timedelta, optional_ - The time to wait \(in seconds\) before sending another alert
-
-  with this title
+* `title` _str_ - El título de la alerta, debe tener menos de 64 caracteres de largo
+* `text` _str_ - El cuerpo de texto de la alerta
+* `level` _str or wandb.AlertLevel, optional_ - El nivel de la alerta que se va a usar, puede ser: “INFO”, “WARN” o “ERROR”
+* `wait_duration` _int, float, or timedelta, optional_ - El tiempo que hay que esperar \(en segundos\) antes de enviar otra alerta con este título
 

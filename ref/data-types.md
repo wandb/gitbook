@@ -4,93 +4,94 @@ description: wandb.data_types
 
 # Data Types Reference
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L0)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L0)
 
-Wandb has special data types for logging rich visualizations.
+Wandb tiene tipos de datos especiales para registrar visualizaciones enriquecidas.
 
-All of the special data types are subclasses of WBValue. All of the data types serialize to JSON, since that is what wandb uses to save the objects locally and upload them to the W&B server.
+Todos los tipos de datos especiales son subclases de WBValue. Todos los tipos de datos se serializan a JSON, puesto que esto es lo que wandb utiliza para guardar localmente a los objetos y subirlos al servidor de W&B.
 
 ## WBValue
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L43)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L43)
 
 ```python
 WBValue(self)
 ```
 
-Abstract parent class for things that can be logged by wandb.log\(\) and visualized by wandb.
+Clase padre abstracta para las cosas que pueden ser registradas con wandb.log\(\) y visualizadas por wandb.
 
-The objects will be serialized as JSON and always have a \_type attribute that indicates how to interpret the other fields.
+Los objetos van a ser serializados como JSON y siempre van a tener un atributo \_type que indique cómo interpretar a los otros campos.
 
-**Returns**:
+**Devuelve:**
 
-JSON-friendly `dict` representation of this object that can later be serialized to a string.
+Una representación de este objeto en un diccionario compatible con JSON, que después puede ser serializado a un string.
 
 ## Histogram
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L64)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L64)
 
 ```python
 Histogram(self, sequence=None, np_histogram=None, num_bins=64)
 ```
 
-wandb class for histograms
+Clase de wandb para los histogramas.
 
-This object works just like numpy's histogram function [https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html](https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html)
+Este objeto funciona de la misma forma que la función histogram de numpy [https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html](https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html)
 
-**Examples**:
+**Ejemplos:**
 
-Generate histogram from a sequence
+Genera un histograma a partir una secuencia.
 
 ```python
 wandb.Histogram([1,2,3])
 ```
 
-Efficiently initialize from np.histogram.
+Inicializa eficientemente desde np.histogram.
 
 ```python
 hist = np.histogram(data)
 wandb.Histogram(np_histogram=hist)
 ```
 
-**Arguments**:
+#### Argumentos:
 
-* `sequence` _array\_like_ - input data for histogram
-* `np_histogram` _numpy histogram_ - alternative input of a precoomputed histogram
-* `num_bins` _int_ - Number of bins for the histogram.  The default number of bins is 64.  The maximum number of bins is 512
+* `sequence` de tipo arreglo – datos de entrada para el histograma
+*  `np_histogram` histograma de numpy – entrada alternativa de un histograma precomputado
+* `num_bins int` – Número de contenedores para el histograma. El número de contenedores por defecto es 64. El número máximo de contenedores es 512.
 
-**Attributes**:
+  
+**Atributos:**
 
-* `bins` _\[float\]_ - edges of bins
-* `histogram` _\[int\]_ - number of elements falling in each bin
+* bins \[float\] – límites de los contenedores
+* histogram \[int\] – número de elementos que caen dentro de cada contenedor
 
 ## Media
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L122)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L122)
 
 ```python
 Media(self, caption=None)
 ```
 
-A WBValue that we store as a file outside JSON and show in a media panel on the front end.
+Un WBValue que almacenamos como un archivo fuera de JSON y que se muestra en el panel de medios en el fronted.
 
-If necessary, we move or copy the file into the Run's media directory so that it gets uploaded.
+Si es necesario, movemos o copiamos el archivo en el directorio de medios de Run, para que éste sea subido.
 
 ## BatchableMedia
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L232)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L232)
 
 ```python
 BatchableMedia(self, caption=None)
 ```
 
-Parent class for Media we treat specially in batches, like images and thumbnails.
+Clase padre para Media con la que tratamos especialmente en los lotes, como imágenes o imágenes en miniatura.
 
-Apart from images, we just use these batches to help organize files by name in the media directory.
+Además de las imágenes, usamos estos lotes para ayudar a organizar los archivos por nombre en el directorio de medios.
 
 ## Table
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L244)
+[fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L244)
 
 ```python
 Table(self,
@@ -100,47 +101,47 @@ Table(self,
       dataframe=None)
 ```
 
-This is a table designed to display small sets of records.
+ Esta es una tabla diseñada para visualizar pequeños conjuntos de registros.
 
-**Arguments**:
+ **Argumentos:**
 
-* `columns` _\[str\]_ - Names of the columns in the table. Defaults to \["Input", "Output", "Expected"\].
-* `data` _array_ - 2D Array of values that will be displayed as strings.
-* `dataframe` _pandas.DataFrame_ - DataFrame object used to create the table. When set, the other arguments are ignored.
+* `columns` \[str\] – Nombres de las columnas en la tabla. Los valores por defecto son \[“Input”, “Output”, “Expected”\].
+* `data arreglo` – Arreglo en 2D de los valores que van a ser mostrados como strings.
+* `dataframe` pandas.DataFrame – Objeto DataFrame utilizado para crear la tabla. Cuando está establecido, los otros argumentos son ignorados.
 
 ## Audio
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L305)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L305)
 
 ```python
 Audio(self, data_or_path, sample_rate=None, caption=None)
 ```
 
-Wandb class for audio clips.
+Clase de wandb para los clips de audio.
 
-**Arguments**:
+**Argumentos**:
 
-* `data_or_path` _string or numpy array_ - A path to an audio file or a numpy array of audio data.
-* `sample_rate` _int_ - Sample rate, required when passing in raw numpy array of audio data.
-* `caption` _string_ - Caption to display with audio.
+* `data_or_path` string o arreglo numpy – Una ruta a un archivo de audio o un arreglo numpy de los datos del audio.
+* `sample_rate int` – Frecuencia de muestreo, es requerida cuando se pasa un arreglo numpy puro de los datos del audio.
+* `caption string` – Leyenda que se va a mostrar con el audio.
 
 ## Object3D
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L404)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L404)
 
 ```python
 Object3D(self, data_or_path, **kwargs)
 ```
 
-Wandb class for 3D point clouds.
+Clase de wandb para las nubes de puntos en 3D.
 
-**Arguments**:
+**Argumentos**:
 
-data\_or\_path \(numpy array \| string \| io \): Object3D can be initialized from a file or a numpy array.
+data\_or\_path \(arreglo numpy \| string \| io\): Objetc3D puede ser inicializado desde un archivo o desde un arreglo numpy.
 
-The file types supported are obj, gltf, babylon, stl. You can pass a path to a file or an io object and a file\_type which must be one of `'obj', 'gltf', 'babylon', 'stl'`.
+Los tipos de archivos soportados son obj, gltf, babylon, stl. Puedes pasar una ruta a un archivo, o un objeto io y un file\_type que tiene que ser uno de los siguientes `'obj', 'gltf', 'babylon', 'stl'.`
 
-The shape of the numpy array must be one of either:
+La forma del arreglo numpy debe ser así:
 
 ```python
 [[x y z],       ...] nx3
@@ -150,54 +151,54 @@ The shape of the numpy array must be one of either:
 
 ## Molecule
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L527)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L527)
 
 ```python
 Molecule(self, data_or_path, **kwargs)
 ```
 
-Wandb class for Molecular data
+ Clase de wandb para los datos moleculares
 
-**Arguments**:
+**Argumentos**:
 
-data\_or\_path \( string \| io \): Molecule can be initialized from a file name or an io object.
+data\_or\_path \( string \| io \): Molecule puede ser inicializado a partir del nombre de un archivo o a partir de un objeto io.
 
 ## Html
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L611)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L611)
 
 ```python
 Html(self, data, inject=True)
 ```
 
-Wandb class for arbitrary html
+Clase de wandb para un html arbitrario
 
-**Arguments**:
+**Argumentos:**
 
-* `data` _string or io object_ - HTML to display in wandb
-* `inject` _boolean_ - Add a stylesheet to the HTML object.  If set to False the HTML will pass through unchanged.
+* `data string` u objeto io – HTML a visualizar en wandb
+* `inject booleano` – Agrega una hoja de estilo al objeto HTML. Si está establecido a False, el HTML se va a pasar sin cambios.
 
 ## Video
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L680)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L680)
 
 ```python
 Video(self, data_or_path, caption=None, fps=4, format=None)
 ```
 
-Wandb representation of video.
+Representación de wandb del video.
 
-**Arguments**:
+ **Argumentos:**
 
-data\_or\_path \(numpy array \| string \| io\): Video can be initialized with a path to a file or an io object. The format must be "gif", "mp4", "webm" or "ogg". The format must be specified with the format argument. Video can be initialized with a numpy tensor. The numpy tensor must be either 4 dimensional or 5 dimensional. Channels should be \(time, channel, height, width\) or \(batch, time, channel, height width\)
+data\_or\_path \(arreglo numpy \| string \| io\): El video puede ser inicializado con una ruta a un archivo o con un objeto io. El formato debe ser "gif", "mp4", "webm" o "ogg". El formato debe ser especificado con el argumento fomrat. El video puede ser inicializado con un tensor numpy. El tensor numpy debe ser de 4 o 5 dimensiones. Los canales deberían ser \(tiempo, canal, alto, ancho\) o \(lote, tiempo, canal, alto, ancho\).
 
-* `caption` _string_ - caption associated with the video for display
-* `fps` _int_ - frames per second for video. Default is 4.
-* `format` _string_ - format of video, necessary if initializing with path or io object.
+* `caption string` – leyenda que se va a mostrar con el video
+* `fps int` – marcos por segundo para el video. El valor predeterminado es 4.
+* `format string` – formato del video, es necesario si se inicializa con una ruta o con un objeto io.
 
 ## Image
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L827)
+[fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L827)
 
 ```python
 Image(self,
@@ -209,89 +210,87 @@ Image(self,
       masks=None)
 ```
 
-Wandb class for images.
+Clase de wandb para las imágenes.
 
-**Arguments**:
+**Argumentos**:
 
-* `data_or_path` _numpy array \| string \| io_ - Accepts numpy array of image data, or a PIL image. The class attempts to infer the data format and converts it.
-* `mode` _string_ - The PIL mode for an image. Most common are "L", "RGB", "RGBA". Full explanation at [https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html\#concept-modes](https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes).
-* `caption` _string_ - Label for display of image.
+* `data_or_path` arreglo numpy \| string \| io – Acepta un arreglo numpy de los datos de la imagen, o una imagen PIL. Esta clase intenta inferir el formato de los datos y los convierte.
+* `mode string` – El modo PIL para una imagen. Los más comunes son “L”, “RGB”, “RGBA”. Una explicación completa puede ser encontrada en [https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html\#concept-modes](https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes).
+* `caption string` – Etiqueta para mostrar con la imagen.
 
-## JSONMetadata
-
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1093)
+## JSONMetadata[ fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1093)
 
 ```python
 JSONMetadata(self, val, **kwargs)
 ```
 
-JSONMetadata is a type for encoding arbitrary metadata as files.
+JSONMetadata es un tipo para codificar metadatos arbitrarios como archivos.
 
 ## BoundingBoxes2D
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1126)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1126)
 
 ```python
 BoundingBoxes2D(self, val, key, **kwargs)
 ```
 
-Wandb class for 2D bounding Boxes
+Clase de wandb para cajas delimitadoras en 2D
 
 ## ImageMask
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1204)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1204)
 
 ```python
 ImageMask(self, val, key, **kwargs)
 ```
 
-Wandb class for image masks, useful for segmentation tasks
+Clase de wandb para las máscaras de las imágenes, es útil para las tareas de segmentación.
 
 ## Plotly
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1274)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1274)
 
 ```python
 Plotly(self, val, **kwargs)
 ```
 
-Wandb class for plotly plots.
+Clase de wandb para los gráficos plotly
 
 **Arguments**:
 
-* `val` - matplotlib or plotly figure
+* `val` - figura de matplotlib o de plotly
 
 ## Graph
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1314)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1314)
 
 ```python
 Graph(self, format='keras')
 ```
 
-Wandb class for graphs
+Clase de wandb para los gráficos.
 
-This class is typically used for saving and diplaying neural net models. It represents the graph as an array of nodes and edges. The nodes can have labels that can be visualized by wandb.
+Esta clase típicamente es utilizada para guardar y visualizar modelos de redes neuronales. Representa al gráfico como a un arreglo de nodos y aristas. Los nodos pueden tener etiquetas que pueden ser visualizadas por wandb.
 
-**Examples**:
+**Ejemplos:**
 
-Import a keras model:
+Importa un modelo de keras:
 
 ```python
 Graph.from_keras(keras_model)
 ```
 
-**Attributes**:
+ **Atributos:**
 
-* `format` _string_ - Format to help wandb display the graph nicely.
-* `nodes` _\[wandb.Node\]_ - List of wandb.Nodes
-* `nodes_by_id` _dict_ - dict of ids -&gt; nodes edges \(\[\(wandb.Node, wandb.Node\)\]\): List of pairs of nodes interpreted as edges
-* `loaded` _boolean_ - Flag to tell whether the graph is completely loaded
-* `root` _wandb.Node_ - root node of the graph
+*  `format string` – Formato para ayudar a que wandb visualice el gráfico elegantemente.
+* `nodes` \[wandb.Node\] – Lista de wandb.Nodes
+* `nodes_by_id diccionario` – diccionario de ids → aristas de los nodos \(\[\(wandb.Node, wandb.Node\)\]\): Lista de pares de nodos interpretados como aristas
+*  `loaded booleano`: Bandera para determinar si el gráfico está completamente cargado
+*  `root wandb.Node` – Nodo raíz del gráfico.
 
 ## Node
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1470)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1470)
 
 ```python
 Node(self,
@@ -306,15 +305,15 @@ Node(self,
      node=None)
 ```
 
-Node used in [`Graph`](data-types.md#graph)
+Nodo usado en [`Graph`](https://docs.wandb.ai/ref/data-types#graph)\`\`
 
 ## Edge
 
-[source](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1636)
+ [fuente](https://github.com/wandb/client/blob/master/wandb/data_types.py#L1636)
 
 ```python
 Edge(self, from_node, to_node)
 ```
 
-Edge used in [`Graph`](data-types.md#graph)
+Arista usada en [`Graph`](https://docs.wandb.ai/ref/data-types#graph)\`\`
 

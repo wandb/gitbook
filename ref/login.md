@@ -2,9 +2,9 @@
 
 ## wandb.sdk.wandb\_login
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L3)
+[\[ver fuente\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L3)
 
-Log in to Weights & Biases, authenticating your machine to log data to your account.
+Inicia sesión en Weights & Biases, autenticando a tu máquina para registrar datos a tu cuenta.
 
 **login**
 
@@ -12,29 +12,25 @@ Log in to Weights & Biases, authenticating your machine to log data to your acco
 login(anonymous=None, key=None, relogin=None, host=None, force=None)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L22)
+ [\[ver fuente\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_login.py#L22)
 
-Log in to W&B.
+Inicia sesión en W&B.
 
-**Arguments**:
+ **Argumentos:**
 
-* `anonymous` _string, optional_ - Can be "must", "allow", or "never".
+* `anonymous` _string, optional_ - Puede ser “must”, “allow” o “never”.
 
-  If set to "must" we'll always login anonymously, if set to
+  Si es establecido a “must” siempre hará los registros de forma anónima, si es establecido a “allow” solamente crearemos un usuario anónimo si el usuario aún no ha iniciado sesión.
 
-  "allow" we'll only create an anonymous user if the user
+* `key` _string, optional_ - clave de autenticación.
+* `relogin` _bool, optional_ - si es true, volveremos a solicitar la clave de la API.
+* `host` _string, optional_ - el host al que hay que conectarse.
 
-  isn't already logged in.
+**Devueve:**
 
-* `key` _string, optional_ - authentication key.
-* `relogin` _bool, optional_ - If true, will re-prompt for API key.
-* `host` _string, optional_ - The host to connect to.
+* `bool` - si la clave está configurada
 
-**Returns**:
+#### Levanta:
 
-* `bool` - if key is configured
-
-**Raises**:
-
-UsageError - if api\_key can not configured and no tty
+UsageError – si api\_key no puede ser configurada y no hay tty
 

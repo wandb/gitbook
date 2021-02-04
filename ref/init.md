@@ -1,6 +1,6 @@
 # Init
 
-wandb.init\(\) indicates the beginning of a new run. In an ML training pipeline, you could add wandb.init\(\) to the beginning of your training script as well as your evaluation script, and each piece steps would be tracked as a run in W&B.
+[wandb.init\(\)](https://docs.wandb.ai/ref/init) indica el comienzo de una nueva ejecución. En un pipeline de entrenamiento de ML, podrías agregar wandb.init\(\) al comienzo de tu script de entrenamiento, así también como al comienzo de tu script de evaluación, y cada paso sería rastreado como una ejecución en W&B.
 
 ## init
 

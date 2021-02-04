@@ -2,36 +2,36 @@
 
 ## wandb.sdk.wandb\_settings
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L2)
+ [\[ver fuente\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L2)
 
-This module configures settings for wandb runs.
+Este módulo configura los ajustes para las ejecuciones de wandb.
 
-Order of loading settings: \(differs from priority\) defaults environment wandb.setup\(settings=\) system\_config workspace\_config wandb.init\(settings=\) network\_org network\_entity network\_project
+Orden de los ajustes de carga: \(difiere de la prioridad\), por defecto es environment wandb.setup\(settings=\) system\_config workspace\_config wandb.init\(settings=\) network\_org network\_entity network\_project.
 
-Priority of settings: See "source" variable.
+Prioridad de los ajustes: Ver la variable “source”.
 
-When override is used, it has priority over non-override settings
+Cuando es usado override, tiene prioridad sobre los ajustes que no usen override.
 
-Override priorities are in the reverse order of non-override settings
+Las prioridades de override están en un orden reverso respecto al de los ajustes que no usan override.
 
-### Settings Objects
+### Objetos Settings
 
 ```python
 class Settings(object)
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L187)
+ [\[ver fuente\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L187)
 
-Settings Constructor
+ Constructor de Settings
 
-**Arguments**:
+#### Argumentos:
 
-* `entity` - personal user or team to use for Run.
-* `project` - project name for the Run.
+* `entity` - usuario personal o equipo que hace uso de Run
+* `project` - nombre del proyecto para Run
 
-**Raises**:
+ **Levanta:**
 
-* `Exception` - if problem.
+* `Exception` - si hay un problema.
 
 **\_\_copy\_\_**
 
@@ -39,7 +39,7 @@ Settings Constructor
  | __copy__()
 ```
 
-[\[view\_source\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L656)
+[\[ver fuente\]](https://github.com/wandb/client/blob/1d91d968ba0274736fc232dcb1a87a878142891d/wandb/sdk/wandb_settings.py#L656)
 
-Copy \(note that the copied object will not be frozen\).
+Copia \(notar que el objeto copiado no será congelado\)
 
