@@ -6,7 +6,7 @@ description: >-
 
 # Hugging Face
 
-[Hugging Face Transformers](https://huggingface.co/transformers/) provides provides tools to quickly train neural networks for NLP \(Natural Language Processing\) on any task \(classification, translation, question answering, etc\) and any dataset with PyTorch and TensorFlow 2.0
+[Hugging Face](https://huggingface.co/) provides provides tools to quickly train neural networks for NLP \(Natural Language Processing\) on any task \(classification, translation, question answering, etc\) and any dataset with PyTorch and TensorFlow 2.0
 
 W&B integration with 🤗 Hugging Face can automatically:
 
