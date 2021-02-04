@@ -1,18 +1,20 @@
 ---
-description: 'W&B can manage, scale, and monitor your installation.'
+description: >-
+  W&B peut gérer, mettre à l’échelle, et assurer le contrôle de votre
+  installation.
 ---
 
 # Managed Cloud
 
-A W&B Enterprise Cloud is a fully scalable cloud environment provisioned on your private AWS or GCP account and the region of your choosing. The environment can be provisioned by us or by your company, using a toolset comprised of Terraform and Kubernetes.
+Un Cloud d’Entreprise W&B est un environnement cloud totalement scalable provisionné sur votre compte AWS ou GCP et dans la région de votre choix. Cet environnement peut être fourni par nous ou par votre entreprise, en utilisant un toolset composé de Terraform et de Kubernetes.
 
-Talk to our sales team for more detailed setup instructions by reaching out to [contact@wandb.com](mailto:contact@wandb.com)
+Entrez en contact avec notre équipe commerciale pour avoir des instructions de mise en place plus détaillées à l’adresse email [contact@wandb.com](mailto:contact@wandb.com) 
 
-## Requirements
+## Prérequis
 
-W&B Enterprise Cloud requires the following cloud resources in your account.
+W&B Enterprise Cloud requiert les ressources cloud suivantes dans votre compte.
 
-* A Kubernetes cluster \(EKS, GKE or AKS\)
-* A SQL database \(RDS, Google Cloud SQL, or Azure MySQL\)
-* A object store \(S3, GCS, or Azure Blob Store\)
+* Un cluster Kubernetes \(EKS, GKE ou AKS\)
+* Une base de données SQL \(RDS, Google Cloud SQL, ou Azure MySQL\)
+* Un stockage d’objets \(S3, GCS, ou Azure Blob Store\)
 
