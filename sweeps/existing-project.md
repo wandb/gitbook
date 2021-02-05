@@ -1,36 +1,36 @@
 ---
 description: >-
-  If you're already using wandb.init, wandb.config, and wandb.log in your
-  project, start here!
+  Si ya estás usando en tu proyecto a wandb.init, wandb.config y wandb.log,
+  ¡comienza aquí!
 ---
 
 # Sweep from an existing project
 
-If you have an existing W&B project, it’s easy to start optimizing your models with hyperparameter sweeps. I’ll walk through the steps with a working example— you can open my [W&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion). I'm using the code from [this example repo](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), which trains a PyTorch convolutional neural network to classify images from the [Fashion MNIST dataset](https://github.com/zalandoresearch/fashion-mnist).
+ Si tienes un proyecto existente en W&B, es fácil empezar a optimizar tus modelos con los barridos de los hiperparámetros. Voy a guiarte respecto a los pasos que hay que seguir, a través de un ejemplo que está funcionando – puedes abrir mi [panel de control de W&B](https://app.wandb.ai/carey/pytorch-cnn-fashion). Estoy usando el código de [este repositorio de ejemplo](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), que entrena una red neuronal circunvolucional de PyTorch para clasificar imágenes desde el [conjunto de datos Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist).
 
-## 1. Create a project
+## 1. Crea un proyecto
 
-Run your first baseline run manually to check that W&B logging is working properly. You'll download this simple example model, train it for a few minutes, and see the example appear in the web dashboard.
+Corre la primera ejecución de referencia manualmente para verificar que el registro en W&B esté funcionando apropiadamente. Vas a descargar este modelo de ejemplo simple, lo vas a entrenar por algunos minutos, y vas a ver que el ejemplo aparece en el tablero de control web.
 
-* Clone this repo `git clone https://github.com/wandb/examples.git`
-* Open this example `cd examples/pytorch/pytorch-cnn-fashion`
-* Run a run manually `python train.py`
+* Clona este repositorio git clone `git clone https://github.com/wandb/examples.git`
+* Abre este ejemplo  `cd examples/pytorch/pytorch-cnn-fashion`
+* Corre una ejecución manualmente`python train.py`
 
-[View an example project page →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+ [Mira la página del proyecto de ejemplo →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-## 2. Create a sweep
+## 2. Crea un barrido
 
-From your project page, open the Sweep tab in the sidebar and click "Create Sweep".
+Desde tu página del proyecto, abre la pestaña Barrido, en la barra lateral, y haz click en “Crear Barrido”.
 
 ![](../.gitbook/assets/sweep1.png)
 
-The auto-generated config guesses values to sweep over based on the runs you've done already. Edit the config to specify what ranges of hyperparameters you want to try. When you launch the sweep, it starts a new process on our hosted W&B sweep server. This centralized service coordinates the agents— your machines that are running the training jobs.
+ Los barridos son una herramienta para encontrar los valores óptimos de los hiperparámetros. Queremos hacer que la búsqueda de los hiperparámetros sea transparente, poderosa y fácil de usar.Para aprender más acerca de los barridos, verifica nuestra documentación.Para comenzar un barrido haz click en el botón “Crear Barrido”.
 
 ![](../.gitbook/assets/sweep2.png)
 
-## 3. Launch agents
+## 3. Configuración del Barrido
 
-Next, launch an agent locally. You can launch dozens of agents on different machines in parallel if you want to distribute the work and finish the sweep more quickly. The agent will print out the set of parameters it’s trying next.
+ Edita la configuración del barrido antes de lanzar el mismo. A partir de las ejecuciones existentes, nosotros suponemos buenos valores por defecto para los rangos del barrido, los cuales son ligeramente más amplios que los rangos existentes de los valores que has registrado.
 
 ![](../.gitbook/assets/sweep3.png)
 
@@ -38,15 +38,15 @@ That’s it! Now you're running a sweep. Here’s what the dashboard looks like 
 
 ![](https://paper-attachments.dropbox.com/s_5D8914551A6C0AABCD5718091305DD3B64FFBA192205DD7B3C90EC93F4002090_1579066494222_image.png)
 
-## Seed a new sweep with existing runs
+## Planta un nuevo barrido con ejecuciones existentes
 
-Launch a new sweep using existing runs that you've previously logged.
+Lanza un nuevo barrido utilizando ejecuciones existentes que hayas registrado previamente.
 
-1. Open your project table.
-2. Select the runs you want to use with checkboxes on the left side of the table.
-3. Click the dropdown to create a new sweep.
+1. Abre tu tabla del proyecto.
+2. Selecciona las ejecuciones que quieras usar con las casillas de selección en el lado izquierdo de la tabla.
+3. Haz click en el menú desplegable para crear un nuevo barrido.
 
-Your sweep will now be set up on our server. All you need to do is launch one or more agent to start running runs.
+Ahora tu barrido se va a establecer en nuestro servidor. Todo lo que necesitas hacer es lanzar uno o más agentes para comenzar a correr las ejecuciones.
 
 ![](../.gitbook/assets/create-sweep-from-table%20%281%29%20%281%29.png)
 
