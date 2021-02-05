@@ -1,32 +1,32 @@
 ---
-description: Resources for people getting started with Machine Learning
+description: Ressources pour les personnes qui commencent l’Apprentissage Automatique
 ---
 
 # Beginner FAQ
 
-## Are you learning machine learning?
+## Vous apprenez l’apprentissage automatique ?
 
-Wandb is a tool for visualizing training and we hope that it's useful for everyone from experts to people just getting started. If you have general questions about machine learning you are welcome to ask them in our [Slack](http://wandb.me/slack) channel. We have also made some free [tutorial videos](https://www.wandb.com/tutorials) with example code that are designed to get you started.
+Wandb est un outil pour visualiser l’entraînement, et nous espérons qu’il est utile pour tout le monde, experts et débutants inclus. Si vous avez des questions générales sur l’apprentissage automatique, vous êtes bienvenu sur notre Channel [Slack](http://wandb.me/slack) pour les poser. Nous avons aussi préparé quelques [tutoriels vidéo](https://www.wandb.com/tutorials) gratuits avec du code d’exemple, faits pour vous permettre de bien démarrer.
 
-One great way to learn machine learning is to start with an interesting project. If you don't have a project in mind, a good place to find projects is our [benchmarks](https://www.wandb.com/benchmarks) page - we have a variety of machine learning tasks with data and working code that you can improve.
+Une très bonne manière d’apprendre l’apprentissage automatique est de commencer avec un projet intéressant. Si vous n’avez pas de projet à l’esprit, un bon endroit pour trouver des projets est sur notre page de [Benchmarks](https://www.wandb.com/benchmarks) – nous avons une grande variété de tâches d’apprentissage automatique avec des données et du code fonctionnel que vous pouvez améliorer.
 
-## Online Resources
+## Ressources en ligne
 
-There are a lot of excellent online resources for learning machine learning. Please send us a note if we should add anything here.
+Il existe bon nombre de ressources en lignes excellentes pour apprendre l’apprentissage automatique. Merci de nous envoyer un message si nous devrions ajouter quelque chose ici.
 
-* [fast.ai ](https://www.fast.ai)- Excellent practical machine learning classes and friendly community.
-* [deep learning book](http://www.deeplearningbook.org) - Detailed book available for free online.
-* [Stanford CS229](https://see.stanford.edu/Course/CS229) - Lectures from a great class available online.
+* [fast.ai ](https://www.fast.ai)- Cours pratiques d’apprentissage automatique excellents avec une communauté amicale.
+* [deep learning book](http://www.deeplearningbook.org) - Un livre détaillé, disponible gratuitement en ligne.
+* [Stanford CS229](https://see.stanford.edu/Course/CS229) - Leçons d’un très bon cours, disponibles en ligne.
 
-## Looking for bias in models
+##  Rechercher un biais dans des modèles
 
-If you're training a machine learning model, you want to be able to visualize how it performs on different inputs. A common problem, especially when you're getting started, is that it's hard to get those visualizations set up. That's where Weights & Biases comes in. We make it easy to get metrics to understand your model performance.
+Si vous entraînez un modèle d’apprentissage automatique, vous voudrez être capable de visualiser quelles sont ses performances avec des entrées \(inputs\) différentes. Un problème commun, surtout lorsqu’on vient de commencer, c’est qu’il est compliqué de réussir à mettre en place ces visuels. C’est là qu’intervient Weights & Biases. Nous rendons facile l’obtention de mesures pour comprendre les performances de votre modèle.
 
-Here's a hypothetical example— you're training a model to identify objects on the road. Your dataset is a bunch of labeled images with cars, pedestrians, bicycles, trees, buildings, etc. As you train your model, you can visualize the different class accuracies. That means you can see if your model is great at finding cars but bad at finding pedestrians. This could be a dangerous bias, especially in a self-driving car model.
+ Voici un exemple hypothétique – vous entraînez un modèle à identifier des objets sur la route. Votre dataset est un ensemble d’images libellées avec des voitures, des piétons, des vélos, des arbres, des immeubles, etc. Pendant que vous entraînez votre modèle, vous pouvez visualiser les différentes précisions de classe. Cela signifie que vous pouvez voir si votre modèle est bon pour trouver des voitures mais mauvais pour trouver des piétons. Ceci peut être un biais dangereux, surtout sur un modèle de voiture autonome.
 
-Interested in seeing a live example? Here's a report that compares the model's accuracy on identifying images of different types of plants and animals— birds, mammals, fungi etc. The Weights & Biases graphs make it easy to see how each version of the model \(each line on the graph\) performs on different classes.
+Vous seriez intéressé de voir un exemple en direct ? Voici un rapport qui compare la précision du modèle sur l’identification d’images de différents types de plantes et d’animaux – oiseaux, mammifères, champignons etc. Les graphiques Weights & Biases permettent de facilement voir comment chaque version du modèle \(chaque ligne sur le graphique\) se débrouille sur des classes différentes.
 
-[See the report in W&B →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
+ [Voir le rapport dans W&B →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
 
 ![](../.gitbook/assets/image%20%2818%29%20%283%29.png)
 
