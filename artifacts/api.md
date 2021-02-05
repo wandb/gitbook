@@ -20,7 +20,7 @@ When you call **log\_artifact**, we check to see if the contents of the artifact
 
 **wandb.Artifact\(\)**
 
-* **type \(str\)**: Differentiate kinds of artifacts, used for organizational purposes. We recommend sticking to "dataset", "model" and "result".
+* **type \(str\)**: Differentiate kinds of artifacts, used for organizational purposes. We recommend things like "dataset", "model" and "result".
 * **name \(str\)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, hyphens, and dots in the name.
 * **description \(str, optional\)**: Free text displayed next to the artifact version in the UI
 * **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
@@ -110,7 +110,7 @@ An artifact is like a folder of data. Each entry is either an actual file stored
 
 You can pass the following fields to an `Artifact()` constructor, or set them directly on an artifact object:
 
-* **type:** Should be ‘dataset’, ‘model’, or ‘result’
+* **type:** Freeform string, like ‘dataset’, ‘model’, or ‘result’
 * **description**: Freeform text that will be displayed in the UI.
 * **metadata**: A dictionary that can contain any structured data. You’ll be able to use this data for querying and making plots. E.g. you may choose to store the class distribution for a dataset artifact as metadata.
 
