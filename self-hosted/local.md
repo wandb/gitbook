@@ -1,54 +1,50 @@
 ---
-description: Run Weights and Biases on your own machines using Docker
+description: Ejecuta Weights and Biases en tus propias máquinas utilizando Docker
 ---
 
 # Local
 
-## Starting the server
+## Comenzando el servidor
 
-To run the W&B server locally you'll need to have [Docker](https://www.docker.com/products/docker-desktop) installed. Then simply run:
+Para correr el servidor de W&B localmente, vas a necesitar tener instalado a [Docker](https://www.docker.com/products/docker-desktop). Entonces, simplemente ejecuta:
 
 ```text
 wandb local
 ```
 
-Behind the scenes the wandb client library is running the [_wandb/local_](https://hub.docker.com/repository/docker/wandb/local) docker image, forwarding port 8080 to the host, and configuring your machine to send metrics to your local instance instead of our hosted cloud. If you want to run our local container manually, you can run the following docker command:
+En segundo plano, la biblioteca cliente de wandb está corriendo la imagen [wandb/local](https://hub.docker.com/repository/docker/wandb/local) de docker, reenviando al puerto 8080 del host, y configurando a tu máquina para enviar métricas a tu instancia local en vez de a nuestro servidor en la nube. Si deseas correr nuestro contenedor local de forma manual, puedes ejecutar el siguiente comando de docker:
 
 ```text
 docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-### Centralized Hosting
+### Hosting Centralizado
 
-Running wandb on localhost is great for initial testing, but to leverage the collaborative features of _wandb/local_ you should host the service on a central server. Instructions for setting up a centralized server on various platforms can be found in the [Setup](setup.md) section.
+Correr wandb en localhost es magnífico para el testeo inicial, pero para hacer uso de características colaborativas de wandb/local, deberías albergar el servicio en un servidor central. Las instrucciones para establecer un servidor centralizado en varias plataformas se pueden encontrar en la sección [Ajustes](https://docs.wandb.ai/self-hosted/setup).
 
-### Basic Configuration
+###  Configuración Básica
 
-Running `wandb local` configures your local machine to push metrics to [http://localhost:8080](http://localhost:8080). If you want to host local on a different port you can pass the `--port` argument to wandb local. If you've configure DNS with your local instance you can run: `wandb login --host=http://wandb.myhost.com` on any machines that you want to report metrics from. You can also set the `WANDB_BASE_URL` environment variable to a host or IP on any machines you wish to report to your local instance. In automated environment you'll also want to set the `WANDB_API_KEY` environment variable within an api key from your settings page. To restore a machine to reporting metrics to our cloud hosted solution, run `wandb login --host=https://api.wandb.ai`.
+ Al ejecutar `wandb loca`l se configura a tu máquina local para que envíe métricas a [http://localhost:8080](http://localhost:8080/). Si quieres usar un puerto diferente, puedes pasar el argumento `–port` a wandb local. Si has configurado DNS con tu instancia local puedes ejecutar: `wandb login --host=`[`http://wandb.myhost.com`](http://wandb.myhost.com/)en cualquier máquina desde donde quieras que se reporten métricas. También puedes establecer la variable de entorno `WANDB_BASE_URL` para un host o una IP sobre cualquier máquina que quieras que reporte a tu instancia local. En entornos automatizados, también vas a querer establecer la variable de entorno WANDB\_API\_KEY dentro de una clave de la api, desde tu página de ajustes. Para restituir una máquina para que reporte métricas a nuestra solución albergada en la nube, ejecuta `wandb login –host=`[`https://api.wandb.ai`](https://api.wandb.ai/).
 
-### Authentication
+### Autenticación
 
-The base install of _wandb/local_ starts with a default user local@wandb.com. The default password is **perceptron**. The frontend will attempt to login with this user automatically and prompt you to reset your password. An unlicensed version of wandb will allow you to create up to 4 users. You can configure users in the User Admin page of _wandb/local_ found at `http://localhost:8080/admin/users`
+La instalación básica de wandb/local comienza con un usuario por defecto [local@wandb.com](mailto:local@wandb.com). La contraseña por defecto es perceptron. El frontend intentará iniciar sesión automáticamente con este usuario y te pedirá que restablezcas tu contraseña. Una versión de wandb sin licencia te va a permitir crear hasta 4 usuarios. Puedes configurar a los usuarios en la página Administración de Usuarios de wandb/local que se encuentra en [`http://localhost:8080/admin/users`](http://localhost:8080/admin/users).
 
-### Persistance and Scalability
+### Persistencia y Escalabilidad
 
-All metadata and files sent to W&B are stored in the `/vol` directory. If you do not mount a persistent volume at this location all data will be lost when the docker process dies.
+Todos los metadatos y los archivos enviados a W&B son almacenados en el directorio `/vol`. 
 
-If you purchase a license for _wandb/local_, you can store metadata in an external MySQL database and files in an external storage bucket removing the need for a stateful container as well as giving you the necessary resilience and scalability features typically necessary for production workloads.
+Si no montas un volumen persistente en esta ubicación, todos los datos se van a perder cuando el proceso de docker muera.Si compraste una licencia para wandb/local, puedes almacenar los metadatos en una base de datos MySQL externa, y los archivos en un bucket de almacenamiento externo, removiendo la necesidad de un contenedor con estado, así también como dándote las características de resiliencia y escalabilidad que típicamente son necesarias para las cargas de trabajo en producción.Mientras que W&B puede ser utilizado para hacer uso del volumen persistente montado en `/vol`, como se mencionó anteriormente, esta solución no es la deseada para las cargas de trabajo en producción. Si decides utilizar a W&B de esta forma, se recomienda que tengas suficiente espacio asignado de antemano, para almacenar las necesidades actuales y futuras de las métricas, y se sugiere fuertemente que el almacén de archivos subyacente pueda ser redimensionado cuando sea necesario. En adición, se deberían establecer alertas para permitirte saber una vez que los umbrales de almacenamiento mínimo se hayan cruzado, para redimensionar el sistema de archivos subyacente.Para hacer pruebas, recomendamos al menos 100GB de espacio libre en el volumen subyacente para cargas de trabajo pesadas que no sean imágenes/videos/audios. Si estás testeando a W&B con archivos grandes, el almacén precisa tener suficiente espacio para acomodar aquellas necesidades. En todos los casos, el espacio asignado necesita reflejar las métricas y las salidas de tus procesos de trabajo.
 
-While W&B can be used by leveraging the persistent volume mounted to `/vol` as stated above, this solution is not meant for production workloads. If you decide to use W&B in this way, it is recommended that enough space be allocated ahead of time to store current and future needs of metrics and strongly suggested that the underlying file store can be resized as needed. In addition, alerts should be put in place to let you know once minimum storage thresholds are crossed to resize the underlying file system.
+###  Actualizaciones
 
-For trial purposes, we recommend at least 100GB free space in the underlying volume for non image/video/audio heavy workloads. If testing W&B with large files, the underlying store needs to have enough space to accommodate those needs. In all cases, the space allocated needs to reflect the metrics and outputs of your workflows.
-
-### Upgrades
-
-We are pushing new versions of _wandb/local_ to dockerhub regularly. To upgrade you can run:
+Regularmente, estamos subiendo nuevas versiones de wandb/local a dockerhub. Para actualizar puedes ejecutar:
 
 ```text
 $ wandb local --upgrade
 ```
 
-To upgrade your instance manually you can run the following
+Para actualizar tu instancia manualmente, puedes ejecutar lo siguiente
 
 ```text
 $ docker pull wandb/local
@@ -56,7 +52,7 @@ $ docker stop wandb-local
 $ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-### Getting a license
+### Obtener una licencia
 
-If you're interested in configuring teams, using external storage, or deploying wandb/local to a Kubernetes cluster send us an email at [contact@wandb.com](mailto:contact@wandb.com)
+Si estás interesado en configurar equipos, utilizando almacenamiento externo, o desplegando wandb/local a un cluster de Kubernetes, envíanos un correo electrónico a [contact@wandb.com](mailto:contact@wandb.com)
 

@@ -1,41 +1,41 @@
 ---
-description: How to set up a centralized W&B Local Server
+description: Cómo establecer un Servidor Local centralizado de W&B
 ---
 
 # Setup
 
-A W&B Local Server is a docker image running on your infrastructure. See the following for instructions for how to provision a new instance.
+Un Servidor Local de W&B es una imagen de docker que se ejecuta en tu infraestructura. Mira las siguientes instrucciones de cómo suministrar una nueva instancia.
 
-## Amazon Web Services
+##  Servicios Web de Amazon
 
-Running _wandb/local_ in AWS can be done in a few different ways.
+Ejecutar wandb/local en AWS se puede hacer de diferentes formas.
 
 ### AWS Fargate
 
-Type Fargate in the AWS console, or go directly to the [ECS management page](https://console.aws.amazon.com/ecs/home). Click Get Started to create a new ECS service using Fargate.
+Escribe Fargate en la consola de AWS, o ve directamente a la [página de administración de ECS](https://console.aws.amazon.com/ecs/home). Haz click en Empezar para crear un nuevo servicio ECS utilizando Fargate.
 
-* **Container Definition**: Choose "custom" and click "Configure".  From here name your container _wandb-local_ and set the image name to _wandb/local:latest_.  Finally add port 8080 to the port mappings.
-* **Task Definition**: Click Edit and make sure to give the task at least 8GB of ram and 4 vCPUs
-* **Define Your Service**: You'll likely want to create an ALB that can terminate SSL and forward requests to port 8080 of this service.
-* **IAM Permissions**: If you plan to use a cloud file backend \(this is optional\), make sure your instance has an IAM role that allows it to access S3 and subscribe to SQS.
+* **Definición del Contenedor**: Elige “personalizado” y haz click en “Configurar”. Desde aquí, nombra a tu contenedor wandb-local, y establece el nombre de la imagen a wandb/local:latest. Finalmente, agrega el puerto 8080 para los mapeos del puerto.
+* **Definición de la Tarea:** Haz click en Editar y asegúrate de darle a la tarea al menos 8GB de ram y 4 vCPUs.
+* **Define Tu Servicio:** Probablemente, quieras crear un ALB que pueda terminar SSL y reenviar las solicitudes al puerto 8080 de este servicio.
+* **Permisos IAM:** Si planeas utilizar un backend para los archivos de la nube \(esto es opcional\), asegúrate de que tu instancia tenga un rol IAM que te permita acceder a S3 y suscribirte a SQS.
 
-Once the service is provisioned you can access it via your ALB or directly via the IP and PORT of your instance. Your instance is usable from boot, but for advanced options, you may now proceed to [configuring your instance](configuration.md).
+Una vez que el servicio sea provisto, puedes acceder al mismo a través de tu ALB, o directamente a través de la IP y el PORT de tu instancia. Tu instancia es utilizable desde el arranque, pero para establecer opciones avanzadas, ahora podrías proceder a [configurar tu instancia](https://docs.wandb.ai/self-hosted/configuration).
 
 ### EC2
 
-You can run _wandb/local_ on any EC2 instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+Puedes ejecutar wandb/local en cualquier instancia EC2 que también tenga instalado a Docker. Te sugerimos al menos 8GB de RAM y 4 vCPUs. Simplemente, ejecuta el siguiente comando para lanzar el contenedor:
 
 ```text
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-## Google Cloud Platform
+## Plataforma de Google Cloud
 
-### Kubernetes Engine
+### Motor de Kubernetes
 
-If you're running k8s already you can easily launch _wandb/local_ into an existing cluster. GCP always make it really simple to launch a cluster via the [console](https://console.cloud.google.com/kubernetes/list).
+Si ya estás corriendo k8s, puedes lanzar fácilmente wandb/local en un cluster existente. GCP siempre hace que lanzar un cluster a través de la [consola](https://console.cloud.google.com/kubernetes/list) sea realmente simple.
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local with load balancing and SSL in GCP. The yaml below assumes you've created a static IP address named **wandb-local-static-ip**. You can do so with:
+ El siguiente yaml de k8s puede ser personalizado, pero debería servir como un fundamento básico para configurar tu entorno local con balanceo de cargas y SSL en GCP. El yaml de abajo asume que has creado una dirección IP estática, llamada wandb-local-static-ip. Puedes hacerlo con:
 
 ```text
 gcloud compute addresses create wandb-local-static-ip --global
@@ -135,15 +135,16 @@ spec:
 
 ### Compute Engine
 
-You can run _wandb/local_ on any Compute Engine instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+Puedes ejecutar wandb/local en cualquier instancia de Compute Engine que también tenga instalado a Docker. Te sugerimos al menos 8GB de RAM y 4vCPUs. Simplemente, corre el siguiente comando para lanzar el contenedor:
 
 ```text
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-## Azure Kubernetes Service
+## Servicio Kubernetes de Azure
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local.
+  
+El siguiente yaml de k8s puede ser personalizado, pero debería servir como un fundamento básico para la configuración local.
 
 ```text
 apiVersion: apps/v1
@@ -232,13 +233,13 @@ spec:
       storage: 100Gi
 ```
 
-## OnPrem Kubernetes
+## Kubernetes de OnPrem
 
-The k8s YAML above in the Azure Kubernetes Service section should work in most on-premise installations.
+El YAML de k8s anterior, en la sección Servicio Kubernetes de Azure, debería funcionar en la mayoría de las instalaciones de los entornos locales..
 
-## OnPrem Docker
+## Docker de OnPrem
 
-You can run _wandb/local_ on any instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+ Puedes correr wandb/local en cualquier instancia que también tenga instalado a Docker. Te sugerimos al menos 8GB de RAM y 4 vCPUs. Simplemente, ejecuta el siguiente comando para lanzar el contenedor.
 
 ```text
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local

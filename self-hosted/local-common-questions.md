@@ -1,34 +1,36 @@
 ---
-description: Frequently asked questions about setting up locally-hosted versions of our app
+description: >-
+  Preguntas realizadas de forma frecuente acerca de establecer versiones de
+  nuestra aplicación alojadas localmente.
 ---
 
 # Local FAQ
 
-## Does my server need a connection to the internet?
+## ¿Mi servidor necesita una conexión a internet?
 
-Nope, _wandb/local_ can run in air gapped environments. The only requirement is that the machines that train your models on can connect to this server over the network.
+No, wandb/local puede ejecutarse en entornos aislados. El único requerimiento es que las máquinas sobre las que se entrenan tus modelos puedan conectarse a este servidor a través de la red.
 
-## Where is my data stored?
+##  ¿Dónde son almacenados mis datos?
 
-The default docker image runs MySQL and Minio inside of the container and writes all data in sub folders of `/vol` . You can configure external MySQL and Object Storage by getting a license. Email [contact@wandb.com](mailto:contact@wandb.com) for more details.
+ La imagen de docker predeterminada corre a MySQL y a Minio dentro del contenedor, y escribe todos los datos en los subdirectorios de /vol. Puedes configurar el Almacenamiento externo de Objetos y de MySQL al obtener una licencia. Envía un correo electrónico a [contact@wandb.com](mailto:contact@wandb.com) para obtener más detalles.
 
-## How often do you release upgrades?
+##  ¿Cada cuánto liberan actualizaciones?
 
-We strive to release upgraded versions of our server at least once a month.
+Nos esforzamos para liberar versiones actualizadas de nuestro servidor al menos una vez al mes.
 
-## What happens if my server goes down?
+##  ¿Qué pasa si mi servidor se cae?
 
-Experiments that are in progress will enter a backoff retry loop and continue attempting to connect for 24 hours.
+Los experimentos que están en progreso van a ingresar en un ciclo de retroceso-reintento, y seguirá intentando conectarse durante 24 horas.
 
-## What are the scaling characteristics of this service?
+##  ¿Cuáles son la características para escalar a este servicio?
 
-A single instance of _wandb/local_ without an external MySQL store will scale to up to 10's concurrent experiments being tracked at once. Instances connected to an external MySQL store will scale to 100's of concurrent runs. If you have a need for tracking more concurrent experiments send us a note at [contact@wandb.com](mailto:contact@wandb.com) to inquire about our multi instance high availability installation options.
+Una instancia simple de wandb/local, sin un almacenamiento externo de MySQL, va a escalar hasta 10 experimentos concurrentes, que van a ser rastreados a la vez. Las instancias conectadas a un almacenamiento externo de MySQL van a escalar hasta 100 ejecuciones concurrentes. Si tienes la necesidad de rastrear más experimentos concurrentes, envíanos una nota a [contact@wandb.com](mailto:contact@wandb.com) para consultar acerca de nuestras opciones de instalación para múltiples instancias con alta disponibilidad.
 
-## How do I do a factory reset if I can't access my instance?
+## ¿Cómo hago un restablecimiento de fábrica si no puedo acceder a mi instancia?
 
-If you're unable to connect to your instance you can put it in restore mode by setting the LOCAL\_RESTORE environment variable when you start local. If you're starting wandb local using our cli you can do so with `wandb local -e LOCAL_RESTORE=true` Look at the logs printed on startup for a temporary username / password to access the instance.
+Si eres incapaz de conectarte a tu instancia, puedes ponerla en modo restitución al establecer la variable de entorno LOCAL\_RESTORE cuando inicias el entorno local. Si estás iniciando a wandb local a través de nuestra cli, puedes hacerlo con `wandb local -e LOCAL_RESTORE=true`. Mira los registros impresos en el arranque en busca de un nombre de usuario / contraseña temporal para acceder a la instancia.
 
-## How can I switch back to the cloud after using local?
+## ¿Cómo puedo regresar a la nube después de usar el entorno local?
 
-To restore a machine to reporting metrics to our cloud hosted solution, run `wandb login --host=https://api.wandb.ai`.
+Para hacer que una máquina vuelva a reportar métricas a nuestra solución albergada en la nube, ejecuta `wandb login --host=https://api.wandb.ai`.
 

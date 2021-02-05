@@ -1,29 +1,29 @@
 ---
-description: Self Hosted installations for projects with sensitive data
+description: Instalaciones de Auto Hospedaje para proyectos con datos sensibles
 ---
 
 # Self Hosted
 
-W&B Local is the self hosted version of [Weights & Biases](https://app.wandb.ai). It makes collaborative experiment tracking possible for enterprise machine learning teams, giving you a way to keep all training data and metadata within your organization's network.
+W&B Local es una versión de auto hospedaje de [W](https://app.wandb.ai/)[eights & Biases](https://app.wandb.ai/). Hace posible el seguimiento de experimentos colaborativos para equipos empresariales de aprendizaje de maquinas, dándote una forma de mantener a todos los datos y a los metadatos del entrenamiento dentro de la red de tu organización.
 
-[Request a demo to try out W&B Local →](https://www.wandb.com/demo)
+[Solicita una demostración para probar W&B Local →](https://www.wandb.com/demo)
 
-We also offer [W&B Enterprise Cloud](cloud.md), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system can scale to any level of usage.
+ También ofrecemos [W&B Enterprise Cloud](https://docs.wandb.ai/self-hosted/cloud), que ejecuta una infraestructura completamente estable dentro de la cuenta AWS o GCP de tu compañía. Este sistema puede escalar a cualquier nivel de uso.
 
-## Features
+## Características
 
-* Unlimited runs, experiments, and reports
-* Keep your data safe on your own company's network
-* Integrate with your company's authentication system
-* Premier support by the W&B engineering team
+*  Ejecuciones, experimentos y reportes ilimitados
+* Mantén tus datos seguros en la red tu propia compañía
+* Integralo con el sistema de autenticación de tu compañía
+* Soporte principal del equipo de ingenieros de W&B
 
-The self hosted server is a single Docker image that is simple to deploy. Your W&B data is saved on a persistent volume or an external database so data can be preserved across container versions.
+El servidor del auto hospedaje es una imagen de Docker simple que es fácil de desplegar. Tus datos de W&B son guardados en un volumen persistente o en una base de datos externa, así los mismos pueden ser preservados entre las versiones del contenedor.
 
-## Server Requirements
+##  Requerimientos del Servidor
 
-The W&B self hosted server requires an instance with at least 4 cores and 8GB memory.
+El servidor del auto hospedaje requiere una instancia con al menos 4 núcleos y 8GB de memoria.
 
-## Self Hosted Resources
+##  Recursos del Auto Hospedaje
 
 {% page-ref page="local.md" %}
 

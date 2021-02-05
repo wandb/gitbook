@@ -1,47 +1,47 @@
 ---
-description: Iterate on datasets and understand model predictions.
+description: Itera sobre los conjuntos de datos y entiende las predicciones del modelo.
 ---
 
 # Datasets & Predictions \[Early Access\]
 
-_This feature is currently in the early-access phase. You can use it in our production service at wandb.ai, with_ [_some limitations_](https://docs.wandb.com/untitled#current-limitations)_. APIs are subject to change. We'd love to hear questions, comments, and ideas! Drop us a line at_ [_feedback@wandb.com_](mailto:feedback@wandb.com)_._
+Actualmente, esta característica está en una fase de acceso anticipado. Puedes usarla en nuestro servicio de producción en wandb.ai, con [algunas limitaciones](https://docs.wandb.com/untitled#current-limitations). La API está sujeta a cambios. ¡Nos encantaría oír preguntas, comentarios, e ideas! Escríbenos a [feedback@wandb.com](mailto:feedback@wandb.com).
 
-Data is at the core of every ML workflow. We’ve added powerful new features to W&B Artifacts to let you visualize and query datasets and model evaluations at the example level. You can use this new tool to analyze and understand your datasets, and to measure and debug model performance.
+Los datos son la parte central de cada entono de trabajo de ML. Hemos agregado nuevas características poderosas a los Artefactos de W&B para permitirte visualizar y consultar conjuntos de datos, y modelar evaluaciones a nivel de ejemplo. Puedes usar esta nueva herramienta para analizar y entender tus conjuntos de datos, y para medir y depurar el desempeño del modelo.
 
-Dive in and try an end-to-end demo: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-demo-colab)
+Métete de lleno y prueba una demostración de principio a fin: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-demo-colab)
 
 ![Here&apos;s a preview of the Datasets &amp; Predictions dashboard](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673880422_image.png)
 
-## How it works
+## Cómo funciona
 
-Our goal is to give you highly scalable, flexible and configurable tools, with rich out-of-the-box visualizations available for common tasks. The system is constructed out of:
+ Nuestro objetivo es darte herramientas altamente escalables, flexibles y configurables, con visualizaciones enriquecidas, listas para ser usadas, disponibles para las tareas comunes. El sistema está construido a partir de:
 
-* The ability to save large wandb.Table objects, optionally containing rich media \(like images with bounding boxes\), inside of W&B Artifacts.
-* Support for cross-artifact file references, and the ability to join tables together in the UI. This is used, for example, to log a set of bounding box predictions against a ground-truth dataset artifact, without duplicating the source images and labels.
-* \[future\] Backend API support for large-scale queries over tables stored in W&B Artifacts.
-* An all new “typed, run-time-swappable UI-panel architecture”. This is what powers the rich visualizations and charts you see as you compare and group your data tables. Eventually we’ll open this up, so users can add completely custom visualizers that work everywhere in the W&B UI.
+* La capacidad de guardar objetos wandb.Table grandes, conteniendo opcionalmente medios enriquecidos \(como imágenes con cajas delimitadoras\), dentro de los Artefactos de W&B.
+* El soporte para las referencias a los archivos de artefactos cruzados, y la capacidad de unir tablas en la interfaz de usuario. Esto es usado, por ejemplo, para registrar un conjunto de predicciones de cajas delimitadoras contra un artefacto de un conjunto de datos reales, sin duplicar las imágenes originales y las etiquetas.
+* \[en el futuro\] El soporte de una API Backend para consultas a gran escala sobre las tablas almacenadas en los Artefactos de W&B.
+* Una “arquitectura de paneles de la interfaz de usuario digitados e intercambiables en tiempo real” completamente nueva. Esto es lo que impulsa a las visualizaciones enriquecidas y a los gráficos que ves mientras comparas y agrupas tu tablas de datos. Eventualmente, vamos a abrirlo para que los usuarios puedan agregar visualizadores completamente personalizados, que funcionen en cualquier lugar de la interfaz de usuario de W&B.
 
 ## UI
 
-_Follow along by opening this_ [_example project_](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files)_, which was generated from our_ [_demo colab_](http://wandb.me/dsviz-demo-colab)_._
+_Prosigue abriendo este_ [_proyecto de ejemplo_](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files)_, que fue generado desde nuestra_ [_colab de demostración_](http://wandb.me/dsviz-demo-colab)_._
 
-To visualize logged tables and media objects, open an artifact, go to the **Files** tab, and click on the table or object. Switch to the **Graph view** to see how artifacts and runs in the project are connected. Toggle **Explode** to see the individual executions of each step in the pipeline.
+Para visualizar las tablas registradas y los objetos de medios, abre un artefacto, ve a la pestaña Archivos, y haz click en la tabla o en el objeto. Intercambia a la **Vista del gráfico** para ver cómo son conectados los artefactos y las ejecuciones en el proyecto. Cambia Explotar para ver las ejecuciones individuales de cada paso en el pipeline.
 
-### **Visualizing tables**
+###  ****Visualizando tablas
 
-Open the **Files** tab to see the main visualization UI. In the [example project](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files), click “train\_iou\_score\_table.table.json” to visualize it. To explore data, you can filter, group, and sort the table.
+Abre la pestaña Archivos para ver la interfaz de usuario de las visualizaciones principales. En el [proyecto de ejemplo](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files), haz click en “train\_iou\_score\_table.table.json” para visualizarlo. Para explorar datos, puedes filtrar, agrupar y ordenar la tabla.
 
 ![](.gitbook/assets/image%20%2899%29.png)
 
-### Filtering
+###  Filtrado
 
-Filters are specified in the [mongodb aggregation language](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/)**,** which has good support for querying into nested objects \[aside: we don't actually use mongodb in our backend!\]. Here are two examples:
+ Los filtros son especificados en el [lenguaje de agregación de mongodb](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/), que tiene buen soporte para hacer consultas sobre objetos anidados \[además: ¡en realidad no usamos mongodb en nuestro backend!\]. Aquí hay dos ejemplos: 
 
-**Find examples that have &gt; 0.05 in the “road” column**
+**Encuentra los ejemplos que tengan &gt; 0.05 en la columna “road”**
 
 `{$gt: ['$0.road', 0.05]}` 
 
-**Find examples that have more one or more “car” bounding box predictions**
+**Encuentra los ejemplos que tengan una o más predicciones de cajas delimitadoras con “car”**
 
 `{  
   $gte: [   
@@ -56,67 +56,67 @@ Filters are specified in the [mongodb aggregation language](https://docs.mongodb
   1]  
 }`
 
-### **Grouping**
+### Agrupamiento
 
-Try grouping by “dominant\_pred”. You’ll see that numeric columns automatically become histograms when the table is grouped.
+ Intenta agrupar por “dominant\_pred”. Vas a ver que las columnas numéricas se vuelven automáticamente histogramas cuando la tabla es agrupada.
 
 ![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673736462_image.png)
 
 \*\*\*\*
 
-### **Sorting**
+### Ordenamiento
 
-Click **Sort** and choose any column in the table to sort by it.
+Haz click en Ordenar y elige cualquier columna a partir de la cual quieras ordenar la tabla.
 
-### **Comparison**
+### Comparación
 
-Compare any two artifact versions in the table. Hover over “v3” in the sidebar, and click the “Compare” button. This will show you predictions from both versions in a single table. Think of both tables being overlaid on top of each-other. The table decides to render bar charts for incoming numeric columns, with one bar for each table being compared.
+Compara dos versiones cualquiera de un artefacto en la tabla. Pasa el puntero del mouse sobre “v3” en la barra lateral, y haz click en el botón “Comparar”. Esto te va a mostrar las predicciones de ambas versiones en una tabla simple. Piensa como si ambas tablas estuviesen superpuestas entre sí. La tabla decide representar gráficos de barra para las columnas numéricas entrantes, con una barra por cada tabla que está siendo comparada.
 
-You can use the “Quick filters” at the top to limit your results to examples that are only present in both versions.
+Puedes utilizar los “Filtros rápidos” de arriba para limitar los resultados sólo a los ejemplos que estén presentes en ambas versiones.
 
 ![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673764298_image.png)
 
   
-Try comparing and grouping at the same time. You’ll get a “multi-histogram”, where we use one color for each incoming table.  
+Prueba comparar y agrupar a la vez. Vas a obtener un histograma múltiple, en donde usamos un color por cada tabla entrante.  
 
 
 ![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673664913_image.png)
 
-## Python API
+## API de Python
 
-_Try our_ [_demo colab_](http://wandb.me/dsviz-demo-colab) _for an end-to-end example._
+Prueba nuestra [colab de demostración](http://wandb.me/dsviz-demo-colab) para ver un ejemplo de principio a fin.
 
-To visualize datasets and predictions, log rich media to an artifact. In addition to saving raw files in W&B Artifacts, you can now save, retrieve, and visualize other rich media types provided by the wandb API.
+ Para visualizar los conjuntos de datos y las predicciones, registra medios enriquecidos en un artefacto. En adición a guardar los archivos sin procesamiento en los artefactos de W&B, ahora también puedes guardar, recuperar y visualizar otros tipos de medios enriquecidos provistos por la API de wandb.
 
-The following types are currently supported:
+ Actualmente, son soportados los siguientes tipos:
 
 * wandb.Table\(\)
 * wandb.Image\(\)
 
-Support for additional media types is coming soon.
+Pronto habrá soporte para tipos de medios adicionales.
 
-### **New Artifacts methods**
+###  ****Nuevos métodos de los artefactos
 
-There are two new methods on Artifact objects:
+Hay dos nuevos métodos sobre los objetos Artifact:
 
 `artifact.add(object, name)`
 
-* Add a media object to an artifact. Currently supported types are wandb.Table and wandb.Image, with more coming soon.
-* This recursively adds any child media objects and assets \(like raw ‘.png’ files\) to the artifact.
+* Agrega un objeto de medios a un artefacto. Los tipos actualmente soportados son wandb.Table y wandb.Image, viniendo más próximamente.
+* Esto agrega recursivamente cualquier objeto y activo de medios \(como archivos ‘.png’\) al artefacto.
 
 `artifact.get(name)`
 
-* Return a reconstructed media object from a stored artifact.
+* Devuelve un objeto de medios reconstruido a partir de un artefacto almacenado.
 
-These methods are symmetrical. You can store an object in an artifact using .add\(\), and be sure you’ll get the same exact object back using .get\(\), on whatever machine you need it on.
+Estos métodos son simétricos. Puedes almacenar un objeto en el artefacto usando .add\(\), y asegurarte de obtener exactamente el mismo objeto usando .get\(\), sobre cualquier máquina sobre la que necesites hacerlo.
 
-### **wandb.\* media objects**
+### Objetos de medios wandb.\*
 
 `wandb.Table`
 
-Tables are at the core of dataset and prediction visualization. To visualize a dataset, put it in a wandb.Table, adding wandb.Image objects, arrays, dictionaries, strings and numbers as needed, and then add your table to an artifact. Currently, each table is limited to 50,000 rows. You can log as many tables as you like to an artifact.
+Las tablas son una parte central de las visualizaciones de los conjuntos de datos y de las predicciones. Para visualizar un conjunto de datos, ponlo en una wandb.Table, agregando objetos wandb.Image, arreglos, diccionarios, strings y números donde sea necesario, y entonces agrega tu tabla a un artefacto. Actualmente, cada tabla está limitada a 50.000 filas. Puedes registrar en un artefacto tantas tablas como desees.
 
-The following example code saves 1000 images and labels from the Keras cifar10 test dataset as a wandb.Table inside an artifact:
+El siguiente código de ejemplo guarda como un wandb.Table a 1000 imágenes y etiquetas del conjunto de datos de test cifar10 de Keras, adento de un artefacto.
 
 ```python
 import tensorflow as tf
@@ -139,16 +139,16 @@ dataset_artifact.add(table, 'dataset')
 wandb.log_artifact(dataset_artifact)
 ```
 
-After running this code, you’ll be able to visualize the table in the W&B UI. Click on “dataset.table.json” in the artifact Files tab. Try grouping by “label” to get examples of each class in the “image” column.
+Después de correr este código, vas a ser capaz de visualizar la tabla en la interfaz de usuario de W&B. Haz click en “dataset.table.json”, en la pestaña Archivos del artefacto. Intenta agrupar por “label” para obtener los ejemplos de cada clase en la columna “image”.
 
   
 `wandb.Image`
 
-You can construct wandb.Image objects, as described in our [wandb.log documentation](https://docs.wandb.com/library/log#images-and-overlays)**.**
+Puedes construir objetos wandb.Image, como se describe en nuestra [documentación de wandb.log](https://docs.wandb.com/library/log#images-and-overlays).
 
-wandb.Image allows you to attach segmentation masks and bounding boxes to images, as specified in the docs above. When saving wandb.Image\(\) objects in artifacts, there is one change: we’ve factored out “class\_labels”, which previously needed to be stored in each wandb.Image.
+wandb.Image te permite adjuntar máscaras de segmentación y cajas delimitadoras a las imágenes, como se especifica en la documentación recién mencionada. Cuando se guardan objetos wandb.Image\(\) en los artefactos, hay un cambio: hemos factorizado “class\_labels”, que anteriormente necesitaba ser almacenado en cada wandb.Image.
 
-Now you should create class labels separately, if using bounding boxes or segmentation masks, like this:
+Ahora, deberías crear las etiquetas de las clases de forma separada, si estás usando cajas delimitadoras o máscaras de segmentación, de esta forma:
 
 ```python
 class_set = wandb.Classes(...)
@@ -156,7 +156,7 @@ example = wandb.Image(<path_to_image_file>, classes=class_set, masks={
             "ground_truth": {"path": <path_to_mask>}})
 ```
 
-You can also construct a wandb.Image that refers to a wandb.Image that has been logged to a different artifact. This will use a _cross-artifact-file-reference_ to avoid duplicating the underlying image.
+También puedes construir un wandb.Image que se refiera a un wandb.Image que haya sido registrado en un artefacto diferente. Esto va a utilizar una referencia cruzada al archivo del artefacto, evitando duplicar la imagen subyacente.
 
 ```python
 artifact = wandb.use_artifact('my-dataset-1:v1')
@@ -168,7 +168,7 @@ predicted_image = wandb.Image(dataset_image, classes=class_set, masks={
   
 `wandb.Classes`
 
-Used to define a mapping from class id \(a number\) to label \(a string\):
+Usado para definir un mapeo desde el id de una clase \(un número\) a una etiqueta \(un string\):
 
 ```python
 CLASSES = ['dog', 'cat']
@@ -179,60 +179,58 @@ class_set = wandb.Classes([{'name': c, 'id': i} for i, c in enumerate(CLASSES)])
 
 `wandb.JoinedTable`
 
-Used to tell the W&B UI to render the join of two tables. The tables may be stored in other artifacts.
+Usado para decirle a la interfaz de usuario de W&B que represente la unión de dos tablas. Las tablas pueden estar almacenadas en otros artefactos.
 
 ```python
 jt = wandb.JoinedTable(table1, table2, 'id')
 artifact.add(jt, 'joined')
 ```
 
-## End-to-end examples
+## Ejemplos de principio a fin
 
-Try our [colab notebook](http://wandb.me/dsviz-demo-colab) for an end-to-end example that covers:
+Prueba nuestra [notebook de colab](http://wandb.me/dsviz-demo-colab) para ver el ejemplo de principio a fin que cubre:
 
-* dataset constructions and visualization
-* model training
-* logging predictions against the dataset and visualizing them
+* construcciones y visualización del conjunto de datos
+* entrenamiento del modelo
+* registro y visualización de las predicciones contra el conjunto de datos
 
-## FAQ
+## Preguntas Frecuentes
 
-**I pack my dataset into a binary format for training. How does that relate to W&B Dataset Artifacts?**
+**Para el entrenamiento, empaqueto mi conjunto de datos en un formato binario. ¿Cómo se relaciona esto con los Artefactos del Conjunto de Datos de W&B?**
 
-There are a few approaches you can take here:
+Aquí hay algunos enfoques que puedes tomar:
 
-1. Use the wandb.Table format as the system of record for your datasets. From here you can do one of two things:
-   1. at training time derive a packed format from the W&B format artifact.
-   2. OR, have a pipeline step that produces a packed format artifact, and train from that artifact
-2. Store your packed format and the wandb.Table in the same artifact
-3. Make a job that given your packed format, logs a wandb.Table artifact
+1. Utiliza el formato de wandb.Table como el sistema de registro para tus conjuntos de datos. A partir de aquí, puedes hacer una de dos cosas:
+   1. en tiempo de entrenamiento, deriva un formato empaquetado desde el artefacto de formatos de W&B.
+   2. O, realiza un paso dentro del pipeline que produzca un artefacto con un formato empaquetado, y entrena a partir de dicho artefacto
+2. Almacena tu formato empaquetado y a wandb.Table en el mismo artefacto.
+3. Haz el trabajo para que, dado tu formato empaquetado, registre un artefacto wandb.Table
 
-\[note: in the Alpha phase there is a 50k row-limit in tables saved to W&B Artifacts\]  
-If you want to query and visualize model predictions, you need to consider how to pass example IDs through your training step, so that your prediction table can be joined back to source dataset table. See our linked examples for a few approaches.  
-Over time we’ll provide converters for common formats, many more examples, and deep integrations with popular frameworks.
+\[nota: en la fase Alfa, hay un límite de 50.000 filas en las tablas guardadas a los artefactos de W&B\].Si deseas consultar y visualizar las predicciones del modelo, necesitas considerar cómo pasar los IDs del ejemplo a través de tu paso de entrenamiento, para que de esta forma tu tabla de predicciones pueda volverse a unir a la tabla del conjunto de datos original. Mira nuestros ejemplos enlazados para ver algunos enfoques.Con el tiempo, vamos a proveer conversores para los formatos comunes, muchos más ejemplos, e integraciones más profundas con los frameworks populares.
 
-## Current limitations
+##  Limitaciones actuales
 
-_This feature is currently in the early-access phase, you can use it in our production service at wandb.ai, with some limitations. APIs are subject to change. If you have any questions, comments or ideas, we want to talk! Drop us a line at_ [_feedback@wandb.com_](mailto:feedback@wandb.com)_._
+Actualmente, esta característica está en una fase de acceso anticipado. Puedes usarla en nuestro servicio de producción en wandb.ai, con algunas limitaciones. La API está sujeta a cambios. ¡Si tienes alguna pregunta, comentario o idea, nos gustaría hablar! Escríbenos a [feedback@wandb.com](mailto:feedback@wandb.com).
 
-* Scale: tables logged to Artifacts are currently limited to 50,000 rows. We’ll be raising this with each release, with the goal of handling 100m+ rows per table in the future.
-* Currently supported wandb.\* media types:
+* Escala: las tablas registradas en los artefactos en la actualidad están limitadas a 50.000 filas. Vamos a incrementar este número en cada nueva entrega, con el objetivo en mente de manejar más de 100 millones de filas por tabla en el futuro.
+* Tipos de medios actualmente soportados por wandb.\*:
   * wandb.Table
   * wandb.Image
-* There is no way to save and persist queries and views in the W&B UI
-* There is no way to add visualizations to W&B Reports
+* No hay forma de guardar y persistir las consultas y las vistas en la interfaz de usuario de W&B
+* No hay forma de agregar visualizaciones a los reportes de W&B
 
-## Upcoming work
+## Trabajo Futuro
 
-* A whole heap of ongoing UX & UI improvements
-* Increase row-limit per table
-* Use a columnar binary format \(parquet\) for table storage
-* Handle dataframes and other common python table formats, in addition to wandb.Table
-* Add a more powerful query system, supporting deeper aggregation and analysis
-* Support more media types
-* Add the ability to persist UI state via save views / workspaces
-* Ability to save visualizations & analysis to W&B Reports, for sharing with colleagues
-* Ability to save queries and subsets for relabeling and other workflows
-* Ability to query from Python
-* Ability to add other visualizations that use large table data \(like a cluster visualizer\)
-* Support user-authored panels, for completely custom visualizations
+* Un montón de mejoras respecto a la experiencia de usuario y a la interfaz de usuario actuales.
+* Incremento del límite de filas por tabla..
+*  Uso de un formato binario de columnas \(parquet\) para el almacenamiento de las tablas.. 
+* Manejo de dataframes y otros otros formatos de tabla comunes en python, en adición a wandb.Table.
+* Agregar un sistema de consultas más poderoso, soportando agregación y análisis más profundos..
+* Soporte para más tipos de medios.. 
+* Agregar la capacidad de persistir el estado de la interfaz de usuario a través del guardado de vistas / entornos de trabajo.. 
+* Capacidad de guardar visualizaciones y análisis a los reportes de W&B, para compartir con los colegas.. 
+* Capacidad de guardar consultas y subconjuntos para reetiquetar, y otros procesos de trabajo.. 
+* Capacidad de consultar desde Python.. 
+* Capacidad de agregar otras visualizaciones que utilicen datos de tablas grandes \(como un visualizador de clusters\). 
+* Soporte para paneles diseñados por el usuario, para obtener visualizaciones completamente personalizadas.
 
