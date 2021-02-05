@@ -1,25 +1,27 @@
 ---
-description: Visualize highly dimensional data across your machine learning experiments
+description: >-
+  Visualiza datos de múltiples dimensiones a través de tus experimentos de
+  aprendizaje de máquinas
 ---
 
 # Parallel Coordinates
 
-Here's an example of a parallel coordinates plot. Each axis represents a different In this case I've chosen four vertical axes. In this case I'm visualizing the relationship between different hyperparameters and the final accuracy of my model.
+Aquí hay un ejemplo de un gráfico de coordenadas paralelas. Cada eje representa algo diferente. En este caso he elegido cuatro ejes verticales. Estoy visualizando la relación entre los diferentes hiperparámetros y la precisión final de mi modelo.
 
-* **Axes**: Different hyperparameters from [wandb.config](../../../library/config.md) and metrics from [wandb.log\(\)](../../../library/log.md)
-* **Lines**: Each line represents a single run. Mouse over a line to see a tooltip with details about the run. All lines that match the current filters will be shown, but if you turn off the eye, lines will be grayed out.
+* **Ejes:** Diferentes hiperparámetros de [wandb.config](https://docs.wandb.ai/library/config) y métricas de [wandb.log\(\)](https://docs.wandb.ai/library/log).
+* **Líneas:** Cada línea representa una ejecución simple. Pasa el cursor del mouse sobre una línea para ver una descripción emergente con los detalles de la ejecución. Van a ser mostradas todas las líneas que se correspondan con los filtros actuales, pero si desactivas al ojo, las líneas se van a deshabilitar.
 
-**Panel Settings**
+ **Ajustes del Panel**
 
-Configure these features in the panel settings— click the edit button in the upper right corner of the panel.
+Configura estas características en los ajustes del panel – haz click en el botón de edición, en la esquina superior derecha del panel.
 
-* **Tooltip**: On hover, a legend shows up with info on each run
-* **Titles**: Edit the axis titles to be more readable
-* **Gradient**: Customize the gradient to be any color range you like
-* **Log scale**: Each axis can be set to view on a log scale independently
-* **Flip axis**: Switch the axis direction— this is useful when you have both accuracy and loss as columns
+* Descripción emergente: Al pasar el cursor del mouse, se muestra una leyenda con la información de cada ejecución.. 
+* Títulos: Edita los títulos de los ejes para que sean más legibles.. 
+* Gradiente: Personaliza al gradiente para que esté en los rangos de colores que desees.. 
+* Escala del registro: Cada eje puede ser establecido para verse en una escala del registro de forma independiente. 
+* Da vuelta el eje: Cambia la dirección del eje – esto es útil cuando tengas como columnas tanto a la precisión como a la pérdida
 
-  [See it live →](https://app.wandb.ai/example-team/sweep-demo/reports/Zoom-in-on-Parallel-Coordinates-Charts--Vmlldzo5MTQ4Nw)
+ [Míralo en tiempo real →](https://app.wandb.ai/example-team/sweep-demo/reports/Zoom-in-on-Parallel-Coordinates-Charts--Vmlldzo5MTQ4Nw)
 
 ![](../../../.gitbook/assets/2020-04-27-16.11.43.gif)
 

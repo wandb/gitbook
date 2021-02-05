@@ -1,38 +1,38 @@
 ---
-description: An overview of the different pages in app.wandb.ai
+description: Un resumen de las diferentes páginas en app.wandb.ai
 ---
 
 # Pages
 
-## Home Page
+## Página Principal
 
-Browse all your runs and projects. The home page pulls in projects from your personal account, as well as any projects you've contributed to in teams.
+ Echa un vistazo en todas tus ejecuciones y en todos tus proyectos. La página principal toma los proyectos de tu cuenta personal, así también como a cualquier proyecto al que hayas contribuido en los equipos.
 
 ![](../../.gitbook/assets/home-page.png)
 
-## Project Page
+##  Página del Proyecto
 
-Compare models with different architectures and hyperparameters on the same set of metrics.
+Compara los modelos con diferentes arquitecturas e hiperparámetros sobre el mismo conjunto de métricas.
 
 ![](../../.gitbook/assets/project-page.png)
 
-## Run Page
+## Página de la Ejecución
 
-Visualize the metrics and dataset examples from a single run.
+Visualiza los ejemplos de las métricas y de los conjuntos de datos de una ejecución simple.
 
 ![](../../.gitbook/assets/screen-shot-2020-06-08-at-9.00.04-am.png)
 
-## Report Page
+## Página de Reporte
 
-Compare results and describe your findings, then share links with colleagues.
+Compara los resultados y describe tus conclusiones, entonces comparte los enlaces con los colegas
 
 ![](../../.gitbook/assets/example-report-for-molecules.png)
 
-## Common Questions
+##  Preguntas Comunes
 
-### I accidentally deleted a panel in W&B, how do I undo it?
+### Accidentalmente borré un panel en W&B, ¿cómo lo recupero?
 
-To undo a change in your workspace, click the "undo" button at the bottom of the page.
+Para deshacer un cambio en tu entorno de trabajo, haz click en el botón “deshacer”, en la parte inferior de la página.
 
 ![](../../.gitbook/assets/demo-how-to-undo-deleting-a-panel.gif)
 

@@ -1,28 +1,28 @@
 # Standard Panels
 
-Use visualizations to explore your logged data, the relationships between hyperparameters and output metrics, and dataset examples.
+Utiliza visualizaciones para explorar tus datos registrados, las relaciones entre los hiperparámetros y las métricas de salida, y los ejemplos de los conjuntos de datos.
 
-## Line Plot
+## Gráficos de líneas
 
-![Visualize a metric over time from multiple different runs](../../../.gitbook/assets/docs-line-plot.png)
+![Visualiza una m&#xE9;trica a trav&#xE9;s del tiempo a partir de m&#xFA;ltiples ejecuciones diferentes](../../../.gitbook/assets/docs-line-plot.png)
 
-## Common Questions
+## Preguntas Comunes
 
-### **I select dimensions on a parallel coordinates plot and it disappears**
+###  ****Selecciono las dimensiones en un gráfico de coordenadas paralelas, y el mismo desaparece.
 
-This is likely because you have dots in your config parameter names. We flatten nested parameters using dots, and we only handle 3 levels of dots in the backend. I recommend using a different character as a separator.
+Probablemente, se deba a que tienes puntos en los nombres de los parámetros de configuración. Nosotros aplanamos los parámetros anidados utilizando puntos, y solamente manejamos tres niveles de puntos en el backend. Te recomiendo que uses como separador un carácter diferente.
 
 \*\*\*\*
 
-### Visualize max accuracy in groups
+### Visualiza la precisión máxima en los grupos
 
-Turn on the "eye" icon next to the top run in each group to visualize the maximum accuracy on the charts
+Activa el ícono del “ojo”, al lado de la ejecución superior en cada grupo, para visualizar la precisión máxima sobre los gráficos.
 
 ![](../../../.gitbook/assets/screen-shot-2020-02-12-at-3.45.09-pm.png)
 
-### Download charts
+### Descarga los gráficos
 
-You can download charts by clicking the down arrow and select a format \(.png, .svg, export API or export by CSV\)
+Puedes descargar los gráficos al hacer click en la flecha apuntando hacia bajo y al seleccionar un formato \(.png, .svg, API de exportación o exportando por CSV\)
 
 ![](../../../.gitbook/assets/screen-shot-2020-02-20-at-10.07.09-am.png)
 

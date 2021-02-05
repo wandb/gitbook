@@ -4,67 +4,68 @@
 
 ![Selecting X-Axis](../../../../.gitbook/assets/image%20%2815%29.png)
 
-You can set the X-Axis of a line plot to any value that you have logged with wandb.log as long as it's always logged as a number.
+Puedes establecer el Eje X de un gráfico de líneas a cualquier valor que hayas registrado con wandb.log, siempre y cuando dicho valor sea siempre registrado con un valor numérico.
 
-## Y-Axis Variables
+## Variables del Eje Y
 
-You can set the y-axis variables to any value you have logged with wandb.log as long as you were logging numbers, arrays of numbers or a histogram of numbers. If you logged more than 1500 points for a variable, wandb samples down to 1500 points.
+Puedes establecer las variables del eje y a cualquier valor que hayas registrado con wandb.log, siempre y cuando éstos sean números, arreglos de números o un histograma de números. Si registraste más de 1500 puntos para una variable, wandb muestrea sólo 1500 puntos.
 
 {% hint style="info" %}
-You can change the color of your y axis lines by changing the color of the run in the runs table.
+Puedes cambiar el color de las líneas tu eje y al cambiar el color de la ejecución, en la tabla de las ejecuciones.
 {% endhint %}
 
-## X Range and Y Range
+## Rango X y Rango Y
 
-You can change the maximum and minimum values of X and Y for the plot.
+Puedes cambiar los valores máximo y mínimo de X e Y para el gráfico.
 
-X range default is from the smallest value of your x-axis to the largest.
+El valor predeterminado del rango X, es desde el valor más pequeño de tu eje x al más grande.
 
-Y range default is from the smallest value of your metrics and zero to the largest value of your metrics.
+El valor predeterminado del rango Y, se toma de entre el valor más pequeño de tus métricas y cero, al valor más grande de tus métricas.
 
-## Max Runs/Groups
+## Ejecuciones/Grupos Máximos
 
-By default you will only plot 10 runs or groups of runs. The runs will be taken from the top of your runs table or run set, so if you sort your runs table or run set you can change the runs that are shown.
+Por defecto, vas a graficar sólo 10 ejecuciones o grupos de ejecuciones. Las ejecuciones van a ser tomadas desde la parte superior de tu tabla de ejecuciones o de tu conjunto de ejecuciones, así que si ordenas la tabla, o el conjunto de ejecuciones, puedes cambiar las ejecuciones que van a ser mostradas.
 
-## Legend
+## Leyenda
 
-You can control the legend of your chart to show for any run any config value that you logged and meta data from the runs such as the created at time or the user who created the run.
+  
+Puedes controlar la leyenda del gráfico que vas a mostrar para cualquier ejecución, cualquier valor de configuración que hayas registrado, y los metadatos de las ejecuciones, tales como los creados en el momento o el usuario que creó la ejecución.
 
-Example:
+Ejemplo:
 
-${config:x} will insert the config value of x for a run or group.
+${config:x} va a insertar el valor de configuración de x para una ejecución o para un grupo.
 
-You can set \[\[$x: $y\]\] to display point specific values in the crosshair
+Puedes establecer \[\[$x: $y\]\] para visualizar valores específicos de puntos en el eje.
 
-## Grouping
+## Agrupamiento
 
-You can aggregate all of the runs by turning on grouping, or group over an individual variable. You can also turn on grouping by grouping inside the table and the groups will automatically populate into the graph.
+Puedes agregar todas las ejecuciones al activar el agrupamiento, o agrupar sobre una variable individual. También puedes activar el agrupamiento al agrupar dentro de la tabla, y los grupos van a ser automáticamente rellenados en el gráfico.
 
-## Smoothing
+## Suavizado
 
-You can set the [smoothing coefficient](../../../../library/technical-faq.md#what-formula-do-you-use-for-your-smoothing-algorithm) to be between 0 and 1 where 0 is no smoothing and 1 is maximum smoothing.
+Puedes establecer el [coeficiente de suavizado](https://docs.wandb.ai/library/technical-faq#what-formula-do-you-use-for-your-smoothing-algorithm) para que esté entre 0 y 1, donde 0 significa que no habrá suavizado, y 1 es el suavizado máximo.
 
-## Ignore Outliers
+## Ignora Valores Atípicos
 
-Ignore outliers makes the graph set the yaxis min and max to the 5th and 95th percentile of the data instead of setting it to make all data visible.
+Ignorar valores atípicos hace que el gráfico establezca el mínimo y el máximo del eje y a los percentils 5 y 95 de los datos, respectivamente, en lugar de hacer que todos los datos sean visibles.
 
-## Expression
+## Expresión
 
-Expression lets you plot values derived from metrics like 1-accuracy. It currently only works if you are plotting a single metric. You can do simple arithmetic expressions, +, -, \*, / and % as well as \*\* for powers.
+Las expresiones te permiten diagramar valores derivados de las métricas, como 1-precisión. Actualmente sólo funciona si estás diagramando una métrica simple. Puedes hacer expresiones aritméticas simples, +, -, _, / y %, así también como \*_ para la potencia.
 
-## Plot style
+## Estilo de Gráfico
 
-Select a style for your line plot.
+Selecciona un estilo para tu gráfico de líneas.
 
-**Line plot:**
+ **Gráfico de líneas:**
 
 ![](../../../../.gitbook/assets/image%20%285%29.png)
 
-**Area plot:**
+**Gráfico de área:**
 
 ![](../../../../.gitbook/assets/image%20%2835%29%20%281%29.png)
 
-**Percentage area plot:**
+**Gráfico de área porcentual:**
 
 ![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%281%29.png)
 

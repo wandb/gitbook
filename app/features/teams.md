@@ -1,74 +1,75 @@
 ---
 description: >-
-  Collaborate with your colleagues, share results, and track all the experiments
-  across your team
+  Colabora con tus colegas, comparte resultados, y haz un seguimiento de todos
+  los experimentos pertenecientes a tu equipo
 ---
 
 # Teams
 
-Use Weights & Biases as a central repository for your machine learning team.
+Utiliza Weights & Biases como un repositorio central para tu equipo de aprendizaje de máquinas.
 
-* **Track all the experiments** your team has tried so you never duplicate work. Just a few lines of instrumentation give you fast, reliable tracking of model performance metrics, predictions, GPU usage, and the version of the code that trained the model.
-* **Save, restore and reproduce** previously trained models.
-* **Share progress** and results with your boss and collaborators.
-* **Catch regressions** and immediately get alerted when performance drops.
-* **Benchmark model performance** and customize queries to compare your model versions.
+* Haz un seguimiento de todos los experimentos que tu equipo ha probado, así nunca tienes que duplicar el trabajo. Sólo algunas líneas de instrumentación te otorgan un rastreo rápido y legible de las métricas del desempeño del modelo, las predicciones, el uso de la GPU, y la versión del código que entrenó al modelo.
+*  Gurda, restaura y reproduce los modelos previamente entrenados.
+* **Comparte el progreso** y los resultados con tu jefe y con tus colaboradores.
+* **Captura la regresión** y sé advertido de inmediato cuando el desempeño caiga.
+* Desempeño del modelo de referencia y consultas personalizadas para comparar las versiones de tu modelo.
 
-## Common Questions
+## Preguntas Comunes
 
-### Get access to private teams
+### Obtén acceso a los equipos privados 
 
-If you're at a company, we have enterprise plans. Check the [pricing page](https://www.wandb.com/pricing) for more details. We offer free private teams for academics working on open source projects. Check the [academic page](https://www.wandb.com/academic) to apply for an upgrade.
+Si estás en una compañía, tenemos planes empresariales. Verifica la [página de ](https://www.wandb.com/pricing)[tarifas](https://www.wandb.com/pricing) para obtener más detalles. Ofrecemos equipos privados gratuitos para académicos trabajando en proyectos de código abierto. Verifica la [página de académicos](https://www.wandb.com/academic) para aplicar a una actualización. 
 
-### Create a new team
+### Crea un nuevo equipo
 
-Once you have the feature enabled, create a new team on your [Settings](https://app.wandb.ai/settings) page in the app. The name will be used in the URL of all your team projects, so make sure you pick something short and descriptive, since you won't be able to change it later.
+Una vez que tengas la característica habilitada, crea un nuevo equipo en tu página [Ajustes](https://app.wandb.ai/settings) en la aplicación. El nombre va a ser usado en la URL de todos los proyectos de tu equipo, así que asegúrate de seleccionar algo corto y descriptivo, puesto que no vas a ser capaz de cambiarlo después.
 
-### Move runs to a team
+###  Mueve las ejecuciones a un equipo
 
-It's easy to move runs between projects you have access to. On the project page:
+ Es fácil mover las ejecuciones entre los proyectos a los que tienes acceso. En la página del proyecto:
 
-1. Click the table tab to expand the runs table
-2. Click the checkbox to select all runs
-3. Click **Move**: the destination project can be in your personal account or any team that you're a member of.
+1. Haz click en la pestaña tabla para expandir la tabla de las ejecuciones
+2. Haz click en la casilla de selección para seleccionar todas las ejecuciones
+3. Haz click en Mover: el proyecto de destino puede estar en tu cuenta personal o en la de cualquier equipo del que seas miembro. ****
 
 ![](../../.gitbook/assets/demo-move-runs.gif)
 
-### Send new runs to a team
+### Envía nuevas ejecuciones a tu equipo
 
-In your script, set the entity to your team. "Entity" just means your username or team name. Create an entity \(personal account or team account\) in the web app before sending runs there.
+En tu script, establece la entidad para tu equipo. “Entidad” se refiere a tu nombre de usuario o al nombre de tu equipo. Crea una entidad \(cuenta personal o cuenta del equipo\) en la aplicación web antes de enviar las ejecuciones allí.
 
 ```python
 wandb.init(entity="example-team")
 ```
 
-Your **default entity** is updated when you join a team. This means that on your [settings page](https://app.wandb.ai/settings), you'll see that the default location to create a new project is now the team you've just joined. Here's an example of what that [settings page](https://app.wandb.ai/settings) section looks like:
+Tu **entidad por defecto** se actualiza cuando te unes a un equipo. Esto significa que en tu [página de ajustes](https://app.wandb.ai/settings) vas a ver que la ubicación por defecto para crear un nuevo proyecto, ahora es la correspondiente al equipo al que te has terminado de unir. Aquí hay un ejemplo de cómo se ve la sección de la [página de ajustes](https://app.wandb.ai/settings):
 
 ![](../../.gitbook/assets/screen-shot-2020-08-17-at-12.48.57-am.png)
 
-### Invite team members
+###  Valores Predeterminados del Proyecto
 
-You can invite new members to your team on your team settings page:  
+Ubicación por defecto para crear nuevos proyectos  
 app.wandb.ai/teams/&lt;your-team-here&gt;
 
 ### See privacy settings
 
-You can see the privacy settings of all team projects on the team settings page:  
-app.wandb.ai/teams/&lt;your-team-here&gt;
+Debajo están los ajustes por defecto para los nuevos proyectos que vayas a crear en tu cuenta personal. Para ver los ajustes de tu organización, ve a tu página de los ajustes del equipo. 
 
-Here's what the team settings page looks like. In this screenshot the privacy toggle is on, which means all projects in the team are only visible to the team.
+La privacidad predeterminada del proyecto en tu cuenta personal                                        
+
+PRIVADAHabilita el guardado de código en tu cuenta personalRegión del almacenamiento en la nube por defecto en tu cuenta personal
 
 ![](../../.gitbook/assets/demo-team-settings.png)
 
-### Removing members from teams
+###  Mira los ajustes de la privacidad
 
-When a team member leaves, it's easy to remove them. Team admins can open the team settings page and click the delete button next to the departing member's name. Any runs that they logged to the team will remain after a user is removed.
+Puedes ver los ajustes de la privacidad de todos los proyectos del equipo, desde la página de ajustes del equipo:app.wandb.ai/teams/&lt;your-team-here&gt;
 
-### Account types
+### Tipos de Cuentas
 
-Invite colleagues to join the team, and select from these options:
+Invita a los colegas a unirse al equipo, y selecciona de estas opciones:
 
-* **Member**: A regular member of your team, invited by email
-* **Admin**: A team member who can add and remove other admins and members
-* **Service**: A service worker, an API key useful for using W&B with your run automation tools. If you use the API key from a service account for your team, make sure to set the environment variable **WANDB\_USERNAME** to attribute runs to the correct user.
+* **Miembro**: Un miembro regular de tu equipo, invitado por correo electrónico. 
+* **Administrador**: Un miembro del equipo que puede agregar y remover a otros administradores y miembros.. 
+* **Servicio:** un proveedor de servicios, una clave de la API útil para usar W&B con tus herramientas de automatización de las ejecuciones. Si utilizas la clave de la API desde una cuenta de servicio para tu equipo, asegúrate de establecer la variable de entorno WANDB\_USERNAME para las ejecuciones del atributo al usuario correcto.
 

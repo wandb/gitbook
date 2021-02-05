@@ -1,28 +1,30 @@
 ---
-description: A playground for exploring run data with interactive visualizations
+description: >-
+  Un entorno para explorar los datos de las ejecuciones con visualizaciones
+  interactivas
 ---
 
 # Workspaces
 
-Your workspace is your personal sandbox to customize charts and explore model results.
+Tu entorno de trabajo es tu entorno de pruebas personal para personalizar gráficos y para explorar los resultados de los modelos.
 
-1. **Table**: All the runs in your project are listed in the table. ****Turn on and off runs, change colors, and expand the table to see notes, config, and summary metrics for each run. 
-2. **Panels**: Panels are organized into sections. Create new panels, organize them, and export to reports to save snapshots of your workspace.
+1. Tabla: Todas las ejecuciones en tu proyecto son listadas en la tabla. Activa o desactiva las ejecuciones, cambia los colores, y expande la tabla para ver las notas, las configuraciones y las métricas de la síntesis para cada ejecución.
+2. Paneles: Los paneles están organizados en secciones. Crea nuevos paneles, organízalos, y exporta los reportes para guardar panorámicas de tu entorno de trabajo.
 
 ![](../../.gitbook/assets/workspace-table-and-panels.png)
 
 
 
-At the bottom of the page is a workspace control bar:
+En la parte inferior de la página hay una barra de control del entorno de trabajo:
 
-* **Workspace**: Each user has one workspace. Only you can edit your own workspace.
-* **Undo/redo**: Quickly undo changes you made to your workspace.
-* **Sharing**: Create a report to share results with colleagues. Click **Create report** in the upper right and select what charts you'd like to save a snapshot of. 
-  * Reports can be **static snapshots** or **dynamic dashboards** of your project progress.
-  * You can create multiple different saved views of your project with reports.
-  * Reports let you add text annotations, create multiple different panel sections with different visible runs in each, and even share view-only links from inside private projects.
-  * If you do end up sharing a link to your workspace with a collaborator, they can't overwrite your original layout but they can play with the charts in a temporary view, explore the results, and save over their own workspace if they prefer your layout.
-* **Default workspace**: This is the default layout for any newcomers who land on this project for the first time. This lets you set up a nice landing page for your public project, or help your team members get started.
+* **Entorno de trabajo:** Cada usuario tiene su propio entorno de trabajo. Solamente tú puedes editar tu propio entorno de trabajo.
+* **Deshacer/rehacer:** Deshaz rápidamente los cambios que hiciste en tu entorno de trabajo.
+* **Compartir**: Crea un reporte para compartir los resultados con los colegas. Haz click en Crear reporte, en la esquina superior derecha, y selecciona de qué gráficos te gustaría guardar la panorámica.
+  * Los reportes pueden ser panorámicas estáticas o tableros de control dinámicos del progreso de tu proyecto.
+  * Con los reportes, puedes crear múltiples vistas de tu proyecto, guardadas de forma diferente.
+  * Los reportes te permiten agregar anotaciones textuales, crear múltiples secciones de diferentes paneles, cada una con diferentes ejecuciones visibles, e incluso compartir enlaces no editables desde dentro de los proyectos privados.
+  * Si terminas compartiendo un enlace a tu entorno de trabajo con un colaborador, este no podrá sobrescribir tu diseño original, pero puede interactuar con los gráficos en una vista temporal, explorar los resultados, y guardar en su propio espacio de trabajo si prefiere tu diseño.
+* **Entorno de trabajo por defecto**: Este es el diseño predeterminado para cualquier persona que arriba al proyecto por primera vez. Te permite establecer una página de presentación elegante para tu proyecto público, o ayuda a que los miembros de tu equipo den los primeros pasos.
 
 ![](../../.gitbook/assets/workspace-bar2.png)
 

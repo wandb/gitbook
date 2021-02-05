@@ -1,30 +1,30 @@
 ---
 description: >-
-  Receive a Slack notification whenever your runs crash, complete, or call
-  wandb.alert().
+  Recibe una notificación de Slack toda vez que tu ejecución falla, se completa
+  o llama a wandb.alert().
 ---
 
 # Alerts
 
-W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
+W&B puede enviar notificaciones a la casilla de correos electrónica o a Slack toda vez que tu ejecución falla, se completa o llama a [wandb.alert\(\)](https://docs.wandb.ai/library/wandb.alert).
 
-### User Alerts
+###  Alertas de Usuario
 
-Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects. 
+Establece notificaciones cuando una ejecución finaliza, falla, o tú mismo llamas a `wandb.alert()`. Esto se aplica a todos los proyectos donde lanzas ejecuciones, incluyendo proyectos personales y proyectos en equipo.
 
-In your [User Settings](https://wandb.ai/settings):
+En tus [Ajustes de Usuario](https://wandb.ai/settings):
 
-* Scroll down to the **Alerts** section
-* Click **Connect Slack** to pick a channel to post alerts. We recommend the **Slackbot** channel because it keeps the alerts private.
-* **Email** will go to the email address you used when you signed up for W&B. We recommend setting up a filter in your email so all these alerts go into a folder and don't fill up your inbox.
+*  Desplázate a la sección **Alertas**
+* . Haz click en **Conectar a Slack** para seleccionar un canal al cual enviar alertas. Recomendamos el canal Slackbot, puesto que hace que las alertas sean privadas.
+* **Email** irá a la dirección de correo electrónico que usaste cuando te registraste en W&B. Te recomendamos establecer un filtro en tu casilla de correos para que todas estas alertas vayan a un directorio y no te llenen la bandeja de entrada
 
 ![](../../.gitbook/assets/demo-connect-slack.png)
 
-### Team Alerts
+### Alertas
 
-Team admins can set up alerts for the team on the team settings page: wandb.ai/teams/`your-team`. These alerts apply to everyone on your team. We recommend using the **Slackbot** channel because it keeps the alerts private.
+Los administradores del equipo pueden establecer alertas para el equipo en la página de ajustes del equipo: wandb.ai/teams/your-team. Estas alertas se aplican a todos los miembros del equipo. Recomendamos usar el canal Slackbot, porque mantiene las alertas privadas.
 
-### Changing Slack Channels
+### Cambiando los Canales de Slack
 
-To change what channel you're posting to, click **Disconnect Slack** and then reconnect, picking a different destination channel.
+**Desconectar Slack** y entonces en reconectar, seleccionando un canal de destino diferente.
 

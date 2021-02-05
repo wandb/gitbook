@@ -1,20 +1,22 @@
 ---
-description: Tutorial of using the custom charts feature in the Weights & Biases UI
+description: >-
+  Tutorial para usar la característica de los gráficos personalizados en la
+  interfaz de usuario de Weights & Biases
 ---
 
 # Custom Charts Walkthrough
 
-To go beyond the built-in charts in Weights & Biases, use the new **Custom Charts** feature to control the details of exactly what data you're loading in to a panel and how you visualize that data.
+Para ir más allá de los gráficos incorporados en Weights & Biases, utiliza la nueva característica de los Gráficos Personalizados para controlar los detalles de qué datos vas a cargar exactamente en un panel y de cómo visualizar dichos datos.
 
-**Overview**
+ **Resumen**
 
-1. Log data to W&B
-2. Create a query
-3. Customize the chart
+1. Registra datos a W&B
+2. Crea una consulta
+3. Personaliza el gráfico
 
-## 1. Log data to W&B
+## 1. Registra datos a W&B
 
-First, log data in your script. Use [wandb.config](../../../library/config.md) for single points set at the beginning of training, like hyperparameters. Use [wandb.log\(\)](../../../library/log.md) for multiple points over time, and log custom 2D arrays with wandb.Table\(\). We recommend logging up to 10,000 data points per logged key.
+ Primero, registra los datos en tu script. Utiliza [wandb.config](https://docs.wandb.ai/library/config) para conjuntos de puntos simples al comienzo del entrenamiento, como hiperparámetros. Usa [wandb.log\(\)](https://docs.wandb.ai/library/log) para múltiples puntos a través del tiempo, y registra arreglos personalizados en 2D con wandb.Table\(\). Recomendamos registrar hasta 10.000 puntos de datos por clave registrada.
 
 ```python
 # Logging a custom table of data
@@ -23,63 +25,63 @@ wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
                                 columns = ["x", "y", "z"])})
 ```
 
-[Try a quick example notebook](https://bit.ly/custom-charts-colab) to log the data tables, and in the next step we'll set up custom charts. See what the resulting charts look like in the [live report](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc).
+ [Prueba una notebok de ejemplo simple](https://bit.ly/custom-charts-colab) para registrar las tablas de datos, y en el próximo paso vamos a establecer los gráficos personalizados. Mira cómo se ven los gráficos resultantes en el [reporte en tiempo real](https://app.wandb.ai/demo-team/custom-charts/reports/Custom-Charts--VmlldzoyMTk5MDc).
 
-## 2. Create a query
+## 2. Crea una consulta
 
-Once you've logged data to visualize, go to your project page and click the **`+`** button to add a new panel, then select **Custom Chart**. You can follow along in [this workspace](https://app.wandb.ai/demo-team/custom-charts).
+Una vez que hayas registrado datos para visualizar, ve a la página del proyecto y haz click en el botón `+` para agregar un nuevo panel, y entonces selecciona Gráfico Personalizado. Puedes seguirlo en [este entorno de trabajo](https://app.wandb.ai/demo-team/custom-charts).
 
-![A new, blank custom chart ready to be configured](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.41.37-am.png)
+![Un gr&#xE1;fico nuevo, en blanco, listo para ser configurado](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.41.37-am.png)
 
-### **Add a query**
+### Agrega una consulta
 
-1. Click `summary` and select `historyTable` to set up a new query pulling data from the run history. 
-2. Type in the key where you logged the **wandb.Table\(\)**. In the code snippet above, it was `my_custom_table` . In the [example notebook](https://bit.ly/custom-charts-colab), the keys are `pr_curve` and `roc_curve`.
+1.  Haz click en `summar`y y selecciona historyTable para establecer una nueva consulta que traiga datos desde el historial de la ejecución.
+2. Escribe la clave donde registrarte wandb.Table\(\). En el fragmento de código anterior fue `my_custom_table`. En la [notebook de ejemplo](https://bit.ly/custom-charts-colab), las claves son `pr_curve` y `roc_curve`.
 
-### Set Vega fields
+###  Establece los campos de Vega
 
-Now that the query is loading in these columns, they're available as options to select in the Vega fields dropdown menus:
+Ahora que la consulta está cargada en estas columnas, estas están disponibles como opciones para seleccionar en los menús desplegable de los campos de Vega:
 
-![Pulling in columns from the query results to set Vega fields](../../../.gitbook/assets/screen-shot-2020-08-28-at-8.04.39-am.png)
+![Tomando columnas de los resultados de la consulta para establecer los campos de Vega](../../../.gitbook/assets/screen-shot-2020-08-28-at-8.04.39-am.png)
 
 * **x-axis:** runSets\_historyTable\_r \(recall\)
 * **y-axis:** runSets\_historyTable\_p \(precision\)
 * **color:** runSets\_historyTable\_c \(class label\)
 
-## 3. Customize the chart
+## 3. Personalizar el gráfico
 
-Now that looks pretty good, but I'd like to switch from a scatter plot to a line plot. Click **Edit** to change the Vega spec for this built in chart. Follow along in [this workspace](https://app.wandb.ai/demo-team/custom-charts).
+Ahora esto se ve bastante bien, pero me gustaría cambiar de un gráfico de dispersión a un gráfico de líneas. Haz click en Editar para cambiar la especificación de Vega a la de este gráfico incorporado. Sigue en [este entorno de trabajo](https://app.wandb.ai/demo-team/custom-charts).
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597442115525_Screen+Shot+2020-08-14+at+2.52.24+PM.png)
 
-I updated the Vega spec to customize the visualization:
+Actualicé la especificación de Vega para personalizar la visualización:
 
-* add titles for the plot, legend, x-axis, and y-axis \(set “title” for each field\)
-* change the value of “mark” from “point” to “line”
-* remove the unused “size” field
+* agrega títulos para el gráfico, la leyenda, el eje x, y el eje y \(establece el “título” por cada campo\)
+* cambia el valor de “mark” de “point” a “line”
+* Elimina el campo “size” que no es usado
 
 ![](../../../.gitbook/assets/customize-vega-spec-for-pr-curve.png)
 
-To save this as a preset that you can use elsewhere in this project, click **Save as** at the top of the page. Here's what the result looks like, along with an ROC curve:
+Para guardar esto como un preajuste que puedas usar en cualquier lugar del proyecto, has click en **Guardar como** en la parte superior de la página. Así es como se va a ver el resultado, conjuntamente con una curva ROC:
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1597442868347_Screen+Shot+2020-08-14+at+3.07.30+PM.png)
 
-Thanks for following along! Message Carey \(c@wandb.com\) with questions and feedback [😊](https://emojipedia.org/smiling-face-with-smiling-eyes/)
+Gracias por continuar! Mándale un mensaje a Carey \([c@wandb.com](mailto:c@wandb.com)\) con preguntas y comentarios :\)[😊](https://emojipedia.org/smiling-face-with-smiling-eyes/)
 
-## Bonus: Composite Histograms
+## Extra: Compón Histogramas
 
-Histograms can visualize numerical distributions to help us understand larger datasets. Composite histograms show multiple distributions across the same bins, letting us compare two or more metrics across different models or across different classes within our model. For a semantic segmentation model detecting objects in driving scenes, we might compare the effectiveness of optimizing for accuracy versus intersection over union \(IOU\), or we might want to know how well different models detect cars \(large, common regions in the data\) versus traffic signs \(much smaller, less common regions\). In the[ demo Colab](https://bit.ly/custom-charts-colab), you can compare the confidence scores for two of the ten classes of living things.
+ Los histogramas pueden visualizar distribuciones numéricas para ayudarnos a entender conjuntos de datos más grandes. Componer histogramas muestra múltiples distribuciones a través de los mismos contenedores, permitiéndonos comparar dos o más métricas a través de diferentes modelos, o a través de diferentes clases dentro de nuestro modelo. Para un modelo de segmentación semántica detectando objetos en una escena de conducción, podríamos comparar la efectividad de la optimización para la precisión versus el índice Jaccard \(IOU\), o podríamos querer conocer lo bien que los diferentes modelos detectan a los vehículos \(regiones grandes y comunes en los datos\) versus las señales de tráfico \(regiones mucho más pequeñas y menos comunes\). En la [Colab de la demostración](https://bit.ly/custom-charts-colab), puedes comparar la puntuación de la confianza para dos de las diez clases de las cosas vivientes.
 
 ![](../../../.gitbook/assets/screen-shot-2020-08-28-at-7.19.47-am.png)
 
-To create your own version of the custom composite histogram panel:
+ Para crear tu propia versión del panel del histograma compuesto personalizado:
 
-1. Create a new Custom Chart panel in your Workspace or Report \(by adding a “Custom Chart” visualization\). Hit the “Edit” button in the top right  to modify the Vega spec starting from any built-in panel type.
-2. Replace that built-in Vega spec with my [MVP code for a composite histogram in Vega](https://gist.github.com/staceysv/9bed36a2c0c2a427365991403611ce21). You can modify the main title, axis titles, input domain, and any other details directly in this Vega spec [using Vega syntax](https://vega.github.io/) \(you could change the colors or even add a third histogram :\)
-3. Modify the query in the right hand side to load the correct data from your wandb logs. Add the field “summaryTable” and set the corresponding “tableKey” to “class\_scores” to fetch the wandb.Table logged by your run. This will let you populate the two histogram bin sets \(“red\_bins” and “blue\_bins”\) via the dropdown menus with the columns of the wandb.Table logged as “class\_scores”. For my example, I chose the “animal” class prediction scores for the red bins and “plant” for the blue bins.
-4. You can keep making changes to the Vega spec and query until you’re happy with the plot you see in the preview rendering. Once you’re done, click “Save as” in the top and give your custom plot a name so you can reuse it. Then click “Apply from panel library” to finish your plot.
+1. Crea un nuevo panel de Gráficos Personalizados en tu Entorno de Trabajo o en tu Reporte \(al agregar una visualización de “Gráficos Personalizados”\). Presiona el botón “Editar” en la parte superior derecha para modificar la especificación de Vega, comenzando a partir de cualquier tipo de panel incorporado.
+2.  Reemplaza esa especificación incorporada de Vega con mi [código MVP para un histograma compuesto en Vega](https://gist.github.com/staceysv/9bed36a2c0c2a427365991403611ce21). Puedes modificar el título principal, los títulos de los ejes, el dominio de la entrada, y cualquier otro detalle directamente en esta especificación de Vega, [utilizando la sintaxis de Vega](https://vega.github.io/) \(podrías cambiar los colores o incluso agregar un tercer histograma :\)\)
+3. Modifica la consulta en el lado a mano derecha, para cargar los datos correctos desde tus registros de wandb. Agrega el campo “summaryTable” y establece el correspondiente “tableKey” a “class\_scores” para traer al wandb.Table registrado por tu ejecución. Esto te permitirá ingresar los datos en los dos conjuntos de contenedores \(“red\_bins” y “blue\_bins”\), a través de los menús desplegables, con las columnas de wandb.Table registradas como “class\_scores”. Para mi ejemplo, elegí las puntuaciones para la predicción de la clase “animal” para los contenedores rojos y “plant” para los contenedores azules.
+4. Puedes seguir haciendo cambios a la especificación de Vega y seguir consultando hasta que estés feliz con el gráfico que veas en la vista previa. Una vez que hayas terminado, has click en “Guardar como”, en la parte superior, y dale un nombre a tu gráfico personalizado, para poder reutilizarlo. Entonces, haz click en “Aplicar desde la biblioteca del panel” para finalizar tu gráfico.
 
-Here’s what my results look like from a very brief experiment: training on only 1000 examples for one epoch yields a model that’s very confident that most images are not plants and very uncertain about which images might be animals.
+Aquí está cómo se ven mis resultados, a partir de un experimento muy breve: al entrenar solamente 1000 ejemplos por una época, se produce un modelo que está muy confiado de que la mayoría de las imágenes no son plantas, y muy inseguro respecto a qué imágenes podrían ser animales.
 
 ![](https://paper-attachments.dropbox.com/s_5FCA7E5A968820ADD0CD5402B4B0F71ED90882B3AC586103C1A96BF845A0EAC7_1598376315319_Screen+Shot+2020-08-25+at+10.24.49+AM.png)
 
