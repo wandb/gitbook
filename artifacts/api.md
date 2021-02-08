@@ -1,4 +1,4 @@
-# Artifacts API
+# Artifacts Walkthrough
 
 Use W&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. You can use artifacts to track and save files, or track external URIs.
 
@@ -440,4 +440,10 @@ for version in api.artifact_versions(artifact_type, artifact_name):
 ## Data privacy
 
 Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
+
+## Explore the Graph
+
+To navigate from the graph tab on an artifact, click "Explode" to see all the individual instances of each job type and artifact type. Then click a node to open that run or artifact in a new tab. Try it yourself on this [example Graph page](https://wandb.ai/shawn/detectron2-11/artifacts/dataset/furniture-small-val/06d5ddd4deeb2a6ebdd5/graph).
+
+![](../.gitbook/assets/2021-02-08-08.40.34.gif)
 

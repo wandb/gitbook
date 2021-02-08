@@ -97,7 +97,7 @@
   * [Ray Tune Sweeps](sweeps/ray-tune.md)
   * [Visualize Sweep Results](sweeps/visualize-sweep-results.md)
 * [Artifacts](artifacts/README.md)
-  * [Artifacts API](artifacts/api.md)
+  * [Artifacts Walkthrough](artifacts/api.md)
   * [Artifacts Examples](artifacts/examples.md)
 * [Datasets & Predictions \[Early Access\]](datasets-and-predictions.md)
 * [Self Hosted](self-hosted/README.md)
