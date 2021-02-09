@@ -26,6 +26,8 @@ pip install wandb
 wandb login
 ```
 
+**Note**: To enable logging to W&B, set `report_to` to `wandb` in your `TrainingArguments` or script.
+
 The `Trainer` or `TFTrainer` will automatically log losses, evaluation metrics, model topology and gradients.
 
 {% hint style="info" %}
