@@ -47,7 +47,7 @@ Advanced configuration is possible by setting environment variables:
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Environment Variables</th>
+      <th style="text-align:left">Environment Variable</th>
       <th style="text-align:left">Options</th>
     </tr>
   </thead>
