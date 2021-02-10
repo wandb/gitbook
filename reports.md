@@ -110,10 +110,6 @@ Sorry! We're constantly working on performance improvements, but WYSIWYG reports
 
 ![](.gitbook/assets/wandb-reports-editor-1.gif)
 
-**I used to have collapsed headings, but now they're all expanded. How can I collapse them again?**
-
-Collapsed headings inside Markdown blocks are no longer supported. However, collapsed WYSIWYG headings are fully supported. If you wish to keep your old reports in Markdown form but utilize collapsible headings, you can add a WYSIWYG heading above the Markdown block you'd like to collapse, remove the heading from the Markdown block, and collapse the WYSIWYG heading.
-
 **How do I delete a panel grid?**
 
 Select the panel grid, and hit delete/backspace. The easiest way to select a panel grid is by clicking its drag handle on the top-right, like so:
@@ -127,6 +123,16 @@ Tables are the only feature from Markdown that we haven't added a WYSIWYG equiva
 **I converted my report to WYSIWYG but I'd like to revert back to Markdown.**
 
 First, try clicking your document and hitting cmd+Z \(or ctrl+Z on Windows\) to undo. If that doesn't work, consider discarding your draft and editing your report from its last saved state. If that's not an option, let us know through the Intercom bubble at the bottom right and our team can try to restore your last working state.
+
+**I converted my report to WYSIWYG but I'd like to revert back to Markdown.**
+
+If you converted your report using the message at the top of the report, simply hit the red "Revert" button to return to your pre-converted state. Note that any changes you've made after converting will be lost.
+
+![](.gitbook/assets/image.png)
+
+If you converted a single Markdown block, try hitting cmd+z to undo.
+
+If neither of these options work because you've closed your session after converting, consider discarding your draft and editing your report from its last saved state. If this isn't an option either, let us know through the Intercom bubble at the bottom right and our team can try to restore your last working state.
 
 **I have a problem that isn't addressed by this FAQ.**
 
