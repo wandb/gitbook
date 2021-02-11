@@ -85,3 +85,7 @@ redirects:
   library/integrations/openai-gym: ./integrations/openai-gym.md
   library/integrations/numpy: ./integrations/numpy.md
   library/integrations/jax: ./integrations/jax.md
+  ref/export-api: ./library/public-api-guide.md
+  ref/export-api/api: ./ref/public-api/README.md
+  ref/export-api/examples: ./library/public-api-guide.md
+  
