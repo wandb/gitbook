@@ -36,7 +36,6 @@ redirects:
   library/advanced/resuming: ./library/resuming.md
   library/advanced/security: ./library/security.md
   library/advanced/limits: ./library/limits.md
-  library/api: ./ref/export-api/README.md
   library/api/examples: ./ref/export-api/examples.md
   library/reference: ./ref/README.md
   library/reference/wandb_api: ./ref/public-api/api.md
