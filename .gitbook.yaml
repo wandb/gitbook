@@ -39,9 +39,9 @@ redirects:
   library/api: ./ref/export-api/README.md
   library/api/examples: ./ref/export-api/examples.md
   library/reference: ./ref/README.md
-  library/reference/wandb_api: ./ref/api.md
+  library/reference/wandb_api: ./ref/public-api/api.md
   library/reference/keras: ./ref/keras.md
-  library/reference/data_types: ./ref/data-types.md
+  library/reference/data_types: ./ref/data-types/README.md
   library/reference/fastai: ./integrations/fastai/README.md
   library/sweeps: ./sweeps/overview.md
   library/sweeps/configuration: ./sweeps/configuration.md
