@@ -12,5 +12,5 @@ Projects(
 
 | Class Variables |  |
 | :--- | :--- |
-|  QUERY |  |
+| QUERY |  |
 

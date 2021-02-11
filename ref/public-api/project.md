@@ -12,7 +12,7 @@ Project(
 
 | Attributes |  |
 | :--- | :--- |
-|  `path` |  |
+| `path` |  |
 
 ## Methods
 

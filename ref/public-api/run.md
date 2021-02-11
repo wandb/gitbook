@@ -12,16 +12,16 @@ Run(
 
 | Attributes |  |
 | :--- | :--- |
-|  `entity` |  |
-|  `id` |  |
-|  `json_config` |  |
-|  `lastHistoryStep` |  |
-|  `name` |  |
-|  `path` |  |
-|  `storage_id` |  |
-|  `summary` |  |
-|  `url` |  |
-|  `username` |  |
+| `entity` |  |
+| `id` |  |
+| `json_config` |  |
+| `lastHistoryStep` |  |
+| `name` |  |
+| `path` |  |
+| `storage_id` |  |
+| `summary` |  |
+| `url` |  |
+| `username` |  |
 
 ## Methods
 
@@ -64,7 +64,7 @@ Arguments: name \(str\): name of requested file.
 
 | Returns |
 | :--- |
-|  A \`File\` matching the name argument. |
+| A \`File\` matching the name argument. |
 
 ### `files` <a id="files"></a>
 
@@ -80,7 +80,7 @@ Arguments: names \(list\): names of the requested files, if empty returns all fi
 
 | Returns |
 | :--- |
-|  A \`Files\` object, which is an iterator over \`File\` obejcts. |
+| A \`Files\` object, which is an iterator over \`File\` obejcts. |
 
 ### `history` <a id="history"></a>
 
@@ -97,11 +97,11 @@ Returns sampled history metrics for a run. This is simpler and faster if you are
 
 | Arguments |
 | :--- |
-|  samples \(int, optional\): The number of samples to return pandas \(bool, optional\): Return a pandas dataframe keys \(list, optional\): Only return metrics for specific keys x\_axis \(str, optional\): Use this metric as the xAxis defaults to \_step stream \(str, optional\): "default" for metrics, "system" for machine metrics |
+| samples \(int, optional\): The number of samples to return pandas \(bool, optional\): Return a pandas dataframe keys \(list, optional\): Only return metrics for specific keys x\_axis \(str, optional\): Use this metric as the xAxis defaults to \_step stream \(str, optional\): "default" for metrics, "system" for machine metrics |
 
 | Returns |
 | :--- |
-|  If pandas=True returns a \`pandas.DataFrame\` of history metrics. If pandas=False returns a list of dicts of history metrics. |
+| If pandas=True returns a \`pandas.DataFrame\` of history metrics. If pandas=False returns a list of dicts of history metrics. |
 
 ### `load` <a id="load"></a>
 
@@ -127,11 +127,11 @@ Declare an artifact as output of a run.
 
 | Arguments |
 | :--- |
-|  artifact \(\`Artifact\`\): An artifact returned from \`wandb.Api\(\).artifact\(name\)\` aliases \(list, optional\): Aliases to apply to this artifact |
+| artifact \(\`Artifact\`\): An artifact returned from \`wandb.Api\(\).artifact\(name\)\` aliases \(list, optional\): Aliases to apply to this artifact |
 
 | Returns |
 | :--- |
-|  A \`Artifact\` object. |
+| A \`Artifact\` object. |
 
 ### `logged_artifacts` <a id="logged_artifacts"></a>
 
@@ -175,11 +175,11 @@ losses = [row["Loss"] for row in history]
 
 | Arguments |
 | :--- |
-|  keys \(\[str\], optional\): only fetch these keys, and only fetch rows that have all of keys defined. page\_size \(int, optional\): size of pages to fetch from the api |
+| keys \(\[str\], optional\): only fetch these keys, and only fetch rows that have all of keys defined. page\_size \(int, optional\): size of pages to fetch from the api |
 
 | Returns |
 | :--- |
-|  An iterable collection over history records \(dict\). |
+| An iterable collection over history records \(dict\). |
 
 ### `snake_to_camel` <a id="snake_to_camel"></a>
 
@@ -215,7 +215,7 @@ Arguments: path \(str\): name of file to upload. root \(str\): the root path to 
 
 | Returns |
 | :--- |
-|  A \`File\` matching the name argument. |
+| A \`File\` matching the name argument. |
 
 ### `use_artifact` <a id="use_artifact"></a>
 
@@ -231,11 +231,11 @@ Declare an artifact as an input to a run.
 
 | Arguments |
 | :--- |
-|  artifact \(\`Artifact\`\): An artifact returned from \`wandb.Api\(\).artifact\(name\)\` |
+| artifact \(\`Artifact\`\): An artifact returned from \`wandb.Api\(\).artifact\(name\)\` |
 
 | Returns |
 | :--- |
-|  A \`Artifact\` object. |
+| A \`Artifact\` object. |
 
 ### `used_artifacts` <a id="used_artifacts"></a>
 

@@ -12,11 +12,11 @@ Artifact(
 
 | Attributes |  |
 | :--- | :--- |
-|  `digest` |  |
-|  `entity` |  |
-|  `id` |  |
-|  `manifest` |  |
-|  `project` |  |
+| `digest` |  |
+| `entity` |  |
+| `id` |  |
+| `manifest` |  |
+| `project` |  |
 
 ## Methods
 
@@ -34,7 +34,7 @@ Adds `obj` to the artifact, located at `name`. You can use [`Artifact.get(name)`
 
 | Arguments |
 | :--- |
-|  obj \(wandb.WBValue\): The object to save in an artifact name \(str\): The path to save |
+| obj \(wandb.WBValue\): The object to save in an artifact name \(str\): The path to save |
 
 ### `add_dir` <a id="add_dir"></a>
 
@@ -60,11 +60,11 @@ Adds a local file to the artifact
 
 | Args |
 | :--- |
-|  local\_path \(str\): path to the file name \(str, optional\): new path and filename to assign inside artifact. Defaults to None. is\_tmp \(bool, optional\): If true, then the file is renamed deterministically. Defaults to False. |
+| local\_path \(str\): path to the file name \(str, optional\): new path and filename to assign inside artifact. Defaults to None. is\_tmp \(bool, optional\): If true, then the file is renamed deterministically. Defaults to False. |
 
 | Returns |  |
 | :--- | :--- |
-|  `ArtifactManifestEntry` |  the added entry |
+| `ArtifactManifestEntry` | the added entry |
 
 ### `add_reference` <a id="add_reference"></a>
 
@@ -80,7 +80,7 @@ adds `uri` to the artifact via a reference, located at `name`. You can use [`Art
 
 | Arguments |
 | :--- |
-|  uri \(str\) - the URI path of the reference to add. Can be an object returned from Artifact.get\_path to store a reference to another artifact's entry. name \(str\) - the path to save |
+| uri \(str\) - the URI path of the reference to add. Can be an object returned from Artifact.get\_path to store a reference to another artifact's entry. name \(str\) - the path to save |
 
 ### `download` <a id="download"></a>
 

@@ -252,7 +252,7 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](../.gitbook/assets/image%20%28128%29%20%281%29.png)
+![](../.gitbook/assets/image%20%28128%29%20%281%29%20%281%29.png)
 
 Finally, configure the **Redirect URL** to point to your W&B installation. You should use the same value as what you set **Frontend Host** to ****in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 

@@ -14,5 +14,5 @@ This is generally used indirectly via the `Api`.runs method
 
 | Class Variables |  |
 | :--- | :--- |
-|  QUERY |  |
+| QUERY |  |
 

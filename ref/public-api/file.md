@@ -12,15 +12,15 @@ File(
 
 | Attributes |  |
 | :--- | :--- |
-|  `digest` |  |
-|  `direct_url` |  |
-|  `id` |  |
-|  `md5` |  |
-|  `mimetype` |  |
-|  `name` |  |
-|  `size` |  |
-|  `updated_at` |  |
-|  `url` |  |
+| `digest` |  |
+| `direct_url` |  |
+| `id` |  |
+| `md5` |  |
+| `mimetype` |  |
+| `name` |  |
+| `size` |  |
+| `updated_at` |  |
+| `url` |  |
 
 ## Methods
 
@@ -46,9 +46,9 @@ Downloads a file previously saved by a run from the wandb server.
 
 | Arguments |
 | :--- |
-|  replace \(boolean\): If \`True\`, download will overwrite a local file if it exists. Defaults to \`False\`. root \(str\): Local directory to save the file. Defaults to ".". |
+| replace \(boolean\): If \`True\`, download will overwrite a local file if it exists. Defaults to \`False\`. root \(str\): Local directory to save the file. Defaults to ".". |
 
 | Raises |
 | :--- |
-|  \`ValueError\` if file already exists and replace=False |
+| \`ValueError\` if file already exists and replace=False |
 

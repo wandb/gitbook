@@ -16,12 +16,12 @@ api.sweep\(sweep\_path\)
 
 | Attributes |  |
 | :--- | :--- |
-|  `config` |  |
-|  `entity` |  |
-|  `order` |  |
-|  `path` |  |
-|  `url` |  |
-|  `username` |  |
+| `config` |  |
+| `entity` |  |
+| `order` |  |
+| `path` |  |
+| `url` |  |
+| `username` |  |
 
 ## Methods
 
@@ -73,5 +73,5 @@ snake_to_camel(
 
 | Class Variables |  |
 | :--- | :--- |
-|  QUERY |  |
+| QUERY |  |
 

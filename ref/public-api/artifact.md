@@ -10,18 +10,18 @@ Artifact(
 
 | Attributes |  |
 | :--- | :--- |
-|  `aliases` |  |
-|  `created_at` |  |
-|  `description` |  |
-|  `digest` |  |
-|  `id` |  |
-|  `manifest` |  |
-|  `metadata` |  |
-|  `name` |  |
-|  `size` |  |
-|  `state` |  |
-|  `type` |  |
-|  `updated_at` |  |
+| `aliases` |  |
+| `created_at` |  |
+| `description` |  |
+| `digest` |  |
+| `id` |  |
+| `manifest` |  |
+| `metadata` |  |
+| `name` |  |
+| `size` |  |
+| `state` |  |
+| `type` |  |
+| `updated_at` |  |
 
 ## Methods
 
@@ -75,15 +75,15 @@ download(
 )
 ```
 
-Download the artifact to dir specified by the 
+Download the artifact to dir specified by the
 
 | Arguments |
 | :--- |
-|  root \(str, optional\): directory to download artifact to. If None artifact will be downloaded to './artifacts//' recursive \(bool, optional\): if set to true, then all dependent artifacts are eagerly downloaded as well. If false, then the dependent artifact will only be downloaded when needed. |
+| root \(str, optional\): directory to download artifact to. If None artifact will be downloaded to './artifacts//' recursive \(bool, optional\): if set to true, then all dependent artifacts are eagerly downloaded as well. If false, then the dependent artifact will only be downloaded when needed. |
 
 | Returns |
 | :--- |
-|  The path to the downloaded contents. |
+| The path to the downloaded contents. |
 
 ### `expected_type` <a id="expected_type"></a>
 
@@ -108,15 +108,15 @@ file(
 )
 ```
 
-Download a single file artifact to dir specified by the 
+Download a single file artifact to dir specified by the
 
 | Arguments |
 | :--- |
-|  root \(str, optional\): directory to download artifact to. If None artifact will be downloaded to './artifacts//' |
+| root \(str, optional\): directory to download artifact to. If None artifact will be downloaded to './artifacts//' |
 
 | Returns |
 | :--- |
-|  The full path of the downloaded file |
+| The full path of the downloaded file |
 
 ### `from_id` <a id="from_id"></a>
 
@@ -143,7 +143,7 @@ Returns the wandb.Media resource stored in the artifact. Media can be stored in 
 
 | Returns |
 | :--- |
-|  A \`wandb.Media\` which has been stored at \`name\` |
+| A \`wandb.Media\` which has been stored at \`name\` |
 
 ### `get_path` <a id="get_path"></a>
 
@@ -167,7 +167,7 @@ Retrieves the run which logged this artifact
 
 | Returns |  |
 | :--- | :--- |
-|  `Run` |  Run object which logged this artifact |
+| `Run` | Run object which logged this artifact |
 
 ### `new_file` <a id="new_file"></a>
 
@@ -201,7 +201,7 @@ Retrieves the runs which use this artifact directly
 
 | Returns |
 | :--- |
-|  \[Run\]: a list of Run objects which use this artifact |
+| \[Run\]: a list of Run objects which use this artifact |
 
 ### `verify` <a id="verify"></a>
 
@@ -219,9 +219,9 @@ Raises a ValueError if the verification fails. Does not verify downloaded refere
 
 | Arguments |
 | :--- |
-|  root \(str, optional\): directory to download artifact to. If None artifact will be downloaded to './artifacts//' |
+| root \(str, optional\): directory to download artifact to. If None artifact will be downloaded to './artifacts//' |
 
 | Class Variables |  |
 | :--- | :--- |
-|  QUERY |  |
+| QUERY |  |
 

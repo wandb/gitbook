@@ -12,5 +12,5 @@ Files(
 
 | Class Variables |  |
 | :--- | :--- |
-|  QUERY |  |
+| QUERY |  |
 

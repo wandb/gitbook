@@ -13,8 +13,6 @@ Call `wandb.init()` once at the beginning of your script to initialize a new job
 
 Check the reference docs for arguments.
 
-{% page-ref page="../ref/init.md" %}
-
 ## Common Questions
 
 ### How do I launch multiple runs from one script?

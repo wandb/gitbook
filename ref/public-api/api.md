@@ -20,14 +20,14 @@ Most common way to initialize
 
 | Arguments |  |
 | :--- | :--- |
-|  `overrides` |  \(dict\) You can set \`base\_url\` if you are using a wandb server other than https://api.wandb.ai. You can also set defaults for \`entity\`, \`project\`, and \`run\`. |
+| `overrides` | \(dict\) You can set \`base\_url\` if you are using a wandb server other than [https://api.wandb.ai](https://api.wandb.ai). You can also set defaults for \`entity\`, \`project\`, and \`run\`. |
 
 | Attributes |  |
 | :--- | :--- |
-|  `api_key` |  |
-|  `client` |  |
-|  `default_entity` |  |
-|  `user_agent` |  |
+| `api_key` |  |
+| `client` |  |
+| `default_entity` |  |
+| `user_agent` |  |
 
 ## Methods
 
@@ -45,12 +45,12 @@ Returns a single artifact by parsing path in the form `entity/project/run_id`.
 
 | Arguments |  |
 | :--- | :--- |
-|  `name` |  \(str\) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: name:version name:alias digest |
-|  `type` |  \(str, optional\) The type of artifact to fetch. |
+| `name` | \(str\) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: name:version name:alias digest |
+| `type` | \(str, optional\) The type of artifact to fetch. |
 
 | Returns |
 | :--- |
-|  A \`Artifact\` object. |
+| A \`Artifact\` object. |
 
 ### `artifact_type` <a id="artifact_type"></a>
 
@@ -116,12 +116,12 @@ Get projects for a given entity.
 
 | Arguments |  |
 | :--- | :--- |
-|  `entity` |  \(str\) Name of the entity requested. If None will fallback to default entity passed to \`Api\`. If no default entity, will raise a \`ValueError\`. |
-|  `per_page` |  \(int\) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
+| `entity` | \(str\) Name of the entity requested. If None will fallback to default entity passed to \`Api\`. If no default entity, will raise a \`ValueError\`. |
+| `per_page` | \(int\) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
 
 | Returns |
 | :--- |
-|  A \`Projects\` object which is an iterable collection of \`Project\` objects. |
+| A \`Projects\` object which is an iterable collection of \`Project\` objects. |
 
 ### `reports` <a id="reports"></a>
 
@@ -139,13 +139,13 @@ WARNING: This api is in beta and will likely change in a future release
 
 | Arguments |  |
 | :--- | :--- |
-|  `path` |  \(str\) path to project the report resides in, should be in the form: "entity/project" |
-|  `name` |  \(str\) optional name of the report requested. |
-|  `per_page` |  \(int\) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
+| `path` | \(str\) path to project the report resides in, should be in the form: "entity/project" |
+| `name` | \(str\) optional name of the report requested. |
+| `per_page` | \(int\) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
 
 | Returns |
 | :--- |
-|  A \`Reports\` object which is an iterable collection of \`BetaReport\` objects. |
+| A \`Reports\` object which is an iterable collection of \`BetaReport\` objects. |
 
 ### `run` <a id="run"></a>
 
@@ -161,11 +161,11 @@ Returns a single run by parsing path in the form entity/project/run\_id.
 
 | Arguments |  |
 | :--- | :--- |
-|  `path` |  \(str\) path to run in the form \`entity/project/run\_id\`. If api.entity is set, this can be in the form \`project/run\_id\` and if \`api.project\` is set this can just be the run\_id. |
+| `path` | \(str\) path to run in the form \`entity/project/run\_id\`. If api.entity is set, this can be in the form \`project/run\_id\` and if \`api.project\` is set this can just be the run\_id. |
 
 | Returns |
 | :--- |
-|  A \`Run\` object. |
+| A \`Run\` object. |
 
 ### `runs` <a id="runs"></a>
 
@@ -204,13 +204,13 @@ api.runs(path="my_entity/my_project", {"order": "+summary_metrics.loss"})
 
 | Arguments |  |
 | :--- | :--- |
-|  `path` |  \(str\) path to project, should be in the form: "entity/project" |
-|  `filters` |  \(dict\) queries for specific runs using the MongoDB query language. You can filter by run properties such as config.key, summary\_metrics.key, state, entity, createdAt, etc. For example: {"config.experiment\_name": "foo"} would find runs with a config entry of experiment name set to "foo" You can compose operations to make more complicated queries, see Reference for the language is at https://docs.mongodb.com/manual/reference/operator/query |
-|  `order` |  \(str\) Order can be \`created\_at\`, \`heartbeat\_at\`, \`config.\*.value\`, or \`summary\_metrics.\*\`. If you prepend order with a + order is ascending. If you prepend order with a - order is descending \(default\). The default order is run.created\_at from newest to oldest. |
+| `path` | \(str\) path to project, should be in the form: "entity/project" |
+| `filters` | \(dict\) queries for specific runs using the MongoDB query language. You can filter by run properties such as config.key, summary\_metrics.key, state, entity, createdAt, etc. For example: {"config.experiment\_name": "foo"} would find runs with a config entry of experiment name set to "foo" You can compose operations to make more complicated queries, see Reference for the language is at [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query) |
+| `order` | \(str\) Order can be \`created\_at\`, \`heartbeat\_at\`, \`config.\*.value\`, or \`summary\_metrics.\*\`. If you prepend order with a + order is ascending. If you prepend order with a - order is descending \(default\). The default order is run.created\_at from newest to oldest. |
 
 | Returns |
 | :--- |
-|  A \`Runs\` object, which is an iterable collection of \`Run\` objects. |
+| A \`Runs\` object, which is an iterable collection of \`Run\` objects. |
 
 ### `sweep` <a id="sweep"></a>
 
@@ -226,13 +226,13 @@ Returns a sweep by parsing path in the form `entity/project/sweep_id`.
 
 | Arguments |  |
 | :--- | :--- |
-|  `path` |  \(str, optional\) path to sweep in the form entity/project/sweep\_id. If api.entity is set, this can be in the form project/sweep\_id and if \`api.project\` is set this can just be the sweep\_id. |
+| `path` | \(str, optional\) path to sweep in the form entity/project/sweep\_id. If api.entity is set, this can be in the form project/sweep\_id and if \`api.project\` is set this can just be the sweep\_id. |
 
 | Returns |
 | :--- |
-|  A \`Sweep\` object. |
+| A \`Sweep\` object. |
 
 | Class Variables |  |
 | :--- | :--- |
-|  VIEWER\_QUERY |  |
+| VIEWER\_QUERY |  |
 
