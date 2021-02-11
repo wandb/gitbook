@@ -41,7 +41,6 @@ If you set **WANDB\_RESUME** equal to "allow", you can always set **WANDB\_RUN\_
 
 | Method | Syntax | Never Resume \(default\) | Always Resume | Resume specifying run id | Resume from same directory |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| command line | wandb run --resume= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
 | environment | WANDB\_RESUME= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
 | init | wandb.init\(resume=\) |  | \(not available\) | resume=RUN\_ID | resume=True |
 
