@@ -12,8 +12,6 @@ Here's a 1 minute overview video. [View an example project →](https://app.wand
 
 When you instrument your training code with wandb, our background process will collect useful data about what is happening  as you train your models. For example, we can track model performance metrics, hyperparameters, gradients, system metrics, output files, and your most recent git commit.
 
-{% page-ref page="../ref/export-api/examples.md" %}
-
 ### How hard is it to set up?
 
 We know that most people track their training with tools like emacs and Google Sheets, so we've designed wandb to be as lightweight as possible. Integration should take 5-10 minutes, and wandb will not slow down or crash your training script.
@@ -36,7 +34,7 @@ You can create projects to keep all of your runs in a single place. You can visu
 
 A good example project is Stacey's [estuary project](https://app.wandb.ai/stacey/estuary). In the sidebar you can turn on and off runs to show on the graphs, or click one run to dive deeper. All your runs get saved and organized in a unified workspace for you.
 
-![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%283%29%20%282%29.png)
 
 ### 3. Share your results
 

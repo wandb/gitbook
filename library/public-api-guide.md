@@ -44,7 +44,7 @@ You can also modify or update the data of past runs. By default a single instanc
 
 ### Sampling
 
-The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. For more details see the [API Reference](../ref/export-api/api.md).
+The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. For more details see the [API Reference]().
 
 ### Querying Multiple Runs
 
@@ -107,7 +107,7 @@ In the UI, click on a run and then click the Overview tab on the run page to see
 
 ### Export data to visualize in matplotlib or seaborn
 
-Check out our [API examples](../ref/export-api/examples.md) for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
+Check out our [API examples]() for some common export patterns. You can also click the download button on a custom plot or on the expanded runs table to download a CSV from your browser.
 
 ### Get the random run ID and run name from your script
 
