@@ -122,10 +122,6 @@ Tables are the only feature from Markdown that we haven't added a WYSIWYG equiva
 
 **I converted my report to WYSIWYG but I'd like to revert back to Markdown.**
 
-First, try clicking your document and hitting cmd+Z \(or ctrl+Z on Windows\) to undo. If that doesn't work, consider discarding your draft and editing your report from its last saved state. If that's not an option, let us know through the Intercom bubble at the bottom right and our team can try to restore your last working state.
-
-**I converted my report to WYSIWYG but I'd like to revert back to Markdown.**
-
 If you converted your report using the message at the top of the report, simply hit the red "Revert" button to return to your pre-converted state. Note that any changes you've made after converting will be lost.
 
 ![](.gitbook/assets/image.png)
