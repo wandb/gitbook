@@ -25,6 +25,8 @@ wandb.init()
 wandb.tensorboard.patch(save=False, tensorboardX=True)
 ```
 
+**Note:** if your script instantiates a File Writer via `tf.summary.create_file_writer`, you must call either `wandb.init` or `wandb.tensorboard.patch` before constructing the File Writer.
+
 ### Syncing Previous TensorBoard Runs
 
 If you have existing `tfevents` files stored locally that were already generated using the wandb library integration and you would like to import them into wandb, you can run `wandb sync log_dir`, where `log_dir` is a local directory containing the `tfevents` files.

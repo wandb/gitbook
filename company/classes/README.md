@@ -30,7 +30,7 @@ We've built up a set of working examples of deep learning projects in different 
 
 [View the GitHub repo →](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%282%29.png)
 
 We also created some hosted notebooks with models that your students can start training for free with the click of a button.
 
@@ -44,7 +44,7 @@ Lukas and Chris have built a library of short tutorial projects with notes on ea
 
 [View the tutorials →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%282%29.png)
 
 ### Free classes
 
