@@ -88,4 +88,4 @@ redirects:
   ref/export-api: ./library/public-api-guide.md
   ref/export-api/api: ./ref/public-api/README.md
   ref/export-api/examples: ./library/public-api-guide.md
-  
+  library/api: ./library/public-api-guide.md
