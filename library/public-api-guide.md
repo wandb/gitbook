@@ -143,6 +143,20 @@ if run.state == "finished":
       print(row["_timestamp"], row["accuracy"])
 ```
 
+### Read specific metrics from a run
+
+To pull specific metrics from a run, use the `keys` argument. The default number of samples when using `run.history()` is 500. Logged steps that do not include a specific metric will appear in the output dataframe as `NaN`. The `keys` argument will cause the api to sample steps that include the listed metric keys more frequently.
+
+```python
+import wandb
+api = wandb.Api()
+
+run = api.run("<entity>/<project>/<run_id>")
+if run.state == "finished":
+   for i, row in run.history(keys=["accuracy"]).iterrows():
+      print(row["_timestamp"], row["accuracy"])
+```
+
 ### Compare two runs
 
 This will output the config parameters that are different between run1 and run2.
