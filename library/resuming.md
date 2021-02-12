@@ -52,3 +52,7 @@ If multiple processes use the same run\_id concurrently unexpected results will 
 If you resume a run and you have **notes** specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
 {% endhint %}
 
+{% hint style="info" %}
+Note that resuming a run which was executed as part of a [Sweep](../sweeps/) is not supported.
+{% endhint %}
+
