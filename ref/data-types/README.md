@@ -18,6 +18,10 @@ For examples usage, see github.com/wandb/examples
 
 ## Classes
 
+{% hint style="info" %}
+Some Data Type classes require additional python modules not installed by default. To install all of the addition requirements, run `pip install wandb[media]`.
+{% endhint %}
+
 [`class Audio`](audio.md): Wandb class for audio clips.
 
 [`class Histogram`](histogram.md): wandb class for histograms.
