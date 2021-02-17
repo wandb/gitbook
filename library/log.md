@@ -433,7 +433,7 @@ wandb.log({"generated_samples":
 {% endtab %}
 
 {% tab title="Point Clouds" %}
-Log 3D point clouds and Lidar scenes with bounding boxes. Pass in a numpy array containing coordinates and colors for the points to render.
+Log 3D point clouds and Lidar scenes with bounding boxes. Pass in a numpy array containing coordinates and colors for the points to render. In the UI, we truncate to 300,000 points.
 
 ```python
 point_cloud = np.array([[0, 0, 0, COLOR...], ...])
