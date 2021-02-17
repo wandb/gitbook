@@ -1,31 +1,75 @@
 # Html
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/master/wandb/data_types.py#L1240-L1319)
+<!-- Insert buttons and diff -->
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/master/wandb/sdk/data_types.py#L802-L892)
+
+
+
 
 Wandb class for arbitrary html
 
-```text
-Html(
-    data, inject=True
-)
-```
+<pre><code>Html(
+    data: Union[str, 'TextIO'],
+    inject: bool = True
+) -> None</code></pre>
 
-| Arguments |  |
-| :--- | :--- |
-|  `data` |  \(string or io object\) HTML to display in wandb |
-|  `inject` |  \(boolean\) Add a stylesheet to the HTML object. If set to False the HTML will pass through unchanged. |
+
+
+<!-- Placeholder for "Used in" -->
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Arguments</th></tr>
+
+<tr>
+<td>
+<code>data</code>
+</td>
+<td>
+(string or io object) HTML to display in wandb
+</td>
+</tr><tr>
+<td>
+<code>inject</code>
+</td>
+<td>
+(boolean) Add a stylesheet to the HTML object.  If set
+to False the HTML will pass through unchanged.
+</td>
+</tr>
+</table>
+
+
 
 ## Methods
 
-### `inject_head` <a id="inject_head"></a>
+<h3 id="inject_head"><code>inject_head</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/master/wandb/data_types.py#L1279-L1294)
+<a target="_blank" href="https://www.github.com/wandb/client/tree/master/wandb/sdk/data_types.py#L844-L859">View source</a>
 
-```text
-inject_head()
-```
+<pre><code>inject_head() -> None</code></pre>
 
-| Class Variables |  |
-| :--- | :--- |
-|  artifact\_type |  \`'html-file'\` |
+
+
+
+
+
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Class Variables</th></tr>
+
+<tr>
+<td>
+artifact_type<a id="artifact_type"></a>
+</td>
+<td>
+`'html-file'`
+</td>
+</tr>
+</table>
 
