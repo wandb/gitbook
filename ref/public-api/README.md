@@ -26,7 +26,7 @@ For examples usage, see github.com/wandb/examples
 
 [`class Api`](./api.md): Used for querying the wandb server.
 
-[`class Artifact`](./artifact.md)
+[`class Artifact`](./artifact.md): An artifact that has been logged, including all its attributes, links to the runs
 
 [`class File`](./file.md): File is a class associated with a file saved by wandb.
 
