@@ -6,7 +6,7 @@ description: '기계 학습 실험을 추적하고, 측정량을 시각화하고
 
 Weights & Biases는 기계 학습 프로젝트의 지속적 추적을 도와드립니다. 저희툴사용하시면 초매개 변수의 로그 및 실행 시의측정량을 산출하여, 결과의 시각화 및 비교 후 결과를 동료와 신속히 공유하실 수 있습니다.
 
-![](.gitbook/assets/dsbuffer%20%281%29.jpg)
+![](.gitbook/assets/dsbuffer%20%281%29%20%281%29.jpg)
 
 저희 툴은 AWS, GCP, Kubernets, Azure 및 온 프렘과 같은 기계학습 인프라와 함께 작동합니다.
 
