@@ -28,5 +28,5 @@ Vous seriez intéressé de voir un exemple en direct ? Voici un rapport qui comp
 
  [Voir le rapport dans W&B →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
 
-![](../.gitbook/assets/image%20%2818%29%20%283%29.png)
+![](../.gitbook/assets/image%20%2818%29%20%283%29%20%283%29.png)
 

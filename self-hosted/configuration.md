@@ -245,7 +245,7 @@ Maintenant que l’application Slack est prête, il faut que nous autorisions l�
 
 Sous **Scopes**, fournissez au bot le scope **incoming\_webhook.**
 
-![](../.gitbook/assets/image%20%28128%29%20%281%29.png)
+![](../.gitbook/assets/image%20%28128%29%20%281%29%20%281%29.png)
 
 Enfin, configurez l’**URL de Redirection** \(Redirect URL\) pour pointer vers votre installation W&B. Vous devriez utiliser la même valeur que celle paramétrée pour votre **Hôte Frontend** \(Frontend Host\) dans vos paramètres de système locaux. Vous pouvez spécifier plusieurs URL si vous avez des mappings DNS différents dans votre instance.
 

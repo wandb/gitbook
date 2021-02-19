@@ -16,11 +16,11 @@ Cliquez sur le bouton **+** dans votre workspace ou sur la page rapport pour ajo
 
 Depuis la version 0.8.34 de **wandb**, notre librairie fait une sauvegarde automatique de session Jupyter. Lorsque vous appelez **wandb.init\(\)** à l’intérieur de Jupyter, nous ajoutons un crochet pour sauvegarder automatiquement un notebook Jupyter qui contient l’historique du code exécuté dans votre session actuelle. Vous pouvez trouver cet historique de session dans un navigateur de fichier d’essais sous le répertoire code :
 
-![](../../../.gitbook/assets/cc2%20%284%29%20%284%29.png)
+![](../../../.gitbook/assets/cc2%20%284%29%20%285%29.png)
 
 Cliquer sur ce fichier affichera les cellules qui ont été exécutées dans votre session, ainsi que tout output créé en appelant la méthode d’affichage iPython. Ceci vous permet de voir exactement quel code a été exécuté dans Jupyter pour un essai donné. Lorsque c’est possible, nous sauvegardons aussi la version la plus récente du notebook que vous trouverez également sous le répertoire code.
 
-![](../../../.gitbook/assets/cc3%20%283%29%20%281%29.png)
+![](../../../.gitbook/assets/cc3%20%283%29%20%283%29%20%281%29.png)
 
 ## Différentiel Jupyter
 
