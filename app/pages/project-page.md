@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%284%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%281%29.png)
 
 ![](../../.gitbook/assets/undelete.png)
 
@@ -50,7 +50,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%283%29%20%283%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%282%29.png)
 
 ### Search for runs
 

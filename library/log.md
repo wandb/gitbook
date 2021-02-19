@@ -233,7 +233,8 @@ Log a custom line plot—a list of connected and ordered points \(x,y\) on arbit
 ```python
 data = [[x, y] for (x, y) in zip(x_values, y_values)]
 table = wandb.Table(data=data, columns = ["x", "y"])
-wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom Y vs X Line Plot")})
+wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y",
+           title="Custom Y vs X Line Plot")})
 ```
 
 You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
@@ -251,9 +252,10 @@ You can use this to log curves on any two dimensions. Note that if you're plotti
 Log a custom scatter plot—a list of points \(x, y\) on a pair of arbitrary axes x and y.
 
 ```python
-data = [[x, y] for (x, y) in zip(class_x_prediction_scores, class_y_prediction_scores)]
+data = [[x, y] for (x, y) in zip(class_x_scores, class_y_scores)]
 table = wandb.Table(data=data, columns = ["class_x", "class_y"])
-wandb.log({"my_custom_id" : wandb.plot.scatter(table, "class_x", "class_y")})
+wandb.log({"my_custom_id" : wandb.plot.scatter(table,
+                            "class_x", "class_y")})
 ```
 
 You can use this to log scatter points on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
@@ -273,7 +275,8 @@ Log a custom bar chart—a list of labeled values as bars—natively in a few li
 ```python
 data = [[label, val] for (label, val) in zip(labels, values)]
 table = wandb.Table(data=data, columns = ["label", "value"])
-wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label", "value", title="Custom Bar Chart")
+wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label",
+                               "value", title="Custom Bar Chart")
 ```
 
 You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly \(i.e. each data point must have both\).
@@ -293,7 +296,8 @@ Log a custom histogram—sort list of values into bins by count/frequency of occ
 ```python
 data = [[s] for s in scores]
 table = wandb.Table(data=data, columns=["scores"])
-wandb.log({'my_histogram': wandb.plot.histogram(table, "scores", title=None)})
+wandb.log({'my_histogram': wandb.plot.histogram(table, "scores",
+                           title=None)})
 ```
 
 You can use this to log arbitrary histograms. Note that `data` is a list of lists, intended to support a 2D array of rows and columns.
@@ -334,8 +338,8 @@ You can log this whenever your code has access to:
 
 Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
 
-```text
-wandb.log({"roc" : wandb.plot.roc_curve( ground_truth, predictions, \
+```python
+wandb.log({"roc" : wandb.plot.roc_curve(ground_truth, predictions,
                         labels=None, classes_to_plot=None)})
 ```
 
@@ -358,7 +362,7 @@ You can log this whenever your code has access to:
 
 Log a multi-class [confusion matrix](https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html) in one line:
 
-```text
+```python
 wandb.log({"conf_mat" : wandb.plot.confusion_matrix(
                         predictions, ground_truth, class_names})
 ```
@@ -369,7 +373,7 @@ You can log this wherever your code has access to:
 * the corresponding ground truth labels for those examples \(`ground_truth`\)
 * a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 means cat, 1 = dog, 2 = bird, etc\)
 
-![](../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![](../.gitbook/assets/image%20%281%29%20%281%29.png)
 
 ​[See in the app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)​
 
