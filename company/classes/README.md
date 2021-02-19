@@ -20,7 +20,7 @@ description: 教学机器学习和深度学习的资源
 
  在您的学术团队中创建一个项目，并让您的学生竞争以在共享任务上实现最佳准确率。这是比赛示例的屏幕截图。每行都是不同的实验，用户正在争夺最高精度。[查看项目→](https://wandb.ai/wandb/feb8-emotion)
 
-![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%284%29.png)
 
 ## Resources **资源资源**
 
@@ -30,7 +30,7 @@ description: 教学机器学习和深度学习的资源
 
   [查看GitHub存储库→](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%282%29.png)
 
  我们还创建了一些带有模型的托管笔记本，您的学生可以点击一下就免费开始训练。
 
@@ -44,7 +44,7 @@ description: 教学机器学习和深度学习的资源
 
  [查看教程→](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%282%29.png)
 
 ###  **免费课程**
 

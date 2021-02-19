@@ -2,7 +2,7 @@
 
  从任何机器学习模型开始，在几分钟内运行超参数扫描。想看一个例子吗？这是[示例代码](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)和示例[仪表板。](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps-1/sweeps-quickstart)
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%282%29.png)
 
 {% hint style="info" %}
  已经有一个权阈项目？[跳到我们的下一个sweep教程→](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/add-to-existing)
@@ -122,11 +122,11 @@ wandb agent your-sweep-id
 
 [Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../.gitbook/assets/image%20%2888%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%281%29.png)
 
 ## 
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%282%29.png)
 
 {% hint style="info" %}
 Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →]()
