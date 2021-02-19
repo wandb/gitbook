@@ -59,13 +59,13 @@ Selecciona un estilo para tu gráfico de líneas.
 
  **Gráfico de líneas:**
 
-![](../../../../.gitbook/assets/image%20%285%29.png)
+![](../../../../.gitbook/assets/image%20%285%29%20%282%29.png)
 
 **Gráfico de área:**
 
-![](../../../../.gitbook/assets/image%20%2835%29%20%281%29.png)
+![](../../../../.gitbook/assets/image%20%2835%29%20%281%29%20%282%29%20%281%29.png)
 
 **Gráfico de área porcentual:**
 
-![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%281%29.png)
+![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%286%29%20%282%29.png)
 

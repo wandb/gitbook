@@ -18,11 +18,11 @@ Cuando creas un nuevo proyecto, estos son los ajustes por defecto que vamos a ut
 
 Comenzando con la versión 0.8.34 de **wandb**, nuestra biblioteca guarda las sesiones de Jupyter. Cuando llamas a **wandb.init\(\)** desde dentro de Jupyter, agregamos un enganche para guardar automáticamente una notebook de Jupyter que contiene el historial del código ejecutado en tu sesión actual. Puedes encontrar este historial de sesiones en un navegador de archivos de ejecuciones, debajo del directorio del código:
 
-![](../../../.gitbook/assets/cc2%20%284%29%20%284%29.png)
+![](../../../.gitbook/assets/cc2%20%284%29%20%285%29.png)
 
 Al hacer click en este archivo se van a mostrar las celdas que fueron ejecutadas en tu sesión, conjuntamente con cualquier salida creada al llamar al método display de iPython. Esto te permite ver exactamente qué código fue ejecutado dentro de Jupyter en una ejecución dada. Cuando sea posible, también guardamos la versión más reciente de la notebook, que también encontrarías en el directorio del código.
 
-![](../../../.gitbook/assets/cc3%20%283%29%20%281%29.png)
+![](../../../.gitbook/assets/cc3%20%283%29%20%283%29%20%281%29.png)
 
 ## Haciendo diff en Jupyter
 

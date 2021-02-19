@@ -253,7 +253,7 @@ Ahora que tenemos lista a la aplicación Slack, necesitamos autorización para u
 
  Debajo de Alcances, provee al bot con el alcance **incoming\_webhook**.
 
-![](../.gitbook/assets/image%20%28128%29%20%281%29.png)
+![](../.gitbook/assets/image%20%28128%29%20%281%29%20%281%29.png)
 
 Finalmente, configura la URL de Redirección para que apunte a tu instalación de W&B. Deberías usar el mismo valor que el que estableciste en Frontend Host en tus ajustes del sistema local. Puedes especificar múltiples URLs si tienes diferentes mapeos DNS para tu instancia.
 
