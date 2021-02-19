@@ -374,7 +374,7 @@ You can log this wherever your code has access to:
 
 * a model's predicted labels on a set of examples \(`preds`\) or the normalized probability scores \(`probs`\). The probabilities must have the shape \(number of examples, number of classes\). You can supply either probabilities or predictions but not both.
 * the corresponding ground truth labels for those examples \(`y_true`\)
-* a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 means cat, 1=dog, 2=bird, etc\)
+* a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 is cat, 1=dog, 2=bird, etc\)
 
 ![](../.gitbook/assets/image%20%281%29%20%281%29.png)
 
@@ -382,11 +382,28 @@ You can log this wherever your code has access to:
 
 ​[Run the code →](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-log/Log_a_Confusion_Matrix_with_W%26B.ipynb)
 {% endtab %}
+
+{% tab title="Multi-line" %}
+`wandb.plot.line_series()`
+
+ Plot multiple lines, or multiple different lists of x-y coordinate pairs, on one shared set of x-y axes:
+
+```python
+wandb.log({"my_custom_id" : wandb.plot.line_series(
+          xs=[0, 1, 2, 3, 4],
+          ys=[[10, 20, 30, 40, 50], [0.5, 11, 72, 3, 41]],
+          keys=["metric Y", "metric Z"],
+          title="Two Random Metrics",
+          xname="x units")})
+```
+
+Note that the number of x and y points must match exactly. You can supply one list of x values to match multiple lists of y values, or a separate list of x values for each list of y values.
+
+![](../.gitbook/assets/screen-shot-2021-02-19-at-12.33.02-pm.png)
+
+[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Multi-Line-Plots--VmlldzozOTMwMjU)
+{% endtab %}
 {% endtabs %}
-
-
-
-
 
 ### **Custom presets**
 
