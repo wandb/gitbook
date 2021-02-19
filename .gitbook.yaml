@@ -1,5 +1,5 @@
---- 
-redirects: 
+---
+redirects:
   alerts/slack: ./app/features/alerts.md
   api: ./library/api/README.md
   api/overview: ./library/api/README.md
@@ -88,4 +88,3 @@ redirects:
   ref/export-api: ./library/public-api-guide.md
   ref/export-api/api: ./ref/public-api/README.md
   ref/export-api/examples: ./library/public-api-guide.md
-  
