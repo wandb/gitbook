@@ -291,13 +291,13 @@ You can use this to log arbitrary bar charts. Note that the number of labels and
 {% tab title="Histogram" %}
 `wandb.plot.histogram()`
 
-Log a custom histogram—sort list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores \(`scores`\) and want to visualize their distribution:
+Log a custom histogram—sort a list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores \(`scores`\) and want to visualize their distribution:
 
 ```python
 data = [[s] for s in scores]
 table = wandb.Table(data=data, columns=["scores"])
 wandb.log({'my_histogram': wandb.plot.histogram(table, "scores",
-                           title=None)})
+                           title="Histogram")})
 ```
 
 You can use this to log arbitrary histograms. Note that `data` is a list of lists, intended to support a 2D array of rows and columns.
@@ -326,7 +326,7 @@ You can log this whenever your code has access to:
 * \(optionally\) a list of the labels/class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
 * \(optionally\) a subset \(still in list format\) of the labels to visualize in the plot
 
-![](../.gitbook/assets/demo-precision-recall.png)
+![](../.gitbook/assets/screen-shot-2021-02-19-at-11.17.52-am.png)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Plot-Precision-Recall-Curves--VmlldzoyNjk1ODY)
 
@@ -339,8 +339,8 @@ You can log this whenever your code has access to:
 Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
 
 ```python
-wandb.log({"roc" : wandb.plot.roc_curve(ground_truth, predictions,
-                        labels=None, classes_to_plot=None)})
+wandb.log({"roc" : wandb.plot.roc_curve(ground_truth,
+           predictions, labels=None, classes_to_plot=None)})
 ```
 
 You can log this whenever your code has access to:
@@ -354,7 +354,7 @@ You can log this whenever your code has access to:
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Plot-ROC-Curves--VmlldzoyNjk3MDE)
 
-[Run the code →](https://colab.research.google.com/drive/1_RMppCqsA8XInV_jhJz32NCZG6Z5t1RO?usp=sharing)
+[Run the code →](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-log/Plot_ROC_Curves_with_W%26B.ipynb)
 {% endtab %}
 
 {% tab title="Confusion Matrix" %}
