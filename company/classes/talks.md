@@ -8,7 +8,7 @@ description: ライブプレゼンテーションとトークからのリンク�
 
  次の[5分間の例](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)で、実験追跡用の無料ツールをお試しください[→](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%283%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%284%29.png)
 
 ##  実世界での深層学習
 
