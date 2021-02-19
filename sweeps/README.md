@@ -26,7 +26,7 @@ Use Weights & Biases Sweeps to automate hyperparameter optimization and explore 
 4. **Launch agent\(s\)**: Run this command on each machine you'd like to use to train models in the sweep. The agents ask the central sweep server what hyperparameters to try next, and then they execute the runs.
 5. **Visualize results**: Open our live dashboard to see all your results in one central place.
 
-![](../.gitbook/assets/central-sweep-server-3%20%281%29.png)
+![](../.gitbook/assets/central-sweep-server-3%20%282%29%20%282%29%20%283%29.png)
 
 {% page-ref page="quickstart.md" %}
 
