@@ -364,20 +364,23 @@ Log a multi-class [confusion matrix](https://scikit-learn.org/stable/auto_exampl
 
 ```python
 wandb.log({"conf_mat" : wandb.plot.confusion_matrix(
-                        predictions, ground_truth, class_names})
+                        probs=None,
+                        y_true=ground_truth,
+                        preds=predictions,
+                        class_names=class_names})
 ```
 
 You can log this wherever your code has access to:
 
-* a model's predicted scores on a set of examples \(`predictions`\)
-* the corresponding ground truth labels for those examples \(`ground_truth`\)
-* a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 means cat, 1 = dog, 2 = bird, etc\)
+* a model's predicted labels on a set of examples \(`preds`\) or the normalized probability scores \(`probs`\). The probabilities must have the shape \(number of examples, number of classes\). You can supply either probabilities or predictions but not both.
+* the corresponding ground truth labels for those examples \(`y_true`\)
+* a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 means cat, 1=dog, 2=bird, etc\)
 
 ![](../.gitbook/assets/image%20%281%29%20%281%29.png)
 
 ​[See in the app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)​
 
-​[Run the code →](https://colab.research.google.com/drive/1OlTbdxghWdmyw7QPtSiWFgLdtTi03O8f?usp=sharing)
+​[Run the code →](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-log/Log_a_Confusion_Matrix_with_W%26B.ipynb)
 {% endtab %}
 {% endtabs %}
 
