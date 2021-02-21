@@ -50,6 +50,19 @@ If you're getting a **LaunchError: Launch exception: Permission denied** error, 
 2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
 3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
 
+### InitStartError: Error communicating with wandb process <a id="init-start-error"></a>
+
+The **InitStartError: Error communicating with wandb process** error indicates that the library is having difficulty launching the process which synchronizes data to the server. 
+
+The following workarounds can help resolve the issue in certain environments: 
+
+```text
+# Try this if using linux or macos
+wandb.init(wandb.Settings(start_method="fork"))
+# Try this if using google colab
+wandb.init(wandb.Settings(start_method="thread"))
+```
+
 ### Get the readable run name
 
 Get the nice, readable name for your run.
