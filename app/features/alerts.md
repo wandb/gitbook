@@ -8,6 +8,10 @@ description: >-
 
 W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
 
+{% hint style="warning" %}
+Alerts for finished runs are disabled in Jupyter Notebook environments to prevent alert notifications on every cell execution. Use `wandb.alert()` in Jupyter Notebook environments instead.
+{% endhint %}
+
 ### User Alerts
 
 Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects. 
