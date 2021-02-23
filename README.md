@@ -4,7 +4,9 @@ description: 'Track machine learning experiments, visualize metrics, and share r
 
 # Weights & Biases
 
-Weights & Biases helps you keep track of your machine learning projects. Use our tools to log hyperparameters and output metrics from your runs, then visualize and compare results and quickly share findings with your colleagues. Here is a quick overview of our lightweight, modular tools:
+Weights & Biases helps you keep track of your machine learning projects. Use our tools to log hyperparameters and output metrics from your runs, then visualize and compare results and quickly share findings with your colleagues. 
+
+Here is a quick overview of our lightweight, modular tools:
 
 1. [**Dashboard**](app/): Track experiments, visualize results
 2. [**Reports**](reports.md): Save and share reproducible findings
