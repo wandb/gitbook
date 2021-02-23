@@ -8,7 +8,7 @@ _This feature is currently in the early-access phase. You can use it in our prod
 
 Data is at the core of every ML workflow. We’ve added powerful new features to W&B Artifacts to let you visualize and query datasets and model evaluations at the example level. You can use this new tool to analyze and understand your datasets, and to measure and debug model performance.
 
-Dive in and try an end-to-end demo: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-demo-colab)
+Dive in and try an end-to-end demo: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-cars-demo)
 
 ![Here&apos;s a preview of the dataset table UI](.gitbook/assets/table-ui.png)
 
