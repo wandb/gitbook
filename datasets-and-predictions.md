@@ -189,7 +189,7 @@ _This feature is currently in the early-access phase, you can use it in our prod
 * Currently supported wandb.\* media types:
   * wandb.Table
   * wandb.Image
-* There is no way to save and persist queries and views in the W&B UI
+* There is no way to save and persist queries and views in the W&B UI, such as selected filters or columns
 * There is no way to add visualizations to W&B Reports
 
 ## Upcoming work
