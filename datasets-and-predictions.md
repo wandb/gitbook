@@ -33,7 +33,7 @@ Here's an [example table](https://wandb.ai/stacey/dsviz-demo/artifacts/raw_data/
 
 ### Filtering
 
-Specify filters on any column to limit the visible rows down to only rows that match. In the demo, try filtering down to just rows that are mostly vegetation with `%_vegetation > 0.5`.
+Specify filters on any column to limit the visible rows down to only rows that match. In the [demo](https://wandb.ai/stacey/dsviz-demo/artifacts/raw_data/bdd_raw_data_500/afcb923f719b14370215/files/raw_examples.table.json), try filtering down to just rows that are mostly vegetation with `%_vegetation > 0.5`.
 
 ![](.gitbook/assets/screen-shot-2021-02-22-at-8.31.23-pm.png)
 
@@ -51,7 +51,7 @@ Compare any two artifact versions in the table. In the [demo](https://wandb.ai/s
 
 ## Python API
 
-_Try our_ [_demo colab_](http://wandb.me/dsviz-demo-colab) _for an end-to-end example._
+Try our demo colab for an end-to-end example: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-cars-demo)
 
 To visualize datasets and predictions, log rich media to an artifact. In addition to saving raw files in W&B Artifacts, you can now save, retrieve, and visualize other rich media types provided by the wandb API.
 
