@@ -153,9 +153,9 @@ jt = wandb.JoinedTable(table1, table2, 'id')
 artifact.add(jt, 'joined')
 ```
 
-## End-to-end examples
+## End-to-end example
 
-Try our [colab notebook](http://wandb.me/dsviz-demo-colab) for an end-to-end example that covers:
+Dive in and try an end-to-end demo: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-cars-demo)
 
 * dataset constructions and visualization
 * model training
