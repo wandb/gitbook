@@ -39,23 +39,15 @@ Specify filters on any column to limit the visible rows down to only rows that m
 
 ### Sorting
 
-Sort by metadata to find the most interesting or troublesome examples. [In the demo](https://wandb.ai/stacey/dsviz-demo/artifacts/train_data/bdd_train_data_500/0d2650b62d7e6201f9eb/files/train_table.table.json), sort by the `%_person` column to find the images with the most pedestrians.
+Sort by metadata to find the most interesting or troublesome examples. In the [demo](https://wandb.ai/stacey/dsviz-demo/artifacts/train_data/bdd_train_data_500/0d2650b62d7e6201f9eb/files/train_table.table.json), sort by the `%_person` column to find the images with the most pedestrians.
 
 ![](.gitbook/assets/screen-shot-2021-02-22-at-6.25.50-pm.png)
 
 ### **Comparison**
 
-Compare any two artifact versions in the table. Hover over “v3” in the sidebar, and click the “Compare” button. This will show you predictions from both versions in a single table. Think of both tables being overlaid on top of each-other. The table decides to render bar charts for incoming numeric columns, with one bar for each table being compared.
+Compare any two artifact versions in the table. In this [example](https://wandb.ai/stacey/dsviz-demo/artifacts/val_epoch_preds/val_pred_55oxnv95/e7956e9367bf5369712c/files/val_epoch_results.table.json#8ea156e10e0099fe58d8), we're comparing v0 with v19, as seen in the left sidebar highlights. This shows predictions from both artifact versions in a single table. Think of both tables being overlaid on top of eachother. The table decides to render bar charts for incoming numeric columns, with one bar for each table being compared.
 
-You can use the “Quick filters” at the top to limit your results to examples that are only present in both versions.
-
-![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673764298_image.png)
-
-  
-Try comparing and grouping at the same time. You’ll get a “multi-histogram”, where we use one color for each incoming table.  
-
-
-![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673664913_image.png)
+![](.gitbook/assets/image-7-.png)
 
 ## Python API
 
