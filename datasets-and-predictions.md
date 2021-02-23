@@ -29,44 +29,15 @@ To visualize logged tables and media objects, open an artifact, go to the **File
 
 ### **Visualizing tables**
 
-Open the **Files** tab to see the main visualization UI. In the [example project](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files), click “train\_iou\_score\_table.table.json” to visualize it. To explore data, you can filter, group, and sort the table.
+Here's an [example table](https://wandb.ai/stacey/dsviz-demo/artifacts/raw_data/bdd_raw_data_500/afcb923f719b14370215/files/raw_examples.table.json) with a raw logged dataset.
 
-![](.gitbook/assets/image%20%2899%29.png)
+![](.gitbook/assets/screen-shot-2021-02-22-at-6.04.03-pm.png)
 
 ### Filtering
 
-Filters are specified in the [mongodb aggregation language](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/)**,** which has good support for querying into nested objects \[aside: we don't actually use mongodb in our backend!\]. Here are two examples:
+Specify filters on any column to limit the visible rows down to only rows that match. 
 
-**Find examples that have &gt; 0.05 in the “road” column**
-
-`{$gt: ['$0.road', 0.05]}` 
-
-**Find examples that have more one or more “car” bounding box predictions**
-
-`{  
-  $gte: [   
-    {$size:   
-      {$filter:   
-        {input: '$0.pred_mask.boxes.ground_truth',  
-          as: 'box',  
-          cond: {$eq: ['$$box.class_id', 13]}  
-        }  
-      }  
-    },  
-  1]  
-}`
-
-### **Grouping**
-
-Try grouping by “dominant\_pred”. You’ll see that numeric columns automatically become histograms when the table is grouped.
-
-![](https://paper-attachments.dropbox.com/s_21D0DE4B22EAFE9CB1C9010CBEF8839898F3CCD92B5C6F38DBE168C2DB868730_1605673736462_image.png)
-
-\*\*\*\*
-
-### **Sorting**
-
-Click **Sort** and choose any column in the table to sort by it.
+![](.gitbook/assets/screen-shot-2021-02-22-at-6.11.25-pm.png)
 
 ### **Comparison**
 
