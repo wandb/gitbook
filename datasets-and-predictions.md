@@ -21,23 +21,27 @@ Our goal is to give you highly scalable, flexible and configurable tools, with r
 * \[future\] Backend API support for large-scale queries over tables stored in W&B Artifacts.
 * An all new “typed, run-time-swappable UI-panel architecture”. This is what powers the rich visualizations and charts you see as you compare and group your data tables. Eventually we’ll open this up, so users can add completely custom visualizers that work everywhere in the W&B UI.
 
-## UI
+## W&B Web UI
 
-_Follow along by opening this_ [_example project_](https://wandb.ai/shawn/dsviz_demo/artifacts/dataset/train_results/18bab424be78561de9cd/files)_, which was generated from our_ [_demo colab_](http://wandb.me/dsviz-demo-colab)_._
-
-To visualize logged tables and media objects, open an artifact, go to the **Files** tab, and click on the table or object. Switch to the **Graph view** to see how artifacts and runs in the project are connected. Toggle **Explode** to see the individual executions of each step in the pipeline.
+_Follow along by opening this_ [_example project_](https://wandb.ai/stacey/dsviz-demo/artifacts/train_data/bdd_train_data_500/0d2650b62d7e6201f9eb/files/train_table.table.json)_, which was generated from our_ [_demo colab_](http://wandb.me/dsviz-cars-demo)_._
 
 ### **Visualizing tables**
 
-Here's an [example table](https://wandb.ai/stacey/dsviz-demo/artifacts/raw_data/bdd_raw_data_500/afcb923f719b14370215/files/raw_examples.table.json) with a raw logged dataset.
+Here's an [example table](https://wandb.ai/stacey/dsviz-demo/artifacts/raw_data/bdd_raw_data_500/afcb923f719b14370215/files/raw_examples.table.json) with a raw logged dataset. To visualize logged tables and media objects, open an artifact, go to the **Files** tab, and click on the table or object. Switch to the **Graph view** to see how artifacts and runs in the project are connected. Toggle **Explode** to see the individual executions of each step in the pipeline.
 
 ![](.gitbook/assets/screen-shot-2021-02-22-at-6.04.03-pm.png)
 
 ### Filtering
 
-Specify filters on any column to limit the visible rows down to only rows that match. 
+Specify filters on any column to limit the visible rows down to only rows that match. In this example, you can see the rows where more than half the scene is vegetation.
 
-![](.gitbook/assets/screen-shot-2021-02-22-at-6.11.25-pm.png)
+![](.gitbook/assets/screen-shot-2021-02-22-at-8.31.23-pm.png)
+
+### Sorting
+
+Sort by metadata to find the most interesting or troublesome examples. [In the demo](https://wandb.ai/stacey/dsviz-demo/artifacts/train_data/bdd_train_data_500/0d2650b62d7e6201f9eb/files/train_table.table.json), sort by the `%_person` column to find the images with the most pedestrians.
+
+![](.gitbook/assets/screen-shot-2021-02-22-at-6.25.50-pm.png)
 
 ### **Comparison**
 
