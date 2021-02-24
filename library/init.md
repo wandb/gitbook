@@ -1,10 +1,10 @@
 ---
-description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로운 실행을 시작할 때 마다 wandb.init()을 호출합니다.'
+description: '모델 메트릭을 로그하는 훈련 루프 이전에, 새로운 실행을 시작할 때마다 wandb.init()을 호출합니다.'
 ---
 
 # wandb.init\(\)
 
- 모델 메트릭을 로깅하는 훈련 루프 이전에, 새로운 실행을 시작할 때 마다 wandb.init\(\)을 호출합니다. 스크립트 시작 시에 `wandb.init()`를 한 번 호출하여 새 작업을 초기화합니다. 이를 통해 W&B에 새 실행을 생성하고, 데이터를 동기화하는 백그라운드 프로세스를 시작합니다. 프라이빗 클라우드 또는 W&B 로컬 설치가 필요한 경우, 저희는 [자체 호스팅](https://docs.wandb.com/self-hosted) 제품에서 이를 제공합니다. `wandb.init()`은 [**실행**](https://docs.wandb.com/ref/export-api/api#run) 객체를 반환하고 `wandb.run`와 함께 실행 객체에 액세스할 수도 있습니다.
+모델 메트릭을 로그하는 훈련 루프 이전에, 새로운 실행을 시작할 때마다 `wandb.init()`을 호출합니다. 스크립트 시작 시에 `wandb.init()`를 한 번 호출하여 새 작업을 초기화합니다. 이를 통해 W&B에 새로운 실행을 생성하고, 데이터를 동기화하는 백그라운드 프로세스를 시작합니다. 프라이빗 클라우드 또는 W&B 로컬 설치가 필요한 경우, 저희는 [자체 호스팅](https://docs.wandb.com/self-hosted) 서비스에서 이를 제공합니다. `wandb.init()`은 [실행](https://docs.wandb.com/ref/export-api/api#run) 객체를 반환하고 `wandb.run`와 함께 실행 객체에 액세스할 수도 있습니다.
 
 ###  생략 가능한 전달인자
 
@@ -20,16 +20,17 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
     <tr>
       <td style="text-align:left">project</td>
       <td style="text-align:left">str</td>
-      <td style="text-align:left">&#xC0C8; &#xC2E4;&#xD589;&#xC744; &#xC804;&#xC1A1;&#xD558;&#xB294; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC758;
-        &#xC774;&#xB984;. &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xAC00; &#xC9C0;&#xC815;&#xB418;&#xC9C0;
-        &#xC54A;&#xC740; &#xACBD;&#xC6B0;, &#xC2E4;&#xD589;&#xC740; &#xAE30;&#xBCF8;&#xAC12;
-        &#xAC1C;&#xCCB4;&#xC758; &#x201C;uncategorized&#x201D;(&#xBC94;&#xC8FC;&#xD654;&#xB418;&#xC9C0;
-        &#xC54A;&#xC740;) &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC5D0; &#xC2E4;&#xD589;&#xC744;
-        &#xB461;&#xB2C8;&#xB2E4;. &#x201C;default location to create new projects&#x201D;(&#xC0C8;
-        &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC0DD;&#xC131;&#xD560; &#xAE30;&#xBCF8;
-        &#xC704;&#xCE58;)&#xC758; <a href="https://wandb.ai/settings">&#xC124;&#xC815; &#xD398;&#xC774;&#xC9C0;</a>&#xC5D0;&#xC11C;
-        &#xAE30;&#xBCF8;&#xAC12; &#xAC1C;&#xCCB4;&#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xAC70;&#xB098; <code>entity </code>&#xC804;&#xB2EC;&#xC778;&#xC790;&#xB97C;
-        &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">&#xC0C8;&#xB85C;&#xC6B4; &#xC2E4;&#xD589;&#xC744; &#xC804;&#xC1A1;&#xD558;&#xB294;
+        &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC758; &#xC774;&#xB984;. &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xAC00;
+        &#xC9C0;&#xC815;&#xB418;&#xC9C0; &#xC54A;&#xC740; &#xACBD;&#xC6B0;, &#xC2E4;&#xD589;&#xC740;
+        &#xAE30;&#xBCF8;&#xAC12; &#xAC1C;&#xCCB4;&#xC758; &#x201C;uncategorized&#x201D;(&#xBC94;&#xC8FC;&#xD654;&#xB418;&#xC9C0;
+        &#xC54A;&#xC740;) &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.
+        &#x201C;default location to create new projects&#x201D;(&#xC0C8; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C;
+        &#xC0DD;&#xC131;&#xD560; &#xAE30;&#xBCF8; &#xC704;&#xCE58;) &#xC758;
+        <a
+        href="https://wandb.ai/settings">&#xC124;&#xC815; &#xD398;&#xC774;&#xC9C0;</a>&#xC5D0;&#xC11C; &#xAE30;&#xBCF8;&#xAC12;
+          &#xAC1C;&#xCCB4;&#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xAC70;&#xB098; <code>entity </code>&#xC804;&#xB2EC;
+          &#xC778;&#xC790;&#xB97C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left">entity</td>
@@ -46,12 +47,12 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
     <tr>
       <td style="text-align:left">save_code</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">&#xBA54;&#xC778; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB610;&#xB294; notebook&#xC744;
-        W&amp;B&#xC5D0; &#xC800;&#xC7A5;&#xD558;&#xB824;&#xBA74; &#xC774;&#xAC83;&#xC744;
-        &#xCF2D;&#xB2C8;&#xB2E4;. &#xC2E4;&#xD5D8; &#xC7AC;&#xD604;&#xC131;&#xC744;
-        &#xD5A5;&#xC0C1;&#xC2DC;&#xD0A4;&#xACE0; UI&#xC5D0;&#xC11C; &#xC2E4;&#xD5D8;
-        &#xAC04; &#xCF54;&#xB4DC; &#xB514;&#xD551;&#xC5D0; &#xC720;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
-        &#xAE30;&#xBCF8; &#xAC12;&#xC73C;&#xB85C; &#xAEBC;&#xC838;&#xC788;&#xC73C;&#xB098;,
+      <td style="text-align:left"><b> </b>&#xBA54;&#xC778; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB610;&#xB294;
+        &#xB178;&#xD2B8;&#xBD81;&#xC744; W&amp;B&#xC5D0; &#xC800;&#xC7A5;&#xD558;&#xB824;&#xBA74;
+        &#xC774;&#xAC83;&#xC744; &#xCF2D;&#xB2C8;&#xB2E4;. &#xC2E4;&#xD5D8; &#xC7AC;&#xD604;&#xC131;&#xC744;
+        &#xD5A5;&#xC0C1;&#xD558;&#xACE0; UI&#xC5D0;&#xC11C; &#xC2E4;&#xD5D8; &#xAC04;
+        &#xCF54;&#xB4DC; &#xB514;&#xD551;&#xC5D0; &#xC720;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+        &#xAE30;&#xBCF8;&#xAC12;&#xC73C;&#xB85C; &#xAEBC;&#xC838;&#xC788;&#xC73C;&#xB098;,
         <a
         href="https://wandb.ai/settings">&#xC124;&#xC815;</a>&#xC5D0;&#xC11C; &#xC774;&#xB97C; &#xCF2C;&#xC73C;&#xB85C;
           &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</td>
@@ -69,7 +70,7 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
         &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB8F9;&#xC740; &#xC2E4;&#xD589;&#xC744;
         &#xD568;&#xAED8; &#xD558;&#xB098;&#xC758; &#xD070; &#xC804;&#xCCB4;&#xB85C;
         &#xAD6C;&#xC131;&#xD560; &#xC218; &#xC788;&#xC73C;&#xBA70;, UI&#xC5D0;&#xC11C;
-        &#xC774;&#xB97C; &#xD1A0;&#xAE00;&#xB9C1;&#xD558;&#xC5EC; &#xCF1C;&#xAC70;&#xB098;
+        &#xC774;&#xB97C; &#xD1A0;&#xAE00;&#xD558;&#xC5EC; &#xCF1C;&#xAC70;&#xB098;
         &#xB04C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC790;&#xC138;&#xD55C;
         &#xB0B4;&#xC6A9;&#xC740; <a href="https://docs.wandb.com/library/grouping">&#xADF8;&#xB8F9;&#xD654;</a>&#xB97C;
         &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.</td>
@@ -94,7 +95,7 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
       <td style="text-align:left">name</td>
       <td style="text-align:left">str</td>
       <td style="text-align:left">&#xC774; &#xC2E4;&#xD589;&#xC5D0; &#xB300;&#xD55C; &#xC9E7;&#xC740; &#xD45C;&#xC2DC;
-        &#xC774;&#xB984;&#xC73C;&#xB85C;, &#xC774;&#xB97C; &#xD1B5;&#xD574; UI&#xC5D0;
+        &#xC774;&#xB984;&#xC73C;&#xB85C;, &#xC774;&#xB97C; &#xD1B5;&#xD574; UI&#xC5D0;&#xC11C;
         &#xC2E4;&#xD589;&#xC744; &#xC2DD;&#xBCC4;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
         &#xAE30;&#xBCF8;&#xAC12;&#xC73C;&#xB85C;, &#xD14C;&#xC774;&#xBE14;&#xC5D0;&#xC11C;&#xBD80;&#xD130;
         &#xCC28;&#xD2B8;&#xAE4C;&#xC9C0; &#xC2E4;&#xD589;&#xC744; &#xC27D;&#xAC8C;
@@ -105,8 +106,8 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
         &#xD14C;&#xC774;&#xBE14;&#xC744; &#xBCF4;&#xB2E4; &#xC27D;&#xAC8C; &#xD310;&#xB3C5;&#xD560;
         &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xCD08;&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C;
         &#xC800;&#xC7A5;&#xD560; &#xC704;&#xCE58;&#xB97C; &#xCC3E;&#xB294; &#xACBD;&#xC6B0;,
-        &#xC800;&#xD76C;&#xB294; <code>config</code> (&#xC544;&#xB798;)&#xC5D0; &#xC800;&#xC7A5;&#xD558;&#xC2E4;
-        &#xAC83;&#xC744; &#xCD94;&#xCC9C;&#xD569;&#xB2C8;&#xB2E4;.</td>
+        &#xC800;&#xD76C;&#xB294; <code>config </code>(&#xC544;&#xB798;)&#xC5D0;
+        &#xC800;&#xC7A5;&#xD558;&#xC2E4; &#xAC83;&#xC744; &#xCD94;&#xCC9C;&#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left">notes</td>
@@ -116,28 +117,27 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
         &#xC0C1;&#xC138;&#xD55C; &#xC124;&#xBA85;. &#xC774;&#xB97C; &#xD1B5;&#xD574;&#xC11C;
         &#xC774; &#xC2E4;&#xD589;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xC5B4;&#xB5A4;
         &#xC791;&#xC5C5;&#xC744; &#xC218;&#xD589;&#xD558;&#xACE0; &#xC788;&#xC5C8;&#xB294;&#xC9C0;
-        &#xAE30;&#xC5B5;&#xD558;&#xB294; &#xB370; &#xB3C4;&#xC6C0;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</td>
+        &#xB85C;&#xADF8;&#xD558;&#xB294; &#xB370; &#xB3C4;&#xC6C0;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left">config</td>
       <td style="text-align:left">dict</td>
       <td style="text-align:left">&#xBAA8;&#xB378;&#xC5D0; &#xB300;&#xD55C; &#xCD08;&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;
-        &#xB610;&#xB294; &#xB370;&#xC774;&#xD130; &#xD504;&#xB85C;&#xC138;&#xC2F1;
-        &#xC791;&#xC5C5;&#xC5D0; &#xB300;&#xD55C; &#xC124;&#xC815;&#xACFC; &#xAC19;&#xC774;
-        &#xC791;&#xC5C5;&#xC5D0; &#xC785;&#xB825;&#xC744; &#xC800;&#xC7A5;&#xD558;&#xB294;
-        &#xC0AC;&#xC804; &#xAC19;&#xC740; &#xAC1D;&#xCCB4;. &#xAD6C;&#xC131;(config)&#xB294;
-        &#xC2E4;&#xD589;&#xC744; &#xADF8;&#xB8F9;&#xD654;, &#xD544;&#xD130;&#xB9C1;,
-        &#xC815;&#xB82C;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD560; &#xC218;
-        &#xC788;&#xB294; UI&#xC758; &#xD14C;&#xC774;&#xBE14;&#xC5D0; &#xD45C;&#xC2DC;&#xB429;&#xB2C8;&#xB2E4;<code>. </code>&#xD0A4;
-        &#xC774;&#xB984;&#xC5D0;&#xB294; . &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218;
-        &#xC5C6;&#xC73C;&#xBA70;, &#xAC12;&#xC740; 10MB &#xBBF8;&#xB9CC;&#xC774;&#xC5B4;&#xC57C;
-        &#xD569;&#xB2C8;&#xB2E4;.</td>
+        &#xB610;&#xB294; &#xB370;&#xC774;&#xD130; &#xD504;&#xB85C;&#xC138;&#xC2F1;&#xC5D0;
+        &#xB300;&#xD55C; &#xC124;&#xC815;&#xACFC; &#xAC19;&#xC774; &#xC791;&#xC5C5;&#xC5D0;
+        &#xC785;&#xB825;&#xC744; &#xC800;&#xC7A5;&#xD558;&#xB294; &#xC0AC;&#xC804;
+        &#xAC19;&#xC740; &#xAC1D;&#xCCB4;. &#xAD6C;&#xC131;(config)&#xC740; &#xC2E4;&#xD589;&#xC744;
+        &#xADF8;&#xB8F9;&#xD654;, &#xD544;&#xD130;&#xB9C1;, &#xC815;&#xB82C;&#xD558;&#xB294;&#xB370;
+        &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; UI&#xC758; &#xD14C;&#xC774;&#xBE14;&#xC5D0;
+        &#xD45C;&#xC2DC;&#xB429;&#xB2C8;&#xB2E4;. &#xD0A4; &#xC774;&#xB984;&#xC5D0;&#xB294;<code> . </code>&#xC744;
+        &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBA70;, &#xAC12;&#xC740;
+        10MB &#xBBF8;&#xB9CC;&#xC774;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left">tags</td>
       <td style="text-align:left">str[]</td>
-      <td style="text-align:left">&#xC2A4;&#xD2B8;&#xB9C1;(strings)&#xC758; &#xB9AC;&#xC2A4;&#xD2B8;&#xB85C;,
-        UI&#xC5D0;&#xC11C; &#xC774; &#xC2E4;&#xD589;&#xC758; &#xD0DC;&#xADF8; &#xB9AC;&#xC2A4;&#xD2B8;&#xB97C;
+      <td style="text-align:left">&#xC2A4;&#xD2B8;&#xB9C1;&#xC758; &#xB9AC;&#xC2A4;&#xD2B8;&#xB85C;, UI&#xC5D0;&#xC11C;
+        &#xC774; &#xC2E4;&#xD589;&#xC758; &#xD0DC;&#xADF8; &#xB9AC;&#xC2A4;&#xD2B8;&#xB97C;
         &#xB367;&#xBD99;&#xC785;&#xB2C8;&#xB2E4;. &#xD0DC;&#xADF8;&#xB294; &#xC2E4;&#xD589;&#xC744;
         &#xD568;&#xAED8; &#xAD6C;&#xC131;&#xD558;&#xAC70;&#xB098; &#x201C;baseline&#x201D;
         &#xB610;&#xB294; &#x201C;production&#x201D;&#xACFC; &#xAC19;&#xC740; &#xC784;&#xC2DC;
@@ -150,16 +150,17 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
     <tr>
       <td style="text-align:left">dir</td>
       <td style="text-align:left">path</td>
-      <td style="text-align:left">&#xC544;&#xD2F0;&#xD329;&#xD2B8;&#xC5D0;&#xC11C;<code> download()</code>&#xB97C;
-        &#xD638;&#xCD9C;&#xD560; &#xB54C;, &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xB41C;
-        &#xD30C;&#xC77C;&#xC774; &#xC800;&#xC7A5;&#xB418;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC785;&#xB2C8;&#xB2E4;.
-        &#xAE30;&#xBCF8;&#xAC12;&#xC740; ./<code>wandb directory </code>&#xC785;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">&#xC544;&#xD2F0;&#xD329;&#xD2B8;&#xC5D0;&#xC11C; <code>download()</code>&#xB97C;
+        &#xD638;&#xCD9C;&#xD560; &#xB54C;, &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xD55C;
+        &#xD30C;&#xC77C;&#xC774; &#xC800;&#xC7A5;&#xB418;&#xB294; &#xB514;&#xB809;&#xD130;&#xB9AC;&#xC785;&#xB2C8;&#xB2E4;.
+        &#xAE30;&#xBCF8;&#xAC12;&#xC740;<code> ./wandb directory</code>&#xC785;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left">sync_tensorboard</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">&#xBAA8;&#xB4E0; TensorBoard &#xB85C;&#xADF8;&#xB97C; W&amp;B&#xC5D0;
-        &#xBCF5;&#xC0AC;&#xD560;&#xC9C0; &#xC5EC;&#xBD80;&#xB97C; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;.
+      <td style="text-align:left">&#xBAA8;&#xB4E0; TensorBoard &#xB85C;&#xADF8;&#xB97C; &#xAE30;&#xB85D;&#xC744;
+        W&amp;B&#xC5D0; &#xBCF5;&#xC0AC;&#xD560;&#xC9C0; &#xC5EC;&#xBD80;&#xB97C;
+        &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;. &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740;
         <a
         href="https://docs.wandb.com/integrations/tensorboard">Tensorboard</a>&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;
           (&#xAE30;&#xBCF8;&#xAC12;: False)</td>
@@ -171,9 +172,9 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
         &#xC7AC;&#xAC1C;&#xB429;&#xB2C8;&#xB2E4;. &#xC2E4;&#xD589;&#xC744; &#xC218;&#xB3D9;&#xC73C;&#xB85C;
         &#xC7AC;&#xAC1C;&#xD558;&#xB824;&#xBA74; &#xACE0;&#xC720;&#xD55C; &#xC2E4;&#xD589;
         ID&#xB85C; &#xC124;&#xC815;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.
-        <a
-        href="https://docs.wandb.com/library/resuming">&#xC7AC;&#xAC1C;</a>&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30;
-          &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;. (&#xAE30;&#xBCF8;&#xAC12;: False)</td>
+        &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740; <a href="https://docs.wandb.com/library/resuming">&#xC7AC;&#xAC1C;</a>&#xB97C;
+        &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.
+        (&#xAE30;&#xBCF8;&#xAC12;: False)</td>
     </tr>
     <tr>
       <td style="text-align:left">reinit</td>
@@ -187,11 +188,12 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
       <td style="text-align:left">&quot;allow&quot; &quot;never&quot; &quot;must&quot;</td>
       <td style="text-align:left">
         <p></p>
-        <p>&#xC775;&#xBA85; &#xB85C;&#xAE45; &#xD5C8;&#xC6A9; &#xB610;&#xB294; &#xBE44;
-          &#xD5C8;&#xC6A9; &#x2014; &#xACC4;&#xC815;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xC9C0;
-          &#xC54A;&#xACE0; W&amp;B &#xD074;&#xB77C;&#xC6B0;&#xB4DC;&#xC5D0;&#xC11C;
-          &#xC2E4;&#xD589; &#xCD94;&#xC801;
-          <br />
+        <p>&#xC775;&#xBA85; &#xB85C;&#xADF8;&#xB97C; &#xAE30;&#xB85D; &#xD5C8;&#xC6A9;
+          &#xB610;&#xB294; &#xBE44;&#xD5C8;&#xC6A9; &#x2014; &#xACC4;&#xC815;&#xC744;
+          &#xC0DD;&#xC131;&#xD558;&#xC9C0; &#xC54A;&#xACE0; W&amp;B &#xD074;&#xB77C;&#xC6B0;&#xB4DC;&#xC5D0;&#xC11C;
+          &#xC2E4;&#xD589; &#xCD94;&#xC801;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+          <br
+          />
         </p>
         <ul>
           <li><b>&quot;allow&quot;(&#xD5C8;&#xC6A9;)</b>&#xC744; &#xC120;&#xD0DD;&#xD558;&#xC2DC;&#xBA74;
@@ -218,7 +220,8 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
       <td style="text-align:left">bool</td>
       <td style="text-align:left">&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xB54C;
         &#xC0AC;&#xC6A9;&#xC790;&#xB97C; wandb&#xC5D0; &#xAC15;&#xC81C; &#xB85C;&#xADF8;&#xC778;
-        &#xC2DC;&#xD0AC;&#xC9C0; &#xC5EC;&#xBD80; (&#xAE30;&#xBCF8;&#xAC12;: Fasle)</td>
+        &#xC2DC;&#xD0AC;&#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xC5EC;&#xBD80; (&#xAE30;&#xBCF8;&#xAC12;:
+        Fasle)</td>
     </tr>
     <tr>
       <td style="text-align:left">magic</td>
@@ -237,12 +240,12 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
         href="https://docs.wandb.com/library/resuming">&#xC7AC;&#xAC1C;</a>&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
           &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC5D0;&#xC11C; &#xBC18;&#xB4DC;&#xC2DC;
           &#xACE0;&#xC720;&#xD55C; &#xAC83;&#xC774;&#xC5B4;&#xC57C; &#xD558;&#xBA70;,
-          &#xC2E4;&#xD589;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xBA74; ID&#xB97C; &#xB2E4;&#xC2DC;
-          &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC9E7;&#xC740;
-          &#xC124;&#xBA85; &#xC774;&#xB984;&#xC758; &#xACBD;&#xC6B0; &#xC774;&#xB984;
-          &#xC601;&#xC5ED;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; &#xC5EC;&#xB7EC;
-          &#xC2E4;&#xD589;&#xC744; &#xBE44;&#xAD50;&#xD558;&#xAE30; &#xC704;&#xD574;
-          &#xCD08;&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xB294;
+          &#xC2E4;&#xD589;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xBA74; &#xD574;&#xB2F9;
+          ID&#xB97C; &#xB2E4;&#xC2DC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+          &#xC9E7;&#xC740; &#xC124;&#xBA85; &#xC774;&#xB984;&#xC758; &#xACBD;&#xC6B0;
+          &#xC774;&#xB984; &#xC601;&#xC5ED;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098;
+          &#xC5EC;&#xB7EC; &#xC2E4;&#xD589;&#xC744; &#xBE44;&#xAD50;&#xD558;&#xAE30;
+          &#xC704;&#xD574; &#xCD08;&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xB294;
           &#xAD6C;&#xC131;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. ID&#xC5D0;
           &#xD2B9;&#xC218; &#xBB38;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218;
           &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</td>
@@ -250,10 +253,11 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
     <tr>
       <td style="text-align:left">monitor_gym</td>
       <td style="text-align:left">bool</td>
-      <td style="text-align:left">OpenAI Gym&#xC758; &#xBE44;&#xB514;&#xC624;&#xB97C; &#xB85C;&#xADF8; &#xD560;
-        &#xC9C0; &#xC5EC;&#xBD80;. <a href="https://docs.wandb.com/integrations/ray-tune">Ray Tune</a>&#xC744;
-        &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;
-        (&#xAE30;&#xBCF8;&#xAC12;: False)</td>
+      <td style="text-align:left">OpenAI Gym&#xC758; &#xBE44;&#xB514;&#xC624; &#xB85C;&#xADF8;&#xD560;&#xC9C0;&#xC5D0;
+        &#xB300;&#xD55C; &#xC5EC;&#xBD80;. &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740;
+        <a
+        href="https://docs.wandb.com/integrations/ray-tune">Ray Tune</a>&#xC744; &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;
+          (&#xAE30;&#xBCF8;&#xAC12;: False)</td>
     </tr>
     <tr>
       <td style="text-align:left">allow_val_change</td>
@@ -278,12 +282,12 @@ description: '모델 메트릭을 로깅하는 훈련 루프 이전에, 새로�
 
 ##  **공통 질문**
 
-###  **한 스크립트에서 여러 실행을 실행하려면 어떻게 해야 되나요?**
+###   **한 스크립트에서 여러 실행을 진행하려면 어떻게 해야 합니까?**
 
-I하나의 스크립트에서 여러 실행을 시작하려는 경우, 다음 두 가지를 코드에 추가합니다:
+ I하나의 스크립트에서 여러 실행을 시작하려는 경우, 다음 두 명령을 코드에 추가합니다:
 
 1. run = wandb.init\(**reinit=True**\): 것을 사용해서 실행의 재 초기화를 허용합니다
-2. **run.finish\(\)**: 실행이 끝날 때 이것을 사용해서 해당 실행에 대한 로깅을 종료합니다.
+2. **run.finish\(\)**: 실행이 끝날 때 이것을 사용해서 해당 실행에 대한 로그를 종료합니다.
 
 ```python
 import wandb
@@ -294,7 +298,7 @@ for x in range(10):
     run.finish()
 ```
 
-또는 로깅을 자동으로 종료하는 Python context manager를 사용할 수 있습니다:
+또는 로그를 자동으로 종료하는 Python context manager를 사용할 수 있습니다:
 
 ```python
 import wandb
@@ -305,17 +309,17 @@ for x in range(10):
             run.log({"metric": x+y})
 ```
 
-### LaunchError: Permission denied  **\(권한 거부\)**
+### LaunchError: **허가되지 않음**
 
- **LaunchError: Launch exception: Permission denied** 오류가 발생한 경우, 실행을 전송하려고 하는 프로젝트에 로그를 하기 위한 권한이 없음을 의미합니다. 여기에는 다음과 같은 여러 가지 이유가 있을 수 있습니다.
+ **LaunchError: Launch exception: Permission denied \(권한 거부\)** 오류가 발생한 경우, 실행을 전송하려고 하는 프로젝트에 대한 로그 권한이 없음을 의미합니다. 여기에는 다음과 같은 여러 가지 이유가 있을 수 있습니다.
 
 1. 이 머신에 로그인하지 않았습니다. 명령 줄에 `wandb login`을 실행합니다.
 2.  존재하지 않는 개체를 설정했습니다. “Entity”\(개체\)는 여러분의 사용자 이름 또는 기존 팀의 이름이어야 합니다. 팀을 생성해야 하는 경우, [구독 페이지](https://app.wandb.ai/billing)로 이동하시기 바랍니다.
-3.  프로젝트 권한이 없습니다. 프로젝트에 실행을 로그할 수 있도록 프로젝트 생성자에게 개인 정보\(privacy\)를 **Open\(공개\)**로 설정하도록 문의하시기 바랍니다.
+3.  프로젝트 로그 권한이 없습니다. 프로젝트에 실행을 로그할 수 있도록 프로젝트 생성자에게 개인 정보를 **Open\(공개\)**으로 설정하도록 문의하시기 바랍니다.
 
-###  **읽을 수 있는 실행 이름 가져오기**
+###  **실행 가능한 이름 가져오기**
 
-실행에 대한 멋지고, 판독 가능한 이름을 가져옵니다.
+실행 가능한 이름을 가져옵니다.
 
 ```python
 import wandb
@@ -346,7 +350,7 @@ wandb.init\(\)가 스크립트에서 호출되면, git 정보를 자동으로 �
 
  기본값으로, wandb.init\(\)은 메트릭을 실시간으로 클라우드 호스팅 앱으로 동기화하는 프로세스를 시작합니다. 머신이 오프라인이거나 인터넷에 접속할 수 없는 경우, 다음과 같이 오프라인 모드를 사용해 wandb를 실행하고 나중에 동기화할 수 있습니다.
 
- 두 가지 환경 변수를 설정합니다:
+ ****다음의 두 가지 환경 변수를 설정합니다:
 
 1. **WANDB\_API\_KEY**: [설정 페이지](https://app.wandb.ai/settings)의 계정 API 키에 이것을 설정합니다
 2. **WANDB\_MODE**: dryrun

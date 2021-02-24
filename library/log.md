@@ -4,14 +4,16 @@ description: '메트릭, 비디오, 사용자 지정 플롯 등 여러 자료를
 
 # wandb.log\(\)
 
-`wandb.log(dict)`을 호출해서 메트릭 사전 및 사용자 지정 객체를 한 단계에 로그하세요. 기본값으로, 저희는 각 매 회마다 단계를 점진적으로 증가시키므로, 시간이 지남에 따라 그래프와 풍부한 시각화에서 모델의 출력을 확인하실 수 있습니다.
+ `wandb.log(dict)`을 호출해서 메트릭 사전 및 사용자 지정 객체를 한 단계에 로그하세요. 기본값으로, 저희는 매 회마다 단계를 점진적으로 증가시키므로, 시간이 지남에 따라 그래프와 풍부한 시각화로 모델의 출력을 확인하실 수 있습니다.  
+
 
 **키워드 전달인자:**
 
-* **step** — 로그를 연결하는 시간 단계 \([점진전 로깅\(incremental Logging\)](https://docs.wandb.com/library/log#incremental-logging) 확인\)
-* **commit** — 기본값은 commit=true 으로 wandb.log를 호출 할 때 마다, 점진적으로 단계를 증가 시킵니다. 여러 순차 wandb.log\(\) 명령을 동일한 단계에 저장 하시려면 commit=false을 설정하세요.
+* **Step — 로그를 연결하는 시간 단계 \( 확인\)**
+* **Commit — 기본값은 commit=true으로 wandb.log를 호출할 때마다, 점진적으로 단계를 증가시킵니다. 여러 순차 wandb.log\(\) 명령을 동일한 단계에 저장하시려면 commit=false을 설정하세요.**
 
-**사용 예시:**
+  
+  **사용 예시:**
 
 ```python
 wandb.log({'accuracy': 0.9, 'epoch': 5})
@@ -19,7 +21,7 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 
 ##  **객체 로깅**
 
- 저희는 이미지, 비디오, 오디오, 사용자 정의 그래프 등을 지원합니다. 풍부한 미디어를 로깅하셔서 결과값을 탐색하고 실행 간 비교를 시각화 하실 수 있습니다.
+저희는 이미지, 비디오, 오디오, 사용자 정의 그래프 등을 지원합니다. 풍부한 미디어를 로깅하셔서 결과값을 탐색하고 실행 간 비교를 시각화하실 수 있습니다.
 
  ​[Colab에서 해보기](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK)​
 
@@ -30,9 +32,9 @@ wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
 wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
 ```
 
-시퀀스가 첫 번째 전달인자로 제공되는 경우, 저희는 자동으로 히스토그램을 비닝\(bin\)합니다. 또한, 여러분의 비닝\(binning\)을 하기 위해 np.histogram 으로 부터 반환된 내용을 np\_histogram 키워드 전달인자로 전달하여, 비닝\(binning\)을 할 수도 있습니다. 지원되는 빈\(bin\)의 최대 개수는 512개입니다. 64개의 빈의 기본값을 오버라이딩\(override\)하기 위해, 선택적 num\_bins 키워드 전달인자를 사용하실 수 있습니다.
+시퀀스가 첫 번째 전달인자로 제공되는 경우, 저희는 자동으로 히스토그램을 비닝\(binning\)합니다. 또한, 여러분의 비닝\(binning\)을 하기 위해 np.histogram 으로 부터 반환된 내용을 np\_histogram 키워드 전달인자로 전달하여, 비닝\(binning\)을 할 수도 있습니다. 지원되는 빈\(bin\)의 최대 개수는 512개입니다. 64개의 빈의 기본값을 오버라이딩\(override\)하기 위해, 선택적 num\_bins 키워드 전달인자를 사용하실 수 있습니다.
 
-만약 히스토그램이 요약\(summary\)에 있으면,. 개별 실행 페이지의 스파크라인\(sparklines\)으로 나타납니다. 히스토리에 나타난다면, 시간이 경과함에 따라 저희는 빈\(bins\)의 히트맵\(heatmap\)을 작성합니다.
+만약 히스토그램이 요약\(summary\)에 있으면, 개별 실행 페이지의 히스토리에 스파크라인\(sparklines\)이 나타난다면, 시간이 지남에 따라 저희는 빈\(bins\)의 히트맵\(heatmap\)을 작성합니다.
 
 ###  **이미지 및 오버레이**
 
@@ -40,7 +42,7 @@ wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram
 {% tab title="이미지" %}
 `wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})`
 
- 넘파이 배열\(numpy array\)가 제공된 경우, 저희는 마지막 차원\(dimension\)이 1이면, 그레이 스케일, 3인 경우 RGB, 4이면 RGBA라고 가정합니다.만약 배열이 플롯\(float\)을 포함하고 있는 경우, 0에서 255사이의 정수\(ints\)로 변환합니다. 수동으로 [모드\(mode\)](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes)를 지정하거나 또는 `PIL.Image`만 제공할 수 있습니다. 단계당 50개 미만의 이미지를 로그 하실 것을 추천합니다
+ 넘파이 배열\(numpy array\)가 제공된 경우, 저희는 마지막 차원\(dimension\)이 1이면, 그레이 스케일, 3인 경우 RGB, 4이면 RGBA라고 가정합니다. 만약 배열이 플롯\(float\)을 포함하고 있는 경우, 0에서 255사이의 정수\(ints\)로 변환합니다. 수동으로 [모드\(mode\)](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes)를 지정하거나 또는 `PIL.Image`만 제공할 수 있습니다. 단계당 50개 미만의 이미지를 로그하실 것을 추천합니다
 {% endtab %}
 
 {% tab title="분할 마스크\(Segmentation Mask\)" %}
@@ -150,7 +152,7 @@ wandb.log({"driving_scene": img})
 wandb.log({"examples": [wandb.Audio(numpy_array, caption="Nice", sample_rate=32)]})
 ```
 
- 단개별 로그 될 수 있는 오디오 클립의 최대 개수는 100개입니다.
+ 단개별로 로그할 수 있는 오디오 클립의 최대 개수는 100개입니다.
 {% endtab %}
 
 {% tab title="비디오" %}
@@ -215,7 +217,7 @@ wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
 
 ###  **사용자정의 차트**
 
- 이러한 프리셋\(presets\)는 스크립트에서 직접 차트를 로깅\(log\)하고 UI에서 찾고 있는 정확한 시각화를 확인할 수 있는 `wandb.plot` 수단이 내장되어 있습니다.
+ 이러한 프리셋\(presets\)에는 스크립트에서 직접 차트를 로깅\(log\)하고 UI에서 찾고 있는 정확한 시각화를 확인할 수 있는 `wandb.plot` 수단이 내장되어 있습니다.
 
 {% tabs %}
 {% tab title="라인 플롯\(Line plot\)" %}
@@ -376,7 +378,7 @@ plt.ylabel('some interesting numbers')
 wandb.log({"chart": plt})
 ```
 
- `matplotlib` 파이플롯\(pyplot\) 또는 figure object를 `wandb.log()`에 전달할 수 있습니다. 기본값으로 플롯을 [플로틀리\(Plotly\)](https://plot.ly/) 플롯으로 변환 해 드립니다. 플롯을 분명하게 이미지로 로그하고 싶으시다면, 플롯을 `wandb.Image`로 전달하실 수 있습니다. 또한 플로틀리\(Plotly\)차트를 직접적으로 로그 하실 수 있습니다.  
+ `matplotlib` 파이플롯\(pyplot\) 또는 figure object를 `wandb.log()`에 전달할 수 있습니다. 기본값으로 플롯을 [플로틀리\(Plotly\)](https://plot.ly/) 플롯으로 변환 해 드립니다. 플롯을 분명하게 이미지로 로그하고 싶으시다면, 플롯을 `wandb.Image`로 전달하실 수 있습니다. 또한 플로틀리\(Plotly\)차트를 직접적으로 로그하실 수 있습니다.  
 
 
 ###  **3D 시각화**
@@ -392,7 +394,7 @@ wandb.log({"generated_samples":
             wandb.Object3D(open("sample.glb"))]})
 ```
 
-![Ground truth and prediction of a headphones point cloud](../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
+![&#xD5E4;&#xB4DC;&#xD3F0; &#xD3EC;&#xC778;&#xD2B8; &#xD074;&#xB77C;&#xC6B0;&#xB4DC;&#xC758; &#xCC38; &#xAC12;\(Ground Truth\) &#xBC0F; &#xC608;&#xCE21;](../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
 
 [See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
@@ -486,7 +488,7 @@ wandb.log(
 wandb.log({'loss': 0.2}, step=step)
 ```
 
-단계별 동일한 값을 계속 전달하기만 하신다면, W&B는 하나의 통합된 사전에 각 각의 요청으로부터 키\(keys\)와 값을 수집합니다. 이전과 다른 `step` 에 대한 값으로 `wandb.log()`를 요청하는 즉시 W&B는 모든 수집된 키와 값을 히스토리에 기록하고, 다시 수집을 시작합니다. 이는, “step: 0, 1, 2, ...에 대한 연속적인 값만을 사용하셔야 함을 의미을 유의하시기 바랍니다. 이 기능 절대적으로 어떠한 히스토리 단계에 기록하도록 허용하지 않으며, 오직 “current\(현재\)” 및 “next\(다음\)” 단계에만 작성하실 수 있습니다.
+단계별 동일한 값을 계속 전달하기만 하신다면, W&B는 하나의 통합된 사전에 각 각의 요청으로부터 키\(keys\)와 값을 수집합니다. 이전과 다른`step` 에 대한 값으로 `wandb.log()`를 요청하는 즉시 W&B는 모든 수집된 키와 값을 히스토리에 기록하고, 다시 수집을 시작합니다. 이는, “step: 0, 1, 2, ...에 대한 연속적인 값만을 사용하셔야 함을 의미을 유의하시기 바랍니다. 이 기능 절대적으로 어떠한 히스토리 단계에 기록하도록 허용하지 않으며, 오직 “current\(현재\)” 및 “next\(다음\)” 단계에만 작성하실 수 있습니다.
 
 또한, 메트릭을 모으기 위해 `wandb.log`에 **commit=False**을 설정하실 수 있으며, 메트릭을 지속하기 위해 **commit\(커밋\) 플래그 없이   `wandb.log`**을 요청 하셔야 함을 유의하시기 바랍니다.
 
@@ -562,7 +564,7 @@ for epoch in range(1, args.epochs + 1):
 
 ###  **다른 에포크\(epoch\)에서 이미지 비교하기**
 
- 단계에서 이미지를 로그 할 때마다, UI에 나타나도록 이미지를 저장합니다. 이미지 패널을 고정하고, **step slider**를 사용해서 다른 단계의 이미지를 확인합니다. 이를 통해 모델의 출력이 훈련에 따라 어떻게 변하는지 쉽게 비교할 수 있습니다.
+ 단계에서 이미지를 로그 할 때마다, UI에 나타나도록 이미지를 저장합니다. 이미지 패널을 고정하고, step slider를 사용하여 다른 단계의 이미지를 확인합니다. 이를 통해 모델의 출력이 훈련에 따라 어떻게 변하는지 쉽게 비교할 수 있습니다.
 
 ```python
 wandb.log({'epoch': epoch, 'val_acc': 0.94})
@@ -570,13 +572,13 @@ wandb.log({'epoch': epoch, 'val_acc': 0.94})
 
 ###  **배치 로깅**
 
-모든 배치에 특정 메트릭을 로그하고 플롯을 표준화 하시려면, 메트릭과 함께 작성 하고 싶은 x축 값을 로그 하실 수 있습니다. 그 후, 사용자 정의 플롯에서, edit를 클릭하고, custom x-axis\(사용자 정의 x축\)을 선택합니다.
+모든 배치에 특정 메트릭을 로그하고 플롯을 표준화 하시려면, 메트릭과 함께 작성 하고 싶은 x축 값을 로그하실 수 있습니다. 그 후, 사용자 정의 플롯에서, edit를 클릭하고, custom x-axis\(사용자 정의 x축\)을 선택합니다.
 
 ```python
 wandb.log({'batch': 1, 'loss': 0.3})
 ```
 
-###  **PNG 로그하기**
+###  **PNG 로깅**
 
 wandb.Image는 기본값으로 넘파이 배열 또는 PILImage의 인스턴스를 PNG로 변환합니다.
 
@@ -586,7 +588,7 @@ wandb.log({"example": wandb.Image(...)})
 wandb.log({"example": [wandb.Image(...) for img in images]})
 ```
 
-### **JPEG 로그하기**
+### **JPEG 로깅**
 
  JPEG를 저장하시려면 경로를 파일에 전달하시면 됩니다:
 
@@ -597,7 +599,7 @@ rgb_im.save('myimage.jpg')
 wandb.log({"example": wandb.Image("myimage.jpg")})
 ```
 
-###  **비디오 로그하기**
+###  **비디오 로깅**
 
 ```python
 wandb.log({"example": wandb.Video("myvideo.mp4")})
@@ -605,45 +607,45 @@ wandb.log({"example": wandb.Video("myvideo.mp4")})
 
  이제 미디어 브라우저에서 동영상을 볼 수 있습니다. 프로젝트 작업영역으로 가서, 작업영역을 실행하시거나 리포트 및 “Add visualization\(시각화 추가하기\)”를 클릭하여 다채로운 미디어 패널을 추가합니다.
 
-###  **사용자정의 x-축**
+###  **사용자 정의 x-축**
 
- 기본값으로, wandb.log 요청하실 때 마다 저희는 점차적으로 글로벌 단계를 증가합니다. 원하시는 경우, 단조적으로 증가하는 단계를 로그 하고 그래프에서 사용자 정의 x-축으로 선택하실 수 있습니다.
+ 기본값으로, `wandb.log` 요청하실 때 마다 저희는 점차적으로 글로벌 단계를 증가합니다. 원하시는 경우, 단조적으로 증가하는 단계를 로그하고 그래프에서 사용자 정의 x-축으로 선택하실 수 있습니다.
 
- 예를 들어, 정렬하고 싶은 훈련 및 검증 단계에 있는 경우, 여러분의 step counter: `wandb.log({“acc”:1, “global_step”:1})`.를 저희에게 전달 해 주십시오. 그리고 나서, 그래프에서 “global\_step”을 x-축으로 선택 해주십시오.
+ 예를 들어, 정렬하고 싶은 훈련 및 검증 단계에 있는 경우, 여러분의 step counter: `wandb.log({“acc”:1, “global_step”:1})`.
 
- `wandb.log({“acc”:1,”batch”:10}, step=epoch)`를 사용하시면 기본값 단계 축 외에도 “batch”를 x 축으로 선택 하실 수 있습니다.
+를 저희에게 전달 해 주십시오. 그리고 나서, 그래프에서 “global\_step”을 x-축으로 선택 해주십시오.`wandb.log({“acc”:1,”batch”:10}, step=epoch)`를 사용하시면 기본값 단계 축 외에도 “batch”를 x축으로 선택 하실 수 있습니다.
 
 ###  **포인트 클라우드 탐색 및 줌**
 
- 컨트롤을 누르시고 마우스를 사용해서 공간 내에서 이동하실 수 있습니다.
+컨트롤\(Ctrl\)을 누르시고 마우스를 사용해서 공간 내에서 이동하실 수 있습니다.
 
 ###  **그래프에 아무것도 표시되지 않습니다** 
 
- “No visualization data logged yet\(아직 로그된 시각화 데이터가 없음”이 나타난다면, 스크립트에서 아직 첫 번째 wandb.log 요청을 받지 못했음을 의미합니다. 이는 실행 완료 까지 오랜 시간이 걸리기 때문 일수도 있습니다. 각 에포크\(epoch\)의 끝에 로깅을 하는 경우, 데이터 스트림을 보다 빠르게 보기 위해 에포크당 몇 번 로깅 하실 수 있습니다.
+ “No visualization data logged yet\(아직 로그된 시각화 데이터가 없음\)”이 나타난다면, 스크립트에서 아직 첫 번째 wandb.log 요청을 받지 못했음을 의미합니다. 이는 실행 완료까지 오랜 시간이 걸리기 때문 일수도 있습니다. 각 에포크\(epoch\)의 끝에 로그 하는 경우, 데이터 스트림을 보다 빠르게 보기 위해 에포크 별로 몇 번 로깅 하실 수 있습니다.
 
 ###  **메트릭 이름 복제**
 
- 같은 키 하에서 다른 유형을 로그하는 경우, 저희는 데이터베이스에서 이것들을 분리해야만 합니다. 즉, UI의 드롭다운에서 같은 메트릭 이름의 여러 항목이 나타남을 의미합니다. 저희가 그룹화하는 기준은 숫자, 스트링, bool, 기타 \(주로 배열\(arrays\)\), 모든 wandb 유형 \(히스토그램, 이미지 등\)입니다. 이러한 동작\(behavior\)를 피하시려면 각 키에 하나의 유형만 전송 해 주시기 바랍니다.
+ 같은 키로 다른 유형을 로그하는 경우, 저희는 데이터베이스에서 이것들을 분리해야만 합니다. 즉, UI의 드롭다운 메뉴에서 같은 메트릭 이름의 여러 항목이 나타남을 의미합니다. 저희가 그룹화하는 기준은 숫자, 스트링, bool, 기타 \(주로 배열\(arrays\)\), 모든 wandb 유형 \(히스토그램, 이미지 등\)입니다. 이러한 동작\(behavior\)을 피하시려면 각 키에 하나의 유형만 전송하시기 바랍니다.
 
 ###  **퍼포먼스 및 제한**
 
  **샘플링**
 
- 포인트를 더 많이 보낼수록, UI에서 그래프를 로딩하는 시간이 더 길어집니다. 라인에 1000개 이상의 포인가 있는 경우, 저희는 여러분의 브라우저로 데이터를 전송하기 전에 백엔드에서 1000개의 포인트로 줄여서 샘플링합니다. 이 샘플링은 비결정적\(nondeterministic\)이므로, 페이지를 새로고침 하시면 다른 세트의 샘플링된 포인트를 확인하실 수 있습니다.
+ 포인트를 더 많이 보낼수록, UI에서 그래프를 로딩하는 시간이 더 길어집니다. 라인에 1000개 이상의 포인트가 있는 경우, 저희는 여러분의 브라우저로 데이터를 전송하기 전에 백엔드에서 1000개의 포인트로 줄여서 샘플링합니다. 이 샘플링은 비결정적\(nondeterministic\)이므로, 페이지를 새로 고침 하시면 다른 세트의 샘플링된 포인트를 확인하실 수 있습니다.
 
  원본 데이터 전부를 원하신다면, [data API](https://docs.wandb.com/library/api)를 사용하셔서 샘플링 되지 않은 데이터를 끌어 오실 수 있습니다.
 
  **가이드라인**
 
-메트릭당 10,000 포인트 이하를 로그 하시는 것을 추천 드립니다. 구성\(config\) 및 요약 메트릭 열\(column\)이 500개 이상인 경우, 저희는 테이블에 500개만 표시합니다. 100만개 이상의 포인트가 라인에 로그 된 경우, 페이지를 로딩하는 데 시간이 걸릴 수 있습니다.
+메트릭당 10,000 포인트 이하를 로그하시는 것을 추천 드립니다. 구성\(config\) 및 요약 메트릭 열\(column\)이 500개 이상인 경우, 저희는 테이블에 500개만 표시합니다. 100만개 이상의 포인트가 라인에 로그 된 경우, 페이지를 로딩하는 데 시간이 걸릴 수 있습니다. ****
 
- 저희는 메트릭을 케이스 인센시티브case-insensitive, 대/소문자를 구분하지 않는\) 방식으로 저장하므로 “My-Metric”과 “my-metric”과 같은 동일한 이름의 두 개의 메트릭을 가지고 있으실 수 없음을 유의하시기 바랍니다.
+ 저희는 메트릭을 케이스 인센시티브 \(case-insensitive, 대/소문자를 구분하지 않는\) 방식으로 저장하므로 “My-Metric”과 “my-metric”과 같은 동일한 이름의 두 개의 메트릭을 가지고 있으실 수 없음을 유의하시기 바랍니다.
 
 ### **이미지 업로딩 제어**
 
- “제 프로젝트에 W&B를 통합하고 싶어요. 하지만 이미지는 업로드 하고 싶지 않습니다.”
+ “제 프로젝트에 W&B를 통합하고 싶어요. 하지만 이미지는 업로드하고 싶지 않습니다.”
 
-저희의 통합은 자동으로 이미지를 업로드 하지 않습니다. 즉, 여러분이 명시적으로 업로드 할 파일을 지정하셔야 합니다. 다음은 제가 명시적으로 이미지: [http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)를 로그한 PyTorch에 대한 간단한 예시입니다.
+저희의 통합은 자동으로 이미지를 업로드하지 않습니다. 즉, 여러분이 명시적으로 업로드할 파일을 지정하셔야 합니다. 다음은 저희가 명시적으로 이미지: [http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)를 로그한 PyTorch에 대한 간단한 예시입니다.
 
 ```python
 wandb.log({
