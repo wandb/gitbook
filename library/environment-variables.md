@@ -29,26 +29,28 @@ os.environ['WANDB_MODE'] = 'dryrun'
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Variable name</th>
-      <th style="text-align:left">Usage</th>
+      <th style="text-align:left"><b>&#xBCC0;&#xC218; &#xC774;&#xB984;</b>
+      </th>
+      <th style="text-align:left"><b>&#xC0AC;&#xC6A9;&#xBC95;</b>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left"><b>WANDB_API_KEY</b>
       </td>
-      <td style="text-align:left">&#xACC4;&#xC815;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xC778;&#xC99D; &#xD0A4;&#xB97C;
-        &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. <a href="https://app.wandb.ai/settings">&#xC5EC;&#xB7EC;&#xBD84;&#xC758; &#xC124;&#xC815; &#xD398;&#xC774;&#xC9C0;(settings page)</a>&#xC5D0;&#xC11C;
-        &#xD0A4;&#xB97C; &#xD655;&#xC778;&#xD558;&#xC2E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<code> wandb login</code>&#xC774;
-        &#xC6D0;&#xACA9;&#xBA38;&#xC2E0;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC9C0;
+      <td style="text-align:left"><b> </b>&#xACC4;&#xC815;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xC778;&#xC99D;
+        &#xD0A4;&#xB97C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. <a href="https://app.wandb.ai/settings">&#xC5EC;&#xB7EC;&#xBD84;&#xC758; &#xC124;&#xC815; &#xD398;&#xC774;&#xC9C0;(settings page)</a>&#xC5D0;&#xC11C;
+        &#xD0A4;&#xB97C; &#xD655;&#xC778;&#xD558;&#xC2E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>wandb login</code>&#xC774;
+        &#xC6D0;&#xACA9; &#xBA38;&#xC2E0;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC9C0;
         &#xC54A;&#xB294; &#xACBD;&#xC6B0; &#xC774; &#xAC12;&#xC744; &#xC124;&#xC815;&#xD558;&#xC154;&#xC57C;
         &#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>WANDB_BASE_URL</b>
       </td>
-      <td style="text-align:left">&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC2DC;&#xB294; &#xACBD;&#xC6B0;, &#xC774;
-        &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB97C; <code>http://YOUR_IP:YOUR_PORT</code>&#xC5D0;
+      <td style="text-align:left"><a href="https://docs.wandb.ai/self-hosted">wandb/local</a>&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC2DC;&#xB294;
+        &#xACBD;&#xC6B0;, &#xC774; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB97C; <code>http://YOUR_IP:YOUR_PORT</code>&#xC5D0;
         &#xC124;&#xC815;&#xD558;&#xC154;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
@@ -61,8 +63,8 @@ os.environ['WANDB_MODE'] = 'dryrun'
     <tr>
       <td style="text-align:left"><b>WANDB_NOTES</b>
       </td>
-      <td style="text-align:left">&#xC2E4;&#xD589;&#xC5D0; &#xB300;&#xD55C; &#xBA54;&#xBAA8;&#xAC00; &#xAE38;&#xC5B4;&#xC9D1;&#xB2C8;&#xB2E4;.
-        &#xB9C8;&#xD06C;&#xB2E4;&#xC6B4;(Markdown)&#xC774; &#xD5C8;&#xC6A9;&#xB418;&#xBA70;,
+      <td style="text-align:left">&#xC2E4;&#xD589;&#xC5D0; &#xB300;&#xD55C; &#xC880; &#xB354; &#xC0C1;&#xC138;&#xD55C;
+        &#xBA54;&#xBAA8;. &#xB9C8;&#xD06C;&#xB2E4;&#xC6B4;(Markdown)&#xC774; &#xD5C8;&#xC6A9;&#xB418;&#xBA70;,
         &#xCD94;&#xD6C4;&#xC5D0; UI&#xC5D0;&#xC11C; &#xD3B8;&#xC9D1;&#xD560; &#xC218;
         &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</td>
     </tr>
@@ -90,7 +92,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
       <td style="text-align:left">&#xC2E4;&#xD589;&#xACFC; &#xAD00;&#xB828;&#xB41C; &#xD504;&#xB85C;&#xC81D;&#xD2B8;. <code>wandb init</code>&#xB85C;
         &#xC124;&#xC815;&#xD558;&#xC2E4; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
         &#xD558;&#xC9C0;&#xB9CC;, &#xD574;&#xB2F9; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB294;
-        &#xAC12;(value)&#xB97C; &#xC624;&#xBC84;&#xB77C;&#xC774;&#xB4DC;(override)&#xD569;&#xB2C8;&#xB2E4;.</td>
+        &#xAC12;(value)&#xC744; &#xC624;&#xBC84;&#xB77C;&#xC774;&#xB4DC;(override)&#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>WANDB_MODE</b>
@@ -105,7 +107,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
     <tr>
       <td style="text-align:left"><b>WANDB_TAGS</b>
       </td>
-      <td style="text-align:left">&#xC2E4;&#xD589;&#xC5D0; &#xC801;&#xC6A9; &#xB420; &#xD0DC;&#xADF8;&#xC758;
+      <td style="text-align:left">&#xC2E4;&#xD589;&#xC5D0; &#xC801;&#xC6A9;&#xB420; &#xD0DC;&#xADF8;&#xC758;
         &#xCF64;&#xB9C8;&#xB85C; &#xAD6C;&#xBD84;&#xB41C; &#xB9AC;&#xC2A4;&#xD2B8;</td>
     </tr>
     <tr>
@@ -132,8 +134,8 @@ os.environ['WANDB_MODE'] = 'dryrun'
         &#xC2DC;&#xC791; &#xC2DC; &#xC2E4;&#xD589;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xB3C4;&#xB85D;
         &#xAC15;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;. &#xD56D;&#xC0C1; &#xACE0;&#xC720;&#xD55C;
         ID&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xACE0; &#xC2F6;&#xC73C;&#xC2DC;&#xB2E4;&#xBA74;,
-        allow(&#xD5C8;&#xC6A9;)&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD558;&#xACE0;
-        &#xD56D;&#xC0C1; <b>WANDB_RUN_ID</b>&#xB97C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</td>
+        allow(&#xD5C8;&#xC6A9;)&#xB85C; &#xC124;&#xC815;&#xD558;&#xACE0; &#xD56D;&#xC0C1; <b>WANDB_RUN_ID</b>&#xB97C;
+        &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>WANDB_RUN_ID</b>
@@ -178,14 +180,13 @@ os.environ['WANDB_MODE'] = 'dryrun'
     <tr>
       <td style="text-align:left"><b>WANDB_DOCKER</b>
       </td>
-      <td style="text-align:left">&#xC2E4;&#xD589; &#xBCF5;&#xC6D0;&#xC744; &#xD65C;&#xC131;&#xD654; &#xD558;&#xC2DC;&#xB824;&#xBA74;
+      <td style="text-align:left">&#xC2E4;&#xD589; &#xBCF5;&#xC6D0;&#xC744; &#xD65C;&#xC131;&#xD654;&#xD558;&#xC2DC;&#xB824;&#xBA74;
         &#xB3C4;&#xCEE4; &#xC774;&#xBBF8;&#xC9C0; &#xB2E4;&#xC774;&#xC81C;&#xC2A4;&#xD2B8;(docker
         image digest)&#xC5D0; &#xC774; &#xAC12;&#xC744; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
-        &#xC774;&#xB294; <code>wandb docker </code>&#xBA85;&#xB801;&#xACFC; &#xD568;&#xAED8;
+        &#xC774;&#xB294; <code>wandb docker </code>&#xBA85;&#xB839;&#xACFC; &#xD568;&#xAED8;
         &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.
         &#xC774;&#xBBF8;&#xC9C0; &#xB2E4;&#xC774;&#xC81C;&#xC2A4;&#xD2B8;&#xB97C;
-        &#xC5BB;&#xC73C;&#xC2DC;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. <code>wandb docker my/image/name:tag --digest</code>
-      </td>
+        &#xC5BB;&#xC73C;&#xC2DC;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xC744;</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>WANDB_DISABLE_CODE</b>
@@ -206,8 +207,8 @@ os.environ['WANDB_MODE'] = 'dryrun'
     <tr>
       <td style="text-align:left"><b>WANDB_CONSOLE</b>
       </td>
-      <td style="text-align:left">stdout / stderr &#xB85C;&#xAE45;&#xC744; &#xBE44;&#xD65C;&#xC131;&#xD654;
-        &#xD558;&#xB824;&#xBA74; &#xC774; &#xAC12;&#xC744; &#x201C;off(&#xB054;)&#x201D;&#xC73C;&#xB85C;
+      <td style="text-align:left">stdout / stderr &#xB85C;&#xAE45;&#xC744; &#xBE44;&#xD65C;&#xC131;&#xD654;&#xD558;&#xB824;&#xBA74;
+        &#xC774; &#xAC12;&#xC744; &#x201C;off(&#xB054;)&#x201D;&#xC73C;&#xB85C;
         &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xAE30;&#xB2A5;&#xC740;
         &#xAE30;&#xBCF8;&#xAC12;&#xC73C;&#xB85C; &#xC774; &#xAE30;&#xB2A5;&#xC744;
         &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xD658;&#xACBD;&#xC5D0;&#xC11C;&#xB294;
@@ -254,14 +255,14 @@ os.environ['WANDB_MODE'] = 'dryrun'
       </td>
       <td style="text-align:left">wandb log statement&#xB97C; &#xC74C;&#xC18C;&#xAC70; &#xD558;&#xB824;&#xBA74;
         &#xC774; &#xAC12;&#xC744; <b>true</b>&#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
-        &#xC774;&#xB807;&#xAC8C; &#xC124;&#xC815; &#xB418;&#xBA74;, &#xBAA8;&#xB4E0;
-        &#xB85C;&#xADF8;&#xAC00; <b>WANDB_DIR</b>/debug.log&#xB85C; &#xAE30;&#xB85D;&#xB429;&#xB2C8;&#xB2E4;.</td>
+        &#xC774;&#xB807;&#xAC8C; &#xC124;&#xC815;&#xB418;&#xBA74;, &#xBAA8;&#xB4E0;
+        &#xB85C;&#xADF8;&#xAC00; <b>WANDB_DIR/debug.log</b>&#xB85C; &#xAE30;&#xB85D;&#xB429;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>WANDB_RUN_GROUP</b>
       </td>
-      <td style="text-align:left">&#xC2E4;&#xD589;&#xC744; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xADF8;&#xB8F9;&#xD654;
-        &#xD560; &#xC2E4;&#xD5D8; &#xC774;&#xB984;&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
+      <td style="text-align:left">&#xC2E4;&#xD589;&#xC744; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xADF8;&#xB8F9;&#xD654;&#xD560;
+        &#xC2E4;&#xD5D8; &#xC774;&#xB984;&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
         &#xB354; &#xC790;&#xC138;&#xD55C; &#xC815;&#xBCF4;&#xB294; <a href="https://docs.wandb.com/library/advanced/grouping">&#xADF8;&#xB8E8;&#xD551;(grouping)</a>&#xC744;
         &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</td>
     </tr>
@@ -283,7 +284,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
 
 ##  **AWS에서 실행하기**
 
-배치\(batch\) 작업을 AWS에서 실행하는 경우, W&B 인증\(credentials\)로 간편하게 여러분의 머신을 인증하실 수 있습니다. [설정 페이지\(settings page\)](https://app.wandb.ai/settings)에서 API키를 가져와서 [AWS batch job spec](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters)에서 WANDB\_API\_KEY 환경 변수를 설정합니다.
+ 배치\(batch\) 작업을 AWS에서 실행하는 경우, W&B 인증\(credentials\)로 간편하게 여러분의 머신을 인증하실 수 있습니다. [설정 페이지\(settings page\)](https://app.wandb.ai/settings)에서 API 키를 가져와서 [AWS batch job spec](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters)에서 WANDB\_API\_KEY 환경 변수를 설정합니다.
 
 ## **공통 질문**
 
@@ -297,11 +298,14 @@ os.environ['WANDB_MODE'] = 'dryrun'
 
 ### **환경 변수는 wandb.init\(\)로 전달되는 매개변수를 오버라이드\(override\)하나요?**
 
-에 전달되는 전달인자는 환경변수보다 우선합니다. 환경 변수가 설정되지 않은 경우 시스템 기본값\(system default\)와 다른 기본값을 사용하고 싶으시다면 `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))`을 요청하실 수 있습니다.
+`wandb.init`에 전달되는 전달인자는 환경 변수보다 우선합니다. 환경 변수가 설정되지 않은 경우 시스템 기본값\(system default\) 이외의 기본값을 사용하고 싶으신 경우 `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))`을 호출할 수 있습니다.
 
 ### **로깅 끄기**
 
- `wandb off` 명령은 환경 변수, `WANDB_MODE=dryrun`을 설정합니다. 이를 통해서 여러분의 머신에서 원격 wandb 서버로 데이터가 동기화 되는 것을 중단할 수 있습니다. 여러 프로젝트가 있는 경우, 모든 프로젝트는 로깅된 데이터가 W&B 서버로 동기화되는 것을 중단합니다.
+ `wandb off` 명령은 환경 변수, `WANDB_MODE=dryrun`을 설정합니다. 이를 통해서 여러분의 머신에서 원격 wandb 서버로 데이터가 동기화되는 것을 중단할 수 있습니다. 여러 프로젝트가 있는 경우, 모든 프로젝트는 로깅된 데이터가 W&B 서버로 동기화되는 것을 중단합니다.
+
+**경고 메시지를 끄려면 다음을 수행합니다:**  
+
 
  경고 메시지를 끄려면 다음을 수행합니다:
 
@@ -311,9 +315,10 @@ logger = logging.getLogger("wandb")
 logger.setLevel(logging.WARNING)
 ```
 
-### Multiple wandb users on shared machines
+### **공유 머신에 여러 사용자가 있는 경우**
 
-If you're using a shared machine and another person is a wandb user, it's easy to make sure your runs are always logged to the proper account. Set the [WANDB\_API\_KEY environment variable](environment-variables.md) to authenticate. If you source it in your env, when you log in you'll have the right credentials, or you can set the environment variable from your script.
+당신이 공유 머신을 사용 중이고, 또 다른 wandb 사용자가 있는 경우, 실행이 항상 적절한 계정에 로그되어 있는지 쉽게 확인할 수 있습니다. 인증할 [WANDB\_API\_KEY 환경 변수](https://docs.wandb.ai/v/han-guo-yu/library/environment-variables)를 설정합니다. 당신의 환경에서 이 정보를 소스화하면 로그인할 때 올바른 자격 증명이 제공되거나 스크립트에서 환경 변수를 설정할 수 있습니다.
 
-Run this command `export WANDB_API_KEY=X` where X is your API key. When you're logged in, you can find your API key at [wandb.ai/authorize](https://app.wandb.ai/authorize).
+`export WANDB_API_KEY=X` 명령을 실행합니다. 여기서 X는 사용자의 API 키입니다. 로그인하면 [wandb.ai/authorize](https://app.wandb.ai/authorize)에서 당신의 API 키를 찾을 수 있습니다.  
+
 

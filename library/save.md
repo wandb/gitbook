@@ -4,20 +4,21 @@ description: 현재 실행을 연결할 파일을 클라우드에 저장합니�
 
 # wandb.save\(\)
 
- 실행과 연관된 파일을 저장하는 방법으로 두 가지 가 있습니다.
+ 두 가지 방법으로 실행과 연관된 파일을 저장할 수 있습니다.
 
-1.  `wandb.save(파일이름)` 사용히가
-2. wandb run directory에 파일을 넣으시면 실행이 끝 날 때 업로드 됩니다
+1.  `wandb.save(파일이름)` 사용하기
+2. wandb 실행 디렉토리에 파일을 넣으시면 실행이 끝 날 때 업로드 됩니다
 
 {% hint style="info" %}
-실행을 [재개\(resuming\)](https://docs.wandb.com/library/advanced/resuming) 하는 경우, callingwandb.restore\(파일이름\)를 통해 파일을 복구할 수 있습니다
+실행을 [재개\(resuming\)](https://docs.wandb.com/library/advanced/resuming) 하는 경우, wandb.restore\(파일이름\)를 호출하여 파일을 복구할 수 있습니다  
 {% endhint %}
 
-파일이 작성되는 동안 동기화 하고 싶으시다면, `wandb.save`에서 파일이름 또는 글로브\(glob\)에 지정할 수 있습니다.
+ ****파일이 작성되는 동안 동기화 하고 싶으시면, `wandb.save`에서 파일이름 또는 글로브\(glob\)를 지정할 수 있습니다.  
+
 
 ##  **wandb.save 예시**
 
-전체 작업 예시에 대한 [이 리포트](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw)를 확인 하세요.
+전체 작업 예시에 대한 를 확인 하세요.
 
 ```python
 # Save a model file from the current directory
@@ -36,7 +37,7 @@ W&B의 로컬 실행 디렉토리는 기본값으로 여러분의 스크립트�
 
 ## **wandb 실행 디렉토리\(wandb run directory\)에 파일 저장 예시**
 
-model.h5" 파일은 wand.run.dir에 저장되며, 훈련이 끝날 때 업로드 됩니다.
+“model.h5" 파일은 wand.run.dir에 저장되며, 훈련이 끝날 때 업로드 됩니다.
 
 ```python
 import wandb
@@ -47,7 +48,7 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 model.save(os.path.join(wandb.run.dir, "model.h5"))
 ```
 
-다음은 공개 예시 페이지 입니다. files\(파일\) 탭에서 model-best.h5가 있음을 확인하실 수 있습니다. 이 기능은 기본값으로 Keras 통합ㄴ에 의해 자동으로 저장되지만, 체크포인트를 수동으로 저장하실 수도 있으며, 저희는 여러분을 위해 실행과 관련하여 저장해 드립니다.
+다음은 공개 예시 페이지 입니다. files\(파일\) 탭에서 model-best.h5가 있음을 확인하실 수 있습니다. 이 기능은 기본값으로 Keras 통합에 의해 자동으로 저장되지만, 체크포인트를 수동으로 저장하실 수도 있으며, 저희는 여러분을 위해 실행과 관련하여 체크포인트를 저장해 드립니다.
 
  [라이브 예시 보기 →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)​
 
@@ -66,17 +67,17 @@ model.save(os.path.join(wandb.run.dir, "model.h5"))
 
 ###  **파일 저장을 위한 디렉토리 변경**
 
-AWS S3 또는 Google Cloud Storage에 파일을 저장하도록 기본값을 설정한 경우, 다음과 같은 오류가 발생할 수 있습니다.
+**AWS S3 또는 Google Cloud Storage에 파일을 저장하도록 기본값을 설정한 경우, 다음과 같은 오류가 발생할 수 있습니다.**
 
 `events.out.tfevents.1581193870.gpt-tpu-finetune-8jzqk-2033426287 는 클라우드 저장소 url이므로, 파일을 wandb에 저장할 수 없습니다`.
 
 TensorBoard 이벤트 파일\(events file\) 또는 동기화할 다른 파일의 로그 디렉토리를 변경하려는 경우, 파일을 wandb.run.dir에 저장하시면, 저희 클라우드에 동기화 됩니다.
 
-###  **실행이름 가져오기**
+###  **실행 이름 가져오기**
 
-I스크립트 내에서 실행이름을 사용하려는 경우, `wandb.run.name`을 사용하시면 실행이름, 예를 들면, "blissful-waterfall-2"을 얻으실 수 있습니다.
+스크립트 내에서 실행 이름을 사용하려는 경우, `wandb.run.name`을 사용하여 "blissful-waterfall-2"와 같은 실행 이름을 얻으실 수 있습니다.
 
-표시 이름\(display name\)에 액세스 하기 전에 실행에 저장을 요청하셔야 합니다.
+표시 이름\(display name\)에 액세스 하기 전에 실행에 대한 저장을 요청하셔야 합니다.
 
 ```text
 run = wandb.init(...)
@@ -90,5 +91,5 @@ wandb.init 다음에 스크립트 상단의 `wandb.save("*.pt")`를 한 번 호�
 
 ### **클라우드 스토리지에 동기화 된 로컬 파일 제거하기**
 
- 클라우드 스토리지에 이미 동기화된 로컬 파일을 제거하기 위해 실행할 수 있는 명령어로 wandb gc 가 있습니다. 사용법에 대한 자세한 정보는 \``wandb gc` —help 에서 확인하실 수 있습니다.
+ 클라우드 스토리지에 이미 동기화된 로컬 파일을 제거하기 위한 명령어로 `wandb gc` 가 있습니다. 사용법에 대한 자세한 정보는 ```wandb gc —help`` 에서 확인하실 수 있습니다.
 
