@@ -18,6 +18,36 @@ Once you have [experiments in W&B](quickstart.md), easily visualize results in r
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" caption="" %}
 
+## How to edit a report
+
+Create a new report, and start typing. The whole page is a rich text area where you can write notes and save custom visualizations and tables.
+
+### Add new charts, headings, or LaTex equations
+
+On a new line, press `/` to add rich content.
+
+![](.gitbook/assets/demo-type-slash-in-report.gif)
+
+### 
+
+### Add charts to a report
+
+Add a panel grid, then add a panel \(like a line plot, scatter plot, or parallel coordinates chart\). Each panel grid has a set of run sets and a set of panels. The run sets at the bottom of the section control what data shows up on the panels in the grid. Create a new panel grid if you want to add charts that pull data from a different set of runs.
+
+![](.gitbook/assets/demo-report-add-panel-grid.gif)
+
+### 
+
+### Duplicate and delete panel grids
+
+If you have a good layout that you'd like to reuse, you can select a panel grid and copy-paste it to duplicate it in the same report, or even paste it into a different report.
+
+As you can see in the gif below, you can highlight a whole panel grid section by clicking the drag handle in the upper right corner. You can also click and drag to highlight and select a region in a report, which can include panel grids, text, and headings.
+
+To delete a panel grid, simply select it and press `delete` on your keyboard.
+
+![](.gitbook/assets/demo-copy-and-paste-a-panel-grid-section.gif)
+
 ## Collaborate on reports
 
 Once you've saved a report, you can click the **Share** button to collaborate. Make sure the visibility settings on your project allow your collaborators to access the report— you'll need an open project or a team project to share a report that you can edit together.
