@@ -2,19 +2,14 @@
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/master/wandb/__init__.py)
 
-Wandb is a library to help track machine learning experiments.
+Use the Public API to export or update data that you have saved to W&B.
 
-For more information on wandb see [https://docs.wandb.com](https://docs.wandb.com).
+Before using this API, you'll want to log data from your script — check the [Quickstart](https://github.com/ariG23498/Aritra-Documentation/tree/2e5d9ed059a09db9833a6e62b80135edccf67d05/library/quickstart.md) for more details.
 
-The most commonly used functions/objects are:
+**Use Cases for the Public API**
 
-* wandb.init — initialize a new run at the top of your training script
-* wandb.config — track hyperparameters
-* wandb.log — log metrics over time within your training loop
-* wandb.save — save files in association with your run, like model weights
-* wandb.restore — restore the state of your code when you ran a given run
-
-For examples usage, see github.com/wandb/examples
+* **Export Data**: Pull down a dataframe for custom analysis in a Jupyter Notebook. Once you have explored the data, you can sync your findings by creating a new analysis run and logging results, for example: `wandb.init(job_type="analysis")`
+* **Update Existing Runs**: You can update the data logged in association with a W&B run. For example, you might want to update the config of a set of runs to include additional information, like the architecture or a hyperparameter that wasn't originally logged.
 
 ## Classes
 
