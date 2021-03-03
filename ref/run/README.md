@@ -4,7 +4,7 @@
 
 ## Classes
 
-[`class settings`](settings.md): Settings Constructor
+[`class settings`](): Settings Constructor
 
 ## Functions
 

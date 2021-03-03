@@ -49,7 +49,6 @@
     * [Config](ref/run/config.md)
     * [Log](ref/run/log.md)
     * [Alert](ref/run/alert.md)
-    * [Settings](ref/run/settings.md)
     * [Login](ref/run/login.md)
     * [Summary](ref/run/summary.md)
   * [Artifact](ref/artifact.md)
