@@ -4,12 +4,13 @@ description: Use wandb with PyTorch Ignite
 
 # PyTorch Ignite
 
-* 이 [예시 W&B 리포트](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)에서 해당 결과 예시를 확인하세요
-* [Notebook이 호스팅 된 이 예시](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)에서 직접 코드를 실행해 보세요
+* 이 [예시 W&B 리포트](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)에서 해당 결과 예시를 확인하세요🡪
+* [Notebook이 호스팅 된 이 예시](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)에서 직접 코드를 실행해 보세요🡪
 
-Ignite는 훈련 및 검증 중에 메트릭, 모델/옵티마이저\(optimizer\) 매개변수, 경사\(gradients\) 등을 로그할 수 있는 Weights & Biases 핸들러\(handler\)를 지원합니다. 또한, 모델 체크포인트를 Weights & Biases 클라우드에 로그하는데에도 사용될 수 있습니다. 즉, 이 wrapper를 사용해서 어떠한 wandb function\(함수\)를 요청할 수 있습니다. 모델 매개변수 및 경사 저장 방법에 대한 예시를 참조하세요.
+Ignite는 훈련 및 검증 중에 메트릭, 모델/옵티마이저\(optimizer\) 매개변수, 경사\(gradients\) 등을 로그할 수 있는 Weights & Biases 핸들러\(handler\)를 지원합니다. 또한, 모델 체크포인트를 Weights & Biases 클라우드에 로그하는데에도 사용될 수 있습니다. 즉, 이 wrapper를 사용해서 어떠한 wandb function\(함수\)을 요청할 수 있습니다. 모델 매개변수 및 경사 저장 방법에 대한 예시를 참조하세요.  
 
-##  **The basic PyTorch 설치**
+
+##  **기본 PyTorch 설치**
 
 ```python
 from argparse import ArgumentParser
@@ -175,7 +176,7 @@ if __name__ == "__main__":
     run(args.batch_size, args.val_batch_size, args.epochs, args.lr, args.momentum, args.log_interval)
 ```
 
-We get these visualizations on running the above code:
+위의 코드를 실행하여 다음의 시각화 결과를 얻을 수 있습니다:
 
 ![](https://i.imgur.com/CoBDShx.png)
 
@@ -185,5 +186,5 @@ We get these visualizations on running the above code:
 
 ![](https://i.imgur.com/rHNPyw3.png)
 
-더 자세한 설명은 [Ignite 문서](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger)를 참조하십시오
+더 자세한 설명은 [Ignite 문서](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger)를 참조하십시오.
 

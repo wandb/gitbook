@@ -6,7 +6,8 @@
 
 ###  **인증**
 
- W&B는 훈련 대본과 관련된 `secrets.env` 라는 이름의 파일을 탐색하여 `wandb.init()`이 요청되면 환경으로 로드합니다. 실험을 실행할 때 사용하는 스크립트에서 `wandb.sagemaker_auth(path="source_dir")`을 요청하여 secrets.env 파일을 생성하실 수 있습니다. 이 파일을 여러분의 `.gitignore`에 추가하셔야합니다!
+ W&B는 훈련 대본과 관련된 `secrets.env` 라는 이름의 파일을 탐색하여 `wandb.init()`이 요청되면 환경으로 로드합니다. 실험을 실행할 때 사용하는 스크립트에서 `wandb.sagemaker_auth(path="source_dir")`을 요청하여 secrets.env 파일을 생성하실 수 있습니다. 이 파일을 여러분의 `.gitignore`에 추가하셔야 합니다!  
+
 
 ### **기존 추정기\(Estimator\)**
 

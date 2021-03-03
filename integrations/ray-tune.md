@@ -2,7 +2,7 @@
 
  W&B는 두 개의 가벼운 통합을 제공하여 [Ray](https://github.com/ray-project/ray)와 통합됩니다.
 
- 첫째로 `WandbLogger`가 있으며, 자동으로 Tune to the Wandb API에 보고된 메트릭을 로그합니다. 나머지 하나는 `@wandb_mixin` 데코레이터\(decorator\)로, 함수 API와 함께 사용하실 수 있습니다. 이것은 Tune의 훈련 정보와 함께 Wandb API를 자동 초기화 합니다. 평소에 사용하시는 것 처럼 Wandb API를 사용하시기만 하면 됩니다 \(예: `wandb.log()`를 상용하여 훈련 프로세스를 로그 하는 것\).
+ 첫째로 `WandbLogger`가 있으며, 이는 Tune to the Wandb API\(Wandb API으로 조정\)에 보고된 메트릭을 자동으로 로그합니다. 나머지 하나는 `@wandb_mixin` 데코레이터\(decorator\)로, 함수 API와 함께 사용하실 수 있습니다. 이것은 Tune의 훈련 정보와 함께 Wandb API를 자동 초기화합니다. 평소에 사용하시는 것처럼 Wandb API를 사용하시기만 하면 됩니다. \(예: `wandb.log()`를 상용하여 훈련 프로세스를 로그 하는 것\)
 
 ## WandbLogger
 
@@ -22,7 +22,7 @@ from ray.tune.integration.wandb import WandbLogger
 
 `excludes (list)` – 로그에서 제외되어야 하는 메트릭의 리스트.
 
-`log_config (bool)` – results dict의 구성 매개변수가 로그 되어야 하는지에 대해 나타내는 불린. 이는, 같은 훈련 중에 예를 들어 `PopulationBasedTraining`와 함께 매개변수가 변경 되는 경우에 이해하기 쉽습니다. 기본값은 False입니다.
+`log_config (bool)` – results dict의 구성 매개변수가 로그 되어야 하는지에 대해 나타내는 불린. 이는, 같은 훈련 중에 예를 들어 `PopulationBasedTraining`와 함께 매개변수가 변경되는 경우에 이해하기 쉽습니다. 기본값은 False입니다.
 
 ###  **예시**
 
@@ -67,7 +67,7 @@ def train_fn(config):
 
  wandb 구성 엔트리\(config entry\)의 콘텐츠는 키워드 전달인자로써 `wandb.init()`로 전달됩니다. `WandbTrainableMixin` 자체를 구성하는데 사용되는 다음의 설정은 예외입니다:
 
-### Parameters
+### **매개변수**
 
 `api_key_file (str)` – Wandb `API KEY`를 포함하는 파일의 경로.
 
@@ -75,9 +75,9 @@ def train_fn(config):
 
 Wandb의 `group`, `run_id` 및 `run_name`은 Tune에 의해서 자동으로 선택되지만, 각각의 구성 값을 입력하여 덮어쓸 수 있습니다.
 
-다른 모든 유효한 구성 세팅을 확인하시려면 다음의 링크를 참조하십시오: [https://docs.wandb.com/library/init](https://docs.wandb.com/library/init)​
+다른 모든 유효한 구성 설정을 확인하시려면 다음의 링크를 참조하십시오: [https://docs.wandb.com/library/init](https://docs.wandb.com/library/init)​
 
-### **예시**
+**예시:**
 
 ```python
 from ray import tune

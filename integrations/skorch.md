@@ -78,7 +78,7 @@ net.fit(X, y)
 | `on_batch_end`\(net\[, X, y, training\]\) | 각 배치의 끝 부분에서 호출됨 |
 | `on_epoch_begin`\(net\[, dataset\_train, …\]\) | 각 에포크의 시작 부분에서 호출됨 |
 | `on_epoch_end`\(net, \*\*kwargs\) | 마지막 히스토리 단계의 값 로깅 및 최고 모델 저장 |
-| `on_grad_computed`\(net, named\_parameters\[, X, …\]\) | 경사\(gradients\)가 계산 된 후 및 업데이트 단계가 수행되기 전에 배치당 한 번 호출됨 |
-| `on_train_begin`\(net, \*\*kwargs\) | 모델 토폴로지 로깅 및 경사에 대한 훅 추가 |
+| `on_grad_computed`\(net, named\_parameters\[, X, …\]\) | 경사\(gradients\)가 계산된 후 및 업데이트 단계가 수행되기 전에 배치당 한 번 호출됨 |
+| `on_train_begin`\(net, \*\*kwargs\) | 모델 토폴로지 로깅 및 경사에 대한 훅\(hook\) 추가 |
 | `on_train_end`\(net\[, X, y\]\) | 훈련의 끝 부분에서 호출됨 |
 

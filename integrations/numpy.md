@@ -1,4 +1,4 @@
-# Numpy Example
+# Numpy 예시
 
 다음은 퍼셉트론\(perceptron\)을 훈련하고 결과를 W&B에 기록하는 raw numpy 코드의 전체 예시입니다.
 

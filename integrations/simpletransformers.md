@@ -1,6 +1,6 @@
 # SimpleTransformers
 
-이 라이브러리는 HuggingFace의 Transformers 라이브러리를 기반으로 합니다. Simple Transformers를 사용하면 Transformer model을 신속하게 훈련 및 평가하실 수 있습니다. 모델 초기화, 훈련, 및 평가를 위해서는 단 3줄의 코드만 입력하시면 됩니다. 서열 분류\(Sequence Classification\), 토큰 분류\(Token Classification \(NER\)\), 질문 응답\(Question answering\), 언어 모델 튜닝\(Language Model Fine-Tuning\), 언어 모델 훈련\(Language Model Training\), 언어 생성\(Language Generation\), T5 모델\(T5 Model\), Seq2Seq 작업\(Tasks\), 멀티 모달 분류\(Multi-Modal Classification\) 및 Conversational AI\(대화가 가능한 AI\)를 지원합니다.
+이 라이브러리는 HuggingFace의 Transformers 라이브러리를 기반으로 합니다. Simple Transformers를 사용하면 Transformer 모델을 신속하게 훈련 및 평가하실 수 있습니다. 모델 초기화, 훈련, 및 평가를 위해서는 단 3줄의 코드만 입력하시면 됩니다. 서열 분류\(Sequence Classification\), 토큰 분류\(Token Classification \(NER\)\), 질문 응답\(Question answering\), 언어 모델 튜닝\(Language Model Fine-Tuning\), 언어 모델 훈련\(Language Model Training\), 언어 생성\(Language Generation\), T5 모델\(T5 Model\), Seq2Seq 작업\(Tasks\), 멀티 모달 분류\(Multi-Modal Classification\) 및 대화가 가능한 AI\(Conversational AI\)를 지원합니다.
 
 ##  **Weights & Biases 프레임워크**
 
@@ -10,7 +10,7 @@ Weights and Biases는 모델 훈련 시각화를 위해 지원됩니다. 이를 
 model = ClassificationModel('roberta', 'roberta-base', args={'wandb_project': 'project-name'})
 ```
 
-`wandb.init`에 들어가는 모든 추가 전달인자는`wandb_kwargs`로 전달될 수 있습니다.
+`wandb.init`에 들어가는 모든 추가 전달인자는 `wandb_kwargs`로 전달될 수 있습니다.
 
 ##  **스트럭쳐\(Structure\)**
 
@@ -21,9 +21,9 @@ model = ClassificationModel('roberta', 'roberta-base', args={'wandb_project': 'p
   * `MultiLabelClassificationModel`
 * `simpletransformers.ner` - 모든 개체명 인식\(Named Entity Recognition\) 모델을 포함합니다.
   * `NERModel`
-* `simpletransformers.question_answering` - 모든 질문 응답 모델을 포함합니다 `QuestionAnsweringModel`
+* `simpletransformers.question_answering` - 모든 질문 응답 모델을 포함합니다`QuestionAnsweringModel`다음은 최소한의 몇 가지 예시입니다 
 
-다음은 몇 몇 최소한의 예시입니다
+
 
 ##  **다중 라벨 분류\(MultiLabel Classification\)**
 
@@ -39,7 +39,7 @@ model = ClassificationModel('roberta', 'roberta-base', args={'wandb_project': 'p
   result, model_outputs, wrong_predictions = model.eval_model(eval_df)
 ```
 
-다음은 초매개변수 스윕\(sweep\)을 실행한 후 위의 훈련 스크립트에서 생성된 시각화 입니다.
+다음은 초매개변수 스윕\(sweep\)을 실행한 후 위의 훈련 스크립트에서 생성된 시각화 내용입니다.
 
 [![](https://camo.githubusercontent.com/3beab1ca06813523711ff7750cb592430b786834/68747470733a2f2f692e696d6775722e636f6d2f6f63784e676c642e706e67)](https://camo.githubusercontent.com/3beab1ca06813523711ff7750cb592430b786834/68747470733a2f2f692e696d6775722e636f6d2f6f63784e676c642e706e67)
 
@@ -64,7 +64,7 @@ model = QuestionAnsweringModel('distilbert', 'distilbert-base-cased', args=train
 model.train_model(train_data)
 ```
 
-다음은 초매개변수 스윕\(sweep\)을 실행한 후 위의 훈련 스크립트에서 생성된 시각화 입니다.
+다음은 초매개변수 스윕\(sweep\)을 실행한 후 위의 훈련 스크립트에서 생성된 시각화 결과입니다.
 
 [![](https://camo.githubusercontent.com/1411cacec6226ebfa23c2e2dddc76ff5e41c136d/68747470733a2f2f692e696d6775722e636f6d2f7664636d7855532e706e67)](https://camo.githubusercontent.com/1411cacec6226ebfa23c2e2dddc76ff5e41c136d/68747470733a2f2f692e696d6775722e636f6d2f7664636d7855532e706e67)
 
@@ -127,7 +127,7 @@ global_args = {
 }
 ```
 
-더 상세는 문서는 [github의 simpletransformers](https://github.com/ThilinaRajapakse/simpletransformers) 을 참조해 주시기 바랍니다.
+ 자세한 내용의 문서는 [github의 simpletransformers](https://github.com/ThilinaRajapakse/simpletransformers)을 참조해 주시기 바랍니다.
 
-가장 대중적으로 사용되는 GLUE 벤치마크 데이터세트에 관한 훈련 transformers를 [이 Weights and Baises 리포트](https://app.wandb.ai/cayush/simpletransformers/reports/Using-simpleTransformer-on-common-NLP-applications---Vmlldzo4Njk2NA)를 확인해 보시기 바랍니다. colab에서 직접 해보세요 [![Open In Colab](https://camo.githubusercontent.com/52feade06f2fecbf006889a904d221e6a730c194/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667)](https://colab.research.google.com/drive/1oXROllqMqVvBFcPgTKJRboTq96uWuqSz?usp=sharing)
+가장 대중적으로 사용되는 GLUE 벤치마크 데이터세트에 관한 훈련 transformers를 [이 Weights and Baises 리포트](https://app.wandb.ai/cayush/simpletransformers/reports/Using-simpleTransformer-on-common-NLP-applications---Vmlldzo4Njk2NA)에서 확인해 보시기 바랍니다. colab에서 직접 해보세요 ****[**​**](https://colab.research.google.com/drive/1oXROllqMqVvBFcPgTKJRboTq96uWuqSz?usp=sharing) [![Open In Colab](https://camo.githubusercontent.com/52feade06f2fecbf006889a904d221e6a730c194/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667)](https://colab.research.google.com/drive/1oXROllqMqVvBFcPgTKJRboTq96uWuqSz?usp=sharing)
 

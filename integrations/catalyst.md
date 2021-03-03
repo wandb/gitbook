@@ -37,7 +37,7 @@ runner.train(
 )
 ```
 
- 사용자 정의 매개변수는 또한 해당 단계에서 주어질 수도 있습니다. 데이터 배치 처리와 함께 정방향\(forward\) 및 역방향\(backward\) 패스\(pass\) 또한 `runner` 클래스 확장을 통해 사용자 정의 될 수 있습니다. 다음은 MNIST 분류기\(classifier\) 훈련을 위해 사용되는 사용자 정의 runner입니다.
+  사용자 정의 매개변수는 또한 해당 단계에서 주어질 수도 있습니다. 데이터 배치 처리와 함께 정방향\(forward\) 및 역방향\(backward\) 패스\(pass\) 또한 `runner` 클래스 확장을 통해 사용자 정의될 수 있습니다. 다음은 MNIST 분류기\(classifier\) 훈련을 위해 사용되는 사용자 정의 runner입니다.
 
 ```python
 from catalyst import dl
@@ -78,7 +78,7 @@ runner.train(
 
 ##  **옵션**
 
-`logging_params`: `True`로 자동 설정되는 `reini` 및 로 설정된 `dir`을 제외한 모든 함수 `wandb.init`의 매개변수
+`logging_params`:  `True`로 자동 설정되는 `reinit` 및 &lt;logdir&gt;로 설정된 `dir`을 제외한 모든 함수 `wandb.init`의 매개변수
 
 ```python
 runner.train(...,

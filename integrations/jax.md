@@ -1,4 +1,4 @@
-# JAX Example
+# JAX 예시
 
 다음은 MLP를 훈련하고 W&B에 저장하는 JAX 코드의 전체 예시입니다.
 

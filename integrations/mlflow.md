@@ -1,6 +1,6 @@
-# MLflow \(beta\)
+# MLflow \(베타\)
 
-> MLFlow 통합은 현재 베터 버전이며, 공식적인 wandb python 패키지의 일부가 아닙니다. 이 통합\(integration\)을 해보시려면, 아래를 실행하여 저희 git 브랜치\(branch\)에서 wandb를 설치하십시오:
+> MLFlow 통합은 현재 베타 버전이며, 공식적인 wandb python 패키지의 일부가 아닙니다. 이 통합\(integration\)을 해보시려면, 아래를 실행하여 저희 git 브랜치\(branch\)에서 wandb를 설치하십시오:
 
 ```bash
 pip install --upgrade git+git://github.com/wandb/client.git@feature/mlflow#egg=wandb
@@ -12,7 +12,7 @@ I 이미 [MLflow](https://www.mlflow.org/docs/latest/tracking.html)를 사용하
 
 ##  **컨셉 맵핑**
 
- 데이터를 wandb와 mlflow 추적 백엔드\(backend\) 모두에 미러링할 때, 다음의 컨셉이 각각 맵핑됩니다.
+데이터를 wandb와 mlflow 추적 백엔드\(backend\) 모두에 미러링할 때, 다음의 개념이 서로 매핑됩니다.
 
 | MLflow | W&B |
 | :--- | :--- |
@@ -29,5 +29,6 @@ I 이미 [MLflow](https://www.mlflow.org/docs/latest/tracking.html)를 사용하
 
 ##  **고급 구성**
 
-  기본값으로 wandb는 메트릭, 매개변수, 아티펙트만을 로그합니다. wandb를 통해 아티펙트를 저장하고 싶지 않으시다면 `WANDB_SYNC_MLFLOW=metrics,params` 을 설정하실 수 있습니다. wandb로의 모든 데이터 미러링을 비활성화 하고 싶으시다면, `WANDB_SYNC_MLFLOW=false` 을 설정하시면 됩니다.
+  기본값으로 wandb는 메트릭, 매개변수, 아티펙트만을 로그합니다. wandb를 통해 아티펙트를 저장하고 싶지 않으시다면 `WANDB_SYNC_MLFLOW=metrics,param`s 을 설정하실 수 있습니다. wandb로의 모든 데이터 미러링을 비활성화하고 싶으시다면, `WANDB_SYNC_MLFLOW=false` 을 설정하시면 됩니다.  
+
 
