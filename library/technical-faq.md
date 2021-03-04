@@ -141,7 +141,7 @@ For complicated workflows, we recommend using multiple runs and setting group pa
 
 For simpler workflows, you can call wandb.init with resume=True and id=UNIQUE\_ID and then later call wandb.init with the same id=UNIQUE\_ID. Then you can log normally with [wandb.log](log.md) or wandb.summary and the runs values will update.
 
-At any point you can always use the[ API]() to add additional evaluation metrics.
+At any point you can always use the [API](https://docs.wandb.ai/library/public-api-guide#update-metrics-for-a-run-after-the-run-has-finished) to add additional evaluation metrics.
 
 ### What is the difference between  .log\(\) and .summary?  
 
