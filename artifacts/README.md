@@ -61,7 +61,17 @@ Here's an [example artifact](https://app.wandb.ai/shawn/detectron2-11/artifacts/
 
 ![](../.gitbook/assets/2020-09-03-15.59.43.gif)
 
-To learn how to use Artifacts, check out the [Artifacts API Docs →](https://docs.wandb.com/artifacts/api)
+## Artifacts resources
+
+Learn more about using artifacts for data and model versioning:
+
+1. [Artifacts Core Concepts](artifacts-core-concepts.md)
+2. [Artifacts Walkthrough](api.md)
+3. [Dataset Versioning](dataset-versioning-1.md)
+4. [Model Versioning](model-versioning.md)
+5. [Artifacts FAQs](artifacts-faqs.md)
+6. [Artifacts Examples](examples.md)
+7. [Artifact](../ref/artifact.md) reference docs
 
 ## Video Tutorial for W&B Artifacts
 

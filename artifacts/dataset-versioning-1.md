@@ -1,5 +1,5 @@
 ---
-description: A guide to dataset versioning with
+description: Guide to using Artifacts for dataset versioning
 ---
 
 # Dataset Versioning
