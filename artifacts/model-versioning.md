@@ -8,11 +8,11 @@ W&B Artifacts help you save and organize machine learning models throughout a pr
 
 ### Common Use Cases
 
-1. **Version and store reliably**, transferring models across machines,
-2. **Explore ideas in branches**, keeping different model ideas separate,
-3. **Compare models precisely**, across many variants,
-4. **Manage a model ecosystem**, even as the species multiply, and
-5. **Visualize & share model development workflows**, keeping all your work in one place.
+1. \*\*\*\*[**Version and store reliably**](model-versioning.md#version-and-store-reliably), transferring models across machines
+2. \*\*\*\*[**Explore ideas in branches**](model-versioning.md#explore-ideas-in-branches), keeping different model ideas separate
+3. \*\*\*\*[**Compare models precisely**](model-versioning.md#compare-models-precisely), across many variants
+4. \*\*\*\*[**Manage a model ecosystem**](model-versioning.md#manage-a-model-ecosystem), even as the species multiply
+5. \*\*\*\*[**Visualize & share your workflow**](model-versioning.md#visualize-and-easily-share-your-workflow), keeping all your work in one place
 
 ### Flexible tracking and hosting
 
@@ -88,7 +88,7 @@ From the project dashboard, see which runs are prod\_ready and find the correspo
 
 ![](../.gitbook/assets/image%20%2843%29.png)
 
-## Visualize & easily share your workflow
+## Visualize & share your workflow
 
 Artifacts let you see and formalize the stages of your model development, keeping all the model variants reliably accessible and organized in helpful ways **for your entire team,** giving you one shared source of truth for each
 

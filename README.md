@@ -17,8 +17,6 @@ Here is a quick overview of our lightweight, modular tools:
 
 {% embed url="https://www.youtube.com/watch?v=EIgoKitLUqM" %}
 
-
-
 ## Getting Started
 
 Easily add our Python library `wandb` to your machine learning script.
