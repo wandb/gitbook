@@ -1,12 +1,14 @@
 ---
-description: 'Versioned data, models and results across your pipelines'
+description: >-
+  Dataset versioning, model versioning, pipeline tracking with flexible and
+  lightweight building blocks
 ---
 
 # Artifacts
 
-Use W&B Artifacts to store and keep track of datasets, models, and evaluation results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems.
+Use W&B Artifacts for dataset versioning, model versioning, and tracking dependencies and results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems like S3, GCP, or your own system.
 
-[Explore an example of Artifacts](https://wandb.ai/wandb/arttest/reports/Artifacts-Quickstart--VmlldzozNTAzMDM) for dataset versioning and model management with a quick, interactive notebook hosted in Google Colab.
+[Try the Guide to W&B Artifacts ](https://wandb.ai/wandb/arttest/reports/Artifacts-Quickstart--VmlldzozNTAzMDM)for an end-to-end example of using Artifacts for dataset and model versioning.
 
 ![](../.gitbook/assets/keras-example.png)
 
@@ -47,7 +49,10 @@ artifact.add_file('my-dataset.txt')
 # Log that artifact, and we identify the changed file
 run.log_artifact(artifact)
 # Now you have a new version of the artifact, tracked in W&B
+
 ```
+
+Looking for a longer example with real model training? Try our [Guide to W&B Artifacts](https://wandb.ai/wandb/arttest/reports/Guide-to-W-B-Artifacts--VmlldzozNTAzMDM).
 
 ## How it works
 
