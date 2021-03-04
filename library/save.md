@@ -87,5 +87,5 @@ Call `wandb.save("*.pt")` once at the top of your script after wandb.init, then 
 
 ### Remove local files that have been synced to cloud storage
 
-There’s a command `wandb gc` that you can run to remove local files that have already been synced to cloud storage. More information about usage can be found with \`wandb gc —help
+There’s a command `wandb sync --clean` that you can run to remove local files that have already been synced to cloud storage. More information about usage can be found with `wandb sync --help`
 
