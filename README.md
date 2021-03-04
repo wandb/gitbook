@@ -8,9 +8,9 @@ Weights & Biases helps you keep track of your machine learning projects. Use our
 
 Here is a quick overview of our lightweight, modular tools:
 
-1. [**Dashboard**](app/): Track experiments, visualize results
-2. [**Artifacts**](artifacts/): Dataset and model versioning, pipeline tracking
-3. [**Sweeps**](sweeps/): Optimize models with hyperparameter tuning
+1. [**Dashboard**](app/): Experiment tracking
+2. [**Artifacts**](artifacts/): Dataset versioning, model versioning
+3. [**Sweeps**](sweeps/): Hyperparameter optimization
 4. [**Reports**](reports.md): Save and share reproducible findings
 
 ![](.gitbook/assets/workflow-june-2020-v1.png)
