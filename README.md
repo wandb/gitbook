@@ -10,8 +10,8 @@ Here is a quick overview of our lightweight, modular tools:
 
 1. [**Dashboard**](app/): Track experiments, visualize results
 2. [**Artifacts**](artifacts/): Dataset and model versioning, pipeline tracking
-3. [**Reports**](reports.md): Save and share reproducible findings
-4. [**Sweeps**](sweeps/): Optimize models with hyperparameter tuning
+3. [**Sweeps**](sweeps/): Optimize models with hyperparameter tuning
+4. [**Reports**](reports.md): Save and share reproducible findings
 
 ![](.gitbook/assets/workflow-june-2020-v1.png)
 
