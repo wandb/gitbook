@@ -307,6 +307,20 @@ runs[0].file("model-best.h5").download(replace=True)
 print("Best model saved to model-best.h5")
 ```
 
+### Delete all files with a given extension from a run
+
+```python
+import wandb
+
+api = wandb.Api()
+run = api.run("<entity>/<project>/<run_id>")
+
+files = run.files()
+for file in files:
+	if file.name.endswith(".png"):
+		file.delete()
+```
+
 ### Get runs from a specific sweep
 
 ```python
