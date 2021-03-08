@@ -72,7 +72,7 @@ Learn more about using artifacts for data and model versioning:
 
 1. [Artifacts Core Concepts](artifacts-core-concepts.md)
 2. [Artifacts Walkthrough](api.md)
-3. [Dataset Versioning](dataset-versioning-1.md)
+3. [Dataset Versioning](dataset-versioning.md)
 4. [Model Versioning](model-versioning.md)
 5. [Artifacts FAQs](artifacts-faqs.md)
 6. [Artifacts Examples](examples.md)

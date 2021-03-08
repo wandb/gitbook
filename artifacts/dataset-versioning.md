@@ -8,11 +8,11 @@ W&B Artifacts help you save and organize machine learning datasets throughout a 
 
 ### Common use cases
 
-1. \*\*\*\*[**Version data seamlessly**](dataset-versioning-1.md#25c79f05-174e-4d35-abda-e5c238b8d6d6), without interrupting your workflow
-2. \*\*\*\*[**Prepackage data splits**](dataset-versioning-1.md#7ccfb650-1f87-458c-a4e2-538138660292), like training, validation, and test sets
-3. \*\*\*\*[**Iteratively refine datasets**](dataset-versioning-1.md#cee1428d-3b7a-4e1b-956b-e83170e7038f), without desynchronizing the team
-4. \*\*\*\*[**Juggle multiple datasets**](dataset-versioning-1.md#4ba93c33-dd39-468b-8b3e-96c938bbd024), as in fine-tuning and domain adaptation
-5. \*\*\*\*[**Visualize & share your data workflow**](dataset-versioning-1.md#57023a52-2c00-4b24-8e17-b193b40e216b), keeping all your work in one place
+1. \*\*\*\*[**Version data seamlessly**](dataset-versioning.md#25c79f05-174e-4d35-abda-e5c238b8d6d6), without interrupting your workflow
+2. \*\*\*\*[**Prepackage data splits**](dataset-versioning.md#7ccfb650-1f87-458c-a4e2-538138660292), like training, validation, and test sets
+3. \*\*\*\*[**Iteratively refine datasets**](dataset-versioning.md#cee1428d-3b7a-4e1b-956b-e83170e7038f), without desynchronizing the team
+4. \*\*\*\*[**Juggle multiple datasets**](dataset-versioning.md#4ba93c33-dd39-468b-8b3e-96c938bbd024), as in fine-tuning and domain adaptation
+5. \*\*\*\*[**Visualize & share your data workflow**](dataset-versioning.md#57023a52-2c00-4b24-8e17-b193b40e216b), keeping all your work in one place
 
 ### Flexible tracking and hosting
 

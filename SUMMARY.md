@@ -106,7 +106,7 @@
 * [Artifacts](artifacts/README.md)
   * [Artifacts Core Concepts](artifacts/artifacts-core-concepts.md)
   * [Artifacts Walkthrough](artifacts/api.md)
-  * [Dataset Versioning](artifacts/dataset-versioning-1.md)
+  * [Dataset Versioning](artifacts/dataset-versioning.md)
   * [Model Versioning](artifacts/model-versioning.md)
   * [Artifacts FAQs](artifacts/artifacts-faqs.md)
   * [Artifacts Examples](artifacts/examples.md)
