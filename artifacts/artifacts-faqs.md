@@ -151,6 +151,21 @@ with wandb.init(group=group_name) as run:
   run.finish_artifact(artifact)
 ```
 
+## How do I find an artifact from the best run in a sweep?
+
+Within a sweep, you may have the individual runs each emitting its own artifacts instead of having all the runs produce versions of the same artifact. With this pattern, you can use the following code to retrieve the artifacts associated with the best performing run in a sweep:
+
+```python
+import wandb
+api = wandb.Api()
+sweep = api.sweep("<entity>/<project>/<sweep_id>")
+runs = sorted(sweep.runs, key=lambda run: run.summary.get("val_acc", 0), reverse=True)
+best_run = runs[0]
+for artifact in best_run.logged_artifacts():
+  artifact_path = artifact.download()
+  print(artifact_path)
+```
+
 ## Where are artifact files stored?
 
 By default, W&B stores artifact files in a private Google Cloud Storage bucket located in the United States. All files are encrypted at rest and in transit.
