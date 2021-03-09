@@ -18,6 +18,31 @@ Once you have [experiments in W&B](quickstart.md), easily visualize results in r
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" caption="" %}
 
+## How to create a report <a id="How-to-create-a-report"></a>
+
+You can create a new report from a workspace, or directly from the report tab in a project.‌‌
+
+### 1. Create a report from a workspace <a id="1.-Create-a-report-from-a-workspace"></a>
+
+Click **Create report** in the upper right corner of your workspace. This gives you a way to pull in some charts from the page to use in your new custom page.
+
+![](.gitbook/assets/image%20%2844%29.png)
+
+We provide a few quick templates to guide you, or you can create a new blank report.‌
+
+![](.gitbook/assets/image%20%2847%29.png)
+
+* **Snapshot** adds the current date/time to the title, and adds a filter to the run set, which means only runs created before the current time are included in the snapshot.
+* **Dashboard** titles the report “Project Dashboard” and adds a filter to match exactly the current set of selected runs.
+* **Update** titles the report “&lt;today’s date&gt; Project Update” and filters to the exact set of runs that were selected in the workspace.
+* **Blank** gives you the space to add a fresh panel grid and visualizations, or just write some notes to yourself.
+
+### 2. From the report tab‌ <a id="2.-From-the-report-page&#x200C;"></a>
+
+Go to the Reports tab in your project, and click **Create Report** button on the report page. This creates a new blank report. Save that report to get a shareable link, or send charts to the report from different workspaces, and even different projects!
+
+![](.gitbook/assets/image%20%2848%29.png)
+
 ## How to edit a report
 
 Create a new report, and start typing. The whole page is a rich text area where you can write notes and save custom visualizations and tables.
