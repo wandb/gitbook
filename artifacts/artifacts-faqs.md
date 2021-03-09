@@ -166,6 +166,16 @@ for artifact in best_run.logged_artifacts():
   print(artifact_path)
 ```
 
+## How do I save code?‌
+
+Use `save_code=True` in `wandb.init` to save the main script or notebook where you’re launching the run. To save all your code to a run, version code with Artifacts. Here’s an example:
+
+```python
+code_artifact = wandb.Artifact(type='code')
+code_artifact.add_dir('.')
+wandb.log_artifact(code_artifact)
+```
+
 ## Where are artifact files stored?
 
 By default, W&B stores artifact files in a private Google Cloud Storage bucket located in the United States. All files are encrypted at rest and in transit.
