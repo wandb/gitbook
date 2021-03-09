@@ -41,7 +41,24 @@ $ wandb artifact put -n project/artifact -t dataset mnist/
 Similarly, you can then download artifacts to a directory with this command:
 
 ```text
-$ wandb artifact get project/artifact --root mnist/
+$ wandb artifact get project/artifact:alias --root mnist/
+```
+
+## How do I download an artifact outside of a run?
+
+You can use the handy `wandb artifact get` command to download artifacts:
+
+```text
+$ wandb artifact get project/artifact:alias --root mnist/
+```
+
+Alternatively, you could write a script that uses the public API:
+
+```text
+api = wandb.Api()
+
+artifact = api.artifact('data:v0')
+artifact_dir = artifact.checkout()
 ```
 
 ## How do I clean up unused artifact versions?
