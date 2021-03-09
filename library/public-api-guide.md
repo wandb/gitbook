@@ -207,7 +207,7 @@ This examples updates one of your configuration settings
 import wandb
 api = wandb.Api()
 run = api.run("<entity>/<project>/<run_id>")
-run.config["key"] = 10
+run.config["key"] = updated_value
 run.update()
 ```
 
