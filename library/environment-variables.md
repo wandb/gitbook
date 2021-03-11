@@ -33,6 +33,7 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_NOTES** | Longer notes about your run.  Markdown is allowed and you can edit this later in the UI. |
 | **WANDB\_ENTITY** | The entity associated with your run. If you have run `wandb init` in the directory of your training script, it will create a directory named _wandb_ and will save a default entity which can be checked into source control. If you don't want to create that file or want to override the file you can use the environmental variable. |
 | **WANDB\_USERNAME** | The username of a member of your team associated with the run. This can be used along with a service account API key to enable attribution of automated runs to members of your team. |
+| **WANDB\_USER\_EMAIL** | The email of a member of your team associated with the run. This can be used along with a service account API key to enable attribution of automated runs to members of your team. |
 | **WANDB\_PROJECT** | The project associated with your run. This can also be set with `wandb init`, but the environmental variable will override the value. |
 | **WANDB\_MODE** | By default this is set to _run_ which saves results to wandb. If you just want to save your run metadata locally, you can set this to _dryrun_. |
 | **WANDB\_TAGS** | A comma separated list of tags to be applied to the run. |
@@ -66,7 +67,7 @@ If you're running batch jobs in AWS, it's easy to authenticate your machines wit
 
 ### Automated runs and service accounts
 
-If you have automated tests or internal tools that launch runs logging to W&B, create a **Service Account** on your team settings page. This will allow you to use a service API key for your automated jobs. If you want to attribute service account jobs to a specific user, you can use the WANDB\_USER\_NAME or WANDB\_USER\_EMAIL environment variables.
+If you have automated tests or internal tools that launch runs logging to W&B, create a **Service Account** on your team settings page. This will allow you to use a service API key for your automated jobs. If you want to attribute service account jobs to a specific user, you can use the **WANDB\_USERNAME** or **WANDB\_USER\_EMAIL** environment variables.
 
 ![Create a service account on your team settings page for automated jobs](../.gitbook/assets/image%20%2892%29.png)
 
