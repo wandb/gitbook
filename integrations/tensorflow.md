@@ -16,7 +16,11 @@ See our [example projects](../examples.md) for a complete script example.
 
 ## Custom Metrics
 
-If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code with the same step argument that TensorBoard is using: ie. `wandb.log({"custom": 0.8}, step=global_step)`
+If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code `wandb.log({"custom": 0.8})` 
+
+Setting the step argument in `wandb.log` is disabled when syncing Tensorboard. If you'd like to set a different step count, you can log the metrics with a step metric as:
+
+`wandb.log({"custom": 0.8, "global_step"=global_step})`
 
 ## TensorFlow Hook
 
