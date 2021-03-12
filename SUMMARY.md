@@ -72,6 +72,8 @@
     * [Runs](ref/export-api/runs.md)
     * [Sweep](ref/export-api/sweep.md)
     * [Run](ref/export-api/run.md)
+  * [Command Line Reference](ref/command-line-reference.md)
+  * [Keras Reference](ref/keras-reference.md)
   * [Java Library \[Beta\]](ref/java/README.md)
     * [WandbRun](ref/java/wandbrun.md)
     * [WandbRun.Builder](ref/java/wandbrun-builder.md)
