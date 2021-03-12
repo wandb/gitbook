@@ -32,9 +32,7 @@ You can dynamically group by any config column. For example, if you use `wandb.c
 
 ### Distributed training with grouping
 
-`wandb.init(group="experiment-1")`
-
-If you set grouping in your script, we will group the runs by default in the table in the UI. You can toggle this on and off by clicking the **Group** button at the top of the table. Here's an [example project](https://wandb.ai/carey/group-demo?workspace=user-carey) generated from [sample code](http://wandb.me/grouping) where we set grouping. You can click on each "Group" row in the sidebar to get to a dedicated group page for that experiment.
+If you set grouping in `wandb.init()` , we will group runs by default in the UI. You can toggle this on and off by clicking the **Group** button at the top of the table. Here's an [example project](https://wandb.ai/carey/group-demo?workspace=user-carey) generated from [sample code](http://wandb.me/grouping) where we set grouping. You can click on each "Group" row in the sidebar to get to a dedicated group page for that experiment.
 
 ![Grouping active in the left sidebar, and each group is clickable with a dedicated page](../.gitbook/assets/image%20%2850%29.png)
 
