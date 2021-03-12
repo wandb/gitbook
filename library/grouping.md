@@ -30,7 +30,11 @@ You can dynamically group by any config column. For example, if you use `wandb.c
 
 If you set grouping in `wandb.init()` , we will group runs by default in the UI. You can toggle this on and off by clicking the **Group** button at the top of the table. Here's an [example project](https://wandb.ai/carey/group-demo?workspace=user-carey) generated from [sample code](http://wandb.me/grouping) where we set grouping. You can click on each "Group" row in the sidebar to get to a dedicated group page for that experiment.
 
-![Grouping active in the left sidebar, and each group is clickable with a dedicated page](../.gitbook/assets/image%20%2850%29.png)
+![](../.gitbook/assets/image%20%2850%29.png)
+
+From the project page above, you can click a **Group** in the left sidebar to get to a dedicated page like [this one](https://wandb.ai/carey/group-demo/groups/exp_5?workspace=user-carey):
+
+![](../.gitbook/assets/image%20%2851%29.png)
 
 ### Grouping dynamically in the UI
 
