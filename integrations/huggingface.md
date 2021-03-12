@@ -6,7 +6,19 @@ description: >-
 
 # Hugging Face
 
-### In This Guide
+## Just show me the code!
+
+* Sure, here you go:  [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)\*\*\*\*
+
+### Quick and Easy Hugging Face Model Tracking with Weights & Biases
+
+Below is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
+
+![](../.gitbook/assets/gif-for-comparing-bert.gif)
+
+Above is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
+
+## In This Guide
 
 This section covers:
 
@@ -16,19 +28,13 @@ This section covers:
   * Additional Settings 
   * Customising wandb.init
 
-### Quick and Easy Hugging Face Model Tracking with Weights & Biases
-
-Here's an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
-
-![](../.gitbook/assets/gif-for-comparing-bert.gif)
-
 ## Example Notebooks
 
 We've created a few examples for you to see how the W&B integration works:
 
-* [W&B and Hugging Face demo](http://wandb.me/hf) in Google Colab with model logging
-* [Huggingtweets ](https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI)- Train a GPT-2 Hugging Face model to generate tweets
-* [Does model size matter?](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) A comparison of BERT and DistilBERT
+* \*\*\*\*[**W&B and Hugging Face demo**](http://wandb.me/hf) ****in Google Colab with model logging
+* [**Huggingtweets** ](https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI)- Train a GPT-2 Hugging Face model to generate tweets
+* [**Does model size matter?**](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) - A comparison of BERT and DistilBERT
 
 ## Getting Started: Track and Save your Models 
 
