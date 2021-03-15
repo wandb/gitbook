@@ -271,6 +271,17 @@ all_df = pd.concat([name_df, config_df,summary_df], axis=1)
 all_df.to_csv("project.csv")
 ```
 
+### Upload files to a finished run
+
+The code snippet below uploads a selected file to a finished run.
+
+```python
+import wandb
+api = wandb.Api()
+run = api.run("entity/project/run_id")
+run.upload_file("file_name.extension")
+```
+
 ### Download a file from a run
 
 This finds the file "model-best.h5" associated with with run ID uxte44z7 in the cifar project and saves it locally.
