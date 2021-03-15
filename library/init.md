@@ -60,9 +60,9 @@ The following workarounds can help resolve the issue in certain environments:
 
 ```text
 # Try this if using linux or macos
-wandb.init(wandb.Settings(start_method="fork"))
+wandb.init(settings=wandb.Settings(start_method="fork"))
 # Try this if using google colab
-wandb.init(wandb.Settings(start_method="thread"))
+wandb.init(settings=wandb.Settings(start_method="thread"))
 ```
 
 ### Get the readable run name
