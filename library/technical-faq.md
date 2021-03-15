@@ -178,3 +178,11 @@ W&B queues in memory but also [write the events to disk](https://github.com/wand
 
 In your terminal, you can see a path to the local run directory. This directory will contain a ".wandb" file that is the datastore above. If you're also logging images, we write them to "media/images" in that directory before uploading them to cloud storage.
 
+### How to get multiple charts with different selected runs?
+
+With wandb reports the procedure is as follows:
+
+* Have multiple panel grids.
+* Add filters to filter the run sets of each panel grid. This will help in selecting the runs that you want to portray in the respective panels.
+* Create the charts you want in the panel grids.
+
