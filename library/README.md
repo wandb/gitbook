@@ -8,6 +8,8 @@ description: >-
 
 Use the `wandb` Python library to track machine learning experiments with a few lines of code. If you're using a popular framework like [PyTorch](../integrations/pytorch.md) or [Keras](../integrations/keras.md), we have lightweight [integrations](../integrations/).
 
+Export your data to Python using our [Public API](public-api-guide.md).
+
 ## Integrating W&B in your script
 
 Below are the simple building blocks to track an experiment with W&B. We also have a whole host of special integrations for [PyTorch](../integrations/pytorch.md), [Keras](../integrations/keras.md), [Scikit](../integrations/scikit.md), etc. See [**Integrations**](../integrations/).
