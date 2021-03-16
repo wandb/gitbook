@@ -32,6 +32,16 @@ You don’t need to write any new code, other than [integrating Weights & Biases
 
 ![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578795636072_image.png)
 
+## Using the Hyperparameter Importance Panel
+
+We can let wandb visualise the most useful set of hyperparameters by clicking on the magic wand beside the parameters manager. We can then sort the hyperparameters based on the Importance.
+
+![Using automatic parameter visualization](../../../.gitbook/assets/2021-03-16-11.58.56.gif)
+
+With the parameter manager, we can manually set the visible and hidden parameters.
+
+![Manually setting the visible and hidden fields](../../../.gitbook/assets/2021-03-16-12.09.57.gif)
+
 ## Interpreting A Hyperparameter Importance Panel
 
 ![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578798509642_image.png)
