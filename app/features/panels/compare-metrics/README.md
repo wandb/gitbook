@@ -81,6 +81,26 @@ In the **Y variables** field, select a few metrics you'd like to compare. They'l
 
 ![](https://downloads.intercomcdn.com/i/o/146033909/899fc05e30795a1d7699dc82/Screen+Shot+2019-09-04+at+9.10.52+AM.png)
 
+## Changing the color of the line plots
+
+Sometimes the default colour of runs is not helpful for comparison. To help overcome this, wandb provides two instances with which one can manually change the colors.
+
+### **From the run table**
+
+Each run is given a random color by default upon initialization.
+
+![Random colors given to runs](../../../../.gitbook/assets/image%20%2852%29.png)
+
+Upon clicking any of the colors, a color palette appears from which we can manually choose the color we want.
+
+![The color palette](../../../../.gitbook/assets/image%20%2857%29.png)
+
+### **From the chart legend settings**
+
+One can also change the color of the runs from the chart legend settings.
+
+![](../../../../.gitbook/assets/image%20%2854%29.png)
+
 ## Visualize on different x axes
 
 If you'd like to see the absolute time that an experiment has taken, or see what day an experiment ran, you can switch the x axis. Here's an example of switching from steps to relative time and then to wall time.
