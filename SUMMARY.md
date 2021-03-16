@@ -99,6 +99,7 @@
       * [Line Plot](app/features/panels/compare-metrics/README.md)
         * [Reference](app/features/panels/compare-metrics/reference.md)
         * [Sampling and Bucketing](app/features/panels/compare-metrics/sampling-and-bucketing.md)
+        * [Smoothing](app/features/panels/compare-metrics/smoothing.md)
       * [Parameter Importance](app/features/panels/parameter-importance.md)
       * [Run Colors](app/features/panels/run-colors.md)
       * [Run Comparer](app/features/panels/run-comparer.md)
