@@ -81,7 +81,7 @@ These methods are symmetrical. You can store an object in an artifact using .add
 
 `wandb.Table`
 
-Tables are at the core of dataset and prediction visualization. To visualize a dataset, put it in a wandb.Table, adding wandb.Image objects, arrays, dictionaries, strings and numbers as needed, and then add your table to an artifact. Currently, each table is limited to 50,000 rows. You can log as many tables as you like to an artifact.
+Tables are at the core of dataset and prediction visualization. To visualize a dataset, put it in a wandb.Table, adding wandb.Image objects, arrays, dictionaries, strings and numbers as needed, and then add your table to an artifact. Currently, each table is limited to 200,000 rows. You can log as many tables as you like to an artifact.
 
 The following example code saves 1000 images and labels from the Keras cifar10 test dataset as a wandb.Table inside an artifact:
 
