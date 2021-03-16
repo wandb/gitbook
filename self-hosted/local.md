@@ -58,5 +58,5 @@ $ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 
 ### Getting a license
 
-If you're interested in configuring teams, using external storage, or deploying wandb/local to a Kubernetes cluster send us an email at [support@wandb.com](mailto:support@wandb.com).
+If you're interested in configuring teams, using external storage, or deploying wandb/local to a Kubernetes cluster send us an email at [contact@wandb.com](mailto:contact@wandb.com)
 
