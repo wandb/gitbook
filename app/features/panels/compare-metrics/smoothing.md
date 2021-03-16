@@ -1,18 +1,22 @@
 ---
-description: >-
-  Line plots can optionally add smoothing to make trends more visible in noisy
-  data. Weight and Biases supports three types of smoothing.
+description: 'In line plots, use smoothing to see trends in noisy data.'
 ---
 
 # Smoothing
 
+In Weights & Biases line plots, we support three types of smoothing: 
+
+* [exponential moving average](smoothing.md#exponential-moving-average-default) \(default\)
+* [gaussian smoothing](smoothing.md#gaussian-smoothing)
+* [running average](smoothing.md#running-average)
+
+![](../../../../.gitbook/assets/beamer-smoothing.gif)
+
 ### Exponential Moving Average \(Default\)
 
-Exponential moving average is implemented to be identical to Tensorboard's smoothing algorithm. Here a smoothing factor of 0 corresponds to no smoothing and a smoothing factor close to 1.0 corresponds to maximum smoothing.
+Exponential moving average is implemented to match TensorBoard's smoothing algorithm. The range is 0 to 1. See [Exponential Smoothing](https://www.wikiwand.com/en/Exponential_smoothing) for background. There is a debias term added so that early values in the time series are not biases towards zero.
 
-For more information see [https://en.wikipedia.org/wiki/Exponential\_smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing).  There is a debias term added so that early values in the time series are not biases towards zero.
-
-Example code:
+Here is sample code for how this works under the hood:
 
 ```javascript
   data.forEach(d => {
@@ -25,7 +29,7 @@ Example code:
 
 ### Gaussian Smoothing
 
-Gaussian smoothing or gaussian kernel smoothing computes a weighted average of the points where the weights correspond to a gaussian distribution with the standard deviation specified as the smoothing parameter.  See [https://en.wikipedia.org/wiki/Kernel\_smoother\#Gaussian\_kernel\_smoother](https://en.wikipedia.org/wiki/Kernel_smoother#Gaussian_kernel_smoother).  The smoothed value is calculated for every input x value.
+Gaussian smoothing \(or gaussian kernel smoothing\) computes a weighted average of the points, where the weights correspond to a gaussian distribution with the standard deviation specified as the smoothing parameter.  See .  The smoothed value is calculated for every input x value.
 
 Gaussian smoothing is a good standard choice for smoothing if you are not concerned with matching Tensorboard's behavior. Unlike an exponential moving average the point will be smoothed based on points occurring both before and after the value.
 
