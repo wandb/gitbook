@@ -32,3 +32,7 @@ If you're unable to connect to your instance you can put it in restore mode by s
 
 To restore a machine to reporting metrics to our cloud hosted solution, run `wandb login --host=https://api.wandb.ai`.
 
+## Does a wandb server need read or write access to the S3 bucket?
+
+Yes to both. The wandb server needs to be able to read from the bucket in order to generate signed URLs for use by clients, and it needs to have write access in order to update file metadata. Because the server generates temporary signed URLs for use by clients, there’s no need to make the s3 bucket public or explicitly grant permissions to any end-users.
+
