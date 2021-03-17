@@ -49,15 +49,21 @@ wandb.init(name="a helpful readable run name")
 
 If you normally run training with a command and arguments, for example:
 
-```text
-edflow -b <your-training-config> --batch_size 8 --lr 0.0001
+```bash
+/usr/bin/env python edflow.py -b your-training-config --batchsize 8 --lr 0.00001
 ```
 
 You can convert this to a sweeps config like so:
 
-```text
+```yaml
 program:
-  edflow
+  edflow.py
+method: grid
+parameters:
+  batch_size:
+    value: 8
+  lr:
+    value: 0.0001
 command:
   - ${env}
   - python
@@ -67,17 +73,20 @@ command:
   - ${args}
 ```
 
-The ${args} key expands to all the parameters in the sweep configuration file, expanded so they can be parsed by argparse: --param1 value1 --param2 value2
+The `${args}` key expands to all the parameters in the sweep configuration file, expanded so they can be parsed by `argparse: --param1 value1 --param2 value2`
 
-If you have extra args that you dont want to specify with argparse you can use:  
-parser = argparse.ArgumentParser\(\)  
-args, unknown = parser.parse\_known\_args\(\)
+If you have extra args that you dont want to specify with argparse you can use:
+
+```python
+parser = argparse.ArgumentParser()
+args, unknown = parser.parse_known_args()
+```
 
 **Running Sweeps with Python 3**
 
 If you're having an issue where the sweep is trying to use Python 2, it's easy to specify that it should use Python 3 instead. Just add this to your sweep config YAML file:
 
-```text
+```yaml
 program:
   script.py
 command:
@@ -86,8 +95,6 @@ command:
   - ${program}
   - ${args}
 ```
-
-\*\*\*\*
 
 ## Bayesian optimization details
 
