@@ -76,3 +76,9 @@ Export the table of all your runs, hyperparameters, and summary metrics to a CSV
 
 ![](../../.gitbook/assets/2020-07-06-11.51.01.gif)
 
+## Search columns in the table
+
+Search for the columns in the table UI guide with the **Columns** button.
+
+![](../../.gitbook/assets/2021-03-18-07.15.19.gif)
+
