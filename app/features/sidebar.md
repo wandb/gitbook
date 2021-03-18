@@ -64,6 +64,12 @@ Do you want to hide crashed runs? Are short runs filling up your table? Do you w
 
 ![](../../.gitbook/assets/image%20%2816%29.png)
 
+## Filter runs with tags
+
+Filter runs based on their tags with the filter button.
+
+![](../../.gitbook/assets/2021-03-18-07.54.44.gif)
+
 ## Filter and delete unwanted runs
 
 If you filter down the table to just the ones you want to delete, you can select all and press delete to remove them from your project. Deleting runs is project-global, so if you delete runs from a report that will be reflected in the rest of your project.
