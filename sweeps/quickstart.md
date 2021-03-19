@@ -124,3 +124,7 @@ Open your project to see your live results in the sweep dashboard.
 
 ![](../.gitbook/assets/image%20%2888%29%20%282%29%20%281%29.png)
 
+## 6. Stop the agent
+
+From the terminal, we can hit `Ctrl+c` to stop the run that the sweep agent is currently running. If we want to kill the agent, we need to hit `Ctrl+c` again after the run is stopped.
+
