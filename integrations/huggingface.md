@@ -70,13 +70,13 @@ _If using a python script, set the following before initialising_  `Trainer`_:_
 
 ```text
 import os
-os.environ['WANDB_PROJECT'] = 'Amazon Sentiment Analysis'
+os.environ['WANDB_PROJECT'] = amazon_sentiment_analysis
 ```
 
 _If you are using a Jupyter or Google Colab notebook, set the following before initialising_  `Trainer`_:_
 
 ```text
-%env WANDB_PROJECT = 'Amazon Sentiment Analysis' 
+%env WANDB_PROJECT = amazon_sentiment_analysis
 ```
 
 If a project name is not specified the project name defaults to "huggingface"
@@ -176,7 +176,7 @@ Then when you would like to use the trained model in a new run, you can load fro
 wandb.login()
 
 # Create a run object in your project
-run = wandb.init(project="Amazon Sentiment Analysis")
+run = wandb.init(project="amazon_sentiment_analysis")
 
 # Connect an Artifact to your run
 my_model_artifact = run.use_artifact('run-bert-base-high-lr:v0')
@@ -270,7 +270,7 @@ The `WandbCallback` that `Trainer` uses will call `wandb.init` under the hood wh
 An example of arguments you might want to pass to init is below.  The full list of arguments for `wandb.init` [can be found here](https://docs.wandb.ai/ref/run/init).
 
 ```python
-wandb.init(project="Amazon Sentiment Analysis", 
+wandb.init(project="amazon_sentiment_analysis", 
                 name = "bert-base-high-lr",
                 tags = ['baseline','high-lr'],
                 group = "bert")
