@@ -55,6 +55,8 @@ _Or if you are using a Jupyter or Google Colab notebook:_
 
 ```text
 !pip install wandb
+
+import wandb
 wandb.login()
 ```
 
