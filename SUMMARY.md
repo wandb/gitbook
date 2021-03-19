@@ -10,7 +10,7 @@
   * [wandb.alert\(\)](library/wandb.alert.md)
   * [wandb.save\(\)](library/save.md)
   * [wandb.restore\(\)](library/restore.md)
-  * [Export API Guide](library/public-api-guide.md)
+  * [Import/Export API Guide](library/public-api-guide.md)
   * [Environment Variables](library/environment-variables.md)
   * [Command Line Interface](library/cli.md)
   * [Grouping](library/grouping.md)

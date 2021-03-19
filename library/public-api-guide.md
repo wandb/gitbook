@@ -4,7 +4,7 @@ description: >-
   update existing runs
 ---
 
-# Export API Guide
+# Import/Export API Guide
 
 Use the Public API to export or update data that you have saved to W&B. Before using this API, you'll want to log data from your script — check the [Quickstart](../quickstart.md) for more details.
 
