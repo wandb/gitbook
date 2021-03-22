@@ -6,13 +6,11 @@ Wandb is an experiment tracking tool for machine learning. We make it easy for a
 
 Here's a 1 minute overview video. [View an example project →](https://app.wandb.ai/stacey/estuary)
 
-{% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" caption="" %}
+{% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" %}
 
 ### How does it work?
 
-When you instrument your training code with wandb, our background process will collect useful data about what is happening as you train your models. For example, we can track model performance metrics, hyperparameters, gradients, system metrics, output files, and your most recent git commit.
-
-{% page-ref page="../library/api/examples.md" %}
+When you instrument your training code with wandb, our background process will collect useful data about what is happening  as you train your models. For example, we can track model performance metrics, hyperparameters, gradients, system metrics, output files, and your most recent git commit.
 
 ### How hard is it to set up?
 
@@ -36,7 +34,7 @@ You can create projects to keep all of your runs in a single place. You can visu
 
 A good example project is Stacey's [estuary project](https://app.wandb.ai/stacey/estuary). In the sidebar you can turn on and off runs to show on the graphs, or click one run to dive deeper. All your runs get saved and organized in a unified workspace for you.
 
-![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%282%29.png)
 
 ### 3. Share your results
 

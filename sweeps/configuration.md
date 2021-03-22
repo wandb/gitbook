@@ -8,7 +8,7 @@ description: >-
 
 Use these configuration fields to customize your sweep. There are two ways to specify your configuration:
 
-1. [YAML file](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config): best for distributed sweeps. See examples [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
+1. [YAML file](https://docs.wandb.com/sweeps/quickstart#2-sweep-config): best for distributed sweeps. See examples [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
 2. [Python data structure](python-api.md): best for running a sweep from a Jupyter Notebook 
 
 | Top-level key | Meaning |
@@ -37,28 +37,27 @@ wandb.log({"val_loss" : valid_loss})
 | :--- | :--- |
 | name | Name of the metric to optimize |
 | goal | `minimize` or `maximize` \(Default is `minimize`\) |
-| target | Value that you'd like to achieve for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to "Finished." This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
+| target | Goal value for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to **finished**. This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
 
-{% hint style="danger" %}
-The metric specified needs to be a "top level" metric:
+ ⚠️ **Can't optimize nested metrics**
+
+The metric you're optimizing to be at the **top level** of the config.
 
 This will **NOT** work:  
-Sweep configuration:  
-metric:  
-name: my\_metric.nested  
-Code:  
-`nested_metrics = {"nested": 4}    
-wandb.log({"my_metric", nested_metrics}`
+_Sweep configuration_  
+`metric:   
+    name: my_metric.nested`   
+_Code_  
+`nested_metrics = {"nested": 4} wandb.log({"my_metric", nested_metrics}`
 
-To work around this limitation the script should log the nested metric at the top level like this:  
-Sweep configuration:  
-metric:  
-name: my\_metric\_nested  
-Code:  
-`nested_metrics = {"nested": 4}    
-wandb.log{{"my_metric", nested_metric}    
-wandb.log({"my_metric_nested", nested_metric["nested"]})`
-{% endhint %}
+Workaround: log the metric at the top level
+
+_Sweep configuration_  
+`metric:   
+    name: my_metric_nested`   
+_Code_`nested_metrics = {"nested": 4} wandb.log{{"my_metric", nested_metric} wandb.log({"my_metric_nested", nested_metric["nested"]})`
+
+
 
 **Examples**
 
@@ -317,8 +316,8 @@ command:
 | ${program} | Training script specified by the sweep configuration `program` key |
 | ${args} | Expanded arguments in the form --param1=value1 --param2=value2 |
 | ${args\_no\_hyphens} | Expanded arguments in the form param1=value1 param2=value2 |
-| ${json} | Arguments encoded as JSON |
-| ${json\_file} | The path to a file containing the args encoded as JSON |
+| ${args\_json} | Arguments encoded as JSON |
+| ${args\_json\_file} | The path to a file containing the args encoded as JSON |
 
 Examples:
 

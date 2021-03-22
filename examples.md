@@ -68,8 +68,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 
 | Description | Dashboard | Code |
 | :--- | :--- | :--- |
-| Classifying Simpson's characters | [W&B Dashboard](https://app.wandb.ai/borisd13/simpsons-fastai) | [Github Repo](https://github.com/borisdayma/simpsons-fastai) |
-| Semantic Segmentation | [W&B Dashboard](https://app.wandb.ai/borisd13/semantic-segmentation/?workspace=user-borisd13) | [Github Repo](https://github.com/borisdayma/semantic-segmentation/blob/master/src/train.py) |
+| Using WandbCallback with fastai | [W&B Report](https://wandb.ai/borisd13/demo_config/reports/Visualize-Track-Compare-Fastai-Models--Vmlldzo4MzAyNA) | [Colab Notebook](http://bit.ly/fastai-wandb) |
 
 ## Sweeps
 
@@ -93,7 +92,7 @@ Fork examples from our [GitHub repo](https://github.com/wandb/examples) or brows
 | Title | Link |
 | :--- | :--- |
 | Protein Structure Prediction | [Report](https://app.wandb.ai/koes-group/protein-transformer/reports/Evaluating-the-Impact-of-Sequence-Convolutions-and-Embeddings-on-Protein-Structure-Prediction--Vmlldzo2OTg4Nw) |
-| Semantic Segmentation for Self-Driving Cars | \[Report\]\(\[\[\[[https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ\]\(https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ\)\]\(https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ\]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ%29\)\]\(https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ\]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ%29\]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ\]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ%29%29\)\](https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ%29]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ%29%29]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ%29]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ]%28https://app.wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver's-Seat--Vmlldzo1MTg5NQ%29%29%29\)\) |
+| Semantic Segmentation for Self-Driving Cars | [Report](https://wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver-s-Seat--Vmlldzo1MTg5NQ) |
 | Template for COVID-19 Research | [Report](https://app.wandb.ai/cayush/covid-19-scans/reports/COVID-19-research-using-PyTorch-and-W%26B--Vmlldzo2OTQ5OA) |
 | Depth Maps from Videos for Self-Driving Car | [Report](https://app.wandb.ai/stacey/sfmlearner/reports/See-3D-from-Video%3A-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw) |
 | Effects of Weight Initialization on Neural Networks | [Report](https://app.wandb.ai/sayakpaul/weight-initialization-tb/reports/Effects-of-Weight-Initialization-on-Neural-Networks--Vmlldzo2ODY0NA) |

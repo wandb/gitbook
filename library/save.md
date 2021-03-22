@@ -10,7 +10,7 @@ There are two ways to save a file to associate with a run.
 2. Put a file in the wandb run directory, and it will get uploaded at the end of the run.
 
 {% hint style="info" %}
-If you're [resuming](advanced/resuming.md) a run, you can recover a file by calling`wandb.restore(filename)`
+If you're [resuming](resuming.md) a run, you can recover a file by calling`wandb.restore(filename)`
 {% endhint %}
 
 If you want to sync files as they're being written, you can specify a filename or glob in `wandb.save`.
@@ -51,7 +51,7 @@ Here's a public example page. You can see on the files tab, there's the model-be
 
 [See the live example →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
 
-![](../.gitbook/assets/image%20%2839%29%20%286%29%20%281%29%20%286%29.png)
+![](../.gitbook/assets/image%20%2839%29%20%286%29%20%281%29%20%285%29.png)
 
 ## Common Questions
 
@@ -87,5 +87,5 @@ Call `wandb.save("*.pt")` once at the top of your script after wandb.init, then 
 
 ### Remove local files that have been synced to cloud storage
 
-There’s a command `wandb gc` that you can run to remove local files that have already been synced to cloud storage. More information about usage can be found with \`wandb gc —help
+There’s a command `wandb sync --clean` that you can run to remove local files that have already been synced to cloud storage. More information about usage can be found with `wandb sync --help`
 

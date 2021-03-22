@@ -4,18 +4,25 @@ description: 'Keep track of metrics, video, custom plots, and more'
 
 # wandb.log\(\)
 
-Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a step. By default we increment the step each time, so you'll see outputs of your model over time in graphs and rich visualizations.
+Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a step. Each time you log, we increment the step by default, letting you view metrics over time.
 
-Keyword arguments:
-
-* **step** — Which time step to associate the logs with \(see [Incremental Logging](log.md#incremental-logging)\)
-* **commit** — By default commit=true, which means we increment the step each time you call wandb.log. Set commit=false to have multiple sequential wandb.log\(\) commands save data to the same step.
-
-Example usage:
+### Example Usage
 
 ```python
 wandb.log({'accuracy': 0.9, 'epoch': 5})
 ```
+
+### **Common Workflows**
+
+1. **Compare the best accuracy**: To compare the best value of a metric across runs, set the summary value for that metric. By default, summary is set to the last value you logged for each key. This is useful in the table in the UI, where you can sort and filter runs based on their summary metrics — so you could compare runs in a table or bar chart based on their _best_ accuracy, instead of final accuracy. For example, you could set summary like so: `wandb.run.summary["accuracy"] = best_accuracy`
+2. **Multiple metrics on one chart**: Log multiple metrics in the same call to wandb.log\(\), like this: `wandb.log({'acc': 0.9, 'loss': 0.1})`  and they will both be available to plot against in the UI
+3. **Custom x-axis**: Add a custom x-axis to the same log call to visualize your metrics against a different axis in the W&B dashboard. For example: `wandb.log({'acc': 0.9, 'custom_step': 3})`
+
+### **Reference Documentation**
+
+View the reference docs, generated from the `wandb` Python library.
+
+{% page-ref page="../ref/run/" %}
 
 ## Logging Objects
 
@@ -162,7 +169,7 @@ On the W&B runs page, you will see your videos in the Media section.
 {% endtab %}
 
 {% tab title="Text Table" %}
-Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 10,000.
+Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. To ensure optimal UI performance, the default maximum number of rows is set to 10,000. However, users can explicitly override the maximum with `wandb.Table.MAX_ROWS = {DESIRED_MAX}`.
 
 ```python
 # Method 1
@@ -174,6 +181,12 @@ table = wandb.Table(columns=["Text", "Predicted Label", "True Label"])
 table.add_data("I love my phone", "1", "1")
 table.add_data("My phone sucks", "0", "-1")
 wandb.log({"examples": table})
+```
+
+You can also pass a pandas `DataFrame` object.
+
+```python
+table = wandb.Table(dataframe=my_dataframe)
 ```
 {% endtab %}
 
@@ -212,7 +225,7 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 These presets have builtin `wandb.plot` methods that make it fast to log charts directly from your script and see the exact visualizations you're looking for in the UI.
 
 {% tabs %}
-{% tab title="Line plot" %}
+{% tab title="Line" %}
 `wandb.plot.line()`
 
 Log a custom line plot—a list of connected and ordered points \(x,y\) on arbitrary axes x and y.
@@ -220,7 +233,8 @@ Log a custom line plot—a list of connected and ordered points \(x,y\) on arbit
 ```python
 data = [[x, y] for (x, y) in zip(x_values, y_values)]
 table = wandb.Table(data=data, columns = ["x", "y"])
-wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom Y vs X Line Plot")})
+wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y",
+           title="Custom Y vs X Line Plot")})
 ```
 
 You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
@@ -232,15 +246,16 @@ You can use this to log curves on any two dimensions. Note that if you're plotti
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Scatter plot" %}
+{% tab title="Scatter" %}
 `wandb.plot.scatter()`
 
 Log a custom scatter plot—a list of points \(x, y\) on a pair of arbitrary axes x and y.
 
 ```python
-data = [[x, y] for (x, y) in zip(class_x_prediction_scores, class_y_prediction_scores)]
+data = [[x, y] for (x, y) in zip(class_x_scores, class_y_scores)]
 table = wandb.Table(data=data, columns = ["class_x", "class_y"])
-wandb.log({"my_custom_id" : wandb.plot.scatter(table, "class_x", "class_y")})
+wandb.log({"my_custom_id" : wandb.plot.scatter(table,
+                            "class_x", "class_y")})
 ```
 
 You can use this to log scatter points on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
@@ -252,7 +267,7 @@ You can use this to log scatter points on any two dimensions. Note that if you'r
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Bar chart" %}
+{% tab title="Bar" %}
 `wandb.plot.bar()`
 
 Log a custom bar chart—a list of labeled values as bars—natively in a few lines:
@@ -260,7 +275,8 @@ Log a custom bar chart—a list of labeled values as bars—natively in a few li
 ```python
 data = [[label, val] for (label, val) in zip(labels, values)]
 table = wandb.Table(data=data, columns = ["label", "value"])
-wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label", "value", title="Custom Bar Chart")
+wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label",
+                               "value", title="Custom Bar Chart")
 ```
 
 You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly \(i.e. each data point must have both\).
@@ -275,12 +291,13 @@ You can use this to log arbitrary bar charts. Note that the number of labels and
 {% tab title="Histogram" %}
 `wandb.plot.histogram()`
 
-Log a custom histogram—sort list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores \(`scores`\) and want to visualize their distribution:
+Log a custom histogram—sort a list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores \(`scores`\) and want to visualize their distribution:
 
 ```python
 data = [[s] for s in scores]
 table = wandb.Table(data=data, columns=["scores"])
-wandb.log({'my_histogram': wandb.plot.histogram(table, "scores", title=None)})
+wandb.log({'my_histogram': wandb.plot.histogram(table, "scores",
+                           title="Histogram")})
 ```
 
 You can use this to log arbitrary histograms. Note that `data` is a list of lists, intended to support a 2D array of rows and columns.
@@ -292,7 +309,7 @@ You can use this to log arbitrary histograms. Note that `data` is a list of list
 [Run the code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="PR curve" %}
+{% tab title="PR" %}
 `wandb.plot.pr_curve()`
 
 Log a [Precision-Recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) in one line:
@@ -309,21 +326,21 @@ You can log this whenever your code has access to:
 * \(optionally\) a list of the labels/class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
 * \(optionally\) a subset \(still in list format\) of the labels to visualize in the plot
 
-![](../.gitbook/assets/demo-precision-recall.png)
+![](../.gitbook/assets/screen-shot-2021-02-19-at-11.17.52-am.png)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Plot-Precision-Recall-Curves--VmlldzoyNjk1ODY)
 
 [Run the code →](https://colab.research.google.com/drive/1mS8ogA3LcZWOXchfJoMrboW3opY1A8BY?usp=sharing)
 {% endtab %}
 
-{% tab title="ROC curve" %}
+{% tab title="ROC" %}
 `wandb.plot.roc_curve()`
 
 Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
 
-```text
-wandb.log({"roc" : wandb.plot.roc_curve( ground_truth, predictions, \
-                        labels=None, classes_to_plot=None)})
+```python
+wandb.log({"roc" : wandb.plot.roc_curve(ground_truth,
+           predictions, labels=None, classes_to_plot=None)})
 ```
 
 You can log this whenever your code has access to:
@@ -337,7 +354,54 @@ You can log this whenever your code has access to:
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Plot-ROC-Curves--VmlldzoyNjk3MDE)
 
-[Run the code →](https://colab.research.google.com/drive/1_RMppCqsA8XInV_jhJz32NCZG6Z5t1RO?usp=sharing)
+[Run the code →](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-log/Plot_ROC_Curves_with_W%26B.ipynb)
+{% endtab %}
+
+{% tab title="Confusion Matrix" %}
+`wandb.plot.confusion_matrix()`
+
+Log a multi-class [confusion matrix](https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html) in one line:
+
+```python
+wandb.log({"conf_mat" : wandb.plot.confusion_matrix(
+                        probs=None,
+                        y_true=ground_truth,
+                        preds=predictions,
+                        class_names=class_names})
+```
+
+You can log this wherever your code has access to:
+
+* a model's predicted labels on a set of examples \(`preds`\) or the normalized probability scores \(`probs`\). The probabilities must have the shape \(number of examples, number of classes\). You can supply either probabilities or predictions but not both.
+* the corresponding ground truth labels for those examples \(`y_true`\)
+* a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 is cat, 1=dog, 2=bird, etc\)
+
+![](../.gitbook/assets/image%20%281%29%20%281%29.png)
+
+​[See in the app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)​
+
+​[Run the code →](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-log/Log_a_Confusion_Matrix_with_W%26B.ipynb)
+{% endtab %}
+
+{% tab title="Multi-line" %}
+`wandb.plot.line_series()`
+
+ Plot multiple lines, or multiple different lists of x-y coordinate pairs, on one shared set of x-y axes:
+
+```python
+wandb.log({"my_custom_id" : wandb.plot.line_series(
+          xs=[0, 1, 2, 3, 4],
+          ys=[[10, 20, 30, 40, 50], [0.5, 11, 72, 3, 41]],
+          keys=["metric Y", "metric Z"],
+          title="Two Random Metrics",
+          xname="x units")})
+```
+
+Note that the number of x and y points must match exactly. You can supply one list of x values to match multiple lists of y values, or a separate list of x values for each list of y values.
+
+![](../.gitbook/assets/screen-shot-2021-02-19-at-12.33.02-pm.png)
+
+[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Multi-Line-Plots--VmlldzozOTMwMjU)
 {% endtab %}
 {% endtabs %}
 
@@ -393,7 +457,7 @@ wandb.log({"generated_samples":
 {% endtab %}
 
 {% tab title="Point Clouds" %}
-Log 3D point clouds and Lidar scenes with bounding boxes. Pass in a numpy array containing coordinates and colors for the points to render.
+Log 3D point clouds and Lidar scenes with bounding boxes. Pass in a numpy array containing coordinates and colors for the points to render. In the UI, we truncate to 300,000 points.
 
 ```python
 point_cloud = np.array([[0, 0, 0, COLOR...], ...])
@@ -474,6 +538,8 @@ wandb.log(
 {% endtabs %}
 
 ## Incremental Logging
+
+If you want to plot your metrics against different x-axes, you can log the step as a metric, like `wandb.log({'loss': 0.1, 'epoch': 1, 'batch': 3})`. In the UI you can switch between x-axes in the chart settings.
 
 If you want to log to a single history step from lots of different places in your code you can pass a step index to `wandb.log()` as follows:
 
@@ -604,9 +670,9 @@ Now you can view videos in the media browser. Go to your project workspace, run 
 
 By default, we increment the global step every time you call wandb.log. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
 
-For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
+For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({"acc":1, "global_step":1})`. Then in the graphs choose "global\_step" as the x-axis.
 
-`wandb.log({“acc”:1,”batch”:10}, step=epoch)` would enable you to choose “batch” as an x axis in addition to the default step axis
+`wandb.log({"acc":1, "batch":10}, step=epoch)` would enable you to choose "batch" as an x axis in addition to the default step axis
 
 ### Navigating and zooming in point clouds
 

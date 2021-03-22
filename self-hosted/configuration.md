@@ -10,15 +10,19 @@ Your W&B Local Server comes up ready-to-use on boot. However, several advanced c
 
 All configuration settings can be set via the UI however if you would like to manage these configuration options via code you can set the following environment variables:
 
-**LICENSE** - Your wandb/local license  
-**MYSQL** - The MySQL connection string  
-**BUCKET** - The S3 / GCS bucket for storing data  
-**BUCKET\_QUEUE** - The SQS / Google PubSub queue for object creation events  
-**NOTIFICATIONS\_QUEUE** - The SQS queue on which to publish run events  
-**AWS\_REGION** - The AWS Region where your bucket lives  
-**HOST** - The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net)  
-**AUTH0\_DOMAIN** - The Auth0 domain of your tenant  
-**AUTH0\_CLIENT\_ID** - The Auth0 Client ID of application
+| Environment Variable | Description |
+| :--- | :--- |
+| LICENSE | Your wandb/local license |
+| MYSQL | The MySQL connection string |
+| BUCKET | The S3 / GCS bucket for storing data |
+| BUCKET\_QUEUE | The SQS / Google PubSub queue for object creation events |
+| NOTIFICATIONS\_QUEUE | The SQS queue on which to publish run events |
+| AWS\_REGION | The AWS Region where your bucket lives |
+| HOST | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net) |
+| AUTH0\_DOMAIN | The Auth0 domain of your tenant |
+| AUTH0\_CLIENT\_ID | The Auth0 Client ID of application |
+| SLACK\_CLIENT\_ID | The client ID of the Slack application you want to use for alerts |
+| SLACK\_SECRET | The secret of the Slack application you want to use for alerts |
 
 ## Authentication
 
@@ -78,31 +82,6 @@ Enable CORS access: your CORS configuration should look like the following:
 </CORSConfiguration>
 ```
 
-**Grant Permissions to Node Running W&B**
-
-The node on which W&B Local is running must be configured to perrmit access to s3 and sqs. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
-
-```text
-{
-   "Statement":[
-      {
-         "Sid":"",
-         "Effect":"Allow",
-         "Action":"s3:*",
-         "Resource":"arn:aws:s3:::<WANDB_BUCKET>"
-      },
-      {
-         "Sid":"",
-         "Effect":"Allow",
-         "Action":[
-            "sqs:*"
-         ],
-         "Resource":"arn:aws:sqs:<REGION>:<ACCOUNT>:<WANDB_QUEUE>"
-      }
-   ]
-}
-```
-
 **Configure W&B Server**
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
@@ -151,6 +130,31 @@ gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 
 To create signed file URLs, your W&B instance also needs the `iam.serviceAccounts.signBlob` permission in GCP. You can add it by adding the `Service Account Token Creator` role to the service account or IAM member that your instance is running as.
 
+**Grant Permissions to Node Running W&B**
+
+The node on which W&B Local is running must be configured to permit access to s3 and sqs. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
+
+```text
+{
+   "Statement":[
+      {
+         "Sid":"",
+         "Effect":"Allow",
+         "Action":"s3:*",
+         "Resource":"arn:aws:s3:::<WANDB_BUCKET>"
+      },
+      {
+         "Sid":"",
+         "Effect":"Allow",
+         "Action":[
+            "sqs:*"
+         ],
+         "Resource":"arn:aws:sqs:<REGION>:<ACCOUNT>:<WANDB_QUEUE>"
+      }
+   ]
+}
+```
+
 **Configure W&B Server**
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
@@ -162,4 +166,111 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/ad
 ![GCP file storage settings](../.gitbook/assets/gcloud-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
+
+### Azure
+
+To use an Azure blob container as the file storage for W&B, you'll need to create a storage account \(if you don't already have one you want to use\), create a blob container and a queue within that storage account, and then create an event subscription that sends "blob created" notifications to the queue from the blob container.
+
+#### Create a Storage Account
+
+If you have a storage account you want to use already, you can skip this step.
+
+Navigate to [Storage Accounts &gt; Add ](https://portal.azure.com/#create/Microsoft.StorageAccount)in the Azure portal. Select an Azure subscription, and select any resource group or create a new one. Enter a name for your storage account.
+
+![Azure storage account setup](../.gitbook/assets/image%20%28106%29.png)
+
+Click Review and Create, and then, on the summary screen, click Create:
+
+![Azure storage account details review](../.gitbook/assets/image%20%28114%29.png)
+
+#### Creating the blob container
+
+Go to  [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service &gt; Containers in the menu:
+
+![](../.gitbook/assets/image%20%28102%29.png)
+
+Create a new container, and set it to Private:
+
+![](../.gitbook/assets/image%20%28110%29.png)
+
+Go to Settings &gt; CORS &gt; Blob service, and enter the IP of your wandb server as an allowed origin, with allowed methods `GET` and `PUT`, and all headers allowed and exposed, then save your CORS settings.
+
+![](../.gitbook/assets/image%20%28119%29.png)
+
+#### Creating the Queue
+
+Go to Queue service &gt; Queues in your storage account, and create a new Queue:
+
+![](../.gitbook/assets/image%20%28101%29.png)
+
+Go to Events in your storage account, and create an event subscription:
+
+![](../.gitbook/assets/image%20%28108%29.png)
+
+Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
+
+![](../.gitbook/assets/image%20%28116%29.png)
+
+In the Filters tab, enable subject filtering for subjects beginning with `/blobServices/default/containers/your-blob-container-name/blobs/`
+
+![](../.gitbook/assets/image%20%28105%29.png)
+
+#### Configure W&B Server
+
+Go to Settings &gt; Access keys in your storage account, click "Show keys", and then copy either key1 &gt; Key or key2 &gt; Key. Set this key on your W&B server as the environment variable `AZURE_STORAGE_KEY`.
+
+![](../.gitbook/assets/image%20%28115%29.png)
+
+Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+
+* **File Storage Bucket**: `az://<storage-account-name>/<blob-container-name>`
+* **Notification Subscription**: `az://<storage-account-name>/<queue-name>`
+
+![](../.gitbook/assets/image%20%28109%29.png)
+
+Press "Update settings" to apply the new settings.
+
+## Slack
+
+In order to integrate your local W&B installation with Slack, you'll need to create a suitable Slack application.
+
+#### Creating the Slack application
+
+Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Create New App** in the top right.
+
+![](../.gitbook/assets/image%20%28123%29.png)
+
+You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
+
+![](../.gitbook/assets/image%20%28124%29.png)
+
+#### Configuring the Slack application
+
+Now that we have a Slack application ready, we need to authorize for use as an OAuth bot. Select **OAuth & Permissions** in the sidebar to the left.
+
+![](../.gitbook/assets/image%20%28125%29.png)
+
+Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
+
+![](../.gitbook/assets/image%20%28128%29%20%281%29%20%281%29.png)
+
+Finally, configure the **Redirect URL** to point to your W&B installation. You should use the same value as what you set **Frontend Host** to ****in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
+
+![](../.gitbook/assets/image%20%28127%29.png)
+
+Hit **Save URLs** once finished.
+
+To further secure your Slack application and prevent abuse, you can specify an IP range under **Restrict API Token Usage**, whitelisting the IP or IP range of your W&B instance\(s\).
+
+#### Register your Slack application with W&B
+
+Navigate to the **System Settings** page of your W&B instance. Check the box to enable a custom Slack application:
+
+![](../.gitbook/assets/image%20%28126%29.png)
+
+You'll need to supply your Slack application's client ID and secret, which you can find in the **Basic Information** tab.
+
+![](../.gitbook/assets/image%20%28120%29.png)
+
+That's it! You can now verify that everything is working by setting up a Slack integration in the W&B app. Visit [this page](../app/features/alerts.md) for more detailed information.
 

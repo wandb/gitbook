@@ -35,7 +35,7 @@ By default, we only pick up the latest git SHA for your code. You can optionally
 
 ## Exporting data
 
-You can download data saved with Weights & Biases using our [export API](../library/api/). We want to make it easy to do custom analysis in notebooks, back up your data if you'd like to have a local copy, or plug your saved logs into other tools in your ML workflow.
+You can download data saved with Weights & Biases using our [export API](). We want to make it easy to do custom analysis in notebooks, back up your data if you'd like to have a local copy, or plug your saved logs into other tools in your ML workflow.
 
 ## Linked accounts
 

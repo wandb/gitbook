@@ -1,4 +1,4 @@
-# Artifacts API
+# Artifacts Walkthrough
 
 Use W&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. You can use artifacts to track and save files, or track external URIs.
 
@@ -20,7 +20,7 @@ When you call **log\_artifact**, we check to see if the contents of the artifact
 
 **wandb.Artifact\(\)**
 
-* **type \(str\)**: Differentiate kinds of artifacts, used for organizational purposes. We recommend sticking to "dataset", "model" and "result".
+* **type \(str\)**: Differentiate kinds of artifacts, used for organizational purposes. We recommend things like "dataset", "model" and "result".
 * **name \(str\)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, hyphens, and dots in the name.
 * **description \(str, optional\)**: Free text displayed next to the artifact version in the UI
 * **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
@@ -34,6 +34,21 @@ artifact.add_file('bicycle-data.h5')
 # Save the artifact version to W&B and mark it as the output of this run
 run.log_artifact(artifact)
 ```
+
+{% hint style="warning" %}
+**NOTE:** Calls to `log_artifact` are performed asynchronously for performant uploads. This can cause surprising behavior when logging artifacts in a loop. For example:
+
+```text
+for i in range(10):
+    a = wandb.Artifact('race', type='dataset', metadata={
+        "index": i,
+    })
+    # ... add files to artifact a ...
+    run.log_artifact(a)
+```
+
+The artifact version **v0** is NOT guaranteed to have an index of 0 in its metadata, as the artifacts may be logged in an arbitrary order.
+{% endhint %}
 
 ## 3. Use an artifact
 
@@ -95,7 +110,7 @@ An artifact is like a folder of data. Each entry is either an actual file stored
 
 You can pass the following fields to an `Artifact()` constructor, or set them directly on an artifact object:
 
-* **type:** Should be ‘dataset’, ‘model’, or ‘result’
+* **type:** Freeform string, like ‘dataset’, ‘model’, or ‘result’
 * **description**: Freeform text that will be displayed in the UI.
 * **metadata**: A dictionary that can contain any structured data. You’ll be able to use this data for querying and making plots. E.g. you may choose to store the class distribution for a dataset artifact as metadata.
 
@@ -245,6 +260,69 @@ s3://my-bucket
   </tbody>
 </table>
 
+### Adding files from parallel runs
+
+For large datasets or distributed training, multiple parallel runs might need to contribute to a single artifact. You can use the following pattern to construct such parallel artifacts:
+
+```python
+import wandb
+import time
+
+# We will use ray to launch our runs in parallel
+# for demonstration purposes. You can orchestrate
+# your parallel runs however you want.
+import ray
+
+ray.init()
+
+artifact_type = "dataset"
+artifact_name = "parallel-artifact"
+table_name = "distributed_table"
+parts_path = "parts"
+num_parallel = 5
+
+# Each batch of parallel writers should have its own
+# unique group name.
+group_name = "writer-group-{}".format(round(time.time()))
+
+@ray.remote
+def train(i):
+  """
+  Our writer job. Each writer will add one image to the artifact.
+  """
+  with wandb.init(group=group_name) as run:
+    artifact = wandb.Artifact(name=artifact_name, type=artifact_type)
+    
+    # Add data to a wandb table. In this case we use example data
+    table = wandb.Table(columns=["a", "b", "c"], data=[[i, i*2, 2**i]])
+    
+    # Add the table to folder in the artifact
+    artifact.add(table, "{}/table_{}".format(parts_path, i))
+    
+    # Upserting the artifact creates or appends data to the artifact
+    run.upsert_artifact(artifact)
+  
+# Launch your runs in parallel
+result_ids = [train.remote(i) for i in range(num_parallel)]
+
+# Join on all the writers to make sure their files have
+# been added before finishing the artifact. 
+ray.get(result_ids)
+
+# Once all the writers arefinished, finish the artifact
+# to mark it ready.
+with wandb.init(group=group_name) as run:
+  artifact = wandb.Artifact(artifact_name, type=artifact_type)
+  
+  # Create a "PartitionTable" pointing to the folder of tables
+  # and add it to the artifact.
+  artifact.add(wandb.data_types.PartitionedTable(parts_path), table_name)
+  
+  # Finish artifact finalizes the artifact, disallowing future "upserts"
+  # to this version.
+  run.finish_artifact(artifact)
+```
+
 ## Using and downloading artifacts
 
 ```python
@@ -327,7 +405,45 @@ artifact.aliases = ['replaced']
 artifact.save()
 ```
 
+## Traversing the artifact graph
+
+W&B automatically tracks the artifacts a given run has logged as well as the artifacts a given run has used. You can walk this graph by using the following APIs:
+
+```python
+api = wandb.Api()
+
+artifact = api.artifact('data:v0')
+
+# Walk up and down the graph from an artifact:
+producer_run = artifact.logged_by()
+consumer_runs = artifact.used_by()
+
+# Walk up and down the graph from a run:
+logged_artifacts = run.logged_artifacts()
+used_artifacts = run.used_artifacts()
+```
+
+## Cleaning up unused versions
+
+As an artifact evolves over time, you might end up with a large number of versions that clutter the UI. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged `latest`\) of your artifact is useful. W&B makes it easy to clean up these unneeded versions:
+
+```python
+api = wandb.Api()
+
+artifact_type, artifact_name = ... # fill in the desired type + name
+for version in api.artifact_versions(artifact_type, artifact_name):
+    # Clean up all versions that don't have an alias such as 'latest'.
+    if len(version.aliases) == 0:
+        version.delete()
+```
+
 ## Data privacy
 
 Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
+
+## Explore the Graph
+
+To navigate from the graph tab on an artifact, click "Explode" to see all the individual instances of each job type and artifact type. Then click a node to open that run or artifact in a new tab. Try it yourself on this [example Graph page](https://wandb.ai/shawn/detectron2-11/artifacts/dataset/furniture-small-val/06d5ddd4deeb2a6ebdd5/graph).
+
+![](../.gitbook/assets/2021-02-08-08.40.34.gif)
 

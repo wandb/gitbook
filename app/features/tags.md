@@ -2,6 +2,18 @@
 
 ## How to add tags <a id="how-to-add-tags"></a>
 
+**From your script**
+
+When creating a new run, you can add tags: `wandb.init(tags=["tag1", "tag2"])` .
+
+After a run is created, you can update tags from the public API like so:
+
+```python
+run = wandb.Api().run(run_id)
+run.tags.append("tag1")
+run.update()
+```
+
 **On the project page**
 
 * In the runs sidebar, click the button in the upper left corner to expand the table.

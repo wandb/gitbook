@@ -10,11 +10,11 @@ The project **Workspace** gives you a personal sandbox to compare experiments. U
 
 Project page tabs:
 
-1. \*\*\*\*[**Overview**](project-page.md#overview-tab): snapshot of your project
-2. \*\*\*\*[**Workspace**](project-page.md#workspace-tab): personal visualization sandbox
-3. \*\*\*\*[**Table**](project-page.md#table-tab): bird's eye view of all runs
-4. \*\*\*\*[**Reports**](project-page.md#reports-tab): saved snapshots of notes, runs, and graphs
-5. \*\*\*\*[**Sweeps**](project-page.md#sweeps-tab): automated exploration and optimization
+1. [**Overview**](project-page.md#overview-tab): snapshot of your project
+2. [**Workspace**](project-page.md#workspace-tab): personal visualization sandbox
+3. [**Table**](project-page.md#table-tab): bird's eye view of all runs
+4. [**Reports**](project-page.md#reports-tab): saved snapshots of notes, runs, and graphs
+5. [**Sweeps**](project-page.md#sweeps-tab): automated exploration and optimization
 
 ## Overview Tab
 
@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%281%29.png)
 
 ![](../../.gitbook/assets/undelete.png)
 
@@ -50,7 +50,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%282%29.png)
 
 ### Search for runs
 
