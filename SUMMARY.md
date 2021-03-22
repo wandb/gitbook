@@ -62,7 +62,7 @@
     * [Html](ref/data-types/html.md)
     * [Molecule](ref/data-types/molecule.md)
     * [Table](ref/data-types/table.md)
-  * [Public API](ref/public-api/README.md)
+  * [Import/Export API](ref/public-api/README.md)
     * [File](ref/public-api/file.md)
     * [Projects](ref/public-api/projects.md)
     * [Artifact](ref/public-api/artifact.md)
