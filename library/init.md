@@ -65,6 +65,15 @@ wandb.init(settings=wandb.Settings(start_method="fork"))
 wandb.init(settings=wandb.Settings(start_method="thread"))
 ```
 
+### Multiprocessing not supported yet <a id="multiprocess"></a>
+
+If your training program uses multiple processes you will need to structure your program to avoid making wandb method calls from processes where you did not run wandb.init\(\).  
+  
+There are several approaches to managing multiprocess training:
+
+1. Call wandb.init\(\) specifying a common group for all your processes.  Each process will have its own wandb run and the UI will group the training processes together.
+2. Call wandb.init\(\) from just one process and pass data to be logged over multiprocessing queues. 
+
 ### Get the readable run name
 
 Get the nice, readable name for your run.
