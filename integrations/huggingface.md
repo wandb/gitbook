@@ -7,7 +7,7 @@ description: >-
 # Hugging Face
 
 {% hint style="warning" %}
-[**Click here**](https://discuss.huggingface.co/t/weights-biases-supporting-wave2vec2-finetuning/4839) **for support on the Hugging Face Wav2vec2-XLSR Community Challenge!**
+[**Click here**](https://discuss.huggingface.co/t/weights-biases-supporting-wave2vec2-finetuning/4839) **for how Weights & Biases can help you with the Hugging Face Wav2vec2-XLSR Community Challenge!**
 {% endhint %}
 
 ## Just show me the code!
