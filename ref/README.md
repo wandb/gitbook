@@ -2,7 +2,7 @@
 description: Generated documentation for our API and integrations
 ---
 
-# SDK Reference
+# API Reference
 
 Wandb is a library to help track machine learning experiments.
 

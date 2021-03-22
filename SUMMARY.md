@@ -43,7 +43,7 @@
   * [SimpleTransformers](integrations/simpletransformers.md)
   * [OpenAI Gym](integrations/openai-gym.md)
   * [Numpy Example](integrations/numpy.md)
-* [SDK Reference](ref/README.md)
+* [API Reference](ref/README.md)
   * [Run](ref/run/README.md)
     * [Init](ref/run/init.md)
     * [Config](ref/run/config.md)
