@@ -6,6 +6,10 @@ description: >-
 
 # Hugging Face
 
+{% hint style="warning" %}
+[**Click here**](https://discuss.huggingface.co/t/weights-biases-supporting-wave2vec2-finetuning/4839) **for support on the Hugging Face Wav2vec2-XLSR Community Challenge!**
+{% endhint %}
+
 ## Just show me the code!
 
 * Sure, here you go:  [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)\*\*\*\*
