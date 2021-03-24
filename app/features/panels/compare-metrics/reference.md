@@ -20,7 +20,7 @@
 
 X 범위 기본값은 X축의 가장 작은 값부터 최대값입니다.
 
-Y 범위 기본값은 메트릭의 가장 작은 값 및 0\(zero\)부터 메트릭의 가장 큰 값 까지 입니다.
+Y 범위 기본값은 메트릭의 가장 작은 값 및 0\(zero\)부터 메트릭의 가장 큰 값까지 입니다.
 
 ## **최대 실행/그룹\(Max Runs/Groups\)**
 
@@ -32,9 +32,9 @@ Y 범위 기본값은 메트릭의 가장 작은 값 및 0\(zero\)부터 메트�
 
  예시:
 
-${config:x} will insert the config value of x for a run or group.
+${config:x}가 실행 또는 그룹에 대한 x의 구성 값을 삽입합니다.
 
-You can set \[\[$x: $y\]\] to display point specific values in the crosshair
+\[\[$x: $y\]\]를 설정하여 십자선에 특정 포인트 값을 표시할 수 있습니다.
 
 ##  **그룹화\(Grouping\)**
 

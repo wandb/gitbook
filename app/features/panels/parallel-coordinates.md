@@ -1,10 +1,10 @@
 ---
-description: 머신 러닝 실험에서 고차원 데이터를 시각화 하실 수 있습니다
+description: 머신 러닝 실험에서 고차원 데이터를 시각화하실 수 있습니다
 ---
 
 # Parallel Coordinates
 
- 다음은 평행좌표플롯\(parallel coordinates plot\)의 예시입니다. 각 축은 다른 것을 나타냅니다. 아래의 경우, 4개의 수직 축을 선택했습니다. 이 경우에, 저는 다른 초매개변수간의 관계 및 모델의 최종 정확성을 시각화하고 있습니다
+ 다음은 평행 좌표 플롯\(parallel coordinates plot\)의 예시입니다. 각 축은 다른 것을 나타냅니다. 아래의 경우, 4개의 수직축을 선택했습니다. 이 경우에, 저는 다른 초매개변수간의 관계 및 모델의 최종 정확성을 시각화하고 있습니다
 
 * **Axes\(축\)**: [wandb.config](https://docs.wandb.com/library/config)의 다른 초매개변수 및 [wandb.log\(\)](https://docs.wandb.com/library/log)​의 메트릭
 * **Lines\(선\)**: 각 선은 단일 실행을 나타냅니다. 마우스를 선 위에 놓으면 실행에 관한 세부정보를 포함한 툴팁\(tooltip\)을 확인하실 수 있습니다. 현재 필터와 일치하는 모든 선이 표시되지만, eye\(눈 모양\)을 끄면, 선은 회색으로 표시됩니다.

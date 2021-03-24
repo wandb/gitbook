@@ -4,21 +4,21 @@ description: 쿼리를 사용한 사용자 정의 시각화 및 패널
 
 # Custom Charts
 
-**사용자 정의 차트\(Custom Charts\)**를 사용하여 현재 기본값 UI에서는 불가능한 차트를 생성하실 수 있습니다. 여러분이 원하는 바로 그대로 임의의 데이터 테이블을 로그 및 시각화 하실 수 있습니다. [Vega](https://vega.github.io/vega/)의 기능을 사용해서 폰트, 색상, 툴팁의 세부 사항을 제어합니다.
+**사용자 정의 차트\(Custom Charts\)**를 사용하여 현재 기본값 UI에서는 불가능한 차트를 생성하실 수 있습니다. 여러분이 원하는 바로 그대로 임의의 데이터 테이블을 로그 및 시각화하실 수 있습니다. [Vega](https://vega.github.io/vega/)의 기능을 사용해서 폰트, 색상, 툴팁의 세부 사항을 제어합니다.
 
 * **무엇을 할 수 있나요?\(What's possible\)**: [출시 발표 내용](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)을 읽어보시기 바랍니다​
-* **Code**: Try a live example in a[ 호스팅 된 notebook](https://tiny.cc/custom-charts)에서 라이브 예시를 사용해 보세요​
+* **코드\(Code\):** [호스팅 된 notebook](https://tiny.cc/custom-charts)에서 라이브 예시를 사용해 보세요​
 * **비디오\(Video\)**: [안내 비디오](https://www.youtube.com/watch?v=3-N9OV6bkSM)를 시청하세요​
-* **예시\(Example\)**: Quick Keras 및 Sklearn [데모 notebook →](https://colab.research.google.com/drive/1g-gNGokPWM2Qbc8p1Gofud0_5AoZdoSD?usp=sharing)​
+* **예시\(Example\)**: Quick Keras 및 Sklearn [데모 notebook →](https://colab.research.google.com/drive/1g-gNGokPWM2Qbc8p1Gofud0_5AoZdoSD?usp=sharing)
 
- 질문 및 제안 사항이 있으시면 Carey \([c@wandb.com](mailto:c@wandb.com)\)로 연락 해주시기 바랍니다
+질문 및 제안 사항이 있으시면 Carey \([c@wandb.com](mailto:c@wandb.com)\)로 연락해 주시기 바랍니다​
 
 ![vega.github.io/vega&#xC5D0;&#xC11C; &#xC9C0;&#xC6D0;&#xB418;&#xB294; &#xCC28;&#xD2B8;](../../../.gitbook/assets/screen-shot-2020-09-09-at-2.18.17-pm.png)
 
 ### **작동 방식**
 
-1. **데이터 로그하기**: 스크립트에서 W&B로 실행하실 때, 평소에 사용하는 것 과 같이 [구성\(config\)](https://docs.wandb.com/library/config) 및 요약 데이터를 로그합니다. 특정 시간에 로그된 여러 값의 리스트를 시각화 하시려면 사용자 정의 `wandb.Table`를 사용하세요
-2. **차트 사용자 정의하기**: [GraphQL](https://graphql.org/) 쿼리를 사용해서 로그된 데이터를 끌어옵니다. 강력한 시각화 문법\(visualization grammar\) [Vega](https://vega.github.io/vega/)를 사용해서 쿼리의 결과를 시각화 하세요
+1. **데이터 로그하기**: 스크립트에서 W&B로 실행하실 때, 평소에 사용하는 것과 같이 [구성\(config\)](https://docs.wandb.com/library/config) 및 요약 데이터를 로그합니다. 특정 시간에 로그된 여러 값의 리스트를 시각화하시려면 사용자 정의 `wandb.Table`를 사용하세요
+2. **차트 사용자 정의하기:** [GraphQL](https://graphql.org/) 쿼리를 사용해서 로그된 데이터를 끌어옵니다. 강력한 시각화 문법\(visualization grammar\) [Vega](https://vega.github.io/vega/)를 사용해서 쿼리의 결과를 시각화하세요
 3. **차트 로그하기**: wandb.plot\_table\(\)를 사용해 스크립트에서 여러분의 프리셋\(preset\)를 호출하거나 저희 기본 빌트인\(builtin\) 중 하나를 사용하세요
 
 {% page-ref page="walkthrough.md" %}
@@ -43,7 +43,7 @@ table = wandb.Table(data=data, columns = ["x", "y"])
 wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom Y vs X Line Plot")})
 ```
 
-이 옵션을 두 차원 상의 로그 곡선에 이용할 수 있습니다. 각 각에 대한 두 개의 값의 리스트를 비교하여 나타내는 경우, 리스트의 값의 수는 정확하게 일치해야 합니다. \(즉, 각 점에는 반드시 x와 y가 있어야 함\)
+이 옵션을 2차원 상의 로그 곡선에 이용할 수 있습니다. 각 각에 대한 두 개의 값의 리스트를 비교하여 나타내는 경우, 리스트의 값의 수는 정확하게 일치해야 합니다. \(즉, 각 점에는 반드시 x와 y가 있어야 함\)
 
 ![](../../../.gitbook/assets/line-plot.png)
 
@@ -215,23 +215,25 @@ A시작하시려면 새로운 사용자 정의 차트를 추가하고, 쿼리를
 
 ###  **사용자 정의 시각화**
 
-우측 상단 모서리의 **차트\(Chart\)**를 선택하여 기본값 프리셋\(default preset\)으로 시작하세요. 다음, **차트 영역\(Chart fields\)**을 선택하여 쿼리에서 가져올 데이터를 차트의 해당 영역에 맵핑합니다. 다음은 쿼리에서 가져올 메트리를 선택한 뒤 아래의 바 차트 영역에 맵핑하는 예시입니다.
+우측 상단 모서리의 차트**\(Chart\)**를 선택하여 기본값 프리셋\(default preset\)으로 시작하세요. 다음, 차트 영역**\(Chart fields\)**을 선택하여 쿼리에서 가져올 데이터를 차트의 해당 영역에 맵핑합니다. 다음은 쿼리에서 가져올 메트리를 선택한 뒤 아래의 바 차트 영역에 맵핑하는 예시입니다.
 
 ![C&#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC5D0;&#xC11C; &#xC5EC;&#xB7EC; &#xC2E4;&#xD589;&#xC758; &#xC815;&#xD655;&#xB3C4;&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xC0AC;&#xC6A9;&#xC790; &#xC815;&#xC758; &#xBC14; &#xCC28;&#xD2B8; &#xC0DD;&#xC131;&#xD558;&#xAE30;](../../../.gitbook/assets/demo-make-a-custom-chart-bar-chart.gif)
 
 ###  **Vega 편집하는 법**
 
-[Vega](https://vega.github.io/vega/) 편집 모드로 전환하시려면 패널 상단의 **Edit\(편집\)**을 클릭합니다. 여기서 UI의 양방향 차트를 생성하는 [Vega 스펙\(Vega specification\)](https://vega.github.io/vega/docs/specification/)을 정의할 수 있습니다. 시각적 스타일 \(예: 제목 변경, 다른 색 배합\(color scheme\) 선택, 연결된 대신 일련의 점으로서의 곡선 표시\)부터 데이터 그 자체 \(Vega transform을 사용해서 값 배열을 히스토그램 등으로 비닝\)까지 차트의 모든 측면을 변경할 수 있습니다. 패널 미리 보기\(preview\)는 양방향으로 업데이트 되므로, Vega spec\(베가 스펙\) 또는 쿼리를 편집 할 때, 변경 사항의 효과를 확인하실 수 있습니다. [Vega 문서 및 튜토리얼\(Vega documentation and tutorials\)](https://vega.github.io/vega/)는 여러분에게 영감을 불어넣어 주는 좋은 소스입니다.
+**​**[Vega](https://vega.github.io/vega/) 편집 모드로 전환하시려면 패널 상단의 **Edit\(편집\)**을 클릭합니다. 여기서 UI의 양방향 차트를 생성하는 [Vega 스펙\(Vega specification\)](https://vega.github.io/vega/docs/specification/)을 정의할 수 있습니다. 시각적 스타일 \(예: 제목 변경, 다른 색 배합\(color scheme\) 선택, 연결된 대신 일련의 점으로서의 곡선 표시\)부터 데이터 그 자체 \(Vega transform을 사용해서 값 배열을 히스토그램 등으로 비닝\)까지 차트의 모든 측면을 변경할 수 있습니다. 패널 미리 보기\(preview\)는 양방향으로 업데이트되므로, Vega spec\(베가 스펙\) 또는 쿼리를 편집할 때, 변경 사항의 효과를 확인하실 수 있습니다. [Vega 문서 및 튜토리얼\(Vega documentation and tutorials\)](https://vega.github.io/vega/)는 여러분에게 영감을 불어넣어 주는 좋은 소스입니다.
 
  **영역 참조\(Field references\)**
 
-W&B에서 차트로 데이터를 가져오려면, 사용자의 Vega spec의 아무 곳에 `${field:<field-name>}` 형태의 템플릿 스트링을 추가합니다. 그러면 우측편에 **Chart Fields\(차트영역\)**에 사용자가 쿼리 결과 열을 선택해서 Vega로 맵핑 할 수 있는 드롭다운이 생성됩니다.
+W&B에서 차트로 데이터를 가져오려면, 사용자의 Vega spec의 아무 곳에 `${field:<field-name>}` 형태의 템플릿 스트링을 추가합니다. 그러면 우측편에 Chart Fields\(차트 영역\)에 사용자가 쿼리 결과 열을 선택해서 Vega로 맵핑 할 수 있는 드롭다운이 생성됩니다.
 
-영역의 기본값을 설정하려면, 다음의 신택스를 사용하십시오: "${field::}"
+영역의 기본값을 설정하려면, 다음의 신택스를 사용하십시오: "${field::}"  
+
 
 ###  **차트 프리셋 저장하기**
 
- 모달 하단의 버튼을 사용하여 변경 사항을 특정 시각화 패널에 적용합니다. 또는 프로젝트의 다른 부분에서 사용할 Vega spec을 저장하실 수 있습니다. 재사용 가능한 차트 정의를 저장하시려면, Vega editor 상단의 **Save as\(다른 이름으로 저장\)**을 클릭하셔서 프리셋의 이름을 지정하십시오.  
+ 모달 하단의 버튼을 사용하여 변경 사항을 특정 시각화 패널에 적용합니다. 또는 프로젝트의 다른 부분에서 사용할 Vega spec을 저장하실 수 있습니다. 재사용 가능한 차트 정의를 저장하시려면, Vega editor 상단의 **Save as\(다른 이름으로 저장\)**을 클릭하셔서 프리셋의 이름을 지정하십시오.   
+  
 
 
 ## **기사 및 가이드**
@@ -248,15 +250,15 @@ W&B에서 차트로 데이터를 가져오려면, 사용자의 Vega spec의 아�
 * **Polling\(폴링\)**: 차트의 데이터 자동 새로고침
 * **Sampling\(샘플링\)**: 효율성을 위해 패널에 로드된 포인트의 총 개수를 동적으로 조정
 
-###  **Gotchas\(갓차**
+###   **까다로운 사안들\(Gotchas\)**
 
 * 차트를 편집할 때 쿼리에서 예상한 데이터가 나타나지 않나요? 아마 여러분이 찾으려는 열이 선택한 실행에 로그되지 않아서 일 수 있습니다. 차트를 저장하고 실행 테이블로 돌아간 뒤, **eye** icon\(눈 모양 아이콘\)을 통해 시각화 할 실행을 선택하세요.
 
 ### **일반 사용 케이스**
 
-* 오류 바\(error bar\)를 사용해 바 플롯을 사용자 정의 합니다
+* 오류 바\(error bar\)를 사용해 바 플롯을 사용자 정의합니다.
 * 사용자 정의 x-y 좌표 \(정밀-회수 곡선\(precision-recall curves\) 등\)를 필요로 하는 모델 검증 메트릭\(model validation metrics\)을 표시합니다.
-* 서로 다른 모델/실험에서의 데이터 분표를 히스토그램으로 오버레이합니다
+* 서로 다른 모델/실험에서의 데이터 분포를 히스토그램으로 오버레이합니다.
 * 훈련 중 여러 포인트에서 스냅샷을 통해 메트릭의 변경 사항을 표시합니다
-* 아직 W&B에서 사용 할 수 없는 고유한 시각화를 생성합니다 \(희망컨대, 세계와 공유하시길 바랍니다\)
+* 아직 W&B에서 사용할 수 없는 고유한 시각화를 생성합니다. \(희망컨대, 세계와 공유하시길 바랍니다.\)
 

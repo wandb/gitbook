@@ -1,5 +1,5 @@
 ---
-description: '초매개변수 범위, 검색 전략 및 기타 swe 측면 설정을 위한 신텍스'
+description: '초매개변수 범위, 검색 전략 및 기타 swe 측면 설정을 위한 신택스'
 ---
 
 # Configuration
@@ -7,24 +7,24 @@ description: '초매개변수 범위, 검색 전략 및 기타 swe 측면 설정
 다음의 구성 영역\(configuration fields\)를 사용하여 스윕을 사용자 정의합니다. 구성을 지정하는 방법으로 두 가지가 있습니다.
 
 1.  [YAML 파일](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config): 분산된 스윕\(distributed sweeps\)에 가장 적합합니다. [여기서](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion) 예시를 확인하세요. 
-2. [Python 데이터 스트럭처](https://docs.wandb.com/sweeps/python-api): Jupyter Notebook에서 스윕을 실행하기에 가장 적합합니다.
+2. [Python 데이터 스트럭처](https://docs.wandb.com/sweeps/python-api): **​:** Jupyter Notebook에서 스윕을 실행하기에 가장 적합합니다.
 
 | 최상위 수준 키 | 의미 |
 | :--- | :--- |
 | name | W&B UI에 표시되는 스윕의 이름 |
 | description | 스윕에 대한 텍스트 설명 \(참고용\) |
 | program | 실행할 훈련 스크립트 \(필수\) |
-| metric | 최적화 할 메트릭 지정 \(일부 검색 전략 및 중지 기준\(stopping criteria\)에 의해서 사용됨\) |
+| metric | 최적화할 메트릭 지정 \(일부 검색 전략 및 중지 기준\(stopping criteria\)에 의해서 사용됨\) |
 | method | [검색 전략](https://docs.wandb.com/sweeps/configuration#search-strategy) 지정 \(필수\) |
 | early\_terminate | [중지 기준\(stopping criteria\)](https://docs.wandb.com/sweeps/configuration#stopping-criteria) 지정 \(선택 사항, 기본값으로 조기 중지 없음으로 설정됨\) |
-| parameters | 검색 할 [매개변수](https://docs.wandb.com/sweeps/configuration#parameters) 경계 지정 \(필수\) |
+| parameters | 검색할 [매개변수](https://docs.wandb.com/sweeps/configuration#parameters) 경계 지정 \(필수\) |
 | project | 이 스윕에 대한 프로젝트 지정 |
 | entity | 이 스윕에 대한 개체\(entity\) 지정 |
 | command | 훈련 스크립트 실행 방법에 대한 [명령줄](https://docs.wandb.com/sweeps/configuration#command) 지정 |
 
 ###  **메트릭**
 
-최적화 할 메트릭을 지정합니다. 이 메트릭은 훈련 스크립트에 의해 분명하게 W&B로 로그되어야 합니다. 예를 들어, 모델의 검증 손실을 최소화하시려면 다음과 같습니다.
+최적화할 메트릭을 지정합니다. 이 메트릭은 훈련 스크립트에 의해 분명하게 W&B로 로그되어야 합니다. 예를 들어, 모델의 검증 손실을 최소화하시려면 다음과 같습니다.
 
 ```python
 # [model training code that returns validation loss as valid_loss]
@@ -33,9 +33,9 @@ wandb.log({"val_loss" : valid_loss})
 
 | 메트릭 서브키\(sub-key\) | 의미 |
 | :--- | :--- |
-| name | 최적화 할 메트릭의 이름 |
+| name | **최적화할 메트릭의 이름** |
 | goal | `minimize`\(최소화\) 또는 `maximize`\(최대화\) \(기본값: minimize\) |
-| target | 최적화 하는 메트릭에 대해 달성하고자 하는 값. 스윕에서 실행이 목표 값을 달성하면, 스윕의 상태는 “Finished”로 설정됩니다. 즉, 활성화된 실행과 함꼐 모든 에이전트는 해당 작업을 종료하지만, 스윕에서 새 실행이 시작되지는 않습니다. |
+| target | 최적화하는 메트릭에 대해 달성하고자 하는 값. 스윕에서 실행이 목표 값을 달성하면, 스윕의 상태는 “Finished”로 설정됩니다. 즉, 활성화된 실행과 함께 모든 에이전트는 해당 작업을 종료하지만, 스윕에서 새 실행이 시작되지는 않습니다. |
 
 {% hint style="danger" %}
 지정된 메트릭은 “최상위 수준\(top level\)” 메트릭 이어야 합니다.
@@ -94,7 +94,7 @@ metric:
 | :--- | :--- |
 | grid | Grid\(그리드\) 검색은 모든 가능성 있는 매개변수 값의 조합에 대해서 반복합니다. |
 | random | Random\(임의\) 검색은 임의의 값의 세트를 선택합니다. |
-| bayes | Bayesian Optimization\(베이지언 최적화\)는 gaussian process\(가우시안 프로세스\)를 사용하여 함수를 모델링하고 개선 확률을 최적화 하기 위해 매개변수를 선택합니다. 이 전략 수행하시려면 메트릭 키를 지정하셔야 합니다. |
+| bayes | Bayesian Optimization\(베이지언 최적화\)는 gaussian process\(가우시안 프로세스\)를 사용하여 함수를 모델링하고 개선 확률을 최적화하기 위해 매개변수를 선택합니다. 이 전략 수행하시려면 메트릭 키를 지정하셔야 합니다. |
 
  **예시** 
 
@@ -127,17 +127,15 @@ metric:
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
-| type | 중지 알고리듬\(algorithm\) 지정하기 |
+| type | 중지 알고리즘\(algorithm\) 지정하기 |
 
-저희는 다음 중지 알고리듬을 지원합니다:
+저희는 다음 중지 알고리즘을 지원합니다:
 
 | `type` | Meaning |
 | :--- | :--- |
 | hyperband | [하이퍼밴드 방법\(hyperband method\)](https://arxiv.org/abs/1603.06560)을 사용합니다 |
 
-Hyperband\(하이퍼밴드\) 중지는 프로그램 가동 동안 프로그램을 중지할지 또는 하나 이상의 브래킷\(bracket\)에서 계속하도록 허용할지 여부를 평가합니다.브래킷\(Brackets\)은 특정 metric\(반복\(iteration\)은 메트릭이 로그된 횟수를 의미합니다. 즉, 메트릭이 에포크\(epoch\)마다 기록될 때, 에포크 반복\(epoch iterations\)가 있습니다\) 에 대해 정적 반복\(static iterations\)으로 구성됩니다.
-
-In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
+Hyperband\(하이퍼밴드\) 중지는 프로그램 가동 동안 프로그램을 중지할지 또는 하나 이상의 브래킷\(bracket\)에서 계속하도록 허용할지 여부를 평가합니다. 브래킷\(Brackets\)은 특정 metric\(반복\(iteration\)은 메트릭이 로그된 횟수를 의미합니다. 즉, 메트릭이 에포크\(epoch\)마다 기록될 때, 에포크 반복\(epoch iterations\)가 있습니다\)에 대해 정적 반복\(static iterations\)으로 구성됩니다.
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |

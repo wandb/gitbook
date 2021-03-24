@@ -45,11 +45,9 @@ wandb.sweep(tune_config)
 
 ##  **기능 호환성**
 
-###  **검색 알고리듬**
+###  **검색 알고리즘**
 
- [Ray/Tune 검색 알고리듬](https://ray.readthedocs.io/en/latest/tune-searchalg.html)
-
-| 검색 알고리듬 | 지원여부 |
+| **검색 알고리즘** | 지원여부 |
 | :--- | :--- |
 | [HyperOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#hyperopt-search-tree-structured-parzen-estimators) | **지원됨** |
 | [Grid Search and Random Search](https://ray.readthedocs.io/en/latest/tune-searchalg.html#variant-generation-grid-search-random-search) | 부분 지원 |
@@ -61,7 +59,7 @@ wandb.sweep(tune_config)
 
 ### HyperOpt
 
-| HyperOpt 기능 | 지원 |
+| HyperOpt 기능 | **지원여부** |
 | :--- | :--- |
 | hp.choice | 지원됨 |
 | hp.randint | 계획됨 |
@@ -78,9 +76,9 @@ wandb.sweep(tune_config)
 
 ### **Tune 스케줄러**
 
-기본값으로 Tune 스커줄러는 순차적으로 실행됩니다. 또한 실행을 조기에 중지하거나 매개변수를 교란\(perturb\)시킬 수 있는 사용자 지정 스케줄링 알로리듬을 지정할 수도 있습니다. [Tune 문서](https://ray.readthedocs.io/en/latest/tune-schedulers.html)에서 더 자세한 내용을 읽어보시기 바랍니다.
+기본값으로 Tune 스케줄러는 순차적으로 실행됩니다. 또한 실행을 조기에 중지하거나 매개변수를 교란\(perturb\)시킬 수 있는 사용자 지정 스케줄링 알고리즘을 지정할 수도 있습니다. [Tune 문서](https://ray.readthedocs.io/en/latest/tune-schedulers.html)에서 더 자세한 내용을 읽어보시기 바랍니다.
 
-| 스케줄러 | 지원 |
+| 스케줄러 | **지원여부** |
 | :--- | :--- |
 | [Population Based Training \(PBT\)](https://ray.readthedocs.io/en/latest/tune-schedulers.html#population-based-training-pbt) | 조사중 |
 | [Asynchronous HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#asynchronous-hyperband) | 계획됨 |

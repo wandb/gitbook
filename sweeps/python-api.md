@@ -56,23 +56,23 @@ wandb.agent(sweep_id, function=train)
 ### wandb.agent\(\)
 
 {% hint style="danger" %}
-Using wandb.agent\(\) with jupyter notebook environments can hang when using GPUs.
+GPU를 사용할 때 Jupyter notebook 환경과 함께 wandb.agent\(\)를 사용하시면 수행 중 멈출 수 있습니다.
 
-GPU를 사용할 때 Jupyter notebook 환경과 함께 wandb.agent\(\)를 사용하시면 수행 중 멈출 수 있습니다.프레임워크에 의한 GPU/CUDA 리소스 초기화 방식 때문에 wandb.agent\(\) 및 jupyter 환경에 나쁜 상호 작용이 있을 수 있습니다
+프레임워크에 의한 GPU/CUDA 리소스 초기화 방식 때문에 wandb.agent\(\) 및 jupyter 환경에 나쁜 상호 작용이 있을 수 있습니다
 
-임시 해결책 \(이 상호 작용을 수정할 때까지\)으로 에이전트 실행을 위해 python 인터페이스 사용을 하지 않는 것이 있습니다. 대신, 스윕 구성에서 program 키를 설정하여 명령줄 인터페이스를 사용하고 다음을 notebook에서 수행합니다: !wandb agent SWEEP\_ID
+임시 해결책\(이 상호 작용을 수정할 때까지\)으로 에이전트 실행을 위해 python 인터페이스를 사용하지 않는 것입니다. 대신, 스윕 구성에서 program 키를 설정하여 명령줄 인터페이스를 사용하고 다음을 notebook에서 수행합니다: 
 {% endhint %}
 
  **전달인자\(Arguments\)**
 
 * **sweep\_id \(dict\):** UI, CLI, 또는 sweep API가 생성한 스윕 ID
-* **entity \(str, optional\):**실행을 전송 할 사용자이름 또는 팀
+* **entity \(str, optional\):** 실행을 전송할 사용자이름 또는 팀
 * **project \(str, optional\):** 실행을 전송할 프로젝트
 * **function \(dir, optional\):** 스윕 함수\(sweep function\) 구성하기
 
 ##  **로컬 컨트롤러 실행하기**
 
-여러분의 고유한 매개변수 검색 알고리듬을 개발하고 싶으신 경우, python에서 컨트롤러를 실행하실 수 있습니다.
+여러분의 고유한 매개변수 검색 알고리즘을 개발하고 싶으신 경우, python에서 컨트롤러를 실행하실 수 있습니다.
 
 컨트롤러를 실행하는 가장 간단한 방법은 다음과 같습니다:
 
@@ -103,7 +103,7 @@ while not sweep.done():
     sweep.print_status()
 ```
 
-코드로 스윕을 완전히 지정하고 싶으신 경우, 다음과 같은 작업을 수행 할 수 있습니다:
+코드로 스윕을 완전히 지정하고 싶으신 경우, 다음과 같은 작업을 수행할 수 있습니다:
 
 ```python
 import wandb
