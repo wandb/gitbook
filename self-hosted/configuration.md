@@ -4,13 +4,13 @@ description: W&B 로컬 서버 설치를 구성하는 방법
 
 # Advanced Configuration
 
-여러분의 W&B 로컬 서버는 부팅 시 바로 사용하실 수 있습니다. 하지만, 일단 작동을 시작하면, 여러분 서버의 `/system-admin` 페이지에서 여러 고급 구성 옵션을 사용 할 수 있습니다. 더 많은 사용자와 평가판 라이선스를 요청하여 더 많은 사용자와 팀을 지원하려면 [contact@wandb.com](mailto:contact@wandb.com)로 이메일을 보내주시기 바랍니다.
+여러분의 W&B 로컬 서버는 부팅 시 바로 사용하실 수 있습니다. 하지만, 일단 작동을 시작하면, 여러분 서버의 `/system-admin` 페이지에서 여러 고급 구성 옵션을 사용할 수 있습니다.  더 많은 사용자와 팀이 사용할 수 있도록 평가판 라이선스를 요청하시려면  [contact@wandb.com](mailto:contact@wandb.com)로 이메일을 보내주시기 바랍니다.
 
 ##  **코드로 구성하기**
 
-모든 구성 설정은 UI를 통해 설정할 수 있지만, 이러한 구성 옵션을 코드를 통해 관리하시려면, 다음의 환경변수를 설정하실 수 있습니다:
+ 모든 구성 설정은 UI를 통해 설정할 수 있지만, 이러한 구성 옵션을 코드를 통해 관리하시려면, 다음의 환경변수를 설정하실 수 있습니다:
 
-| Environment Variable | Description |
+| **환경 변수** | **설명** |
 | :--- | :--- |
 | LICENSE | 여러분의 wandb/local 라이선스 |
 | MYSQL | MySQL 연결 스트링 |
@@ -18,17 +18,17 @@ description: W&B 로컬 서버 설치를 구성하는 방법
 | BUCKET\_QUEUE | 객체 생성 이벤트에 대한 The SQS / Google PubSub 대기열 |
 | NOTIFICATIONS\_QUEUE | 실행 이벤트를 게시할 SQS 대기열 |
 | AWS\_REGION | 여러분의 버킷이 있는 AWS 영역 |
-| HOST |  인스턴스의 FQD. 즉, [https://my.domain.net](https://my.domain.net/) |
+| HOST |  인스턴스의 FQD 즉, [https://my.domain.net](https://my.domain.net/) |
 | AUTH0\_DOMAIN | 테넌트\(tenant\)의 Auth0 도메인 |
 | AUTH0\_CLIENT\_ID | 어플리케이션의 Auth0 클라이언트 ID |
 
 ##  **인증**
 
-기본적으로 W&B 로컬 서버는 최대 4명의 사용자를 지원하는 수동 사용자 관리와 함께 실행됩니다. 또한, wandb/local 정식 라이선스 버전에서는 Auth0를 사용하는 SSO를 잠금 해제 할 수 있습니다.
+ 기본적으로 W&B 로컬 서버는 최대 4명의 사용자를 지원하는 수동 사용자 관리와 함께 실행됩니다. 또한, wandb/local 정식 라이선스 버전에서는 Auth0를 사용하는 SSO를 잠금 해제할 수 있습니다.
 
-여러분의 서버는 [Auth0](https://auth0.com/)에서 지원하는 모든 인증 공급자\(authentication provider\)를 지원합니다. 여러분 팀의 통제하에 있는 고유의 Auth0 도메인 및 어플리케이션을 설정하셔야 합니다.
+여러분의 서버는 [Auth0](https://auth0.com/)에서 지원하는 모든 인증 공급자\(authentication provider\)를 지원합니다. 여러분 팀의 통제 하에 있는 고유의 Auth0 도메인 및 어플리케이션을 설정하셔야 합니다.
 
-Auth0 앱을 생성 한 후, 여러분의 Auth0 콜백을 W&B 서버의 호스트에 설정해야 합니다. 기본값으로 서버는 호스트에서 재공하는 공용 또는 개인 IP 주소의 http를 지원합니다. 또한, 선택하신 경우 DNS 호스트 이름과 SSL 인증서를 구성하실 수도 있습니다.
+Auth0 앱을 생성한 후, 여러분의 Auth0 콜백을 W&B 서버의 호스트에 설정해야 합니다. 기본값으로 서버는 호스트에서 재공하는 공용 또는 개인 IP 주소의 http를 지원합니다. 또한, 선택하신 경우 DNS 호스트 이름과 SSL 인증서를 구성하실 수도 있습니다.
 
 * 콜백 URL을 다음에 설정: `http(s)://YOUR-W&B-SERVER-HOST`
 * 허용된 Web Origin을 다음에 설정 `http(s)://YOUR-W&B-SERVER-HOST`

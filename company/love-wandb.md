@@ -8,7 +8,7 @@ description: wandb 사용을 좋아하시나요? 저희 툴을 공유하는 방�
 
 ###  **공개 칭찬하기**
 
-* \*\*\*\*[**Twitter**](https://twitter.com/weights_biases): 저희를 트윗하세요. @weights\_biases입니다.
+* \*\*\*\*[**Twitter**](https://twitter.com/weights_biases): 저희를 트윗하세요. 저희의 Twitter 계정은 @weights\_biases입니다.
 * \*\*\*\*[**Product Hunt**](https://www.producthunt.com/posts/weights-biases): 리뷰는 다른 사람들이 저희 제품을 찾는 데 큰 도움이 됩니다
 * \*\*\*\*[**Reddit**](https://www.reddit.com/r/MachineLearning/comments/bx0apm/d_how_do_you_manage_your_machine_learning/): r/MachineLearning의 포스트 또는 댓글은 저희에게 정말 유용합니다
   * 쓰레드\(Thread\) 1: [예시 워크플로](https://www.reddit.com/r/MachineLearning/comments/cf97z8/d_current_state_of_experiment_management_tools/)
@@ -16,7 +16,8 @@ description: wandb 사용을 좋아하시나요? 저희 툴을 공유하는 방�
 
 ###  **블로그 게시물**
 
- 함께 공유하고 싶은 멋진 프로젝트나 통찰력있는 관점을 갖고 계시면, 저희는 사용자들의 작업을 더 확장 싶습니다. 저희는 여러분의 블로그 게시물을 트윗하거나 [저희의 블로그](https://wandb.com/articles)에 호스팅 할 수 있습니다. [contact@wandb.com](mailto:contact@wandb.com)로 연락 해 주시기 바랍니다.
+ 함께 공유하고 싶은 멋진 프로젝트나 통찰력있는 관점을 갖고 계시면, 저희는 사용자들의 작업을 더 확장 싶습니다. 저희는 여러분의 블로그 게시물을 트윗하거나 [저희의 블로그](https://wandb.com/articles)에 호스팅 할 수 있습니다. [contact@wandb.com](mailto:contact@wandb.com)로 연락해 주시기 바랍니다.  
+
 
 ###  **제품 피드백**
 
@@ -39,8 +40,8 @@ description: wandb 사용을 좋아하시나요? 저희 툴을 공유하는 방�
       <td style="text-align:left">Amir Abdi</td>
       <td style="text-align:left">&#xCE90;&#xB098;&#xB2E4;, UBC</td>
       <td style="text-align:left"><a href="https://github.com/amir-abdi/disentanglement-pytorch">Disentanglement Challenge</a> -
-        NeurIPS 2019&#xC758; Disentanglement &#xCC4C;&#xB9B0;&#xC9C0; &#xCCAB;&#xBC88;&#xC9F8;
-        &#xC2A4;&#xD14C;&#xC774;&#xC9C0; 3&#xC704; repo</td>
+        NeurIPS 2019&#xC758; Disentanglement &#xCC4C;&#xB9B0;&#xC9C0; &#xCCAB;
+        &#xBC88;&#xC9F8; &#xC2A4;&#xD14C;&#xC774;&#xC9C0; 3&#xC704; repo</td>
     </tr>
     <tr>
       <td style="text-align:left">Sergey Kolesnikov</td>
@@ -63,7 +64,7 @@ description: wandb 사용을 좋아하시나요? 저희 툴을 공유하는 방�
       <td
       style="text-align:left"><a href="https://fullstackdeeplearning.com/">FSDL</a> &#x2013; &#xC2E4;&#xC0DD;&#xD65C;&#xC5D0;&#xC11C;
         &#xBA38;&#xC2E0;&#xB7EC;&#xB2DD; &#xBAA8;&#xB378;&#xC5D0;&#xC11C; AI &#xC2DC;&#xC2A4;&#xD15C;
-        &#xBC30;&#xCE58;&#xAE4C;&#xC9C0;&#xC758; &#xAC04;&#xADF9;&#xC744; &#xB9E4;&#xC6B0;&#xAE30;
+        &#xBC30;&#xCE58;&#xAE4C;&#xC9C0;&#xC758; &#xAC04;&#xADF9;&#xC744; &#xBA54;&#xC6B0;&#xAE30;
         &#xC704;&#xD55C; &#xC2E4;&#xC2B5; &#xACFC;&#xC815;</td>
     </tr>
     <tr>

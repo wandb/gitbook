@@ -12,14 +12,14 @@ wandb/local를 AWS\(아마존 웹 서비스\)에서 실행하는 방법에는 �
 
 ### **AWS Fargate\(파게이트\)**
 
-AWS 콜솔에 Fargate를 입력하시거나 [ECS management 페이지](https://console.aws.amazon.com/ecs/home)로 직접 이동합니다. Get Started\(시작하기\)를 클릭하여 Fargate를 사용하는 새 ECS 서비스를 생성합니다.
+AWS 콘솔에 Fargate를 입력하시거나 [ECS management 페이지](https://console.aws.amazon.com/ecs/home)로 직접 이동합니다. Get Started\(시작하기\)를 클릭하여 Fargate를 사용하는 새 ECS 서비스를 생성합니다.
 
 * **Container Definition\(컨테이너 정의\)**: “custom\(사용자 정의\)”를 선택하고 “Configure\(구성\)”을 클릭합니다. 여기서 컨테이너의 이름을 wandb-local으로 지정하고 이미지 이름을 wandb/local:latest으로 설정합니다. 마지막으로 port\(포트\) 8080을 port mapping\(포트 매핑\)에 추가합니다.
-* **Task Definition\(작업 정의\)**: Edite\(편집\)을 클릭하고 작업에 최소 8GB의 램과 4 vCPU를 할당 하셔야 합니다
+* **Task Definition\(작업 정의\):** Edit\(편집\)를 클릭하고 작업에 최소 8GB의 램과 4 vCPU를 할당하셔야 합니다
 * **Define Your Service\(서비스 정의하기\)**: SSL을 종료하고 요청을 port 8080으로 전달할 수 있는 ALB를 생성하실 수 있습니다.
-* **IAM Permissions\(IAM 권한\)**: 클라우드 파일 백엔드\(선택사항\)을 사용하실 예정이시라면, 인스턴스\(instance\)에 S3에 액세스하고 SQS를 구독을 허용하는 IAM role이 필요합니다.
+* **IAM Permissions\(IAM 권한\)**: 클라우드 파일 백엔드\(선택사항\)를 사용하실 예정이시라면, 인스턴스\(instance\)에 S3에 액세스하고 SQS를 구독을 허용하는 IAM role이 필요합니다.
 
-일단 서비스가 프로비저닝\(provision\) 되면, ALB 또는 인스턴스의 IP 및 PORT를 통해 직접 액세스하실 수 있습니다. 부팅 시 인스턴스를 사용하실 수 있지만, 고급 옵션의 경우, 이제 [configuring your instance\(인스턴스 구성\)](https://docs.wandb.com/self-hosted/configuration)을 계속해서 하실 수 있습니다.
+ 일단 서비스가 프로비저닝\(provision\) 되면, ALB 또는 인스턴스의 IP 및 PORT를 통해 직접 액세스하실 수 있습니다. 부팅 시 인스턴스를 사용하실 수 있지만, 고급 옵션의 경우, 이제 [configuring your instance\(인스턴스 구성\)](https://docs.wandb.com/self-hosted/configuration)를 계속해서 하실 수 있습니다.
 
 ### EC2
 
@@ -33,9 +33,9 @@ AWS 콜솔에 Fargate를 입력하시거나 [ECS management 페이지](https://c
 
 ###  **Kubernetes 엔진**
 
-이미 k8s을 실행 중인 경우, wandb/local을 기존 클러스터\(cluster\)에 쉽고 간단하게 실행하실 수 있습니다. GCP는 언제나 [콘솔](https://console.cloud.google.com/kubernetes/list)을 통해 클러스터를 쉽고 간단하게 진행 할 수 있도록 해드립니다.
+이미 k8s을 실행 중인 경우, wandb/local을 기존 클러스터\(cluster\)에 쉽고 간단하게 실행하실 수 있습니다. GCP를 사용하시면 언제나 [콘솔](https://console.cloud.google.com/kubernetes/list)을 통해 클러스터를 쉽고 간단하게 진행할 수 있습니다.
 
-다음 k8s yaml을 사용자 지정 하실 수 있지만, 이는 GCP에서 로드 밸런싱\(load balancing\) 및 SSL을 통해 로컬을 구성하는 기본 토대의 역할을 하여야 합니다. 아래의 yaml은 여러분께서 **wandb-local-static-ip**라는 정적\(static\) IP 주소를 생성했다고 가정합니다. 다음을 통해 이를 수행 하실 수 있습니다:
+다음 k8s yaml을 사용자 지정하실 수 있지만, 이는 GCP에서 로드 밸런싱\(load balancing\) 및 SSL을 통해 로컬을 구성하는 기본 토대의 역할을 하여야 합니다. 아래의 yaml은 여러분께서 wandb-local-static-ip라는 정적\(static\) IP 주소를 생성했다고 가정합니다. 다음을 통해 이를 수행하실 수 있습니다:
 
 ```text
 gcloud compute addresses create wandb-local-static-ip --global
@@ -234,7 +234,7 @@ spec:
 
 ## **온프렘 Kubernetes**
 
-Azure Kubernetes 서비스 섹션에서 위의 k8s YAML은 대부분의 온프레미스\(on-premise\) 설치에서 작동해야합니다.
+Azure Kubernetes 서비스 섹션에서 위의 k8s YAML은 대부분의 온프레미스\(on-premise\) 설치에서 작동해야 합니다.
 
 ##  **온프렘 도커\(Doker\)**
 

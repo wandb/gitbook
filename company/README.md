@@ -12,7 +12,7 @@ Wandb는 머신 러닝을 위한 실험 추적 툴입니다. 저희는 머신 �
 
 Wandb로 훈련코드를 계측하면, 저희 백그라운드 프로세스는 모델을 훈련할 때 발생하는 유용한 데이터를 수집합니다. 예를 들면, 저희는 모델 퍼포먼스 메트릭, 초매개변수, 경사\(gradients\), 시스템 메트릭, 출력 파일 및 가장 최근의 git 커밋\(commit\) 파일을 추적할 수 있습니다.
 
-{% page-ref page="../ref/export-api/examples.md" %}
+[Weights & Biases](https://docs.wandb.ai/)
 
 ###  **설정하는 것은 어렵나요?**
 
@@ -30,23 +30,23 @@ Wandb로 훈련코드를 계측하면, 저희 백그라운드 프로세스는 �
 
 ### 2.  **다양한 훈련 실행 구성 및 비교**
 
-머신 러닝 모델을 훈련하는 대부분의 사용자들은 수 많은 버전의 모델을 시도하고 있으며, 저희는 사용자들이 체계적인 상태를 유지할 수 있도록 돕는 것을 목표로 하고 있습니다.
+머신 러닝 모델을 훈련하는 대부분의 사용자들은 수많은 버전의 모델을 시도하고 있으며, 저희는 사용자들이 체계적인 상태를 유지할 수 있도록 돕는 것을 목표로 하고 있습니다.
 
-여러분들께서는 프로젝트를 생성하여 모든 실행을 단일 장소에 보관하실 수 있습니다. 또한 수 많은 실행에서 퍼포먼스 메트릭을 시각화 할 수 있으며, 원하시는 대로 필터링, 그룹화 및 태그할 수 있습니다.
+여러분들께서는 프로젝트를 생성하여 모든 실행을 단일 장소에 보관하실 수 있습니다. 또한 수많은 실행에서 퍼포먼스 메트릭을 시각화 할 수 있으며, 원하시는 대로 필터링, 그룹화 및 태그할 수 있습니다.
 
- Stacey’ [estuary 프로젝트](https://app.wandb.ai/stacey/estuary)는 좋은 예시 중 하나입니다. 여러분은 사이드 바에서 실행 켜기/끄기를 하여 그래프에 표시하거나, 하나의 실행을 클릭하여 좀 더 자세히 살펴 보실 수 있습니다. 모든 실행은 사용자들을 위해 통합된 작업 공간에 저장 및 정리됩니다.
+ Stacey의 [estuary 프로젝트](https://app.wandb.ai/stacey/estuary)는 좋은 예시 중 하나입니다. 여러분은 사이드 바에서 실행 켜기/끄기를 하여 그래프에 표시하거나, 하나의 실행을 클릭하여 좀 더 자세히 살펴보실 수 있습니다. 모든 실행은 사용자들을 위해 통합된 작업 공간에 저장 및 정리됩니다.
 
 ![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%282%29.png)
 
 ### 3.  **결과 공유**
 
-많은 실행을 일단 수행하고 나면, 어떠한 결과를 표시하도록 정리하는 것이 좋습니다. 이번에 Latent Space에서 근무하는 저희 친구들이 W&B 리포트를 사용하여 팀 생산성을 향상 시키는 방법에 대해 서술한 [ML Best Practices: Test Driven Development](https://www.wandb.com/articles/ml-best-practices-test-driven-development)라는 괜찮은 보고서를 작성했습니다.
+많은 실행을 일단 수행하고 나면, 어떠한 결과를 표시하도록 정리하는 것이 좋습니다. 이번에 Latent Space에서 근무하는 저희 친구들이 W&B 리포트를 사용하여 팀 생산성을 향상시키는 방법에 대해 서술한 [ML Best Practices: Test Driven Development](https://www.wandb.com/articles/ml-best-practices-test-driven-development)라는 괜찮은 보고서를 작성했습니다.
 
- Boris Dayma라는 사용자는 [Semantic Segmentation\(의미 분할\)](https://app.wandb.ai/borisd13/semantic-segmentation/reports?view=borisd13%2FSemantic%20Segmentation%20Report)에 관한 공개 예시 리포트를 작성했습니다. Boris는 보고서에서 그가 시도한 다양한 접근법과 그 방법이 얼마나 효과가 있는지에 대해 자세히 설명하고 있습니다
+ Boris Dayma라는 사용자는 [Semantic Segmentation\(의미 분할\)](https://app.wandb.ai/borisd13/semantic-segmentation/reports?view=borisd13%2FSemantic%20Segmentation%20Report)에 관한 공개 예시 리포트를 작성했습니다. Boris는 보고서에서 그가 시도한 다양한 접근법과 그 방법이 얼마나 효과가 있는지에 대해 자세히 설명하고 있습니다.
 
 저희는 wandb가 ML 팀이 보다 생산적으로 공동작업을 할 수 있도록 도움이 되길 바랍니다.
 
-여러 팀이 어떻게 wandb 활용하는지에 대해 자세히 알고 싶으시다면, [OpenAI](https://www.wandb.com/articles/why-experiment-tracking-is-crucial-to-openai)와 [Toyota Research](https://www.youtube.com/watch?v=CaQCw-DKiO8)에서한 기술 사용자와의 녹화 인터뷰를 살펴보시기 바랍니다.  
+ 여러 팀이 어떻게 wandb 활용하는지에 대해 자세히 알고 싶으시다면, [OpenAI](https://www.wandb.com/articles/why-experiment-tracking-is-crucial-to-openai)와 [Toyota Research](https://www.youtube.com/watch?v=CaQCw-DKiO8)에서 진행한 기술 사용자와의 녹화 인터뷰를 살펴보시기 바랍니다.  
 
 
 ## **팀**
