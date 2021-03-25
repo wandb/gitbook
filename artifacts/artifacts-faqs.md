@@ -30,17 +30,28 @@ artifact.aliases = ['replaced']
 artifact.save()
 ```
 
+## How do I log an artifact to an existing run?
+
+Occasionally, you may want to mark an artifact as the output of a previously logged run. In that scenario, you can reinitialize the old run and log new artifacts to it as follows:
+
+```python
+with wandb.init(id="existing_run_id", resume="allow") as run:
+    artifact = wandb.Artifact("artifact_name", "artifact_type")
+    artifact.add_file("my_data/file.txt")
+    run.log_artifact(artifact)
+```
+
 ## How do I log an artifact without launching a run?
 
 You can use the handy `wandb artifact put` command to log artifacts without needing to write a script to handle the upload:
 
-```text
+```bash
 $ wandb artifact put -n project/artifact -t dataset mnist/
 ```
 
 Similarly, you can then download artifacts to a directory with this command:
 
-```text
+```bash
 $ wandb artifact get project/artifact:alias --root mnist/
 ```
 
@@ -48,13 +59,13 @@ $ wandb artifact get project/artifact:alias --root mnist/
 
 You can use the handy `wandb artifact get` command to download artifacts:
 
-```text
+```bash
 $ wandb artifact get project/artifact:alias --root mnist/
 ```
 
 Alternatively, you could write a script that uses the public API:
 
-```text
+```python
 api = wandb.Api()
 
 artifact = api.artifact('data:v0')
