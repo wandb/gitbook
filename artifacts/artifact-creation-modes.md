@@ -1,3 +1,9 @@
+---
+description: >-
+  Create a new artifact version using a single run, collaboratively using
+  distributed writers, or as a patch against a prior version.
+---
+
 # Artifact Creation Modes
 
 New versions of an Artifact can be created in one of three ways:
