@@ -109,6 +109,7 @@
   * [Artifacts Walkthrough](artifacts/api.md)
   * [Dataset Versioning](artifacts/dataset-versioning.md)
   * [Model Versioning](artifacts/model-versioning.md)
+  * [Artifact Creation Modes](artifacts/artifact-creation-modes.md)
   * [Artifacts FAQs](artifacts/artifacts-faqs.md)
   * [Artifacts Examples](artifacts/examples.md)
 * [Sweeps](sweeps/README.md)
