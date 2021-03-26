@@ -4,7 +4,7 @@
 
 Use the Public API to export or update data that you have saved to W&B.
 
-Before using this API, you'll want to log data from your script — check the [Quickstart](https://github.com/ariG23498/Aritra-Documentation/tree/2e5d9ed059a09db9833a6e62b80135edccf67d05/library/quickstart.md) for more details.
+Before using this API, you'll want to log data from your script — check the [Quickstart](../../quickstart.md) for more details.
 
 **Use Cases for the Public API**
 
