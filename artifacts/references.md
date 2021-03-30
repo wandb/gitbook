@@ -10,9 +10,9 @@ In this guide, we will explore how to construct reference artifacts and how to b
 
 ## S3 / GCS References
 
-A cloud storage bucket is by far the most common home for datasets or model repositories. Odds are good that your organization already has an existing structure in place for loading data into and pulling data out of cloud storage buckets. With references, you will be able to seamlessly layer tracking on top of your buckets with no modifications to your existing storage layout.
+Many organizations using Artifacts for dataset and model versioning are tracking references in cloud storage buckets. With artifact references, seamlessly layer tracking on top of your buckets with no modifications to your existing storage layout.
 
-W&B Artifacts abstracts away the underlying cloud storage vendor \(be it AWS or GCP\), so everything in this section applies uniformly to both Google Cloud Storage and Amazon S3.
+Artifacts abstracts away the underlying cloud storage vendor \(be it AWS or GCP\), so everything in this section applies uniformly to both Google Cloud Storage and Amazon S3.
 
 {% hint style="info" %}
 W&B Artifacts can support any S3 compatible interface — including MinIO! All the scripts below will work as is once you set the `AWS_S3_ENDPOINT_URL` environment variable to point at your MinIO server.
@@ -43,7 +43,7 @@ run.log_artifact(artifact)
 By default, W&B imposes a 10,000 object limit when adding an object prefix. You can adjust this limit by specifying `max_objects=` in calls to `add_reference`.
 {% endhint %}
 
-Our new reference artifact `mnist:latest` looks and acts just like a regular artifact. The only difference is that the artifact only consists of metadata about the S3 / GCS object such as its ETag, size, and version ID \(if object versioning is enabled on the bucket\).
+Our new reference artifact `mnist:latest` looks and acts just like a regular artifact. The only difference is that the artifact only consists of metadata about the S3/GCS object such as its ETag, size, and version ID \(if object versioning is enabled on the bucket\).
 
 When adding references to S3 or GCS buckets, W&B will attempt to use the corresponding credential files or environment variables \(preferring the latter\) associated with the cloud provider, as outlined by the table below:
 
