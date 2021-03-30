@@ -83,7 +83,7 @@ When logging artifacts, the files are uploaded to Google Cloud bucket managed by
 
 When you delete a version of an artifact, all the files that can be safely deleted \(meaning the files are not used in previous or subsequent versions\) are _immediately_ removed from our bucket. Similarly, when you delete an entire artifact _all_ of its contents are removed from our bucket.
 
-For sensitive datasets that cannot reside in a multi-tenant environment, you can use either a private W&B server connected to your cloud bucket or **reference artifacts**. Reference artifacts maintain links to files on your buckets or servers, meaning that W&B only keeps track of the metadata associated with the files and not the files themselves.
+For sensitive datasets that cannot reside in a multi-tenant environment, you can use either a private W&B server connected to your cloud bucket or [**reference artifacts**](references.md). Reference artifacts maintain links to files on your buckets or servers, meaning that W&B only keeps track of the metadata associated with the files and not the files themselves.
 
 ![](../.gitbook/assets/image%20%284%29.png)
 
