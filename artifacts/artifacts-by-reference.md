@@ -21,8 +21,20 @@ If you're not already training on data from GCP storage:
 
 Version data from a remote file system in your project via external [reference](https://wandb.ai/stacey/cshanty/artifacts/raw_data/sample_songs/1e69acd4ac6b3c35f24f/files). The change from [logging a regular W&B Artifact](https://docs.wandb.ai/artifacts) is minimal: instead of adding a local path with `artifact.add_artifact([your local file path])`, add a remote path \(generally a URI\) with `artifact.add_reference([your remote path])`
 
-```text
-import wandbrun = wandb.init(project=﻿"songs"﻿, job_type=﻿"upload"﻿)# path to my remote data directory in Google Cloud Storagebucket = "gs://wandb-artifact-refs-public-test/whalesong"# create a regular artifactdataset_at = wandb.Artifact(﻿'sample_songs'﻿,﻿type﻿=﻿"raw_data"﻿)# creates a checksum for each file and adds a reference to the bucket# instead of uploading all of the contentsdataset_at.add_reference(bucket)run.log_artifact(dataset_at)
+```python
+import wandb
+run = wandb.init(project=﻿"songs"﻿, job_type=﻿"upload"﻿)
+
+# path to my remote data directory in Google Cloud Storage
+bucket = "gs://wandb-artifact-refs-public-test/whalesong"
+
+# create a regular artifact
+dataset_at = wandb.Artifact(﻿'sample_songs'﻿,﻿type﻿=﻿"raw_data"﻿)
+
+# creates a checksum for each file and adds a reference to the bucket
+# instead of uploading all of the contents
+dataset_at.add_reference(bucket)
+run.log_artifact(dataset_at)
 ```
 
 List of file paths and sizes in this reference bucket. Note that these are merely references to the contents, not actual files stored in W&B, so they are not available for download from this view
@@ -84,12 +96,52 @@ There are several ways to upload and version any files produced during model tra
 
 Sample code for rendering the synthetic songs, assuming they've been uploaded to and stored in the remote bucket \(whether manually or programmatically\):
 
-```text
-import osimport wandbfrom google.cloud import storage﻿
-run = wandb.init(project=﻿"songs"﻿, job_type=﻿"log_synth"﻿)# full path to the specific folder of synthetic songs# (note the "gs://" prefix for Google Storage)synth_songs_bucket = "gs://wandb-artifact-refs-public-test/whalesong/synth"# root of the remote bucket (note, no "gs://" prefix)bucket_root = "wandb-artifact-refs-public-test"dataset_at = wandb.Artifact(﻿'synth_songs'﻿,﻿type﻿=﻿"generated_data"﻿)﻿
-# track all the files in the specific folder of synthetic songsdataset_at.add_reference(synth_songs_bucket)﻿
-# iterate over locations in GCP from the root of the bucketbucket_iter = storage.Client(﻿)﻿.get_bucket(bucket_root)song_data = [﻿]# focus on the synth songs folderfor synth_song in bucket_iter.list_blobs(prefix=﻿"whalesong/synth"﻿)﻿:  # filter out any non-audio files  if not synth_song.name.endswith(﻿".wav"﻿)﻿:    continue    # add a reference path for each song  # song filenames have the form [string id]_[instrument].wav  song_name = synth_song.name.split(﻿"/"﻿)﻿[﻿-﻿1﻿]  song_path = os.path.join(synth_songs_bucket, song_name)  # create a wandb.Audio object to show the audio file  audio = wandb.Audio(song_path, sample_rate=﻿32﻿)  # extract instrument from the filename  orig_song_id, instrument = song_name.split(﻿"_"﻿)  song_data.append(﻿[orig_song_id, song_name, audio, instrument.split(﻿"."﻿)﻿[﻿0﻿]﻿]﻿)﻿
-# create a table to hold audio samples and metadata in columnstable = wandb.Table(data=song_data,                    columns=﻿[﻿"song_id"﻿, "song_name"﻿, "audio"﻿, "instrument"﻿]﻿)# log the table via a new artifactsongs_at = wandb.Artifact(﻿"synth_samples"﻿, type﻿=﻿"synth_ddsp"﻿)songs_at.add(table, "synth_song_samples"﻿)run.log_artifact(songs_at)
+```python
+import os
+import wandb
+from google.cloud import storage﻿
+
+run = wandb.init(project=﻿"songs"﻿, job_type=﻿"log_synth"﻿)
+
+# full path to the specific folder of synthetic songs
+# (note the "gs://" prefix for Google Storage)
+synth_songs_bucket = "gs://wandb-artifact-refs-public-test/whalesong/synth"
+
+# root of the remote bucket (note, no "gs://" prefix)
+bucket_root = "wandb-artifact-refs-public-test"
+dataset_at = wandb.Artifact(﻿'synth_songs'﻿,﻿type﻿=﻿"generated_data"﻿)﻿
+
+# track all the files in the specific folder of synthetic songs
+dataset_at.add_reference(synth_songs_bucket)﻿
+
+# iterate over locations in GCP from the root of the bucket
+bucket_iter = storage.Client(﻿)﻿.get_bucket(bucket_root)song_data = [﻿]
+
+# focus on the synth songs folder
+for synth_song in bucket_iter.list_blobs(prefix=﻿"whalesong/synth"﻿)﻿:
+    # filter out any non-audio files
+    if not synth_song.name.endswith(﻿".wav"﻿)﻿:
+        continue
+        
+    # add a reference path for each song
+    # song filenames have the form [string id]_[instrument].wav
+    song_name = synth_song.name.split(﻿"/"﻿)﻿[﻿-﻿1﻿]
+    song_path = os.path.join(synth_songs_bucket, song_name)
+    
+    # create a wandb.Audio object to show the audio file
+    audio = wandb.Audio(song_path, sample_rate=﻿32﻿)
+    
+    # extract instrument from the filename
+    orig_song_id, instrument = song_name.split(﻿"_"﻿)
+    song_data.append(﻿[orig_song_id, song_name, audio, instrument.split(﻿"."﻿)﻿[﻿0﻿]﻿]﻿)﻿
+
+# create a table to hold audio samples and metadata in columns
+table = wandb.Table(data=song_data, columns=﻿[﻿"song_id"﻿, "song_name"﻿, "audio"﻿, "instrument"﻿]﻿)
+
+# log the table via a new artifact
+songs_at = wandb.Artifact(﻿"synth_samples"﻿, type﻿=﻿"synth_ddsp"﻿)
+songs_at.add(table, "synth_song_samples"﻿)
+run.log_artifact(songs_at)
 ```
 
 #### Analyze remote media dynamically <a id="analyze-remote-media-dynamically"></a>
