@@ -6,6 +6,8 @@ description: 'Track artifacts saved outside of W&B, for example in a GCP or S3 b
 
 Use Artifacts for dataset versioning and model lineage, and use **reference artifacts** to track files saved outside the W&B system, for example in an S3 bucket, GCS bucket, HTTP file server, or even an NFS share. In this mode an artifact only stores metadata about the files, such as their URLs, sizes, and checksums, while the underlying data never leaves your system. If you'd prefer to save files and directories to W&B servers instead, see the [Walkthrough](api.md).
 
+For an example of tracking reference files in GCP, with code and screenshots, follow our [Guide to Tracking Artifacts by Reference](https://wandb.ai/stacey/artifacts/reports/Tracking-Artifacts-by-Reference--Vmlldzo1NDMwOTE).
+
 In this guide, we will explore how to construct reference artifacts and how to best incorporate them into your workflows. Let's dive into it!
 
 ## S3 / GCS References
