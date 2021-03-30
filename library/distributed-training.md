@@ -1,3 +1,7 @@
+---
+description: How to use W&B with multiprocessing
+---
+
 # Distributed Training
 
 In distributed training, models are trained using multiple GPUs in parallel, for example with PyTorch DDP. To track distributed training using Weights & Biases, here are two patterns we support:
@@ -42,4 +46,63 @@ If you set grouping in `wandb.init()` , we will group runs by default in the UI.
 From the project page above, you can click a **Group** in the left sidebar to get to a dedicated page like [this one](https://wandb.ai/carey/group-demo/groups/exp_5?workspace=user-carey):
 
 ![](../.gitbook/assets/image%20%2851%29.png)
+
+## Example of distributed training
+
+## Example of distributed training with W&B
+
+Sometimes a single GPU is insufficient for training large deep learning models on huge amounts of data, so we use distributed training on multiple GPUS in parallel. PyTorch DDP \(`torch.nn.DistributedDataParallel`\) is a popular library for distributed training. In this walkthrough we'll show how to track metrics with Weights & Biases using PyTorch DDP for training on multiple parallel GPUs.
+
+### Method 1: `wandb.init` on `rank0` process
+
+In multi-GPU training, the `rank0` process is the main process and coordinates the other processes. Often, it's useful to just track this single process as a W&B run, using `wandb.init()` in just the `rank0` process and only calling `wandb.log()` there, not in any sub-processes.
+
+In this example, we launch multiple processes with `torch.distributed.launch`. With this module, we can intercept the rank of the process with `--local_rank` argument. Now that we have the local-rank of the process we can set up conditional tracking in the `train()` function.
+
+```text
+if __name__ == "__main__":
+    # get args
+    args = parse_args()
+
+    if args.local_rank == 0:
+        # Initialize wandb run
+        run = wandb.init(
+            entity=args.entity,
+            project=args.project,
+        )
+        # Train model with DDP
+        train(args, run)
+    else:
+        train(args)
+```
+
+In the [W&B dashboard](https://wandb.ai/ayush-thakur/DDP/runs/1s56u3hc) you can see that both GPUs were tracked in this single run.
+
+![](../.gitbook/assets/image%20%2869%29.png)
+
+![](../.gitbook/assets/image%20%2864%29.png)
+
+### Method 2: `wandb.init` on all processes
+
+In this process, we track each process in the job, calling `wandb.init()` and `wandb.log()` from each individual process. It's also useful to call `wandb.finish()` at the end of training, to mark that the run has completed so all processes exit properly.
+
+To organize each sub-process job into a larger group, set the `group` parameter in `wandb.init()`. This is useful because we can track every metric, including system utilization, for each process individually. These results will be grouped together on the **group page** in the W&B UI to keep things organized.
+
+```text
+if __name__ == "__main__":
+    # get args
+    args = parse_args()
+    # Initialize run
+    run = wandb.init(
+        entity=args.entity,
+        project=args.project,
+        group = "DDP",
+    )
+    # Train model with DDP
+    train(args, run)
+```
+
+In the [W&B UI](https://wandb.ai/ayush-thakur/DDP), you can see the two runs are grouped together in the sidebar. You can click on this group to get to the dedicated group page for your experiment.
+
+![](../.gitbook/assets/image%20%2863%29.png)
 
