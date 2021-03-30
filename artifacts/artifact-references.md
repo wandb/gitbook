@@ -1,0 +1,192 @@
+---
+description: 'Track artifacts saved outside of W&B, for example in a GCP or S3 bucket'
+---
+
+# Artifact References
+
+While W&B Artifacts make it easy to both track and store your datasets and models, regulatory demands or organizational policy might steer you away from storing the data directly in W&B. In these scenarios, you can still benefit from the tracking features of W&B Artifacts by creating artifacts with references to your own storage — be that an S3 or GCS bucket, an HTTP file server, or even an NFS share. In this mode an artifact only stores metadata about the files, such as their URLs, sizes, and checksums, while the underlying data never leaves your systems.
+
+In this guide, we will explore how to construct reference artifacts and how to best incorporate them into your workflows. Let's dive into it!
+
+### S3 / GCS References
+
+A cloud storage bucket is by far the most common home for datasets or model repositories. Odds are good that your organization already has an existing structure in place for loading data into and pulling data out of cloud storage buckets. With references, you will be able to seamlessly layer tracking on top of your buckets with no modifications to your existing storage layout.
+
+W&B Artifacts abstracts away the underlying cloud storage vendor \(be it AWS or GCP\), so everything in this section applies uniformly to both Google Cloud Storage and Amazon S3.
+
+W&B Artifacts can support any S3 compatible interface — including MinIO! All the scripts below will work as is once you set the `AWS_S3_ENDPOINT_URL` environment variable to point at your MinIO server.
+
+Assume we have a bucket with the following structure:
+
+```text
+s3://my-bucket
++-- datasets/
+|		+-- mnist/
++-- models/
+		+-- cnn/
+```
+
+Under `mnist/` we have our dataset, a collection of images. Let's track it with an artifact:
+
+```text
+import wandb
+
+run = wandb.init()
+artifact = wandb.Artifact('mnist', type='dataset')
+artifact.add_reference('s3://my-bucket/datasets/mnist')
+run.log_artifact(artifact)
+```
+
+By default, W&B imposes a 10,000 object limit when adding an object prefix. You can adjust this limit by specifying `max_objects=` in calls to `add_reference`.
+
+Our new reference artifact `mnist:latest` looks and acts just like a regular artifact. The only difference is that the artifact only consists of metadata about the S3 / GCS object such as its ETag, size, and version ID \(if object versioning is enabled on the bucket\).
+
+When adding references to S3 or GCS buckets, W&B will attempt to use the corresponding credential files or environment variables \(preferring the latter\) associated with the cloud provider, as outlined by the table below:
+
+[Untitled](https://www.notion.so/344976e3461b472284d76dd94671e650)
+
+You can interact with this artifact just as you would a normal artifact. In the UI, you can browse the contents of the reference artifact using the file browser, explore the full dependency graph, and scan through the versioned history of your artifact.
+
+Rich media such as images, audio, video, and point clouds may fail to render in the UI depending on the CORS configuration of your bucket. Whitelisting `[app.wandb.ai](<http://app.wandb.ai>)` in your bucket's CORS settings will allow the UI to properly render such rich media.
+
+Panels might also fail to render in the UI for private buckets. If your company has a VPN, you could update your bucket's access policy to whitelist IPs within your VPN.
+
+Downloading a reference artifact is simple:
+
+```text
+import wandb
+
+run = wandb.init()
+artifact = run.use_artifact('mnist:latest', type='dataset')
+artifact_dir = artifact.download()
+```
+
+When downloading a reference artifact, W&B will use the metadata recorded when the artifact was logged to retrieve the files from the underlying bucket. If your bucket has object versioning enabled, then W&B will retrieve the object version corresponding to the state of the file at the time an artifact was logged. This means that as you evolve the contents of your bucket, you can still pinpoint exactly which iteration of your data a given model was trained on since the artifact serves as a snapshot of your bucket at the time of training.
+
+W&B recommends that you enable 'Object Versioning' on your S3 or GCS buckets if you overwrite files as part of your workflow. With versioning enabled on your buckets, artifacts with references to files that have been overwritten will still be intact because the older object versions are retained.
+
+Putting everything together, here's a simple workflow you can use to track a dataset in S3 or GCS that feeds into a training job:
+
+```text
+ import wandb
+
+run = wandb.init()
+
+artifact = wandb.Artifact('mnist', type='dataset')
+artifact.add_reference('s3://my-bucket/datasets/mnist')
+
+# Track the artifact and mark it as an input to
+# this run in one swoop. A new artifact version
+# is only logged if the files in the bucket changed.
+run.use_artifact(artifact)
+
+artifact_dir = artifact.download()
+
+# Perform training here...
+```
+
+To track models, we can log the model artifact after the training script uploads the model files to the bucket:
+
+```text
+import boto3
+import wandb
+
+run = wandb.init()
+
+# Training here... 
+
+s3_client = boto3.client('s3')
+s3_client.upload_file('my_model.h5', 'my-bucket', 'models/cnn/my_model.h5')
+
+model_artifact = wandb.Artifact('cnn', type='model')
+model_artifact.add_reference('s3://my-bucket/models/cnn/')
+run.log_artifact(model_artifact)
+```
+
+For an in-depth walkthrough of constructing reference artifacts and exploring them in the UI, please check out [https://docs.wandb.ai/artifacts/artifacts-by-reference](https://docs.wandb.ai/artifacts/artifacts-by-reference).
+
+### Filesystem References
+
+Another common pattern for fast access to datasets is to expose an NFS mount point to a remote filesystem on all machines running training jobs. This can be an even simpler solution than a cloud storage buckets because from the perspective of the training script, the files look just like files sitting on your local filesystem. Luckily, that ease of use extends into using W&B Artifacts to track references to filesystems — mounted or otherwise.
+
+Assume we have a filesystem mounted at `/mount` with the following structure:
+
+```text
+mount
++-- datasets/
+|		+-- mnist/
++-- models/
+		+-- cnn/
+```
+
+Under `mnist/` we have our dataset, a collection of images. Let's track it with an artifact:
+
+```text
+import wandb
+
+run = wandb.init()
+artifact = wandb.Artifact('mnist', type='dataset')
+artifact.add_reference('file:///mount/datasets/mnist/')
+run.log_artifact(artifact)
+```
+
+By default, W&B imposes a 10,000 file limit when adding a reference to a directory. You can adjust this limit by specifying `max_objects=` in calls to `add_reference`.
+
+Note the triple slash in the URL. The first component is the `file://` prefix that denotes the use of filesystem references. The second is the path to our dataset, `/mount/datasets/mnist/`.
+
+The resulting artifact `mnist:latest` looks and acts just like a regular artifact. The only difference is that the artifact only consists of metadata about the files, such as their sizes and MD5 checksums. The files themselves never leave your system.
+
+You can interact with this artifact just as you would a normal artifact. In the UI, you can browse the contents of the reference artifact using the file browser, explore the full dependency graph, and scan through the versioned history of your artifact. However, the UI will not be able to render rich media such as images, audio, etc. as the data itself is not contained within the artifact.
+
+Downloading a reference artifact is simple:
+
+```text
+import wandb
+
+run = wandb.init()
+artifact = run.use_artifact('mnist:latest', type='dataset')
+artifact_dir = artifact.download()
+```
+
+For filesystem references, a `download()` operation copies the files from the referenced paths to construct the artifact directory. In the above example, the contents of `/mount/datasets/mnist` will be copied into the directory `artifacts/mnist:v0/`. If an artifact contains a reference to a fail that was overwritten, then `download()` will throw an error as the artifact can no longer be reconstructed.
+
+Putting everything together, here's a simple workflow you can use to track a dataset under a mounted filesystem that feeds into a training job:
+
+```text
+import wandb
+
+run = wandb.init()
+
+artifact = wandb.Artifact('mnist', type='dataset')
+artifact.add_reference('file:///mount/datasets/mnist/')
+
+# Track the artifact and mark it as an input to
+# this run in one swoop. A new artifact version
+# is only logged if the files under the directory
+# changed.
+run.use_artifact(artifact)
+
+artifact_dir = artifact.download()
+
+# Perform training here...
+```
+
+To track models, we can log the model artifact after the training script writes the model files to the mount point:
+
+```text
+import wandb
+
+run = wandb.init()
+
+# Training here...
+
+with open('/mount/cnn/my_model.h5') as f:
+	# Output our model file.
+
+model_artifact = wandb.Artifact('cnn', type='model')
+model_artifact.add_reference('file:///mount/cnn/my_model.h5')
+run.log_artifact(model_artifact)
+```
+
+
+

@@ -110,7 +110,7 @@
   * [Dataset Versioning](artifacts/dataset-versioning.md)
   * [Model Versioning](artifacts/model-versioning.md)
   * [Artifact Creation Modes](artifacts/artifact-creation-modes.md)
-  * [Artifacts by Reference](artifacts/artifacts-by-reference.md)
+  * [Artifact References](artifacts/artifact-references.md)
   * [Artifacts FAQs](artifacts/artifacts-faqs.md)
   * [Artifacts Examples](artifacts/examples.md)
 * [Sweeps](sweeps/README.md)
