@@ -47,8 +47,6 @@ From the project page above, you can click a **Group** in the left sidebar to ge
 
 ![](../.gitbook/assets/image%20%2851%29.png)
 
-## Example of distributed training
-
 ## Example of distributed training with W&B
 
 Sometimes a single GPU is insufficient for training large deep learning models on huge amounts of data, so we use distributed training on multiple GPUS in parallel. PyTorch DDP \(`torch.nn.DistributedDataParallel`\) is a popular library for distributed training. In this walkthrough we'll show how to track metrics with Weights & Biases using PyTorch DDP for training on multiple parallel GPUs.
