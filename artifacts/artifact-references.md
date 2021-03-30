@@ -14,7 +14,9 @@ A cloud storage bucket is by far the most common home for datasets or model repo
 
 W&B Artifacts abstracts away the underlying cloud storage vendor \(be it AWS or GCP\), so everything in this section applies uniformly to both Google Cloud Storage and Amazon S3.
 
+{% hint style="info" %}
 W&B Artifacts can support any S3 compatible interface — including MinIO! All the scripts below will work as is once you set the `AWS_S3_ENDPOINT_URL` environment variable to point at your MinIO server.
+{% endhint %}
 
 Assume we have a bucket with the following structure:
 
@@ -28,7 +30,7 @@ s3://my-bucket
 
 Under `mnist/` we have our dataset, a collection of images. Let's track it with an artifact:
 
-```text
+```python
 import wandb
 
 run = wandb.init()
@@ -37,7 +39,9 @@ artifact.add_reference('s3://my-bucket/datasets/mnist')
 run.log_artifact(artifact)
 ```
 
+{% hint style="warning" %}
 By default, W&B imposes a 10,000 object limit when adding an object prefix. You can adjust this limit by specifying `max_objects=` in calls to `add_reference`.
+{% endhint %}
 
 Our new reference artifact `mnist:latest` looks and acts just like a regular artifact. The only difference is that the artifact only consists of metadata about the S3 / GCS object such as its ETag, size, and version ID \(if object versioning is enabled on the bucket\).
 
@@ -76,13 +80,15 @@ When adding references to S3 or GCS buckets, W&B will attempt to use the corresp
 
 You can interact with this artifact just as you would a normal artifact. In the UI, you can browse the contents of the reference artifact using the file browser, explore the full dependency graph, and scan through the versioned history of your artifact.
 
-Rich media such as images, audio, video, and point clouds may fail to render in the UI depending on the CORS configuration of your bucket. Whitelisting `[app.wandb.ai](<http://app.wandb.ai>)` in your bucket's CORS settings will allow the UI to properly render such rich media.
+{% hint style="warning" %}
+Rich media such as images, audio, video, and point clouds may fail to render in the UI depending on the CORS configuration of your bucket. Whitelisting **app.wandb.ai** in your bucket's CORS settings will allow the UI to properly render such rich media.
 
 Panels might also fail to render in the UI for private buckets. If your company has a VPN, you could update your bucket's access policy to whitelist IPs within your VPN.
+{% endhint %}
 
 Downloading a reference artifact is simple:
 
-```text
+```python
 import wandb
 
 run = wandb.init()
@@ -92,11 +98,13 @@ artifact_dir = artifact.download()
 
 When downloading a reference artifact, W&B will use the metadata recorded when the artifact was logged to retrieve the files from the underlying bucket. If your bucket has object versioning enabled, then W&B will retrieve the object version corresponding to the state of the file at the time an artifact was logged. This means that as you evolve the contents of your bucket, you can still pinpoint exactly which iteration of your data a given model was trained on since the artifact serves as a snapshot of your bucket at the time of training.
 
+{% hint style="info" %}
 W&B recommends that you enable 'Object Versioning' on your S3 or GCS buckets if you overwrite files as part of your workflow. With versioning enabled on your buckets, artifacts with references to files that have been overwritten will still be intact because the older object versions are retained.
+{% endhint %}
 
 Putting everything together, here's a simple workflow you can use to track a dataset in S3 or GCS that feeds into a training job:
 
-```text
+```python
  import wandb
 
 run = wandb.init()
@@ -116,7 +124,7 @@ artifact_dir = artifact.download()
 
 To track models, we can log the model artifact after the training script uploads the model files to the bucket:
 
-```text
+```python
 import boto3
 import wandb
 
@@ -150,7 +158,7 @@ mount
 
 Under `mnist/` we have our dataset, a collection of images. Let's track it with an artifact:
 
-```text
+```python
 import wandb
 
 run = wandb.init()
@@ -169,7 +177,7 @@ You can interact with this artifact just as you would a normal artifact. In the 
 
 Downloading a reference artifact is simple:
 
-```text
+```python
 import wandb
 
 run = wandb.init()
@@ -181,7 +189,7 @@ For filesystem references, a `download()` operation copies the files from the re
 
 Putting everything together, here's a simple workflow you can use to track a dataset under a mounted filesystem that feeds into a training job:
 
-```text
+```python
 import wandb
 
 run = wandb.init()
@@ -202,7 +210,7 @@ artifact_dir = artifact.download()
 
 To track models, we can log the model artifact after the training script writes the model files to the mount point:
 
-```text
+```python
 import wandb
 
 run = wandb.init()
