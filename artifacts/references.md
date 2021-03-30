@@ -63,26 +63,33 @@ When adding references to S3 or GCS buckets, W&B will attempt to use the corresp
     <tr>
       <td style="text-align:left">1 - Environment variables</td>
       <td style="text-align:left">
-        <p>AWS_ACCESS_KEY_ID</p>
-        <p>AWS_SECRET_ACCESS_KEY</p>
-        <p>AWS_SESSION_TOKEN</p>
+        <p><code>AWS_ACCESS_KEY_ID</code> 
+        </p>
+        <p><code>AWS_SECRET_ACCESS_KEY</code> 
+        </p>
+        <p><code>AWS_SESSION_TOKEN</code>
+        </p>
       </td>
-      <td style="text-align:left">GOOGLE_APPLICATION_CREDENTIALS</td>
+      <td style="text-align:left"><code>GOOGLE_APPLICATION_CREDENTIALS</code>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">2 - Shared credentials file</td>
-      <td style="text-align:left">~/.aws/credentials</td>
-      <td style="text-align:left">application_defualt_credentials.json in ~/.config/gcloud/</td>
+      <td style="text-align:left"><code>~/.aws/credentials</code>
+      </td>
+      <td style="text-align:left"><code>application_defualt_credentials.json</code> in <code>~/.config/gcloud/</code>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left">3 - Config file</td>
-      <td style="text-align:left">~/.aws.config</td>
+      <td style="text-align:left"><code>~/.aws.config</code>
+      </td>
       <td style="text-align:left">N/A</td>
     </tr>
   </tbody>
 </table>
 
-You can interact with this artifact just as you would a normal artifact. In the UI, you can browse the contents of the reference artifact using the file browser, explore the full dependency graph, and scan through the versioned history of your artifact.
+You can interact with this artifact just as you would a normal artifact. In the UI, you can look through the contents of the reference artifact using the file browser, explore the full dependency graph, and scan through the versioned history of your artifact.
 
 {% hint style="warning" %}
 Rich media such as images, audio, video, and point clouds may fail to render in the UI depending on the CORS configuration of your bucket. Whitelisting **app.wandb.ai** in your bucket's CORS settings will allow the UI to properly render such rich media.
@@ -148,7 +155,7 @@ For an in-depth walkthrough of constructing reference artifacts and exploring th
 
 ## Filesystem References
 
-Another common pattern for fast access to datasets is to expose an NFS mount point to a remote filesystem on all machines running training jobs. This can be an even simpler solution than a cloud storage buckets because from the perspective of the training script, the files look just like files sitting on your local filesystem. Luckily, that ease of use extends into using W&B Artifacts to track references to filesystems — mounted or otherwise.
+Another common pattern for fast access to datasets is to expose an NFS mount point to a remote filesystem on all machines running training jobs. This can be an even simpler solution than a cloud storage bucket because from the perspective of the training script, the files look just like they are sitting on your local filesystem. Luckily, that ease of use extends into using Artifacts to track references to filesystems — mounted or otherwise.
 
 Assume we have a filesystem mounted at `/mount` with the following structure:
 
