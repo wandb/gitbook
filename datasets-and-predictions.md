@@ -153,13 +153,17 @@ jt = wandb.JoinedTable(table1, table2, 'id')
 artifact.add(jt, 'joined')
 ```
 
-## End-to-end example
+## Example code
 
 Dive in and try an end-to-end demo: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-cars-demo)
 
 * dataset constructions and visualization
 * model training
 * logging predictions against the dataset and visualizing them
+
+\*\*\*\*[**Visualize Audio Data**](https://wandb.ai/stacey/cshanty/reports/Visualize-Audio-Data-in-W-B--Vmlldzo1NDMxMDk)\*\*\*\*
+
+[Explore this example](https://wandb.ai/stacey/cshanty/reports/Visualize-Audio-Data-in-W-B--Vmlldzo1NDMxMDk) to learn how to log audio data in tables and visualize predictions.
 
 ## FAQ
 
