@@ -16,6 +16,7 @@
   * [Grouping](library/grouping.md)
   * [Security](library/security.md)
   * [Resuming](library/resuming.md)
+  * [Distributed Training](library/distributed-training.md)
   * [Limits](library/limits.md)
   * [Technical FAQ](library/technical-faq.md)
 * [Integrations](integrations/README.md)
