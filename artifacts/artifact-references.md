@@ -8,7 +8,7 @@ While W&B Artifacts make it easy to both track and store your datasets and model
 
 In this guide, we will explore how to construct reference artifacts and how to best incorporate them into your workflows. Let's dive into it!
 
-### S3 / GCS References
+## S3 / GCS References
 
 A cloud storage bucket is by far the most common home for datasets or model repositories. Odds are good that your organization already has an existing structure in place for loading data into and pulling data out of cloud storage buckets. With references, you will be able to seamlessly layer tracking on top of your buckets with no modifications to your existing storage layout.
 
@@ -43,7 +43,36 @@ Our new reference artifact `mnist:latest` looks and acts just like a regular art
 
 When adding references to S3 or GCS buckets, W&B will attempt to use the corresponding credential files or environment variables \(preferring the latter\) associated with the cloud provider, as outlined by the table below:
 
-[Untitled](https://www.notion.so/344976e3461b472284d76dd94671e650)
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Priority</th>
+      <th style="text-align:left">Amazon S3</th>
+      <th style="text-align:left">Google Cloud Storage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">1 - Environment variables</td>
+      <td style="text-align:left">
+        <p>AWS_ACCESS_KEY_ID</p>
+        <p>AWS_SECRET_ACCESS_KEY</p>
+        <p>AWS_SESSION_TOKEN</p>
+      </td>
+      <td style="text-align:left">GOOGLE_APPLICATION_CREDENTIALS</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">2 - Shared credentials file</td>
+      <td style="text-align:left">~/.aws/credentials</td>
+      <td style="text-align:left">application_defualt_credentials.json in ~/.config/gcloud/</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">3 - Config file</td>
+      <td style="text-align:left">~/.aws.config</td>
+      <td style="text-align:left">N/A</td>
+    </tr>
+  </tbody>
+</table>
 
 You can interact with this artifact just as you would a normal artifact. In the UI, you can browse the contents of the reference artifact using the file browser, explore the full dependency graph, and scan through the versioned history of your artifact.
 
@@ -105,7 +134,7 @@ run.log_artifact(model_artifact)
 
 For an in-depth walkthrough of constructing reference artifacts and exploring them in the UI, please check out [https://docs.wandb.ai/artifacts/artifacts-by-reference](https://docs.wandb.ai/artifacts/artifacts-by-reference).
 
-### Filesystem References
+## Filesystem References
 
 Another common pattern for fast access to datasets is to expose an NFS mount point to a remote filesystem on all machines running training jobs. This can be an even simpler solution than a cloud storage buckets because from the perspective of the training script, the files look just like files sitting on your local filesystem. Luckily, that ease of use extends into using W&B Artifacts to track references to filesystems — mounted or otherwise.
 
