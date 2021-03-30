@@ -3,7 +3,7 @@
 In distributed training, models are trained using multiple GPUs in parallel, for example with PyTorch DDP. To track distributed training using Weights & Biases, here are two patterns we support:
 
 1. **One Process**: Only call `wandb.init()` and `wandb.log()` from the rank0 process, or a dedicated process for logging. This is the most common solution for logging with PyTorch DDP. In some cases, users funnel data over from other processes using a multiprocessing queue \(or another communication primitive\) to the main logging process.
-2. \*\*\*\*[**All Processes**](distributed-training.md#how-to-track-all-processes-with-grouping): In every process, call `wandb.init()` and set the `group` parameter to the shared experiment name, like `wandb.init(group="experiment_1")`. You can also set group from the environment variable WANDB\_RUN\_GROUP. In the UI, this will automatically group individual jobs into the larger group and provide you a dedicated Group Page.
+2. **All Processes**: In every process, call `wandb.init()` and set the `group` parameter to the shared experiment name. [See details below](distributed-training.md#how-to-track-all-processes-with-grouping).
 
 ## Common issues
 
