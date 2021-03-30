@@ -9,7 +9,7 @@ In distributed training, models are trained using multiple GPUs in parallel, for
 
 ### Hanging at the beginning of training
 
-If launching the wandb process hangs, set the WANDB\_START\_METHOD environment variable to "thread" to have us not use multiprocessing.
+If launching the wandb process hangs, set the WANDB\_START\_METHOD environment variable to "thread" to have wandb not use multiprocessing.
 
 ### Hanging at the end of training
 
