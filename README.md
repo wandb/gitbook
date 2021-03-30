@@ -12,10 +12,10 @@ description: 跟踪机器学习实验，可视化指标(metric)并分享结果�
 
 **工具**
 
-1. [仪表盘](https://docs.wandb.com/app)：跟踪实验、可视化结果；
-2. \*\*\*\*[**报告**](https://docs.wandb.com/reports)：保存和分享可复制的成果/结论；
-3. [**扫描**](https://docs.wandb.com/sweeps)（Sweeps）：通过调节超参数来优化模型；
-4. [制品（Artifacts）](https://docs.wandb.com/artifacts)：数据集和模型版本化，流水线跟踪。
+1. [**仪表盘**](https://docs.wandb.com/app)：跟踪实验、可视化结果。
+2. \*\*\*\*[**报告**](https://docs.wandb.com/reports)：保存和分享可复制的成果/结论。
+3. [**扫描**](https://docs.wandb.com/sweeps)（Sweeps）：通过调节超参数来优化模型
+4. \*\*\*\*[**制品（Artifacts）**](https://docs.wandb.com/artifacts): 数据集和模型版本化，流水线跟踪。
 
 {% embed url="https://youtu.be/gnD8BFuyVUA" caption="" %}
 

@@ -2,16 +2,23 @@
 
 当你在自动化环境中运行脚本时，你可以在脚本运行前或在脚本中设置环境变量来控制 **wandb** 。
 
-```text
-# This is secret and shouldn't be checked into version controlWANDB_API_KEY=$YOUR_API_KEY# Name and notes optionalWANDB_NAME="My first run"WANDB_NOTES="Smaller learning rate, more regularization."
+```bash
+# This is secret and shouldn't be checked into version control
+WANDB_API_KEY=$YOUR_API_KEY
+# Name and notes optional
+WANDB_NAME="My first run"
+WANDB_NOTES="Smaller learning rate, more regularization."
 ```
 
-```text
-# Only needed if you don't checkin the wandb/settings fileWANDB_ENTITY=$usernameWANDB_PROJECT=$project
+```bash
+# Only needed if you don't checkin the wandb/settings file
+WANDB_ENTITY=$username
+WANDB_PROJECT=$project
 ```
 
-```text
-# If you don't want your script to sync to the cloudos.environ['WANDB_MODE'] = 'dryrun'
+```python
+# If you don't want your script to sync to the cloud
+os.environ['WANDB_MODE'] = 'dryrun'
 ```
 
 ### **可选环境变量**
@@ -188,29 +195,31 @@
 
 如果你在AWS中运行批处理作业，用你的W&B凭证来验证你的机器会非常容易。从你的[设置页面](https://app.wandb.ai/settings)获取你的API密匙，并在[AWS批处理作业规范](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html#parameters)中设置WANDB\_API\_KEY环境变量。 
 
-##  **常见问题** <a id="common-questions"></a>
+## **常见问题** <a id="common-questions"></a>
 
-###  **自动运行和服务账户** <a id="automated-runs-and-service-accounts"></a>
+### **自动运行和服务账户** <a id="automated-runs-and-service-accounts"></a>
 
-如果你有自动测试或内部工具启动运行记录到W&B,请在你的团队设置页面创建一个**服务账户。**这允许你为你的自动化作业使用服务API密匙。如果你想把服务账户的作业归属于一个特定用户，你可以使用WANDB\_USER\_NAME 或WANDB\_USER\_EMAIL 环境变量。environment variables.![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MCOHlPPZL6wnVHQJ4MO%2F-MCOJERUiOrCn4y4MjZn%2Fimage.png?alt=media&token=e4e7f94c-cddd-47ce-b678-c7ecc8ed369d)在你的团队设置页面为你的自动化作业设置一个服务账号。
+如果你有自动测试或内部工具启动运行记录到W&B,请在你的团队设置页面创建一个**服务账户。**这允许你为你的自动化作业使用服务API密匙。如果你想把服务账户的作业归属于一个特定用户，你可以使用WANDB\_USER\_NAME 或WANDB\_USER\_EMAIL 环境变量。
 
-如果你正在设置自动化单元测试的话，这对于持续集成和TravisCI或 CircleCI 等工具来说很有用。
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MCOHlPPZL6wnVHQJ4MO%2F-MCOJERUiOrCn4y4MjZn%2Fimage.png?alt=media&token=e4e7f94c-cddd-47ce-b678-c7ecc8ed369d)
+
+在你的团队设置页面为你的自动化作业设置一个服务账号。如果你正在设置自动化单元测试的话，这对于持续集成和TravisCI或 CircleCI 等工具来说很有用。
 
 ### **环境变量是否会覆盖传递给wandb.init\(\)的参数?**
 
 传递给`wandb.init`的参数优先级高于环境变量。如果你想在没有设置环境变量的情况下使用系统默认值以外的默认值，你可以调用 `wandb.init(dir=os.getenv("WANDB_DIR", my_default_override))` 。
 
-###  **关闭记录** <a id="turn-off-logging"></a>
+### **关闭记录** <a id="turn-off-logging"></a>
 
- 命令 `wandb off` 设置了一个环境变量, `WANDB_MODE=dryrun` 。这将停止任何数据从你的机器同步到远程wandb服务器。你有多个项目，它们都将停止将记录的数据同步到W&B服务器。
+命令 `wandb off` 设置了一个环境变量, `WANDB_MODE=dryrun` 。这将停止任何数据从你的机器同步到远程wandb服务器。你有多个项目，它们都将停止将记录的数据同步到W&B服务器。
 
- 要使警告消息静音：
+要使警告消息静音：
 
 ```text
 import logginglogger = logging.getLogger("wandb")logger.setLevel(logging.WARNING)
 ```
 
-###  **共享机器上有多个wandb用户** <a id="multiple-wandb-users-on-shared-machines"></a>
+### **共享机器上有多个wandb用户** <a id="multiple-wandb-users-on-shared-machines"></a>
 
 如果你使用的是一个共享机器，而另一个用户是wandb用户，确保你的运行登录到正确的账户很容易。设置[WANDB\_API\_KEY环](https://docs.wandb.ai/library/environment-variables)境变量 来验证。如果你在你的环境中source 它，当你登录时，你将有正确的凭证。 或者你也可以从你的脚本中设置环境变量。
 

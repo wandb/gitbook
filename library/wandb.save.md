@@ -57,7 +57,7 @@ model.save(os.path.join(wandb.run.dir, "model.h5"))
 
 ###  **忽略某些文件**
 
- ****你可以编辑文件`wandb/settings`并设置ignore\_globs为一个逗号分割的[通配符](https://en.wikipedia.org/wiki/Glob_%28programming%29)列表。你也可以设置环境变量**WANDB\_IGNORE\_GLOBS**。一个常见的使用情景就是防止我们自动创建的git补丁被上传，即**WANDB\_IGNORE\_GLOBS=\*.patch**
+ ****你可以编辑文件`wandb/settings`并设置ignore\_globs为一个逗号分割的[通配符](https://en.wikipedia.org/wiki/Glob_%28programming%29)列表。你也可以设置环境变量**WANDB\_IGNORE\_GLOBS**。一个常见的使用情景就是防止我们自动创建的git补丁被上传，**WANDB\_IGNORE\_GLOBS=\*.patch**
 
 ###   **运行结束前同步文件**
 
@@ -71,7 +71,7 @@ model.save(os.path.join(wandb.run.dir, "model.h5"))
 
 **获取运行项名称**
 
-如果你要在你的脚本中使用运行名称，你可以用`wandb.run.name`，得到运行名称——例如“blissful-waterfall-2”。你要先调用run对象的save，然后才能获得显示名称：
+如果你要在你的脚本中使用运行名称，你可以用`wandb.run.name`，得到运行名称——例如“blissful-waterfall-2”。你要先调用run对象的save，然后才能获得显示名称
 
 ```text
 run = wandb.init(...)
@@ -81,9 +81,9 @@ print(run.name)
 
 ### **把保存的全部文件推送至wandb**
 
-  在你的脚本开头wandb.init后面调用一次`wandb.save("*.pt")`，那么，与该模式匹配的所有文件，被写入wandb.run.dir后就会立即保存。
+ 在你的脚本开头wandb.init后面调用一次`wandb.save("*.pt")`，那么，与该模式匹配的所有文件，被写入wandb.run.dir后就会立即保存。
 
 ###  **删除已同步到云存储的本地文件**
 
-  你可以通过运行命令 wandb gc 来删除已经同步到云存储的本地文件。关于该命令的用法的更多信息，请运行\`wandb gc —help
+ 你可以通过运行命令 wandb gc 来删除已经同步到云存储的本地文件。关于该命令的用法的更多信息，请运行\`wandb gc —help
 

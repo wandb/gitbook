@@ -1,5 +1,5 @@
 ---
-description: "命令行接口登录, 还原代码状态, 将本地目录同步到我们的服务器, 并使用我们的命令行接口运行超参数扫描（hyperparameter sweeps运行 pip install wandb 命令后，你将拥有一个新命令, wandb 可以使用。可以使用以下子命令:子命令\t说明docs\t在浏览器中打开文档init\t用 W&B 配置一个目录login\t登录 W&Boffline\t只将运行"
+description: '登录, 还原代码状态, 将本地目录同步到我们的服务器, 并使用我们的命令行接口运行超参数扫描（hyperparameter sweeps)'
 ---
 
 # Command Line Interface
@@ -29,9 +29,9 @@ description: "命令行接口登录, 还原代码状态, 将本地目录同步�
 | sweep | 给一个YAML定义，创建一个新的扫描 |
 | agent | 启动一个代理以在扫描中运行程序 |
 
-## **还原你的代码状态**
+##  **还原你的代码状态**
 
-使用（还原）`restore` 来还原你的代码运行时的状态
+ 使用（还原）`restore` 来还原你的代码运行时的状态
 
 ###  **示例**
 

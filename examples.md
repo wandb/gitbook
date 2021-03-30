@@ -1,22 +1,22 @@
 ---
-description: 如何使用权重（Weights）&偏差（Biases）的一些项目示例、演练和教程。
+description: 如何使用Weights&Biases的一些项目示例、演练和教程。
 ---
 
 # Examples
 
- 探索这些示例如何使用权重（Weights）&偏差（Biases）以：
+ 探索这些示例如何使用Weights&Biases以：
 
 * 跟踪和可视化机器学习实验；
 * 版本化数据集和模型
 * 使用不同框架如PyTorch、Sciki监测（Instrument）模型
 
- 可以从我们的[GitHub仓](https://github.com/wandb/examples)库Fork示例，也可以直接在这里打开示例链接。如果要向列表贡献示例，请联系我们c@wandb.com
+可以从我们的[GitHub仓](https://github.com/wandb/examples)库Fork示例，也可以直接在这里打开示例链接。如果要向列表贡献示例，请联系我们c@wandb.com
 
 ### **W&B入门**
 
 | 描述 | 仪表盘 | 代码 |
 | :--- | :--- | :--- |
-| 跟踪模型性能 | [W&B链接](https://wandb.ai/lavanyashukla/visualize-models/reports/Track-Model-Performance--Vmlldzo1NTk2MA)​ | ​[Kaggle内](https://www.kaggle.com/lavanyashukla01/better-models-faster-with-weights-biases)核​ |
+| 跟踪模型性能 | [W&B链接](https://wandb.ai/lavanyashukla/visualize-models/reports/Track-Model-Performance--Vmlldzo1NTk2MA)​ | ​[Kaggle内](https://www.kaggle.com/lavanyashukla01/better-models-faster-with-weights-biases)核​ ​ |
 | 可视化模型预测 | [W&B链接](https://wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA)​ | ​[Kaggle内](https://www.kaggle.com/lavanyashukla01/visualizing-model-performance-with-w-b)核​ |
 | 保存和恢复模型 |  [W&B链接](https://wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W&B--Vmlldzo3MDQ3Mw)​ | [ ](https://colab.research.google.com/drive/1pVlV6Ua4C695jVbLoG-wtc50wZ9OOjnC?authuser=1#scrollTo=0LB6j3O-jIsd)[Colab笔记本](https://colab.research.google.com/drive/1pVlV6Ua4C695jVbLoG-wtc50wZ9OOjnC?authuser=1#scrollTo=0LB6j3O-jIsd) |
 | 比较系统指标（Metric） | [W&B链接](https://wandb.ai/stacey/estuary/reports/System-metrics-for-model-comparison--Vmlldzo1NzI5Mg)​ |  |

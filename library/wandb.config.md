@@ -58,7 +58,7 @@ args = parser.parse_args()
 wandb.config.update(args) # adds all of the arguments as config variables
 ```
 
-### **基于文件的配置**
+###  **基于文件的配置**
 
  你可以创建一个名为**config-defaults.yaml 的文件**，它会被自动加载到`wandb.config`
 
@@ -72,7 +72,7 @@ batch_size:
   value: 32
 ```
 
- 你也可以通过命令行参数 --configs 让wandb 加载不同的配置文件，例如.
+你也可以通过命令行参数 --configs 让wandb 加载不同的配置文件，例如.
 
 `--configs special-configs.yaml`将从文件special-configs.yaml中加载参数。
 
@@ -117,4 +117,18 @@ run.update()
 
   
 任何键值对你都可以记录到wandb.config 中。对于所训练的每种模型，对应的键值对也不相同。例如`wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`
+
+### **TensorFlow Flags（在tensorflow v2中已被标为deprecated不建议使用）**
+
+可以把TensorFlow flags传递给config对象。
+
+```python
+wandb.init()
+wandb.config.epochs = 4
+
+flags = tf.app.flags
+flags.DEFINE_string('data_dir', '/tmp/data')
+flags.DEFINE_integer('batch_size', 128, 'Batch size.')
+wandb.config.update(flags.FLAGS)  # adds all of the tensorflow flags as config
+```
 

@@ -11,7 +11,9 @@ description: 在你的脚本顶部调用 wandb.init() 以启动一个新运行
 
 ### 参考文档 <a id="reference-docs"></a>
 
-从参考文档中查看参数.[Init/ref/init](https://docs.wandb.ai/ref/init)
+从参考文档中查看参数.
+
+[Init/ref/init](https://docs.wandb.ai/ref/init)
 
 ##  常见问题 <a id="common-questions"></a>
 
@@ -77,9 +79,15 @@ import wandbwandb.init()wandb.run.name = wandb.run.idwandb.run.save()
 import wandbimport os​os.environ["WANDB_API_KEY"] = YOUR_KEY_HEREos.environ["WANDB_MODE"] = "dryrun"​config = {  "dataset": "CIFAR10",  "machine": "offline cluster",  "model": "CNN",  "learning_rate": 0.01,  "batch_size": 128,}​wandb.init(project="offline-demo")​for i in range(100):  wandb.log({"accuracy": i})
 ```
 
-下面是一个终端输出示例:![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-M4ZqIaDYRFSEiZrYTaI%2F-M4Zx9NGlicWWRF-Zcgh%2Fimage.png?alt=media&token=6f32064c-d58e-412e-8344-ed43baee721e)
+下面是一个终端输出示例:
+
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-M4ZqIaDYRFSEiZrYTaI%2F-M4Zx9NGlicWWRF-Zcgh%2Fimage.png?alt=media&token=6f32064c-d58e-412e-8344-ed43baee721e)
 
 一旦可以访问互联网，运行一条同步命令即可把该文件夹发送到云端。
 
-`wandb sync wandb/dryrun-folder-name`![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-M4ZqIaDYRFSEiZrYTaI%2F-M4ZxQU2WrG9S0MZzqDI%2Fimage.png?alt=media&token=0295541a-90bf-464f-8899-2f9a53c45e1c)[PreviousLibrary](https://docs.wandb.ai/library)[Nextwandb.config](https://docs.wandb.ai/library/config)4![](https://lh5.googleusercontent.com/-ohnhj3YAM9Y/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdb3Cq-FZ97LHoDhbnKVi0teESbRg/photo.jpg)![](https://avatars2.githubusercontent.com/u/29?v=4)![](https://gblobscdn.gitbook.com/users%2FtXkcUGlNaYSjmMWkzQQLlJUqbmB2%2Favatar.png?alt=media)CONTENTS[Reference Docs](https://docs.wandb.ai/library/init#reference-docs)[Common Questions](https://docs.wandb.ai/library/init#common-questions)[How do I launch multiple runs from one script?](https://docs.wandb.ai/library/init#how-do-i-launch-multiple-runs-from-one-script)[LaunchError: Permission denied](https://docs.wandb.ai/library/init#launcherror-permission-denied)[Get the readable run name](https://docs.wandb.ai/library/init#get-the-readable-run-name)[Set the run name to the generated run ID](https://docs.wandb.ai/library/init#set-the-run-name-to-the-generated-run-id)[Save the git commit](https://docs.wandb.ai/library/init#save-the-git-commit)[Save logs offline](https://docs.wandb.ai/library/init#save-logs-offline)
+`wandb sync wandb/dryrun-folder-name`
+
+[PreviousLibrary](https://docs.wandb.ai/library)
+
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-M4ZqIaDYRFSEiZrYTaI%2F-M4ZxQU2WrG9S0MZzqDI%2Fimage.png?alt=media&token=0295541a-90bf-464f-8899-2f9a53c45e1c)
 
