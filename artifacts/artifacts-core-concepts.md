@@ -87,7 +87,7 @@ For sensitive datasets that cannot reside in a multi-tenant environment, you can
 
 ![](../.gitbook/assets/image%20%284%29.png)
 
-Building reference artifacts works the same as a regular artifact:
+Building [**reference artifacts**](references.md) works the same as a regular artifact:
 
 ```text
 import wandb
