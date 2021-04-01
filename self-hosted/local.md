@@ -4,6 +4,14 @@ description: Run Weights and Biases on your own machines using Docker
 
 # Local
 
+Use W&B Local to self-host the Weights & Biases app. You can run the app locally or host in a private cloud.
+
+{% hint style="danger" %}
+**Danger of Data Loss**
+
+**Use a scalable file system** for any serious production work. As you log more data, your storage requirements will increase. Allocate space ahead of time, and set up alerts so you can resize the file system as your usage increases.
+{% endhint %}
+
 ## Starting the server
 
 To run the W&B server locally you'll need to have [Docker](https://www.docker.com/products/docker-desktop) installed. Then simply run:
@@ -24,7 +32,21 @@ Running wandb on localhost is great for initial testing, but to leverage the col
 
 ### Basic Configuration
 
+**Quick test configuration**
+
 Running `wandb local` configures your local machine to push metrics to [http://localhost:8080](http://localhost:8080). If you want to host local on a different port you can pass the `--port` argument to wandb local. If you've configure DNS with your local instance you can run: `wandb login --host=http://wandb.myhost.com` on any machines that you want to report metrics from. You can also set the `WANDB_BASE_URL` environment variable to a host or IP on any machines you wish to report to your local instance. In automated environment you'll also want to set the `WANDB_API_KEY` environment variable within an api key from your settings page. To restore a machine to reporting metrics to our cloud hosted solution, run `wandb login --host=https://api.wandb.ai`.
+
+**Scalable configuration**
+
+While W&B can be used by leveraging the persistent volume mounted to /vol as stated above, this solution is not meant for production workloads. If you decide to use W&B in this way, it is recommended that enough space be allocated ahead of time to store current and future needs of metrics and strongly suggested that the underlying file store can be resized as needed. In addition, alerts should be put in place to let you know once minimum storage thresholds are crossed to resize the underlying file system.
+
+{% hint style="warning" %}
+
+{% endhint %}
+
+{% hint style="warning" %}
+You’re risking permanent data loss if this is not configured properly. There will be no backups of the database and if the disk runs out of space the instance will stop working.
+{% endhint %}
 
 ### Authentication
 
