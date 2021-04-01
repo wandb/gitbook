@@ -4,7 +4,7 @@ description: Run Weights and Biases on your own machines using Docker
 
 # Local
 
-Use W&B Local to self-host the Weights & Biases app. You can run the app locally or host in a private cloud. We encourage you to 
+Use W&B Local to self-host the Weights & Biases app. You can run the app locally or host in a private cloud. For serious work, we encourage you to set up and manage a scalable file system. For enterprise customers, we provide extensive technical support and frequent installation updates for self-hosted instances.
 
 ## Starting the server
 
