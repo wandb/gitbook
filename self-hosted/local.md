@@ -28,9 +28,9 @@ Running `wandb local` configures your local machine to push metrics to [http://l
 
 ### Authentication
 
-The base install of _wandb/local_ starts with a default user local@wandb.com. The default password is **perceptron**. The frontend will attempt to login with this user automatically and prompt you to reset your password. An unlicensed version of wandb will allow you to create up to 4 users. You can configure users in the User Admin page of _wandb/local_ found at `http://localhost:8080/admin/users`
+The base install of _wandb/local_ starts with a default user local@wandb.com. The default password is **perceptron**. The frontend will attempt to login with this user automatically and prompt you to reset your password. Contact us at support@wandb.com to request a free upgrade to your license, from 1 user to 3 users.
 
-### Persistance and Scalability
+### Persistence and Scalability
 
 All metadata and files sent to W&B are stored in the `/vol` directory. If you do not mount a persistent volume at this location all data will be lost when the docker process dies.
 
