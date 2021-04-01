@@ -151,7 +151,7 @@ model_artifact.add_reference('s3://my-bucket/models/cnn/')
 run.log_artifact(model_artifact)
 ```
 
-For an in-depth walkthrough of constructing reference artifacts and exploring them in the UI, please check out [https://docs.wandb.ai/artifacts/artifacts-by-reference](https://docs.wandb.ai/artifacts/artifacts-by-reference).
+For an example of tracking reference files in GCP, with code and screenshots, follow our [Guide to Tracking Artifacts by Reference](https://wandb.ai/stacey/artifacts/reports/Tracking-Artifacts-by-Reference--Vmlldzo1NDMwOTE).
 
 ## Filesystem References
 
