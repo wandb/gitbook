@@ -1,28 +1,28 @@
 # Kubeflow
 
-## Kubeflow Integration <a id="kubeflow-integration"></a>
+## **Kubeflow集成** <a id="kubeflow-integration"></a>
 
-Using certain features require additional dependencies. Install all Kubeflow dependencies by running `pip install wandb[kubeflow]`.
+使用某些功能需要额外的依赖关系。通过运行`pip install wandb[kubeflow]`安装所有Kubeflow的依赖关系。
 
-### Training Jobs <a id="training-jobs"></a>
+### **训练作业** <a id="training-jobs"></a>
 
-Currently W&B automatically reads the **TF\_CONFIG** environment variable to group distributed runs.
+目前W&B会自动读取**TF\_CONFIG** 环境变量，对分布式运行进行分组。
 
 ### Arena <a id="arena"></a>
 
-The wandb library integrates with [arena](https://github.com/kubeflow/arena) by automatically adding credentials to container environments. If you want to use the wandb wrapper locally, add the following to your `.bashrc`
+wandb库通过自动将认证信息添加到容器环境与 [arena](https://github.com/kubeflow/arena) 集成。如果你想在本地使用wandb包装器，请在你的 `.bashrc` 中添加以下内容。
 
 ```text
 alias arena="python -m wandb.kubeflow.arena"
 ```
 
-If you don't have arena installed locally, the above command will use the `wandb/arena` docker image and attempt to mount your kubectl configs.
+I如果你没有在本地安装arena ，上面的命令将使用`wandb/arena` docker镜像，并尝试挂载你的kubectl 配置。
 
 ### Pipelines <a id="pipelines"></a>
 
-wandb provides an `arena_launcher_op` that can be used in [pipelines](https://github.com/kubeflow/pipelines).
+wandb提供了一个可以在[pipelines](https://github.com/kubeflow/pipelines)中使用的`arena_launcher_op`
 
-If you want to build your own custom launcher op, you can also use this [code](https://github.com/wandb/client/blob/master/wandb/kubeflow/__init__.py) to add pipeline\_metadata. For wandb to authenticate you should add the **WANDB\_API\_KEY** to the operation, then your launcher can add the same environment variable to the training container.
+ 如果你想要构建你自己的自定义启动器操作，你也可以使用[这段代码](https://github.com/wandb/client/blob/master/wandb/kubeflow/__init__.py)来添加pipeline\_metadata。为了wandb认证，你应该将**WANDB\_API\_KEY** 添加到该操作中，然后你的启动器可以将相同的环境变量添加到训练容器中。
 
 ```text
 import osfrom kubernetes import client as k8s_client​op = dsl.ContainerOp( ... )op.add_env_variable(k8s_client.V1EnvVar(        name='WANDB_API_KEY',        value=os.environ["WANDB_API_KEY"]))

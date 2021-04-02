@@ -172,17 +172,17 @@ pip install https://github.com/pywharf/pywharf-pkg-repo/releases/download/psutil
 
 安装完psutil后，可以用 `pip install wandb`来安装wandb
 
-### How does wandb stream logs and writes to disk?
+### **wandb流如何记录和写入磁盘？**
 
-W&B queues in memory but also [write the events to disk](https://github.com/wandb/client/blob/7cc4dd311f3cdba8a740be0dc8903075250a914e/wandb/sdk/internal/datastore.py) asynchronously to handle failures and for the `WANDB_MODE=offline` case where you can sync the data after it's been logged.
+ W&B在内存中排队，但也会将[事件异步写入磁盘](https://github.com/wandb/client/blob/7cc4dd311f3cdba8a740be0dc8903075250a914e/wandb/sdk/internal/datastore.py)以处理故障，对于`WANDB_MODE=offline` 的情况，在记录结束后，你可以同步数据。
 
-In your terminal, you can see a path to the local run directory. This directory will contain a ".wandb" file that is the datastore above. If you're also logging images, we write them to "media/images" in that directory before uploading them to cloud storage.
+在终端中，你可以看到本地运行目录的路径。该目录包含一个“.wandb”文件，就是上边的数据存储位置。如果你也记录图片，在将它们上传到云存储之前，我们会将其写到该目录中的“media/images”下。
 
-### How to get multiple charts with different selected runs?
+## **如何通过选择不同运行获得多个图表？**
 
-With wandb reports the procedure is as follows:
+使用wandb报告的过程如下：
 
-* Have multiple panel grids.
-* Add filters to filter the run sets of each panel grid. This will help in selecting the runs that you want to portray in the respective panels.
-* Create the charts you want in the panel grids.
+* 有多个面板网格
+* 添加过滤器以过滤每个面板网格的运行集。这将有助于选择你想在各个面板上绘制的运行。
+* 在面板网格中创建你想要的图表。
 

@@ -1,6 +1,6 @@
 # XGBoost
 
-Use our callback to compare results between different versions of your XGBoost model.
+利用我们的回调函数比较你的XGBoost模型的不同版本之间的结果。
 
 ```python
 bst = xgb.train(param, xg_train, num_round, watchlist,
@@ -9,7 +9,7 @@ bst = xgb.train(param, xg_train, num_round, watchlist,
 
 ![](../.gitbook/assets/image%20%2812%29.png)
 
-## Example
+## **示例**
 
-* [Example on Github](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/xgboost-dermatology): Multi-class dermatology classification example
+* [Github上的示例](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/xgboost-dermatology)：多类皮肤病分类示例
 

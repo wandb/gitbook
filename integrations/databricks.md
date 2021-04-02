@@ -1,36 +1,36 @@
 # Databricks
 
-W&B integrates with [Databricks](https://www.databricks.com/) by customizing the W&B Jupyter notebook experience in the Databricks environment.
+W&B通过在[Databricks](https://www.databricks.com/)环境中定制W&B Jupyter笔记本体验，与Databricks进行集成。
 
-## Databricks Configuration <a id="databricks-configuration"></a>
+## **Databricks配置** <a id="databricks-configuration"></a>
 
-### Install wandb in the cluster <a id="install-wandb-in-the-cluster"></a>
+### **在集群中安装wandb** <a id="install-wandb-in-the-cluster"></a>
 
-Navigate to your cluster configuration, choose your cluster, click on Libraries, then on Install New, Choose PyPI and add the package `wandb`.
+导航到你的集群配置，选择你的集群，点击库，然后在安装新（Install New）上,选择PyPI并添加包`wandb`
 
-### Authentication <a id="authentication"></a>
+### **认证** <a id="authentication"></a>
 
-In order to authenticate your W&B account you can add a databricks secret which your notebooks can query.
+为了认证你的W&B账户，你可以添加一个你的笔记本可以查询的datatricks secret。
 
 ```text
 # install databricks clipip install databricks-cli​# Generate a token from databricks UIdatabricks configure --token​# Create a scope with one of the two commands (depending if you have security features enabled on databricks):# with security add-ondatabricks secrets create-scope --scope wandb# without security add-ondatabricks secrets create-scope --scope wandb --initial-manage-principal users​# Add your api_key from: https://app.wandb.ai/authorizedatabricks secrets put --scope wandb --key api_key
 ```
 
-## Examples <a id="examples"></a>
+## **示例** <a id="examples"></a>
 
-### Simple <a id="simple"></a>
+###  **简单** <a id="simple"></a>
 
 ```text
 import osimport wandb​api_key = dbutils.secrets.get("wandb", "api_key")wandb.login(key=api_key)​wandb.init()wandb.log({"foo": 1})
 ```
 
-### Sweeps <a id="sweeps"></a>
+###  **扫描（Sweep）** <a id="sweeps"></a>
 
-Setup required \(temporary\) for notebooks attempting to use wandb.sweep\(\) or wandb.agent\(\):
+试图使用wandb.sweep\(\) 或 wandb.agent\(\)的笔记本需要（临时）设置。
 
 ```text
 import os# These will not be necessary in the futureos.environ['WANDB_ENTITY'] = "my-entity"os.environ['WANDB_PROJECT'] = "my-project-that-exists"
 ```
 
-We cover more details of how to run a sweep in a notebook here:[Sweep from Jupyter Notebook/sweeps/python-api](https://docs.wandb.ai/sweeps/python-api)
+我们在这里介绍了更多关于如何在笔记本中运行扫描（sweep）的细节：[从Jupyter 笔记本上扫描（sweep）/sweeps/python-api](https://docs.wandb.ai/sweeps/python-api)
 

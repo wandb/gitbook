@@ -10,9 +10,9 @@ W＆B企业云是在您的私有AWS或GCP帐户以及您选择的区域上配置
 
 **要求**
 
-W＆B Enterprise Cloud在您的帐户中需要以下云资源。
+W＆B Enterprise Cloud需要您的帐户中的以下云资源。
 
-* 一个Kubernetes集群（EKS，GKE或AKS）
-* 一个SQL数据库（RDS，Google Cloud SQL或Azure MySQL）
-* 一个对象存储（S3，GCS或Azure Blob存储）
+* 一个Kubernetes集群（EKS、GKE或AKS）
+* 一个SQL数据库（RDS、Google Cloud SQL或Azure MySQL）
+* 一个对象存储（S3、GCS或Azure Blob存储）
 

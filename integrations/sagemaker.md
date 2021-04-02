@@ -1,27 +1,27 @@
 # SageMaker
 
-## SageMaker Integration
+## **SageMaker集成**
 
-W&B integrates with [Amazon SageMaker](https://aws.amazon.com/sagemaker/), automatically reading hyperparameters, grouping distributed runs, and resuming runs from checkpoints.
+W&B与[亚马逊SageMaker](https://aws.amazon.com/sagemaker/)集成，自动地读取超参数、对分布式运行分组、从检查点开始断点续训。
 
-### Authentication
+### **认证**
 
-W&B looks for a file named `secrets.env` relative to the training script and loads them into the environment when `wandb.init()` is called. You can generate a `secrets.env` file by calling `wandb.sagemaker_auth(path="source_dir")` in the script you use to launch your experiments. Be sure to add this file to your `.gitignore`!
+当wandb.init\(\)被调用时，W&B会在训练脚本的相对路径下寻找一个`secrets.env`文件，并将其加载到环境中。你可以在你启动实验的脚本中，调用`wandb.sagemaker_auth(path="source_dir")`，来生成`secrets.env`文件。一定要把该文件添加到你的.`gitignore`！
 
-### Existing Estimators
+**现有Estimators**
 
-If you're using one of SageMakers preconfigured estimators you need to add a `requirements.txt` to your source directory that includes wandb
+如果你用的是SageMaker预配置的Estimators，你需要向源代码文件路径添加一个`requirements.txt`，其中包含wandb。
 
 ```text
 wandb
 ```
 
-If you're using an estimator that's running Python 2, you'll need to install psutil directly from a [wheel](https://pythonwheels.com/) before installing wandb:
+如果你用的是运行Python 2的Estimators，你需要在安装wandb之前直接从一个[轮子（wheel）](https://pythonwheels.com/)来安装 psutil
 
 ```text
 https://wheels.galaxyproject.org/packages/psutil-5.4.8-cp27-cp27mu-manylinux1_x86_64.whl
 wandb
 ```
 
-A complete example is available on [GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker) and you can read more on our [blog](https://wandb.ai/site/articles/running-sweeps-with-sagemaker).
+[Github](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker)上有一个完整示例，还可到我们的[论坛](https://www.wandb.com/blog/running-sweeps-with-sagemaker)详细了解。
 
