@@ -1,18 +1,18 @@
 ---
-description: How to change the colors of your runs in visualizations
+description: Cómo cambiar los colores de tus ejecuciones en las visualizaciones
 ---
 
 # Run Colors
 
-When a new run is created, it is assigned a default color. You can edit the color for a given run by clicking the color preview.
+Cuando una nueva ejecución es creada, se le asigna un color por defecto. Puedes editar el color para una ejecución dada al hacer click en la vista previa de los colores.
 
-Colors are locally scoped. On the project page, custom colors only apply to your own workspace. In reports, custom colors for runs only apply at the section level. You can visualize the same run in different sections, and it can have a different custom color in each section.
+Los colores se especifican en un ámbito local. En la página del proyecto, los colores personalizados sólo se aplican a tu propio entorno de trabajo. En los reportes, los colores personalizados para las ejecuciones sólo se aplican a nivel de sección. Puedes visualizar la misma ejecución en diferentes secciones, y esta puede tener un color personalizado diferente en cada sección.
 
-## How to edit run colors
+##  Cómo editar los colores de la ejecución
 
-1. Select the Run you want to visualize
-2. Click the colored dot 
-3. Select a color for the graphs of your run
+1. Selecciona la Ejecución que quieras visualizar
+2. Haz click en el punto coloreado
+3. Selecciona un color para los gráficos de tu ejecución
 
 ![](https://downloads.intercomcdn.com/i/o/149202442/b430d9b1473e41644a91fae3/run+coloring.gif)
 

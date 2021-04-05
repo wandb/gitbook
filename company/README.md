@@ -1,59 +1,59 @@
 # Company
 
-### What is wandb?
+### ¿Qué es wandb?
 
-Wandb is an experiment tracking tool for machine learning. We make it easy for anyone doing machine learning to keep track of experiments and share results with colleagues and their future self.
+Wandb es una herramienta de seguimiento de experimentos para el aprendizaje de máquinas. Le damos facilidades a todos los que estén haciendo aprendizaje de máquinas, para que hagan seguimiento de los experimentos y compartan los resultados con los colegas y con sus futuros ellos mismos.
 
-Here's a 1 minute overview video. [View an example project →](https://app.wandb.ai/stacey/estuary)
+Aquí hay un video de reseña de 1 minuto. [Mira un proyecto de ejemplo →](https://app.wandb.ai/stacey/estuary)
 
-{% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" caption="" %}
+{% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" %}
 
-### How does it work?
+###  ¿Cómo funciona?
 
-When you instrument your training code with wandb, our background process will collect useful data about what is happening as you train your models. For example, we can track model performance metrics, hyperparameters, gradients, system metrics, output files, and your most recent git commit.
+Cuando instrumentas tu código de entrenamiento con wandb, nuestro proceso en segundo plano va a recoger datos útiles respecto a lo que está ocurriendo mientras entrenas tus modelos. Por ejemplo, podemos hacer el seguimiento de las métricas de desempeño del modelo, de los hiperparámetros, de los gradientes, de las métricas del sistema, de los archivos de salida, y de tu git commit más reciente.
 
-{% page-ref page="../library/api/examples.md" %}
+{% page-ref page="../ref/export-api/examples.md" %}
 
-### How hard is it to set up?
+### ¿Qué difícil es establecerlo?
 
-We know that most people track their training with tools like emacs and Google Sheets, so we've designed wandb to be as lightweight as possible. Integration should take 5-10 minutes, and wandb will not slow down or crash your training script.
+Sabemos que la mayoría de la gente hace el seguimiento de sus entrenamientos con herramientas como emacs o Google Sheets, así que hemos diseñado a wandb para que sea tan liviana como sea posible. La integración debería tomar entre 5 y 10 minutos, y wandb no va a ralentizar o a romper a tu script de entrenamiento.
 
-## Benefits of wandb
+## Beneficios de wandb
 
-Our users tell us they get three kinds of benefits from wandb:
+Nuestros usuarios nos dicen que obtienen tres clases de beneficios al usar wandb:
 
-### 1. Visualizing training
+### 1.  Visualiza el entrenamiento
 
-Some of our users think of wandb as a "persistent TensorBoard". By default, we collect model performance metrics like accuracy and loss. We can also collect and display matplotlib objects, model files, system metrics like GPU usage, and your most recent git commit SHA + a patch file of any changes since your last commit.
+Algunos de nuestros usuarios ven a wandb como a un “TensorBoard persistente”. Por defecto, recogemos las métricas de desempeño del modelo, como la precisión y la pérdida. También recogemos y visualizamos objetos matplotlib, archivos del modelo, métricas del sistema como el uso de GPU, y el SHA de tu git commit más reciente más un archivo patch con los cambios desde el último commit.También puedes tomar notas acerca de las ejecuciones individuales, para que sean guardadas con tus datos de entrenamiento. 
 
-You can also take notes about individual runs to be saved along with your training data. Here's a relevant [example project](https://app.wandb.ai/bloomberg-class/imdb-classifier/runs/2tc2fm99/overview) from a class we taught to Bloomberg.
+Aquí hay un [proyecto de ejemplo](https://app.wandb.ai/bloomberg-class/imdb-classifier/runs/2tc2fm99/overview) relevante a partir de una clase que impartimos en Bloomberg.
 
-### 2. Organize and compare lots of training runs
+### 2. Organiza y compara muchas ejecuciones de entrenamiento
 
-Most people training machine learning models are trying lots and lots of versions of their model and our goal is to help people stay organized.
+La mayoría de las personas que entrenan modelos de aprendizaje de máquinas están probando muchísimas versiones de su modelo, y nuestro objetivo es ayudar a que estas personas estén organizadas.
 
-You can create projects to keep all of your runs in a single place. You can visualize performance metrics across lots of runs and filter, group, and tag them any way you like.
+Puedes crear proyectos para hacer el seguimiento de todas tu ejecuciones en un lugar simple. 
 
-A good example project is Stacey's [estuary project](https://app.wandb.ai/stacey/estuary). In the sidebar you can turn on and off runs to show on the graphs, or click one run to dive deeper. All your runs get saved and organized in a unified workspace for you.
+Puedes visualizar las métricas del desempeño a través de muchas ejecuciones y filtros, agruparlas y etiquetarlas de cualquier forma que lo desees.Un buen proyecto de ejemplo es el [proyecto estuary](https://app.wandb.ai/stacey/estuary) de Stacey.En la barra lateral puedes activar o desactivar las ejecuciones que se van a mostrar en los gráficos, o hacer click en una de ellas para obtener más información. Todas tus ejecuciones son guardadas y organizadas para ti en un entorno de trabajo unificado.
 
-![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29.png)
 
-### 3. Share your results
 
-Once you have done lots of runs you usually want to organize them to show some kind of result. Our friends at Latent Space wrote a nice article called [ML Best Practices: Test Driven Development](https://www.wandb.com/articles/ml-best-practices-test-driven-development) that talks about how they use W&B reports to improve their team's productivity.
+![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%282%29.png)
 
-A user Boris Dayma wrote a public example report on [Semantic Segmentation](https://app.wandb.ai/borisd13/semantic-segmentation/reports?view=borisd13%2FSemantic%20Segmentation%20Report). He walks through various approaches he tried and how well they work.
+### 3. Comparte tus resultados
 
-We really hope that wandb encourages ML teams to collaborate more productively.
+Una vez que hayas hecho muchas ejecuciones, por lo general querrás organizarlas para mostrar alguna clase de resultado. Nuestros amigos en Latent Space escribieron un artículo genial llamado [Las Mejores Prácticas de ML: Desarrollo Dirigido Por Tests](https://www.wandb.com/articles/ml-best-practices-test-driven-development), que habla acerca de cómo utilizan los reportes de W&B para mejorar la productividad de su equipo.
 
-If you want to learn more about how teams use wandb, we've recorded interviews with our technical users at [OpenAI](https://www.wandb.com/articles/why-experiment-tracking-is-crucial-to-openai) and [Toyota Research](https://www.youtube.com/watch?v=CaQCw-DKiO8).
+Un usuario, Boris Dayma, escribió un reporte de ejemplo público sobre la [Segmentación Semántica](https://app.wandb.ai/borisd13/semantic-segmentation/reports?view=borisd13%2FSemantic%20Segmentation%20Report). Él hace un recorrido a través de varias metodologías que intentó y comenta cuán bien le funcionaron.
 
-## Teams
+Realmente esperamos que wandb aliente a los equipos de ML a colaborar más productivamente.Si deseas aprender más acerca de cómo los equipos utilizan wandb, hemos registrados algunas entrevistas con nuestros usuarios técnicos en [OpenAI](https://www.wandb.com/articles/why-experiment-tracking-is-crucial-to-openai) y [Toyota Research](https://www.youtube.com/watch?v=CaQCw-DKiO8).
 
-If you're working on a machine learning project with collaborators, we make it easy to share results.
+## Equipos
 
-* [Enterprise Teams](https://www.wandb.com/pricing): We support small startups and large enterprise teams like OpenAI and Toyota Research Institute. We have flexible pricing options to fit your team's needs, and we support hosted cloud, private cloud, and on-prem installations.
-* [Academic Teams](https://www.wandb.com/academic): We are dedicated to supporting the academic transparent and collaborative research. If you're an academic, we will grant you access to free teams to share your research in private projects.
+Si estás trabajando en un proyecto de aprendizaje de máquinas con colaboradores, compartir resultados es muy fácil.
 
-If you'd like to share a project with people outside a team, click on the project privacy settings in the navigation bar and set the project to "Public." Anyone you share a link with will be able to see your public project results.
+* [Equipos Empresariales](https://www.wandb.com/pricing): Apoyamos a equipos de pequeñas startups y de grandes empresas como OpenAI y Toyota Research Institute. Tenemos opciones de tarifas flexibles que se adecuan a las necesidades de tu equipo, y soportamos servidores en la nube, nubes privadas, e instalaciones en entornos locales.
+* [Equipos Académicos](https://www.wandb.com/academic): Estamos dedicados a apoyar a la investigación académica transparente y colaborativa. Si eres un académico, te daremos acceso a equipos gratuitos para compartir tu investigación en los proyectos privados.
+
+Si te gustaría compartir un proyecto con gente que esté fuera de un equipo, has click en los ajustes de privacidad del proyecto, en la barra de navegación, y establece el proyecto a “Público”. Cualquiera con el que compartas el enlace va a ser capaz de ver los resultados de tu proyecto público.
 

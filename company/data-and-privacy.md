@@ -1,43 +1,43 @@
 # Data and Privacy
 
-## You own your data
+##  Tú posees tus datos
 
-Everything you log to Weights & Biases is yours, including your training data, code, configuration and hyperparameters, output metrics, analysis, and saved model files. You can choose to log, export, publish, or delete any of these. We collect aggregate statistics across our users to improve our product— we might do a database query to count how many users have uploaded a requirements.txt that includes a specific library to help decide if we want to do a first class integration with that library. We treat your private data, source code, or trade secrets as confidential and private, as consistent with our [Terms of Service](https://www.wandb.com/terms) and [Privacy Policy](https://www.wandb.com/privacy).‌
+Todo lo que registras a Weights and Biases es tuyo, incluyendo tus datos de entrenamiento, el código, la configuración y los hiperparámetros, las métricas de salida, el análisis, y los archivos guardados del modelo. Puedes elegir registrar, exportar, publicar o borrar cualquiera de los mismos. Recogemos estadísticas globales entre nuestros usuarios para mejorar nuestro producto – podríamos hacer una consulta a la base de datos para contar cuántos usuarios han subido un requirements.txt, que incluya una biblioteca específica, para ayudar en la toma de decisiones de si queremos hacer una integración de primera clase con dicha biblioteca. Tratamos a tus datos privados, a tu código fuente o a los secretos comerciales como confidenciales y privados, en concordancia con nuestros [Términos del Servicio](https://www.wandb.com/terms) y [Política de Privacidad](https://www.wandb.com/privacy).‌
 
-## Data logging
+## Registro de datos
 
-Our tool provides the ability to log 4 primary classes of data:
+Nuestra herramienta provee la capacidad de registrar 4 clases de datos principales:
 
-1. **Metrics and Parameters**: \_\*\*\_This is the core functionality of the tool— keeping track of the scalars and histograms you log with a run. You specify these directly in `wandb.log()` or set up an integration with one of the supported frameworks.
-2. **Code**: We support saving the latest git SHA and a diff patch, or saving the main file from your run for easy code comparison. This is off by default and needs to be manually enabled on your [settings page](https://app.wandb.ai/settings).
-3. **Media**: Users can log video, images, text, or custom plots to visualize how your model is doing on examples during training. This is entirely opt-in, and you must explicitly configure your script to log this class of data.
-4. **Artifacts**: Manually set up artifact logging to save and version datasets and model files. You explicitly specify which files you want to include in artifacts.
+1. **Metrics and Parameters**: \_\*\*\_Esta es la funcionalidad central de la herramienta – hacer el seguimiento de escalares e histogramas que registras con una ejecución. Los especificas directamente en `wandb.log()` o estableces una integración con alguno de los frameworks soportados.
+2. **Código:** Soportamos el guardado del último SHA de git y un parche diff, o el guardado del archivo principal de tu ejecución, para poder comparar el código fácilmente. Por defecto, esto está deshabilitado, y necesita ser habilitado manualmente desde tu [página de ajustes](https://app.wandb.ai/settings).
+3. **Medios:** Los usuarios pueden registrar videos, imágenes, texto, o gráficos personalizados para visualizar cómo le está yendo a su modelo con los ejemplos durante el entrenamiento. Esto es totalmente optativo, y debes configurar explícitamente a tu script para registrar esta clase de datos.
+4. **Artefactos:** Establece manualmente el registro de artefactos para guardar y versionar conjuntos de datos y archivos del modelo. Explícitamente, especificas qué archivos quieres incluir en los artefactos.
 
-All data is stored encrypted at rest and is encrypted in transit in our cloud offering. We respect all data takedown requests in a timely manner and can ensure it's been wiped from the system.
+ En nuestro ofrecimiento en la nube, todos los datos se almacenan de forma encriptada en reposo y son encriptados cuando están en tránsito. Respetamos todas las solicitudes de retiro en una forma oportuna, y podemos asegurar que los datos serán erradicados del sistema.
 
-## Self hosted and private cloud
+## Auto Hospedaje y nube privada
 
-We follow industry best practices for security and encryption in our cloud-hosted service. We also offer [private cloud and self hosted installations](../self-hosted/) for enterprise customers. [Contact us](getting-help.md) to learn about options for your business.
+Seguimos las mejores prácticas industriales para la seguridad y la encriptación en nuestro servicio de alojamiento en la nube. También ofrecemos [instalaciones en nubes privadas y auto hospedajes](https://docs.wandb.ai/self-hosted) para los clientes empresariales.
 
-For personal use, we have a [local Docker installation](../self-hosted/local.md) that you can run on your own machine.‌
+ [Comunícate con nosotros](https://docs.wandb.ai/company/getting-help) para aprender acerca de las opciones para tu negocio.Para uso personal, tenemos una [instalación Docker local](https://docs.wandb.ai/self-hosted/local) que puedes correr en tu propia máquina.‌
 
-## Project privacy and teams
+## Privacidad de los Proyectos y Equipos
 
-By default Weights & Biases projects are private, which means other users won’t be able to view your work. You can edit this default on your [settings page](https://app.wandb.ai/settings). You can choose to share your results with others by making your project public or creating a team to share private projects with specific collaborators. Teams are a premium feature for companies. Learn more on our [pricing page](https://www.wandb.com/pricing).‌
+Por defecto, los proyectos de Weights and Biases son privados, lo que significa que otros usuarios no van a ser capaces de ver tu trabajo. Puedes editar este valor predeterminado en tu [página de ajustes](https://app.wandb.ai/settings). Puedes elegir compartir tus resultados con otros al hacer que los proyectos sean públicos, o al crear un equipo para compartir proyectos privados con colaboradores específicos. Los equipos son una característica premium para las compañías. Aprende más en nuestra [página de tarifas](https://www.wandb.com/pricing).
 
-To support the ML ecosystem, we offer free private teams to academics and open source projects. Sign up for an account and then contact us via [this form](https://www.wandb.com/academic) to request a free private team.
+Para apoyar al ecosistema de ML, ofrecemos equipos privados a los académicos y a los proyectos de código abierto. Regístrate para obtener una cuenta y entonces comunícate con nosotros a través de [este formulario](https://www.wandb.com/academic) para solicitar un equipo privado gratuito.
 
-## Code saving
+## Guardado de código
 
-By default, we only pick up the latest git SHA for your code. You can optionally turn on code saving features— this will enable a code comparison panel and tab in the UI to see the version of the code that ran your run. You can turn on code saving in your [settings page](https://app.wandb.ai/settings).
+Por defecto, solamente tomamos el último SHA del git para tu código. Opcionalmente, puedes activar las características de guardado de código – esto va a habilitar un panel de comparación de código y una pestaña en la interfaz de usuario para ver la versión del código que corrió tu ejecución. Puedes activar el guardado de código en tu [página de ajustes](https://app.wandb.ai/settings).
 
 ![](../.gitbook/assets/project-defaults.png)
 
-## Exporting data
+## Exportando datos.
 
-You can download data saved with Weights & Biases using our [export API](../library/api/). We want to make it easy to do custom analysis in notebooks, back up your data if you'd like to have a local copy, or plug your saved logs into other tools in your ML workflow.
+ Puedes descargar los datos guardados con Weights & Biases utilizando nuestra [API de exportación](https://docs.wandb.ai/ref/export-api). Queremos que te sea fácil hacer el análisis personalizado en las notebooks, respaldar tus datos en el caso en el que quieras tener una copia local, o conectar tus registros guardados en otras herramientas en tu proceso de trabajo de ML.
 
-## Linked accounts
+## Cuentas enlazadas
 
-If you use Google or GitHub OAuth to create and log in to a Weights & Biases account, we don't read or sync data from your repositories or folders. These connections are purely for authentication purposes. You can log files and code to associate with your runs using W&B [Artifacts](../artifacts/).
+Si utilizas OAuth en Google o GitHub para crear o iniciar sesión en una cuenta de Weights and Biases, no vamos a leer o a sincronizar los datos desde tus repositorios o directorios. Estas conexiones son puramente para propósitos de autenticación. Puedes registrar archivos y código para asociarlos con tus ejecuciones utilizando [Artefactos](https://docs.wandb.ai/artifacts) de W&B.
 

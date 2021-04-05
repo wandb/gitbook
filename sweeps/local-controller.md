@@ -1,37 +1,38 @@
 ---
 description: >-
-  Run search and stopping algorithms locally, instead of using our cloud-hosted
-  service
+  Ejecuta la búsqueda y los algoritmos de detención localmente, en lugar de usar
+  nuestro servicio alojado en la nube
 ---
 
 # Local Controller
 
-By default the hyper-parameter controller is hosted by W&B as a cloud service. W&B agents communicate with the controller to determine the next set of parameters to use for training. The controller is also responsible for running early stopping algorithms to determine which runs can be stopped.
+Por defecto, el controlador de los hiperparámetros es alojado por W&B como un servicio en la nube. Los agentes de W&B se comunican con el controlador para determinar el próximo conjunto de parámetros que hay que usar para el entrenamiento. El controlador también es responsable de ejecutar los algoritmos de detención temprana, para determinar qué ejecuciones pueden ser detenidas.
 
-The local controller feature allows the user to run search and stopping algorithms locally. The local controller gives the user the ability to inspect and instrument the code in order to debug issues as well as develop new features which can be incorporated into the cloud service.
+La característica del controlador local permite que el usuario ejecute los algoritmos de búsqueda y de detención de forma local. El controlador local le da al usuario la capacidad de inspeccionar e instrumentar al código para depurar los problemas, así también como para desarrollar nuevas características que pueden ser incorporadas en el servicio de la nube.
 
 {% hint style="info" %}
-The local controller is currently limited to running a single agent.
+En la actualidad, el controlador local está limitado a correr un agente simple.
 {% endhint %}
 
-## Local controller configuration
+## Configuración del controlador local
 
-To enable the local controller, add the following to the sweep configuration file:
+Para habilitar al controlador local, agrega lo siguiente al archivo de configuración del barrido:
 
 ```text
 controller:
   type: local
 ```
 
-## Running the local controller
+## Ejecutando el controlador local
 
-The following command will launch a sweep controller:
+ El siguiente comando va a lanzar un controlador del barrido:
 
 ```text
 wandb controller SWEEP_ID
 ```
 
-Alternatively you can launch a controller when you initialize the sweep:
+  
+Alternativamente, puedes lanzar un controlador cuando inicializas el barrido:
 
 ```text
 wandb sweep --controller sweep.yaml

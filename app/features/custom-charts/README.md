@@ -1,41 +1,41 @@
 ---
-description: Custom visualizations and custom panels using queries
+description: Visualizaciones personalizadas y paneles personalizados utilizando consultas
 ---
 
 # Custom Charts
 
-Use **Custom Charts** to create charts that aren't possible right now in the default UI. Log arbitrary tables of data and visualize them exactly how you want. Control details of fonts, colors, and tooltips with the power of [Vega](https://vega.github.io/vega/).
+Utiliza los Gráficos Personalizados para crear gráficos que no son posible de momento, desde la interfaz de usuario por defecto. Registra tablas de datos arbitrarias y visualízalas exactamente como lo desees. Controla los detalles de las fuentes, los colores y los mensajes emergentes con el poder de [Vega](https://vega.github.io/vega/).
 
-* **What's possible**: Read the[ launch announcement →](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
-* **Code**: Try a live example in a[ hosted notebook →](https://tiny.cc/custom-charts)
-* **Video**: Watch a quick [walkthrough video →](https://www.youtube.com/watch?v=3-N9OV6bkSM)
-* **Example**: Quick Keras and Sklearn [demo notebook →](https://colab.research.google.com/drive/1g-gNGokPWM2Qbc8p1Gofud0_5AoZdoSD?usp=sharing)
+* **Lo que es posible**: Lee el [anuncio del lanzamiento →](https://wandb.ai/wandb/posts/reports/Announcing-the-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
+* **Código**: Prueba un ejemplo en tiempo real en una [notebook ](https://tiny.cc/custom-charts)[alojada](https://tiny.cc/custom-charts)[ →](https://tiny.cc/custom-charts)
+* **Mira un** [video rápido guía →](https://www.youtube.com/watch?v=3-N9OV6bkSM)
+* **Ejemplo:** [Notebook de demostración](https://colab.research.google.com/drive/1g-gNGokPWM2Qbc8p1Gofud0_5AoZdoSD?usp=sharing) simple con Keras y Sklearn →
 
-Contact Carey \(c@wandb.com\) with questions or suggestions
+ Comunícate con Carey \([c@wandb.com](mailto:c@wandb.com)\) para hacerle preguntas o sugerencias
 
 ![Supported charts from vega.github.io/vega](../../../.gitbook/assets/screen-shot-2020-09-09-at-2.18.17-pm.png)
 
-### How it works
+###  Cómo funciona
 
-1. **Log data**: From your script, log [config](../../../library/config.md) and summary data as you normally would when running with W&B. To visualize a list of multiple values logged at one specific time, use a custom`wandb.Table`
-2. **Customize the chart**: Pull in any of this logged data with a [GraphQL](https://graphql.org/) query. Visualize the results of your query with [Vega](https://vega.github.io/vega/), a powerful visualization grammar.
-3. **Log the chart**: Call your own preset from your script with `wandb.plot_table()` or use one of our builtins.
+1. **Registra datos:** Desde tu script, registra datos de [configuración](https://docs.wandb.ai/library/config) y de síntesis, como lo harías normalmente cuando ejecutas con W&B. Para visualizar una lista de múltiples valores registrados en un momento específico, utiliza un `wandb.Table` persoanlizado.
+2. **Personaliza el gráfico:** Toma cualquiera de estos datos registrados con una consulta de [GraphQL](https://graphql.org/). Visualiza los datos de tu consulta con [Vega](https://vega.github.io/vega/), una poderosa gramática de visualización.
+3. **Registra el gráfico:** Llama a tus propios preajustes desde tu script con wandb.plot\_table\(\) o utiliza uno de nuestros preajustes incorporados.
 
 {% page-ref page="walkthrough.md" %}
 
 ![](../../../.gitbook/assets/pr-roc.png)
 
-## Log charts from a script
+## Registra gráficos desde un script
 
-### Builtin presets
+### Preajustes incorporados
 
-These presets have builtin `wandb.plot` methods that make it fast to log charts directly from your script and see the exact visualizations you're looking for in the UI.
+Estos preajustes tienen métodos `wandb.plot` incorporados que aceleran el registro de gráficos directamente desde tu script, y hacen que veas las visualizaciones exactas que estás buscando en la interfaz de usuario.
 
 {% tabs %}
-{% tab title="Line plot" %}
+{% tab title="Gráfico de líneas" %}
 `wandb.plot.line()`
 
-Log a custom line plot—a list of connected and ordered points \(x,y\) on arbitrary axes x and y.
+**Registra un diagrama de líneas personalizado – una lista de puntos \(x,y\) conectados y ordenados sobre ejes x e y arbitrarios.**
 
 ```python
 data = [[x, y] for (x, y) in zip(x_values, y_values)]
@@ -43,13 +43,13 @@ table = wandb.Table(data=data, columns = ["x", "y"])
 wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom Y vs X Line Plot")})
 ```
 
-You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
+**Puedes usar esto para registrar curvas sobre dos dimensiones cualquiera. Notar que si estás trazando dos listas de valores entre sí, el número de los valores en las listas debe coincidir de forma exacta \(es decir, cada punto debe tener un x y un y\).**
 
 ![](../../../.gitbook/assets/line-plot.png)
 
-[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
+ [Ver en la aplicación →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
 
-[Run the code →](https://tiny.cc/custom-charts)
+[Ejecutar](https://tiny.cc/custom-charts)[ el código →](https://tiny.cc/custom-charts)
 {% endtab %}
 
 {% tab title="Scatter plot" %}
@@ -161,9 +161,9 @@ You can log this whenever your code has access to:
 {% endtab %}
 {% endtabs %}
 
-### **Custom presets**
+### Gráfico de Dispersión
 
-Tweak a builtin preset, or create a new preset, then save the chart. Use the chart ID to log data to that custom preset directly from your script.
+Registra un diagrama de dispersión personalizado – una lista de puntos \(x, y\) sobre un par de ejes arbitrarios x e y.
 
 ```python
 # Create a table with the columns to plot
@@ -185,20 +185,22 @@ my_custom_chart = wandb.plot_table(vega_spec_name="carey/new_chart",
 
 ![](../../../.gitbook/assets/image%20%2897%29.png)
 
-## Log data
+## Registra datos
 
-Here are the data types you can log from your script and use in a custom chart:
+Aquí están los tipos de datos que puedes registrar desde tu script y usarlos en un gráfico personalizado:
 
-* **Config**: Initial settings of your experiment \(your independent variables\). This includes any named fields you've logged as keys to `wandb.config` at the start of your training \(e.g. `wandb.config.learning_rate = 0.0001)`
-* **Summary**: Single values logged during training \(your results or dependent variables\), e.g. `wandb.log({"val_acc" : 0.8})`. If you write to this key multiple times during training via `wandb.log()`, the summary is set to the final value of that key.
-* **History**: The full timeseries of the logged scalar is available to the query via the `history` field
-* **summaryTable**: If you need to log a list of multiple values, use a `wandb.Table()` to save that data, then query it in your custom panel.
+* Configuración: Ajustes iniciales de tu experimento \(tus variables independientes\). 
+* Esto incluye cualquier campo nombrado que hayas registrado como una clave en wandb.config al comienzo de tu entrenamiento \(por ejemplo, wandb.config.learning\_rate = 0.0001\). 
+* Síntesis: Valores simples registrados durante el entrenamiento \(tus resultados o las variables dependientes\), por ejemplo wandb.log\({"val\_acc" : 0.8}\). 
+* Si escribes esta clave múltiples veces durante el entrenamiento, a través de wandb.log\(\), la síntesis es establecida como el valor final de dicha clave..
+*  Historial: La serie de tiempos completa de un escalar registrado está disponible para ser consultado a través del campo history.. 
+* summaryTable: Si necesitas registrar una lista de múltiples valores, utiliza wandb.Table\(\) para guardar los datos, entonces consúltala en tu panel personalizado.
 
-### **How to log a custom table**
+### Cómo registrar una tabla personalizada
 
-Use `wandb.Table()` to log your data as a 2D array. Typically each row of this table represents one data point, and each column denotes the relevant fields/dimensions for each data point which you'd like to plot. As you configure a custom panel, the whole table will be accessible via the named key passed to `wandb.log()`\("custom\_data\_table" below\), and the individual fields will be accessible via the column names \("x", "y", and "z"\). You can log tables at multiple time steps throughout your experiment. The maximum size of each table is 10,000 rows.
+ Utiliza `wandb.Table()` para registrar tus datos como un arreglo en 2D. En general, cada fila de la tabla representa un punto de datos, y cada columna denota los campos/dimensiones relevantes para cada punto de datos que te gustaría trazar. Mientras configuras un panel personalizado, la tabla completa va a ser accesible a través de la clave nombrada pasada a `wandb.log()` \("custom\_data\_table" abajo\), y los campos individuales van a ser accesibles a través de los nombres de las columnas \(“x”, “y” y “z”\). Puedes registrar las tablas en múltiples pasos de tiempo a través de todo tu experimento. El tamaño máximo de cada tabla es de 10.000 filas.
 
-[Try it in a Google Colab →](https://tiny.cc/custom-charts)
+ [Pruébalo en un Colab de Google →](https://tiny.cc/custom-charts)
 
 ```python
 # Logging a custom table of data
@@ -207,55 +209,55 @@ wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
                                 columns = ["x", "y", "z"])})
 ```
 
-## Customize the chart
+## Personalizar al Gráfico
 
-Add a new custom chart to get started, then edit the query to select data from your visible runs. The query uses [GraphQL](https://graphql.org/) to fetch data from the config, summary, and history fields in your runs.
+Para empezar, agrega un nuevo gráfico personalizado, entonces edita la consulta para seleccionar los datos de tus ejecuciones visibles. La consulta utiliza [GraphQL](https://graphql.org/) para buscar datos de los campos config, summary y history en tus ejecuciones.
 
 ![Add a new custom chart, then edit the query](../../../.gitbook/assets/2020-08-28-06.42.40.gif)
 
-### Custom visualizations
+### Visualizaciones personalizadas
 
-Select a **Chart** in the upper right corner to start with a default preset. Next, pick **Chart fields** to map the data you're pulling in from the query to the corresponding fields in your chart. Here's an example of selecting a metric to get from the query, then mapping that into the bar chart fields below.
+Selecciona un Gráfico en la esquina superior derecha para comenzar con un preajuste predeterminado. A continuación, selecciona **Campos del gráfico** para mapear los datos que estás tomando de la consulta a los campos correspondientes de tu gráfico. Aquí hay un ejemplo de la selección de una métrica para obtenerla desde la consulta, y entonces mapear eso en los campos de un gráfico de barras por debajo.
 
 ![Creating a custom bar chart showing accuracy across runs in a project](../../../.gitbook/assets/demo-make-a-custom-chart-bar-chart.gif)
 
-### How to edit Vega
+###  Cómo editar Vega
 
-Click **Edit** at the top of the panel to go into [Vega](https://vega.github.io/vega/) edit mode. Here you can define a [Vega specification](https://vega.github.io/vega/docs/specification/) that creates an interactive chart in the UI. You can change any aspect of the chart, from the visual style \(e.g. change the title, pick a different color scheme, show curves as a series of points instead of as connected lines\) to the data itself \(use a Vega transform to bin an array of values into a histogram, etc.\). The panel preview will update interactively, so you can see the effect of your changes as you edit the Vega spec or query. The [Vega documentation and tutorials ](https://vega.github.io/vega/)are an excellent source of inspiration.
+Haz click en Editar, en la parte superior del panel, para ir al modo edición de [Vega](https://vega.github.io/vega/). Aquí puedes definir una [especificación de Vega](https://vega.github.io/vega/docs/specification/) que crea un gráfico interactivo en la interfaz de usuario. Puedes cambiar cualquier aspecto del gráfico, desde el estilo visual \(por ejemplo, cambiar el título, seleccionar un color de esquema diferente, mostrar las curvas como una serie de puntos en lugar de como líneas conectadas\) a los datos mismos \(utiliza una transformación de Vega para contener un arreglo de valores en un histograma, etc.\). La visualización previa del panel se va a actualizar interactivamente, así puedes ver el efecto de tus cambios a medida que edites la especificación de Vega o la consulta. [La documentación y los tutoriales de Vega](https://vega.github.io/vega/) son una fuente de inspiración excelente.
 
-**Field references**
+**Referencias de los campos**
 
-To pull data into your chart from W&B, add template strings of the form `"${field:<field-name>}"` anywhere in your Vega spec. This will create a dropdown in the **Chart Fields** area on the right side, which users can use to select a query result column to map into Vega.
+Para llevar datos a tu gráfico de W&B, agrega plantillas de texto de la forma "${field:}" en cualquier lugar de tu especificación de Vega. Esto va a crear una lista desplegable en el área de Campos de los Gráficos, a mano derecha, que los usuarios pueden usar para seleccionar una columna con los resultados de un consulta para mapear a Vega.
 
-To set a default value for a field, use this syntax: `"${field:<field-name>:<placeholder text>}"`
+Para establecer un valor por defecto para un campo, utiliza la sintaxis:`"${field:<field-name>:<placeholder text>}"`
 
-### Saving chart presets
+### Guarda preajustes de los gráficos
 
-Apply any changes to a specific visualization panel with the button at the bottom of the modal. Alternatively, you can save the Vega spec to use elsewhere in your project. To save the reusable chart definition, click **Save as** at the top of the Vega editor and give your preset a name.
+Aplica cualquier cambio a un panel de visualización específico con el botón en la parte inferior del modal. Alternativamente, puedes guardar la especificación de Vega para usarla en cualquier lugar de tu proyecto. Para guardar la definición reutilizable del gráfico, haz click en **Guardar como** en la parte superior del editor de Vega y dale un nombre a tu preajuste.
 
-## Articles and guides
+## Artículos y guías
 
-1. [The W&B Machine Learning Visualization IDE](https://wandb.ai/wandb/posts/reports/The-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
-2. [Visualizing NLP Attention Based Models](https://wandb.ai/kylegoyette/gradientsandtranslation2/reports/Visualizing-NLP-Attention-Based-Models-Using-Custom-Charts--VmlldzoyNjg2MjM)
-3. [Visualizing The Effect of Attention on Gradient Flow](https://wandb.ai/kylegoyette/gradientsandtranslation/reports/Visualizing-The-Effect-of-Attention-on-Gradient-Flow-Using-Custom-Charts--VmlldzoyNjg1NDg)
-4. [Logging arbitrary curves](https://wandb.ai/stacey/deep-drive/reports/Logging-arbitrary-curves--VmlldzoyMzczMjM)
+1. [La IDE de Visualización de](https://wandb.ai/wandb/posts/reports/The-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)[l](https://wandb.ai/wandb/posts/reports/The-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)[ Aprendizaje de Máquinas de W&B](https://wandb.ai/wandb/posts/reports/The-W-B-Machine-Learning-Visualization-IDE--VmlldzoyNjk3Nzg)
+2.  [Visualizando Modelos NLP Basados en la Atención](https://wandb.ai/kylegoyette/gradientsandtranslation2/reports/Visualizing-NLP-Attention-Based-Models-Using-Custom-Charts--VmlldzoyNjg2MjM)
+3.  [Visualizando el Efecto de la Atención ](https://wandb.ai/kylegoyette/gradientsandtranslation/reports/Visualizing-The-Effect-of-Attention-on-Gradient-Flow-Using-Custom-Charts--VmlldzoyNjg1NDg)[sobre la ](https://wandb.ai/kylegoyette/gradientsandtranslation/reports/Visualizing-The-Effect-of-Attention-on-Gradient-Flow-Using-Custom-Charts--VmlldzoyNjg1NDg)[Curva de la Máxima Pendiente](https://wandb.ai/kylegoyette/gradientsandtranslation/reports/Visualizing-The-Effect-of-Attention-on-Gradient-Flow-Using-Custom-Charts--VmlldzoyNjg1NDg)
+4.  [Registrando Curvas Arbitrarias](https://wandb.ai/stacey/deep-drive/reports/Logging-arbitrary-curves--VmlldzoyMzczMjM)
 
-## Frequently asked questions
+## Preguntas realizadas frecuentemente
 
-### Coming soon
+### Próximamente
 
-* **Polling**: Auto-refresh of data in the chart
-* **Sampling**: Dynamically adjust the total number of points loaded into the panel for efficiency
+* **Sondeo:** Refresco automático de los datos en el gráfico
+* **Muestreo:** Ajuste dinámico del número total de puntos cargados en el panel para mejorar la eficiencia
 
-### Gotchas
+### Problemas
 
-* Not seeing the data you're expecting in the query as you're editing your chart? It might be because the column you're looking for is not logged in the runs you have selected. Save your chart and go back out to the runs table, and select the runs you'd like to visualize with the **eye** icon.
+* ¿No estás viendo los datos que estás esperando de la consulta mientras estás editando tu gráfico? Podría ser porque la columna que estás buscando no está registrada en las ejecuciones que has seleccionado. Guarda tu gráfico y vuelve a la tabla de las ejecuciones, y selecciona a las ejecuciones que te gustaría visualizar con el ícono del ojo.
 
-### Common use cases
+### Casos de uso comunes
 
-* Customize bar plots with error bars
-* Show model validation metrics which require custom x-y coordinates \(like precision-recall curves\)
-* Overlay data distributions from two different models/experiments as histograms
-* Show changes in a metric via snapshots at multiple points during training
-* Create a unique visualization not yet available in W&B \(and hopefully share it with the world\) 
+* Personaliza los gráficos de barras con barras de error
+* Muestra las métricas de validación del modelo que requieren coordenadas x-y personalizadas \(como las curvas de precisión y exhaustividad\)
+* Distribuciones de los datos de revestimiento a partir de dos modelos / experimentos diferentes como histogramas
+* Muestra cambios en una métrica a través de las panorámicas, en múltiples puntos, durante el entrenamiento
+* Crea una visualización única que aún no esté disponible en W&B \(y, con suerte, compártela con el mundo\)
 

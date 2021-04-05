@@ -1,141 +1,142 @@
 ---
 description: >-
-  Compare versions of your model, explore results in a scratch workspace, and
-  export findings to a report to save notes and visualizations
+  Compara las versiones de tu modelo, explora los resultados en un entorno de
+  trabajo temporal, y exporta las conclusiones a un reporte para guardar notas y
+  visualizaciones.
 ---
 
 # Project Page
 
-The project **Workspace** gives you a personal sandbox to compare experiments. Use projects to organize models that can be compared, working on the same problem with different architectures, hyperparameters, datasets, preprocessing etc.
+El proyecto Entorno de Trabajo te ofrece un entorno de pruebas personal para comparar los experimentos. Utiliza los proyectos para organizar los modelos que pueden ser comparados, trabajando sobre el mismo problema con diferentes arquitecturas, hiperparámetros, conjuntos de datos, preprocesamientos, etc.
 
-Project page tabs:
+ Etiquetas de la página del proyecto:
 
-1. \*\*\*\*[**Overview**](project-page.md#overview-tab): snapshot of your project
-2. \*\*\*\*[**Workspace**](project-page.md#workspace-tab): personal visualization sandbox
-3. \*\*\*\*[**Table**](project-page.md#table-tab): bird's eye view of all runs
-4. \*\*\*\*[**Reports**](project-page.md#reports-tab): saved snapshots of notes, runs, and graphs
-5. \*\*\*\*[**Sweeps**](project-page.md#sweeps-tab): automated exploration and optimization
+1. \*\*\*\*[**Resumen**](https://docs.wandb.ai/app/pages/project-page#overview-tab)**:** Panorámica de tu proyecto.
+2.  ****[**Entorno de Trabajo**](https://docs.wandb.ai/app/pages/project-page#workspace-tab)**:** entorno de pruebas personal para las visualizaciones
+3.  ****[**Tabl**](https://docs.wandb.ai/app/pages/project-page#table-tab)\*\*\*\*[**a**](https://docs.wandb.ai/app/pages/project-page#table-tab)**:** Vista general de todas las ejecuciones
+4.  ****[**Reportes**](https://docs.wandb.ai/app/pages/project-page#reports-tab)**:** Panorámicas guardadas de las notas, las ejecuciones y los gráficos
+5.  ****[**Barridos**](https://docs.wandb.ai/app/pages/project-page#sweeps-tab)**:** Exploración automatizada y optimización
 
-## Overview Tab
+## Pestaña Resumen
 
-* **Project name**: click to edit the project name
-* **Project description**: click to edit the project description and add notes
-* **Delete project**: click the dot menu in the right corner to delete a project
-* **Project privacy**: edit who can view runs and reports— click the lock icon
-* **Last active**: see when the most recent data was logged to this project
-* **Total compute**: we add up all the run times in your project to get this total
-* **Undelete runs**: Click the dropdown menu and click "Undelete all runs" to recover deleted runs in your project.
+* **Nombre del proyecto: haz click para editar el nombre del proyecto**
+* **Descripción del proyecto: haz click para editar la descripción del proyecto y para agregar notas.** 
+* **Borrar proyecto: haz click en el menú de puntos, en la esquina derecha, para borrar un proyecto.**
+* **Privacidad del proyecto: edita quién puede ver las ejecuciones y los reportes – haz click en el ícono del candado.**
+*  **Último activo: mira cuándo fueron registrados los datos más recientes para este proyecto.** 
+* **Cómputo total: Sumamos todos los tiempos de ejecución, correspondientes al proyecto, para obtener este total.** 
+* **Recuperar ejecuciones: Haz click en el menú desplegable y entonces en “Recuperar todas las ejecuciones” para recuperar las ejecuciones borradas de tu proyecto.**
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
+ [Ver un ejemplo en tiempo real →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%281%29.png)
 
 ![](../../.gitbook/assets/undelete.png)
 
-## Workspace Tab
+## Pestaña Entorno de Trabajo
 
-**Runs Sidebar**: list of all the runs in your project
+**Barra Lateral de las Ejecuciones:** lista de todas las ejecuciones en tu proyecto
 
-* **Dot menu**: hover over a row in the sidebar to see the menu appear on the left side. Use this menu to rename a run, delete a run, or stop and active run.
-* **Visibility icon**: click the eye to turn on and off runs on graphs
-* **Color**: change the run color to another one of our presets or a custom color
-* **Search**: search runs by name. This also filters visible runs in the plots.
-* **Filter**: use the sidebar filter to narrow down the set of runs visible
-* **Group**: select a config column to dynamically group your runs, for example by architecture. Grouping makes plots show up with a line along the mean value, and a shaded region for the variance of points on the graph.
-* **Sort**: pick a value to sort your runs by, for example runs with the lowest loss or highest accuracy. Sorting will affect which runs show up on the graphs.
-* **Expand button**: expand the sidebar into the full table
-* **Run count**: the number in parentheses at the top is the total number of runs in the project. The number \(N visualized\) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
+* Menú de puntos: pasa el cursor del mouse encima de una fila de la barra lateral y vas a ver que a la izquierda aparece un menú. 
+* Utiliza este menú para renombrar una ejecución, borrarla o detener una activa.. Ícono de visibilidad: haz click en el ojo para activar o desactivar las ejecuciones en los gráficos.. 
+* Color: cambia el color de la ejecución a otro color de los que tenemos predeterminados, o a uno personalizado.. 
+* Búsqueda: busca a las ejecuciones por nombre. Esto también filtra a las ejecuciones visibles en los diagramas.. 
+* Filtro: utiliza el filtro de la barra lateral para reducir el conjunto de ejecuciones visibles.. 
+* Grupo: selecciona una columna de la configuración para agrupar dinámicamente a tus ejecuciones, por ejemplo por arquitectura. El agrupamiento hace que los diagramas se muestren con una línea a lo largo del valor de la media, y una región sombreada para la varianza de los puntos en el gráfico..
+* Ordenar: selecciona un valor por el cuál ordenar las ejecuciones, por ejemplo teniendo en cuenta la pérdida más baja o la precisión más alta. El orden afectará a las ejecuciones que se muestren en los gráficos.. 
+* Botón expandir: expande la barra lateral en una tabla completa.. 
+* Cuenta de las ejecuciones: el número en paréntesis, en la parte superior, es el número total de ejecuciones en el proyecto. El número \(visualizado como N\), es el número de ejecuciones que tienen el ojo abierto y están disponibles para ser visualizadas en cada diagrama. En el ejemplo de abajo, los gráficos sólo están mostrando las primeras 10 de las 183 ejecuciones. Edita un gráfico para incrementar el número máximo de ejecuciones visibles.
 
-**Panels layout**: use this scratch space to explore results, add and remove charts, and compare versions of your models based on different metrics
+  **Diseño de los paneles:** utiliza este espacio temporal para explorar resultados, agregar y remover gráficos, y compara las versiones de tus modelos en base a diferentes métricas.
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo)
+[Ver un ejemplo en tiempo real →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%282%29.png)
 
-### Search for runs
+###  Busca ejecuciones
 
-Search for a run by name in the sidebar. You can use regex to filter down your visible runs. The search box affects which runs are shown on the graph. Here's an example:
+ Busca una ejecución por su nombre en la barra lateral. Puedes usar expresiones regulares para filtrar a tus ejecuciones visibles. La caja de búsqueda afecta qué ejecuciones son mostradas en el gráfico. Aquí hay un ejemplo:
 
 ![](../../.gitbook/assets/2020-02-21-13.51.26.gif)
 
-### Add a section of panels
+### Agrega una sección de paneles
 
-Click the section dropdown menu and click "Add section" to create a new section for panels. You can rename sections, drag them to reorganize them, and expand and collapse sections.
+Haz click en el menú desplegable de la sección y entonces en “Agregar sección” para crear una nueva sección para los paneles. Puedes renombrar las secciones, arrastrarlas para reorganizarlas, y expandirlas y colapsarlas.
 
-Each section has options in the upper right corner:
+Cada sección tiene opciones en la esquina superior derecha:
 
-* **Switch to custom layout**: The custom layout allows you to resize panels individually.
-* **Switch to standard layout**: The standard layout lets you resize all panels in the section at once, and gives you pagination.
-* **Add section**: Add a section above or below from the dropdown menu, or click the button at the bottom of the page to add a new section.
-* **Rename section**: Change the title for your section.
-* **Export section to report**: Save this section of panels to a new report.
-* **Delete section**: Remove the whole section and all the charts. This can be undone with the undo button at the bottom of the page in the workspace bar.
-* **Add panel**: Click the plus button to add a panel to the section. 
+* **Cambia a un diseño personalizado:** El diseño personalizado te permite redimensionar los paneles de forma individual.. 
+* **Cambia a un diseño estándar**: El diseño estándar te permite redimensionar a la vez a todos los paneles de la sección, y te ofrece paginación.. 
+* **Agrega una sección:** Agrega una sección por encima o por debajo del menú desplegable, o haz click en el botón, en la parte inferior de la página, para agregar una nueva sección.. 
+* **Renombra la sección**: Cambia el título para tu sección.. 
+* **Exporta la sección a un reporte**: Guarda esta sección de paneles a un nuevo reporte.. 
+* **Borra la sección:** Elimina a toda la sección y a todos sus gráficos. Esto se puede deshacer con el botón ‘deshacer’, en la parte inferior de la página, en la barra del entorno de trabajo..
+* **Agrega un panel:** Haz click en el botón más para agregar un panel a esta sección. 
 
 ![](../../.gitbook/assets/add-section.gif)
 
-### Move panels between sections
+###  Mueve los paneles entre las secciones
 
-Drag and drop panels to reorder and organize into sections. You can also click the "Move" button in the upper right corner of a panel to select a section to move the panel to.
+Arrastra y suelta a los paneles para reordenar y organizar las secciones. También puedes hacer click en el botón “Mover”, en la esquina superior derecha de un panel, para seleccionar una sección a la que habría que mover el panel.
 
 ![](../../.gitbook/assets/move-panel.gif)
 
-### Resize panels
+### Redimensiona paneles
 
-* **Standard layout**: All panels maintain the same size, and there are pages of panels. You can resize the panels by clicking and dragging the lower right corner. Resize the section by clicking and dragging the lower right corner of the section. 
-* **Custom layout**: All panels are sized individually, and there are no pages. 
+* **Diseño estándar:** Todos los paneles mantienen el mismo tamaño, y hay páginas de paneles. Puedes redimensionar a los paneles al hacer click y arrastrar desde la esquina inferior derecha. Redimensiona la sección al hacer click y arrastrar desde la esquina inferior derecha de la sección.
+* **Diseño personalizado**: todos los paneles son dimensionados de forma individual, y no hay páginas.
 
 ![](../../.gitbook/assets/resize-panel.gif)
 
-### Search for metrics
+###  Busca por métricas
 
-Use the search box in the workspace to filter down the panels. This search matches the panel titles, which are by default the name of the metrics visualized.
+Utiliza la caja de búsquedas, en el entorno de trabajo, para filtrar los paneles. Esta búsqueda coincide con los títulos de los paneles que, por defecto, son el nombre de las métricas visualizadas.
 
 ![](../../.gitbook/assets/search-in-the-workspace.png)
 
-## Table Tab
+## Pestaña Tabla
 
-Use the table to filter, group, and sort your results.
+Utiliza la tabla para filtra, agrupar y ordenar tus resultados.
 
-[View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
+[Ver un ejemplo en tiempo real →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
 
 ![](../../.gitbook/assets/image%20%2886%29.png)
 
-## Reports Tab
+## Pestaña Reportes
 
-See all the snapshots of results in one place, and share findings with your team.
+Mira todas las panorámicas de los resultados en un lugar, y comparte las conclusiones con tu equipo.
 
 ![](../../.gitbook/assets/reports-tab.png)
 
-## Sweeps Tab
+## Pestaña Barridos
 
-Start a new sweep from your project.
+Comienza un nuevo barrido de tu proyecto.
 
 ![](../../.gitbook/assets/sweeps-tab.png)
 
-## Common Questions
+## Preguntas Comunes
 
-### Reset workspace
+### Reinicia el Entorno de Trabajo
 
-If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
+Si ves un error como el siguiente en la página de tu proyecto, esto es lo que hay que hacer para reiniciar tu entorno de trabajo.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
-Add **?workspace=clear** to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
+Agrega **?workspace=clear** al final de la URL y presiona la tecla enter. Esto debería llevarte a una versión limpia del entorno de trabajo de tu página del proyecto.
 
-### Delete Projects
+### Borra Proyectos
 
-You can delete your project by clicking the three dots on the right of the overview tab.
+ Puedes borrar tu proyecto desde la pestaña Resumen, al hacer click sobre los tres puntos que están a la derecha.
 
 ![](../../.gitbook/assets/howto-delete-project.gif)
 
-### Privacy settings
+### Ajustes de Privacidad
 
-Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
+Haz click en el candado, en la barra de navegación, en la parte superior de la página, para cambiar los ajustes de la privacidad del proyecto. Puedes editar quién puede ver o emitir ejecuciones a tu proyecto. Estos ajustes incluyen todas las ejecuciones y los reportes del proyecto. Si quisieras compartir tus resultados con algunas personas, puedes crear un [equipo privado](https://docs.wandb.ai/app/features/teams).
 
 ![](../../.gitbook/assets/image%20%2879%29.png)
 
-### Delete an empty project
+### Borra un proyecto vacío
 
-Delete a project with no runs by clicking the dropdown menu and selecting "Delete project".
+Borra un proyecto sin ejecuciones al hacer click en el menú desplegable y al seleccionar “Borrar proyecto”.
 
 ![](../../.gitbook/assets/image%20%2866%29.png)
 

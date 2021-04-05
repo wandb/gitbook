@@ -1,46 +1,49 @@
 ---
 description: >-
-  Log in, restore code state, sync local directories to our servers, and run
-  hyperparameter sweeps with our command line interface
+  Inicia sesión, restituye el estado del código, sincroniza directorios locales
+  con nuestros servidores, y corre barridos de hiperparámetros con nuestra
+  interfaz de la línea de comandos
 ---
 
 # Command Line Interface
 
-After running `pip install wandb` you should have a new command available, **wandb**.
+ Después de correr `pip install wandb` deberías tener un nuevo comando disponible, **wandb**.
 
-The following sub-commands are available:
+Están disponibles los siguientes subcomandos:
 
-| Sub-command | Description |
+| Subcomando | Descripción |
 | :--- | :--- |
-| docs | Open documentation in a browser |
-| init | Configure a directory with W&B |
-| login | Login to W&B |
-| off | Disable W&B in this directory, useful for testing |
-| on | Ensure W&B is enabled in this directory |
-| docker | Run a docker image, mount cwd, and ensure wandb is installed |
-| docker-run | Add W&B environment variables to a docker run command |
-| projects | List projects |
-| pull | Pull files for a run from W&B |
-| restore | Restore code and config state for a run |
-| run | Launch a non-python program, for python use wandb.init\(\) |
-| runs | List runs in a project |
-| sync | Sync a local directory containing tfevents or previous runs files |
-| status | List current directory status |
-| sweep | Create a new sweep given a YAML definition |
-| agent | Start an agent to run programs in the sweep |
+| docs | Abre la documentación en un navegador |
+| init | Configura un directorio con W&B |
+| login | Inicia sesión en W&B |
+| offline | Sólo guarda los datos de la ejecución localmente, no hay sincronización con la nube \(`off` es obsoleto\) |
+| online | Se asegura de que W&B esté habilitado en este directorio \(`on` es obsoleto\) |
+| disabled | Deshabilita todas las llamadas a la API, es útil para el testing |
+| enabled |  Igual que online, continua con el registro regular de W&B una vez que hayas finalizado el testing |
+| docker | Corre una imagen docker, monta cwd, y se asegura de que wandb esté instalado |
+| docker-run | Agrega variable de entorno de W&B a un comando de ejecución de Docker |
+| projects | Lista los proyectos |
+| pull | Toma archivos para una ejecución desde W&B |
+| restore | Restituye el código y configura el estado para una ejecución |
+| run | Lanza un programa que no está escrito en python, para que python utilice wandb.init\(\) |
+| runs | Lista las ejecuciones en un proyecto |
+| sync | Sincroniza un directorio local conteniendo tfevents o archivos de ejecuciones previas |
+| status | Lista el estado actual del directorio |
+| sweep | Crea un nuevo barrido, dada una definición YAML |
+| agent | Comienza un agente para correr programas en el barrido |
 
-## Restore the state of your code
+## Restituye el estado de tu código
 
-Use `restore` to return to the state of your code when you ran a given run.
+Usa `restore` para volver al estado de tu código cuando corriste una ejecución dada.
 
-### Example
+### Ejemplo
 
 ```python
 # creates a branch and restores the code to the state it was in when run $RUN_ID was executed
 wandb restore $RUN_ID
 ```
 
-**How do we capture the state of the code?**
+**¿Cómo capturamos el estado del código?**
 
-When `wandb.init` is called from your script, a link is saved to the last git commit if the code is in a git repository. A diff patch is also created in case there are uncommitted changes or changes that are out of sync with your remote.
+Cuando `wandb.init` es llamado desde tu script, es guardado un enlace al último git commit, si el código está en un repositorio git. También es creado un parche diff en el caso en que haya cambios no confirmados o cambios que no estén sincronizados con el servidor remoto.
 

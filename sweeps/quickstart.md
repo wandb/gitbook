@@ -1,26 +1,26 @@
 # Sweeps Quickstart
 
-Start from any machine learning model and get a hyperparameter sweep running in minutes. Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
+Comienza a partir de cualquier modelo de aprendizaje de máquinas y obtén un barrido de hiperparámetros que se ejecuta en minutos. ¿Quieres ver un ejemplo en funcionamiento? Aquí está el [código de ejemplo](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) y un [panel de control de ejemplo](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%283%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%282%29.png)
 
 {% hint style="info" %}
-Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](add-to-existing.md)
+¿Ya tienes un proyecto en Weights & Biases? [Salta a nuestro próximo tutorial acerca de Barridos →](https://docs.wandb.ai/sweeps/existing-project)
 {% endhint %}
 
-## 1. Add wandb
+## 1. Agrega wandb
 
-### **Set up your account**
+### Establece tu cuenta
 
-1. Start with a W&B account.  [Create one now →](http://app.wandb.ai/)
-2. Go to your project folder in your terminal and install our library: `pip install wandb`
-3. Inside your project folder, log in to W&B: `wandb login`
+1. Comienza con una cuenta de W&B. [Crea una ahora →](http://app.wandb.ai/)
+2. Ve al directorio de tu proyecto en tu terminal e instala nuestra biblioteca: `pip install wandb`
+3. Dentro del directorio de tu proyecto, inicia sesión en W&B: `wandb login`
 
-### **Set up your Python training script**
+### Establece tu script de entrenamiento de Python
 
-1. Import our library `wandb`  
-2. Make sure your hyperparameters can be properly set by the sweep. Define them in a dictionary at the top of your script and pass them into wandb.init.
-3. Log metrics to see them in the live dashboard. 
+1. Importa nuestra biblioteca `wandb`  
+2. Asegúrate de que tus hiperparámetros puedan ser establecidos apropiadamente por el barrido. Defínelos en un diccionario, al principio de tu script, y pásalos a wandb.init.
+3. Registra métricas para verlas en el tablero de control en tiempo real
 
 ```python
 import wandb
@@ -47,21 +47,21 @@ metrics = {'accuracy': accuracy, 'loss': loss}
 wandb.log(metrics)
 ```
 
-[See a full code example →](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)
+ [Ver un ejemplo de código completo →](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)
 
-## 2. Sweep Config
+## 2. Configuración del Barrido
 
-Set up a **YAML file** to specify your training script, parameter ranges, search strategy, and stopping criteria. W&B will pass these parameters and their values as command line arguments to your training script, and we'll automatically parse them with the config object you set up in [Step 1](quickstart.md#set-up-your-python-training-script).
+Establece un archivo YAML para especificar a tu script de entrenamiento, los rangos de los parámetros, la estrategia de búsqueda y los criterios de detención. W&B va a pasar estos parámetros y sus valores como argumentos de la línea de comandos a tu script de entrenamiento, y automáticamente los vamos a analizar con el objeto de configuración que estableciste en el [Paso 1](https://docs.wandb.ai/sweeps/quickstart#set-up-your-python-training-script).
 
-Here are some config resources:
+ Aquí hay algunos recursos de configuración:
 
-1. [Example YAML](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): a code example of a script and YAML file to do a sweep
-2. [Configuration](configuration.md): full specs to set up your sweep config
-3. [Jupyter Notebook](python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
-4. [Generate config from UI](add-to-existing.md): take an existing W&B project and generate a config file
-5. [Feed in prior runs](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
+1.  ****[Ejemplo de archivos YAML](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion): un script de ejemplo y varios archivos YAML diferentes
+2. [Configuración](https://docs.wandb.ai/sweeps/configuration): especificaciones completas para establecer la configuración de tu barrido
+3.  [Notebook de Jupyter](https://docs.wandb.ai/sweeps/python-api): establece la configuración de tu barrido con un diccionario de Python, en lugar de un archivo YAML
+4.  [Genera la configuración desde la interfaz de usuario](https://docs.wandb.ai/sweeps/existing-project): toma un proyecto W&B existente y genera un archivo de configuración
+5.  [Alimento en ejecuciones previas](https://docs.wandb.com/sweeps/existing-project#seed-a-new-sweep-with-existing-runs): toma las ejecuciones previas y agrégalas a un nuevo barrido
 
-Here's an example sweep config YAML file called **sweep.yaml**:
+Aquí hay un archivo YAML de ejemplo, con la configuración del barrido, que se llama **sweep.yaml:** 
 
 ```text
 program: train.py
@@ -78,12 +78,12 @@ parameters:
 ```
 
 {% hint style="warning" %}
-If you specify a metric to optimize, make sure you're logging it. In this example, I have **val\_loss** in my config file, so I have to log that exact metric name in my script:
+Si especificas una métrica para optimizar, asegúrate de que la estés registrando. En este ejemplo, tengo a **val\_loss** en mi archivo de configuración, así que tengo que registrar exactamente el nombre de esa métrica en mi script:
 
 `wandb.log({"val_loss": validation_loss})`
 {% endhint %}
 
-Under the hood, this example configuration will use the Bayes optimization method to choose sets of hyperparameter values with which to call your program. It will launch experiments with the following syntax:
+Internamente, esta configuración de ejemplo va a utilizar el método de optimización de Bayes para elegir el conjunto de los valores de los hiperparámetros con los que se va a llamar a tu programa. Va a lanzar experimentos con la siguiente sintaxis:
 
 ```text
 python train.py --learning_rate=0.005 --optimizer=adam
@@ -91,36 +91,36 @@ python train.py --learning_rate=0.03 --optimizer=sgd
 ```
 
 {% hint style="info" %}
-If you're using argparse in your script, we recommend that you use underscores in your variable names instead of hyphens.
+Si estás usando argparse en tu script, te recomendamos que uses guiones bajos en los nombres de tus variables, en lugar de guiones.
 {% endhint %}
 
-## 3. Initialize a sweep
+## 3. Inicializa un barrido
 
-Our central server coordinates between all agents executing the sweep. Set up a sweep config file and run this command to get started:
+Nuestras coordenadas al servidor central entre todos los agentes que ejecutan el barrido. Establece un archivo de configuración del barrido y ejecuta este comando para empezar:
 
 ```text
 wandb sweep sweep.yaml
 ```
 
-This command will print out a **sweep ID**, which includes the entity name and project name. Copy that to use in the next step!
+ Este comando va a imprimir un **ID del barrido**, que incluye el nombre de la entidad y el nombre del proyecto. ¡Cópialo para usarlo en el próximo paso!
 
-## 4. Launch agent\(s\)
+## 4. Lanza el\(los\) agente\(s\)
 
-On each machine that you'd like to execute the sweep, start an agent with the sweep ID. You'll want to use the same sweep ID for all agents who are performing the same sweep.
+En cada máquina sobre la que te gustaría ejecutar el barrido, comienza un agente con el ID del barrido. Querrás usar el mismo ID del barrido para todos los agentes que estén ejecutando el mismo barrido.
 
-In a shell on your own machine, run the wandb agent command which will ask the server for commands to run:
+En una shell en tu máquina, ejecuta el comando wandb agent, que le va a pedir al servidor que ejecute ciertos comandos:
 
 ```text
 wandb agent your-sweep-id
 ```
 
-You can run wandb agent on multiple machines or in multiple processes on the same machine, and each agent will poll the central W&B Sweep server for the next set of hyperparameters to run.
+Puedes correr wandb agent en múltiples máquinas, o en múltiples procesos sobre la misma máquina, y cada agente le pedirá al servidor central de Barridos de W&B por el próximo conjunto de hiperparámetros a ejecutar.
 
-## 5. Visualize results
+## 5. Visualiza los resultados
 
-Open your project to see your live results in the sweep dashboard.
+Abre tu proyecto para ver los resultados en tiempo real en el panel de control de los barridos.
 
-[Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+ [Panel de control de ejemplo →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../.gitbook/assets/image%20%2888%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%281%29.png)
 

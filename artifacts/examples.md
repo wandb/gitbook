@@ -1,19 +1,20 @@
 ---
-description: Example code for trying W&B Artifacts
+description: Código de ejemplo para probar Artefactos de W&B
 ---
 
 # Artifacts Examples
 
-Walk through an example of Artifacts in a live notebook.
+  
+Ejemplo de guía sobre los Artefactos en una notebook en tiempo real
 
-[**Try the notebook →**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Pipeline_Versioning_with_W%26B_Artifacts.ipynb)\*\*\*\*
+ ****[Prueba la notebook →](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Pipeline_Versioning_with_W%26B_Artifacts.ipynb) 
 
 ![](../.gitbook/assets/artifacts-colab-notebook.png)
 
-For a more in-depth example, try our two GitHub demo projects:
+Para un ejemplo más detallado, prueba nuestros dos proyectos de demostración en GitHub:
 
-1. \*\*\*\*[**Dataset versioning**](https://github.com/wandb/artifacts-examples/tree/master/dataset-versioning)**:** An end-to-end example of how to version datasets with W&B artifacts.
-2. \*\*\*\*[**Detectron 2**](https://github.com/wandb/artifacts-examples/tree/master/detectron2): Image segmentation and bounding box prediction— visualize training metrics and predictions in real time, store and organize trained models, automatically track model fine-tuning, and save results
+1. [**Versionado del conjunto de datos**](https://github.com/wandb/artifacts-examples/tree/master/dataset-versioning)**:** un ejemplo de principio a fin de cómo versionar a los conjuntos de datos con artefactos W&B
+2.  [**Detectron 2**](https://github.com/wandb/artifacts-examples/tree/master/detectron2)**:** Segmentación de imágenes y predicción de cajas delimitadoras – visualiza las métricas de entrenamiento y las predicciones en tiempo real, almacena y organiza los modelos entrenados, haz el seguimiento automático del reajuste del modelo, y guarda los resultados.
 
 \*\*\*\*
 

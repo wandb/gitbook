@@ -1,37 +1,37 @@
 ---
 description: >-
-  Add notes to your runs and projects, and use notes to describe your findings
-  in reports
+  Agrega notas a tus ejecuciones y a tus proyectos, y utiliza las notas para
+  describir tus conclusiones en los reportes.
 ---
 
 # Notes
 
-There are a few ways to take notes about your work in Weights & Biases.
+Existen algunas formas para tomar notas acerca de tu trabajo en Weights & Biases.
 
-1. Add notes to a run. These notes show up on the run page in the overview tab and in the table of runs on the project page.
-2. Add notes to a project. These notes show up on the project page in the overview tab.
-3. Add a markdown panel on the run page, project page, or report page.
+1. Agrega notas a tu ejecución. Estas notas se muestran en la página de las ejecuciones, en la pestaña resumen, y en la tabla de las ejecuciones, en la página del proyecto.
+2. Agrega notas a un proyecto. Estas notas se muestran en la página del proyecto, en la pestaña resumen.
+3. Agrega un panel markdown en la página de las ejecuciones, en la página del proyecto o en la página del reporte.
 
-## Add notes to a specific run
+### Agrega notas a una ejecución específica
 
-You can edit the notes on a run in two places.
+Puedes editar las notas de una ejecución en dos lugares.
 
-1. **Project Page**: the table has an editable notes column
-2. **Run Page**: the overview tab shows information about a run, and you can 
+1. Página del Proyecto: la tabla tiene una columna de notas editable
+2. Página de las ejecuciones: la pestaña resumen muestra información acerca de una ejecución, y puedes...
 
-On the project page, expand the table. Click "Add notes..." to type notes in-line.
+En la página del proyecto, expande la tabla. Haz click en “Agregar notas...” para escribir notas en la fila.
 
-![Editing notes in the table on the project page](https://downloads.intercomcdn.com/i/o/148296355/34114b47362b0378e233a440/2019-09-13+08.05.17.gif)
+![Editando notas en la tabla sobre la p&#xE1;gina del proyecto](https://downloads.intercomcdn.com/i/o/148296355/34114b47362b0378e233a440/2019-09-13+08.05.17.gif)
 
-This field also shows up on the individual run page. Click the name of the run in the table to go to the run page. Click the top tab on the left side to go to the Overview tab. The field has much more room to grow here. You can type as many notes as you'd like in this space, and a preview will be shown in the runs table when you mouse over the notes field.
+El campo también se muestra en la página de la ejecución individual. Haz click en el nombre de la ejecución, en la tabla, para ir a la página de la ejecución. Haz click en la pestaña superior, en el lado izquierdo, para ir a la pestaña Resumen. Hay mucho más espacio para expandir al campo. Puedes escribir tantas notas como quieras en este espacio, y se va a mostrar una vista previa en la tabla de las ejecuciones cuando pases el mouse sobre el campo notas.
 
-![Editing notes in the overview tab on the run page](https://downloads.intercomcdn.com/i/o/148297196/afdb48d2fb59aaa0c90c3aed/2019-09-13+08.06.45.gif)
+![Editando notas en la pesta&#xF1;a resumen sobre la p&#xE1;gina de las ejecuciones](https://downloads.intercomcdn.com/i/o/148297196/afdb48d2fb59aaa0c90c3aed/2019-09-13+08.06.45.gif)
 
-You can also create a report to add plots and markdown side by side. Use different sections to show different runs, and tell a story about what you worked on. These notes can be saved and shared with colleagues.
+También puedes crear un reporte para agregar gráficos y markdown, uno al lado del otro. Utiliza diferentes secciones para mostrar diferentes ejecuciones, y cuenta una historia acerca de lo que estuviste trabajando. Estas notas pueden ser guardadas y compartidas con los colegas.
 
-## Write descriptive notes comparing runs
+###  Escribe notas descriptivas que comparen las ejecuciones
 
-Use reports to write about your findings when comparing multiple runs. Click "Add visualization" to add a markdown panel. You can arrange these panels beside panels of graphs.
+Utiliza reportes para escribir acerca de tus conclusiones cuando compares múltiples ejecuciones. Haz click en “Agregar visualización” para agregar un panel markdown. Puedes colocar estos paneles junto con los paneles de los gráficos.
 
 ![](https://downloads.intercomcdn.com/i/o/148297552/64e5baa86a48927158d17456/2019-09-13+08.08.31.gif)
 

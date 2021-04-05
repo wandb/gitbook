@@ -1,23 +1,23 @@
 ---
-description: Save a file to the cloud to associate the current run
+description: Guarda un archivo en la nube que está asociado con la ejecución actual
 ---
 
 # wandb.save\(\)
 
-There are two ways to save a file to associate with a run.
+Hay dos formas de guardar un archivo asociado con una ejecución
 
-1. Use `wandb.save(filename)`.
-2. Put a file in the wandb run directory, and it will get uploaded at the end of the run.
+1. Usar `wandb.save(filename)`.
+2.  Poner un archivo en el directorio de ejecución de wandb, y subirlo al final de la ejecución.
 
 {% hint style="info" %}
-If you're [resuming](advanced/resuming.md) a run, you can recover a file by calling`wandb.restore(filename)`
+Si estás [reanudando](https://docs.wandb.ai/library/resuming) una ejecución, puedes recuperar un archivo al llamar a wandb.restore\(filename\)
 {% endhint %}
 
-If you want to sync files as they're being written, you can specify a filename or glob in `wandb.save`.
+Si deseas sincronizar los archivos a medida que estos son escritos, puedes especificar un nombre de archivo o un glob en `wandb.save`.
 
-## Examples of wandb.save
+## Ejemplos de wandb.save
 
-See [this report](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw) for a complete working example.
+Mira [este reporte](https://app.wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W%26B--Vmlldzo3MDQ3Mw) para ver un ejemplo completo funcionando.
 
 ```python
 # Save a model file from the current directory
@@ -31,12 +31,12 @@ wandb.save(os.path.join(wandb.run.dir, "checkpoint*"))
 ```
 
 {% hint style="info" %}
-W&B's local run directories are by default inside the ./wandb directory relative to your script, and the path looks like run-20171023\_105053-3o4933r0 where 20171023\_105053 is the timestamp and 3o4933r0 is the ID of the run. You can set the WANDB\_DIR environment variable, or the dir keyword argument of wandb.init to an absolute path and files will be written within that directory instead.
+Los directorios de ejecución locales de W&B, por defecto están dentro del directorio ./wandb, relativo a tu script, y la ruta se ve algo así como run-20171023\_105053-3o4933r0, donde 20171023\_105053 es el timestamp y 3o4933r0 es el ID de la ejecución. Puedes establecer la variable de entorno WANDB\_DIR, o el argumento de la palabra clave dir de wandb.init a una ruta absoluta, y los archivos van a ser escritos en ese directorio de ahí en adelante.
 {% endhint %}
 
-## Example of saving a file to the wandb run directory
+## Ejemplo de guardar un archivo al directorio de ejecución wandb
 
-The file "model.h5" is saved into the wandb.run.dir and will be uploaded at the end of training.
+El archivo “model.h5” es guardado en wandb.run.dir y será subido al final del entrenamiento.
 
 ```python
 import wandb
@@ -47,33 +47,33 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 model.save(os.path.join(wandb.run.dir, "model.h5"))
 ```
 
-Here's a public example page. You can see on the files tab, there's the model-best.h5. That's automatically saved by default by the Keras integration, but you can save a checkpoint manually and we'll store it for you in association with your run.
+ Aquí hay una página de ejemplos pública. Puedes ver que en la pestaña Files está el model-best.h5. Por defecto, este es guardado automáticamente por la integración de Keras, pero puedes guardar un punto de control manualmente, y lo almacenaremos por ti junto con tu ejecución.
 
-[See the live example →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
+[ Ver el ejemplo en tiempo real →](https://wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
 
-![](../.gitbook/assets/image%20%2839%29%20%286%29%20%281%29%20%286%29.png)
+![](../.gitbook/assets/image%20%2839%29%20%286%29%20%281%29%20%285%29.png)
 
-## Common Questions
+##  Preguntas Comunes
 
-### Ignoring certain files
+###  Ignorando ciertos archivos
 
-You can edit the `wandb/settings` file and set ignore\_globs equal to a comma separated list of [globs](https://en.wikipedia.org/wiki/Glob_%28programming%29). You can also set the **WANDB\_IGNORE\_GLOBS** environment variable. A common use case is to prevent the git patch that we automatically create from being uploaded i.e. **WANDB\_IGNORE\_GLOBS=\*.patch**
+Puedes editar el archivo `wandb/settings` y establecer ignore\_globs igual a una lista de [globs](https://en.wikipedia.org/wiki/Glob_%28programming%29) separados por una coma. También puedes establecer la variable de entorno **WANDB\_IGNORE\_GLOBS**. Un caso de uso común es para evitar que sea subido el parche de git que creamos automáticamente. Es decir,  **WANDB\_IGNORE\_GLOBS=\*.patch**
 
-### Sync files before the end of the run
+### Sincronizar archivos antes de terminar la ejecución
 
-If you have a long run, you might want to see files like model checkpoints uploaded to the cloud before the end of the run. By default, we wait to upload most files until the end of the run. You can add a `wandb.save('*.pth')` or just `wandb.save('latest.pth')` in your script to upload those files whenever they are written or updated.
+ Si tienes una ejecución larga, puede que quieras ver que ciertos archivos, como los puntos de control del modelo, sean subidos a la nube antes de que finalice la ejecución. Por defecto, esperamos subir la mayoría de los archivos al final de la ejecución. Puedes agregar `wandb.save('*.pth')` o `wandb.save('latest.pth')` en tu script para subir estos archivos toda vez que los mismos sean escritos o actualizados.
 
-### Change directory for saving files
+### Cambiar el directorio para guardar archivos
 
-If you default to saving files in AWS S3 or Google Cloud Storage, you might get this error:`events.out.tfevents.1581193870.gpt-tpu-finetune-8jzqk-2033426287 is a cloud storage url, can't save file to wandb.`
+Si por defecto guardas los archivos en AWS S3 o Google Cloud Storage, puede ser que veas este error:`events.out.tfevents.1581193870.gpt-tpu-finetune-8jzqk-2033426287 is a cloud storage url, can't save file to wandb.`
 
-To change the log directory for TensorBoard events files or other files you'd like us to sync, save your files to the wandb.run.dir so they're synced to our cloud.
+Para cambiar el directorio de los registros para los archivos de eventos de TensorBoard u otros archivos que te gustaría que sincronicemos, guarda tus archivos en wandb.run.dir, así son sincronizados con nuestra nube.
 
-### Get the run name
+###  ****Obtén el nombre de la ejecución
 
-If you'd like to use the run name from within your script, you can use `wandb.run.name` and you'll get the run name— "blissful-waterfall-2" for example.
+Si te gustaría usar el nombre de la ejecución desde dentro de tu script, puedes usar `wandb.run.name` y así obtendrás el nombre de la ejecución – por ejemplo, "blissful-waterfall-2".
 
-you need to call save on the run before being able to access the display name:
+Necesitas llamar a save sobre el objeto ejecución antes de ser capaz de visualizar el nombre:
 
 ```text
 run = wandb.init(...)
@@ -81,11 +81,11 @@ run.save()
 print(run.name)
 ```
 
-### Push all saved files to wandb
+###  Pon todos los archivos guardados en wandb
 
-Call `wandb.save("*.pt")` once at the top of your script after wandb.init, then all files that match that pattern will save immediately once they're written to wandb.run.dir.
+Llama a `wandb.save(“*.pt”)` una vez al comenzar tu script, después de wandb.init, entonces todos los archivos que se correspondan con ese patrón se van a guardar inmediatamente una vez que sean escritos a wandb.run.dir.
 
-### Remove local files that have been synced to cloud storage
+### Elimina los archivos locales que hayan sido sincronizados al almacenamiento de la nube
 
-There’s a command `wandb gc` that you can run to remove local files that have already been synced to cloud storage. More information about usage can be found with \`wandb gc —help
+Hay un comando, `wandb gc`, que puedes ejecutar para eliminar los archivos locales que ya hayan sido sincronizados con el almacenamiento de la nube. Se puede encontrar más información con el comando \`wandb gc -help
 

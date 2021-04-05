@@ -1,85 +1,85 @@
 ---
-description: Resources for teaching machine learning and deep learning
+description: Recursos para enseñar aprendizaje de máquinas y aprendizaje profundo
 ---
 
 # Classes
 
-W&B is a great tool for learning and collaboration. We offer free academic accounts, and we've collected some good resources for helping you and your students navigate complex machine learning projects.
+W&B es una herramienta magnífica para el aprendizaje y la colaboración. Ofrecemos cuentas académicas gratuitas, y hemos recogido algunos buenos recursos para ayudarte a ti y a tus estudiantes a navegar los complejos proyectos de aprendizaje de máquinas.
 
-## Features
+## Características
 
-**Academic Teams**
+ **Equipos Académicos**
 
-Request an [academic team](https://www.wandb.com/academic) to get started having your students submit results to a shared workspace. Grading projects is easy when you can see the real, tracked results and the code that students used to generate models.
+Solicita un [equipo académico](https://www.wandb.com/academic) para empezar, haciendo que tus estudiantes envíen resultados a un entorno de trabajo compartido. Corregir proyectos es fácil cuando puedes ver los resultados reales y rastreados, y el código que usaron los estudiantes para generar los modelos.
 
-**Reports**
+ **Reportes**
 
-Ask your students to submit reports so you can explore their results and compare new projects against previous baselines. Reports make it easy to describe intermediate results and show progress, and all the graphs are connected to real model results that you can reproduce. [View an example report →](https://app.wandb.ai/stacey/keras_finetune/reports/Curriculum-Learning-in-Nature--Vmlldzo1MjcxNw)
+Pídeles a tus estudiantes que envíen reportes para que puedas explorar sus resultados y puedas  comparar los nuevos proyectos contra las referencias previas. Los reportes facilitan la descripción de los resultados intermedios y muestran el progreso, y todos los gráficos están conectados a los resultados del modelo real, que puedes reproducir. [Ver un reporte de ejemplo →](https://app.wandb.ai/stacey/keras_finetune/reports/Curriculum-Learning-in-Nature--Vmlldzo1MjcxNw)
 
-**Competitions**
+**Competencias**
 
-Create a project in your academic team, and have your students compete to achieve the best accuracy on a shared task. Here's a screenshot of an example competition. Each row is a different experiment, and users are competing for the highest accuracy. [View the project →](https://app.wandb.ai/wandb/feb8-emotion)
+Crea un proyecto en tu equipo académico, y haz que los estudiantes compitan para conseguir la mejor precisión sobre una tarea compartida. Aquí hay una captura de pantalla de una competencia de ejemplo. Cada file es un experimento diferente, y los usuarios están compitiendo para obtener la precisión más alta. [Ver el proyecto →](https://app.wandb.ai/wandb/feb8-emotion)
 
-![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%286%29.png)
+![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%284%29.png)
 
-## Resources
+##  Recursos
 
-### Example script repo
+###  Repositorio del script de ejemplo
 
-We've built up a set of working examples of deep learning projects in different frameworks.
+Hemos construido un conjunto de ejemplos funcionando de proyectos de aprendizaje profundo en diferentes frameworks.
 
-[View the GitHub repo →](https://github.com/wandb/examples)
+ [Ver el repositorio en GitHub →](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%282%29.png)
 
-We also created some hosted notebooks with models that your students can start training for free with the click of a button.
+ También hemos creado algunas notebooks con modelos, que tus estudiantes pueden comenzar a entrenar de forma gratuita, con el click de un botón.
 
-* [PyTorch](http://bit.ly/wandb-pytorch-intro) introduction with screenshots
-* [Keras ](http://bit.ly/wandb-keras-colab)MNIST example
-* [TensorFlow 2](http://bit.ly/wandb-tf-colab) convolutional neural network
+* Introducción a [PyTorch](http://bit.ly/wandb-pytorch-intro) con capturas de pantalla
+* Ejemplo MNIST de [Keras](http://bit.ly/wandb-keras-colab)
+* Red Neuronal Circunvolucional de [TensorFlow 2](http://bit.ly/wandb-tf-colab)
 
-### **Tutorials**
+####  Tutoriales
 
-Lukas and Chris have built a library of short tutorial projects with notes on each class section. Reach out to vanpelt@wandb.com with questions.
+Lukas y Chris han construido una biblioteca de proyectos de tutoriales cortos, con notas sobre cada sección de la clase. Comunícate con [vanpelt@wandb.com](mailto:convanpelt@wandb.com) para hacerle preguntas.
 
-[View the tutorials →](https://www.wandb.com/tutorials)
+ [Ver los tutoriales →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%282%29.png)
 
-### Free classes
+### Clases gratuitas
 
-Here are some excellent videos, notes, and slides from around the web. These are great additions to any curriculum on machine learning.
+Aquí hay algunas cosas excelentes como videos, notas y filminas distribuidas en la web. Son complementos magníficos a nuestro plan de estudio sobre el aprendizaje de máquinas.
 
-1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support
-2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models
-3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu/): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
-4. [MIT Intro to Deep Learning](http://introtodeeplearning.com/):  Accessible introduction taught by Alexander Amini and Ava Soleimany
+1. [Introducción al Aprendizaje de Máquinas para los Codificadore](http://course18.fast.ai/ml)s: Gran curso de fastai con videos, código de ejemplo, y un foro vibrante como soporte.
+2.  [Aprendizaje de Máquinas Full Stack](https://fullstackdeeplearning.com/march2019): Enseñado por nuestro amigo Josh Tobin, este curso maravilloso te elevará al siguiente nivel de experiencia en la construcción de modelos de aprendizaje profundo.
+3. [Aprendizaje Profundo de Stanford CS230](https://cs230.stanford.edu/): Las conferencias y las dispositivas están disponibles en línea para este curso maravilloso de Stanford impartido por  Andrew Ng.
+4.  [Introducción de MIT al Aprendizaje Profundo](http://introtodeeplearning.com/): Introducción accesible impartida por Alexander Amini y Ava Soleimany
 
-### Slide decks
+### Paquetes de diapositivas
 
-1. [Troubleshooting Deep Neural Networks](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): Josh Tobin's excellent slide deck on debugging models
-2. [Sequence to sequence models](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf): Slides from Stanford's computational linguistics class
-3. [Transfer and multi-task learning](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_15_multi_task_learning.pdf): Sergey Levine from Berkeley
-4. [Transfomer models](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/lectures/lecture12.pdf): Richard Socher from Stanford
+1.  [Resolución de Problemas de las Redes Neuronales Profundas](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): El excelente paquete de diapositivas de Josh Tobin sobre la depuración de los modelos.
+2.  [Modelos secuencia a secuencia](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf): Filminas de la clase lingüística computacional de Stanford 
+3. [Aprendizaje de transferencia y de múltiples tareas](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_15_multi_task_learning.pdf): Sergey Levine de Berkeley
+4.  [Modelos transformadores](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/lectures/lecture12.pdf): Richard Socher de Stanford
 
-## Topics
+## Temas
 
 ### Seq2Seq
 
-1. [Keras intro to seq2seq](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html): A fast intro from the Keras team
-2. [Original paper](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf): Ilya Sutskever and colleagues from Google
-3. [Berkeley slides](https://courses.d2l.ai/berkeley-stat-157/units/seq2seq.html): Encoder-decoder, seq2seq, and machine translation
+1.  [Introducción de Keras a seq2seq](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html): Una introducción rápida del equipo de Keras
+2.  [Artículo original](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf): Ilya Sutskever y los colegas de Google
+3.  [Diapositivas de Berkeley](https://courses.d2l.ai/berkeley-stat-157/units/seq2seq.html): Codificador-decodificador, seq2seq y traducción de máquina 
 
-### Natural language examples
+### Ejemplos del lenguaje natural
 
-1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
-2. [TalkToTransformer.com](https://talktotransformer.com): try GPT 2
-3. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
-4. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
-5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
-6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
-7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
-8. [Zero-shot transfer learning + LSTMs](https://www.media.mit.edu/publications/zero-shot-transfer-learning-to-enhance-communication-for-minimally-verbal-individuals-with-autism-using-naturalistic-data/): Enhancing translation technology for minimally verbal individuals
+1.  ****[OpenAI GPT-2](https://openai.com/blog/better-language-models/): un modelo para generar texto realista.
+2.  [TalkToTransformer.com](https://talktotransformer.com/): prueba GPT 2.
+3.  [GLUE Benchmark](https://gluebenchmark.com/): recursos para entrenar y analizar los sistemas del lenguaje natural.
+4.  [SuperGLUE](https://super.gluebenchmark.com/): versión 2, actualizada y mejorada, de GLUE Benchmark
+5.  [Livox](http://impact-transfer.org/zero/livox/): utiliza NLP en una aplicación de comunicación alternativa
+6.  [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): artículo de una revista médica acerca del uso de NLP en los tuits 
+7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): artículo promedio hablando acerca de 10 aplicaciones interesantes
+8.  [Zero-shot transfer learning + LSTMs](https://www.media.mit.edu/publications/zero-shot-transfer-learning-to-enhance-communication-for-minimally-verbal-individuals-with-autism-using-naturalistic-data/): Mejorando la tecnología de traducción para individuos apenas locuaces.
 
-If you are teaching a class, we would love to support you. Please reach out to us at support@wandb.com.
+Si estás impartiendo una clase, nos encantaría ayudarte. Por favor, contáctanos a [support@wandb.com](mailto:support@wandb.com).
 

@@ -1,18 +1,18 @@
 # Visualize Sweep Results
 
-## Parallel coordinates plot
+## Gráfico de coordenadas paralelas
 
 ![](https://paper-attachments.dropbox.com/s_194708415DEC35F74A7691FF6810D3B14703D1EFE1672ED29000BA98171242A5_1578695138341_image.png)
 
-Parallel coordinates plots map hyperparameter values to model metrics. They're useful for honing in on combinations of \_\*\*\_hyperparameters that led to the best model performance.
+ Los gráficos de coordenadas paralelas mapean los valores de los hiperparámetros a las métricas del modelo. Son útiles para pulir sobre las combinaciones de los hiperparámetros \_\*\*\_ que condujeron al mejor desempeño del modelo.
 
-## Hyperparameter Importance Plot
+### Gráfico de la Importancia de los Hipreparámetros
 
 ![](https://paper-attachments.dropbox.com/s_194708415DEC35F74A7691FF6810D3B14703D1EFE1672ED29000BA98171242A5_1578695757573_image.png)
 
-The hyperparameter importance plot surfaces which hyperparameters were the best predictors of, and highly correlated to desirable values for your metrics.
+El gráfico de la importancia de los hiperparámetros surge a partir de los parámetros que fueron los mejores indicadores, y está altamente correlacionado con los valores deseables para tus métricas.
 
-**Correlation** is the linear correlation between the hyperparameter and the chosen metric \(in this case val\_loss\). So a high correlation means that when the hyperparameter has a higher value, the metric also has higher values and vice versa. Correlation is a great metric to look at but it can’t capture second order interactions between inputs and it can get messy to compare inputs with wildly different ranges.
+**Correlación** es una correlación lineal entre el hiperparámetro y la métrica elegida \(en este caso val\_loss\). Así que una correlación alta significa que cuando el hiperparámetro tiene un valor más alto, la métrica también tiene valores más altos, y viceversa. La correlación es una métrica magnífica, a la cual hay que prestarle atención, pero no puede capturar interacciones de segundo orden entre las entradas, y puede volverse complicado comparar entradas con rangos extremadamente diferentes.
 
-Therefore we also calculate an **importance** metric where we train a random forest with the hyperparameters as inputs and the metric as the target output and report the feature importance values for the random forest.
+Consecuentemente, también calculamos una métrica de **importancia**, en donde entrenamos un bosque aleatorio con los hiperparámetros como entradas y la métrica como la salida objetivo, y reportamos los valores de importancia de la característica para el bosque aleatorio.
 
