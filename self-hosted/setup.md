@@ -1,41 +1,39 @@
 ---
-description: How to set up a centralized W&B Local Server
+description: 如何设置集中式W＆B本地服务器
 ---
 
 # Setup
 
-A W&B Local Server is a docker image running on your infrastructure. See the following for instructions for how to provision a new instance.
+W＆B Local Server是在基础架构上运行的docker映像。有关如何置备新实例的说明，请参阅以下内容。
 
-## Amazon Web Services
+### **亚马逊网络服务（AWS）**
 
-Running _wandb/local_ in AWS can be done in a few different ways.
+可以通过几种不同的方式在AWS中运行wandb/local。
 
 ### AWS Fargate
 
-Type Fargate in the AWS console, or go directly to the [ECS management page](https://console.aws.amazon.com/ecs/home). Click Get Started to create a new ECS service using Fargate.
+ 在AWS控制台中输入Fargate，[或直接转到ECS管理页面](https://console.aws.amazon.com/ecs/home)。单击Get Started，使用Fargate创建新的ECS服务。
 
-* **Container Definition**: Choose "custom" and click "Configure".  From here name your container _wandb-local_ and set the image name to _wandb/local:latest_.  Finally add port 8080 to the port mappings.
-* **Task Definition**: Click Edit and make sure to give the task at least 8GB of ram and 4 vCPUs
-* **Define Your Service**: You'll likely want to create an ALB that can terminate SSL and forward requests to port 8080 of this service.
-* **IAM Permissions**: If you plan to use a cloud file backend \(this is optional\), make sure your instance has an IAM role that allows it to access S3 and subscribe to SQS.
-
-Once the service is provisioned you can access it via your ALB or directly via the IP and PORT of your instance. Your instance is usable from boot, but for advanced options, you may now proceed to [configuring your instance](configuration.md).
+* **容器定义**：选择“自定义”，然后单击“配置”。在这里将您的容器命名为wandb-local，并将映像名称设置为wandb/local:latest。最后，将端口8080添加到端口映射中。
+* **任务定义**：单击“编辑edit”，并确保为任务分配至少8GB的ram和4个vCPU
+* **定义您的服务**：您可能想创建一个ALB，该ALB可以终止SSL并将请求转发到该服务的端口8080。
+* **IAM 许可**：如果您打算使用云文件后端（这是可选的），请确保您的实例具有IAM角色，以使其可以访问S3并订阅SQS。设置服务后，您可以通过ALB或直接通过实例的IP和PORT访问它。您的实例从启动即可使用，但是对于高级选项，您现在可以参考 [configuring your instance](https://docs.wandb.ai/self-hosted/configuration)（配置您的实例）。
 
 ### EC2
 
-You can run _wandb/local_ on any EC2 instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+您可以在同样安装了Docker的任何EC2实例上运行wandb / local。我们建议至少8GB的RAM和4vCPU。只需运行以下命令即可启动容器：
 
 ```text
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-## Google Cloud Platform
+### **谷歌云**
 
-### Kubernetes Engine
+#### Kubernetes引擎
 
-If you're running k8s already you can easily launch _wandb/local_ into an existing cluster. GCP always make it really simple to launch a cluster via the [console](https://console.cloud.google.com/kubernetes/list).
+如果您已经在运行k8s，则可以轻松地将wandb/local启动到现有集群中。 GCP使得通过[控制台](https://console.cloud.google.com/projectselector2/kubernetes/list?ref=https:%2F%2Fapp.gitbook.com%2F@weights-and-biases%2Fs%2Fdocs%2F~%2Fdrafts%2F-MKaPhwzNIegNuInaekR%2Fself-hosted-1%2Fsetup&pli=1&authuser=1&supportedpurview=project)启动集群变得很简单。
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local with load balancing and SSL in GCP. The yaml below assumes you've created a static IP address named **wandb-local-static-ip**. You can do so with:
+以下k8s yaml可以自定义，但应作为在GCP中使用负载平衡和SSL配置本地的基础。 以下yaml假定您已创建一个名为**wandb-local-static-ip**的静态IP地址。 您可以执行以下操作：
 
 ```text
 gcloud compute addresses create wandb-local-static-ip --global
@@ -133,17 +131,17 @@ spec:
       storage: 100Gi
 ```
 
-### Compute Engine
+### 计算引擎
 
-You can run _wandb/local_ on any Compute Engine instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+ 您可以在同样安装了Docker的任何计算引擎实例上运行wandb / local。 我们建议至少8GB的RAM和4vCPU。 只需运行以下命令即可启动容器：
 
 ```text
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-## Azure Kubernetes Service
+### **Azure Kubernetes服务**
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local.
+可以定制以下k8s yaml，但应将其用作配置本地的基础。
 
 ```text
 apiVersion: apps/v1
@@ -234,11 +232,11 @@ spec:
 
 ## OnPrem Kubernetes
 
-The k8s YAML above in the Azure Kubernetes Service section should work in most on-premise installations.
+上面“ Azure Kubernetes服务”中的k8s YAML应该可以在大多数本地安装中使用
 
 ## OnPrem Docker
 
-You can run _wandb/local_ on any instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+您可以在同样安装了Docker的任何实例上运行wandb/local。 我们建议至少8GB的RAM和4vCPU。 只需运行以下命令即可启动容器：
 
 ```text
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local

@@ -1,37 +1,33 @@
 ---
-description: Self Hosted installations for projects with sensitive data
+description: 包含敏感数据的项目的自托管安装
 ---
 
 # Self Hosted
 
-W&B Local is the self hosted version of [Weights & Biases](https://app.wandb.ai). It makes collaborative experiment tracking possible for enterprise machine learning teams, giving you a way to keep all training data and metadata within your organization's network.
+W＆B Local是[Weights & Biases](https://app.wandb.ai/)的自托管版本。它使企业机器学习团队可以进行协作实验跟踪，从而为您提供了一种将所有训练数据和元数据保留在组织网络内的方法。
 
-[Request a demo to try out W&B Local →](https://www.wandb.com/demo)
+ ​[申请demo试用W＆B Local→](https://www.wandb.com/contact)​
 
-We also offer [W&B Enterprise Cloud](cloud.md), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system can scale to any level of usage.
+ 我们还提供[W＆B企业云](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/self-hosted/cloud)，可以在您公司的AWS或GCP帐户中运行完全可扩展的基础架构。该系统可以扩展到任何使用级别。
 
-## Features
+### **特征**
 
-* Unlimited runs, experiments, and reports
-* Keep your data safe on your own company's network
-* Integrate with your company's authentication system
-* Premier support by the W&B engineering team
+·       无限的运行，实验和报告
 
-The self hosted server is a single Docker image that is simple to deploy. Your W&B data is saved on a persistent volume or an external database so data can be preserved across container versions.
+·       确保数据在自己公司的网络上的安全
 
-## Server Requirements
+·       与您公司的身份验证系统集成
 
-The W&B self hosted server requires an instance with at least 4 cores and 8GB memory.
+·       W＆B工程团队的卓越支持
 
-## Self Hosted Resources
+自托管服务器是单个Docker映像，易于部署。您的W＆B数据保存在持久卷（persistent volume）或外部数据库中，因此可以跨容器版本保留数据。
 
-{% page-ref page="local.md" %}
+### **服务器要求**
 
-{% page-ref page="setup.md" %}
+W＆B自托管服务器需要至少4核和8GB内存。
 
-{% page-ref page="configuration.md" %}
+### **自托管资源**
 
-{% page-ref page="local-common-questions.md" %}
+  
 
-{% page-ref page="cloud.md" %}
 

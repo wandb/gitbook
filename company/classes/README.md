@@ -1,85 +1,89 @@
 ---
-description: Resources for teaching machine learning and deep learning
+description: 教学机器学习和深度学习的资源
 ---
 
 # Classes
 
-W&B is a great tool for learning and collaboration. We offer free academic accounts, and we've collected some good resources for helping you and your students navigate complex machine learning projects.
+ W＆B是学习和协作的绝佳工具。我们提供免费的学术帐户，并且我们已经收集了一些很好的资源来帮助您和您的学生浏览复杂的机器学习项目。
 
-## Features
+##  **特征**
 
-**Academic Teams**
+ **学术团队**
 
-Request an [academic team](https://www.wandb.com/academic) to get started having your students submit results to a shared workspace. Grading projects is easy when you can see the real, tracked results and the code that students used to generate models.
+ 开始一个[学术团队](https://www.wandb.com/academic)账户让您的学生开始将结果提交到共享工作区。当您看到真实的、跟踪的结果以及学生用来生成模型的代码时，对项目进行评分变得容易。
 
-**Reports**
+ **报告**
 
-Ask your students to submit reports so you can explore their results and compare new projects against previous baselines. Reports make it easy to describe intermediate results and show progress, and all the graphs are connected to real model results that you can reproduce. [View an example report →](https://app.wandb.ai/stacey/keras_finetune/reports/Curriculum-Learning-in-Nature--Vmlldzo1MjcxNw)
+ 要求学生提交报告，以便您可以探索他们的结果，并将新项目与以前的基准进行比较。报告可以轻松描述中间结果和显示进度，并且所有图形都与真实模型结果相关，您也可以重新生成这些结果。[查看示例报告→](https://wandb.ai/stacey/keras_finetune/reports/Curriculum-Learning-in-Nature--Vmlldzo1MjcxNw)
 
-**Competitions**
+**比赛项目**
 
-Create a project in your academic team, and have your students compete to achieve the best accuracy on a shared task. Here's a screenshot of an example competition. Each row is a different experiment, and users are competing for the highest accuracy. [View the project →](https://app.wandb.ai/wandb/feb8-emotion)
+ 在您的学术团队中创建一个项目，并让您的学生竞争以在共享任务上实现最佳准确率。这是比赛示例的屏幕截图。每行都是不同的实验，用户正在争夺最高精度。[查看项目→](https://wandb.ai/wandb/feb8-emotion)
 
-![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%286%29.png)
+![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%284%29.png)
 
-## Resources
+## Resources **资源资源**
 
-### Example script repo
+###  脚本repository示例
 
-We've built up a set of working examples of deep learning projects in different frameworks.
+我们建立了一组在不同框架下的深度学习项目的工作示例。
 
-[View the GitHub repo →](https://github.com/wandb/examples)
+  [查看GitHub存储库→](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%282%29.png)
 
-We also created some hosted notebooks with models that your students can start training for free with the click of a button.
+ 我们还创建了一些带有模型的托管笔记本，您的学生可以点击一下就免费开始训练。
 
-* [PyTorch](http://bit.ly/wandb-pytorch-intro) introduction with screenshots
-* [Keras ](http://bit.ly/wandb-keras-colab)MNIST example
-* [TensorFlow 2](http://bit.ly/wandb-tf-colab) convolutional neural network
+* [PyTorch](http://bit.ly/wandb-pytorch-intro) 简介和屏幕截图
+* [Keras ](http://bit.ly/wandb-keras-colab)MNIST 示例
+* [TensorFlow 2](http://bit.ly/wandb-tf-colab) 卷积神经网络
 
-### **Tutorials**
+###  **讲解教程**
 
-Lukas and Chris have built a library of short tutorial projects with notes on each class section. Reach out to vanpelt@wandb.com with questions.
+卢卡斯（Lukas）和克里斯（Chris）建立了一个简短的教程项目库，并在每节课中加注。如有问题，请联系vanpelt@wandb.com。
 
-[View the tutorials →](https://www.wandb.com/tutorials)
+ [查看教程→](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%282%29.png)
 
-### Free classes
+###  **免费课程**
 
-Here are some excellent videos, notes, and slides from around the web. These are great additions to any curriculum on machine learning.
+这里有一些出色的视频，笔记和网络幻灯片。这些是对任何机器学习课程的重要补充。
 
-1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support
-2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models
-3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu/): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
-4. [MIT Intro to Deep Learning](http://introtodeeplearning.com/):  Accessible introduction taught by Alexander Amini and Ava Soleimany
+1. [ 面向程序员的机器学习简介](https://course18.fast.ai/ml)：很棒的fastai课程，包括视频，示例代码和一个充满活力的支持论坛
+2.  [全栈深度学习](https://fullstackdeeplearning.com/march2019)：这门很棒的课程由我们的朋友Josh Tobin教授，它将带您进入构建深度学习模型的更高专业水平
+3.  [Stanford CS230深度学习](https://cs230.stanford.edu/)：由Andrew Ng教授的这门很棒的Stanford课程的在线讲座和幻灯片。
+4.  [麻省理工学院深度学习入门](http://introtodeeplearning.com/)：Alexander Amini和Ava Soleimany教授的无障碍入门
 
-### Slide decks
+###  **幻灯片**
 
-1. [Troubleshooting Deep Neural Networks](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): Josh Tobin's excellent slide deck on debugging models
-2. [Sequence to sequence models](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf): Slides from Stanford's computational linguistics class
-3. [Transfer and multi-task learning](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_15_multi_task_learning.pdf): Sergey Levine from Berkeley
-4. [Transfomer models](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/lectures/lecture12.pdf): Richard Socher from Stanford
+1. [Troubleshooting Deep Neural Networks](http://josh-tobin.com/troubleshooting-deep-neural-networks.html): Josh Tobin's excellent slide deck on debugging models 深度神经网络故障排除\(Troubleshooting Deep Neural Networks\)：Josh Tobin出色的关于调试模型的幻灯片
+2. [ 序列到序列模型\(Sequence to sequence models\)](https://nlp.stanford.edu/~johnhew/public/14-seq2seq.pdf)：斯坦福大学计算语言学课的幻灯片
+3.  [转移和多任务学习\(Transfer and multi-task learning\)](http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_15_multi_task_learning.pdf)：来自伯克利的Sergey Levine
+4.  [Transfomer模型\(Transfomer models\)](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1184/lectures/lecture12.pdf)：斯坦福大学的Richard Socher
 
-## Topics
+## **主题**
 
 ### Seq2Seq
 
-1. [Keras intro to seq2seq](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html): A fast intro from the Keras team
-2. [Original paper](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf): Ilya Sutskever and colleagues from Google
-3. [Berkeley slides](https://courses.d2l.ai/berkeley-stat-157/units/seq2seq.html): Encoder-decoder, seq2seq, and machine translation
+1. [seq2seq的Keras简介](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html)：来自Keras团队的快速介绍
+2.  [原始论文](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf)：Google的Ilya Sutskever及其同事
+3.  [伯克利幻灯片](https://courses.d2l.ai/berkeley-stat-157/units/seq2seq.html)：编码器-解码器，seq2seq和机器翻译
 
-### Natural language examples
+### **自然语言处理示例**
 
-1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
-2. [TalkToTransformer.com](https://talktotransformer.com): try GPT 2
-3. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
-4. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
-5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
-6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
-7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications
-8. [Zero-shot transfer learning + LSTMs](https://www.media.mit.edu/publications/zero-shot-transfer-learning-to-enhance-communication-for-minimally-verbal-individuals-with-autism-using-naturalistic-data/): Enhancing translation technology for minimally verbal individuals
+1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): 用于生成逼真的文本的模型
+2. [TalkToTransformer.com](https://talktotransformer.com): 尝试GPT 2
+3. [GLUE基准测试](https://gluebenchmark.com/)：用于训练和分析自然语言系统的资源
+4.   [SuperGLUE](https://super.gluebenchmark.com/)：更新和改进了GLUE基准测试的v2版本
+5.    [Livox](http://impact-transfer.org/zero/livox/)：在另类通信应用程序中使用NLP
+6.  [实用的Twitter内容挖掘](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/)：有关在推特上使用NLP的医学期刊文章
+7.  [  NLP的应用程序](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a)：Medium文章谈论10个有趣的应用程序
+8.     [Zero-shot transfer learning + LSTM](https://www.media.mit.edu/publications/zero-shot-transfer-learning-to-enhance-communication-for-minimally-verbal-individuals-with-autism-using-naturalistic-data/)：针对不爱说话的人士的翻译增强技术
 
-If you are teaching a class, we would love to support you. Please reach out to us at support@wandb.com.
+    技术
+
+
+
+如果您要教课程，我们很乐意为您提供支持。请通过support@wandb.com与我们联系。
 
