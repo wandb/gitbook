@@ -1,70 +1,70 @@
 # Reference
 
-## X-Axis
+## **X축\(X-Axis\)**
 
-![Selecting X-Axis](../../../../.gitbook/assets/image%20%2815%29.png)
+![X&#xCD95; &#xC120;&#xD0DD;&#xD558;&#xAE30;](../../../../.gitbook/assets/image%20%2815%29.png)
 
-You can set the X-Axis of a line plot to any value that you have logged with wandb.log as long as it's always logged as a number.
+ 사용자는 라인 플롯의 X축을 숫자로 로그되는한, wandb.log로 로그한 값으로 설정할 수 있습니다.
 
-## Y-Axis Variables
+##  **Y축 변수\(Y-Axis Variables\)**
 
-You can set the y-axis variables to any value you have logged with wandb.log as long as you were logging numbers, arrays of numbers or a histogram of numbers. If you logged more than 1500 points for a variable, wandb samples down to 1500 points.
+ 숫자, 숫자의 배열 또는 숫자의 히스토그램으로 로그 하는 한, wandb.log로 로그된 값으로 y축을 설정하실 수 있습니다. 변수로 1500개 이상의 포인트를 로그한 경우, wandb는 1500개 포인트까지 샘플링 합니다.
 
 {% hint style="info" %}
-You can change the color of your y axis lines by changing the color of the run in the runs table.
+실행 테이블의 실행의 색상을 변경하여 y 축 라인의 색을 변경할 수 있습니다.
 {% endhint %}
 
-## X Range and Y Range
+## **X범위 및 Y범위\(X Range and Y Range\)**
 
-You can change the maximum and minimum values of X and Y for the plot.
+플롯에 대한 X 및 Y의 최대 및 최소값을 변경할 수 있습니다.
 
-X range default is from the smallest value of your x-axis to the largest.
+X 범위 기본값은 X축의 가장 작은 값부터 최대값입니다.
 
-Y range default is from the smallest value of your metrics and zero to the largest value of your metrics.
+Y 범위 기본값은 메트릭의 가장 작은 값 및 0\(zero\)부터 메트릭의 가장 큰 값까지 입니다.
 
-## Max Runs/Groups
+## **최대 실행/그룹\(Max Runs/Groups\)**
 
-By default you will only plot 10 runs or groups of runs. The runs will be taken from the top of your runs table or run set, so if you sort your runs table or run set you can change the runs that are shown.
+기본값으로 10개 실행 또는 실행의 그룹만 작성할 수 있습니다. 실행은 실행 테이블 또는 실행 세트 상단에서 가져오게 되며, 따라서 실행 테이블 또는 실행 세트를 정렬할 경우, 표시되는 실행을 변경할 수 있습니다.
 
-## Legend
+## **범례\(Legend\)**
 
-You can control the legend of your chart to show for any run any config value that you logged and meta data from the runs such as the created at time or the user who created the run.
+차트의 범례를 제어하여 모든 실행에 대한 사용자가 로그한 구성 값\(config value\) 및 그때 생성된 또는 실행을 생성한 사용자와 같은 실행의 메타 데이터를 표시할 수 있습니다.
 
-Example:
+ 예시:
 
-${config:x} will insert the config value of x for a run or group.
+${config:x}가 실행 또는 그룹에 대한 x의 구성 값을 삽입합니다.
 
-You can set \[\[$x: $y\]\] to display point specific values in the crosshair
+\[\[$x: $y\]\]를 설정하여 십자선에 특정 포인트 값을 표시할 수 있습니다.
 
-## Grouping
+##  **그룹화\(Grouping\)**
 
-You can aggregate all of the runs by turning on grouping, or group over an individual variable. You can also turn on grouping by grouping inside the table and the groups will automatically populate into the graph.
+그룹화를 켜거나 개별 변수를 그룹화 하여 모든 실행을 집계할 수 있습니다. 또한, 테이블 내부에서 그룹화 하여 그룹화를 켤 수 있으며, 그룹은 자동으로 그래프에 채워집니다.
 
-## Smoothing
+##  **평활\(Smoothing\)**
 
-You can set the [smoothing coefficient](../../../../library/technical-faq.md#what-formula-do-you-use-for-your-smoothing-algorithm) to be between 0 and 1 where 0 is no smoothing and 1 is maximum smoothing.
+ [평활계수\(smoothing coefficient\)](https://docs.wandb.com/library/technical-faq#what-formula-do-you-use-for-your-smoothing-algorithm)를 0과 1 사이로 설정하실 수 있습니다. 여기서 0은 평활이 없음을 의미하며 1은 최대 평활을 의미합니다.
 
-## Ignore Outliers
+##  **이상치 무시\(Ignore Outliers\)**
 
-Ignore outliers makes the graph set the yaxis min and max to the 5th and 95th percentile of the data instead of setting it to make all data visible.
+ 이상치 무시는 모든 데이터를 표시하도록 설정하는 것 대신 그래프가 y축 최소/최대값을 5에서 95 백분위수로 설정하도록 합니다.
 
-## Expression
+##  **표현식\(Expression\)**
 
-Expression lets you plot values derived from metrics like 1-accuracy. It currently only works if you are plotting a single metric. You can do simple arithmetic expressions, +, -, \*, / and % as well as \*\* for powers.
+ 표현식을 사용하시면 1-accuracy과 같은 메트릭에서 파생된 값을 플로팅\(plot\)하실 수 있습니다. 현재 단일 메트릭을 플로팅\(plot\)하시는 경우만 사용하실 수 있습니다. , +, -, _, /, %과 같은 단순 산술식 및 거듭제곱에 대한 \*_을 수행할 수 있습니다.
 
-## Plot style
+##  **플롯 스타일\(Plot style\)**
 
-Select a style for your line plot.
+ 라인 플롯에 대한 스타일을 선택합니다.
 
-**Line plot:**
+**라인 플롯:**
 
-![](../../../../.gitbook/assets/image%20%285%29%20%282%29%20%282%29.png)
+![](../../../../.gitbook/assets/image%20%285%29%20%282%29.png)
 
-**Area plot:**
+ **영역 플롯:**
 
-![](../../../../.gitbook/assets/image%20%2835%29%20%281%29%20%282%29.png)
+![](../../../../.gitbook/assets/image%20%2835%29%20%281%29%20%282%29%20%281%29.png)
 
-**Percentage area plot:**
+**백분율 영역 플롯:**
 
-![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%286%29%20%286%29.png)
+![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%286%29%20%282%29.png)
 

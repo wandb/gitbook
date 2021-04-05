@@ -1,26 +1,26 @@
 # Sweeps Quickstart
 
-Start from any machine learning model and get a hyperparameter sweep running in minutes. Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
+ 임의의 머신 러닝 모델에서 시작해서 수 분내에 초매개변수 스윕을 실행하실 수 있습니다. 작업 예시를 보고 싶으신가요? 다음은 [예시 코드](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)와 [예시 대시보드](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q)입니다.
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%283%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%282%29.png)
 
 {% hint style="info" %}
-Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](add-to-existing.md)
+이미 Weights & Biases 프로젝트가 있으신가요? [다음 스윕 튜토리얼로 건너뛰기 →](https://docs.wandb.com/sweeps/existing-project)​
 {% endhint %}
 
-## 1. Add wandb
+## 1. **wandb 추가하기**
 
-### **Set up your account**
+###  **계정 설정하기**
 
-1. Start with a W&B account.  [Create one now →](http://app.wandb.ai/)
-2. Go to your project folder in your terminal and install our library: `pip install wandb`
-3. Inside your project folder, log in to W&B: `wandb login`
+1.  W&B 계정으로 시작합니다. [지금 계정 생성하기 →](http://app.wandb.ai/)
+2. 터미널\(terminal\)의 프로젝트 폴더로 이동해서 저희 라이브러리를 설치합니다: `pip install wandb`
+3. 프로젝트 폴더 내에서, W&B에 로그인합니다:`wandb login`
 
-### **Set up your Python training script**
+###  **Python 훈련 스크립트 설정하기**
 
-1. Import our library `wandb`  
-2. Make sure your hyperparameters can be properly set by the sweep. Define them in a dictionary at the top of your script and pass them into wandb.init.
-3. Log metrics to see them in the live dashboard. 
+1. . 라이브러리 `wandb`를 가져옵니다
+2. 스윕이 초매개변수를 올바르게 설정했는지 확인하십시오. 스크립트 상단의 사전에 정의하고, wandb.init으로 전달합니다.
+3. 메트릭을 로그하여 라이브 대시보드에서 확인합니다.
 
 ```python
 import wandb
@@ -47,21 +47,21 @@ metrics = {'accuracy': accuracy, 'loss': loss}
 wandb.log(metrics)
 ```
 
-[See a full code example →](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)
+ ​[전체 코드 예시 보기 →](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)​
 
-## 2. Sweep Config
+## 2. **스윕 구성\(Sweep Config\)**
 
-Set up a **YAML file** to specify your training script, parameter ranges, search strategy, and stopping criteria. W&B will pass these parameters and their values as command line arguments to your training script, and we'll automatically parse them with the config object you set up in [Step 1](quickstart.md#set-up-your-python-training-script).
+YAML 파일을 설정하여 훈련 스크립트, 매개변수 범위\(parameter ranges\), 검색 전략\(search strategy\) 및 중지 기준\(stopping criteria\)을 지정합니다. W&B는 이러한 매개변수와 해당 값을 명령줄 전달인자\(command line arguments\)로 훈련 스크립트에 전달하며, 에서 여러분이 설정한 config 객체를 사용해 자동으로 분석합니다.
 
-Here are some config resources:
+다음은 몇 가지 구성 리소스\(config resources\)입니다:
 
-1. [Example YAML](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): a code example of a script and YAML file to do a sweep
-2. [Configuration](configuration.md): full specs to set up your sweep config
-3. [Jupyter Notebook](python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
-4. [Generate config from UI](add-to-existing.md): take an existing W&B project and generate a config file
-5. [Feed in prior runs](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
+1.  [예시 YAML \(Example YAML\)](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): 스크립트의 코드 예시 및 스윕을 수행하는 YAML 파일
+2. [구성\(Configuration\)](https://docs.wandb.com/sweeps/configuration): 스윕 구성\(sweep config\)을 설정하는 전체 스펙\(spec\)
+3. [Jupyter Notebook](https://docs.wandb.com/sweeps/python-api): YAML 파일 대신 Python 사전을 사용해 스윕 구성\(sweep config\)을 설정
+4. [UI에서 구성\(config\) 생성하기](https://docs.wandb.com/sweeps/existing-project): 기존 W&B 프로젝트를 가져와 구성\(config\) 파일 생성하기
+5.  [이전 실행의 피드\(Feed\)](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs): 이전 실행 가져와 새 스윕\(sweep\)에 추가하기
 
-Here's an example sweep config YAML file called **sweep.yaml**:
+다음은 **sweep.yaml**이라고 불리는 스윕 구성 YAML 파일 예시입니다:
 
 ```text
 program: train.py
@@ -78,12 +78,12 @@ parameters:
 ```
 
 {% hint style="warning" %}
-If you specify a metric to optimize, make sure you're logging it. In this example, I have **val\_loss** in my config file, so I have to log that exact metric name in my script:
+최적화할 메트릭을 지정하는 경우, 메트릭을 로그했는지 확인하시기 바랍니다. 이 예시에서, 구성\(config\) 파일에 val\_loss가 있으므로, 스크립트에 정확한 메트릭 이름을 로그해야 합니다:
 
 `wandb.log({"val_loss": validation_loss})`
 {% endhint %}
 
-Under the hood, this example configuration will use the Bayes optimization method to choose sets of hyperparameter values with which to call your program. It will launch experiments with the following syntax:
+내부에서 이 예시 구성은 베이즈 최적화\(Bayes optimization\) 방법을 사용하여 프로그램 호출 시에 사용할 초매개변수 값 세트를 선택합니다. 이는 다음의 신택스\(syntax\)를 사용하여 실험을 시작합니다.
 
 ```text
 python train.py --learning_rate=0.005 --optimizer=adam
@@ -91,36 +91,36 @@ python train.py --learning_rate=0.03 --optimizer=sgd
 ```
 
 {% hint style="info" %}
-If you're using argparse in your script, we recommend that you use underscores in your variable names instead of hyphens.
+스크립트에서 argparse를 사용하는 경우, 하이픈\(-\)대신 변수 이름에 밑줄\(\_\)을 사용하시는 것이 좋습니다.
 {% endhint %}
 
-## 3. Initialize a sweep
+## 3.  **스윕 초기화**
 
-Our central server coordinates between all agents executing the sweep. Set up a sweep config file and run this command to get started:
+저희 중앙 서버는 스윕을 수행하는 모든 에이전트를 조정합니다. 스윕 구성 파일\(sweep config file\)을 설정하고 다음의 명령을 실행하여 시작합니다:
 
 ```text
 wandb sweep sweep.yaml
 ```
 
-This command will print out a **sweep ID**, which includes the entity name and project name. Copy that to use in the next step!
+이 명령은 개체이름\(entity name\) 및 프로젝트 이름을 포함한 **sweep ID**를 출력합니다. 다음 단계에서 사용할 내용을 복사하세요!
 
-## 4. Launch agent\(s\)
+## 4. **에이전트\(들\) 실행\(Launch agent\(s\)\)**
 
-On each machine that you'd like to execute the sweep, start an agent with the sweep ID. You'll want to use the same sweep ID for all agents who are performing the same sweep.
+스윕을 수행할 각 머신에서 스윕 ID\(sweep ID\)로 에이전트를 시작합니다. 동일 스윕을 수행하는 모든 에이전트에 대해 동일한 스윕 ID를 사용하는 것이 좋습니다.
 
-In a shell on your own machine, run the wandb agent command which will ask the server for commands to run:
+여러분 머신의 셀\(shell\)에서 서버에 실행할 명령을 요청하는 wandb 에이전트 명령\(agent commend\)를 실행하십시오:
 
 ```text
 wandb agent your-sweep-id
 ```
 
-You can run wandb agent on multiple machines or in multiple processes on the same machine, and each agent will poll the central W&B Sweep server for the next set of hyperparameters to run.
+여러 머신 또는 동일 머신의 여러 프로세스에서 wandb 에이전트 할 수 있으며, 각 에이전트는 실행할 다음 초매개변수 세트를 위해 중앙 W&B 스윕 서버를 폴링\(poll\)합니다.
 
-## 5. Visualize results
+## 5.  **결과 시각화하기\(Visualize results\)**
 
-Open your project to see your live results in the sweep dashboard.
+프로젝트를 열어 스윕 대시보드에서 라이브 결과를 확인합니다
 
-[Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+[예시 대시보드 →](https://app.wandb.ai/carey/pytorch-cnn-fashion)​
 
-![](../.gitbook/assets/image%20%2888%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%281%29.png)
 

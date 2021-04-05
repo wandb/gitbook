@@ -1,18 +1,18 @@
 ---
-description: How to change the colors of your runs in visualizations
+description: 시각화에서 실행 색상을 변경하는 법
 ---
 
 # Run Colors
 
-When a new run is created, it is assigned a default color. You can edit the color for a given run by clicking the color preview.
+새 실행이 생성되면, 기본 색상이 할당됩니다. 색상 미리보기를 클릭하여 지정된 실행에 대한 색상을 편집할 수 있습니다.
 
-Colors are locally scoped. On the project page, custom colors only apply to your own workspace. In reports, custom colors for runs only apply at the section level. You can visualize the same run in different sections, and it can have a different custom color in each section.
+ 색상은 로컬 범위로 적용됩니다. 프로젝트 페이지에서, 사용자 정의 색상은 오직 여러분의 작업공간에만 적용됩니다. 리포트에서, 실행에 대한 사용자 정의 색상은 섹션 수준으로만 적용됩니다. 다른 섹션에서 동일한 실행을 시각화 하실 수 있으며, 각 세션마다 다른 사용자 정의 색상을 지정할 수 있습니다.
 
-## How to edit run colors
+## **실행 색상 변경법**
 
-1. Select the Run you want to visualize
-2. Click the colored dot 
-3. Select a color for the graphs of your run
+1. 시각화 할 실행을 선택합니다.
+2. 컬러 도트\(colored dot\)을 클릭합니다.
+3. 실행의 그래프에 대한 색상을 선택합니다
 
 ![](https://downloads.intercomcdn.com/i/o/149202442/b430d9b1473e41644a91fae3/run+coloring.gif)
 

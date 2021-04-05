@@ -1,28 +1,29 @@
 # Code Saving
 
-By default, we only save the latest git commit hash. You can turn on more code features to compare the code between your experiments dynamically in the UI.
+ 기본값으로, 저희는 최선 git 커밋 해시만을 저장합니다. 더 많은 코드 기능을 사용하여 UI에서 실험 간 코드를 동적으로 비교하실 수 있습니다.
 
-Starting with `wandb` version 0.8.28, we can save the code from your main training file where you call `wandb.init()`. This will get sync'd to the dashboard and show up in a tab on the run page, as well as the Code Comparer panel. Go to your [settings page](https://app.wandb.ai/settings) to enable code saving by default.
+ ****`wandb` 버전0 0.8.28부터, 저희는 `wandb.init()`을 호출하는 주 훈련 파일\(main training file\)에서 코드를 저장할 수 있습니다. 이렇게 하면, 대시보드에 동기화되어 실행 페이지의 탭과 Code Comparer 패널에 표시됩니다. [설정 페이지\(settings page\)](https://app.wandb.ai/settings)로 가셔서 기본값으로 코드 저장을 활성화하십시오.  
 
-![Here&apos;s what your account settings look like. You can save code by default.](../../../.gitbook/assets/screen-shot-2020-05-12-at-12.28.40-pm.png)
 
-## Code Comparer
+![&#xACC4;&#xC815; &#xC124;&#xC815;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAE30;&#xBCF8;&#xAC12;&#xC73C;&#xB85C; &#xCF54;&#xB4DC;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xC2E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.](../../../.gitbook/assets/screen-shot-2020-05-12-at-12.28.40-pm.png)
 
-Click the **+** button in your workspace or report to add a new panel, and select the Code Comparer. Diff any two experiments in your project and see exactly which lines of code changed. Here’s an example:
+##  **Code Comparer\(코드 비교기\)**
+
+작업공간 또는 리포트의 **+** 버튼을 클릭하여 새 패널을 추가하고, Code Comparer를 선택하세요. 프로젝트에서 두 개의 실험을 디핑\(diff\)하고 코드의 어떤 행이 변경되었는지 확인하십시오. 다음은 그 예시입니다:
 
 ![](../../../.gitbook/assets/cc1.png)
 
-## Jupyter Session History
+##  **Jupyter세션 히스토리**
 
-Starting with **wandb** version 0.8.34, our library does Jupyter session saving. When you call **wandb.init\(\)** inside of Jupyter, we add a hook to automatically save a Jupyter notebook containing the history of code executed in your current session. You can find this session history in a runs file browser under the code directory:
+**wandb** 버전 0.8.34부터 저희 라이브러리는 Jupyter 세션을 저장합니다. Jupyter내에서 **wandb.init\(\)**을 호출하면, 저희는 훅\(hook\)을 추가하여 자동으로 여러분의 현재 세션에서 수행된 코드 히스토리를 포함한 Jupyter notebook을 저장합니다. 이 세션 히스토리는 코드 디렉토리 아래의 실행 파일 브라우저\(runs file browser\)에서 찾으실 수 있습니다:
 
-![](../../../.gitbook/assets/cc2%20%284%29.png)
+![](../../../.gitbook/assets/cc2%20%284%29%20%285%29.png)
 
-Clicking on this file will display the cells that were executed in your session along with any outputs created by calling iPython’s display method. This enables you to see exactly what code was run within Jupyter in a given run. When possible we also save the most recent version of the notebook which you would find in the code directory as well.
+ 이 파일을 클릭하시면 iPython’s display method를 호출하여 생성된 출력과 함께 세션에서 수행된 셀이 표시됩니다. 이를 통해 정확하게 어떤 코드가 주어진 실행에서 Jupyter내에서 실행되었는지 확인하실 수 있습니다. 가능한 경우, 저희는 코드 디렉토리에서도 찾으실 수 있는 가장 최신 버전의 notebook 또한 저장합니다.
 
-![](../../../.gitbook/assets/cc3%20%283%29%20%283%29%20%283%29.png)
+![](../../../.gitbook/assets/cc3%20%283%29%20%283%29%20%281%29.png)
 
-## Jupyter diffing
+##  **Jupyter디핑\(diffing\)**
 
-One last bonus feature is the ability to diff notebooks. Instead of showing the raw JSON in our Code Comparer panel, we extract each cell and display any lines that changed. We have some exciting features planned for integrating Jupyter deeper in our platform.
+마지막 보너스 기능 중 하나는 notebooks를 디핑하는 기능입니다. Code Comparer 패널에 raw JSON을 표시하는 것 대신, 각 셀을 추출하여 변경된 모든 라인을 표시합니다. Jupyter를 저희 플랫폼에 더 깊숙이 통합하기 위한 몇 가지 기능이 계획되어 있습니다.
 

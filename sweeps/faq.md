@@ -1,59 +1,59 @@
 # Common Questions
 
-## Setting the project and entity
+## **프로젝트 및 개체\(entity\) 설정하기**
 
-When you run the command to start a sweep, you have to give that command a project and entity. If you want a different one it can be specified in 4 ways:
+스윕을 시작하기 위해 명령을 실행하실 때, 해당 명령에 프로젝트와 개체\(entity\)를 제공해야 합니다. 다른 방식을 원하시는 경우, 다음의 4가지 방법으로 지정하실 수 있습니다:
 
-1. command line arguments to `wandb sweep` \(`--project` and `--entity` arguments\)
-2. wandb settings file \(`project` and `entity` keys\)
-3. [sweep configuration](configuration.md) \(`project` and `entity` keys\) 
-4. [environment variables](../library/environment-variables.md) \(`WANDB_PROJECT` and `WANDB_ENTITY` variables\)
+1.  `wandb sweep`로의 명령줄 전달인자 \(`--project` 및 `--entity` 전달인자\)
+2.  wandb 설정 파일 \(`project` 및 `entity` 키\)
+3.   [스윕 구성\(sweep configuration\)](https://docs.wandb.com/sweeps/configuration) \(`project` 및 `entity` 키\)
+4. [환경 변수\(environment variables\)](https://docs.wandb.com/library/environment-variables) \(`WANDB_PROJECT` 및 `WANDB_ENTITY` 변수\)
 
-## **Sweeps agents stop after the first runs finish**
+### **첫 실행 완료 후 에이전트가 중단하는 스윕\(Sweeps agents stop after the first runs finish\)**
 
 `wandb: ERROR Error while calling W&B API: anaconda 400 error: {"code":400,"message":"TypeError: bad operand type for unary -: 'NoneType'"}`
 
-One common reason for this is that the metric your are optimizing in your configuration YAML file is not a metric that you are logging. For example, you could be optimizing the metric **f1**, but logging **validation\_f1**. Double check that you're logging the exact metric name that you're optimizing.
+이 문제의 가장 일반적인 이유는 구성\(configuration\) YAML 파일에서 최적화하고 있는 메트릭이 여러분이 로그하고 있는 메트릭이 아니기 때문입니다. 예를 들면, 메트릭 f1을 최적화하고 있으나, **validation\_f1**을 로깅하는 중일 수 있습니다. 최적화하고 있는 바로 그 메트릭을 로깅하고 있는지 다시 한번 더 확인하시기 바랍니다.
 
-## Set a number of runs to try
+##  **수행할 실행의 수 설정하기**
 
-Random search will run forever until you stop the sweep. You can set a target to automatically stop the sweep when it achieves a certain value for a metric, or you can specify the number of runs an agent should try: `wandb agent --count NUM SWEEPID`
+임의 검색은 사용자가 스윕을 중지할 때까지 영원히 실행됩니다. 메트릭에 대한 특정 값을 달성하면 자동으로 스윕을 중단하기 위해 목표\(target\)을 설정하거나, 에이전트가 수행할 실행의 수를 다음과 같이 지정할 수 있습니다:`wandb agent --count NUM SWEEPID`
 
 wandb agent --count NUM SWEEPID
 
-## Run a sweep on Slurm
+##  **Slurm에서 스윕 실행하기**
 
-We recommend running `wandb agent --count 1 SWEEP_ID` which will run a single training job and then exit.
+단일 훈련 작업을 실행한 다음 종료할 `wandb agent --count 1 SWEEP_ID`을 실행하실 것을 추천합니다.
 
-## Rerun grid search
+## **그리드 검색 재실행** 
 
-If you exhaust a grid search but want to rerun some of the runs, you can delete the ones you want to rerun, then hit the resume button on the sweep control page, then start new agents for that sweep ID.
+그리드 검색을 모두 사용했지만, 일부 실행을 다시 재실행하고 싶으신 경우, 재실행하려는 실행을 삭제한 다음 sweep control\(스윕 제어\) 페이지에서 resume\(재개\) 버튼을 클릭한 후, 해당 스윕 ID에 대한 새 에이전트를 시작합니다.
 
-## Sweeps and Runs must be in the same project
+## **스윕과 실행은 반드시 동일 프로젝트에 존재해야 합니다\(Sweeps and Runs must be in the same project\).**
 
 `wandb: WARNING Ignoring project='speech-reconstruction-baseline' passed to wandb.init when running a sweep`
 
-You cant set a project with wandb.init\(\) when running a sweep. The sweep and the runs have to be in the same project, so the project is set by the sweep creation: wandb.sweep\(sweep\_config, project=“fdsfsdfs”\)
+스윕을 실행할 때 wandb.init\(\)으로 프로젝트를 설정하실 수 없습니다. 스윕과 실행은 반드시 동일 프로젝트에 위치해야 합니다. 따라서 프로젝트는 다음의 스윕 생성에 의해 설정됩니다: wandb.sweep\(sweep\_config, project=“fdsfsdfs”\)
 
-## Error uploading
+## **업로드 시 오류 발생**
 
-If you're seeing **ERROR Error uploading &lt;file&gt;: CommError, Run does not exist**, you might be setting an ID for your run, `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, it will throw and error. In the sweeps context, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
+**ERROR Error uploading &lt;file&gt;: CommError, Run does not exist**가 표시되는 경우, 실행에 대한 ID를 설정중인 경우 일 수 있습니다. 이 ID는 프로젝트에서 고유\(unique\)해야 하며, 그렇지 않은 경우, 오류가 발생합니다. sweep context\(스윕 컨텍스트\)에서, 저희는 실행에 대한 자동으로 임의의, 고유한 ID를 생성하므로, 실행에 대한 수동으로 ID를 설정하실 수 없습니다
 
-If you're trying to get a nice name to show up in the table and on the graphs, we recommend using **name** instead of **id**. For example:
+테이블과 그래프에 표시할 괜찮은 이름을 얻고 싶으시다면, id대신 name을 사용하시는 것이 좋습니다. 예를 들면 다음과 같습니다:
 
 ```python
 wandb.init(name="a helpful readable run name")
 ```
 
-## Sweep with custom commands
+##  **사용자 지정 명령으로 스윕하기**
 
-If you normally run training with a command and arguments, for example:
+일반적으로 명령과 전달인자로 훈련을 실행할 경우, 예를 들면 다음과 같습니다:
 
 ```text
 edflow -b <your-training-config> --batch_size 8 --lr 0.0001
 ```
 
-You can convert this to a sweeps config like so:
+이것을 다음과 같은 스윕 구성\(sweeps config\)으로 변환할 수 있습니다:
 
 ```text
 program:
@@ -67,15 +67,15 @@ command:
   - ${args}
 ```
 
-The ${args} key expands to all the parameters in the sweep configuration file, expanded so they can be parsed by argparse: --param1 value1 --param2 value2
+${args} 키는 스윕 구성 파일의 모든 매개변수로 확장되며, argparse: --param1 value1 --param2에 의해 분석될 수 있도록 확장됩니다.
 
-If you have extra args that you dont want to specify with argparse you can use:  
+여러분이 사용할 수 있는 argparse와 함께 지정하고 싶지 않은 추가 args\(전달인자\)가 있는 경우: 다음을 사용하실 수 있습니다:  
 parser = argparse.ArgumentParser\(\)  
 args, unknown = parser.parse\_known\_args\(\)
 
-**Running Sweeps with Python 3**
+ **Python 3으로 스윕 실행하기**
 
-If you're having an issue where the sweep is trying to use Python 2, it's easy to specify that it should use Python 3 instead. Just add this to your sweep config YAML file:
+스윕\(sweep\)이 Python 2를 사용하려고 하는 문제가 있는 경우, Python 3을 대신 사용하도록 지정하는 법은 쉽고 간단합니다. 스윕 구성 YAML file\(sweep config YAML file\)에 다음을 추가합니다:
 
 ```text
 program:
@@ -89,28 +89,29 @@ command:
 
 \*\*\*\*
 
-## Bayesian optimization details
+##  **베이지안 최적화\(Byesian optimization\) 세부 정보**
 
-The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/tree/master/wandb/sweeps). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
+베이지안 최적화\(Byesian optimization\)에 사용되는 가우시안 프로세스\(Gaussian process\) 모델은 저희 [오픈 소스 스윕 로직](https://github.com/wandb/client/tree/master/wandb/sweeps)에서 정의됩니다. 추가 구성 및 제어를 원하시는 경우 [Ray Tune](https://docs.wandb.com/sweeps/ray-tune)에 대한 지원을 받으시기 바랍니다.
 
-We use a [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) which is a generalization of RBF— defined in our open source code [here](https://github.com/wandb/client/blob/541d760c5cb8776b1ad5fcf1362d7382811cbc61/wandb/sweeps/bayes_search.py#L30).
+저희는, [이곳](https://github.com/wandb/client/blob/541d760c5cb8776b1ad5fcf1362d7382811cbc61/wandb/sweeps/bayes_search.py#L30)의 오픈 소스 코드에서 정의된, RBF 일반화 버전인 Matern kernel을 사용합니다.
 
-## Pausing sweeps vs. Stopping Sweeps wandb.agent
+##  **스윕 일시 중지 vs. 스윕 wandb.agent 중지**
 
-Is there anyway to get `wandb agent` to terminate when there are no more jobs available because I've paused a sweep?
+ 스윕을 일시 중지해서 더 이상 사용 가능한 작업이 없을 때, `wandb agent`를 종료시키는 방법이 있나요?
 
-If you stop the sweep instead of pausing it, then the agents will exit. For pause we want the agents to stay running so that the sweep can be restarted without having to launch agents again.
+일시 중지 대신 스윕을 중지한 경우, 에이전트는 종료됩니다. 일시 정지의 경우 저희는 에이전트가 계속 실행되도록 하여 에이전트를 재실행할 필요 없이 스윕이 재시작되도록 합니다.  
 
-## Recommended way to set up config parameters in a sweep
+
+##  **스윕에서 구성 매개변수 설정을 위한 권장 방법**
 
 `wandb.init(config=config_dict_that_could_have_params_set_by_sweep)`  
-or:  
+또는:  
 `experiment = wandb.init()    
 experiment.config.setdefaults(config_dict_that_could_have_params_set_by_sweep)`
 
-The advantage of doing this is that it will ignore setting any key that has already been set by the sweep.
+이 방법의 이점으로 이렇게 할 경우 스윕에 의해 이미 설정된 키 설정이 무시된다는 점이 있습니다.
 
-## Is there a way to add an extra categorical value to a sweep, or do I need to start a new one?
+## **추가 범주형 변수를 스윕에 추가할 수 있는 방법 있나요? 아니면 새로 시작해야 되나요?**
 
-Once a sweep has started you cannot change the sweep configuration, But you can go to any table view, and use the checkboxes to select runs, then use the "create sweep" menu option to a create a new sweep using prior runs
+일단 스윕이 시작되면, 스윕 구성을 변경하실 수 없습니다. 하지만, 다른 table view\(테이블 보기\)로 이동하여, 체크박스를 사용해 실행을 선택한 다음, “create sweep”\(스윕 생성\) 메뉴 옵션을 사용하여 이전 실행을 사용하는 새로운 스윕을 생성하실 수 있습니다.
 

@@ -1,18 +1,19 @@
 # Visualize Sweep Results
 
-## Parallel coordinates plot
+##  **평행 좌표 플롯**
 
 ![](https://paper-attachments.dropbox.com/s_194708415DEC35F74A7691FF6810D3B14703D1EFE1672ED29000BA98171242A5_1578695138341_image.png)
 
-Parallel coordinates plots map hyperparameter values to model metrics. They're useful for honing in on combinations of \_\*\*\_hyperparameters that led to the best model performance.
+평행 좌표 플롯은 초매개변수 값을 모델 메트릭에 작성합니다. 최고 모델 퍼포먼스로 이어지는 초매개변수 조합에 초점을 맞출 때 유용합니다.
 
-## Hyperparameter Importance Plot
+##  **초매개변수 중요도 플롯**
 
 ![](https://paper-attachments.dropbox.com/s_194708415DEC35F74A7691FF6810D3B14703D1EFE1672ED29000BA98171242A5_1578695757573_image.png)
 
-The hyperparameter importance plot surfaces which hyperparameters were the best predictors of, and highly correlated to desirable values for your metrics.
+ 초매개변수 중요도 플롯\(hyperparameter importance plot\)은 어떤 초매개변수가 최고의 예측변수였는지, 그리고 메트릭에 대한 이상적 값과 높은 상관관계에 있는지를 나타냅니다.
 
-**Correlation** is the linear correlation between the hyperparameter and the chosen metric \(in this case val\_loss\). So a high correlation means that when the hyperparameter has a higher value, the metric also has higher values and vice versa. Correlation is a great metric to look at but it can’t capture second order interactions between inputs and it can get messy to compare inputs with wildly different ranges.
+상관관계\(Correlation\)는 초매개변수와 선택된 매트릭\(이 경우 val\_loss\)간의 선형 상관관계입니다. 따라서 높은 상관관계는 초매개변수가 높은 값을 가지고 있을 때, 메트릭 또한 높은 값을 가지고 있으며, 그 반대의 경우도 마찬가지임을 의미합니다. 상관관계는 살펴보기에 좋은 메트릭이나 입력\(inputs\)간의 이차 상호 작용\(second order interactions\)을 담아내지는 못하며, 입력\(inputs\)을 완전히 다른 범위와 비교하는 것은 복잡해질 수 있습니다.
 
-Therefore we also calculate an **importance** metric where we train a random forest with the hyperparameters as inputs and the metric as the target output and report the feature importance values for the random forest.
+초매개변수를 입력\(inputs\)으로, 메트릭을 대상 출력\(target output\)으로 사용해 랜덤 포레스트를 훈련하는 importance\(중요도\) 메트릭을 계산하며, 랜덤 포레스트에 대한 특성 중요도 값\(feature importance values\)을 리포트합니다.  
+
 

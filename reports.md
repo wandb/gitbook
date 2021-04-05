@@ -1,83 +1,89 @@
 ---
-description: Project management and collaboration tools for machine learning projects
+description: 머신러닝 프로젝트를 위한 프로젝트 관리 및 협업 툴
 ---
 
 # Reports
 
-Reports let you organize visualizations, describe your findings, and share updates with collaborators.
+리포트를 통해서 시각화를 구성하고, 결과를 설명하며, 공동 작업자와 업데이트를 공유할 수 있습니다.
 
-### Use Cases
+## **사용 사례**
 
-1. **Notes**: Add a graph with a quick note to yourself.
-2. **Collaboration**: Share findings with your colleagues.
-3. **Work log**: Track what you've tried, and plan next steps.
+1. 노트: 본인 참조용 간편한 노트와 함께 그래프를 추가합니다.
+2. 공동작업: 동료와 결과 공유를 공유합니다.
+3.  작업 로그: 현재까지의 작업을 추적하고 다음 단계를 계획합니다.
 
-### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
+###  [OpenAI 케이스 연구 보기 →](https://bit.ly/wandb-learning-dexterity)
 
-Once you have [experiments in W&B](quickstart.md), easily visualize results in reports. Here's a quick overview video.
+ [W&B에 실험](https://docs.wandb.com/quickstart)이 있다면, 리포트에서 간편하게 시각화할 수 있습니다. 다음은 간단한 개요를 설명한 비디오입니다.
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" caption="" %}
 
-## Collaborate on reports
+## **리포트 편집 방법**
 
-Once you've saved a report, you can click the **Share** button to collaborate. Make sure the visibility settings on your project allow your collaborators to access the report— you'll need an open project or a team project to share a report that you can edit together.
+새 리포트를 생성하여 입력을 시작합니다. 전체 페이지는 리치 텍스트\(rich text\) 영역으로, 노트를 작성하고 사용자 정의 시각화 및 테이블을 저장할 수 있습니다.
 
-When you press edit, you'll be editing a draft copy of the report. This draft auto-saves, and when you press **Save to report** you'll be publishing your changes to the shared report.
+새 차트, 머리글, LaText 방정식 추가
 
-If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
+새 줄에서 / 를 눌러 리치 콘텐츠\(rich content\)를 추가합니다.  
+****
+
+ 편집\(edit\)을 누르시면, 리포트의 초안 사본을 편집하실 수 있습니다. 이 초안은 자동으로 저장되며, **리포트에 저장\(Save to report\)**를 클릭하시면 공유 리포트로 변경 사항이 게시됩니다.
+
+그 동안 공동 작업자 중 한 사람이 리포트를 편집한 경우에는, 잠재적 편집 충돌을 해결하기 위한 경고를 받게 됩니다.
 
 ![](.gitbook/assets/collaborative-reports.gif)
 
-### Upload a CSV to a report
 
-## Add panels
 
-Click the **Add panel** button to add a new visualization to the report.
+###  **리포트에 CSV 업로드**
 
-![](https://downloads.intercomcdn.com/i/o/142935595/d1422f30460a39b8b4868885/image.png)
+리포트에 새로운 시각화를 추가하시려면 **패널 추가\(Add panel\)**를 클릭하십시오.
 
-## Panel Grids
+![](.gitbook/assets/demo-comment-on-panels-in-reports.gif)
 
-If you'd like to compare a different set of runs, create a new panel grid. Each section's graphs are controlled by the **Run Sets** at the bottom of that section.
+## **패널 그리드**
 
-## Static and dynamic run sets
+ 다른 실행 세트를 비교하고 싶으시다면, 새로운 패널 그리드\(panel grid\)를 생성하십시오. 각 섹션의 그래프는 해당 섹션 하단의 **실행 설정\(Run Sets\)**로 제어하실 수 있습니다.
 
-* **Dynamic run sets**: If you start from "Visualize all" and filter or deselect runs to visualize, the run set will automatically update to show any new runs that match the filters.
-* **Static run sets**: If you start from "Visualize none" and select the runs you want to include in your run set, you will only ever get those runs in the run set. No new runs will be added.
+##  **정적 및 동적 실행 세트**
 
-## Exporting reports
+* **동적 실행 세트**: “모두 시각화\(Visualize all\)”에서 시작해서 시각화하기 위해 실행을 필터링 또는 선택 취소 하셨다면, 필터와 일치하는 새 실행을 표시하기 위해 실행 세트가 자동으로 업데이트합니다.
+* **정적 실행 세트**: “전부 시각화 안 함\(Visualize none\)”에서 시작해서 실행 세트에 포함하고자 하는 실행을 선택하셨다면, 해당 실행 세트에서만 해당 실행을 얻으실 수 있습니다. 새로운 실행이 추가되지 않습니다.
 
-Click the download button to export your report as a LaTeX zip file. Check the README.md in your downloaded folder to find instructions on how to convert this file to PDF. It's easy to upload the zip file to [Overleaf](https://www.overleaf.com/) to edit the LaTeX.
+## **리포트 내보내기**
 
-## Cross-project reports
+ 다운로드 버튼을 클릭하여 LaTex zip 파일로 리포트를 내보낼 수 있습니다.해당 파일을 PDF로 변환하는 법에 대한 안내를 찾으시려면 여러분의 다운로드 폴더에서 README.md를 확인하십시오. LaTeX를 편집하기 위해 zip 파일을 [Overleaf](https://www.overleaf.com/)에 쉽게 업로드 하실 수 있습니다.  
 
-Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
+
+## **교차 프로젝트 리포트**
+
+교차 프로젝트 리포트로 서로 다른 프로젝트에서의 실행을 비교하세요. 프로젝트를 선택 하시려면 실행 세트 테이블에서 프로젝트 선택기\(project selector\)를 사용하십시오.
 
 ![](.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
 
-The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
+섹션 내의 시각화는 처음 활성 실행세트\(active runset\)에서 열을 끌어옵니다. 라인 플롯\(line plot\)에서 찾으시는 메트릭이 보이지 않는 경우, 섹션에서 체크된 첫 번째 실행 세트에서 그 열이 사용가능한지 확인하시기 바랍니다. 이 기능은 시계열 라인에 대한 히스토리 데이터를 지원하지만, 다른 프로젝트에서 다른 요약을 추출하는 기능은 지원하지 않습니다. 따라서 산포그래프는 다른 프로젝트에만 로그인 된 열의 경우에는 작동하지 않을 수 있습니다.
 
-If you really need to compare runs from two projects and the columns aren't working, add a tag to the runs in one project and then move those runs to the other project. You'll still be able to filter to just the runs from each project, but you'll have all the columns for both sets of runs available in the report.
+두 프로젝트의 실행을 비교해야 하는 경우에 열이 작동하지 않는다면, 프로젝트 내의 실행에 태그를 추가하고 해당 실행을 다른 프로젝트로 이동하시기 바랍니다. 여전히 각 프로젝트의 실행만 필터링 할 수 있겠으나, 두 실행 세트에 대한 모든 열을 모두 리포트에서 사용하실 수 있습니다.
 
-### View-only report links
+### **보기 전용 리포트 링크**
 
-Share a view-only link to a report that is in a private project or team project.
+개인 프로젝트 또는 팀 프로젝트 내의 리포트에 대한 보기 전용 링크를 공유하세요.
 
 ![](.gitbook/assets/share-view-only-link.gif)
 
-### Send a graph to a report
+### **리포트에 그래프 전송하기** 
 
-Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
+그래프를 작업 영역에서 리포트로 전송해서 진행 상황을 추적합니다. 리포트에 복사 할 차트 또는 패널의 드롭다운 메뉴\(dropdown menu\)를 클릭하고,**리포트에 추가\(Add to report\)**를 클릭하여 결과 리포트\(destination report\)를 선택하십시오.
 
-![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29.gif)
+![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%281%29.gif)
 
-## Reports FAQ
+##  **리포트 FAQ**
 
-### Upload a CSV to a report
+###  **CSV를 리포트에 업로드하기**
 
-If you currently want to upload a CSV to a report you can do it via the `wandb.Table` format. Loading the CSV in your Python script and logging it as a `wandb.Table` object will allow you to render the data as a table in a report.
+. CSV를 리포트에 업로드 하고 싶으시다면, `wandb.Table` 포맷을 통해 하실 수 있습니다. 여러분의 Python 스크립트 내의 CSV를 로딩하고 `wandb.Table` 객체로 로깅하시면 리포트 내의 테이블로 데이터를 렌더링 하실 수 있습니다.
 
-### Refreshing data
+### **데이터 새로고침**
 
-Reload the page to refresh data in a report and get the latest results from your active runs. Workspaces automatically load fresh data if you have the **Auto-refresh** option active \(available in the dropdown menu in the upper right corner of your page\). Auto-refresh does not apply to reports, so this data will not refresh until you reload the page.
+ 페이지를 다시 불러내기 하여 리포트의 데이터를 새로 고침하고, 활성 실행의 최신 결과를 가져오세요. **자동-새로고침\(Auto-refresh\)** 옵션이 활성화 되어 있다면 \(페이지 우측 상단의 드롭다운 메뉴에서 사용 가능\), 작업영역이 자동으로 새 데이터를 로드합니다. 자동-새로고침은 리포트에는 적용되지 않으므로, 페이지를 다시 불러내기 할 때까지 이 데이터는 새로 고침 되지 않습니다.
 

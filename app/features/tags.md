@@ -1,33 +1,35 @@
 # Tags
 
-## How to add tags <a id="how-to-add-tags"></a>
+## **태그 추가하는 법** <a id="how-to-add-tags"></a>
 
-**On the project page**
+ **프로젝트 페이지에 추가하기**
 
-* In the runs sidebar, click the button in the upper left corner to expand the table.
-* Hover over a run in the table to see a checkbox on the left.
-* Click the checkbox to enable bulk actions.
-* Click the Tag button above the rows of runs.
-* Type a tag you'd like to add and click "Add" below the text box to add a new tag.
+* 사이드 바에서 좌측상단의 버튼을 클릭하여 테이블을 확장합니다.
+* 테이블의 실행 위에 마우스를 올려놓으면 좌측의 체크박스를 확인하실 수 있습니다.
+* 체크박스를 클릭하여 일괄 선택을 하실 수 있습니다.
+* 실행 행 위의 Tag 버튼을 클릭합니다.
+* 추가할 태그를 입력하시고 텍스트 박스 아래의 “Add”를 클릭하여 새 태그를 추가합니다.
 
-**On the run page**
+  실행 페이지에 추가하기  
 
-* In the left sidebar, click the top Overview tab.
-* Next to "Tags" is a gray ➕button. Click the plus to add a tag.
-* Type a tag you'd like to add and click "Add" below the text box to add a new tag.
+ **실행 페이지에 추가하기**
 
-## How to remove tags <a id="how-to-remove-tags"></a>
+* 왼쪽 사이드 바에서 Overview 탭을 클릭합니다.
+* “Tags” 옆에 회색 ➕버튼이 있습니다. 더하기 버튼을 클릭하여 태그를 추가합니다.
+* 추가할 태그를 입력하시고 텍스트 박스 아래의 “Add”를 클릭하여 새 태그를 추가합니다.
 
-**On the project page**
+##  **태그 제거하는 법** <a id="how-to-remove-tags"></a>
 
-* In the runs sidebar, click the button in the upper left corner to expand the table.
-* Hover over a run in the table to see a checkbox on the left.
-* Click the checkbox to enable bulk actions.
-* Click the Tag button above the rows of runs.
-* Click the checkbox next to a tag to remove it from the run.
+**프로젝트 페이지에서 제거하기**
 
-**On the run page**
+* 실행 사이드 바에서 좌측 상단의 버튼을 클릭하여 테이블을 확장합니다.
+* 테이블의 실행 위에 마우스를 올려놓으면 좌측의 체크박스를 확인하실 수 있습니다.
+* 체크박스를 클릭하여 일괄 선택을 하실 수 있습니다.
+* 실행 행 위의 Tag 버튼을 클릭합니다.
+* 태그 옆의 체크박스를 클릭하여 실행에서 태그를 제거합니다.
 
-* In the left sidebar, click the top Overview tab. The tags on the run are visible here.
-* Hover over a tag and click the "x" to remove it from the run.
+ **실행 페이지에서 제거하기**
+
+* 왼쪽 사이드 바에서 Overview 탭을 클릭합니다. 실행에 대한 태그가 여기에 표시됩니다.
+* 태그 위에 마우스를 올려놓고 “x”를 클릭하여 실행에서 태그를 제거합니다.
 
