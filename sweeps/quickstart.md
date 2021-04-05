@@ -1,26 +1,28 @@
 # Sweeps Quickstart
 
-Start from any machine learning model and get a hyperparameter sweep running in minutes. Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
+任意の機械学習モデルから開始して、ハイパーパラメータスイープを数分で実行します。実用的な例を見たいですか？これが[サンプルコード](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)と[サンプルダッシュボード](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q)です。
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%283%29.png)
+##  
+
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%282%29.png)
 
 {% hint style="info" %}
-Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](add-to-existing.md)
+## すでにWeights＆Biasesプロジェクトがありますか？[次のスイープチュートリアルにスキップ→](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/sweeps/existing-project)
 {% endhint %}
 
-## 1. Add wandb
+## 1. wandbの追加
 
-### **Set up your account**
+**アカウントを設定します**
 
-1. Start with a W&B account.  [Create one now →](http://app.wandb.ai/)
-2. Go to your project folder in your terminal and install our library: `pip install wandb`
-3. Inside your project folder, log in to W&B: `wandb login`
+1. **W＆Bアカウントから始めます。**[**今すぐ作成→**](https://wandb.ai/)\*\*\*\*
+2. **ターミナルのプロジェクトフォルダーに移動し、ライブラリをインストールします。`pip install wandb`**
+3. **プロジェクトフォルダ内で、W＆Bにログインします。`wandb login`**
 
-### **Set up your Python training script**
+### **Pythonトレーニングスクリプトを設定します**
 
-1. Import our library `wandb`  
-2. Make sure your hyperparameters can be properly set by the sweep. Define them in a dictionary at the top of your script and pass them into wandb.init.
-3. Log metrics to see them in the live dashboard. 
+1. ライブラリ`wandb`をインポートします
+2. スイープによってハイパーパラメータを適切に設定できることを確認します。スクリプトの上部にある辞書でそれらを定義し、wandb.initに渡します。 
+3. メトリックをログに記録して、ライブダッシュボードに表示します。
 
 ```python
 import wandb
@@ -47,21 +49,24 @@ metrics = {'accuracy': accuracy, 'loss': loss}
 wandb.log(metrics)
 ```
 
-[See a full code example →](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)
+ [完全なコード例を見る→](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)
 
-## 2. Sweep Config
+## 2. スイープの構成
 
-Set up a **YAML file** to specify your training script, parameter ranges, search strategy, and stopping criteria. W&B will pass these parameters and their values as command line arguments to your training script, and we'll automatically parse them with the config object you set up in [Step 1](quickstart.md#set-up-your-python-training-script).
+**YAML**ファイルを設定して、トレーニングスクリプト、パラメーター範囲、サーチストラテジー、および停止基準を指定します。W＆Bは、これらのパラメーターとその値をコマンドライン引数としてトレーニングスクリプトに渡し、ステップ1で設定した構成オブジェクトを使用して自動的に解析します。
 
-Here are some config resources:
+いくつかの構成リソースは次のとおりです。
 
-1. [Example YAML](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): a code example of a script and YAML file to do a sweep
-2. [Configuration](configuration.md): full specs to set up your sweep config
-3. [Jupyter Notebook](python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
-4. [Generate config from UI](add-to-existing.md): take an existing W&B project and generate a config file
-5. [Feed in prior runs](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
+1.  [YAMLの例](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml)：スイープを実行するためのスクリプトとYAMLファイルのコード例
+2.  [構成](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/sweeps/configuration)：スイープ構成をセットアップするための完全な仕様
+3. J[upyterノートブック](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/sweeps/python-api)：YAMLファイルの代わりにPythonディクショナリを使用してスイープ構成をセットアップします
+4.  [UIから構成を生成](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/sweeps/existing-project)：既存のW＆Bプロジェクトを取得し、構成ファイルを生成します
+5.  [前の実行でフィード](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs)：前の実行を取得し、新しいスイープに追加します
 
-Here's an example sweep config YAML file called **sweep.yaml**:
+  
+   ****
+
+以下は、**sweep.yaml**と呼ばれるスイープ設定YAMLファイルの例です。
 
 ```text
 program: train.py
@@ -78,12 +83,10 @@ parameters:
 ```
 
 {% hint style="warning" %}
-If you specify a metric to optimize, make sure you're logging it. In this example, I have **val\_loss** in my config file, so I have to log that exact metric name in my script:
+最適化するメトリックを指定する場合は、それをログに記録していることを確認してください。この例では、構成ファイルに**val\_loss**があるため、その正確なメトリック名をスクリプトに記録する必要があります。
 
 `wandb.log({"val_loss": validation_loss})`
 {% endhint %}
-
-Under the hood, this example configuration will use the Bayes optimization method to choose sets of hyperparameter values with which to call your program. It will launch experiments with the following syntax:
 
 ```text
 python train.py --learning_rate=0.005 --optimizer=adam
@@ -91,36 +94,36 @@ python train.py --learning_rate=0.03 --optimizer=sgd
 ```
 
 {% hint style="info" %}
-If you're using argparse in your script, we recommend that you use underscores in your variable names instead of hyphens.
+内部的には、この構成例ではベイズ最適化手法を使用して、プログラムを呼び出すためのハイパーパラメーター値のセットを選択します。次のシンタックス構文で実験を開始します。スクリプトでargparseを使用している場合は、変数名にハイフンではなくアンダースコアを使用することをお勧めします。
 {% endhint %}
 
-## 3. Initialize a sweep
+## 3.  スイープの初期化
 
-Our central server coordinates between all agents executing the sweep. Set up a sweep config file and run this command to get started:
+中央サーバーは、スイープを実行するすべてのエージェント間で調整します。スイープ設定ファイルを設定し、次のコマンドを実行して開始します。
+
+このコマンドは、エンティティ名とプロジェクト名を含む**スイープID**を出力します。それをコピーして次のステップで使用してください！
 
 ```text
 wandb sweep sweep.yaml
 ```
 
-This command will print out a **sweep ID**, which includes the entity name and project name. Copy that to use in the next step!
+## 4. エージェントの起動 
 
-## 4. Launch agent\(s\)
+スイープを実行する各マシンで、スイープIDを使用してエージェントを起動します。同じスイープを実行しているすべてのエージェントに同じスイープIDを使用することをお勧めします。
 
-On each machine that you'd like to execute the sweep, start an agent with the sweep ID. You'll want to use the same sweep ID for all agents who are performing the same sweep.
+自分のマシンのシェルで、実行するコマンドをサーバーに要求するwandbエージェントコマンドを実行します。
 
-In a shell on your own machine, run the wandb agent command which will ask the server for commands to run:
+wandbエージェントは、複数のマシンまたは同じマシンの複数のプロセスで実行できます。各エージェントは、実行するハイパーパラメータの次のセットについて中央のW＆Bスイープサーバーをポーリングします。 
 
 ```text
-wandb agent your-sweep-id
+wandb agent your-sweep-id.
 ```
 
-You can run wandb agent on multiple machines or in multiple processes on the same machine, and each agent will poll the central W&B Sweep server for the next set of hyperparameters to run.
+## 5. 結果の視覚化
 
-## 5. Visualize results
+ プロジェクトを開いて、スイープダッシュボードでライブ結果を確認します。
 
-Open your project to see your live results in the sweep dashboard.
+ [ダッシュボードの例→](https://wandb.ai/carey/pytorch-cnn-fashion)
 
-[Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
-
-![](../.gitbook/assets/image%20%2888%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%281%29.png)
 

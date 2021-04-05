@@ -1,30 +1,32 @@
 ---
-description: Send an alert notification over Slack or email.
+description: Pythonからトリガーされ、Slackまたはメールで送信されるスクリプト可能なアラート
 ---
 
 # wandb.alert\(\)
 
-## Overview
+### Arguments
 
-Calling `wandb.alert(title, text)` will send an alert over Slack or email, depending on which notifications you've opted into on your [Settings Page](../app/features/alerts.md#user-level-alerts). The `title` should be a short description of the alert, and `text` should provide more detailed information.
+`wandb.alert(title="Low Acc", text="Accuracy is below the expected threshold")`
 
-`wandb.alert` accepts a few optional keyword arguments:
+* **title \(string\)**: 「低精度」などのアラートについての簡単な説明
+* **text \(string\)**: アラートをトリガーするために起こったことについてのより長く、より詳細な説明
+* **level \(optional\):** アラートの重要性—`INFO`、`WARN`、または`ERROR`のいずれかである必要があります
+* **wait\_duration \(optional\):** 同じ**タイトル**の別のアラートを送信するまでに待機する秒数。これにより、アラートスパムが減ります。
 
-* **level** — the importance of the alert, must be either `INFO`, `WARN`, or `ERROR`
-* **wait\_duration** — the time to wait in seconds before sending another alert with the same title
+###  例
 
-## Examples
+この単純なアラートは、精度がしきい値を下回るとアラートを送信します。スパムを回避するために、少なくとも5分間隔でアラートを送信します。
 
-Let's set up a simple alert that warns us every 5 minutes whenever our accuracy falls below an acceptable threshold:
+ [コードを試行→ ](https://colab.research.google.com/drive/1zhll1i1usBPra5CmGuPONKheFBnr6Jc4)
 
-```text
+```python
 from datetime import timedelta
 import wandb
 from wandb import AlertLevel
 
 if acc < threshold:
     wandb.alert(
-        title='Accuracy low', 
+        title='Low accuracy', 
         text=f'Accuracy {acc} is below the acceptable theshold {threshold}',
         level=AlertLevel.WARN,
         wait_duration=timedelta(minutes=5)

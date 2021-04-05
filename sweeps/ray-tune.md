@@ -1,20 +1,20 @@
 ---
-description: ✨BETA✨ support for Ray Tune sweep search and scheduler API
+description: ✨BETA✨ Ray Tuneスイープ検索とスケジューラAPIのサポート
 ---
 
 # Ray Tune Sweeps
 
-[Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) is a scalable hyperparameter tuning library. We're adding support for Ray Tune to W&B Sweeps, which makes it easy to launch runs on many machines and visualize results in a central place.
+ [Ray Tune](https://ray.readthedocs.io/en/latest/tune.html)は、スケーラブルなハイパーパラメータ調整ライブラリです。Ray TuneのサポートをW＆Bスイープに追加します。これにより、多くのマシンで実行を簡単に開始し、結果を一元的に視覚化できます。
 
 {% hint style="info" %}
-Also check out [the Ray Tune integrations for W&B](../library/integrations/ray-tune.md) for a feature complete, out-of-the-box solution for leveraging both Ray Tune and W&B!
+また、[W＆BのRay Tune統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNdlQobOrN8f63KfkRZ/v/japanese/integrations/ray-tune)をチェックして、Ray TuneとW＆Bの両方を活用するための完全なすぐに使えるソリューションを確認してください。
 {% endhint %}
 
 {% hint style="info" %}
-This feature is in beta! We love feedback, and we really appreciate hearing from folks who are experimenting with our Sweeps product.
+ この機能はベータ版です！私たちはフィードバックを望んでおり、私たちのスイープ製品を実験している人々からの連絡を楽しみにしています。
 {% endhint %}
 
-Here's a quick example:
+ 簡単な例を次に示します。
 
 ```python
 import wandb
@@ -40,42 +40,42 @@ tune_config.save("sweep-hyperopt.yaml")
 wandb.sweep(tune_config)
 ```
 
-[See full example on GitHub →](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)
+[GitHubで完全な例を参照してください→](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)
 
-## Feature Compatibility
+##  機能の互換性
 
-### Search Algorithms
+### 検索アルゴリズム
 
-[Ray/Tune Search Algorithms](https://ray.readthedocs.io/en/latest/tune-searchalg.html)
+ [Ray/Tune検索アルゴリズム](https://ray.readthedocs.io/en/latest/tune-searchalg.html)
 
-| Search Algorithm | Support |
+| 検索アルゴリズム |  サポート |
 | :--- | :--- |
 | [HyperOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#hyperopt-search-tree-structured-parzen-estimators) | **Supported** |
-| [Grid Search and Random Search](https://ray.readthedocs.io/en/latest/tune-searchalg.html#variant-generation-grid-search-random-search) | Partial |
-| [BayesOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bayesopt-search) | Planned |
-| [Nevergrad](https://ray.readthedocs.io/en/latest/tune-searchalg.html#nevergrad-search) | Planned |
-| [Scikit-Optimize](https://ray.readthedocs.io/en/latest/tune-searchalg.html#scikit-optimize-search) | Planned |
-| [Ax](https://ray.readthedocs.io/en/latest/tune-searchalg.html#ax-search) | Planned |
-| [BOHB](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bohb) | Planned |
+| [Grid Search and Random Search](https://ray.readthedocs.io/en/latest/tune-searchalg.html#variant-generation-grid-search-random-search) |  部分的 |
+| [BayesOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bayesopt-search) | 予定 |
+| [Nevergrad](https://ray.readthedocs.io/en/latest/tune-searchalg.html#nevergrad-search) | 予定 |
+| [Scikit-Optimize](https://ray.readthedocs.io/en/latest/tune-searchalg.html#scikit-optimize-search) | 予定 |
+| [Ax](https://ray.readthedocs.io/en/latest/tune-searchalg.html#ax-search) | 予定 |
+| [BOHB](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bohb) | 予定 |
 
-### HyperOpt
+###  スケジューラーの調整
 
-| HyperOpt Feature | Support |
+| スケジューラーサポート  |  サポート |
 | :--- | :--- |
-| hp.choice | Supported |
-| hp.randint | Planned |
-| hp.pchoice | Planned |
-| hp.uniform | Supported |
-| hp.uniformint | Planned |
-| hp.quniform | Planned |
-| hp.loguniform | Supported |
-| hp.qloguniform | Planned |
-| hp.normal | Planned |
-| hp.qnormal | Planned |
-| hp.lognormal | Planned |
-| hp.qlognormal | Planned |
+| hp.choice | 調査中 |
+| hp.randint | 予定 |
+| hp.pchoice | 予定 |
+| hp.uniform |  調査中 |
+| hp.uniformint |  予定 |
+| hp.quniform | 予定 |
+| hp.loguniform | 調査中 |
+| hp.qloguniform |  予定 |
+| hp.normal | 予定 |
+| hp.qnormal | 予定 |
+| hp.lognormal | 予定 |
+| hp.qlognormal | 予定 |
 
-### Tune Schedulers
+###  スイープ結果を視覚化します
 
 By default, Tune schedules runs in serial order. You can also specify a custom scheduling algorithm that can stop runs early or perturb parameters. Read more in the [Tune docs →](https://ray.readthedocs.io/en/latest/tune-schedulers.html)
 

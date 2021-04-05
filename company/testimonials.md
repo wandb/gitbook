@@ -1,114 +1,115 @@
 ---
-description: Kind messages from Weights & Biases users
+description: Weights＆Biasesユーザーからの親切なメッセージ
 ---
 
 # Testimonials
 
-## Jeffrey Wardman, Applied AI Scientist at [Harrison.ai](https://www.harrison.ai/)
+## **Jeffrey Wardman** [**Harrison.ai**](https://www.harrison.ai/)**の応用AIサイエンティスト**
 
-WandB is absolute heaven.
+ WandBは素晴らしい機能を持っています。
 
-With next to no modification of my code, I'm able to visualize metrics in real time when training my models on multiple systems and can look at their performance relative to each other, and previous runs, anytime on any device. Sweeps also allows me to train my models with different parameter settings on multiple systems in unison via a Bayesian approach to optimally test a range of input arguments and find the best solution.
+コードをほとんど変更することなく、複数のシステムでモデルをトレーニングするときにメトリックをリアルタイムで視覚化でき、いつでも、どのデバイスでも、モデルのパフォーマンスを相互に比較したり、以前の実行を確認したりできます。また、スイープを使用すると、ベイジアンアプローチを介して、複数のシステムでさまざまなパラメーター設定を使用してモデルをトレーニングし、入力引数の範囲を最適にテストして、最適なソリューションを見つけることができます。
 
-I can't imagine going back to how I did things before.
+以前のやり方とは比べようもありません。
 
-## **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
+##  **Ian Thompson** [**潜在空間**](https://www.latentspace.co/)\*\*\*\*
 
-Wandb has become the critical tool for us in bringing together the work of remote researchers across several continents. On a recent paper, we started using a wandb report as the central hub for collaboration, where everyone could see the most recent experimental results and essentially the latest draft of the paper. The flexibility and clarity of wand reports have enabled us to collaborate in ways that used to only be possible in person.
+Wandbは、いくつかの大陸にまたがる遠隔地の研究者の仕事をまとめる上で、私たちにとって重要なツールになりました。最近の論文では、コラボレーションの中心的なハブとしてwandbレポートの使用を開始しました。このレポートでは、誰もが最新の実験結果と本質的に最新の論文のドラフトを見ることができました。ワンドレポートの柔軟性と明確さにより、以前は直接会うことしかできなかった方法でコラボレーションできるようになりました。
 
-## Daniel Bourke, ML engineer
+##  **Daniel Bourke　MLエンジニア**
 
-Since machine learning is a very experimental process, meaning you try something, see if it works and if not you try something else. I plan on building a number of different models to see which one works best. To track the results of each different model, I set up Weights & Biases, a tool for tracking deep learning experiments.
+機械学習は非常に実験的なプロセスであるため、何かを試すことを意味します。それが機能するかどうかを確認し、機能しない場合は別のことを試してください。さまざまなモデルを作成して、どれが最適かを確認する予定です。それぞれの異なるモデルの結果を追跡するために、深層学習実験を追跡するためのツールであるWeights＆Biasesを設定しました
 
-[Watch the video here →](https://www.youtube.com/watch?v=83s-OEFMgVY)
+ [こちらのビデオをご覧ください→](https://www.youtube.com/watch?v=83s-OEFMgVY)
 
 ![Every model I build has to answer 1 simple question \| Airbnb Machine Learning Project Part 5](../.gitbook/assets/fan-video.png)
 
-## Ken Tsui, VP of Machine Learning at [Apoidea AI](https://apoidea.ai/)
+## [Apoidea AI](https://apoidea.ai/)**の機械学習担当VP**
 
-My team enjoys using this helpful tool. ML is always experimental in nature, in industry and in research and wandb is like a diary to record the whole ML development journey from the baseline to the SOTA. And the best thing is that you can share the journey with others.
+ 私のチームは、この便利なツールの使用を楽しんでいます。MLは、本質的に、業界でも、研究でも常に実験的なものであり、wandbは、ベースラインからSOTAまでのML開発の全過程を記録する日記のようなものです。そして最高のことは、あなたが他の人と旅を共有できることです。
 
-## Michael Oblak, COO at SmartLunch
+## **Michael Oblak　SmartLunchのCOO**
 
-10/10. It's really great software. Helps me a ton with my work. Also, sweeps handle a lot of my work.
+最高**.** それは本当に素晴らしいソフトウェアです。私の仕事を大いに助けてくれます。また、スイープは私の仕事の多くを処理します
 
-## André Aquilina, Computer Vision Engineer at [Dysis Medical](https://dysismedical.com/)
+## **André Aquilina** [Dysis Medical](https://dysismedical.com/) **のコンピュータービジョンエンジニア**
 
-Between architecture, hyper parameters and general problem approach, I always found myself going in circles trying to keep track of results, configs and the code version I was using in an experiment. After looking around for a tool/dashboard to help with experiment management I landed on WandB. With one init line I could track many of the metrics I was interested in. Wandb one of the few tools that makes it so easy that it’s a no brainer to try for yourself.
+  
+アーキテクチャ、ハイパーパラメータ、および一般的な問題のアプローチの間で、私は常に、実験で使用していた結果、構成、およびコードバージョンを追跡しようとしていることに気づきました。実験管理に役立つツール/ダッシュボードを探し回った末、WandBにたどり着きました。1つの初期化行で、興味のある多くの指標を追跡できました。Wandbは、非常に簡単で、自分で試すのが簡単な数少ないツールの1つです。
 
-## Samuel Boulanger, Machine Learning Engineer at [Intel AI](https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html)
+## **Samuel Boulanger** [Intel AI](https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html)**の機械学習エンジニア**
 
-Helpful. Easy to use. Integrates cleanly.
+ 役に立ちました。使いやすいです。統合すごいです。
 
-## Francisco J. Peña, [Postdoc](https://www.linkedin.com/in/franciscojp) at University College Dublin
+##  **Francisco J. Peña　ダブリン大学の**[**ポスドク**](https://www.linkedin.com/in/franciscojp)\*\*\*\*
 
-I went from storing all of my experiment results in JSON files and plotting them with matplotlib and seaborn, to have all the work taken care by W&B. Viewing the results so fast has helped me to identify bugs in my code at an early stage, it's a game changer. Thank you!
+私はすべての実験結果をJSONファイルに保存し、matplotlibとseabornを使用してプロットすることから、すべての作業をW＆Bに任せることにしました。結果を非常に速く表示することで、コードのバグを早い段階で特定することができました。これはゲームチェンジャーです。ありがとうございました！
 
-## Mohamed Raga, PhD Candidate at NTU, Singapore
+## **Mohamed Raga　シンガポール、NTUの博士課程の候補者**
 
-I am impressed daily by wandb and the amazing visualization tools. Now I present all my works and experiments through wandb— no more slides. I also, send progress report to my supervisor using wandb. The synchronization with TensorBoard helps me to further use embedding projector. So far, I have explored all the wandb tools, but I can't wait to explore more.
+私はwandbと素晴らしい視覚化ツールに毎日驚いています。今、私はすべての作品と実験をwandbを通して提示します。これ以上のスライドはありません。また、wandbを使用して進捗レポートを上司に送信します。TensorBoardとの同期により、埋め込みプロジェクターをさらに使用することができます。これまで、すべてのwandbツールを調査してきましたが、さらに調査するのが待ちきれません。
 
-## Abhi Gupta, Researcher at Columbia University
+## **Abhi Gupta　コロンビア大学の研究者**
 
-TensorBoard can be a nightmare when training on multiple machines. I have to run TensorBoard locally on a master machine and sync logs between computers to visualize real-time results. With wandb, this is so easy. Wandb is going to change everything for me.
+TensorBoardは、複数の機器でトレーニングするときに悪夢になる可能性があります。マスター機器でローカルにTensorBoardを実行し、コンピューター間でログを同期して、リアルタイムの結果を視覚化する必要があります。wandbを使用すると、これはとても簡単です。Wandbは私のためにすべてを変えるつもりです。
 
-## Henry Howard, Researcher at [iBRAIN research laboratory ](https://www.monash.edu/medicine/ccs/neuroscience/research/law-group)at Alfred Hospital
+## Hospital **Henry Howard アルフレッド病院の**[**iBRAIN研究所**](https://www.monash.edu/medicine/ccs/neuroscience/research/law-group)**の研究者**
 
-Great interface. Does what I want it to do without much effort.
+素晴らしいインターフェース。あまり努力せずにやりたいことをやってくれます。
 
-## [Matthew Clapp](https://itsayellow.com/), PhD Candidate at Johns Hopkins University
+##  [**Matthew Clapp**](https://itsayellow.com/)　**ジョンズホプキンス大学の博士課程の候補者**
 
-Effortless python usage, and excellent visualization of my experiments. Minimal hassle, maximum benefit.
+簡単なPythonの使用、および私の実験に対する優れた視覚化。最小限の手間、最大のメリット。
 
-## Ivan Oršolić, [Ori Codes](https://ori.codes/)
+## **Ivan Oršolić** [**Ori Codes**](https://ori.codes/)
 
-Your tool is very easy to set up \(well documented!\) and works great.
+あなたのツールはセットアップが非常に簡単で（十分に文書化されている！）、うまく機能します。
 
-## Dongwhan Jang, Researcher at Seoul National University
+### **ジャン・ドンワン　ソウル国立大学研究員**
 
-Awesome UI for logging. Cross-platform\(library\) support. Excellent customer service. Free for an academic use. Easy for beginners etc.
+ ロギングのための素晴らしいUI。クロスプラットフォーム（ライブラリ）のサポート。優れたカスタマーサービス。アカデミックな使用は無料です。初心者などにやさしいです
 
-## Bowei Hou, PhD candidate at Waseda University
+## **Bowei Hou 早稲田大学博士課程候補者**
 
-It helps me a lot to collaborate with my co-workers in different countries. They can easily find the running experiments and the logs. It's so cool that we can get rid of the tedious terminal loss.
+ さまざまな国の同僚とコラボレーションするのに大いに役立ちます。彼らは実行中の実験とログを簡単に見つけることができます。面倒な端末のロスを取り除くことができるほどクールです。
 
-## **Rajesh, Engineer at  Nokia**
+##  **Rajesh　ノキアのエンジニア**
 
-10/10. It is purely awesome!
+ 最高。それは本当に素晴らしいです！
 
-## Taufiquzzaman Peyash, Researcher at [North South University](http://www.northsouth.edu/)
+## **Taufiquzzaman Peyash**　[**ノースサウス大学**](http://www.northsouth.edu/)**の研究者**
 
-I really like the visualizations and it's very easy to integrate with the pipeline.
+私は視覚化が本当に好きで、パイプラインとの統合は非常に簡単です。
 
-## Tiago Manual,  PhD student at [Cambridge](https://www.cl.cam.ac.uk/research/ai/)
+## [**ケンブリッジ大学**](https://www.cl.cam.ac.uk/research/ai/)**の博士課程の学生**
 
-Great tool! Still a lot to improve but looks like you have an entire team fully working on that!
+ 素晴らしいツールです！まだまだ改善の余地がありますが、チーム全体でまじめに取り組んでいるようです。
 
-## **Seonil Simon Son,** [NLP lover](https://dramaqa.snu.ac.kr/) at Seoul National University
+##  **Seonil Simon Son ソウル国立大学の**[**NLP愛好家**](https://dramaqa.snu.ac.kr/)\*\*\*\*
 
--Dumb-easy api really helped. Developing with tensorboardx which I had experience before was more trickier than learning this from the scratch.
+-ものすごく簡単なAPIは本当に役に立ちました。以前に経験したtensorboardxを使用して開発することは、これを最初から学ぶよりも難しい作業でした。
 
--Summarizing all the loggings on the cloud helps me keep focused on important things.
+-クラウド上のすべてのログを要約すると、重要なことに集中し続けることができます。
 
--Sweep: plug-n-play version of hyperparam tuning methodologies
+-スイープ：ハイパーパラメータ調整方法のプラグアンドプレイバージョン
 
-## Michael, a wonderful user
+## **マイケル　素晴らしいユーザー**
 
-It's just amazing, you guys are doing an amazing job over there! I'm telling about it to all my friends, everyone should use wandb!
+それはただ素晴らしいとしか言えないものです。あなたたちはあそこで素晴らしい仕事をしています！私はそれについて私のすべての友人に話している、誰もがwandbを使うべきです！
 
-## [Shivam Kaushik](https://www.kaggle.com/mythrex/competitions), Kaggle User
+##  **** [Shivam Kaushik](https://www.kaggle.com/mythrex/competitions) **Kaggleユーザー**
 
-I just love how we can make reports and share our work. I use this for kaggle mainly and I know how difficult was it for me to compile my results for the team.
+レポートを作成して作業を共有する方法が大好きです。私はこれを主にkaggleに使用していますが、チームのために結果をまとめるのがどれほど難しいかを知っています。
 
-## Dinis Rodrigues, [INESC](https://www.inesc-id.pt/), student at [Técnico Lisboa](https://tecnico.ulisboa.pt/pt/)
+## **Dinis Rodrigues**　[INESC](https://www.inesc-id.pt/)**、**[Técnico Lisboa](https://tecnico.ulisboa.pt/pt/)**の学生**
 
-Awesome, easy to use and intuitive!
+素晴らしく、使いやすく、直感的です！
 
-## Khel Kim, software engineer
+## **キム・ケル　ソフトウェアエンジニア**
 
-I love you guys. Your system is awesome! Please, keep your service. Thank you guys.
+私はあなたたちを愛しています。あなたのシステムは素晴らしいです！どうぞ、あなたのサービスを続けてください。みなさん、ありがとう。
 
-## Rohit P N, Student at Ramaiah Institute of Technology, Bangalore
+### **Rohit P N　バンガロールのラマイア工科大学の学生**
 
-This platform is absolutely amazing, makes life so much easier. Thank you so much to the developers of this platform!
+このプラットフォームは絶対に素晴らしいです、人生をとても楽にします。このプラットフォームの開発者に感謝します！
 

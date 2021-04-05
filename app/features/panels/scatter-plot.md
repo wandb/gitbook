@@ -1,21 +1,25 @@
 # Scatter Plot
 
-Use the scatter plot to compare multiple runs and visualize how your experiments are performing. We've added some customizable features:
+散布図を使用して、複数の実行を比較し、実験がどのように実行されているかを視覚化します。 カスタマイズ可能な機能をいくつか追加しました。
 
-1. Plot a line along the min, max, and average
-2. Custom metadata tooltips
-3. Control point colors 
-4. Set axes ranges
-5. Switch axes to log scale
+1.最小、最大、平均に沿って線をプロットします
 
-Here’s an example of validation accuracy of different models over a couple of weeks of experimentation. The tooltip is customized to include the batch size and dropout as well as the values on the axes. There’s also a line plotting the running average of validation accuracy.  
-[See a live example →](https://app.wandb.ai/l2k2/l2k/reports?view=carey%2FScatter%20Plot)
+2.カスタムメタデータのツールチップ
+
+3.コントロールポイントの色
+
+4.軸範囲を設定する
+
+5.軸を対数スケールに切り替えますこれは、
+
+数週間の実験におけるさまざまなモデルの検証精度の例です。ツールチップは、バッチサイズとドロップアウト、および軸の値を含むようにカスタマイズされています。検証精度の移動平均をプロットした線もあります。  
+ [実例を見る→](https://wandb.ai/l2k2/l2k/reports?view=carey%2FScatter%20Plot)
 
 ![](https://paper-attachments.dropbox.com/s_9D642C56E99751C2C061E55EAAB63359266180D2F6A31D97691B25896D2271FC_1579031258748_image.png)
 
-## Common Questions
+## よくある質問
 
-### Is it possible to plot the max of a metric rather than plot step by step?
+### ステップバイステップでプロットするのではなく、メトリックの最大値をプロットすることは可能ですか？
 
-The best way to do this is to create a Scatter Plot of the metric, go into the Edit menu, and select Annotations. From there you can plot the running max of the values
+これを行う最良の方法は、メトリックの散布図を作成し、\[編集\]メニューに移動して、\[注釈\]を選択することです。そこから、値の実行最大値をプロットできます
 

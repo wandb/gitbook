@@ -1,25 +1,25 @@
 ---
-description: Visualize highly dimensional data across your machine learning experiments
+description: 機械学習実験全体で高次元のデータを視覚化します
 ---
 
 # Parallel Coordinates
 
-Here's an example of a parallel coordinates plot. Each axis represents a different In this case I've chosen four vertical axes. In this case I'm visualizing the relationship between different hyperparameters and the final accuracy of my model.
+平行座標プロットの例を次に示します。各軸は異なるものを表します。この場合、4つの垂直軸を選択しました。この場合、さまざまなハイパーパラメータとモデルの最終的な精度との関係を視覚化しています。
 
-* **Axes**: Different hyperparameters from [wandb.config](../../../library/config.md) and metrics from [wandb.log\(\)](../../../library/log.md)
-* **Lines**: Each line represents a single run. Mouse over a line to see a tooltip with details about the run. All lines that match the current filters will be shown, but if you turn off the eye, lines will be grayed out.
+*      **軸：**[**wandb.config**](https://docs.wandb.com/library/config)**のさまざまなハイパーパラメータと**[**wandb.log\(\)**](https://docs.wandb.com/library/log)**のメトリック·**
+* **行：各行は1回の実行を表します。行にマウスを合わせると、実行の詳細が記載されたツールチップが表示されます。現在のフィルターに一致するすべての線が表示されますが、目をオフにすると、線は灰色で表示されます。**
 
-**Panel Settings**
+ **パネル設定**
 
-Configure these features in the panel settings— click the edit button in the upper right corner of the panel.
+パネル設定でこれらの機能を構成します。パネルの右上隅にある編集ボタンをクリックします。·    
 
-* **Tooltip**: On hover, a legend shows up with info on each run
-* **Titles**: Edit the axis titles to be more readable
-* **Gradient**: Customize the gradient to be any color range you like
-* **Log scale**: Each axis can be set to view on a log scale independently
-* **Flip axis**: Switch the axis direction— this is useful when you have both accuracy and loss as columns
+*    **ツールチップ**：ホバーすると、各実行に関する情報とともに凡例が表示されます·     
+*   **タイトル**：軸のタイトルを編集して読みやすくします·       
+* **グラデーション**：グラデーションをカスタマイズして、好きな色の範囲にします·     
+*  **ログスケール**：各軸は、ログスケールで個別に表示するように設定できます·     
+*   **軸の反転**：軸の方向を切り替えます。これは、列として精度と損失の両方がある場合に役立ちます。
 
-  [See it live →](https://app.wandb.ai/example-team/sweep-demo/reports/Zoom-in-on-Parallel-Coordinates-Charts--Vmlldzo5MTQ4Nw)
+[ライブで見る→](https://app.wandb.ai/example-team/sweep-demo/reports/Zoom-in-on-Parallel-Coordinates-Charts--Vmlldzo5MTQ4Nw)
 
 ![](../../../.gitbook/assets/2020-04-27-16.11.43.gif)
 

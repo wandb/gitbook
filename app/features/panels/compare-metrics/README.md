@@ -1,77 +1,74 @@
 ---
-description: 'Visualize metrics, customize axes, and compare multiple lines on the same plot'
+description: メトリックを視覚化し、軸をカスタマイズし、同じプロット上の複数の線を比較します
 ---
 
 # Line Plot
 
-Line plots show up by default when you plot metrics over time with **wandb.log\(\)**. Customize with chart settings to compare multiple lines on the same plot, calculate custom axes, and rename labels.
+**wandb.log\(\)**を使用して時間の経過とともにメトリックをプロットすると、デフォルトでラインプロットが表示されます。チャート設定でカスタマイズして、同じプロット上の複数の線を比較し、カスタム軸を計算し、ラベルの名前を変更します。
 
 ![](../../../../.gitbook/assets/line-plot-example.png)
 
-## Settings
+## **設定**
 
-**Data**
+**データ**
 
-* **X axis**: Select default x-axes including Step and Relative Time, or select a custom x-axis. If you'd like to use a custom x-axis, make sure it's logged in the same call to `wandb.log()` that you use to log the y-axis.
-  * **Relative Time \(Wall\)** is clock time since the process started, so if you started a run and resumed it a day later and logged something that would be plotted a 24hrs.
-  * **Relative Time \(Process\)** is time inside the running process, so if you started a run and ran for 10 seconds and resumed a day later that point would be plotted at 10s
-  * **Wall Time** is minutes elapsed since the start of the first run on the graph
-  * **Step** increments by default each time `wandb.log()` is called, and is supposed to reflect the number of training steps you've logged from your model
-* **Y axes**: Select y-axes from the logged values, including metrics and hyperparameters that change over time.
-* **Min, max, and log scale**: Minimum, maximum, and log scale settings for x axis and y axis in line plots
-* **Smoothing and exclude outliers**: Change the smoothing on the line plot or rescale to exclude outliers from the default plot min and max scale
-* **Max runs to show**: Show more lines on the line plot at once by increasing this number, which defaults to 10 runs. You'll see the message "Showing first 10 runs" on the top of the chart if there are more than 10 runs available but the chart is constraining the number visible.
-* **Chart type**: Change between a line plot, an area plot, and a percentage area plot
+*  **X軸**：ステップと相対時間を含むデフォルトのX軸を選択するか、カスタムX軸を選択します。カスタムx軸を使用する場合は、y軸のログに使用するのと同じwandb.log（）の呼び出しにログインしていることを確認してください。
+* **相対時間（Wall）**は、プロセスが開始されてからの時間です。したがって、実行を開始して1日後に再開し、24時間プロットされるものをログに記録した場合。
+* **相対時間（プロセス）**は実行中のプロセス内の時間であるため、実行を開始して10秒間実行し、1日後に再開した場合、そのポイントは10秒でプロットされます。
+* **実測時間**は、グラフの最初の実行の開始から経過した分です。
+* **ステップ**は、wandb.log（）が呼び出されるたびにデフォルトで増分され、モデルからログに記録したトレーニングステップの数を反映することになっています。
+* **Y軸**：時間の経過とともに変化するメトリックやハイパーパラメータなど、ログに記録された値からY軸を選択します。
+* **最小、最大、および対数スケール**：ラインプロットのx軸とy軸の最小、最大、および対数スケールの設定
+* **外れ値の平滑化と除外**：折れ線グラフの平滑化を変更するか、再スケーリングして、デフォルトのプロットの最小および最大スケールから外れ値を除外します
+*  **表示する最大実行数**：この数を増やすと、折れ線グラフに一度に多くの線が表示されます。デフォルトでは10実行です。使用可能な実行数が10を超えているが、グラフが表示される数を制限している場合は、グラフの上部に「最初の10回の実行を表示しています」というメッセージが表示されます。
+* **グラフの種類**：折れ線グラフ、面積プロット、およびパーセンテージ面積プロット間の変更
 
-**X Axis Settings**  
-The x-axis can be set at the graph level, as well as globally for the project page or report page. Here's what the global settings look like:
+**X軸の設定X軸**は、グラフレベルで設定することも、プロジェクトページまたはレポートページでグローバルに設定することもできます。グローバル設定は次のようになります。
 
 ![](../../../../.gitbook/assets/x-axis-global-settings.png)
 
 {% hint style="info" %}
-Pick **multiple y-axes** in the line plot settings to compare different metrics on the same chart, like accuracy and validation accuracy for example.
+折れ線グラフの設定で**複数のy軸**を選択し、精度や検証精度など、同じグラフ上のさまざまな指標を比較します。
 {% endhint %}
 
-**Grouping**
+**グループ化**
 
-* Turn on grouping to see settings for visualizing averaged values.
-* **Group key**: Select a column, and all the runs with the same value in that column will be grouped together.
-* **Agg**: Aggregation— the value of the line on the graph. The options are mean, median, min, and max of the group.
-* **Range**: Switch the behavior for the shaded area behind the grouped curve. None means there is no shaded area. Min/Max shows a shaded region that covers the whole range of points in the group. Std Dev shows the standard deviation of values in the group. Std Err shows the standard error as the shaded area.
-* **Sampled runs**: If you have hundreds of runs selected, we default to only sampling the first 100. You can select to have all your runs included in the grouping calculation, but it might slow things down in the UI.
+* グループ化をオンにして、平均値を視覚化するための設定を確認します。 
+* **グループキー**：列を選択すると、その列で同じ値を持つすべての実行がグループ化されます。
+* **Agg**：Aggregation‐グラフ上の線の値。オプションは、グループの平均、中央値、最小、および最大です。
+*  **範囲**：グループ化された曲線の背後にある影付きの領域の動作を切り替えます。なしは、影付きの領域がないことを意味します。最小/最大は、グループ内のポイントの全範囲をカバーする影付きの領域を示しています。Std Devは、グループ内の値の標準偏差を示します。Std Errは、標準誤差を影付きの領域として示しています。
+*  **サンプリングされた実行**：数百の実行が選択されている場合、デフォルトでは最初の100のみがサンプリングされます。すべての実行をグループ化の計算に含めるように選択できますが、UIの処理が遅くなる可能性があります。
 
-**Legend**
+**凡例**·       
 
-* **Title**: Add a custom title for line plot, which shows up at the top of the chart
-* **X-Axis title**: Add a custom title for the x-axis of the line plot, which shows up in the lower right corner of the chart.
-* **Y-Axis title**: Add a custom title for the y-axis of the line plot, which shows up in the upper left corner of the chart.
-* **Legend**: Select field that you want to see in the legend of the plot for each line. You could, for example, show the name of the run and the learning rate. 
-* **Legend template**: Fully customizable, this powerful template allows you to specify exactly what text and variables you want to show up in the template at the top of the line plot as well as the legend that appears when you hover your mouse over the plot.
+* **タイトル**：折れ線グラフのカスタムタイトルを追加します。これはグラフの上部に表示されます·      
+* **X軸のタイトル**：折れ線グラフのx軸にカスタムタイトルを追加します。これは、グラフの右下隅に表示されます。
+* **Y軸のタイトル**：折れ線グラフのY軸にカスタムタイトルを追加します。これは、グラフの左上隅に表示されます。
+* **凡例**：各線のプロットの凡例に表示するフィールドを選択します。たとえば、実行の名前と学習率を表示できます。
+* **凡例テンプレート**：完全にカスタマイズ可能なこの強力なテンプレートを使用すると、折れ線グラフの上部にあるテンプレートに表示するテキストと変数、およびプロットの上にマウスを置いたときに表示される凡例を正確に指定できます。
 
-**Expressions**
+**軸式**：計算されたメトリックをグラフに追加します。ログに記録されたメトリックとハイパーパラメータなどの構成値を使用して、カスタム行を計算できます。
 
-* **Y Axis Expressions**: Add calculated metrics to your graph. You can use any of the logged metrics as well as configuration values like hyperparameters to calculate custom lines.
-* **X Axis Expressions**: Rescale the x-axis to use calculated values using custom expressions. Useful variables include**\_step** for the default x-axis, and the syntax for referencing summary values is `${summary:value}`
+ **X軸式**：カスタム式を使用して計算値を使用するようにx軸を再スケーリングします。便利な変数include\_**step**はデフォルトのx軸であり、要約値を参照するためのシンタックスは${summary:value}です。
 
-## Visualize average values on a plot
+**軸式**：計算されたメトリックをグラフに追加します。ログに記録されたメトリックとハイパーパラメータなどの構成値を使用して、カスタム行を計算できます。·     
 
-If you have several different experiments and you'd like to see the average of their values on a plot, you can use the Grouping feature in the table. Click "Group" above the run table and select "All" to show averaged values in your graphs.
-
-Here is what the graph looks like before averaging:
+  **X軸式**：カスタム式を使用して計算値を使用するようにx軸を再スケーリングします。便利な変数include\_**step**はデフォルトのx軸であり、要約値を参照するためのシンタックスは${summary:value}です。
 
 ![](../../../../.gitbook/assets/demo-precision-lines.png)
 
 Here I have grouped the lines to see the average value across runs.
 
-![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%281%29.png)
+![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%282%29.png)
 
 ## Compare two metrics on one chart
 
-Click on a run to go to the run page. Here's an [example run](https://app.wandb.ai/stacey/estuary/runs/9qha4fuu?workspace=user-carey) from Stacey's Estuary project. The auto-generated charts show single metrics.
+ **1つのグラフで2つの指標を比較します**実行をクリックして、実行ページに移動します。これは、Stacey氏のEstuaryプロジェクトからの[実行](https://wandb.ai/stacey/estuary/runs/9qha4fuu?workspace=user-carey)例です。自動生成されたグラフには、単一の指標が表示されます。 
 
 ![](https://downloads.intercomcdn.com/i/o/146033177/0ea3cdea62bdfca1211ce408/Screen+Shot+2019-09-04+at+9.08.55+AM.png)
 
-Click **Add a visualization** at the top right of the page, and select the **Line Plot**.
+  
+ページの右上にある\[**ビジュアライゼーションの追加**\]をクリックして、**折れ線プロット**を選択します。
 
 ![](https://downloads.intercomcdn.com/i/o/142936481/d0648728180887c52ab46549/image.png)
 
@@ -79,27 +76,28 @@ In the **Y variables** field, select a few metrics you'd like to compare. They'l
 
 ![](https://downloads.intercomcdn.com/i/o/146033909/899fc05e30795a1d7699dc82/Screen+Shot+2019-09-04+at+9.10.52+AM.png)
 
-## Visualize on different x axes
+## **異なるx軸で視覚化します**
 
-If you'd like to see the absolute time that an experiment has taken, or see what day an experiment ran, you can switch the x axis. Here's an example of switching from steps to relative time and then to wall time.
+  
+実験にかかった絶対時間を確認したい場合、または実験が実行された日を確認したい場合は、x軸を切り替えることができます。これは、ステップから相対時間、そして実測時間に切り替える例です。
 
 ![](../../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
 
-## Area plots
+## **エリアプロット**
 
-In the line plot settings, in the advanced tab, click on different plot styles to get an area plot or a percentage area plot.
+折れ線グラフの設定の\[詳細設定\]タブで、さまざまなプロットスタイルをクリックして、面積プロットまたはパーセント面積プロットを取得します。
 
 ![](../../../../.gitbook/assets/2020-02-27-10.49.10.gif)
 
-## Zoom
+##  **ズーム**
 
-Click and drag a rectangle to zoom vertically and horizontally at the same time. This changes the x-axis and y-axis zoom.
+長方形をクリックしてドラッグすると、垂直方向と水平方向に同時にズームできます。これにより、x軸とy軸のズームが変更されます。
 
 ![](../../../../.gitbook/assets/2020-02-24-08.46.53.gif)
 
-## Hide chart legend
+## **グラフの凡例を非表示**
 
-Turn off the legend in the line plot with this simple toggle:
+この単純なトグルで折れ線グラフの凡例をオフにします。
 
 ![](../../../../.gitbook/assets/demo-hide-legend.gif)
 

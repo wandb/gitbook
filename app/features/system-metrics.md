@@ -1,19 +1,19 @@
 ---
-description: Metrics automatically logged by wandb
+description: wandbによって自動的にログに記録されるメトリック
 ---
 
 # System Metrics
 
-`wandb` automatically logs system metrics every 2 seconds, averaged over a 30 second period. The metrics include:
+wandbは、30秒間の平均で、2秒ごとにシステムメトリックを自動的にログに記録します。指標は次のとおりです。
 
-* CPU Utilization
-* System Memory Utilization
-* Disk I/O Utilization
-* Network traffic \(bytes sent and received\)
-* GPU Utilization
-* GPU Temperature
-* GPU Time Spent Accessing Memory \(as a percentage of the sample time\)
-* GPU Memory Allocated
+* CPU使用率
+*  システムメモリの使用率
+*  ディスクI/Oの使用率
+* ネットワークトラフィック（送受信されたバイト数）
+* GPUの使用率
+* GPU温度
+* メモリへのアクセスに費やされたGPU時間（サンプル時間のパーセンテージとして）
+* 割り当てられたGPUメモリ
 
-GPU metrics are collected on a per-device basis using [nvidia-ml-py3](https://github.com/nicolargo/nvidia-ml-py3/blob/master/pynvml.py). For more information on how to interpret these metrics and optimize your model's performance, see [this helpful blog post from Lambda Labs](https://lambdalabs.com/blog/weights-and-bias-gpu-cpu-utilization/).
+メトリックを解釈してモデルのパフォーマンスを最適化する方法の詳細については、[Lambda Labsのこの役立つブログ投稿を](https://lambdalabs.com/blog/weights-and-bias-gpu-cpu-utilization/)参照してください。
 

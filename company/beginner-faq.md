@@ -1,32 +1,32 @@
 ---
-description: Resources for people getting started with Machine Learning
+description: 機械学習を始める人々のためのリソース
 ---
 
 # Beginner FAQ
 
-## Are you learning machine learning?
+##  機械学習を学んでいますか？
 
-Wandb is a tool for visualizing training and we hope that it's useful for everyone from experts to people just getting started. If you have general questions about machine learning you are welcome to ask them in our [Slack](http://bit.ly/wandb-forum) channel. We have also made some free [tutorial videos](https://www.wandb.com/tutorials) with example code that are designed to get you started.
+Wandbはトレーニングを視覚化するためのツールであり、専門家から始めたばかりの人まで、すべての人に役立つことを願っています。機械学習に関する一般的な質問がある場合は、[Slack](http://bit.ly/wandb-forum) チャネルで質問してください。また、開始するために設計されたサンプルコードを使用した無料の[チュートリアルビデオもいくつか作成しました](https://www.wandb.com/tutorials)。
 
-One great way to learn machine learning is to start with an interesting project. If you don't have a project in mind, a good place to find projects is our [benchmarks](https://www.wandb.com/benchmarks) page - we have a variety of machine learning tasks with data and working code that you can improve.
+プロジェクトを念頭に置いていない場合、プロジェクトを見つけるのに適した場所は[ベンチマーク](https://www.wandb.com/benchmarks)ページです。データと作業コードを使用して改善できるさまざまな機械学習タスクがあります。
 
-## Online Resources
+## オンラインリソース
 
-There are a lot of excellent online resources for learning machine learning. Please send us a note if we should add anything here.
+機械学習を習うための優れたオンラインリソースがたくさんあります。ここに何か追加する必要がある場合は、メモを送信してください。
 
-* [fast.ai ](https://www.fast.ai)- Excellent practical machine learning classes and friendly community.
-* [deep learning book](http://www.deeplearningbook.org) - Detailed book available for free online.
-* [Stanford CS229](https://see.stanford.edu/Course/CS229) - Lectures from a great class available online.
+* [fast.ai ](https://www.fast.ai)- 優れた実用的な機械学習クラスとフレンドリーなコミュニティ。
+* [deep learning book](http://www.deeplearningbook.org) - 詳細なブックをオンラインで無料で入手できます。
+* [Stanford CS229](https://see.stanford.edu/Course/CS229) - オンラインで利用できる素晴らしいクラスからの講義。
 
-## Looking for bias in models
+## モデルのバイアスを探します
 
-If you're training a machine learning model, you want to be able to visualize how it performs on different inputs. A common problem, especially when you're getting started, is that it's hard to get those visualizations set up. That's where Weights & Biases comes in. We make it easy to get metrics to understand your model performance.
+ 機械学習モデルをトレーニングしている場合は、さまざまな入力でモデルがどのように機能するかを視覚化できるようにする必要があります。一般的な問題は、特に始めたばかりの場合、これらの視覚化を設定するのが難しいことです。そこで、Weights＆Biasesが登場します。モデルのパフォーマンスを理解するためのメトリックを簡単に取得できるようにします。
 
-Here's a hypothetical example— you're training a model to identify objects on the road. Your dataset is a bunch of labeled images with cars, pedestrians, bicycles, trees, buildings, etc. As you train your model, you can visualize the different class accuracies. That means you can see if your model is great at finding cars but bad at finding pedestrians. This could be a dangerous bias, especially in a self-driving car model.
+これは架空の例です。道路上のオブジェクトを識別するためにモデルをトレーニングしています。データセットは、車、歩行者、自転車、樹木、建物などのラベル付き画像の束です。モデルをトレーニングすると、さまざまなクラスの精度を視覚化できます。つまり、モデルが車を見つけるのは得意であるが、歩行者を見つけるのは得意ではないかどうかを確認できます。これは、特に自動運転車のモデルでは、危険なバイアスになる可能性があります。
 
-Interested in seeing a live example? Here's a report that compares the model's accuracy on identifying images of different types of plants and animals— birds, mammals, fungi etc. The Weights & Biases graphs make it easy to see how each version of the model \(each line on the graph\) performs on different classes.
+ ここに実例があります。これは、鳥、哺乳類、菌類など、さまざまな種類の植物や動物の画像を識別する際のモデルの精度を比較したレポートです。Weights＆Biasesグラフを使用すると、異なるクラスでモデルの各バージョン（グラフの各線）のパフォーマンスを簡単に確認できます。
 
-[See the report in W&B →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
+[W＆Bのレポートを見る→](https://wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
 
-![](../.gitbook/assets/image%20%2818%29%20%283%29%20%283%29%20%285%29.png)
+![](../.gitbook/assets/image%20%2818%29%20%283%29%20%283%29.png)
 

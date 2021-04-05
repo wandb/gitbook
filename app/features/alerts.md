@@ -1,28 +1,28 @@
 ---
-description: >-
-  Receive a Slack notification whenever your runs crash, complete, or call
-  wandb.alert().
+description: 実行がクラッシュ、完了、またはwandb.alert（）を呼び出すたびに、Slack通知を受け取ります。
 ---
 
 # Alerts
 
-W&B can post alerts on Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
+W＆Bは、実行がクラッシュ、完了、または[wandb.alert\(\)](/library/wandb.alert)を呼び出すたびに、電子メールまたはSlackに通知を投稿できます。
 
-## Team Level Alerts
+###  ユーザーアラート
 
-To receive alerts whenever runs launched by members of your team crash, complete, or call `wandb.alert()`, you can configure a team level alert. Team level alerts apply to all projects the team owns and will trigger whenever any member of the team has a crashed or failed run.
+実行が終了したとき、クラッシュしたとき、またはwandb.alert（）を呼び出したときに通知を設定します。これらは、個人プロジェクトとチームプロジェクトの両方を含む、実行を開始するすべてのプロジェクトに適用されます。
 
-Team level alerts apply to all projects belonging to the team. In your team settings page under the `Team Slack Integration` section, select the `Connect Slack` button and authorize the channel into which W&B should post alerts. If you need to change the Slack channel into which W&B posts alerts, you can select the `Disconnect Slack` button and then reconnect with Slack using a new channel of your choice. Only team administrators can manage the team's Slack connection.
+ あなたの[ユーザー設定](https://wandb.ai/settings)：
 
-Once Slack is connected, team administrators can freely enable and disable alerts.
+*  \[**アラート**\]セクションまで下にスクロールします
+*  \[**Connect Slack**\]をクリックして、アラートを投稿するチャネルを選択します。アラートを非公開に保つため、**Slackbot**チャネルをお勧めします。
+*  **電子メール**は、W＆Bにサインアップしたときに使用した電子メールアドレスに送信されます。これらのアラートがすべてフォルダに入り、受信トレイがいっぱいにならないように、電子メールにフィルタを設定することをお勧めします。
 
-## User Level Alerts
+![](../../.gitbook/assets/demo-connect-slack.png)
 
-To receive alerts whenever runs you launch crash, complete, or call `wandb.alert()`, you can configure a user level alert. User level alerts apply to all projects, including team projects, and will trigger whenever the user has a crashed or failed run.
+### チームアラート
 
-In your user settings page under the `Personal Slack Integration` section, select the `Connect Slack` button and authorize the channel into which W&B should post alerts. The `slackbot` channel is a good choice to keep alerts private. If you need to change the Slack channel into which W&B posts alerts, you can select the `Disconnect Slack` button and then reconnect Slack using the new channel of your choice.
+ チーム管理者は、チーム設定ページwandb.ai/teams/your-teamでチームのアラートを設定できます。これらのアラートは、チームの全員に適用されます。アラートを非公開に保つため、**Slackbot**チャネルの使用をお勧めします。
 
-Once Slack is connected, you can freely enable and disable alerts.
+### Slackチャネルの変更
 
-You can also receive notifications via email. W&B will use the email associated with your account.
+### 投稿先のチャンネルを変更するには、\[**Disconnect Slack**\]をクリックしてから再接続し、別の宛先チャンネルを選択します。
 

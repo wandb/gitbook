@@ -1,83 +1,78 @@
 ---
-description: Project management and collaboration tools for machine learning projects
+description: 機械学習プロジェクトのプロジェクト管理およびコラボレーションツール
 ---
 
 # Reports
 
-Reports let you organize visualizations, describe your findings, and share updates with collaborators.
+レポートを使用すると、視覚化を整理し、調査結果を説明し、共同編集者と更新を共有できます
 
-### Use Cases
+### **ユースケース**
 
-1. **Notes**: Add a graph with a quick note to yourself.
-2. **Collaboration**: Share findings with your colleagues.
-3. **Work log**: Track what you've tried, and plan next steps.
+1. **メモ**：簡単なメモを含むグラフを自分に追加します。
+2. **コラボレーション**：調査結果を同僚と共有します。
+3. **作業ログ**：試したことを追跡し、次のステップを計画します。
 
-### [See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
+### [**OpenAIのケーススタディをご覧ください→**](https://bit.ly/wandb-learning-dexterity)\*\*\*\*
 
-Once you have [experiments in W&B](quickstart.md), easily visualize results in reports. Here's a quick overview video.
+ [W＆Bで実](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/quickstart)験を行ったら、レポートで結果を簡単に視覚化できます。次のビデオがその簡単な概要です
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" caption="" %}
 
-## Collaborate on reports
+## **レポートの共同編集** 
 
-Once you've saved a report, you can click the **Share** button to collaborate. Make sure the visibility settings on your project allow your collaborators to access the report— you'll need an open project or a team project to share a report that you can edit together.
+レポートを保存したら、\[**共有**\]ボタンをクリックして共同作業を行うことができます。プロジェクトの可視性設定で、共同編集者がレポートにアクセスできることを確認してください。一緒に編集できるレポートを共有するには、開いているプロジェクトまたはチームプロジェクトが必要です。編集を押すと、レポートのドラフトコピーを編集することになります。
 
-When you press edit, you'll be editing a draft copy of the report. This draft auto-saves, and when you press **Save to report** you'll be publishing your changes to the shared report.
-
-If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
+このドラフトは自動保存され、**レポートを作成するために\[保存\]**を押して、共有レポートへの変更を公開します。その間に共同編集者の1人がレポートを編集した場合、潜在的な編集の競合を解決するのに役立つ警告が表示されます。
 
 ![](.gitbook/assets/collaborative-reports.gif)
 
-### Upload a CSV to a report
 
-## Add panels
 
-Click the **Add panel** button to add a new visualization to the report.
+### 
 
-![](https://downloads.intercomcdn.com/i/o/142935595/d1422f30460a39b8b4868885/image.png)
+![](.gitbook/assets/demo-comment-on-panels-in-reports.gif)
 
-## Panel Grids
+## **パネルグリッド** 
 
-If you'd like to compare a different set of runs, create a new panel grid. Each section's graphs are controlled by the **Run Sets** at the bottom of that section.
+別の実行セットを比較する場合は、新しいパネルグリッドを作成します。各セクションのグラフは、そのセクションの下部にある**実行セット**によって制御されます。 
 
-## Static and dynamic run sets
+##  **静的および動的実行セット**
 
-* **Dynamic run sets**: If you start from "Visualize all" and filter or deselect runs to visualize, the run set will automatically update to show any new runs that match the filters.
-* **Static run sets**: If you start from "Visualize none" and select the runs you want to include in your run set, you will only ever get those runs in the run set. No new runs will be added.
+• **動的実行セット**：「すべてを視覚化」から開始し、実行をフィルタリングまたは選択解除して視覚化すると、実行セットが自動的に更新され、フィルターに一致する新しい実行が表示されます。
 
-## Exporting reports
+• **静的実行セット**：「視覚化無し」から開始して、実行セットに含める実行を選択すると、実行セットに含まれる実行のみが取得されます。新しい実行は追加されません。
 
-Click the download button to export your report as a LaTeX zip file. Check the README.md in your downloaded folder to find instructions on how to convert this file to PDF. It's easy to upload the zip file to [Overleaf](https://www.overleaf.com/) to edit the LaTeX.
+## **レポートのエクスポート**
 
-## Cross-project reports
+ダウンロードボタンをクリックして、レポートをLaTeX zipファイルとしてエクスポートします。ダウンロードしたフォルダのREADME.mdを確認して、このファイルをPDFに変換する方法を確認してください。zipファイルを[Overleaf](https://www.overleaf.com/)にアップロードしてLaTeXを簡単に編集できます。
 
-Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
+## **クロスプロジェクトレポート**
+
+2つの異なるプロジェクトからの実行をプロジェクト間レポートと比較します。実行セットテーブルのプロジェクトセレクタを使用して、プロジェクトを選択します。
 
 ![](.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
 
-The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
+クションの視覚化は、最初のアクティブなランセットから列をプルします。探しているメトリックが折れ線グラフに表示されない場合は、セクションでチェックした最初の実行セットでその列が使用可能であることを確認してください。この機能は時系列ラインの履歴データをサポートしますが、異なるプロジェクトから異なるサマリーメトリックを取得することはサポートしていません。そのため、別のプロジェクトにのみログインしている列に対して散布図は機能しません。2つのプロジェクトの実行を比較する必要があり、列が機能しない場合は、一方のプロジェクトの実行にタグを追加してから、それらの実行をもう一方のプロジェクトに移動します。各プロジェクトからの実行のみにフィルターをかけることはできますが、レポートでは両方の実行セットのすべての列を使用できます。
 
-If you really need to compare runs from two projects and the columns aren't working, add a tag to the runs in one project and then move those runs to the other project. You'll still be able to filter to just the runs from each project, but you'll have all the columns for both sets of runs available in the report.
+### **表示専用のレポートリンク**
 
-### View-only report links
-
-Share a view-only link to a report that is in a private project or team project.
+プライベートプロジェクトまたはチームプロジェクトにあるレポートへの表示専用リンクを共有します。
 
 ![](.gitbook/assets/share-view-only-link.gif)
 
-### Send a graph to a report
+### **レポートにグラフを送信します**
 
-Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
+ワークスペースからレポートにグラフを送信して、進捗状況を追跡します。レポートにコピーするチャートまたはパネルのドロップダウンメニューをクリックし、**\[レポートに追加\]**をクリックしてコピー先のレポートを選択します。
 
-![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29.gif)
+![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%281%29.gif)
 
-## Reports FAQ
+## **レポートFAQ**
 
-### Upload a CSV to a report
+### Upload a C**CSVをレポートにアップロードします**
 
-If you currently want to upload a CSV to a report you can do it via the `wandb.Table` format. Loading the CSV in your Python script and logging it as a `wandb.Table` object will allow you to render the data as a table in a report.
+現在CSVをレポートにアップロードする場合は、wandb.Table形式でアップロードできます。PythonスクリプトにCSVをロードし、それをwandb.Tableオブジェクトとしてログに記録すると、データをレポートのテーブルとしてレンダリングできます
 
-### Refreshing data
+### **データの更新**
 
-Reload the page to refresh data in a report and get the latest results from your active runs. Workspaces automatically load fresh data if you have the **Auto-refresh** option active \(available in the dropdown menu in the upper right corner of your page\). Auto-refresh does not apply to reports, so this data will not refresh until you reload the page.
+ページをリロードしてレポートのデータを更新し、アクティブな実行から最新の結果を取得します。\[**自動更新**\]オプションがアクティブになっている場合（ページの右上隅にあるドロップダウンメニューで使用可能）、ワークスペースは新しいデータを自動的にロードします。自動更新はレポートには適用されないため、このデータはページを再読み込みするまで更新されません。
 

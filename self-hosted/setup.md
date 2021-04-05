@@ -1,41 +1,41 @@
 ---
-description: How to set up a centralized W&B Local Server
+description: 一元化されたW＆Bローカルサーバーをセットアップする方法
 ---
 
 # Setup
 
-A W&B Local Server is a docker image running on your infrastructure. See the following for instructions for how to provision a new instance.
+W＆Bローカルサーバーは、インフラストラクチャで実行されているDockerイメージです。新しいインスタンスをプロビジョニングする方法については、以下を参照してください。
 
-## Amazon Web Services
+## アマゾンウェブサービス
 
-Running _wandb/local_ in AWS can be done in a few different ways.
+AWSでの_wandb/local_の実行は、いくつかの異なる方法で実行できます。
 
-### AWS Fargate
+### AWSファーゲート
 
-Type Fargate in the AWS console, or go directly to the [ECS management page](https://console.aws.amazon.com/ecs/home). Click Get Started to create a new ECS service using Fargate.
+ AWSコンソールにFargateと入力するか、[ECS管理ページ](https://console.aws.amazon.com/ecs/home)に直接移動します。\[開始\]をクリックして、Fargateを使用して新しいECSサービスを作成します。
 
-* **Container Definition**: Choose "custom" and click "Configure".  From here name your container _wandb-local_ and set the image name to _wandb/local:latest_.  Finally add port 8080 to the port mappings.
-* **Task Definition**: Click Edit and make sure to give the task at least 8GB of ram and 4 vCPUs
-* **Define Your Service**: You'll likely want to create an ALB that can terminate SSL and forward requests to port 8080 of this service.
-* **IAM Permissions**: If you plan to use a cloud file backend \(this is optional\), make sure your instance has an IAM role that allows it to access S3 and subscribe to SQS.
+* **コンテナ定義**：「カスタム」を選択し、「構成」をクリックします。ここから、コンテナにwandb-localという名前を付け、イメージ名を_wandb/local:latest_に設定します。最後に、ポート8080をポートマッピングに追加します。
+* **タスク定義**：\[編集\]をクリックし、タスクに少なくとも8GBのRAMと4つのvCPUを指定します
+* **サービス定義**：SSLを終了し、このサービスのポート8080に要求を転送できるALBを作成することをお勧めします。
+* **IAMアクセス許可**：クラウドファイルバックエンドを使用する場合（これはオプションです）、インスタンスにS3へのアクセスとSQSへのサブスクライブを許可するIAMロールがあることを確認します。サービスがプロビジョニングされると、ALBを介して、またはインスタンスのIPとPORTを介して直接サービスにアクセスできます。インスタンスは起動時に使用できますが、詳細オプションについては、インスタンスの構成に進むことができます。
 
-Once the service is provisioned you can access it via your ALB or directly via the IP and PORT of your instance. Your instance is usable from boot, but for advanced options, you may now proceed to [configuring your instance](configuration.md).
+サービスがプロビジョニングされると、ALBを介して、またはインスタンスのIPとPORTを介して直接サービスにアクセスできます。インスタンスは起動時に使用できますが、詳細オプションについては、[インスタンスの構成](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNdlQobOrN8f63KfkRZ/v/japanese/self-hosted/configuration)に進むことができます。
 
-### EC2
+### EC2Docker
 
-You can run _wandb/local_ on any EC2 instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+がインストールされているEC2インスタンスで_wandb/local_を実行できます。少なくとも8GBのRAMと4vCPUをお勧めします。次のコマンドを実行して、コンテナを起動します。
 
 ```text
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-## Google Cloud Platform
+## グーグル・クラウド
 
-### Kubernetes Engine
+Kubernetesエンジン
 
-If you're running k8s already you can easily launch _wandb/local_ into an existing cluster. GCP always make it really simple to launch a cluster via the [console](https://console.cloud.google.com/kubernetes/list).
+すでにk8sを実行している場合は、既存のクラスターで_wandb/local_を簡単に起動できます。GCPを使用すると、コンソールからクラスタを簡単に起動できます。
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local with load balancing and SSL in GCP. The yaml below assumes you've created a static IP address named **wandb-local-static-ip**. You can do so with:
+次のk8s yamlはカスタマイズできますが、GCPで負荷分散とSSLを使用してローカルを構成するための基本的な基盤として機能する必要があります。以下のyamlは、**wandb-local-static-ip**という名前の静的IPアドレスを作成したことを前提としています。あなたは次のものと共にそれが可能です。
 
 ```text
 gcloud compute addresses create wandb-local-static-ip --global
@@ -141,9 +141,9 @@ You can run _wandb/local_ on any Compute Engine instance that also has Docker in
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-## Azure Kubernetes Service
+## Azure Kubernetesサービス
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local.
+次のk8s yamlはカスタマイズできますが、ローカルを構成するための基本的な基盤として機能する必要があります。
 
 ```text
 apiVersion: apps/v1
@@ -234,11 +234,11 @@ spec:
 
 ## OnPrem Kubernetes
 
-The k8s YAML above in the Azure Kubernetes Service section should work in most on-premise installations.
+上記のAzure Kubernetesサービスセクションのk8s YAMLは、ほとんどのオンプレミスインストールで機能します。
 
 ## OnPrem Docker
 
-You can run _wandb/local_ on any instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+Dockerがインストールされている任意のインスタンスで_wandb/local_を実行できます。少なくとも8GBのRAMと4vCPUをお勧めします。次のコマンドを実行して、コンテナを起動します。
 
 ```text
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local

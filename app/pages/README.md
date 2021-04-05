@@ -4,35 +4,35 @@ description: An overview of the different pages in app.wandb.ai
 
 # Pages
 
-## Home Page
+## **ホームページ**
 
-Browse all your runs and projects. The home page pulls in projects from your personal account, as well as any projects you've contributed to in teams.
+すべての実行とプロジェクトを参照できます。ホームページは、個人アカウントからプロジェクトを取得するだけでなく、チームで貢献したプロジェクトも取得します。
 
 ![](../../.gitbook/assets/home-page.png)
 
-## Project Page
+##  **プロジェクトページ**
 
-Compare models with different architectures and hyperparameters on the same set of metrics.
+同じメトリックセットで、アーキテクチャとハイパーパラメータが異なるモデルを比較します。
 
 ![](../../.gitbook/assets/project-page.png)
 
-## Run Page
+## **ページの実行**
 
-Visualize the metrics and dataset examples from a single run.
+1回の実行でメトリックとデータセットの例を視覚化します。
 
 ![](../../.gitbook/assets/screen-shot-2020-06-08-at-9.00.04-am.png)
 
-## Report Page
+## **レポートページ**
 
-Compare results and describe your findings, then share links with colleagues.
+結果を比較して調査結果を説明し、同僚とリンクを共有します。
 
 ![](../../.gitbook/assets/example-report-for-molecules.png)
 
-## Common Questions
+**よくある質問**
 
-### I accidentally deleted a panel in W&B, how do I undo it?
+W＆Bで誤ってパネルを削除しましたが、元に戻すにはどうすればよいですか？
 
-To undo a change in your workspace, click the "undo" button at the bottom of the page.
+ワークスペースの変更を元に戻すには、ページの下部にある\[元に戻す\]ボタンをクリックします。
 
 ![](../../.gitbook/assets/demo-how-to-undo-deleting-a-panel.gif)
 

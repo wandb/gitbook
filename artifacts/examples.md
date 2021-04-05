@@ -1,19 +1,19 @@
 ---
-description: Example code for trying W&B Artifacts
+description: W＆Bアーティファクトを試すためのサンプルコード
 ---
 
 # Artifacts Examples
 
-Walk through an example of Artifacts in a live notebook.
+W＆Bアーティファクトを試すためのサンプルコード
 
-[**Try the notebook →**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Pipeline_Versioning_with_W%26B_Artifacts.ipynb)\*\*\*\*
+ ****[**ノートブックをお試しください→** ](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Pipeline_Versioning_with_W%26B_Artifacts.ipynb)\*\*\*\*
 
 ![](../.gitbook/assets/artifacts-colab-notebook.png)
 
-For a more in-depth example, try our two GitHub demo projects:
+より詳細な例については、2つのGitHubデモプロジェクトを試してください。
 
-1. \*\*\*\*[**Dataset versioning**](https://github.com/wandb/artifacts-examples/tree/master/dataset-versioning)**:** An end-to-end example of how to version datasets with W&B artifacts.
-2. \*\*\*\*[**Detectron 2**](https://github.com/wandb/artifacts-examples/tree/master/detectron2): Image segmentation and bounding box prediction— visualize training metrics and predictions in real time, store and organize trained models, automatically track model fine-tuning, and save results
+1. \*\*\*\*[**Dataset versioning**](https://github.com/wandb/artifacts-examples/tree/master/dataset-versioning)**:** W＆Bアーティファクトを使用してデータセットをバージョン管理する方法のエンドツーエンドの例。
+2. \*\*\*\*[**Detectron 2**](https://github.com/wandb/artifacts-examples/tree/master/detectron2): 画像のセグメンテーションとバウンディングボックスの予測―トレーニングの指標と予測をリアルタイムで視覚化し、トレーニングされたモデルを保存および整理し、モデルの微調整を自動的に追跡し、結果を保存します
 
 \*\*\*\*
 

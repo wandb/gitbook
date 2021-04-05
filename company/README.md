@@ -1,59 +1,59 @@
 # Company
 
-### What is wandb?
+###  wandbとは何ですか？
 
-Wandb is an experiment tracking tool for machine learning. We make it easy for anyone doing machine learning to keep track of experiments and share results with colleagues and their future self.
+Wandbは、機械学習用の実験追跡ツールです。機械学習を行う人なら誰でも簡単に実験を追跡し、同僚や将来の自分と結果を共有できます。
 
-Here's a 1 minute overview video. [View an example project →](https://app.wandb.ai/stacey/estuary)
+ これが1分間の概要ビデオです。[サンプルプロジェクトを見る→](https://app.wandb.ai/stacey/estuary)
 
-{% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" caption="" %}
+{% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" %}
 
-### How does it work?
+### それはどのように機能しますか？
 
-When you instrument your training code with wandb, our background process will collect useful data about what is happening as you train your models. For example, we can track model performance metrics, hyperparameters, gradients, system metrics, output files, and your most recent git commit.
+トレーニングコードをwandbでインストルメント化すると、バックグラウンドプロセスにより、モデルのトレーニング中に何が起こっているかに関する有用なデータが収集されます。たとえば、モデルのパフォーマンスメトリック、ハイパーパラメータ、勾配、システムメトリック、出力ファイル、最新のgit commitを追跡できます。
 
-{% page-ref page="../library/api/examples.md" %}
+{% page-ref page="../ref/export-api/examples.md" %}
 
-### How hard is it to set up?
+### セットアップは難しいですか？
 
-We know that most people track their training with tools like emacs and Google Sheets, so we've designed wandb to be as lightweight as possible. Integration should take 5-10 minutes, and wandb will not slow down or crash your training script.
+ほとんどの人がemacsやGoogle Sheetsなどのツールを使用してトレーニングを追跡していることを知っているため、wandbは可能な限り軽量になるように設計しました。統合には5〜10分かかり、wandbがトレーニングスクリプトの速度を低下させたりクラッシュさせたりすることはありません。
 
-## Benefits of wandb
+## wandbの利点
 
-Our users tell us they get three kinds of benefits from wandb:
+私たちのユーザーは、wandbから3種類のメリットが得られると言っています。
 
-### 1. Visualizing training
+### 1. トレーニングを視覚化します
 
-Some of our users think of wandb as a "persistent TensorBoard". By default, we collect model performance metrics like accuracy and loss. We can also collect and display matplotlib objects, model files, system metrics like GPU usage, and your most recent git commit SHA + a patch file of any changes since your last commit.
+一部のユーザーは、wandbを「永続的なTensorBoard」と考えています。デフォルトでは、精度や損失などのモデルパフォーマンスメトリックを収集します。また、matplotlibオブジェクト、モデルファイル、GPU使用状況などのシステムメトリック、最新のgit commit SHAと最後のコミット以降の変更のパッチファイルを収集して表示することもできます。
 
-You can also take notes about individual runs to be saved along with your training data. Here's a relevant [example project](https://app.wandb.ai/bloomberg-class/imdb-classifier/runs/2tc2fm99/overview) from a class we taught to Bloomberg.
+ トレーニングデータと一緒に保存する個々の実行についてメモを取ることもできます。これは、ブルームバーグに教えたクラスの関連する[サンプルプロジェクト](https://wandb.ai/bloomberg-class/imdb-classifier/runs/2tc2fm99/overview)です。
 
-### 2. Organize and compare lots of training runs
+### 2.  多くのトレーニングランを整理して比較します
 
-Most people training machine learning models are trying lots and lots of versions of their model and our goal is to help people stay organized.
+機械学習モデルをトレーニングするほとんどの人は、モデルの多くのバージョンを試しています。私たちの目標は、人々が整理された状態を維持できるようにすることです。
 
-You can create projects to keep all of your runs in a single place. You can visualize performance metrics across lots of runs and filter, group, and tag them any way you like.
+プロジェクトを作成して、すべての実行を1か所にまとめることができます。多数の実行にわたるパフォーマンスメトリックを視覚化し、好きな方法でそれらをフィルタリング、グループ化、およびタグ付けできます。
 
-A good example project is Stacey's [estuary project](https://app.wandb.ai/stacey/estuary). In the sidebar you can turn on and off runs to show on the graphs, or click one run to dive deeper. All your runs get saved and organized in a unified workspace for you.
+良い例のプロジェクトは、ステイシーの河口プロジェクトです。サイドバーでは、実行のオンとオフを切り替えてグラフに表示したり、1つの実行をクリックしてさらに深く掘り下げたりすることができます。すべての実行は、統合されたワークスペースに保存および整理されます。
 
-![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%282%29.png)
 
-### 3. Share your results
+### 3.  結果を共有します
 
-Once you have done lots of runs you usually want to organize them to show some kind of result. Our friends at Latent Space wrote a nice article called [ML Best Practices: Test Driven Development](https://www.wandb.com/articles/ml-best-practices-test-driven-development) that talks about how they use W&B reports to improve their team's productivity.
+ たくさんの実行を行ったら、通常、何らかの結果を表示するためにそれらを整理する必要があります。Latent Spaceの友人は、チームの生産性を向上させるためにW＆Bレポートをどのように使用するかについて説明する[ML Best Practices: Test Driven Development](https://www.wandb.com/articles/ml-best-practices-test-driven-development)という素晴らしい記事を書きました。
 
-A user Boris Dayma wrote a public example report on [Semantic Segmentation](https://app.wandb.ai/borisd13/semantic-segmentation/reports?view=borisd13%2FSemantic%20Segmentation%20Report). He walks through various approaches he tried and how well they work.
+ ユーザーのBoris Daymaが、[Semantic Segmentation](https://app.wandb.ai/borisd13/semantic-segmentation/reports?view=borisd13%2FSemantic%20Segmentation%20Report)に関する公開サンプルレポートを作成しました。彼は、試したさまざまなアプローチと、それらがどれだけうまく機能するかについて説明します。
 
-We really hope that wandb encourages ML teams to collaborate more productively.
+wandbがMLチームのより生産的なコラボレーションを促進することを心から願っています。
 
-If you want to learn more about how teams use wandb, we've recorded interviews with our technical users at [OpenAI](https://www.wandb.com/articles/why-experiment-tracking-is-crucial-to-openai) and [Toyota Research](https://www.youtube.com/watch?v=CaQCw-DKiO8).
+ チームがwandbをどのように使用しているかについて詳しく知りたい場合は、[OpenAI](https://www.wandb.com/articles/why-experiment-tracking-is-crucial-to-openai)と[Toyota Research](https://www.youtube.com/watch?v=CaQCw-DKiO8)の技術ユーザーへのインタビューを記録しました。
 
-## Teams
+##  チーム
 
-If you're working on a machine learning project with collaborators, we make it easy to share results.
+共同編集者と機械学習プロジェクトに取り組んでいる場合は、結果を簡単に共有できます。
 
-* [Enterprise Teams](https://www.wandb.com/pricing): We support small startups and large enterprise teams like OpenAI and Toyota Research Institute. We have flexible pricing options to fit your team's needs, and we support hosted cloud, private cloud, and on-prem installations.
-* [Academic Teams](https://www.wandb.com/academic): We are dedicated to supporting the academic transparent and collaborative research. If you're an academic, we will grant you access to free teams to share your research in private projects.
+*  [エンタープライズチーム](https://www.wandb.com/pricing)：OpenAIやトヨタリサーチインスティテュートなどの小規模なスタートアップや大規模なエンタープライズチームをサポートします。チームのニーズに合わせて柔軟な価格設定オプションがあり、ホスト型クラウド、プライベートクラウド、およびオンプレミスのインストールをサポートしています。
+*  [アカデミックチーム](https://www.wandb.com/academic)：アカデミックな透明性のある共同研究をサポートすることに専念しています。 あなたが学者である場合、私たちはあなたに無料のチームへのアクセスを許可し、プライベートプロジェクトであなたの研究を共有します。
 
-If you'd like to share a project with people outside a team, click on the project privacy settings in the navigation bar and set the project to "Public." Anyone you share a link with will be able to see your public project results.
+チーム外の人とプロジェクトを共有したい場合は、ナビゲーションバーのプロジェクトプライバシー設定をクリックして、プロジェクトを「公開」に設定します。リンクを共有する人は誰でも、公開プロジェクトの結果を見ることができます。
 
