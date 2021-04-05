@@ -312,7 +312,7 @@ command:
 | Command Macro | Expansion |
 | :--- | :--- |
 | ${env} | /usr/bin/env on UNIX systems, omitted on Windows |
-| ${interpreter\| | Expands to "python". |
+| ${interpreter} | Expands to "python". |
 | ${program} | Training script specified by the sweep configuration `program` key |
 | ${args} | Expanded arguments in the form --param1=value1 --param2=value2 |
 | ${args\_no\_hyphens} | Expanded arguments in the form param1=value1 param2=value2 |
