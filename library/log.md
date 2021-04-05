@@ -1,53 +1,62 @@
 ---
-description: 'Keep track of metrics, video, custom plots, and more'
+description: >-
+  Garder une trace de vos mesures, de vos vidéos, de vos graphiques linéaires
+  personnalisés, et plus
 ---
 
 # wandb.log\(\)
 
-Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a step. By default we increment the step each time, so you'll see outputs of your model over time in graphs and rich visualizations.
+Appelez `wandb.log(dict)`pour enregistrer un dictionnaire de vos mesures ou d’objets personnalisés par étape \(step\). Chaque fois que vous enregistrez, nous incrémentons l’étape par défaut, ce qui vous permet de voir vos mesures au fil du temps.
 
-Keyword arguments:
-
-* **step** — Which time step to associate the logs with \(see [Incremental Logging](log.md#incremental-logging)\)
-* **commit** — By default commit=true, which means we increment the step each time you call wandb.log. Set commit=false to have multiple sequential wandb.log\(\) commands save data to the same step.
-
-Example usage:
+###  Exemple d’utilisation
 
 ```python
 wandb.log({'accuracy': 0.9, 'epoch': 5})
 ```
 
-## Logging Objects
+###  ****Flux de travaux courant
 
-We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
+1. **Comparez la meilleure précision :** Pour comparer la meilleure valeur d’une mesure sur plusieurs essais, réglez la valeur du sommaire sur cette mesure. Par défaut, le sommaire est réglé sur la dernière valeur que vous avez enregistré pour chaque clef. C’est utile sur le tableau dans l’IU, où vous pouvez classifier et filtrer vos essais en se basant sur leurs mesures de sommaire – pour que vous puissiez comparer vos essais dans un tableau ou un diagramme à barres en se basant sur leur meilleure précision, plutôt que sur la précision finale. Par exemple, vous pouvez régler le sommaire \(summary\) comme ceci :`wandb.run.summary["accuracy"] = best_accuracy`
+2. **De multiples mesures en un seul graphique** : Enregistrez plusieurs mesures avec le même appel dans wandb.log\(\), comme ceci :    ****`wandb.log({'acc': 0.9, 'loss': 0.1})` ****et elles seront toutes les deux mises à disposition pour les comparer à…
+3. **L’axe x personnalisé** : Ajoutez un axe x personnalisé au même appel d’enregistrement pour visualiser vos mesures sur un axe différent depuis le Tableau de bord W&B. Par exemple : `wandb.log({'acc': 0.9, 'custom_step': 3})`
 
-[Try it in Colab ](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK)
+###  Documentation de référence
 
-### Histograms
+ Consultez la docu de référence, générée à partir de la librairie Python `wandb`
+
+{% page-ref page="../ref/run.md" %}
+
+## Enregistrer des objets
+
+Nous prenons en charge les images, les vidéos, l’audio, les graphiques personnalisés, et plus encore. Enregistrez des médias lourds pour explorer vos résultats et visualisez les comparaisons entre vos essais.
+
+[ ](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK) [Testez-le dans Colab](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK)
+
+###  Histogrammes
 
 ```python
 wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
 wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
 ```
 
-If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from np.histogram to the np\_histogram keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional num\_bins keyword argument when passing a sequence to override the default of 64 bins.
+Si une séquence est fournie dans le premier argument, nous créerons les colonnes de l’histogramme automatiquement. Vous pouvez aussi coller ce qui est rendu de np.histogram à l’argument clef np\_histogram pour créer vos propres regroupements. Le nombre maximal de regroupement supporté est de 512. Vous pouvez utiliser l’argument clef optionnel num\_bins quand vous lancez une séquence pour ignorer les 64 regroupements possibles par défaut.
 
-If histograms are in your summary they will appear as sparklines on the individual run pages. If they are in your history, we plot a heatmap of bins over time.
+Si les histogrammes sont dans votre sommaire, ils apparaîtront sous forme de sparklines sur les pages individuelles de run. S’ils sont dans votre historique, nous créons une heatmap de colonnes au fur et à mesure.
 
-### Images and Overlays
+###  Images et Overlays
 
 {% tabs %}
 {% tab title="Image" %}
 `wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})`
 
-If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. You can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
+ Si une numpy array est fournie, nous supposons que c’est un niveau de gris si la dernière dimension est à 1, un RGB si elle est à 3, et un RGBA si elle est à 4. Si l’array contient des floats, nous les convertissons en ints comprises entre 0 et 255. Vous pouvez manuellement spécifier un [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) ou simplement fournir une `PIL.Image` . Il est recommandé d’enregistrer moins de 50 images par étape.
 {% endtab %}
 
-{% tab title="Segmentation Mask" %}
-If you have images with masks for semantic segmentation, you can log the masks and toggle them on and off in the UI. To log multiple masks, log a mask dictionary with multiple keys. Here's an example:
+{% tab title="Masque de Segmentation :" %}
+Si vous avez des images avec des masques pour une segmentation sémantique, vous pouvez enregistrer les masques et les activer ou les désactiver dans l’IU. Pour enregistrer plusieurs masques, enregistrez un dictionnaire de masque avec plusieurs clefs. Voici un exemple :
 
-* **mask\_data**: a 2D numpy array containing an integer class label for each pixel
-* **class\_labels**: a dictionary mapping the numbers from **mask\_data** to readable labels
+* **mask\_data**: une numpy array 2D qui contient une étiquette de classe de nombre entier pour chaque pixel
+* **class\_labels**: un dictionnaire qui attribue les nombres de **mask\_data** à des étiquettes lisibles
 
 ```python
 mask_data = np.array([[1, 2, 2, ... , 2, 2, 1], ...])
@@ -70,9 +79,9 @@ mask_img = wandb.Image(image, masks={
 })
 ```
 
-[See a live example →](https://app.wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)
+ [Voir un exemple en direct →](https://app.wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)
 
-[Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
+ [Échantillon de code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
 
 ![](../.gitbook/assets/semantic-segmentation.gif)
 {% endtab %}
@@ -140,7 +149,7 @@ Boxes - Each box passed into box\_data can be defined with different coordinate 
 {% endtab %}
 {% endtabs %}
 
-### Media
+### Médias
 
 {% tabs %}
 {% tab title="Audio" %}
@@ -148,21 +157,21 @@ Boxes - Each box passed into box\_data can be defined with different coordinate 
 wandb.log({"examples": [wandb.Audio(numpy_array, caption="Nice", sample_rate=32)]})
 ```
 
-The maximum number of audio clips that can be logged per step is 100.
+Le nombre maximal de clip audio qui peut être enregistré par étape est de 100.
 {% endtab %}
 
-{% tab title="Video" %}
+{% tab title="Vidéo :" %}
 ```python
 wandb.log({"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
 ```
 
-If a numpy array is supplied we assume the dimensions are: time, channels, width, height. By default we create a 4 fps gif image \(ffmpeg and the moviepy python library is required when passing numpy objects\). Supported formats are "gif", "mp4", "webm", and "ogg". If you pass a string to `wandb.Video` we assert the file exists and is a supported format before uploading to wandb. Passing a BytesIO object will create a tempfile with the specified format as the extension.
+ Si une numpy array est fournie, nous supposons que les dimensions sont : temps \(time\), canaux \(channels\), largeur \(width\), hauteur \(height\). Par défaut, nous créons une image gif à 4 ips \(ffmepg et la librairie python moviepy sont nécessaire lorsque vous placez des objets numpy\). Les formats pris en charge sont « gif », « mp4 », « webm », et « ogg ». Si vous ajoutez une chaîne à `wandb.Video`, nous vérifions bien que le fichier existe et que son format est pris en charge avant de le télécharger sur wandb. Ajouter un objet BytesIO créera un fichier temporaire tempfile avec le format spécifié dans son extension.
 
-On the W&B runs page, you will see your videos in the Media section.
+ Sur la page de runs W&B, vous pouvez voir vos vidéos sous la section Médias.
 {% endtab %}
 
-{% tab title="Text Table" %}
-Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. The maximum number of rows is 10,000.
+{% tab title="Tableau de texte :" %}
+Utilisez wandb.Table\(\) pour enregistrer du texte dans des tableaux qui s’affichera dans l’IU. Par défaut, les titres des colonnes sont `["Input", "Output", "Expected"]`. Le nombre maximal de lignes est de 10 000.
 
 ```python
 # Method 1
@@ -175,6 +184,12 @@ table.add_data("I love my phone", "1", "1")
 table.add_data("My phone sucks", "0", "-1")
 wandb.log({"examples": table})
 ```
+
+ Vous pouvez aussi passer un objet pandas `DataFrame` .
+
+```python
+table = wandb.Table(dataframe=my_dataframe)
+```
 {% endtab %}
 
 {% tab title="HTML" %}
@@ -183,7 +198,7 @@ wandb.log({"custom_file": wandb.Html(open("some.html"))})
 wandb.log({"custom_string": wandb.Html('<a href="https://mysite">Link</a>')})
 ```
 
-Custom html can be logged at any key, this exposes an HTML panel on the run page. By default we inject default styles, you can disable default styles by passing `inject=False`.
+Un html personnalisé peut être enregistré à n’importe quelle clef, ce qui affiche un panneau HTML sur la page run. Par défaut, nous injectons les styles de base, vous pouvez les désactiver en ajoutant `inject=False` .
 
 ```python
 wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
@@ -195,27 +210,27 @@ wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
 wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
 ```
 
-Log molecular data in any of 10 file types:
+Enregistrez des données moléculaires sous 10 types de fichiers différents.
 
 `'pdb', 'pqr', 'mmcif', 'mcif', 'cif', 'sdf', 'sd', 'gro', 'mol2', 'mmtf'`
 
-When your run finishes, you'll be able to interact with 3D visualizations of your molecules in the UI.
+Lorsque votre essai sera fini, vous pourrez interagir avec des visuels 3D de vos molécules dans l’IU.
 
-[See a live example →](https://app.wandb.ai/nbaryd/Corona-Virus/reports/Visualizing-Molecular-Structure-with-Weights-%26-Biases--Vmlldzo2ODA0Mw)
+ [Voir un exemple en direct →](https://app.wandb.ai/nbaryd/Corona-Virus/reports/Visualizing-Molecular-Structure-with-Weights-%26-Biases--Vmlldzo2ODA0Mw)
 
 ![](../.gitbook/assets/docs-molecule.png)
 {% endtab %}
 {% endtabs %}
 
-### Custom Charts
+###  Graphiques personnalisés
 
-These presets have builtin `wandb.plot` methods that make it fast to log charts directly from your script and see the exact visualizations you're looking for in the UI.
+Ces préréglages ont des méthodes `wandb.plot` intégrées pour rendre l’enregistrement de graphiques rapide, directement depuis votre script, et pour voir les visualisations exactes que vous recherchez dans l’IU.
 
 {% tabs %}
-{% tab title="Line plot" %}
+{% tab title="Linéaire " %}
 `wandb.plot.line()`
 
-Log a custom line plot—a list of connected and ordered points \(x,y\) on arbitrary axes x and y.
+ Enregistrez un graphique linéaire personnalisé – une liste de points ordonnés et connectés \(x,y\) sur des axes x et y arbitraires.
 
 ```python
 data = [[x, y] for (x, y) in zip(x_values, y_values)]
@@ -223,19 +238,19 @@ table = wandb.Table(data=data, columns = ["x", "y"])
 wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom Y vs X Line Plot")})
 ```
 
-You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
+Vous pouvez utiliser cet outil pour enregistrer des courbes dans n’importe quelles deux dimensions. Notez bien que si vous tracez deux listes de valeurs l’une contre l’autre, le nombre de valeurs de ces listes doit correspondre exactement \(i.e. chaque point doit avoir un x et un y\).
 
 ![](../.gitbook/assets/line-plot.png)
 
-[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
+[Voir dans l’app →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
 
-[Run the code →](https://tiny.cc/custom-charts)
+ [Exécuter le code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Scatter plot" %}
+{% tab title="Dispersion " %}
 `wandb.plot.scatter()`
 
-Log a custom scatter plot—a list of points \(x, y\) on a pair of arbitrary axes x and y.
+Enregistrez un diagramme de dispersion personnalisé – une liste de points \(x,y\) sur une paire d’axes x et y arbitraires.
 
 ```python
 data = [[x, y] for (x, y) in zip(class_x_prediction_scores, class_y_prediction_scores)]
@@ -243,19 +258,19 @@ table = wandb.Table(data=data, columns = ["class_x", "class_y"])
 wandb.log({"my_custom_id" : wandb.plot.scatter(table, "class_x", "class_y")})
 ```
 
-You can use this to log scatter points on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
+Vous pouvez utiliser cet outil pour disperser des points dans n’importe quelles deux dimensions. Notez bien que si vous tracez deux listes de valeurs l’une contre l’autre, le nombre de valeurs de ces listes doit correspondre exactement \(i.e. chaque point doit avoir un x et un y\).
 
 ![](../.gitbook/assets/demo-scatter-plot.png)
 
-[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Scatter-Plots--VmlldzoyNjk5NDQ)
+ [Voir dans l’app →](https://wandb.ai/wandb/plots/reports/Custom-Scatter-Plots--VmlldzoyNjk5NDQ)
 
-[Run the code →](https://tiny.cc/custom-charts)
+ [Exécuter le code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="Bar chart" %}
+{% tab title="En barres " %}
 `wandb.plot.bar()`
 
-Log a custom bar chart—a list of labeled values as bars—natively in a few lines:
+Enregistrez un diagramme en barres personnalisé – une liste de valeurs étiquetées sous forme de barres – nativement en quelques lignes :
 
 ```python
 data = [[label, val] for (label, val) in zip(labels, values)]
@@ -263,19 +278,19 @@ table = wandb.Table(data=data, columns = ["label", "value"])
 wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label", "value", title="Custom Bar Chart")
 ```
 
-You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly \(i.e. each data point must have both\).
+Vous pouvez utiliser cet outil pour enregistrer des diagrammes en barres arbitraires. Notez bien que le nombre d’étiquettes et de valeurs dans ces listes doit exactement correspondre. \(i.e. chaque point de donnée doit avoir les deux\).
 
 ![](../.gitbook/assets/image%20%2896%29.png)
 
-[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Bar-Charts--VmlldzoyNzExNzk)
+ [Voir dans l’app →](https://wandb.ai/wandb/plots/reports/Custom-Bar-Charts--VmlldzoyNzExNzk)
 
-[Run the code →](https://tiny.cc/custom-charts)
+ [Exécuter le code →](https://colab.research.google.com/drive/1uXLKDmsYg7QMRVFyjUAlg-eZH2MW8yWH?usp=sharing)
 {% endtab %}
 
-{% tab title="Histogram" %}
+{% tab title="Histogramme " %}
 `wandb.plot.histogram()`
 
-Log a custom histogram—sort list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores \(`scores`\) and want to visualize their distribution:
+Enregistrez un histogramme personnalisé – classez une liste de valeurs en lots par décompte/fréquence d’occurrence – nativement, en quelques lignes. Admettons que j’ai une liste de scores de prédiction de confiance \( scores \) et que je veux visualiser leur distribution.
 
 ```python
 data = [[s] for s in scores]
@@ -283,67 +298,94 @@ table = wandb.Table(data=data, columns=["scores"])
 wandb.log({'my_histogram': wandb.plot.histogram(table, "scores", title=None)})
 ```
 
-You can use this to log arbitrary histograms. Note that `data` is a list of lists, intended to support a 2D array of rows and columns.
+Vous pouvez utiliser cet outil pour enregistrer des histogrammes arbitraires. Notez bien que `data` est une liste de listes, dont le but est d’accueillir un ensemble 2D de lignes et de colonnes.
 
 ![](../.gitbook/assets/demo-custom-chart-histogram.png)
 
-[See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Histograms--VmlldzoyNzE0NzM)
+[Voir dans l’app →](https://wandb.ai/wandb/plots/reports/Custom-Histograms--VmlldzoyNzE0NzM) 
 
-[Run the code →](https://tiny.cc/custom-charts)
+ [Exécuter le code →](https://tiny.cc/custom-charts)
 {% endtab %}
 
-{% tab title="PR curve" %}
+{% tab title="PR" %}
 `wandb.plot.pr_curve()`
 
-Log a [Precision-Recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) in one line:
+Enregistrez une [courbe Précision-Rappel](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) en une seule ligne :
 
 ```python
 wandb.log({"pr" : wandb.plot.pr_curve(ground_truth, predictions,
                      labels=None, classes_to_plot=None)})
 ```
 
-You can log this whenever your code has access to:
+Vous pouvez enregistrer ceci du moment que votre code a accès aux éléments suivants :
 
-* a model's predicted scores \(`predictions`\) on a set of examples
-* the corresponding ground truth labels \(`ground_truth`\) for those examples
-* \(optionally\) a list of the labels/class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
-* \(optionally\) a subset \(still in list format\) of the labels to visualize in the plot
+* les scores prédits d’un modèle \( `predictions` \) sur un ensemble d’exemples
+* les étiquettes vérité-terrain correspondantes \( `ground_truth` \) de ces exemples
+* \(optionnel\) une liste des noms d’étiquettes/de classe \( `labels=["chat", "chien", "oiseau"...`\] si l’index d’étiquette 0 veut dire chat, 1 = chien, 2 = oiseau, etc.\)
+* \(optionnel\) un sous-ensemble \(toujours en format liste\) de ces étiquettes à visualiser dans le graphique
 
 ![](../.gitbook/assets/demo-precision-recall.png)
 
-[See in the app →](https://wandb.ai/wandb/plots/reports/Plot-Precision-Recall-Curves--VmlldzoyNjk1ODY)
+ [Voir dans l’app →](https://wandb.ai/wandb/plots/reports/Plot-Precision-Recall-Curves--VmlldzoyNjk1ODY)
 
-[Run the code →](https://colab.research.google.com/drive/1mS8ogA3LcZWOXchfJoMrboW3opY1A8BY?usp=sharing)
+ [Exécuter le code →](https://colab.research.google.com/drive/1mS8ogA3LcZWOXchfJoMrboW3opY1A8BY?usp=sharing)
 {% endtab %}
 
-{% tab title="ROC curve" %}
+{% tab title="Courbe ROC" %}
 `wandb.plot.roc_curve()`
 
-Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
+ Enregistrez une [courbe ROC](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) en une seule ligne :
 
 ```text
 wandb.log({"roc" : wandb.plot.roc_curve( ground_truth, predictions, \
                         labels=None, classes_to_plot=None)})
 ```
 
-You can log this whenever your code has access to:
+Vous pouvez enregistrer ceci du moment que votre code a accès aux éléments suivants :
 
-* a model's predicted scores \(`predictions`\) on a set of examples
-* the corresponding ground truth labels \(`ground_truth`\) for those examples
-* \(optionally\) a list of the labels/ class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
-* \(optionally\) a subset \(still in list format\) of these labels to visualize on the plot
+*  les scores prédits d’un modèle \( `predictions` \) sur un ensemble d’exemples
+*  es étiquettes vérité-terrain correspondantes \( `ground_truth` \) de ces exemples
+* \(optionnel\) une liste des noms d’étiquettes/de classe \( `labels=["chat", "chien", "oiseau"...`\] si l’index d’étiquette 0 veut dire chat, 1 = chien, 2 = oiseau, etc.\)
+* \(optionnel\) un sous-ensemble \(toujours en format liste\) de ces étiquettes à visualiser dans le graphique
 
 ![](../.gitbook/assets/demo-custom-chart-roc-curve.png)
 
-[See in the app →](https://wandb.ai/wandb/plots/reports/Plot-ROC-Curves--VmlldzoyNjk3MDE)
+[Voir dans l’app →](https://wandb.ai/wandb/plots/reports/Plot-ROC-Curves--VmlldzoyNjk3MDE)
 
-[Run the code →](https://colab.research.google.com/drive/1_RMppCqsA8XInV_jhJz32NCZG6Z5t1RO?usp=sharing)
+[Exécuter le code →](https://colab.research.google.com/drive/1_RMppCqsA8XInV_jhJz32NCZG6Z5t1RO?usp=sharing)
+{% endtab %}
+
+{% tab title="Matrice de confusion" %}
+`wandb.plot.confusion_matrix()`
+
+ Enregistrez une [matrice de confusion](https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html) multi-classe en une seule ligne :
+
+```text
+wandb.log({"conf_mat" : wandb.plot.confusion_matrix(
+                        predictions, ground_truth, class_names})
+```
+
+Vous pouvez enregistrer ceci du moment que votre code a accès aux éléments suivants :
+
+* les scores prédits d’un modèle \( `predictions` \) sur un ensemble d’exemples
+* les étiquettes vérité-terrain correspondantes \( `ground_truth` \) de ces exemples
+* une liste complète des noms d’étiquettes/de classe sous forme de chaînes de données \( `labels=["chat", "chien", "oiseau"...`\] si l’index d’étiquette 0 veut dire chat, 1 = chien, 2 = oiseau, etc.\)
+
+![](../.gitbook/assets/image%20%281%29%20%281%29.png)
+
+​​ [Voir dans l’app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)
+
+​ [Exécuter le code →](https://colab.research.google.com/drive/1OlTbdxghWdmyw7QPtSiWFgLdtTi03O8f?usp=sharing)
 {% endtab %}
 {% endtabs %}
 
-### **Custom presets**
 
-Tweak a builtin Custom Chart preset, or create a new preset, then save the chart. Use the chart ID to log data to that custom preset directly from your script.
+
+
+
+###  ****Préréglages personnalisés
+
+ Ajustez un préréglage déjà présent de Graphique Personnalisé ou créez un nouveau préréglage, puis sauvegardez le graphique. Utilisez l’ID du graphique pour enregistrer vos données dans ce préréglage personnalisé directement depuis votre script.
 
 ```python
 # Create a table with the columns to plot
@@ -361,7 +403,7 @@ my_custom_chart = wandb.plot_table(vega_spec_name="carey/new_chart",
               )
 ```
 
-[Run the code →](https://tiny.cc/custom-charts)
+ [Exécuter le code →](https://tiny.cc/custom-charts)
 
 ### Matplotlib
 
@@ -372,13 +414,13 @@ plt.ylabel('some interesting numbers')
 wandb.log({"chart": plt})
 ```
 
-You can pass a `matplotlib` pyplot or figure object to `wandb.log()`. By default we'll convert the plot into a [Plotly](https://plot.ly/) plot. If you want to explicitly log the plot as an image, you can pass the plot into `wandb.Image`. We also accept directly logging Plotly charts.
+ Vous pouvez inscrire un pyplot `matplotlib` ou un figure object dans `wandb.log()` . Par défaut, nous convertissons le plot en un plot [Plotly](https://plot.ly/). Si vous voulez explicitement enregistrer ce plot sous forme d’image, passer ce plot dans `wandb.Image` . Nous acceptons aussi l’enregistrement direct de graphiques Plotly.
 
-### 3D Visualizations
+### Visualisations 3D
 
 {% tabs %}
-{% tab title="3D Object" %}
-Log files in the formats `obj`, `gltf`, or `glb`, and we will render them in the UI when your run finishes.
+{% tab title="Objet 3D" %}
+ Enregistrez des fichiers aux formats `obj`, `gltf`, ou `glb,` et nous vous en donnerons un rendering dans l’IU lorsque votre essai se finira.
 
 ```python
 wandb.log({"generated_samples":
@@ -387,13 +429,13 @@ wandb.log({"generated_samples":
             wandb.Object3D(open("sample.glb"))]})
 ```
 
-![Ground truth and prediction of a headphones point cloud](../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
+![V&#xE9;rit&#xE9;-terrain et pr&#xE9;diction d&#x2019;un nuage de points d&#x2019;un casque de musique](../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
 
-[See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
+[Voir un exemple en direct →](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
 
-{% tab title="Point Clouds" %}
-Log 3D point clouds and Lidar scenes with bounding boxes. Pass in a numpy array containing coordinates and colors for the points to render.
+{% tab title="Nuages de points" %}
+Enregistrez des nuages de points 3D et des scènes Lidar avec des boîtes à limite minimum. Inscrivez une numpy array qui contient des coordonnées et des couleurs pour que les points s’affichent.
 
 ```python
 point_cloud = np.array([[0, 0, 0, COLOR...], ...])
@@ -401,20 +443,20 @@ point_cloud = np.array([[0, 0, 0, COLOR...], ...])
 wandb.log({"point_cloud": wandb.Object3D(point_cloud)})
 ```
 
-Three different shapes of numpy arrays are supported for flexible color schemes.
+ Trois formes différentes de numpy arrays sont acceptées pour avoir des schémas de couleur flexibles.
 
 * `[[x, y, z], ...]` `nx3`
-* `[[x, y, z, c], ...]` `nx4` `| c is a category` in the range `[1, 14]` \(Useful for segmentation\)
-* `[[x, y, z, r, g, b], ...]` `nx6 | r,g,b` are values in the range `[0,255]`for red, green, and blue color channels.
+* `[[x, y, z, c], ...]` `nx4` `| c is a category` c est une catégorie\) dans l’ensemble `[1, 14]` \(Utile pour de la segmentation\)
+* `[[x, y, z, r, g, b], ...]` `nx6 | r,g,b` sont des valeurs dans l’ensemble `[0,255]`pour les canaux de couleurs rouge, vert et bleu.
 
-Here's an example of logging code below:
+Voici un exemple de code d’enregistrement ci-dessous :
 
-* `points`is a numpy array with the same format as the simple point cloud renderer shown above.
-* `boxes` is a numpy array of python dictionaries with three attributes:
-  * `corners`- a list of eight corners
-  * `label`- a string representing the label to be rendered on the box \(Optional\)
-  * `color`- rgb values representing the color of the box 
-* `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
+* `points`est une numpy array avec le même format que le nuage de points simple montré à la section précédente.
+* `boxes` est une numpy array de dictionnaires python avec trois attributs :
+  * `corners`- une liste de huit coins
+  * `label`- une ligne représentant l’étiquette qui devra être affichée dans la boîte \(Optionnel\)
+  * `color`- les valeurs rgb qui représentent la couleur de la boîte
+* `type` est une chaîne de données \(string\) qui représente le type de scène à afficher. Pour l’instant, la seule valeur prise en charge est`lidar/beta`
 
 ```python
 # Log points and boxes in W&B
@@ -473,17 +515,19 @@ wandb.log(
 {% endtab %}
 {% endtabs %}
 
-## Incremental Logging
+## Enregistrement par incréments
 
-If you want to log to a single history step from lots of different places in your code you can pass a step index to `wandb.log()` as follows:
+Si vous souhaitez visualiser vos mesures sur différents axes X, vous pouvez enregistrer l’étape comme une mesure, comme ceci `wandb.log({'loss': 0.1, 'epoch': 1, 'batch': 3})` . Dans l’IU, vous pouvez naviguer entre les axes X dans les paramètres de graphique.
+
+ Si vous souhaitez enregistrer une seule étape d’historique depuis beaucoup d’endroits différents dans votre code, vous pouvez ajouter un index d’étape à `wandb.log()` comme suit :
 
 ```python
 wandb.log({'loss': 0.2}, step=step)
 ```
 
-As long as you keep passing the same value for `step`, W&B will collect the keys and values from each call in one unified dictionary. As soon you call `wandb.log()` with a different value for `step` than the previous one, W&B will write all the collected keys and values to the history, and start collection over again. Note that this means you should only use this with consecutive values for `step`: 0, 1, 2, .... This feature doesn't let you write to absolutely any history step that you'd like, only the "current" one and the "next" one.
+ Tant que vous continuez à renseigner la même valeur pour `step (étape)`, W&B rassemblera les clefs et les valeurs de chaque appel en un seul dictionnaire unifié. Dès que vous appelez `wandb.log()` avec une valeur différente de la précédente pour `step` , W&B écrira toutes les clefs et les valeurs récoltées dans l’historique, et recommencera son processus de rassemblement. Notez bien que cela signifie que vous ne devez utiliser ceci que pour des valeurs consécutives de `step` : 0, 1, 2, …. Cette fonctionnalité ne vous laisse pas écrire à n’importe quelle étape de l’historique que vous pourriez souhaitez, simplement l’étape « en cours » et l’étape « suivante ».
 
-You can also set **commit=False** in `wandb.log` to accumulate metrics, just be sure to call `wandb.log` without the **commit** flag to persist the metrics.
+ Vous pouvez aussi régler **commit=False** dans `wandb.log` pour accumuler des mesures, mais assurez-vous d’appeler `wandb.log` sans le flag **commit** pour persister dans vos mesures.
 
 ```python
 wandb.log({'loss': 0.2}, commit=False)
@@ -491,9 +535,9 @@ wandb.log({'loss': 0.2}, commit=False)
 wandb.log({'accuracy': 0.8})
 ```
 
-## Summary Metrics
+##  Mesures de sommaire
 
-The summary statistics are used to track single metrics per model. If a summary metric is modified, only the updated state is saved. We automatically set summary to the last history row added unless you modify it manually. If you change a summary metric, we only persist the last value it was set to.
+ Les statistiques de sommaire sont utilisées pour garder une trace des mesures isolées par modèle. Si une mesure de sommaire est modifiée, seul l’état mis à jour est sauvegardé. Nous réglons automatiquement le sommaire sur la dernière ligne de l’historique, à moins que ce ne soit modifié manuellement. Si vous modifiez une mesure du sommaire, nous ne faisons persister que la dernière valeur sur laquelle elle a été réglée.
 
 ```python
 wandb.init(config=args)
@@ -506,7 +550,7 @@ for epoch in range(1, args.epochs + 1):
     best_accuracy = test_accuracy
 ```
 
-You may want to store evaluation metrics in a runs summary after training has completed. Summary can handle numpy arrays, pytorch tensors or tensorflow tensors. When a value is one of these types we persist the entire tensor in a binary file and store high level metrics in the summary object such as min, mean, variance, 95% percentile, etc.
+Vous pouvez avoir envie de stocker vos mesures d’évaluation dans un sommaire de vos runs après la fin de vos entraînements. Le sommaire peut gérer des numpy arrays, des tenseurs pytorch ou des tenseurs tensorflow. Lorsqu’une valeur est d’un de ces types, nous inscrivons le tenseur entier dans un fichier binaire et nous stockons des mesures de haut niveau dans l’objet sommaire, telles que minimum \(min\), moyenne \(mean\), variance, percentile 95%, etc.
 
 ```python
 api = wandb.Api()
@@ -515,11 +559,11 @@ run.summary["tensor"] = np.random.random(1000)
 run.summary.update()
 ```
 
-### Accessing Logs Directly
+### Accéder directement aux enregistrements
 
-The history object is used to track metrics logged by _wandb.log_. You can access a mutable dictionary of metrics via `run.history.row`. The row will be saved and a new row created when `run.history.add` or `wandb.log` is called.
+L’objet historique est utilisé pour garder une trace des mesures enregistrées par wandb.log. Vous pouvez accéder à un dictionnaire variable des mesures via `run.history.row` . Cette ligne \(row\) sera sauvegardée et une nouvelle ligne sera créée lorsque `run.history.add` ou `wandb.log` seront appelés.
 
-#### Tensorflow Example
+#### Exemple Tensorflow
 
 ```python
 wandb.init(config=flags.FLAGS)
@@ -538,7 +582,7 @@ with tf.Session() as sess:
       wandb.log({'acc': acc, 'loss':loss}) # log accuracy and loss
 ```
 
-#### PyTorch Example
+####  Exemple Pytorch
 
 ```python
 # Start pytorch training
@@ -553,27 +597,27 @@ for epoch in range(1, args.epochs + 1):
   wandb.log({"loss": train_loss, "val_loss": test_loss})
 ```
 
-## Common Questions
+## Questions fréquentes
 
-### **Compare images from different epochs**
+#### Comparer des images d’epochs différentes
 
-Each time you log images from a step, we save them to show in the UI. Pin the image panel, and use the **step slider** to look at images from different steps. This makes it easy to compare how a model's output changes over training.
+Chaque fois que vous enregistrez des images depuis une étape, nous les sauvegardons pour vous les montrer dans l’IU. Épinglez le panneau image, et utilisez le **navigateur d’étapes** pour observer les images à différentes étapes. Cet outil permet de facilement comparer comment les sorties d’un modèle changent au fur et à mesure de son entraînement.
 
 ```python
 wandb.log({'epoch': epoch, 'val_acc': 0.94})
 ```
 
-### Batch logging
+###  Enregistrement de lots \(batch\)
 
-If you'd like to log certain metrics in every batch and standardize plots, you can log x axis values that you want to plot with your metrics. Then in the custom plots, click edit and select the custom x-axis.
+Si vous souhaitez enregistrer certaines mesures dans chaque lot et avoir des graphiques linéaires standardisés, vous pouvez enregistrer des valeurs d’axes x sur lesquels vous souhaitez tracer vos mesures. Pour ce faire, dans les graphiques linéaires personnalisés, cliquez sur éditer et sélectionner l’axe-x personnalisé \(custom x-axis\).
 
 ```python
 wandb.log({'batch': 1, 'loss': 0.3})
 ```
 
-### **Log a PNG**
+### Enregistrer un PNG
 
-wandb.Image converts numpy arrays or instances of PILImage to PNG's by default.
+wandb.Image convertit les numpy arrays ou des instances de PILImage en PNG par défaut.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
@@ -581,9 +625,9 @@ wandb.log({"example": wandb.Image(...)})
 wandb.log({"example": [wandb.Image(...) for img in images]})
 ```
 
-### **Log a JPEG**
+###  ****Enregistrer un JPEG
 
-To save a JPEG you can pass a path to a file:
+Pour enregistrer un JPEG, vous pouvez indiquer un chemin vers un fichier :
 
 ```python
 im = PIL.fromarray(...)
@@ -592,53 +636,53 @@ rgb_im.save('myimage.jpg')
 wandb.log({"example": wandb.Image("myimage.jpg")})
 ```
 
-### **Log a Video**
+###  ****Enregistrer une vidéo
 
 ```python
 wandb.log({"example": wandb.Video("myvideo.mp4")})
 ```
 
-Now you can view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
+Vous pouvez maintenant visionner des vidéos depuis le navigateur de média. Rendez-vous sur l’espace de travail de votre projet, votre espace de travail pour vos runs ou vos rapports, et cliquez sur « Ajouter visualisation » pour ajouter un panneau de médias lourds.
 
-### Custom x-axis
+### Axe X personnalisé
 
-By default, we increment the global step every time you call wandb.log. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
+Par défaut, nous incrémentons l’étape globale à chaque fois que vous appelez wandb.log. Si vous le souhaitez, vous pouvez enregistrer vos propres passages d’étapes monotones puis les sélectionner en tant qu’axe X personnalisé pour vos graphiques.
 
-For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({“acc”:1, “global_step”:1})`. Then in the graphs choose "global\_step" as the x-axis.
+Par exemple, si vous avez des étapes d’entraînement et de validation que vous aimeriez aligner, envoyez-nous votre propre décompte d’étape : `wandb.log({“acc”:1, “global_step”:1})` . Puis, dans les graphiques, choisissez « global\_step » en tant qu’axe X.
 
-`wandb.log({“acc”:1,”batch”:10}, step=epoch)` would enable you to choose “batch” as an x axis in addition to the default step axis
+`wandb.log({“acc”:1,”batch”:10}, step=epoch)`vous permettrait de choisir « batch » \(lot\) en tant qu’axe X, en plus de l’axe d’étape par défaut.
 
-### Navigating and zooming in point clouds
+###  Naviguer et zoomer sur des nuages de points
 
-You can hold control and use the mouse to move around inside the space
+Vous pouvez maintenir CTRL et utiliser la souris pour vous déplacer à l’intérieur de l’espace
 
-### Nothing shows up in the graphs
+### Il n’y a rien d’affiché sur les graphiques
 
-If you're seeing "No visualization data logged yet" that means that we haven't gotten the first wandb.log call from your script yet. This could be because your run takes a long time to finish a step. If you're logging at the end of each epoch, you could log a few times per epoch to see data stream in more quickly.
+Si vous voyez « Aucune donnée de visualisation enregistrée pour l’instant », cela signifie que nous n’avons pas encore reçu le premier appel de wandb.log de votre script pour l’instant. Cela peut être dû au fait que votre essai prend longtemps à finir une étape. Si vous enregistrez vos données à la fin de chaque epoch, vous pouvez essayer d’enregistrer plusieurs fois par epoch pour voir vos données arriver plus vite.
 
-### **Duplicate metric names**
+###  ****Noms de mesures dupliqués
 
-If you're logging different types under the same key, we have to split them out in the database. This means you'll see multiple entries of the same metric name in a dropdown in the UI. The types we group by are `number`, `string`, `bool`, `other` \(mostly arrays\), and any wandb type \(`histogram`, `images`, etc\). Please send only one type to each key to avoid this behavior.
+ Si vous enregistrez différents types sous la même clef, nous devrons les séparer dans notre base de données. Cela signifie que vous verrez plusieurs entrées avec le même nom de mesure dans un menu de l’IU. Nous regroupons les types par nombre \( `number` \) , chaîne \( string \) , booléen \( `bool` \) , autres \( `other` \) \(principalement des arrays\), et tout type wandb \(`histogrammes`, `images`, etc\). Merci de n’envoyer qu’un seul type à chaque clef pour éviter cet inconvénient.
 
-### Performance and limits
+### Performances et limites
 
-**Sampling**
+ **Échantillonnage**
 
-The more points you send us, the longer it will take to load your graphs in the UI. If you have more than 1000 points on a line, we sample down to 1000 points on the backend before we send your browser the data. This sampling is nondeterministic, so if you refresh the page you'll see a different set of sampled points.
+Plus vous nous envoyez de points, plus cela prendra de temps pour charger vos graphiques dans l’IU. Si vous avez plus de 1 000 points sur une ligne, nous en sélectionnons un échantillon de 1 000 points de notre côté avant de renvoyer les données à votre navigateur. Cet échantillon n’est pas déterminé, ce qui signifie que si vous chargez de nouveau les informations de la page, vous verrez un ensemble différent de points.
 
-If you'd like all the original data, you can use our [data API](https://docs.wandb.com/library/api) to pull down unsampled data.
+Si vous aimeriez avoir toutes les données originales, vous pouvez utiliser [notre API](https://docs.wandb.com/library/api) pour obtenir les données non-comprises dans l’échantillon affiché.
 
-**Guidelines**
+ **Guide pratique**
 
-We recommend that you try to log less than 10,000 points per metric. If you have more than 500 columns of config and summary metrics, we'll only show 500 in the table. If you log more than 1 million points in a line, it will take us while to load the page.
+ Nous vous recommandons d’essayer d’enregistrer moins de 10 000 points par mesure. Si vous avez plus de 500 colonnes de mesures de config et de sommaire, nous n’en afficherons que 500 dans le tableau. Si vous enregistrez plus d’un million de points pour une ligne, il nous faudra un certain temps pour charger la page.
 
-We store metrics in a case-insensitive fashion, so make sure you don't have two metrics with the same name like "My-Metric" and "my-metric".
+Nous stockons les mesures sans traitement de la casse. Assurez-vous donc bien que deux de vos mesures n’aient pas le même nom, comme « Ma-Mesure » et « ma-mesure ».
 
-### Control image uploading
+###  Contrôler l’envoi d’images
 
-"I want to integrate W&B in my project, but I don't want to upload any images"
+ « Je veux intégrer W&B à mon projet, mais je ne veux envoyer aucune image »
 
-Our integration doesn't automatically upload images— you specify any files you'd like to upload explicitly. Here's a quick example I made for PyTorch where I explicitly log images: [http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)
+Notre intégration n’envoie pas automatiquement des images – c’est vous qui spécifiez les fichiers que vous voulez envoyer à notre serveur de manière explicite. Voici un exemple rapide que j’ai créé pour PyTorch, où j’enregistre explicitement les images : [http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)
 
 ```python
 wandb.log({

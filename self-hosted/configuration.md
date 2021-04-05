@@ -1,70 +1,70 @@
 ---
-description: How to configure the W&B Local Server installation
+description: Comment configurer l’installation du Serveur W&B Local
 ---
 
 # Advanced Configuration
 
-Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
+Votre Serveur W&B Local est prêt à être utilisé dès le boot. Néanmoins, de nombreuses autres options de configurations avancées sont possibles, sur la page `/system-admin` de votre serveur, une fois qu’il est en place et lancé. Vous pouvez envoyer un email à [contact@wandb.com](mailto:contact@wandb.com) pour faire une requête de licence d’essai pour avoir plus d’utilisateurs et d’équipes.
 
-## Configuration as code
+## Configuration par le code
 
-All configuration settings can be set via the UI however if you would like to manage these configuration options via code you can set the following environment variables:
+Tous les paramètres de configuration peuvent être paramétrés par l’IU, cependant, si vous préférez les gérer par du code, vous pouvez mettre en place les variables d’environnement suivantes :
 
-**LICENSE** - Your wandb/local license  
-**MYSQL** - The MySQL connection string  
-**BUCKET** - The S3 / GCS bucket for storing data  
-**BUCKET\_QUEUE** - The SQS / Google PubSub queue for object creation events  
-**NOTIFICATIONS\_QUEUE** - The SQS queue on which to publish run events  
-**AWS\_REGION** - The AWS Region where your bucket lives  
-**HOST** - The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net)  
-**AUTH0\_DOMAIN** - The Auth0 domain of your tenant  
-**AUTH0\_CLIENT\_ID** - The Auth0 Client ID of application
+| **Variable d’environnement** | Description |
+| :--- | :--- |
+| LICENSE | Votre licence wandb/local |
+| MYSQL | La chaîne de connexion MySQL |
+| BUCKET | Le bucket S3 / GCS pour stocker les données |
+| BUCKET\_QUEUE | La file d’attente SQS / Google PubSub pour les évènements de création d’objet |
+| NOTIFICATIONS\_QUEUE | La file d’attente SQS sur laquelle publier les événements de run |
+| AWS\_REGION | La AWS Region où votre bucket vit |
+| HOST | Le FQD de votre instance, i.e. [https://my.domain.net](https://my.domain.net/) |
+| AUTH0\_DOMAIN | Le domaine Auth0 de votre locataire \(tenant\) |
+| AUTH0\_CLIENT\_ID | L’ID Client Auth0 d’application |
+| SLACK\_CLIENT\_ID | L’ID client de l’application Slack si vous voulez l’utiliser pour des alertes |
+| SLACK\_SECRET | Le secret de l’application Slack que vous voulez utiliser pour les alertes |
 
 ## Authentication
 
-By default, a W&B Local Server run with manual user management enabling up to 4 users. Licensed versions of _wandb/local_ also unlock SSO using Auth0.
+Par défaut, un Serveur W&B Local s’exécute avec une gestion d’utilisateurs manuelle, qui permet d’avoir jusqu’à 4 utilisateurs. Les versions avec licence de wandb/local débloquent également SSO en utilisant Auth0.Votre serveur prend en charge tout fournisseur d’authentification qui est pris en charge par [Auth0](https://auth0.com/). Vous devriez mettre en place votre propre domaine et application Auth0 qui sera sous le contrôle de vos équipes.Après avoir créé l’app Auth0, il vous faudra configurer les callbacks Auth0 à l’hôte de votre Serveur W&B. Par défaut, le serveur prend en charge l’http de l’adresse IP publique ou privée qui est fournie par l’hôte. Vous pouvez aussi configurer un nom d’hôte DNS et un certificat SSL si vous le souhaitez.
 
-Your server supports any authentication provider supported by [Auth0](https://auth0.com/). You should set up your own Auth0 domain and application that will be under your teams' control.
+* Réglez l’URL de Callback sur `http(s)://YOUR-W&B-SERVER-HOST`
+* Réglez l’Origine Web Permise \(Allowed Web Origin\) sur `http(s)://YOUR-W&B-SERVER-HOST`
+* Réglez l’URL de déconnection \(Logout\) sur `http(s)://YOUR-W&B-SERVER-HOST/logout`
 
-After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
+![Param&#xE8;tres Auth0](../.gitbook/assets/auth0-1.png)
 
-* Set the Callback URL to `http(s)://YOUR-W&B-SERVER-HOST`
-* Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
-* Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
+Sauvegardez l’ID Client et le domaine depuis votre app Auth0.
 
-![Auth0 Settings](../.gitbook/assets/auth0-1.png)
+![Param&#xE8;tres Auth0](../.gitbook/assets/auth0-2.png)
 
-Save the Client ID and domain from your Auth0 app.
+Puis, naviguez jusqu’à la page de paramètres W&B, `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Activez l’option "Personnaliser l’Authentification avec Auth0" \(Customize Authentication with Auth0\), et remplissez l’ID client et le domaine de votre app Auth0.
 
-![Auth0 Settings](../.gitbook/assets/auth0-2.png)
+![Param&#xE8;tres d&#x2019;authentification d&#x2019;entreprise](../.gitbook/assets/enterprise-auth.png)
 
-Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Customize Authentication with Auth0" option, and fill in the Client ID and domain from your Auth0 app.
+Enfin, cliquez sur "Mettre les paramètres à jour et redémarrer W&B" \(Update settings and restart W&B\).
 
-![Enterprise authentication settings](../.gitbook/assets/enterprise-auth.png)
+##  Stockage de fichiers
 
-Finally, press "Update settings and restart W&B".
-
-## File Storage
-
-By default, a W&B Enterprise Server saves files to a local data disk with a capacity that you set when you provision your instance. To support limitless file storage, you may configure your server to use an external cloud file storage bucket with an S3-compatible API.
+Par défaut, un Serveur d’Entreprise W&B sauvegarde les fichiers sur un disque de données local avec une capacité que vous déterminez lorsque vous donnez les informations de votre instance. Pour prendre en charge le stockage illimité de fichiers, vous pouvez configurer votre serveur pour utiliser un bucket de stockage de fichier cloud externe avec une API compatible avec S3.
 
 ### Amazon Web Services
 
-To use an AWS S3 bucket as the file storage backend for W&B, you'll need to create a bucket, along with an SQS queue configured to receive object creation notifications from that bucket. Your instance will need permissions to read from this queue.
+Pour utiliser un bucket AWS S3 comme backend de stockage de fichiers pour W&B, il vous faudra créer un bucket, ainsi qu’une file d’attente SQS \(queue\) configurée pour recevoir les notifications de création d’objet depuis ce bucket. Votre instance aura besoin des permissions pour lire depuis cette file d’attente.
 
-**Create an SQS Queue**
+**Créer une file d’attente SQS**
 
-First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage` and `ReceiveMessage` actions as well as `GetQueueUrl` . \(If you like you can further lock this down using an advanced policy document.\)
+ Tout d’abord, créez une File d’attente Standard SQS. Ajoutez une permission pour tous les principaux pour les actions `SendMessage` et `ReceiveMessage` ainsi que `GetQueueUr`l. \(Si vous le souhaitez, vous pouvez renforcer le contrôle en utilisant un Policy Document avancé.\)
 
-![Enterprise file storage settings](../.gitbook/assets/sqs-perms.png)
+![Param&#xE8;tres de stockage de fichiers d&#x2019;entreprise](../.gitbook/assets/sqs-perms.png)
 
-**Create an S3 Bucket and Bucket Notifications**
+ **Créer un Bucket S3 et des Notifications de Bucket**
 
-Then, create an S3 bucket. Under the bucket properties page in the console, in the "Events" section of "Advanced Settings", click "Add notification", and configure all object creation events to be sent to the SQS Queue you configured earlier.
+ Puis, créez un bucket S3. Sous la page de propriétés du bucket dans la console, dans la section "Événements" \(Events\) de "Paramètres Avancés" \(Advanced Settings\), cliquez sur "Ajouter notification" \(Add notification\), et configurez tous les évènements de création d’objet qui doivent être envoyés à la File d’attente SQS que vous avez configurée un peu plus tôt.
 
-![Enterprise file storage settings](../.gitbook/assets/s3-notification.png)
+![Param&#xE8;tres de stockage de fichiers d&#x2019;entreprise](../.gitbook/assets/s3-notification.png)
 
-Enable CORS access: your CORS configuration should look like the following:
+Permettre l’accès CORS : votre configuration CORS devrait ressembler à ceci :
 
 ```markup
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,9 +78,53 @@ Enable CORS access: your CORS configuration should look like the following:
 </CORSConfiguration>
 ```
 
-**Grant Permissions to Node Running W&B**
+**Configurer le Serveur W&B**
 
-The node on which W&B Local is running must be configured to perrmit access to s3 and sqs. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
+ Enfin, naviguez sur la page de paramètres W&B, `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Activez l’option "Utiliser un backend de stockage de fichiers externe" \(Use an external file storage backend\), et indiquez le bucket s3, la région, et la file d’attente SQS dans le format suivant :
+
+* **Bucket de Stockage de Fichiers**: `s3://<bucket-name>`
+* **Région de Stockage de Fichiers**: `<region>`
+*  **Abonnement Notifications**: `sqs://<queue-name>`
+
+![Param&#xE8;tres de stockage de fichiers AWS](../.gitbook/assets/aws-filestore.png)
+
+ Cliquez sur "Mettre les paramètres à jour et redémarrer W&B" \(Update settings and restart W&B\) pour appliquer les nouveaux paramètres.
+
+###  Google Cloud Platform
+
+Pour utiliser un bucket GCP Storage comme backend de stockage de fichiers pour W&B, vous aurez besoin de créer un bucket, ainsi qu’un sujet et un abonnement pubsub configurés pour recevoir les messages de création d’objet depuis ce bucket. 
+
+**Créer un Sujet et un Abonnement Pubsub**
+
+Naviguez jusqu’à Pub/Sub&gt;Sujets dans la Console GCP, et cliquez sur "Créer un sujet ". Choisissez un nom et créez un sujet.Puis, cliquez sur "Créer un abonnement " dans le tableau d’abonnements, en bas de la page. Choisissez un nom, et assurez-vous que le Type de Distribution soit paramétré sur "Pull". Cliquez sur "Créer".Assurez-vous que le compte de service ou que le compte sous lequel votre instance s’exécute a accès à cet abonnement. 
+
+**Créer un Bucket de stockage**
+
+Naviguez jusqu’à Stockage&gt;Navigateur dans la Console GCP, et cliquez sur "Créer un bucket" \(Create bucket\). Assurez-vous de choisir "Standard" pour la classe de stockage \(storage class\).
+
+Assurez-vous que le compte de service ou que le compte sous lequel votre instance s’exécute a accès à cet abonnement. 
+
+**Créer une Notification Pubsub**
+
+Créer un fil de notification depuis le Bucket de Stockage pour le Sujet Pubsub ne peut malheureusement qu’être effectué dans la console. Assurez-vous d’avoir installé `gsutil et d’être connecté au bon Projet GCP, puis exécutez ce qui suit :`
+
+```bash
+gcloud pubsub topics list  # list names of topics for reference
+gsutil ls                  # list names of buckets for reference
+
+# create bucket notification
+gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
+```
+
+[Des références plus avancées sont disponibles sur le site web du Stockage Cloud.](https://cloud.google.com/storage/docs/reporting-changes)
+
+**Ajouter des Autorisations Signées**
+
+Pour créer des URL de fichiers signées, votre instance W&B a aussi besoin de l’autorisation iam.serviceAccounts.signBlob dans GCP. Vous pouvez l’ajouter en ajoutant le rôle Service Account Token Creator au compte de service ou au membre IAM sous lequel votre instance s’exécute. 
+
+**Accorder des Autorisations au Node qui exécute W&B**
+
+Le node sur lequel W&B Local s’exécute doit être configuré pour permettre l’accès au s3 et au sqs. En fonction du type de déploiement serveur pour lequel vous avez opté, vous pourrez avoir besoin d’ajouter les déclarations de police \(policy statements\) suivantes à votre rôle de node :
 
 ```text
 {
@@ -103,63 +147,121 @@ The node on which W&B Local is running must be configured to perrmit access to s
 }
 ```
 
-**Configure W&B Server**
+ **Configurer le Serveur W&B**
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+ Enfin, naviguez sur la page de paramètres W&B, `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Activez l’option "Utiliser un backend de stockage de fichiers externe" \(Use an external file storage backend\), et indiquez le bucket s3, la région, et la file d’attente SQS dans le format suivant :
 
-* **File Storage Bucket**: `s3://<bucket-name>`
-* **File Storage Region**: `<region>`
-* **Notification Subscription**: `sqs://<queue-name>`
+*  **Bucket de Stockage de fichiers**: `gs://<bucket-name>`
+*  **Région de Stockage de fichiers** : blank
+* **Abonnement Notifications**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![AWS file storage settings](../.gitbook/assets/aws-filestore.png)
+![Param&#xE8;tres de stockage de fichiers GCP](../.gitbook/assets/gcloud-filestore.png)
 
-Press "update settings and restart W&B" to apply the new settings.
+ Cliquez sur "Mettre les paramètres à jour et redémarrer W&B" \(Update settings and restart W&B\) pour appliquer les nouveaux paramètres.
 
-### Google Cloud Platform
+### Azure
 
-To use a GCP Storage bucket as a file storage backend for W&B, you'll need to create a bucket, along with a pubsub topic and subscription configured to receive object creation messages from that bucket.
+Pour créer un conteneur blob Azure comme stockage de fichiers pour W&B, il vous faudra créer un compte de stockage \(si vous n’en avez pas déjà un que vous souhaitez utiliser\), créer un conteneur blob et une file d’attente \(queue\) à l’intérieur de ce compte de stockage, puis créer un événement d’inscription qui envoie des notifications "blob créé" \(blob created\) à la file d’attente depuis le conteneur blob.
 
-**Create Pubsub Topic and Subscription**
+#### **Créer un Compte de Stockage**
 
-Navigate to Pub/Sub &gt; Topics in the GCP Console, and click "Create topic". Choose a name and create a topic.
+Si vous avez déjà un compte de stockage que vous voulez utiliser, vous pouvez passer cette étape.
 
-Then click "Create subscription" in the subscriptions table at the bottom of the page. Choose a name, and make sure Delivery Type is set to "Pull". Click "Create".
+Rendez-vous sur [Comptes de stockage &gt; Ajouter](https://portal.azure.com/#create/Microsoft.StorageAccount) \(Storage Accounts &gt; Add\) dans le portail Azure. Sélectionnez un abonnement Azure, et sélectionnez n’importe quel groupe de ressources ou créez-en un nouveau. Entrez un nom pour votre compte de stockage.
 
-Make sure the service account or account that your instance is running as has access to this subscription.
+![Mise en place du compte de stockage Azure](../.gitbook/assets/image%20%28106%29.png)
 
-**Create Storage Bucket**
+ Cliquez sur Vérifier + Créer \(Review + create\), puis, sur l’écran de résumé, cliquez sur Créer \(Create\) :
 
-Navigate to Storage &gt; Browser in the GCP Console, and click "Create bucket". Make sure to choose "Standard" storage class.
+![V&#xE9;rification des d&#xE9;tails de compte de stockage Azure](../.gitbook/assets/image%20%28114%29.png)
 
-Make sure the service account or account that your instance is running as has access to this bucket.
+#### **Créer le conteneur blob**
 
-**Create Pubsub Notification**
+Rendez-vous sur [Comptes de Stockage](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) sur le portail Azure, et cliquez sur votre nouveau compte de stockage. Dans le tableau de bord du compte de stockage, cliquez sur Service Blob &gt; Conteneurs \(Blob service &gt; Containers\) dans le menu :
 
-Creating a notification stream from the Storage Bucket to the Pubsub Topic can unfortunately only be done in the console. Make sure you have `gsutil` installed, and logged into the correct GCP Project, then run the following:
+![](../.gitbook/assets/image%20%28102%29.png)
 
-```bash
-gcloud pubsub topics list  # list names of topics for reference
-gsutil ls                  # list names of buckets for reference
+ Créez un nouveau conteneur, et réglez-le sur Privé \(Private\) :
 
-# create bucket notification
-gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
-```
+![](../.gitbook/assets/image%20%28110%29.png)
 
-[Further reference is available on the Cloud Storage website.](https://cloud.google.com/storage/docs/reporting-changes)
+  
+![](blob:null/ef0bf807-a139-458a-9200-1a2c391a860a)Rendez-vous dans Paramètres&gt;CORS&gt;Service Blob, et entrez l’IP de votre serveur wandb en tant qu’origine autorisée \(allowed origin\), avec les méthodes autorisées `GET` et `PUT`, et tous les en-têtes autorisés et exposés, puis enregistrez vos paramètres CORS.
 
-**Add Signing Permissions**
+![](../.gitbook/assets/image%20%28119%29.png)
 
-To create signed file URLs, your W&B instance also needs the `iam.serviceAccounts.signBlob` permission in GCP. You can add it by adding the `Service Account Token Creator` role to the service account or IAM member that your instance is running as.
+#### **Créer la File d’attente**
 
-**Configure W&B Server**
+Allez dans Service de File d’attente&gt;Files d’attente \(Queue Service &gt; Queues\) dans votre compte de stockage, et créez une nouvelle file d’attente :
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+![](../.gitbook/assets/image%20%28101%29.png)
 
-* **File Storage Bucket**: `gs://<bucket-name>`
-* **File Storage Region**: blank
-* **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
+ Allez dans Événements \(Events\) dans votre compte de stockage, et créez un abonnement à un événement :
 
-![GCP file storage settings](../.gitbook/assets/gcloud-filestore.png)
+![](../.gitbook/assets/image%20%28108%29.png)
 
-Press "update settings and restart W&B" to apply the new settings.
+Donnez à l’abonnement d’événement le Schéma d’événement "Event Grid", filtrez pour n’avoir que le type d’événement "Blob Créé" \(Blob Created\), paramétrez le Type de Point de terminaison \(Endpoint Type\) sur Files d’attente de Stockage \(Storage Queues\), puis sélectionnez le compte de stockage/la file d’attente comme point de terminaison.
+
+![](../.gitbook/assets/image%20%28116%29.png)
+
+Dans l’onglet Filtres, activez le filtrage de sujet pour les sujets qui commencent avec`/blobServices/default/containers/your-blob-container-name/blobs/`
+
+![](../.gitbook/assets/image%20%28105%29.png)
+
+#### **Configurer le Serveur W&B**
+
+Allez dans Paramètres &gt; Afficher les clefs dans votre compte de stockage, cliquez sur "Affichez les clefs" \(Show keys\), puis copiez soit key1 &gt; Key soit key2 &gt; Key. Paramétrez cette clef sur votre serveur W&B comme la variable d’environnement `AZURE_STORAGE_KEY`.
+
+![](../.gitbook/assets/image%20%28115%29.png)
+
+Enfin, naviguez sur la page de paramètres W&B, `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Activez l’option "Utiliser un backend de stockage de fichiers externe" \(Use an external file storage backend\), et indiquez le bucket s3, la région, et la file d’attente SQS dans le format suivant :
+
+*  **Bucket de Stockage de Fichiers** : `az://<storage-account-name>/<blob-container-name>`
+*  **Abonnement Notifications**: `az://<storage-account-name>/<queue-name>`
+
+![](../.gitbook/assets/image%20%28109%29.png)
+
+ Cliquez sur "Mettre les paramètres à jour " \(Update settings\) pour appliquer les nouveaux paramètres.
+
+## Slack
+
+Pour intégrer votre installation locale W&B avec Slack, il vous faudra créer une application Slack convenable.
+
+#### **Créer l’application Slack**
+
+Rendez-vous sur [https://api.slack.com/apps](https://api.slack.com/apps) et sélectionnez **Créez Nouvelle App** \(Create New App\) en haut à droite.
+
+![](../.gitbook/assets/image%20%28123%29.png)
+
+ Vous pouvez lui donner le nom que vous souhaitez, mais ce qui est important, c’est de sélectionner le même workspace Slack que celui que vous voulez utiliser pour les alertes.
+
+![](../.gitbook/assets/image%20%28124%29.png)
+
+####  **Configurer l’application Slack**
+
+Maintenant que l’application Slack est prête, il faut que nous autorisions l’utilisation d’un bot OAuth. Sélectionnez **OAuth & Permissions** dans la barre latérale, sur la gauche.
+
+![](../.gitbook/assets/image%20%28125%29.png)
+
+Sous **Scopes**, fournissez au bot le scope **incoming\_webhook.**
+
+![](../.gitbook/assets/image%20%28128%29%20%281%29%20%281%29.png)
+
+Enfin, configurez l’**URL de Redirection** \(Redirect URL\) pour pointer vers votre installation W&B. Vous devriez utiliser la même valeur que celle paramétrée pour votre **Hôte Frontend** \(Frontend Host\) dans vos paramètres de système locaux. Vous pouvez spécifier plusieurs URL si vous avez des mappings DNS différents dans votre instance.
+
+![](../.gitbook/assets/image%20%28127%29.png)
+
+Cliquez sur **Sauvegarder URLs** \(Save URLs\) une fois que vous avez terminé.Pour sécuriser davantage votre application Slack et évitez les abus, vous pouvez spécifier une plage d’IP sous 
+
+**Restriction d’Usage de Token API** \(Restrick API Token Usage\) pour whitelister l’IP ou la plage d’IP de votre ou vos instances W&B. 
+
+**Enregistrer votre application Slack avec W&B**Rendez-vous sur la page de **Paramètres Système** \(System Settings\) de votre instance W&B. Cochez la case pour permettre une application Slack personnalisée :
+
+![](../.gitbook/assets/image%20%28126%29.png)
+
+Il vous faudra fournir l’ID client de votre application Slack et son secret, que vous pouvez trouver dans l’onglet **Informations de Base** \(Basic Information\).
+
+![](../.gitbook/assets/image%20%28120%29.png)
+
+ C’est tout ! Vous pouvez maintenant vérifier que tout fonctionne en mettant en place une intégration Slack dans l’app W&B. Visitez [cette page](https://docs.wandb.ai/app/features/alerts) pour avoir des informations plus détaillées.
 

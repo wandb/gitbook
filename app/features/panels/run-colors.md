@@ -1,18 +1,18 @@
 ---
-description: How to change the colors of your runs in visualizations
+description: Comment modifier les couleurs de vos essais dans les visualisations
 ---
 
 # Run Colors
 
-When a new run is created, it is assigned a default color. You can edit the color for a given run by clicking the color preview.
+Lorsqu’un nouvel essai est créé, une couleur par défaut lui est assignée. Vous pouvez éditer la couleur pour un essai donné en cliquant sur la prévisualisation de couleur \(color preview\).
 
-Colors are locally scoped. On the project page, custom colors only apply to your own workspace. In reports, custom colors for runs only apply at the section level. You can visualize the same run in different sections, and it can have a different custom color in each section.
+Les couleurs sont appliquées localement. Sur la page de projet, les couleurs personnalisées ne s’appliquent que pour votre propre workspace. Dans les rapports, les couleurs personnalisées ne s’appliquent qu’au niveau des sections. Vous pouvez visualiser un même essai dans des sections différentes, et il pourra avoir une couleur personnalisée différente dans chacun des sections.
 
-## How to edit run colors
+##  Comment éditer les couleurs d’un essai
 
-1. Select the Run you want to visualize
-2. Click the colored dot 
-3. Select a color for the graphs of your run
+1. Sélectionnez l’Essai que vous voulez visualiser
+2. Cliquez sur le point de couleur
+3. Sélectionnez une couleur pour les graphiques de votre essai
 
 ![](https://downloads.intercomcdn.com/i/o/149202442/b430d9b1473e41644a91fae3/run+coloring.gif)
 

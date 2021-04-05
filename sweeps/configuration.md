@@ -1,69 +1,68 @@
 ---
 description: >-
-  Syntax to set the hyperparameter ranges, search strategy, and other aspects of
-  your swe
+  Syntaxe pour paramétrer les plages d’hyperparamètres, la stratégie de
+  recherche, et d’autres aspects de vos balayages
 ---
 
 # Configuration
 
-Use these configuration fields to customize your sweep. There are two ways to specify your configuration:
+Utilisez ces champs de configuration pour personnaliser votre balayage. Il y a deux manières de spécifier votre configuration :
 
-1. [YAML file](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config): best for distributed sweeps. See examples [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
-2. [Python data structure](python-api.md): best for running a sweep from a Jupyter Notebook 
+1.  [Fichier YAML ](https://docs.wandb.com/sweeps/quickstart#2-sweep-config): idéal pour les balayages distribués. Voir des exemples [ici](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
+2.  [Structure de données Python ](https://docs.wandb.ai/sweeps/python-api): idéal pour exécuter un balayage dans un Jupyter Notebook
 
-| Top-level key | Meaning |
+| **Clef de niveau supérieur** | **Signification** |
 | :--- | :--- |
-| name | The name of the sweep, displayed in the W&B UI |
-| description | Text description of the sweep \(notes\) |
-| program | Training script to run \(required\) |
-| metric | Specify the metric to optimize \(used by some search strategies and stopping criteria\) |
-| method | Specify the [search strategy](configuration.md#search-strategy) \(required\) |
-| early\_terminate | Specify the [stopping criteria](configuration.md#stopping-criteria) \(optional, defaults to no early stopping\) |
-| parameters | Specify [parameters](configuration.md#parameters) bounds to search \(required\) |
-| project | Specify the project for this sweep |
-| entity | Specify the entity for this sweep |
-| command | Specify [command line](configuration.md#command) for how the training script should be run |
+| name | Le nom du balayage, affiché dans l’IU W&B |
+| description | Description textuelle du balayages \(notes\) |
+| program | Script d’entraînement à exécuter \(requis\) |
+| metric | Spécifie la mesure à optimiser \(utilisé dans certaines stratégies de recherches et de critères d’arrêt\) |
+| method | Spécifie la [stratégie de recherche](https://docs.wandb.ai/sweeps/configuration#search-strategy) \(requis\) |
+| early\_terminate | Spécifie les critères d’arrêts \(optionnel, par défaut, aucun arrêt précoce\) |
+| parameters | Spécifie les[ paramètres](https://docs.wandb.ai/sweeps/configuration#parameters) liés à la recherche \(requis\) |
+| project | Spécifie le projet pour ce balayage |
+| entity | Spécifie l’entité pour ce balayage |
+| command | Spécifie [la ligne de commande](https://docs.wandb.ai/sweeps/configuration#command) de référence d’exécution du script d’entraînement |
 
 ### Metric
 
-Specify the metric to optimize. This metric should be logged explicitly to W&B by your training script. For example, if you want to minimize the validation loss of your model:
+Spécifiez la mesure à optimiser. Cette mesure doit être explicitement enregistrée dans W&B par votre script d’entraînement. Par exemple, si vous voulez minimiser la perte de validation \(validation loss\) de votre modèle :
 
 ```python
 # [model training code that returns validation loss as valid_loss]
 wandb.log({"val_loss" : valid_loss})
 ```
 
-| `metric` sub-key | Meaning |
+| `metric` sub-key | **Signification** |
 | :--- | :--- |
-| name | Name of the metric to optimize |
-| goal | `minimize` or `maximize` \(Default is `minimize`\) |
-| target | Value that you'd like to achieve for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to "Finished." This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
+| name | Nom de la mesure à optimiser |
+| goal | `minimize` ou `maximize` \(Default is `minimize`\) |
+| target | Valeur cible pour la mesure que vous optimisez. Lorsqu’un essai dans un balayage parvient à cette valeur cible, l’état du balayage est réglé sur **finished** \(terminé\). Cela signifie que tous les agents avec des essais actifs finiront leur tâche en cours, mais qu’aucun nouvel essai ne sera lancer dans ce balayage. |
 
-{% hint style="danger" %}
-The metric specified needs to be a "top level" metric:
+ ⚠️ Impossible d’optimiser les mesures imbriquées
 
-This will **NOT** work:  
-Sweep configuration:  
-metric:  
-name: my\_metric.nested  
-Code:  
-`nested_metrics = {"nested": 4}    
-wandb.log({"my_metric", nested_metrics}`
+La mesure que vous optimisez doit être au **niveau supérieur** de la config.
 
-To work around this limitation the script should log the nested metric at the top level like this:  
-Sweep configuration:  
-metric:  
-name: my\_metric\_nested  
-Code:  
-`nested_metrics = {"nested": 4}    
-wandb.log{{"my_metric", nested_metric}    
-wandb.log({"my_metric_nested", nested_metric["nested"]})`
-{% endhint %}
+Ceci ne fonctionnera **PAS** :  
+Configuration de balayage  
+`metric:   
+    name: my_metric.nested`   
+_Code_  
+`nested_metrics = {"nested": 4} wandb.log({"my_metric", nested_metrics}`
 
-**Examples**
+Solution : enregistrer la mesure au niveau supérieur
+
+Configuration de balayage  
+`metric:   
+    name: my_metric_nested`   
+_Code_`nested_metrics = {"nested": 4} wandb.log{{"my_metric", nested_metric} wandb.log({"my_metric_nested", nested_metric["nested"]})`
+
+
+
+ **Exemples**
 
 {% tabs %}
-{% tab title="Maximize" %}
+{% tab title="Maximiser " %}
 ```text
 metric:
   name: val_loss
@@ -71,14 +70,14 @@ metric:
 ```
 {% endtab %}
 
-{% tab title="Minimize" %}
+{% tab title="Minimiser" %}
 ```text
 metric:
   name: val_loss
 ```
 {% endtab %}
 
-{% tab title="Target" %}
+{% tab title="Cible" %}
 ```text
 metric:
   name: val_loss
@@ -88,32 +87,32 @@ metric:
 {% endtab %}
 {% endtabs %}
 
-### Search Strategy
+###  Stratégie de recherche
 
-Specify the search strategy with the `method` key in the sweep configuration.
+Spécifiez la stratégie de recherche avec la clef `method` dans la configuration de balayage.
 
-| `method` | Meaning |
+| `method` | **Signification** |
 | :--- | :--- |
-| grid | Grid search iterates over all possible combinations of parameter values. |
-| random | Random search chooses random sets of values. |
-| bayes | Bayesian Optimization uses a gaussian process to model the function and then chooses parameters to optimize probability of improvement. This strategy requires a metric key to be specified. |
+| grid | La recherche de grille fait des itérations sur toutes les combinaisons possibles de valeurs de paramètres. |
+| random | La recherche aléatoire choisit des sets aléatoires de valeurs. |
+| bayes | L’Optimisation Bayésienne utilise un processus gaussien pour modéliser la fonction puis pour choisir les paramètres pour optimiser la probabilité d’amélioration. Cette stratégie requiert qu’une clef de mesure soit spécifiée. |
 
-**Examples**
+**Exemples**
 
 {% tabs %}
-{% tab title="Random search" %}
+{% tab title="Recherche aléatoire" %}
 ```text
 method: random
 ```
 {% endtab %}
 
-{% tab title="Grid search" %}
+{% tab title="Recherche de grille" %}
 ```text
 method: grid
 ```
 {% endtab %}
 
-{% tab title="Bayes search" %}
+{% tab title="Recherche bayésienne " %}
 ```text
 method: bayes
 metric:
@@ -123,9 +122,9 @@ metric:
 {% endtab %}
 {% endtabs %}
 
-### Stopping Criteria
+### Critères d’arrêt
 
-Early termination is an optional feature that speeds up hyperparameter search by stopping poorly-performing runs. When the early stopping is triggered, the agent stops the current run and gets the next set of hyperparameters to try.
+L’arrêt précoce est une fonctionnalité optionnelle qui accélère la recherche d’hyperparamètres en coupant court aux essais qui ne sont pas prometteurs. Lorsque l’arrêt précoce est déclenché, l’agent arrête l’essai en cours et obtient le prochain set d’hyperparamètres à essayer.
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
@@ -133,22 +132,22 @@ Early termination is an optional feature that speeds up hyperparameter search by
 
 We support the following stopping algorithm\(s\):
 
-| `type` | Meaning |
+| `type` | **Signification** |
 | :--- | :--- |
-| hyperband | Use the [hyperband method](https://arxiv.org/abs/1603.06560) |
+| hyperband |  spécifie[ l’algorithme d’arrêt](https://arxiv.org/abs/1603.06560) |
 
-Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program. Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged — if the metric is logged every epoch, then there are epoch iterations\).
+ L’arrêt Hyperband évalue si un programme devrait être arrêté ou s’il lui est permis de continuer à une ou plusieurs parenthèses \(brackets\) durant l’exécution du programme. Les parenthèses sont configurées pour être des itérations statiques pour une `mesure ( metric )` spécifiée \( où une itération est le nombre de fois qu’une mesure a été enregistrée – si la mesure est enregistrée à chaque epoch, ce sont alors des itérations d’epoch\).
 
-In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
+Pour spécifier la planification des parenthèses, il faut que `min_iter` or `max_iter soit définie.`
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
-| min\_iter | specify the iteration for the first bracket |
-| max\_iter | specify the maximum number of iterations for the program |
-| s | specify the total number of brackets \(required for `max_iter`\) |
-| eta | specify the bracket multiplier schedule \(default: 3\) |
+| min\_iter | spécifie l’itération pour la première parenthèse |
+| max\_iter | spécifie le nombre maximal d’itérations pour le programme |
+| s | spécifie le nombre total de parenthèses \(requis pour `max_iter`\) |
+| eta | spécifie la planification de multiplication des parenthèses \(par défaut : 3\) |
 
-**Examples**
+ **Exemples**
 
 {% tabs %}
 {% tab title="Hyperband \(min\_iter\)" %}
@@ -173,22 +172,22 @@ Brackets: 9 \(27/eta\), 3 \(9/eta\)
 {% endtab %}
 {% endtabs %}
 
-### Parameters
+### Paramètres
 
-Describe the hyperparameters to explore. For each hyperparameter, specify the name and the possible values as a list of constants \(for any method\) or specify a distribution \(for `random` or `bayes` \).
+ Décrivez les hyperparamètres à explorer. Pour chaque hyperparamètre, spécifiez le nom et les valeurs possibles sous liste de constantes \(pour toute méthode\) ou spécifiez une distribution \(pour `random` ou `bayes` \).
 
-| Values | Meaning |
+| Values | **Signification** |
 | :--- | :--- |
-| values: \[\(type1\), \(type2\), ...\] | Specifies all valid values for this hyperparameter. Compatible with `grid`. |
-| value: \(type\) | Specifies the single valid value for this hyperparameter. Compatible with `grid`. |
-| distribution: \(distribution\) | Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set. |
-| min: \(float\) max: \(float\) | Maximum and minimum valid values for `uniform` -distributed hyperparameters. |
-| min: \(int\) max: \(int\) | Maximum and minimum values for `int_uniform` -distributed hyperparameters. |
-| mu: \(float\) | Mean parameter for `normal` - or `lognormal` -distributed hyperparameters. |
-| sigma: \(float\) | Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters. |
-| q: \(float\) | Quantization step size for quantized hyperparameters |
+| values: \[\(type1\), \(type2\), ...\] | Spécifie toutes les valeurs valides pour cet hyperparamètre. Compatible avec`grid`. |
+| value: \(type\) | Spécifie la valeur unique valide pour cet hyperparamètre. Compatible avec `grid`. |
+| distribution: \(distribution\) | Sélectionne une distribution du tableau de distribution plus bas. Si non spécifié, sera par défaut `categorical` si `values est réglé, int_uniform` si `max` et `min sont réglées sur des entiers relatifs,` `uniform` si `max` et `min sont réglées sur des floats, ouconstant` si `value` est réglée. |
+| min: \(float\) max: \(float\) | Valeurs valides maximum et `minimum` pour. |
+| min: \(int\) max: \(int\) | Valeurs valides maximum et minimum pour les hyperparamètres distribués par `int_uniform` |
+| mu: \(float\) | Paramètre moyen pour les hyperparamètres distribués par `normal` – ou `lognormal` |
+| sigma: \(float\) | Paramètre de déviation standard pour les hyperparamètres distribués par `normal` – ou `lognormal` |
+| q: \(float\) | Taille d’étape de quantification pour les hyperparamètres quantifiés |
 
-**Example**
+**Exemple**
 
 {% tabs %}
 {% tab title="grid - single value" %}
@@ -226,19 +225,19 @@ parameter_name:
 
 | Name | Meaning |
 | :--- | :--- |
-| constant | Constant distribution. Must specify `value`. |
-| categorical | Categorical distribution. Must specify `values`. |
-| int\_uniform | Discrete uniform distribution on integers. Must specify `max` and `min` as integers. |
-| uniform | Continuous uniform distribution. Must specify `max` and `min` as floats. |
-| q\_uniform | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`. |
-| log\_uniform | Log-uniform distribution. Returns a value between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`. |
-| q\_log\_uniform | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`. |
+| constant |  Distribution constante. Doit spécifier `value`. |
+| categorical | Distribution catégorielle. Doit spécifier `values`. |
+| int\_uniform |  Distribution uniforme discrète sur des entiers relatifs. Doit spécifier `max` et`min` comme entiers relatifs. |
+| uniform | Distribution uniforme continue. Doit spécifier `max` and `min` comme floats. |
+| q\_uniform | Distribution uniforme quantifiée. Renvoie `round(X / q) * q où X est uniforme. Par défaut, q est` `1`. |
+| log\_uniform | Distribution uniforme logarithmique. Renvoie une valeur entre `exp(min)` et `exp(max) de sorte que le logarithme naturel soit uniformément distribué entre min` et `max`. |
+| q\_log\_uniform | Distribution uniforme logarithmique quantifiée. Renvoie `round(X / q) * q où X est` log\_uniform`. Par défaut, q est` `1`. |
 | normal | Normal distribution. Return value is normally-distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
-| q\_normal | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1. |
-| log\_normal | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
-| q\_log\_normal | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`. |
+| q\_normal | Distribution normale. La valeur renvoyée est distribuée normalement avec une moyenne `mu` \(par défaut, `0`\) et une déviation standard `sigma` \(par défaut, `1`\). |
+| log\_normal | Distribution normale logarithmique. Renvoie une valeur X de sorte que le logarithme naturel log\(X\) est normalement distribué avec une moyenne `mu`\(par défaut, `0`\) et une déviation standard `sigma` \(par défaut, `1`\). |
+| q\_log\_normal | Distribution normale logarithmique quantifiée. Renvoie `round(X / q) * q où X est log_normal. Par défaut, q est` `1`. |
 
-**Example**
+**Exemple**
 
 {% tabs %}
 {% tab title="constant" %}
@@ -286,21 +285,21 @@ parameter_name:
 {% endtab %}
 {% endtabs %}
 
-### Command Line <a id="command"></a>
+### Command Line Ligne de commande <a id="command"></a>
 
-The sweep agent constructs a command line in the following format by default:
+L’agent de balayage construit une ligne de commande avec le format suivant par défaut :
 
 ```text
 /usr/bin/env python train.py --param1=value1 --param2=value2
 ```
 
 {% hint style="info" %}
-On Windows machines the /usr/bin/env will be omitted. On UNIX systems it ensures the right python interpreter is chosen based on the environment.
+Sur les machines Windows, le /usr/bin/env sera omis. Sur les systèmes UNIX, il s’assure que le bon interprète python est choisi en se basant sur l’environnement.
 {% endhint %}
 
-This command line can be modified by specifying a `command` key in the configuration file.
+Cette ligne de commande peut être modifiée en spécifiant une clef `command` dans le fichier de configuration.
 
-By default the command is defined as:
+Par défaut, cette commande est définie comme :
 
 ```text
 command:
@@ -312,19 +311,19 @@ command:
 
 | Command Macro | Expansion |
 | :--- | :--- |
-| ${env} | /usr/bin/env on UNIX systems, omitted on Windows |
-| ${interpreter\| | Expands to "python". |
-| ${program} | Training script specified by the sweep configuration `program` key |
-| ${args} | Expanded arguments in the form --param1=value1 --param2=value2 |
-| ${args\_no\_hyphens} | Expanded arguments in the form param1=value1 param2=value2 |
-| ${json} | Arguments encoded as JSON |
-| ${json\_file} | The path to a file containing the args encoded as JSON |
+| ${env} | /usr/bin/env sur les systèmes UNIX, omis sur Windows |
+| ${interpreter\| | Se développe en "python". |
+| ${program} | Script d’entraînement spécifié par la clef `program`  de configuration de balayage |
+| ${args} | Arguments développés sous la forme --param1=value1 --param2=value2 |
+| ${args\_no\_hyphens} | Arguments développés sous la forme param1=value1 param2=value2 |
+| ${json} | Arguments encodés en JSON |
+| ${json\_file} | Le chemin à un fichier qui contient les arguments encodés en JSON |
 
 Examples:
 
 {% tabs %}
-{% tab title="Set python interpreter" %}
-In order to hardcode the python interpreter you can can specify the interpreter explicitly:
+{% tab title="Utiliser avec Hydra " %}
+Vous pouvez changer la commande pour passer des arguments à la manière dont des outils comme Hydra s’y attendent.
 
 ```text
 command:
@@ -336,7 +335,7 @@ command:
 {% endtab %}
 
 {% tab title="Add extra parameters" %}
-Add extra command line arguments not specified by sweep configuration parameters:
+Si votre programme n’utilise pas de parsing d’argument, vous pouvez totalement éviter de passer vos arguments et tirer avantage du fait que `wandb.init() récolte automatiquement les paramètres de balayage :`
 
 ```text
 command:
@@ -349,8 +348,8 @@ command:
 ```
 {% endtab %}
 
-{% tab title="Omit arguments" %}
-If your program does not use argument parsing you can avoid passing arguments all together and take advantage of `wandb.init()` picking up sweep parameters automatically:
+{% tab title="Ajouter des paramètres supplémentaires " %}
+ Ajouter des arguments supplémentaires à la ligne de commande, qui ne sont pas spécifiés par les paramètres de configuration du balayage :
 
 ```text
 command:
@@ -360,8 +359,8 @@ command:
 ```
 {% endtab %}
 
-{% tab title="Use with Hydra" %}
-You can change the command to pass arguments they way tools like Hydra expect.
+{% tab title="Utiliser avec Hydra" %}
+Vous pouvez changer la commande pour passer des arguments à la manière dont des outils comme Hydra s’y attendent.
 
 ```text
 command:
@@ -373,9 +372,9 @@ command:
 {% endtab %}
 {% endtabs %}
 
-## Common Questions
+##  Questions fréquentes
 
-### Nested Config
+###  Config imbriquée
 
-Right now, sweeps do not support nested values, but we plan on supporting this in the near future.
+Pour l’instant, les balayages ne prennent pas en charge les valeurs imbriquées, mais nous prévoyons de les prendre en charge dans un avenir proche.
 

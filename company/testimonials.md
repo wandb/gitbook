@@ -1,114 +1,114 @@
 ---
-description: Kind messages from Weights & Biases users
+description: Messages aimables des utilisateurs de Weights & Biases
 ---
 
 # Testimonials
 
-## Jeffrey Wardman, Applied AI Scientist at [Harrison.ai](https://www.harrison.ai/)
+## Jeffrey Wardman, Scientifique en IA Appliquée à [Harrison.ai](https://www.harrison.ai/)​
 
-WandB is absolute heaven.
+WandB est un vrai paradis.
 
-With next to no modification of my code, I'm able to visualize metrics in real time when training my models on multiple systems and can look at their performance relative to each other, and previous runs, anytime on any device. Sweeps also allows me to train my models with different parameter settings on multiple systems in unison via a Bayesian approach to optimally test a range of input arguments and find the best solution.
+Quasiment sans modifier mon code, je suis capable de visualiser des mesures en temps réel lorsque j’entraîne mes modèles sur de multiples systèmes, et je peux voir quelles sont leurs performances les uns par rapport aux autres, et avec les essais précédents, n’importe quand, sur n’importe quel appareil. Les balayages me permettent aussi d’entraîner mes modèles avec des réglages de paramètres différents sur de multiples systèmes en unisson, via une approche Bayésienne pour tester de manière optimale un ensemble d’arguments d’entrée pour trouver la meilleure solution.
 
-I can't imagine going back to how I did things before.
+Je n’imagine pas retourner à mon ancienne manière de faire les choses.
 
-## **Ian Thompson,** [**Latent Space**](https://www.latentspace.co/)\*\*\*\*
+##  ****Ian Thompson, [**Latent Space**](https://www.latentspace.co/)​
 
-Wandb has become the critical tool for us in bringing together the work of remote researchers across several continents. On a recent paper, we started using a wandb report as the central hub for collaboration, where everyone could see the most recent experimental results and essentially the latest draft of the paper. The flexibility and clarity of wand reports have enabled us to collaborate in ways that used to only be possible in person.
+WandB est devenu un outil crucial pour nous, car il nous permet de réunir le travail de chercheurs à distance à travers plusieurs continents. Sur un article récent, nous avons commencé à utiliser un rapport wandb comme point central pour la collaboration, sur lequel tout le monde pouvait voir les résultats expérimentaux les plus récents, et, pour ainsi dire, la version la plus récente du brouillon de l’article. La flexibilité et la clarté des rapports wandb nous ont permis de collaborer de manières qui n’étaient autrefois possibles qu’en personne.
 
-## Daniel Bourke, ML engineer
+## Daniel Bourke, ingénieur en apprentissage automatique 
 
-Since machine learning is a very experimental process, meaning you try something, see if it works and if not you try something else. I plan on building a number of different models to see which one works best. To track the results of each different model, I set up Weights & Biases, a tool for tracking deep learning experiments.
+Puisque l’apprentissage automatique est un processus très expérimental, ce qui signifie qu’on essaye quelque chose, qu’on regarde si ça fonctionne et si ce n’est pas le cas, on essaye autre chose, je prévois de construire un nombre de modèles différents pour voir lequel fonctionne le mieux. Pour garder une trace des résultats de chaque modèle différent, je mets en place Weights & Biases, un outil pour avoir un suivi des expériences de deep learning.
 
-[Watch the video here →](https://www.youtube.com/watch?v=83s-OEFMgVY)
+[Regardez la vidéo ici →](https://www.youtube.com/watch?v=83s-OEFMgVY)
 
-![Every model I build has to answer 1 simple question \| Airbnb Machine Learning Project Part 5](../.gitbook/assets/fan-video.png)
+![Chaque mod&#xE8;le que je construis doit r&#xE9;pondre &#xE0; 1 question simple \| Projet d&#x2019;apprentissage automatique Airbnb Partie 5 ](../.gitbook/assets/fan-video.png)
 
-## Ken Tsui, VP of Machine Learning at [Apoidea AI](https://apoidea.ai/)
+## Ken Tsui, VP de l’Apprentissage Automatique à [Apoidea AI](https://apoidea.ai/)​
 
-My team enjoys using this helpful tool. ML is always experimental in nature, in industry and in research and wandb is like a diary to record the whole ML development journey from the baseline to the SOTA. And the best thing is that you can share the journey with others.
+Mon équipe aime utiliser cet outil très utile. L’apprentissage automatique est toujours expérimental par nature, dans l’industrie et dans la recherche, et wandb est comme un journal qui enregistre le voyage de tout le développement d’apprentissage automatique qui se fait, depuis la baseline jusqu’au SOTA. Et le mieux, c’est qu’on peut partager ce voyage avec les autres.
 
-## Michael Oblak, COO at SmartLunch
+## Michael Oblak, Directeur d’Exploitation à SmartLunch
 
-10/10. It's really great software. Helps me a ton with my work. Also, sweeps handle a lot of my work.
+10/10. Vraiment un très bon logiciel. Il m’aide énormément dans mon travail. Les balayages s’occupent aussi d’une bonne partie de mon travail.
 
-## André Aquilina, Computer Vision Engineer at [Dysis Medical](https://dysismedical.com/)
+## André Aquilina, Ingénieur Vision Ordinateur à [Dysis Medical​](https://dysismedical.com/)
 
-Between architecture, hyper parameters and general problem approach, I always found myself going in circles trying to keep track of results, configs and the code version I was using in an experiment. After looking around for a tool/dashboard to help with experiment management I landed on WandB. With one init line I could track many of the metrics I was interested in. Wandb one of the few tools that makes it so easy that it’s a no brainer to try for yourself.
+Entre l’architecture, les hyperparamètres et l’approche de problème général, je me retrouve toujours à tourner en rond en essayant de garder une trace de mes résultats, de mes configs et de la version de code que j’ai utilisés dans une expérience. Après avoir cherché un outil/tableau de bord pour m’aider à gérer mes expériences, je suis tombé sur WandB. Avec une ligne d’init, je pouvais garder la trace de beaucoup des mesures qui m’intéressaient. Wandb, un des rares outils qui rend ça si simple qu’on peut essayer par soi-même sans avoir besoin de réfléchir.
 
-## Samuel Boulanger, Machine Learning Engineer at [Intel AI](https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html)
+## Samuel Boulanger, Ingénieur en Apprentissage Automatique à [Intel AI](https://www.intel.com/content/www/us/en/artificial-intelligence/overview.html)
 
-Helpful. Easy to use. Integrates cleanly.
+Utile. Facile à utiliser. S’intègre proprement
 
-## Francisco J. Peña, [Postdoc](https://www.linkedin.com/in/franciscojp) at University College Dublin
+## Francisco J. Peña, [Postdoc](https://www.linkedin.com/in/franciscojp) à la University College Dublin
 
-I went from storing all of my experiment results in JSON files and plotting them with matplotlib and seaborn, to have all the work taken care by W&B. Viewing the results so fast has helped me to identify bugs in my code at an early stage, it's a game changer. Thank you!
+Je suis passé de stocker tous mes résultats d’expériences en fichiers JSON et les tracer avec matplotlib et searborn à laisser W&B s’occuper de tout le travail. Visualiser les résultats si rapidement m’a permis d’identifier des bugs dans mon code dès le début, ça change la donne. Merci !
 
-## Mohamed Raga, PhD Candidate at NTU, Singapore
+## Mohamed Raga, Candidat en Doctorat à NTU, Singapour
 
-I am impressed daily by wandb and the amazing visualization tools. Now I present all my works and experiments through wandb— no more slides. I also, send progress report to my supervisor using wandb. The synchronization with TensorBoard helps me to further use embedding projector. So far, I have explored all the wandb tools, but I can't wait to explore more.
+Je suis quotidiennement impressionné par wandb et les outils incroyables de visualisation qu’il propose. Maintenant, je présente tous mes travaux et toutes mes expériences par wandb – plus besoin de slides. J’envoie aussi mon rapport de progrès à mon superviseur en utilisant wandb. La synchronisation avec TensorBoard m’aide à encore plus utiliser Embedding Projector. Pour l’instant, j’ai exploré tous les outils wandb, mais j’ai hâte d’en découvrir encore plus.
 
-## Abhi Gupta, Researcher at Columbia University
+## Abhi Gupta, Chercheur à la Columbia University
 
-TensorBoard can be a nightmare when training on multiple machines. I have to run TensorBoard locally on a master machine and sync logs between computers to visualize real-time results. With wandb, this is so easy. Wandb is going to change everything for me.
+TensorBoard peut être un cauchemar lorsqu’on veut faire des entraînements sur plusieurs machines. Je dois exécuter TensorBoard localement sur une machine maîtresse et synchroniser les logs entre les ordinateurs pour visualiser des résultats en temps réel. Avec wandb, c’est tellement simple. Wandb va tout changer pour moi.
 
-## Henry Howard, Researcher at [iBRAIN research laboratory ](https://www.monash.edu/medicine/ccs/neuroscience/research/law-group)at Alfred Hospital
+## Henry Howard, Chercheur au [iBRAIN research laboratory ](https://www.monash.edu/medicine/ccs/neuroscience/research/law-group) à Alfred Hospital
 
-Great interface. Does what I want it to do without much effort.
+ Très bonne interface. Fais ce que je veux qu’elle fasse sans trop d’efforts.
 
-## [Matthew Clapp](https://itsayellow.com/), PhD Candidate at Johns Hopkins University
+##  [Matthew Clapp](https://itsayellow.com/), Candidat en Doctorat à la Johns Hopkins University
 
-Effortless python usage, and excellent visualization of my experiments. Minimal hassle, maximum benefit.
+Utilisation python sans aucun effort, et visualisation excellente de mes expériences. Complications minimales, profit maximal.
 
-## Ivan Oršolić, [Ori Codes](https://ori.codes/)
+## Ivan Oršolić, [Ori Codes](https://ori.codes/)​
 
-Your tool is very easy to set up \(well documented!\) and works great.
+Votre outil est très facile à mettre en place \(bien documenté !\) et fonctionne à merveille.
 
-## Dongwhan Jang, Researcher at Seoul National University
+## Dongwhan Jang, Chercheur à la Seoul National University
 
-Awesome UI for logging. Cross-platform\(library\) support. Excellent customer service. Free for an academic use. Easy for beginners etc.
+Incroyable IU pour enregistrer. Prise en charge inter-plateformes \(librairie\). Excellent service client. Gratuit pour utilisation universitaire. Facile pour les débutants etc.
 
-## Bowei Hou, PhD candidate at Waseda University
+## Bowei Hou, Candidat en Doctorat à la Waseda University
 
-It helps me a lot to collaborate with my co-workers in different countries. They can easily find the running experiments and the logs. It's so cool that we can get rid of the tedious terminal loss.
+Ça m’aide beaucoup à collaborer avec mes collègues dans différents pays. Ils peuvent facilement trouver les expériences en cours et les enregistrements. C’est tellement cool qu’on puisse se débarrasser des pertes finales pénibles.
 
-## **Rajesh, Engineer at  Nokia**
+## Rajesh, Ingénieur à Nokia
 
-10/10. It is purely awesome!
+10/10. C’est totalement incroyable !
 
-## Taufiquzzaman Peyash, Researcher at [North South University](http://www.northsouth.edu/)
+## Taufiquzzaman Peyash, Chercheur à la [North South University](http://www.northsouth.edu/)​
 
-I really like the visualizations and it's very easy to integrate with the pipeline.
+J’aime vraiment les visuels, et c’est très simple à intégrer avec le pipeline.
 
-## Tiago Manual,  PhD student at [Cambridge](https://www.cl.cam.ac.uk/research/ai/)
+## Tiago Manual, Étudiant en Doctorat à [Cambridge](https://www.cl.cam.ac.uk/research/ai/)​
 
-Great tool! Still a lot to improve but looks like you have an entire team fully working on that!
+Super outil ! Il y a encore beaucoup à améliorer, mais apparemment vous avez une équipe entière qui travaille à temps plein dessus !
 
-## **Seonil Simon Son,** [NLP lover](https://dramaqa.snu.ac.kr/) at Seoul National University
+## Seonil Simon Son, [Enthousiaste PNL](https://dramaqa.snu.ac.kr/) à la Seoul National University
 
--Dumb-easy api really helped. Developing with tensorboardx which I had experience before was more trickier than learning this from the scratch.
+-Une api stupidement facile m’a vraiment aidé. Développer avec tensorboardx alors que j’avais de l’expérience dedans était plus compliqué qu’apprendre ça depuis le début.
 
--Summarizing all the loggings on the cloud helps me keep focused on important things.
+-Résumer tous les enregistrements sur le cloud m’aide à rester concentré sur les choses importantes.
 
--Sweep: plug-n-play version of hyperparam tuning methodologies
+- Balayage : version plug-n-play de méthodologies d’ajustement d’hyperparam
 
-## Michael, a wonderful user
+##  Michael, un utilisateur merveilleux
 
-It's just amazing, you guys are doing an amazing job over there! I'm telling about it to all my friends, everyone should use wandb!
+C’est juste fantastique, vous faites vraiment un boulot fantastique les gars ! J’en parle déjà à tous mes amis, tout le monde devrait utiliser wandb !
 
-## [Shivam Kaushik](https://www.kaggle.com/mythrex/competitions), Kaggle User
+## [Shivam Kaushik](https://www.kaggle.com/mythrex/competitions), Utilisateur Kaggle
 
-I just love how we can make reports and share our work. I use this for kaggle mainly and I know how difficult was it for me to compile my results for the team.
+ J’adore vraiment la manière dont on peut faire des rapports et partager notre travail. Je l’utilise principalement pour kaggle et je sais à quel point c’était compliqué pour moi de compiler des résultats pour l’équipe.
 
-## Dinis Rodrigues, [INESC](https://www.inesc-id.pt/), student at [Técnico Lisboa](https://tecnico.ulisboa.pt/pt/)
+##  Dinis Rodrigues, [INESC](https://www.inesc-id.pt/), étudiant à [Técnico Lisboa](https://tecnico.ulisboa.pt/pt/)​
 
-Awesome, easy to use and intuitive!
+ Fantastique, facile à utiliser et intuitif !
 
-## Khel Kim, software engineer
+## Khel Kim, ingénieur logiciel
 
-I love you guys. Your system is awesome! Please, keep your service. Thank you guys.
+Je vous adore, les gars. Votre système est fantastique ! S’il vous plaît, continuez à proposer ce service. Merci les gars.
 
-## Rohit P N, Student at Ramaiah Institute of Technology, Bangalore
+##  Rohit P N, Étudiant au Ramaiah Institute of Technology, Bangalore
 
-This platform is absolutely amazing, makes life so much easier. Thank you so much to the developers of this platform!
+ Cette plateforme est absolument fantastique et facilite tellement la vie. Un grand merci aux développeurs de cette plateforme !
 

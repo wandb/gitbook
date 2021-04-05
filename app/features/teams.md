@@ -1,74 +1,74 @@
 ---
 description: >-
-  Collaborate with your colleagues, share results, and track all the experiments
-  across your team
+  Collaborez avec vos collègues, partagez vos résultats, et retracez toutes les
+  expériences réalisées par votre équipe
 ---
 
 # Teams
 
-Use Weights & Biases as a central repository for your machine learning team.
+Utilisez Weights & Biases comme répertoire central pour votre équipe d’apprentissage automatique.
 
-* **Track all the experiments** your team has tried so you never duplicate work. Just a few lines of instrumentation give you fast, reliable tracking of model performance metrics, predictions, GPU usage, and the version of the code that trained the model.
-* **Save, restore and reproduce** previously trained models.
-* **Share progress** and results with your boss and collaborators.
-* **Catch regressions** and immediately get alerted when performance drops.
-* **Benchmark model performance** and customize queries to compare your model versions.
+* **Gardez une trace de toutes vos expériences** essayées par votre équipe pour ne jamais dupliquer du travail. Avec quelques lignes d’instrumentation, vous pouvez facilement retracer les mesures de performance de votre modèle, les prédictions, l’usage GPU, et la version de code utilisée pour entraîner le modèle.
+*  **Sauvegardez, restaurez, et reproduisez** des modèles entraînés précédemment.
+*   **Partagez vos progrès** et vos résultats avec votre patron et avec vos collaborateurs.
+* **Attrapez les régressions** et soyez immédiatement alertés lorsque les performances baissent.
+*  **Évaluez les performances de votre modèle et personnalisez les requêtes pour comparer les versions de votre modèle.**
 
-## Common Questions
+## Questions fréquentes
 
-### Get access to private teams
+### Accéder aux équipes privées
 
-If you're at a company, we have enterprise plans. Check the [pricing page](https://www.wandb.com/pricing) for more details. We offer free private teams for academics working on open source projects. Check the [academic page](https://www.wandb.com/academic) to apply for an upgrade.
+Si vous travaillez dans une société, nous avons des plans spécifiques aux entreprises. Consultez la [page des prix](https://www.wandb.com/pricing)pour obtenir plus de détails. Nous proposons des équipes privées gratuites pour les universitaires qui travaillent sur des projets open-source. Consultez la [page universitaire](https://www.wandb.com/academic) pour demander une mise à niveau.
 
-### Create a new team
+###  Créer une nouvelle équipe
 
-Once you have the feature enabled, create a new team on your [Settings](https://app.wandb.ai/settings) page in the app. The name will be used in the URL of all your team projects, so make sure you pick something short and descriptive, since you won't be able to change it later.
+ Une fois que cette fonctionnalité est activée, créez une nouvelle équipe sur la page de [Paramètres](https://app.wandb.ai/settings) dans l’application. Le nom sera utilisé dans l’URL de tous les projets de votre équipe, alors assurez-vous de choisir quelque chose de court et de descriptif, puisque vous ne pourrez pas le changer plus tard.
 
-### Move runs to a team
+### Déplacer des essais vers une équipe
 
-It's easy to move runs between projects you have access to. On the project page:
+Il est facile de déplacer des essais entre des projets auxquels vous avez accès. Sur la page de projet :
 
-1. Click the table tab to expand the runs table
-2. Click the checkbox to select all runs
-3. Click **Move**: the destination project can be in your personal account or any team that you're a member of.
+1. Cliquez sur l’onglet tableau pour agrandir le tableau des essais.
+
+2. Cliquez sur la case à cocher pour sélectionner tous les essais.
+
+3. Cliquez sur **Move** \(déplacer\) : le projet de destination peut être dans votre compte personnel ou dans n’importe quelle équipe dont vous êtes membre. 
 
 ![](../../.gitbook/assets/demo-move-runs.gif)
 
-### Send new runs to a team
+###  Envoyer de nouveaux essais à une équipe
 
-In your script, set the entity to your team. "Entity" just means your username or team name. Create an entity \(personal account or team account\) in the web app before sending runs there.
+Dans votre script, réglez l’entité \(entity\) sur votre équipe. "Entity" signifie simplement votre nom d’utilisateur ou celui d’une équipe. Créez une entité \(compte personnel ou d’équipe\) dans l’application web avant d’y envoyer des essais.
 
 ```python
 wandb.init(entity="example-team")
 ```
 
-Your **default entity** is updated when you join a team. This means that on your [settings page](https://app.wandb.ai/settings), you'll see that the default location to create a new project is now the team you've just joined. Here's an example of what that [settings page](https://app.wandb.ai/settings) section looks like:
+Votre **entité par défaut** est mise à jour lorsque vous rejoignez une équipe. Cela signifie que sur votre [page de paramètres](https://app.wandb.ai/settings), vous verrez que l’emplacement par défaut pour créer un nouveau projet est maintenant l’équipe que vous venez de rejoindre. Voici un exemple de ce à quoi la section de cette [page de paramètres](https://app.wandb.ai/settings) peut ressembler :
 
 ![](../../.gitbook/assets/screen-shot-2020-08-17-at-12.48.57-am.png)
 
-### Invite team members
+###  Inviter des membres d’équipe
 
-You can invite new members to your team on your team settings page:  
-app.wandb.ai/teams/&lt;your-team-here&gt;
+ Vous pouvez inviter de nouveaux membres à votre équipe sur la page de paramètres d’équipe : app.wandb.ai/teams/
 
-### See privacy settings
+### Consulter les paramètres de confidentialité
 
-You can see the privacy settings of all team projects on the team settings page:  
-app.wandb.ai/teams/&lt;your-team-here&gt;
+Vous pouvez consulter les paramètres de confidentialité de tous les projets d’équipe sur la page de paramètres : app.wandb.ai/teams/&lt;your-team-here&gt;Voice ce à quoi ressemble une page de paramètre d’équipe. 
 
-Here's what the team settings page looks like. In this screenshot the privacy toggle is on, which means all projects in the team are only visible to the team.
+Sur cette capture d’écran, la confidentialité est activée, ce qui signifie que tous les projets dans cette équipe ne sont visibles que par les membres de l’équipe.
 
 ![](../../.gitbook/assets/demo-team-settings.png)
 
-### Removing members from teams
+### Retirer des membres d’équipes
 
-When a team member leaves, it's easy to remove them. Team admins can open the team settings page and click the delete button next to the departing member's name. Any runs that they logged to the team will remain after a user is removed.
+ Lorsqu’un membre de l’équipe s’en va, il est facile de le retirer. Les administrateurs d’équipes peuvent ouvrir la page de paramètres d’équipe et cliquez sur le bouton supprimer \(delete\) juste à côté du nom du membre qui s’en va. Tous les essais que ce membre aura enregistré dans l’équipe resteront, même après son retrait de l’équipe.
 
-### Account types
+### Types de compte
 
-Invite colleagues to join the team, and select from these options:
+Invitez des collègues à rejoindre votre équipe, et à choisir entre ces options :
 
-* **Member**: A regular member of your team, invited by email
-* **Admin**: A team member who can add and remove other admins and members
-* **Service**: A service worker, an API key useful for using W&B with your run automation tools. If you use the API key from a service account for your team, make sure to set the environment variable **WANDB\_USERNAME** to attribute runs to the correct user.
+*  **Membre :** Un membre classique de votre équipe, invité par email
+* **Admin :** Un membre de l’équipe qui peut ajouter et retirer les autres admins et membres
+* **Compte de service : Un worker de service, une clef API utile pour utiliser W&B avec vos outils d’automatisation d’essais. Si vous utilisez la clef API depuis un Compte de service pour votre équipe, assurez-vous de bien régler la variable d’environnement WANDB\_USERNAME pour attribuer les essais au bon utilisateur** 
 

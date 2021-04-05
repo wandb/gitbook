@@ -1,59 +1,59 @@
 # Common Questions
 
-## Setting the project and entity
+##  Paramétrer le projet et l’entité
 
-When you run the command to start a sweep, you have to give that command a project and entity. If you want a different one it can be specified in 4 ways:
+ Lorsque vous exécutez la commande pour commencer un balayage, vous devez fournir à cette commande un projet et une entité. Si vous en voulez d’autres, cela peut être spécifié de 4 manières différentes :
 
-1. command line arguments to `wandb sweep` \(`--project` and `--entity` arguments\)
-2. wandb settings file \(`project` and `entity` keys\)
-3. [sweep configuration](configuration.md) \(`project` and `entity` keys\) 
-4. [environment variables](../library/environment-variables.md) \(`WANDB_PROJECT` and `WANDB_ENTITY` variables\)
+1. Arguments de ligne de commande dans `wandb sweep` \(arguments `--project` et `--entity` \).
+2. Fichier de paramètres wandb \(clefs `project` et `entity)`
+3.  [Configuration de balayage](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MSYLFRJY9U2Uk-CZtzR/v/francais/sweeps/configuration) \(clefs `project` et `entity)`
+4. [Variables d’environnement ](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MSYLFRJY9U2Uk-CZtzR/v/francais/library/environment-variables)\(variables `WANDB_PROJECT` et `WANDB_ENTITY`\)
 
-## **Sweeps agents stop after the first runs finish**
+##  ****Les agents de balayages s’arrêtent après la fin des premiers essais
 
 `wandb: ERROR Error while calling W&B API: anaconda 400 error: {"code":400,"message":"TypeError: bad operand type for unary -: 'NoneType'"}`
 
-One common reason for this is that the metric your are optimizing in your configuration YAML file is not a metric that you are logging. For example, you could be optimizing the metric **f1**, but logging **validation\_f1**. Double check that you're logging the exact metric name that you're optimizing.
+Une raison habituelle pour ceci est que la mesure que vous optimisez dans votre fichier de configuration YAML n’est pas une mesure que vous enregistrez. Par exemple, vous pourriez optimiser la mesure **f1**, mais enregistrez **validation\_f1**. Vérifiez bien que vous enregistrez exactement le même nom de mesure que celle que vous optimisez.
 
-## Set a number of runs to try
+##  Paramétrer un nombre fixe d’essais à tenter
 
-Random search will run forever until you stop the sweep. You can set a target to automatically stop the sweep when it achieves a certain value for a metric, or you can specify the number of runs an agent should try: `wandb agent --count NUM SWEEPID`
+Une recherche aléatoire \(random\) continuera à s’exécuter jusqu’à ce que vous arrêtiez le balayage. Vous pouvez paramétrer une cible pour automatiquement arrêter le balayage lorsqu’il obtient une certaine valeur pour une mesure, ou vous pouvez spécifier un nombre fixe d’essai qu’un agent devrait tenter`wandb agent --count NUM SWEEPID`
 
 wandb agent --count NUM SWEEPID
 
-## Run a sweep on Slurm
+##  Exécuter un balayage sur Slurm
 
-We recommend running `wandb agent --count 1 SWEEP_ID` which will run a single training job and then exit.
+Nous vous recommandons d’exécuter `wandb agent --count 1 SWEEP_ID`qui exécutera une seule tâche d’entraînement puis quittera.
 
-## Rerun grid search
+##  Exécuter de nouveau une recherche de grille
 
-If you exhaust a grid search but want to rerun some of the runs, you can delete the ones you want to rerun, then hit the resume button on the sweep control page, then start new agents for that sweep ID.
+Si vous avez épuisé une recherche de grille mais que vous souhaitez de nouveau exécuter certains des essais, vous pouvez supprimer ceux que vous voulez relancer, puis cliquer sur le bouton reprendre \(resume\) sur la page de contrôle de balayage, puis lancer de nouveaux agents pour cet ID de balayage.
 
-## Sweeps and Runs must be in the same project
+## Les balayages et les essais doivent être dans le même projet
 
 `wandb: WARNING Ignoring project='speech-reconstruction-baseline' passed to wandb.init when running a sweep`
 
-You cant set a project with wandb.init\(\) when running a sweep. The sweep and the runs have to be in the same project, so the project is set by the sweep creation: wandb.sweep\(sweep\_config, project=“fdsfsdfs”\)
+Vous ne pouvez pas paramétrer un projet avec wandb.init\(\) lorsque vous exécutez un balayage. Le balayage et les essais doivent être dans le même projet, le projet est donc paramétré par la création du balayage : wandb.sweep\(sweep\_config, project=“fdsfsdfs”\)
 
-## Error uploading
+## Erreur uploading
 
-If you're seeing **ERROR Error uploading &lt;file&gt;: CommError, Run does not exist**, you might be setting an ID for your run, `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, it will throw and error. In the sweeps context, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
+Si vous voyez **ERROR Error uploading &lt;file&gt;: CommError, Run does not exist, il est possible que vous paramétriez un ID pour votre essai,** `wandb.init(id="some-string")` . Cet ID doit être unique dans votre projet, et s’il n’est pas unique, cela renverra une erreur. Dans le contexte des balayages, vous ne pouvez pas paramétrer un ID manuel pour vos essais parce que nous générons automatiquement des ID aléatoires et uniques pour ces essais.
 
-If you're trying to get a nice name to show up in the table and on the graphs, we recommend using **name** instead of **id**. For example:
+Si vous essayez d’avoir un nom agréable qui s’affiche dans le tableau et sur les graphiques, nous vous recommandons d’utiliser **name** plutôt que **id**. Par exemple :
 
 ```python
 wandb.init(name="a helpful readable run name")
 ```
 
-## Sweep with custom commands
+##  Balayer avec des commandes personnalisées
 
-If you normally run training with a command and arguments, for example:
+Si vous exécutez normalement l’entraînement avec une commande et des arguments, par exemple :
 
 ```text
 edflow -b <your-training-config> --batch_size 8 --lr 0.0001
 ```
 
-You can convert this to a sweeps config like so:
+Vous pouvez convertir ceci en config de balayage comme ceci :
 
 ```text
 program:
@@ -67,15 +67,15 @@ command:
   - ${args}
 ```
 
-The ${args} key expands to all the parameters in the sweep configuration file, expanded so they can be parsed by argparse: --param1 value1 --param2 value2
+La clef ${args} s’étend à tous les paramètres dans le fichier de configuration de balayage, étendus pour qu’ils puissent être parsés par argparse : --param1 value1 --param2 value2
 
-If you have extra args that you dont want to specify with argparse you can use:  
+Si vous avez des arguments en plus que vous ne voulez pas spécifier avec argparse, vous pouvez utiliser :  
 parser = argparse.ArgumentParser\(\)  
 args, unknown = parser.parse\_known\_args\(\)
 
-**Running Sweeps with Python 3**
+**Exécuter des Balayages avec Python 3**
 
-If you're having an issue where the sweep is trying to use Python 2, it's easy to specify that it should use Python 3 instead. Just add this to your sweep config YAML file:
+ Si vous avez une erreur où le balayage essaye d’utiliser Python 2, il est facile de spécifier qu’il devrait utiliser Python 3 à la place. Ajoutez simplement ceci à votre fichier YAML de configuration de balayage :
 
 ```text
 program:
@@ -89,28 +89,29 @@ command:
 
 \*\*\*\*
 
-## Bayesian optimization details
+## Détails d’optimisation Bayésienne
 
-The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/tree/master/wandb/sweeps). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
+Le modèle de processus Gaussien qui est utilisé pour l’optimisation Bayésienne est définie dans notre [logique de balayage open-source.](https://github.com/wandb/client/tree/master/wandb/sweeps) Si vous aimeriez avoir plus de possibilités de configuration et plus de contrôle, essayez notre prise en charge de [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
 
-We use a [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) which is a generalization of RBF— defined in our open source code [here](https://github.com/wandb/client/blob/541d760c5cb8776b1ad5fcf1362d7382811cbc61/wandb/sweeps/bayes_search.py#L30).
+Nous utilisons une Covariance de Matérn, qui est une généralisation de RBF – définie dans notre code open-source[ici](https://github.com/wandb/client/blob/541d760c5cb8776b1ad5fcf1362d7382811cbc61/wandb/sweeps/bayes_search.py#L30).
 
-## Pausing sweeps vs. Stopping Sweeps wandb.agent
+## Mettre des balayages en pause vs Arrêter le wandb.agent de balayage
 
-Is there anyway to get `wandb agent` to terminate when there are no more jobs available because I've paused a sweep?
+ Y-a-t-il un moyen de faire en sorte que `wandb agent` s’arrête définitivement lorsqu’il n’y a plus de tâches disponibles parce que j’ai mis un balayage en pause ?  
 
-If you stop the sweep instead of pausing it, then the agents will exit. For pause we want the agents to stay running so that the sweep can be restarted without having to launch agents again.
 
-## Recommended way to set up config parameters in a sweep
+Si vous arrêtez le balayage plutôt que de le mettre en pause, les agents quitteront la tâche. Pour la pause, nous voulons que les agents continuent à s’exécuter, pour que le balayage puisse être repris sans avoir besoin de lancer de nouveau les agents.
+
+##  Manière recommandée de mettre en place les paramètres de config dans un balayage
 
 `wandb.init(config=config_dict_that_could_have_params_set_by_sweep)`  
-or:  
+ou :  
 `experiment = wandb.init()    
 experiment.config.setdefaults(config_dict_that_could_have_params_set_by_sweep)`
 
-The advantage of doing this is that it will ignore setting any key that has already been set by the sweep.
+L’avantage de faire ceci, c’est qu’il ignorera le paramétrage de toute clef qui a déjà été paramétrée par le balayage.
 
-## Is there a way to add an extra categorical value to a sweep, or do I need to start a new one?
+## Est-il possible d’ajouter une valeur de catégorie supplémentaire à un balayage, ou dois-je en commencer un nouveau ?
 
-Once a sweep has started you cannot change the sweep configuration, But you can go to any table view, and use the checkboxes to select runs, then use the "create sweep" menu option to a create a new sweep using prior runs
+Une fois qu’un balayage a commencé, vous ne pouvez pas modifier la configuration de balayage, mais vous pouvez vous rendre dans n’importe quelle visualisation de tableau et utiliser les cases à cocher pour sélectionner les essais, puis utiliser l’option de menu "créer balayage" \(create sweep\) pour créer un nouveau balayage qui utilise des essais antérieurs.
 

@@ -1,28 +1,28 @@
 # Code Saving
 
-By default, we only save the latest git commit hash. You can turn on more code features to compare the code between your experiments dynamically in the UI.
+Par défaut, nous sauvegardons seulement le dernier hash git commit. Vous pouvez activer plus de sauvegarde de code pour comparer votre code entre vos expériences de manière dynamique dans l’IU.
 
-Starting with `wandb` version 0.8.28, we can save the code from your main training file where you call `wandb.init()`. This will get sync'd to the dashboard and show up in a tab on the run page, as well as the Code Comparer panel. Go to your [settings page](https://app.wandb.ai/settings) to enable code saving by default.
+Depuis la version 0.8.28 de `wandb` , nous pouvons enregistrer le code de votre fichier d’entraînement principal lorsque vous appelez `wandb.init()`. Il sera synchronisé au tableau de bord et s’affichera dans un onglet sur la page d’essai, ainsi que dans le panneau de Comparateur de Code. Rendez-vous sur votre [page de paramètres](https://app.wandb.ai/settings) pour activer la sauvegarde de code par défaut.
 
 ![Here&apos;s what your account settings look like. You can save code by default.](../../../.gitbook/assets/screen-shot-2020-05-12-at-12.28.40-pm.png)
 
-## Code Comparer
+## Comparateur de code
 
-Click the **+** button in your workspace or report to add a new panel, and select the Code Comparer. Diff any two experiments in your project and see exactly which lines of code changed. Here’s an example:
+Cliquez sur le bouton **+** dans votre workspace ou sur la page rapport pour ajouter un nouveau panneau, et sélectionner le Comparateur de code \(Code Comparer\). Faites le différentiel entre n’importe quelles deux expériences de votre projet et regardez exactement quelles lignes de codes ont été modifiées. Voici un exemple :
 
 ![](../../../.gitbook/assets/cc1.png)
 
-## Jupyter Session History
+## Historique de session Jupyter
 
-Starting with **wandb** version 0.8.34, our library does Jupyter session saving. When you call **wandb.init\(\)** inside of Jupyter, we add a hook to automatically save a Jupyter notebook containing the history of code executed in your current session. You can find this session history in a runs file browser under the code directory:
+Depuis la version 0.8.34 de **wandb**, notre librairie fait une sauvegarde automatique de session Jupyter. Lorsque vous appelez **wandb.init\(\)** à l’intérieur de Jupyter, nous ajoutons un crochet pour sauvegarder automatiquement un notebook Jupyter qui contient l’historique du code exécuté dans votre session actuelle. Vous pouvez trouver cet historique de session dans un navigateur de fichier d’essais sous le répertoire code :
 
-![](../../../.gitbook/assets/cc2%20%284%29.png)
+![](../../../.gitbook/assets/cc2%20%284%29%20%285%29.png)
 
-Clicking on this file will display the cells that were executed in your session along with any outputs created by calling iPython’s display method. This enables you to see exactly what code was run within Jupyter in a given run. When possible we also save the most recent version of the notebook which you would find in the code directory as well.
+Cliquer sur ce fichier affichera les cellules qui ont été exécutées dans votre session, ainsi que tout output créé en appelant la méthode d’affichage iPython. Ceci vous permet de voir exactement quel code a été exécuté dans Jupyter pour un essai donné. Lorsque c’est possible, nous sauvegardons aussi la version la plus récente du notebook que vous trouverez également sous le répertoire code.
 
-![](../../../.gitbook/assets/cc3%20%283%29%20%283%29%20%283%29.png)
+![](../../../.gitbook/assets/cc3%20%283%29%20%283%29%20%281%29.png)
 
-## Jupyter diffing
+## Différentiel Jupyter
 
-One last bonus feature is the ability to diff notebooks. Instead of showing the raw JSON in our Code Comparer panel, we extract each cell and display any lines that changed. We have some exciting features planned for integrating Jupyter deeper in our platform.
+Une dernière fonctionnalité bonus, c’est la possibilité de faire le différentiel entre les notebooks. Plutôt que de montrer le JSON brut dans notre panneau de Comparateur de code, nous extrayons chaque cellule et nous affichons toutes les lignes qui ont changé. Nous avons également des fonctionnalités passionnantes en cours de développement pour encore plus intégrer Jupyter à notre plateforme.
 

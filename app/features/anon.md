@@ -1,21 +1,21 @@
 ---
 description: >-
-  Log and visualize runs without creating an account, and give paper reviewers
-  code that they can run and visualize without setting up Weights & Biases
-  themselves
+  Enregistrer et visualiser des essais sans créer de compte, et fournir du code
+  aux examinateurs de documents qu’ils puissent exécuter et visualise avoir
+  besoin de mettre en place Weights & Biases.
 ---
 
 # Anonymous Mode
 
-Are you writing a paper to submit to a conference? Use **anonymous mode** to let anyone run your code and get a Weights & Biases dashboard without creating an account.
+Est-ce que vous écrivez un article à soumettre à une conférence ? Utilisez le **mode anonyme** pour permettre à n’importe qui d’exécuter votre code et obtenir un tableau de bord Weights & Biases sans créer de compte.
 
 ```python
 wandb.init(anonymous="allow")
 ```
 
-## Example usage
+##  Exemple d’utilisation
 
-[Try the example notebook](http://bit.ly/anon-mode) to see how anonymous mode works in action.
+Essayez [cet exemple de notebook](http://bit.ly/anon-mode) pour voir comment le mode anonyme fonctionne en pleine action.
 
 ```python
 import wandb

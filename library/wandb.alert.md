@@ -1,30 +1,40 @@
 ---
-description: Send an alert notification over Slack or email.
+description: >-
+  Alertes programmables déclenchées depuis Python et envoyées par Slack ou par
+  email
 ---
 
 # wandb.alert\(\)
 
-## Overview
+Envoyez une alerte Slack ou email déclenchée par votre script Python.
 
-Calling `wandb.alert(title, text)` will send an alert over Slack or email, depending on which notifications you've opted into on your [Settings Page](../app/features/alerts.md#user-level-alerts). The `title` should be a short description of the alert, and `text` should provide more detailed information.
+1.  [Activez les alertes sur votre compte →](https://docs.wandb.ai/app/features/alerts)
+2.  [Essayez le code →](http://tiny.cc/wb-alerts)
+3. Vérifiez votre Slack ou votre adresse email pour voir les alertes programmables.
 
-`wandb.alert` accepts a few optional keyword arguments:
+### Arguments
 
-* **level** — the importance of the alert, must be either `INFO`, `WARN`, or `ERROR`
-* **wait\_duration** — the time to wait in seconds before sending another alert with the same title
+`wandb.alert(title="Low Acc", text="Accuracy is below the expected threshold")`
 
-## Examples
+* **title \(chaîne\)** : Une courte description de l’alerte, par exemple "Précision Basse"
+* **text \(chaîne\)** : Une description plus longue et plus détaillée de ce qui a déclenché l’alerte
+* **level \(optionnel\)** : Niveau d’importance de l’alerte – doit être soit `INFO` \(information\), soit `WARN` \(Avertissement\) soit `ERROR` \(Erreur\). 
+*  **wait\_duration \(optionnel\)** : Combien de secondes doivent s’écouler avant qu’une nouvelle alerte avec le même **title** ne soit envoyée, pour réduire le spam d’alertes.
 
-Let's set up a simple alert that warns us every 5 minutes whenever our accuracy falls below an acceptable threshold:
+###  Exemple
 
-```text
+ Cette alerte simple envoie un avertissement lorsque la précision tombe sous un certain seuil. Pour éviter le spam, il envoie ces alertes avec au moins 5 minutes d’écart.
+
+[Essayer le code →](http://tiny.cc/wb-alerts)
+
+```python
 from datetime import timedelta
 import wandb
 from wandb import AlertLevel
 
 if acc < threshold:
     wandb.alert(
-        title='Accuracy low', 
+        title='Low accuracy', 
         text=f'Accuracy {acc} is below the acceptable theshold {threshold}',
         level=AlertLevel.WARN,
         wait_duration=timedelta(minutes=5)

@@ -1,20 +1,22 @@
 ---
-description: ✨BETA✨ support for Ray Tune sweep search and scheduler API
+description: >-
+  Prise en charge ✨BETA✨ pour la recherche de balayage Ray Tune et le Scheduler
+  API
 ---
 
 # Ray Tune Sweeps
 
-[Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) is a scalable hyperparameter tuning library. We're adding support for Ray Tune to W&B Sweeps, which makes it easy to launch runs on many machines and visualize results in a central place.
+[Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) est une librairie de réglages d’hyperparamètres évolutive. Nous ajoutons la prise en charge de Ray Tune sur les Balayages W&B, ce qui rend plus facile le lancement d’essais sur de nombreuses machines et la visualisation des résultats en un point central.
 
 {% hint style="info" %}
-Also check out [the Ray Tune integrations for W&B](../library/integrations/ray-tune.md) for a feature complete, out-of-the-box solution for leveraging both Ray Tune and W&B!
+Jetez aussi un œil [aux intégrations Ray Tune pour W&B](https://docs.wandb.ai/integrations/ray-tune) pour une solution complète prête à l’emploi, pour exploiter à la fois Ray Tune et W&B !
 {% endhint %}
 
 {% hint style="info" %}
-This feature is in beta! We love feedback, and we really appreciate hearing from folks who are experimenting with our Sweeps product.
+Cette fonctionnalité est en beta ! Nous adorons les retours, et nous aimons vraiment entendre les critiques de personnes qui expérimentent avec nos produits de Balayage.
 {% endhint %}
 
-Here's a quick example:
+Voici un exemple rapide :
 
 ```python
 import wandb
@@ -40,50 +42,50 @@ tune_config.save("sweep-hyperopt.yaml")
 wandb.sweep(tune_config)
 ```
 
-[See full example on GitHub →](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)
+ [Voir exemple complet sur GitHub →](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)
 
-## Feature Compatibility
+##  Compatibilité de fonctionnalités
 
-### Search Algorithms
+### Algorithmes de recherche
 
-[Ray/Tune Search Algorithms](https://ray.readthedocs.io/en/latest/tune-searchalg.html)
+ [Algorithmes de recherche Ray/Tune ](https://ray.readthedocs.io/en/latest/tune-searchalg.html)
 
-| Search Algorithm | Support |
+| **Algorithme de recherche** | **Prise en charge** |
 | :--- | :--- |
-| [HyperOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#hyperopt-search-tree-structured-parzen-estimators) | **Supported** |
-| [Grid Search and Random Search](https://ray.readthedocs.io/en/latest/tune-searchalg.html#variant-generation-grid-search-random-search) | Partial |
-| [BayesOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bayesopt-search) | Planned |
-| [Nevergrad](https://ray.readthedocs.io/en/latest/tune-searchalg.html#nevergrad-search) | Planned |
-| [Scikit-Optimize](https://ray.readthedocs.io/en/latest/tune-searchalg.html#scikit-optimize-search) | Planned |
-| [Ax](https://ray.readthedocs.io/en/latest/tune-searchalg.html#ax-search) | Planned |
-| [BOHB](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bohb) | Planned |
+| [HyperOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#hyperopt-search-tree-structured-parzen-estimators) | **Pris en charge** |
+|  [Recherche grille et Recherche aléatoire](https://ray.readthedocs.io/en/latest/tune-searchalg.html#variant-generation-grid-search-random-search) | Partielle |
+| [BayesOpt](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bayesopt-search) | Planifiée |
+| [Nevergrad](https://ray.readthedocs.io/en/latest/tune-searchalg.html#nevergrad-search) | Planifiée |
+| [Scikit-Optimize](https://ray.readthedocs.io/en/latest/tune-searchalg.html#scikit-optimize-search) | Planifiée |
+| [Ax](https://ray.readthedocs.io/en/latest/tune-searchalg.html#ax-search) | Planifiée |
+| [BOHB](https://ray.readthedocs.io/en/latest/tune-searchalg.html#bohb) | Planifiée |
 
 ### HyperOpt
 
-| HyperOpt Feature | Support |
+|  | **Prise en charge** |
 | :--- | :--- |
-| hp.choice | Supported |
-| hp.randint | Planned |
-| hp.pchoice | Planned |
-| hp.uniform | Supported |
-| hp.uniformint | Planned |
-| hp.quniform | Planned |
-| hp.loguniform | Supported |
-| hp.qloguniform | Planned |
-| hp.normal | Planned |
-| hp.qnormal | Planned |
-| hp.lognormal | Planned |
-| hp.qlognormal | Planned |
+| hp.choice | Pris en charge |
+| hp.randint | Planifiée |
+| hp.pchoice | Planifiée |
+| hp.uniform | Pris en charge |
+| hp.uniformint | Planifié |
+| hp.quniform | Planifié |
+| hp.loguniform | Pris en charge |
+| hp.qloguniform | Planifié |
+| hp.normal | Planifié |
+| hp.qnormal | Planifié |
+| hp.lognormal | Planifié |
+| hp.qlognormal | Planifié |
 
-### Tune Schedulers
+###  Schedulers Tune
 
-By default, Tune schedules runs in serial order. You can also specify a custom scheduling algorithm that can stop runs early or perturb parameters. Read more in the [Tune docs →](https://ray.readthedocs.io/en/latest/tune-schedulers.html)
+Par défaut, Tune prévoit les essais dans un ordre de série. Vous pouvez aussi spécifier un algorithme de prévision personnalisé qui peut arrêter les essais de manière précoce ou perturber les paramètres. Lisez-en plus à ce sujet dans la [docu Tune →](https://ray.readthedocs.io/en/latest/tune-schedulers.html)
 
-| Scheduler | Support |
+| Scheduler | **Prise en charge** |
 | :--- | :--- |
-| [Population Based Training \(PBT\)](https://ray.readthedocs.io/en/latest/tune-schedulers.html#population-based-training-pbt) | Investigating |
-| [Asynchronous HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#asynchronous-hyperband) | Planned |
-| [HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#hyperband) | Investigating |
-| [HyperBand \(BOHB\)](https://ray.readthedocs.io/en/latest/tune-schedulers.html#hyperband-bohb) | Investigating |
-| [Median Stopping Rule](https://ray.readthedocs.io/en/latest/tune-schedulers.html#median-stopping-rule) | Investigating |
+| [Population Based Training \(PBT\)](https://ray.readthedocs.io/en/latest/tune-schedulers.html#population-based-training-pbt) | En cours d’étude |
+| [Asynchronous HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#asynchronous-hyperband) |   |
+| [HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#hyperband) |  |
+| [HyperBand \(BOHB\)](https://ray.readthedocs.io/en/latest/tune-schedulers.html#hyperband-bohb) |  En cours d’étude |
+| [Median Stopping Rule](https://ray.readthedocs.io/en/latest/tune-schedulers.html#median-stopping-rule) | En cours d’étude |
 

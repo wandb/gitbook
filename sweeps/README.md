@@ -1,36 +1,36 @@
 ---
-description: Hyperparameter search and model optimization
+description: Recherche d’hyperparamètre et optimisation de modèle
 ---
 
 # Sweeps
 
-Use Weights & Biases Sweeps to automate hyperparameter optimization and explore the space of possible models.
+Utilisez les Balayages Weights & Biases pour automatiser l’optimisation d’hyperparamètre et explorer l’espace des modèles possibles.
 
-## Benefits of using W&B Sweeps
+## Bénéfices d’utiliser les Balayages W&B
 
-1. **Quick setup**: With just a few lines of code you can run W&B sweeps.
-2. **Transparent**: We cite all the algorithms we're using, and [our code is open source](https://github.com/wandb/client/tree/master/wandb/sweeps).
-3. **Powerful**: Our sweeps are completely customizable and configurable. You can launch a sweep across dozens of machines, and it's just as easy as starting a sweep on your laptop.
+1. **Mise en place rapide** : Avec quelques lignes de code à peine, vous pouvez exécuter des balayages W&B.
+2. **Transparence :** Nous citons tous les algorithmes que nous utilisons, [et notre code est en open-source.](https://github.com/wandb/client/tree/master/wandb/sweeps)
+3. **Puissance :** Nos balayages sont complètement personnalisables et configurables. Vous pouvez lancer un balayage sur des douzaines de machines, et c’est aussi facile que d’en lancer un sur votre ordinateur portable.
 
-## Common Use Cases
+## Utilisations fréquentes
 
-1. **Explore**: Efficiently sample the space of hyperparameter combinations to discover promising regions and build an intuition about your model.
-2. **Optimize**:  Use sweeps to find a set of hyperparameters with optimal performance.
-3. **K-fold cross validation**: Here's [a brief code example](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation) of k-fold cross validation with W&B Sweeps.
+1. **Explorer** : Échantillonner efficacement l’espace de vos combinaisons d’hyperparamètres pour découvrir des régions prometteuses et construire une intuition sur votre modèle.
+2. **Optimiser :** Utilisez des balayages pour trouver un set d’hyperparamètres avec des performances optimales.
+3.  **Validation croisée à k blocs** : Voici un [bref exemple de code](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation) de validation croisée à k blocs avec les Balayages W&B. 
 
-## Approach
+## Approche
 
-1. **Add wandb**: In your Python script, add a couple lines of code to log hyperparameters and output metrics from your script. [Get started now →](quickstart.md)
-2. **Write config**: Define the variables and ranges to sweep over. Pick a search strategy— we support grid, random, and Bayesian search, as well as early stopping. Check out some example configs [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
-3. **Initialize sweep**: Launch the sweep server. We host this central controller and coordinate between the agents that execute the sweep.
-4. **Launch agent\(s\)**: Run this command on each machine you'd like to use to train models in the sweep. The agents ask the central sweep server what hyperparameters to try next, and then they execute the runs.
-5. **Visualize results**: Open our live dashboard to see all your results in one central place.
+1. **Ajoutez wandb** : Dans votre script Python, ajoutez quelques lignes de code pour enregistrer des hyperparamètres et de mesures de sortie \(output\) de votre script. [Commencez maintenant →](https://docs.wandb.ai/sweeps/quickstart)
+2.  **Écrivez votre config** : Définissez les variables et les plages sur lesquelles balayer. Choisissez une stratégie de recherche – nous prenons en charge les recherches par grille, aléatoires, et bayésiennes, ainsi que les arrêts précoces. Consultez quelques exemples de configs [ici](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
+3. **Initialisez le balayage :** Lancez le serveur de balayage. Nous hébergeons ce contrôleur central et nous coordonnons entre les agents qui exécute le balayage.
+4.  **Lancer l’agent/les agents** : Exécutez cette commande sur chaque machine que vous voudriez utiliser pour entraîner les modèles dans le balayage. Les agents demandent au serveur central de balayage quels hyperparamètres utiliser ensuite, puis ils exécutent tous les essais.
+5. **Visualisez les résultats :** Ouvrez notre tableau de bord en direct pour voir tous vos résultats en un seul endroit centralisé.
 
-![](../.gitbook/assets/central-sweep-server-3%20%282%29%20%282%29%20%283%29.png)
+![](../.gitbook/assets/central-sweep-server-3%20%282%29%20%282%29%20%282%29.png)
 
 {% page-ref page="quickstart.md" %}
 
-{% page-ref page="add-to-existing.md" %}
+{% page-ref page="existing-project.md" %}
 
 {% page-ref page="configuration.md" %}
 
