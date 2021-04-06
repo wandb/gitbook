@@ -4,14 +4,17 @@ description: Generated documentation for Weights & Biases tools
 
 # Reference Docs
 
-This section of the documentation site contains automatically-generated reference documentation for two major components of the W&B toolkit:
+The Reference Docs are automatically generated from the `wandb` [client library](https://github.com/wandb/client).
 
-* the [Command Line Interface](cli/), for interacting with W&B via the shell, and
-* the [Python Library](python/), for integrating W&B with your machine learning code.
+### Reference sections 
 
-We also document our [Java Library](java/), which is in beta.
+1. [Command Line Interface](cli/): Use the basics of wandb from shell commands
+2. [Python Library](python/):  Instrument your machine learning code to capture metrics and 
+3. [Java Library](java/): Try our beta integration with Java
+
+### Guides and examples
 
 For usage examples, including scripts, interactive colabs, and videos, see [our examples repo on GitHub](https://github.com/wandb/examples).
 
-For tutorials, guides, and FAQs, see the other sections of this website.
+For tutorials, guides, and FAQs, click through the sidebar on the left side of this page.
 
