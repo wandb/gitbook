@@ -2,55 +2,56 @@
 
 ### テクニカルFAQ
 
-**これは私のトレーニングプロセスにどのように影響しますか？**トレーニングスクリプトから`wandb.init`（）が呼び出されると、API呼び出しが行われ、サーバー上に実行オブジェクトが作成されます。メトリックをストリーミングおよび収集するために新しいプロセスが開始され、それによってすべてのスレッドとロジックがプライマリプロセスから除外されます。スクリプトは正常に実行され、ローカルファイルに書き込みますが、別のプロセスがシステムメトリックとともにそれらをサーバーにストリーミングします。トレーニングディレクトリからwandbをオフにするか、**WANDB\_MODE**環境変数を「dryrun」に設定することで、いつでもストリーミングをオフにできます。
+**これは私のトレーニングプロセスにどのように影響しますか？**
 
-###  **wandbがクラッシュした場合、トレーニングの実行がクラッシュする可能性がありますか？**
+トレーニングスクリプトから`wandb.init()`が呼び出されると、API呼び出しが行われ、サーバー上に実行オブジェクトが作成されます。メトリックをストリーミング・収集するために新しいプロセスが開始され、それによってすべてのスレッドとロジックがプライマリプロセスから除外されます。スクリプトは正常に実行され、ローカルファイルに書き込みますが、別のプロセスがシステムメトリックとともにサーバーにストリーミングします。このストリーミングをオフにするには、トレーニングディレクトリでwandb offにするか、**WANDB\_MODE**環境変数を「dryrun」に設定します。
 
-私たちがあなたのトレーニングの実行を決して妨害しないことは私たちにとって非常に重要です。wandbを別のプロセスで実行して、wandbが何らかの理由でクラッシュした場合でも、トレーニングが引き続き実行されるようにします。インターネットが切断された場合、wandbは引き続きwandb.comへのデータの送信を再試行します。
+###  **wandbがクラッシュすると、トレーニングの実行がクラッシュする可能性がありますか？**
 
-### **wandbは私のトレーニングを遅くするようなことがありますか？**
+私たちにとって、あなたのトレーニングの実行を妨害しないことは非常に重要です。wandbを別のプロセスで実行しますので、何らかの理由でクラッシュした場合でもあなたのトレーニングは引き続き実行されます。もしインターネットが切断されてもwandbはwandb.comへのデータ送信を再試行し続けます。
 
-Wandbを通常使用する場合、トレーニングパフォーマンスへの影響はごくわずかです。wandbの通常の使用は、各ステップで1秒に1回未満のログを記録し、数メガバイト未満のデータをログに記録することを意味します。Wandbは別のプロセスで実行され、関数呼び出しはブロックされないため、ネットワークが一時的にダウンしたり、ディスク上で断続的な読み取り/書き込みの問題が発生したりしても、パフォーマンスに影響はありません。大量のデータをすばやくログに記録することが可能であり、そうすると、ディスクI/Oの問題が発生する可能性があります。ご不明な点がございましたら、お気軽にお問い合わせください。
+**Wandbによって私のトレーニングが遅くなることはありますか？**
+
+Wandbを通常使用する場合、トレーニングパフォーマンスへの影響はごくわずかです。wandbの通常の使用は、各ステップのログ記録は1秒に1回未満であり、数メガバイトに満たないサイズのデータです。Wandbは別のプロセスで実行され、関数呼び出しはブロックされないため、ネットワークが一時的にダウンしたり、ディスク上で断続的な読み取り/書き込みの問題が発生したりしても、パフォーマンスに影響はありません。大量データをすばやくログに記録することが可能ですが、そうすれば、ディスクI/Oの問題が発生する可能性があります。ご不明な点がございましたら、お気軽にお問い合わせください。
 
 ### **wandbをオフラインで実行できますか？**
 
-当社は、オフラインマシンでトレーニングしていて、後で結果をサーバーにアップロードする機能を有しています。
+もしオフラインマシンでトレーニングしていて、後でその結果をサーバーにアップロードしたいなら、それが可能です！
 
 1. 環境変数WANDB\_MODE=dryrunを設定して、メトリックをローカルに保存します。インターネットは必要ありません
-2. 準備ができたら、ディレクトリでwandb initを実行して、プロジェクト名を設定します。wandb sync YOUR\_RUN\_DIRECTORYを実行して、メトリックをクラウドサービスにプッシュし、ホストされているWebアプリで結果を確認します。
+2. 準備ができたら、ディレクトリでwandb initを実行して、プロジェクト名を設定します。
+3. `wandb sync YOUR_RUN_DIRECTORY`を実行して、メトリックをクラウドサービスにプッシュし、ホストされているWebアプリで結果を確認します。
 
 ### **ツールはトレーニングデータを追跡または保存していますか？**
 
-SHAまたはその他の一意の識別子を`wandb.config.update(...)`に渡して、データセットをトレーニングの実行に関連付けることができます。`wandb.save`がローカルファイル名で呼び出されない限り、W＆Bはデータを保存しません。
+SHAまたはその他のユニーク識別子を`wandb.config.update(...)`に渡して、データセットをトレーニングの実行に関連付けることができます。`wandb.save`がローカルファイル名で呼び出されない限り、W＆Bはデータを保存しません。
 
 ### **システムメトリックはどのくらいの頻度で収集されますか？**
 
-デフォルトでは、メトリックは2秒ごとに収集され、30秒間の平均になります。より高い解像度の指標が必要な場合は、[contact@wandb.com](mailto:contact@wandb.com)までEメールでお問い合わせください。
+デフォルトでは、メトリックは2秒ごとに収集されますが、平均では30秒ごとに収集されます。高解像度のメトリクスが必要な場合は、[contact@wandb.com](mailto:contact@wandb.com)までEメールでお問い合わせください。
 
-### **これはPythonでのみ機能しますか？**
+### **これが使えるのはPythonだけですか？**
 
-現在、ライブラリはPython2.7以降および3.6以降のプロジェクトでのみ機能します。上記のアーキテクチャにより、他の言語と簡単に統合できるようになります。他の言語を表示する必要がある場合は、[contact@wandb.com](mailto:contact@wandb.com)までご連絡ください。
+現在、ライブラリはPython2.7以降および3.6以降のプロジェクトでのみ機能します。このアーキテクチャは、他言語との統合が簡単です。他言語表示が必要な場合は、[contact@wandb.com](mailto:contact@wandb.com)までご連絡ください。
 
-### **コードやデータセットの例ではなく、メトリックのみをログに記録できますか？**
+### **コードやデータセット例ではなく、メトリックのみをログに記録できますか？**
 
-データセットの例
+データセット例
 
-デフォルトでは、データセットの例はログに記録されません。この機能を明示的にオンにすると、Webイ
-
-ンターフェイスで予測例を確認できます。
+デフォルトでは、データセット例はログに記録されません。この機能を明示的にオンにすると、Webインターフェイスで予測例を確認できます。
 
 **コードロギング**
 
 コードロギングをオフにする方法は2つあります。
 
-1. **WANDB\_DISABLE\_CODE**をtrueに設定して、すべてのコード追跡をオフにします。git SHAまたはdiffパッチは取得しません。
-2.  **WANDB\_IGNORE\_GLOBS**を\* .patchに設定して、サーバーへのdiffパッチの同期をオフにします。 あなたはまだそれをローカルに持っていて、[wandbrestore](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/library/cli#restore-the-state-of-your-code)コマンドでそれを適用することができます。
+1. **WANDB\_DISABLE\_CODE**をtrueにすると、すべてのコードトラッキングがオフになります。git SHAまたはdiffパッチは取得しません。
+2. **WANDB\_IGNORE\_GLOBS**を**\*.patch**に設定すると、サーバーへのdiffパッチの同期がオフになります。それはまだローカルにあり、[wandb restore](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/library/cli#restore-the-state-of-your-code)コマンドで適用させることができます。
 
-### **ロギングは私のトレーニングをブロックしますか？**
+### **ロギングによって私のトレーニングはブロックされますか？**
 
-「ロギング機能は怠惰ですか？結果をサーバーに送信してからローカル操作を続行するためにネットワークに依存したくありません。」
+「ネットワークに依存せずに、結果をwandbサーバーに送信してローカル操作を続行したいです。」
 
-wandb.logを呼び出すと、ローカルファイルに行が書き込まれます。ネットワーク呼び出しをブロックしません。wandb.initを呼び出すと、ファイルシステムの変更をリッスンし、トレーニングプロセスとは非同期にWebサービスと通信する新しいプロセスを同じマシンで起動します。
+**wandb.log**を呼び出すと、ローカルファイルに行が書き込まれます。これによってネットワーク呼び出しはブロックされません。wandb.initを呼び出すと、同一マシン上で新規プロセスが起動します。これはファイルシステムの変更をリッスンし、あなたのトレーニングプロセスとは非同期に弊社Webサービスと通信します。
 
 ### **平滑化アルゴリズムにはどの式を使用しますか？**
 
@@ -58,24 +59,22 @@ TensorBoardと同じ指数移動平均式を使用します。次のリンクか
 
 ### **W＆BはTensorBoardとどう違いますか？**
 
-私たちはTensorBoardに関わった人たちとの協力を望んでおり、TensorBoardとの統合を成し遂げています！私たちは、すべての人のための実験追跡ツールを改善するために努力しています。共同創設者がW＆Bに取り組み始めたとき、彼らはOpenAIで欲求不満のTensorBoardユーザーのためのツールを構築するように求められました。以下は、当社が改善する上で力を入れた項目です。
+私たちはTensorBoardに関わった人たちとの協力を望んでおり、[TensorBoardとの統合](https://docs.wandb.ai/v/japanese/integrations/tensorboard)を成し遂げています！私たちは、実験トラッキングツールをより良くするために努力しています。共同創設者がW＆Bの取り組みを始めたとき、彼らはOpenAIで不満を持っていたTensorBoardユーザーへ、ツールを構築しようとしていました。以下は、当社が改善に力を入れた項目です。
 
-1. **モデルの再現**：Weights＆Biasesは、実験、調査、および後でモデルを再現するのに適しています。メトリックだけでなく、ハイパーパラメータとコードのバージョンもキャプチャし、プロジェクトの再現性を高めるためにモデルのチェックポイントを保存できます。
-2. **自動編成**：プロジェクトを共同作業者に引き渡したり、休暇を取ったりした場合、W＆Bを使用すると、試したすべてのモデルを簡単に確認できるため、古い実験を再実行するのに時間を無駄にすることはありません。
-3. **高速で柔軟な統合**：5分でプロジェクトにW＆Bを追加します。無料のオープンソースPythonパッケージをインストールし、コードに数行追加すると、モデルを実行するたびに、ログに記録された優れたメトリックとレコードが得られます。
-4. **統一化および一元化されたダッシュボード**：ローカルマシン、ラボクラスター、クラウド内のスポットインスタンスなど、モデルをトレーニングする場所ならどこでも、同じ一元化されたダッシュボードを提供します。異なるマシンからTensorBoardファイルをコピーして整理するのに時間を費やす必要はありません。
-5. **強力なテーブル**：さまざまなモデルの結果を検索、フィルタリング、並べ替え、グループ化します。何千ものモデルバージョンを調べて、さまざまなタスクに最適なモデルを見つけるのは簡単です。TensorBoardは、大規模なプロジェクトでうまく機能するようには構築されていません。
-6. **コラボレーションのためのツール**：W＆Bを使用して、複雑な機械学習プロジェクトを整理します。 W＆Bへのリンクを共有するのは簡単で、プライベートチームを使用して、全員が共有プロジェクトに結果を送信することができます。また、レポートを介したコラボレーションもサポートしています。インタラクティブな視覚化を追加し、マークダウンで作業を説明します。これは、作業ログを保持したり、調査結果を上司と共有したり、調査結果をラボに提示したりするための優れた方法です。無料の個人アカウントを始めましょう→
+1. **モデルの再現**：Weights＆Biasesは、実験や調査、それに後で行うモデルの再現にも適しています。メトリックだけでなく、ハイパーパラメータとコードのバージョンもキャプチャします。モデルのチェックポイントも保存でき、プロジェクトの再現性が高まります。
+2. **モデルの再現**：Weights＆Biasesは、実験や調査、それに後で行うモデルの再現にも適しています。メトリックだけでなく、ハイパーパラメータとコードのバージョンもキャプチャします。モデルのチェックポイントも保存でき、プロジェクトの再現性が高まります。
+3. **高速で柔軟な統合**：5分でプロジェクトにW＆Bを追加できます。無料のオープンソースPythonパッケージをインストールし、コードに数行追加するだけで、モデルを実行するたびに、メトリックとレコードのすばらしいログ記録が得られます。
+4. **持続的で一元化されたダッシュボード**：ローカルマシン、ラボクラスター、クラウド内のスポットインスタンスなど、どこでモデルをトレーニングしても、一元化された同じダッシュボードを提供します。異なるマシンからTensorBoardファイルをコピーしたり整理したりする時間は必要ありません。
+5. **強力なテーブル**：さまざまなモデルの結果を検索したり、フィルタリング・並べ替え・グループ化が可能。何千ものモデルバージョンを調べて、さまざまなタスクに最適なモデルを簡単に見つけられます。一方、TensorBoardは、大規模なプロジェクトでうまく機能するようには構築されていません。
+6. **コラボレーションのためのツール**：W＆Bを使用して、複雑な機械学習プロジェクトをまとめることができます。W＆Bへのリンク共有は簡単で、プライベートチーム全員が共有プロジェクトに結果を送信できます。また、レポートを介したコラボレーションもサポートしています。インタラクティブな視覚化を追加し、マークダウンで作業を説明します。これは、作業ログを保持したり、調査結果を上司と共有したり、調査結果をラボに提示したりできる優れた方法です。[無料の個人アカウントを始めましょう→](http://app.wandb.ai/)[\[KinoTrans1\]](applewebdata://4037AA20-4E42-4690-B081-C7052CC97D9A#_msocom_1) 
 
-### **トレーニングコードで実行の名前を構成するにはどうすればよいですか？**
+**トレーニングコードに実行名をコンフィグするにはどうすればよいですか？**
 
  `wandb.init`を呼び出すときは、トレーニングスクリプトの先頭で、`wandb.init(name="my awesome run")`のような実験名を渡します。
 
 ### **スクリプトでランダムな実行名を取得するにはどうすればよいですか？**
 
-`wandb.run.save（）`を呼び出してから、
-
-`wandb.run.name`で名前を取得します。
+`wandb.run.save（）`を呼び出してから、`wandb.run.name`で名前を取得します。
 
 ### **anacondaパッケージはありますか？**
 
@@ -88,7 +87,7 @@ pip install wandb
 
  このインストールで問題が発生した場合は、お知らせください。この[パッケージ管理に関するAnacondaドキ](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html)ュメントには、助けになるガイダンスがあります。
 
-###  **wandbがターミナルまたはjupyterノートブック出力に書き込むのを停止するにはどうすればよいですか？**
+**Wandbによるターミナルまたはjupyterノートブック出力への書き込みを停止するにはどうすればよいですか？**
 
 環境変数[WANDB\_SILENT](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/library/environment-variables)を設定します。
 
@@ -110,69 +109,70 @@ os.environ["WANDB_SILENT"] = "true"
 
 ###  **ネットワークの問題に対処するにはどうすればよいですか？**
 
-**SSL CERTIFICATE\_VERIFY\_FAILED:** this error could be due to your company's firewall. You can set up local CAs and then use: **ネットワークの問題に対処するにはどうすればよいですか？**SSLまたはネットワークで、`wandb: Network error (ConnectionError), entering retry loop`のようなエラーが発生している場合、この問題を解決するために、いくつかの異なるアプローチを試すことができます。
+SSLまたはネットワークで、`wandb: Network error (ConnectionError), entering retry loop`のようなエラーが発生している場合、この問題を解決するために、いくつかのアプローチをお試しください。
 
-1. SSL証明書をアップグレードします。Ubuntuサーバーでスクリプトを実行している場合は、`update-ca-certificates`を実行します。セキュリティの脆弱性があるため、有効なSSL証明書がないとトレーニングログを同期できません。
+1. SSL証明書をアップグレードします。Ubuntuサーバーでスクリプトを実行している場合は、`update-ca-certificates`を実行します。セキュリティの脆弱性の問題で、有効なSSL証明書がないとトレーニングログを同期できません。
 2. ネットワークが不安定な場合は、[オフラインモード](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline)でトレーニングを実行し、インターネットにアクセスできるマシンからファイルを同期します。
-3. [W＆B Local](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/self-hosted/local)を実行してみてください。これは、マシン上で動作し、ファイルをクラウドサーバーに同期しません。**SSL CERTIFICATE\_VERIFY\_FAILED**：このエラーは、会社のファイアウォールが原因である可能性があります。ローカルCAを設定して、次を使用してください。
+3. ​[W＆B Local](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTo635YwwyToLxk-CQ/v/japanese/self-hosted/local)を実行してみてください。これは、マシン上で動作し、ファイルをクラウドサーバーに同期しません。
 
-`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
+**SSL CERTIFICATE\_VERIFY\_FAILED**：このエラーは、あなたの会社のファイアウォールが原因である可能性があります。ローカルCAを設定して、次を使用してください。`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
 
 ### **モデルのトレーニング中にインターネット接続が失われた場合はどうなりますか？**
 
-ライブラリがインターネットに接続できない場合、ライブラリは再試行ループに入り、ネットワークが復元されるまでメトリックのストリーミングを試み続けます。この間、プログラムは実行を継続できます。インターネットのないマシンで実行する必要がある場合は、`WANDB_MODE=dryrun`を設定して、メトリックをハードドライブにローカルにのみ保存することができます。後でwandb sync DIRECTORYを呼び出して、データをサーバーにストリーミングすることができます。
+ライブラリがインターネットに接続できない場合、ライブラリは再試行ループに入り、ネットワークが復元されるまでメトリックのストリーミングを試み続けます。この間もプログラムは実行し続けられます。
 
-### **2つの異なる時間スケールでメトリックをログに記録できますか？**
+インターネットを使用せずにマシンで実行する必要がある場合は、**WANDB\_MODE=dryrun**を設定すると、メトリックをローカルでハードドライブに保存するだけにできます。後で**wandb sync DIRECTORY**を呼び出して、データをサーバーにストリーミングできます。
 
-**（たとえば、バッチごとのトレーニング精度とエポックごとの検証精度をログに記録したいと思います。）**はい、そうです。これを行うには、複数のメトリックをログに記録してから、それらにx軸の値を設定します。したがって、あるステップでは`wandb.log({'train_accuracy': 0.9, 'batch': 200})`を呼び出し、別のステップでは`wandb.log({'val_acuracy': 0.8, 'epoch': 4})`を呼び出すことができます。 
+**2つの異なる時間スケールでメトリックをログに記録できますか？（例：バッチごとのトレーニング精度とエポックごとの検証精度をログに記録）**
+
+ はい、できます。これを行うには、複数のメトリックをログに記録してから、それらにx軸の値を設定します。したがって、あるステップではwandb.log\({'train\_accuracy': 0.9, 'batch': 200}\)を呼び出し、別のステップではwandb.log\({'val\_acuracy': 0.8, 'epoch': 4}\)を呼び出すことができます。
+
+\*\*\*\*
 
 ### **最終評価の精度など、時間の経過とともに変化しないメトリックをログに記録するにはどうすればよいですか？**
 
-wandb.log（{'final\_accuracy': 0.9}）を使用すると、これで問題なく動作します。デフォルトでは、wandb.log（{'final\_accuracy'}）は、runsテーブルに表示される値であるwandb.settings\['final\_accuracy'\]を更新します。
+wandb.log（{'final\_accuracy': 0.9}）を使用すると、問題なく動作します。デフォルトでは、wandb.log（{'final\_accuracy'}）が、実行テーブルに表示される値wandb.settings\['final\_accuracy'\]を更新します。
 
-### How can I log additional metrics after a run completes?
+### **実行が完了した後、追加のメトリックをログに記録するにはどうすればよいですか？**
 
-There are several ways to do this.
+これはいくつかの方法があります。
 
-For complicated workflows, we recommend using multiple runs and setting group parameter in [wandb.init](init.md) to a unique value in all the processes that are run as part of a single experiment. The [runs table](../app/pages/run-page.md) will automatically group the table by the group ID and the visualizations will behave as expected. This will allow you to run multiple experiments and training runs as separate processes log all the results into a single place.
+複雑なワークフローの場合は、複数の実行を使用し、[wandb.init](https://docs.wandb.ai/v/japanese/library/init)のグループパラメータを一意の値に設定することをおすすめします。これは単一の実験の一部として実行するすべてのプロセスで設定します。[実行テーブル](https://docs.wandb.ai/app/pages/run-page)[\[KinoTrans2\]](applewebdata://4037AA20-4E42-4690-B081-C7052CC97D9A#_msocom_2) は、このグループIDによってテーブルを自動的にグループ化し、期待通りに視覚化できます。これにより、個々のプロセスの結果がすべて一か所に記録されるため、複数の実験とトレーニングを実行できます。
 
-For simpler workflows, you can call wandb.init with resume=True and id=UNIQUE\_ID and then later call wandb.init with the same id=UNIQUE\_ID. Then you can log normally with [wandb.log](log.md) or wandb.summary and the runs values will update.
+より単純なワークフローでは、resume=Trueおよびid=UNIQUE\_IDを指定してwandb.initを呼び出し、後で同じid=UNIQUE\_IDを指定してwandb.initを呼び出すことができます。次に、[wandb.log](https://docs.wandb.ai/v/japanese/library/log)またはwandb.summaryを使用して通常どおりログに記録すると、実行値が更新されます。
 
-At any point you can always use the[ API](../ref/export-api/) to add additional evaluation metrics.
+[API](https://docs.wandb.ai/library/public-api-guide#update-metrics-for-a-run-after-the-run-has-finished)[\[KinoTrans3\]](applewebdata://4037AA20-4E42-4690-B081-C7052CC97D9A#_msocom_3) を使用して、いつでも評価指標を追加できます。
 
- **実行が完了した後、追加のメトリックをログに記録するにはどうすればよいですか？**
+ **.log（）と.summaryの違いは何ですか？**
 
 これはいくつかの方法によって行われます。複雑なワークフローの場合は、複数の実行を使用し、[wandb.init](init.md)のグループパラメータを、単一の実験の一部として実行されるすべてのプロセスでユニークな値に設定することをお勧めします。実行テーブルは、グループIDによってテーブルを自動的にグループ化し、ビジュアライゼーションは期待どおりに動作します。これにより、個別のプロセスがすべての結果を1つの場所に記録するため、複数の実験とトレーニングを実行できます。より単純なワークフローの場合、resume=Trueおよびid=UNIQUE\_IDを指定してwandb.initを呼び出し、後で同じid=UNIQUE\_IDを指定してwandb.initを呼び出すことができます。次に、wandb.logまたはwandb.summaryを使用して通常どおりログに記録すると、実行値が更新されます。APIを使用して、いつでも評価指標を追加できます。
 
-### What is the difference between  .log\(\) and .summary?  
+### **.log（）と.summaryの違いは何ですか？**
 
-The summary is the value that shows in the table while log will save all the values for plotting later.  
+“summary\(集計値\)”はテーブルに表示される値であり、”log”は後でプロットするために保存されるすべての値です。
 
-For example you might want to call `wandb.log` every time the accuracy changes.   Usually you can just use .log.  `wandb.log()` will also update the summary value by default unless you have set summary manually for that metric
+たとえば、精度が変わるたびにwandb.logを呼び出すことができます。通常は、.logを使用できます。wandb.log\(\)は、そのメトリックのsummary\(集計\)を手動で設定していなければ、デフォルトではsummaryの値も更新されます。
 
-The scatterplot and parallel coordinate plots will also use the summary value while the line plot plots all of the values set by .log
+散布図と平行座標プロットもこのsummary値を使用しますが、折れ線グラフは.logで設定されたすべての値をプロットします。
 
-The reason we have both is that some people like to set the summary manually because they want the summary to reflect for example the optimal accuracy instead of the last accuracy logged.
+なぜ両方が存在するかというと、集計を手動で設定したい場合があるからです。例えば、最後に記録された精度ではなく、最適な精度を集計に反映させたい場合などです。
 
-### How do I install the wandb Python library in environments without gcc?
+### **gccのない環境にwandbのPythonライブラリをインストールするにはどうすればよいですか？**
 
-If you try to install `wandb` and see this error:
+`wandb`をインストールしようとして、このエラーが表示された場合：
 
 ```text
 unable to execute 'gcc': No such file or directory
 error: command 'gcc' failed with exit status 1
 ```
 
-You can install psutil directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)  
+psutilは、事前構成済みのホイールから直接インストールできます。ここでPythonのバージョンとOSを見つけてください：[https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)
 
-For example, to install psutil on python 3.8 in linux:
+例：LinuxのPython 3.8にpsutilをインストールする場合
 
 ```text
 pip install https://github.com/pywharf/pywharf-pkg-repo/releases/download/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl#sha256=adc36dabdff0b9a4c84821ef5ce45848f30b8a01a1d5806316e068b5fd669c6d
 ```
 
-After psutil has been installed, you can install wandb with `pip install wandb`
-
-  
-
+psutilがインストールされたら、`pip install wandb`でwandbをインストールできます。
 

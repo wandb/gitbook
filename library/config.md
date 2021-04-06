@@ -1,5 +1,5 @@
 ---
-description: 実験構成を保存するための辞書のようなオブジェクト
+description: 実験のコンフィギュレーションを保存する辞書のようなオブジェクト
 ---
 
 # wandb.config
@@ -8,9 +8,11 @@ description: 実験構成を保存するための辞書のようなオブジェ�
 
 [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-config/Configs_in_W%26B.ipynb)
 
-syntax. スクリプトに`wandb.config`オブジェクトを設定して、ハイパーパラメータ、データセット名やモデルタイプなどの入力設定、および実験用の他の独立変数などのトレーニング構成を保存します。これは、実験を分析し、将来の作業を再現するのに役立ちます。Webインターフェースで構成値ごとにグループ化し、さまざまな実行設定を比較して、これらが出力にどのように影響するかを確認できます。出力メトリックまたは従属変数（ロスや精度など）は、wandb.loginsteadで保存する必要があることに注意してください。configでネストされた辞書を送信できます。バックエンドでドットを使用して名前をフラット化します。構成変数名にドットを使用せず、代わりにダッシュまたはアンダースコアを使用することをお勧めします。wandb構成ディクショナリを作成した後、スクリプトがルートの下のwandb.configキーにアクセスする場合は、`.`シンタックスの代わりに`[ ]`シンタックスを使用します
+スクリプトに`wandb.config`オブジェクトを設定して、ハイパーパラメータ、データセット名やモデルタイプなどの入力設定、および実験用の他の独立変数などのトレーニングコンフィグを保存します。これは、実験を分析したり将来的に作業を再現するのに役立ちます。Webインターフェースで設定値ごとにグループ化し、さまざまな実行設定を比較して、これらが出力にどのように影響するかを確認できます。出力メトリックまたは従属変数（損失や精度など）は、wandb.logに保存する必要があることに注意してください。
 
-##  簡単な例
+configでネストされた辞書を送信することができます。バックエンドにドットを使用して名前がフラット化されます。コンフィグの変数名にはドットを使用せず、代わりにダッシュまたはアンダースコアを使用することをお勧めします。wandb構成ディクショナリ作成後、スクリプトがルート下のwandb.configキーにアクセスする場合は、.シンタクスではなく \[ \]シンタクスを使用します。
+
+###  簡単な例
 
 ```python
 wandb.config.epochs = 4
@@ -53,9 +55,9 @@ flags.DEFINE_string(‘model’, None, ‘model to run’) # name, default, help
 wandb.config.update(flags.FLAGS) # adds all absl flags to config
 ```
 
-## ファイルベースの構成
+## **ファイルベースのコンフィグ**
 
-**config-defaults.yaml**というファイルを作成できます。\_\_これは自動的に`wandb.config`に読み込まれます。
+**config-defaults.yaml, \_\_**というファイルを作成できます。これは自動的にwandb.configに読み込まれます。
 
 ```yaml
 # sample config defaults file
@@ -67,9 +69,9 @@ batch_size:
   value: 32
 ```
 
-コマンドライン引数`--configsspecial-configs.yaml`を使用して、wandbにさまざまな構成ファイルをロードするように指示できます。
+コマンドライン引数`—configs special-configs.yaml`を使用して、さまざまなコンフィグファイルをロードするようにwandbに指示できます。これにより、ファイルspecial-configs.yamlからパラメータがロードされます。
 
-これにより、ファイルspecial-configs.yamlからパラメータがロードされます。ユースケースの例：実行用のメタデータを含むYAMLファイルがあり、Pythonスクリプトにハイパーパラメータのディクショナリがあります。ネストされた構成オブジェクトに両方を保存できます。
+ユースケースの例：実行用のメタデータを含むYAMLファイルがあり、その次にPythonスクリプトにハイパーパラメータのディクショナリがあります。ネストされたコンフィグオブジェクトに両方を保存できます。
 
 ```python
 hyperparameter_defaults = dict(
@@ -88,7 +90,7 @@ wandb.init(config=config_dictionary)
 
 ## データセット識別子
 
- `wandb.config`を使用して実験への入力として追跡することにより、データセットの実行の構成にユニークな識別子（ハッシュやその他の識別子など）を追加できます。
+ `wandb.config`を使用して実験の入力としてトラッキングすることで、データセットの実行コンフィグにユニーク識別子（ハッシュやその他の識別子など）を追加できます。
 
 ```yaml
 wandb.config.update({'dataset':'ab131'})
@@ -96,7 +98,7 @@ wandb.config.update({'dataset':'ab131'})
 
 ### 構成ファイルの更新
 
-パブリックAPIを使用して構成ファイルを更新できます
+パブリックAPIを使用してコンフィグファイルを更新できます
 
 ```yaml
 import wandb
@@ -106,9 +108,9 @@ run.config["foo"] = 32
 run.update()
 ```
 
-### キーおよび値のペア
+###  **キーと値のペア**
 
-任意のキーと値のペアをwandb.configに記録できます。それらは、トレーニングしているモデルのタイプごとに異なります。つまり、 `wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`
+任意のキーと値のペアをwandb.configに記録できます。それらは、トレーニングしているモデルのタイプごとに異なります。つまり次のようになります。`wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`
 
 ## TensorFlowフラグ（tensorflow v2では非推奨）
 

@@ -1,42 +1,40 @@
 ---
-description: 機械学習（ML）実験を追跡し、メトリックを視覚化し、結果を共有しましょう
+description: 機械学習（ML）実験を記録し、メトリックを視覚化し、結果を共有しましょう
 ---
 
 # Weights & Biases
 
-Weights＆Biasesは、あなたが機械学習プロジェクトを円満に追跡できるようにサポートします。あなたは当社のツールを使用することにより、実行のハイパーパラメータとメトリック出力をログに記録し、さらに、結果を視覚化して比較し、結果を同僚とすばやく共有することが可能になります。
+ Weights＆Biasesは、機械学習プロジェクトの記録を助けます。当社のツールを使用することにより、ハイパーパラメータや実行の出力メトリックをログに記録し、それを可視化できます。そして結果や所見を迅速に人々と共有することができます。
 
-![](.gitbook/assets/sukurnshotto-2020-12-01-215041png.png)
+弊社モジュラーツールの概要：
 
- 当社のツールは、AWS、GCP、Kubernetes、Azure、およびオンプレミスのマシンなどの機械学習インフラストラクチャを基盤にしています。
+1. [**ダッシュボード**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/app)：実験の記録
+2. [**アーティファクト**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/artifacts)：データセットおよびモデルのバージョン管理
+3. [**スイープ**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/sweeps)：ハイパーパラメータの最適化
+4. [**レポート**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/reports)：再現可能な調査結果を保存・共有 
 
-##  ツール
+![](.gitbook/assets/picture1.png)
 
-1.  [**ダッシュボード**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/app)：実験を追跡し、結果を視覚化します
-2.  [**レポート**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/reports)：再現可能な調査結果を保存して共有します
-3.  [**スイープ**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/sweeps)：ハイパーパラメータの調整を使用してモデルを最適化します
-4. [**アーティファクト**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/artifacts)：データセットおよびモデルのバージョン管理、パイプライン追跡
+{% embed url="https://www.youtube.com/watch?v=EIgoKitLUqM" %}
 
-{% embed url="https://youtu.be/gnD8BFuyVUA" caption="" %}
+##  **始めましょう**
 
-##  入門
+当社のPythonライブラリ`wandb`をあなたの機械学習スクリプトに簡単に追加できます。
 
- 当社のPythonライブラリ`wandb`をあなたの機械学習スクリプトに簡単に追加できます。
+* [クイックスタート](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/quickstart)​
+* [Kerasの統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/integrations/keras)​
+* [PyTorchの統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/integrations/pytorch)​
+* [TensorFlowの統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/integrations/tensorflow) ​
+* [Jupyterノートブックの統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/integrations/jupyter)​
 
-*  [クイックスタート](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/quickstart)
-*  [Kerasの統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/integrations/keras)
-*  [PyTorchの統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/integrations/pytorch)
-*  [TensorFlowの統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/integrations/tensorflow)
-*  [Jupyterノートブックの統合](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/integrations/jupyter)
-
- 以下の図は、W＆Bの[種識別プロジェクト](https://wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification)サンプルのスクリーンショットです。
+ 以下の図は、W＆Bの[種識別プロジェクト](https://wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification)のサンプルスクリーンショットです。
 
 ![](.gitbook/assets/screen-shot-2020-08-07-at-1.16.16-pm.png)
 
-## 実例
+## **実例**
 
-サンプルプロジェクトに興味がある場合は、当社のいくつかのリソースをご覧ください。
+プロジェクト実例に興味がある場合は、当社のリソースをご覧ください。
 
-*  [アプリギャラリー](https://wandb.ai/gallery)：ウェブアプリの注目レポートのギャラリー
-*  [プロジェクトの例](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/examples)：GitHubとColabのコードおよびプロジェクト
+* [アプリギャラリー](https://wandb.ai/gallery)：ウェブアプリの注目レポートのギャラリー
+* [プロジェクトの例](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/examples)：GitHubとColabのコードおよびプロジェクト
 
