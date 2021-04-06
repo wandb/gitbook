@@ -76,7 +76,7 @@ Learn more about using artifacts for data and model versioning:
 4. [Model Versioning](model-versioning.md)
 5. [Artifacts FAQs](artifacts-faqs.md)
 6. [Artifacts Examples](examples.md)
-7. [Artifact](../ref/artifact.md) reference docs
+7. [Artifact]() reference docs
 
 ## Video Tutorial for W&B Artifacts
 

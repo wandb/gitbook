@@ -289,7 +289,7 @@ For any issues, question or feature request with this Hugging Face W&B integrati
 
 Once you have logged your training results you can explore your results dynamically in the W&B Dashboard. It's easy to look across dozens of experiments, zoom in on interesting findings, and visualize highly dimensional data.
 
-![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29.gif)
+![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29.gif)
 
 
 

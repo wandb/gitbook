@@ -78,7 +78,7 @@ In the [W&B dashboard](https://wandb.ai/ayush-thakur/DDP/runs/1s56u3hc) you can 
 
 ![](../.gitbook/assets/image%20%2869%29.png)
 
-![](../.gitbook/assets/image%20%2864%29.png)
+![](../.gitbook/assets/image%20%2868%29.png)
 
 ### Method 2: `wandb.init` on all processes
 
