@@ -1,22 +1,23 @@
 ---
-description: Generated documentation for our API and integrations
+description: Generated documentation for Weights & Biases tools
 ---
 
-# API Reference
+# Reference Docs
 
-Wandb is a library to help track machine learning experiments.
+This section of the documentation site contains
+automatically-generated reference documentation
+for two major components of the W&B toolkit:
 
-For more information on wandb see [https://docs.wandb.com](https://docs.wandb.com).
+- the [Command Line Interface](./cli/README.md), for interacting with W&B via the shell, and
+- the [Python Library](./python/README.md), for integrating W&B with your machine learning code.
 
-The most commonly used functions/objects are:
+We also document our
+[Java Library](./java/README.md),
+which is in beta.
 
-* wandb.init — initialize a new run at the top of your training script
-* wandb.config — track hyperparameters
-* wandb.log — log metrics over time within your training loop
-* wandb.save — save files in association with your run, like model weights
-* wandb.restore — restore the state of your code when you ran a given run
+For usage examples,
+including scripts, interactive colabs, and videos, see
+[our examples repo on GitHub](https://github.com/wandb/examples).
 
-For examples usage, see [github.com/wandb/examples](https://github.com/wandb/examples)
-
-## 
-
+For tutorials, guides, and FAQs,
+see the other sections of this website.
