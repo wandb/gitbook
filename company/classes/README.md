@@ -20,7 +20,7 @@ Demandez à vos étudiants de soumettre des rapports pour que vous puissiez expl
 
 Créez un projet dans votre équipe universitaire, et faites entrer vos étudiants en compétition pour obtenir la meilleure précision sur une tâche partagée. Voici une capture d’écran d’un exemple de compétition. Chaque ligne est une expérience différente, et les utilisateurs sont en compétition pour obtenir la plus haute précision. [Voir le projet →](https://app.wandb.ai/wandb/feb8-emotion)
 
-![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%283%29%20%284%29.png)
 
 ###  Ressources
 
@@ -30,7 +30,7 @@ Créez un projet dans votre équipe universitaire, et faites entrer vos étudian
 
  [Voir le répertoire GitHub →](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29.png)
 
  Nous avons également créé certains notebooks hébergés avec des modèles pour que vos étudiants puissent commencer à s’entraîner gratuitement en un clic.
 
@@ -44,7 +44,7 @@ Créez un projet dans votre équipe universitaire, et faites entrer vos étudian
 
  [Voir les tutoriels →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%282%29.png)
 
 ###  Cours Gratuits
 

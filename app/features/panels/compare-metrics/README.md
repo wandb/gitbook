@@ -67,7 +67,7 @@ Voici ce à quoi ressemble le graphique avant de faire la moyenne :
 
 Ici, j’ai regroupé les lignes pour voir la valeur moyenne à travers les essais.
 
-![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%282%29.png)
+![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%283%29%20%282%29.png)
 
 ## Comparer deux mesures sur un graphique
 
