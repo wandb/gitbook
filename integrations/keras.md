@@ -4,7 +4,7 @@ description: How to integrate a Keras script to log metrics to W&B
 
 # Keras
 
-Kerasコールバックを使用して、`model.fit`で追跡されたすべてのメトリックと損失値を自動的に保存します。
+Kerasコールバックを使用して、`model.fit`でトラッキングされたすべてのメトリックと損失値を自動保存します。
 
 {% code title="example.py" %}
 ```python
@@ -19,25 +19,25 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 ```
 {% endcode %}
 
- [colabノートブック](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb)で統合を試してください。[ビデオチュートリアル](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases)を完備しているか、完全なスクリプトの例については[サンプルプロジェクト](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/examples)を参照してください。
+ [colabノートブック](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb)で統合をお試しください。[ビデオチュートリアル](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases)もあります。完全なスクリプトの例については[サンプルプロジェクト](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/examples)を参照してください。
 
 #### オプション
 
-Keras `WandbCallback（）`クラスは、いくつかのオプションをサポートしています
+Keras `WandbCallback()`クラスは、たくさんのオプションをサポートしています。
 
 | キーワード引数 | デフォルト | 説明 |
 | :--- | :--- | :--- |
-| monitor | val\_loss |  最良のモデルを保存するためのパフォーマンスを測定するために使用されるトレーニングメトリック。つまり、val\_loss |
-| mode | auto | ‘min'、‘max'、または‘auto'：モニターで指定されたトレーニングメトリックをステップ間で比較する方法 |
+| monitor | val\_loss | 最良のモデルを保存するためのパフォーマンスを測定するのに使用されるトレーニングメトリック。 |
+| mode | auto | ‘min'、‘max'、または‘auto'：`monitor`で指定されたトレーニングメトリックをステップ間で比較する方法 |
 | save\_weights\_only | False | モデル全体ではなく、重みのみを保存します |
 | save\_model | True | 各ステップで改善された場合はモデルを保存します |
 | log\_weights | False | 各エポックでの各レイヤーパラメータの値をログに記録します |
 | log\_gradients | False | 各エポックでの各レイヤーパラメータのグラデーションをログに記録します |
-| training\_data | None | グラデーションの計算に必要なタプル（X、y） |
-| data\_type | None |  保存しているデータの種類。現在、「画像」のみがサポートされています |
+| training\_data | None | グラデーションの計算に必要なタプル（X,y） |
+| data\_type | None |  保存しているデータの種類。現在、「image\(画像\)」のみがサポートされています |
 | labels | None | data\_typeが指定されている場合にのみ使用され、分類子を作成している場合に数値出力を変換するラベルのリスト。（二項分類をサポート） |
 | predictions | 36 | data\_typeが指定されている場合に行う予測の数。最大は100です。 |
-| generator | None | データ拡張とdata\_typeを使用する場合は、予測を行うためのジェネレーターを指定できます。 |
+| generator | None | データ拡張とdata\_typeを使用する場合は、予測を行うジェネレーターを指定できます。 |
 
 ## よくある質問
 
@@ -53,6 +53,6 @@ Keras `WandbCallback（）`クラスは、いくつかのオプションをサ�
  統合がどのように機能するかを確認するために、いくつかの例を作成しました。
 
 *  [Githubの例](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py)：PythonスクリプトのファッションMNISTの例
-* Google Colabで実行：開始するための簡単なノートブックの例
+* Google Colabの実行：開始するための簡単なノートブックの例
 * [Wandbダッシュボード](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs)：W＆Bで結果を表示
 
