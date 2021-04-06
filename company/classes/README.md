@@ -20,7 +20,7 @@ Pídeles a tus estudiantes que envíen reportes para que puedas explorar sus res
 
 Crea un proyecto en tu equipo académico, y haz que los estudiantes compitan para conseguir la mejor precisión sobre una tarea compartida. Aquí hay una captura de pantalla de una competencia de ejemplo. Cada file es un experimento diferente, y los usuarios están compitiendo para obtener la precisión más alta. [Ver el proyecto →](https://app.wandb.ai/wandb/feb8-emotion)
 
-![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%283%29%20%284%29.png)
 
 ##  Recursos
 
@@ -30,7 +30,7 @@ Hemos construido un conjunto de ejemplos funcionando de proyectos de aprendizaje
 
  [Ver el repositorio en GitHub →](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29.png)
 
  También hemos creado algunas notebooks con modelos, que tus estudiantes pueden comenzar a entrenar de forma gratuita, con el click de un botón.
 
@@ -44,7 +44,7 @@ Lukas y Chris han construido una biblioteca de proyectos de tutoriales cortos, c
 
  [Ver los tutoriales →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%282%29.png)
 
 ### Clases gratuitas
 

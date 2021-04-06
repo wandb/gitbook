@@ -8,7 +8,7 @@ description: Enlaces y recursos de nuestras presentaciones y conversaciones en v
 
 Prueba nuestras herramientas gratuitas para el seguimiento de experimentos con este [ejemplo de 5 minutos →](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%284%29.png)
 
 ## Aprendizaje Profundo en el Mundo Real
 

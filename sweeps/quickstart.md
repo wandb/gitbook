@@ -2,7 +2,7 @@
 
 Comienza a partir de cualquier modelo de aprendizaje de máquinas y obtén un barrido de hiperparámetros que se ejecuta en minutos. ¿Quieres ver un ejemplo en funcionamiento? Aquí está el [código de ejemplo](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) y un [panel de control de ejemplo](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%284%29%20%282%29.png)
 
 {% hint style="info" %}
 ¿Ya tienes un proyecto en Weights & Biases? [Salta a nuestro próximo tutorial acerca de Barridos →](https://docs.wandb.ai/sweeps/existing-project)
@@ -122,5 +122,5 @@ Abre tu proyecto para ver los resultados en tiempo real en el panel de control d
 
  [Panel de control de ejemplo →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../.gitbook/assets/image%20%2888%29%20%282%29%20%281%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%281%29.png)
 
