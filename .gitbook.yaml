@@ -39,9 +39,6 @@ redirects:
   wandb/restore: ./ref/python/restore.md
   wandb/save: ./ref/python/save.md
   integrations/api: ./ref/python/public-api/README.md
-  ref/export-api: ./library/public-api-guide.md
-  ref/export-api/api: ./ref/public-api/README.md
-  ref/export-api/examples: ./library/public-api-guide.md
   library/api: ./library/public-api-guide.md
   sweeps/overview: ./sweeps/README.md
   ref/config: ./ref/python/config.md
@@ -94,3 +91,14 @@ redirects:
   frameworks/tensorflow-example: ./integrations/tensorflow.md
   frameworks/xgboost: ./integrations/xgboost.md
   frameworks/xgboost-example: ./integrations/xgboost.md
+  ref/export-api: ./library/public-api-guide.md
+  ref/export-api/api: ./ref/public-api/README.md
+  ref/export-api/examples: ./library/public-api-guide.md
+  ref/artifact: ./ref/python/artifact.md
+  ref/run: ./ref/python/run.md
+  ref/run/alert: ./ref/python/run.md
+  ref/run/config: ./ref/python/config.md
+  ref/run/init: ./ref/python/init.md
+  ref/run/log: ./ref/python/log.md
+  ref/run/login: ./ref/python/login.md
+  ref/run/summary: ./ref/python/summary.md
