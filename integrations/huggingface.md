@@ -76,7 +76,7 @@ _If using a python script, set the following before initialising_  `Trainer`_:_
 
 ```text
 import os
-os.environ['WANDB_PROJECT'] = amazon_sentiment_analysis
+os.environ['WANDB_PROJECT'] = 'amazon_sentiment_analysis'
 ```
 
 _If you are using a Jupyter or Google Colab notebook, set the following before initialising_  `Trainer`_:_
@@ -96,7 +96,7 @@ Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) you can use
 _If using a python script, set the following before initialising_  `Trainer`_:_
 
 ```text
-os.environ['WANDB_LOG_MODEL'] = true
+os.environ['WANDB_LOG_MODEL'] = 'true'
 ```
 
 _If using a Notebook, set the following before initialising_  `Trainer`_:_
@@ -259,14 +259,14 @@ _If using a python script or Notebook, set the following before initialising you
 ```text
 import os
 os.environ['WANDB_WATCH'] = 'all'
-os.environ['WANDB_SILENT'] = true
+os.environ['WANDB_SILENT'] = 'true'
 ```
 
 _If using a Notebook, set the following before initialising your_ `Trainer`_:_
 
 ```text
 %env WANDB_WATCH = 'all'
-%env WANDB_SILENT = true
+%env WANDB_SILENT = 'true'
 ```
 
 ### Custom wandb Init
@@ -291,7 +291,7 @@ For any issues, question or feature request with this Hugging Face W&B integrati
 
 Once you have logged your training results you can explore your results dynamically in the W&B Dashboard. It's easy to look across dozens of experiments, zoom in on interesting findings, and visualize highly dimensional data.
 
-![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29.gif)
+![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29.gif)
 
 
 
