@@ -102,3 +102,4 @@ redirects:
   ref/run/log: ./ref/python/log.md
   ref/run/login: ./ref/python/login.md
   ref/run/summary: ./ref/python/summary.md
+  ref/data-types: ./ref/python/data-types/README.md
