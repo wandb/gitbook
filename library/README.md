@@ -1,12 +1,12 @@
 ---
 description: >-
-  Weights & Biases permet un suivi de vos expériences, d’avoir de multiples
-  versions de dataset, et de gérer votre modèle
+  Weights & Biases pour un suivi de vos expériences, le versionnage de jeux de
+  données et la gestion de vos modèles
 ---
 
 # Library
 
-Utilisez la librairie Python `wandb` pour suivre vos expériences d’apprentissage automatique avec quelques lignes de code. Si vous utilisez un framework populaire comme [Pytorch](https://docs.wandb.ai/integrations/pytorch) ou [Keras](https://docs.wandb.ai/integrations/keras), nous avons des [intégrations](https://docs.wandb.ai/integrations) simplifiées.
+Utilisez la bibliothèque Python `wandb` pour suivre vos expériences d’apprentissage automatique avec quelques lignes de code. Si vous utilisez un framework populaire comme [Pytorch](https://docs.wandb.ai/integrations/pytorch) ou [Keras](https://docs.wandb.ai/integrations/keras), nous mettons à votre disposition des [intégrations](https://docs.wandb.ai/integrations) simplifiées.
 
 ## Intégrer W&B à votre script
 

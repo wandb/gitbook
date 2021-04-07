@@ -26,7 +26,7 @@ Utilisez les Balayages Weights & Biases pour automatiser l’optimisation d’hy
 4.  **Lancer l’agent/les agents** : Exécutez cette commande sur chaque machine que vous voudriez utiliser pour entraîner les modèles dans le balayage. Les agents demandent au serveur central de balayage quels hyperparamètres utiliser ensuite, puis ils exécutent tous les essais.
 5. **Visualisez les résultats :** Ouvrez notre tableau de bord en direct pour voir tous vos résultats en un seul endroit centralisé.
 
-![](../.gitbook/assets/central-sweep-server-3%20%282%29%20%282%29%20%283%29%20%282%29.png)
+![](../.gitbook/assets/central-sweep-server-3%20%282%29%20%282%29%20%283%29%20%283%29%20%282%29.png)
 
 {% page-ref page="quickstart.md" %}
 

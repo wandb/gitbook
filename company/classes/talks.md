@@ -8,7 +8,7 @@ description: Liens et ressources de nos présentations en direct et de nos conf�
 
 Essayez nos outils gratuits de suivi d’expérience avec cet [exemple en 5 minutes →](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%284%29.png)
 
 ## Le Deep Learning dans le Monde Réel
 
