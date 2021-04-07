@@ -96,7 +96,7 @@ redirects:
   ref/export-api/examples: ./library/public-api-guide.md
   ref/artifact: ./ref/python/artifact.md
   ref/run: ./ref/python/run.md
-  ref/run/alert: ./ref/python/run.md#alert
+  ref/run/alert: ./ref/python/run.md
   ref/run/config: ./ref/python/config.md
   ref/run/init: ./ref/python/init.md
   ref/run/log: ./ref/python/log.md
