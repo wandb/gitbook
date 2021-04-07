@@ -2,7 +2,7 @@
 
  임의의 머신 러닝 모델에서 시작해서 수 분내에 초매개변수 스윕을 실행하실 수 있습니다. 작업 예시를 보고 싶으신가요? 다음은 [예시 코드](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)와 [예시 대시보드](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q)입니다.
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%284%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%284%29%20%283%29%20%282%29.png)
 
 {% hint style="info" %}
 이미 Weights & Biases 프로젝트가 있으신가요? [다음 스윕 튜토리얼로 건너뛰기 →](https://docs.wandb.com/sweeps/existing-project)​
@@ -122,5 +122,5 @@ wandb agent your-sweep-id
 
 [예시 대시보드 →](https://app.wandb.ai/carey/pytorch-cnn-fashion)​
 
-![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%281%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%281%29.png)
 

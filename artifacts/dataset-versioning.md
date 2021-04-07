@@ -45,7 +45,7 @@ run.log_artifact(my_data)
 
  [이 예시](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat_80-10-10_5K/ab79f01e007113280018)에서, 저희는 1K, 5K, 10K 항목의 데이터세트 세 개를 갖고 있으며, 하위 폴더의 파일명에 걸쳐 비교 및 확인할 수 있습니다. \(데이터 분할별 또는 클래스 레이블별\)
 
-![](../.gitbook/assets/screen_shot_2021-02-23_at_3.18.03_pm%20%281%29.png)
+![](../.gitbook/assets/screen_shot_2021-02-23_at_3.18.03_pm%20%281%29%20%281%29.png)
 
 ## **데이터 분할 프리패키징\(prepackage\)** <a id="7ccfb650-1f87-458c-a4e2-538138660292"></a>
 

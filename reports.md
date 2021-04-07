@@ -75,7 +75,7 @@ description: 머신러닝 프로젝트를 위한 프로젝트 관리 및 협업 
 
 그래프를 작업 영역에서 리포트로 전송해서 진행 상황을 추적합니다. 리포트에 복사 할 차트 또는 패널의 드롭다운 메뉴\(dropdown menu\)를 클릭하고,**리포트에 추가\(Add to report\)**를 클릭하여 결과 리포트\(destination report\)를 선택하십시오.
 
-![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%283%29%20%281%29.gif)
+![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%283%29%20%283%29%20%281%29.gif)
 
 ##  **리포트 FAQ**
 
