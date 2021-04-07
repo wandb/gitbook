@@ -103,3 +103,13 @@ redirects:
   ref/run/login: ./ref/python/login.md
   ref/run/summary: ./ref/python/summary.md
   ref/data-types: ./ref/python/data-types/README.md
+  ref/data-types/audio: ./ref/python/data-types/audio.md
+  ref/data-types/histogram: ./ref/python/data-types/histogram.md
+  ref/data-types/html: ./ref/python/data-types/html.md
+  ref/data-types/image: ./ref/python/data-types/image.md
+  ref/data-types/molecule: ./ref/python/data-types/molecule.md
+  ref/data-types/object3d: ./ref/python/data-types/object3d.md
+  ref/data-types/plotly: ./ref/python/data-types/plotly.md
+  ref/data-types/table: ./ref/python/data-types/table.md
+  ref/data-types/video: ./ref/python/data-types/video.md
+  ref/cli: ./ref/cli/README.md
