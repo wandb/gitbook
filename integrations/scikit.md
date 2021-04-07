@@ -1,6 +1,6 @@
 # Scikit
 
-wandbを使用すると、数行のコードでscikit-learnモデルのパフォーマンスを視覚化して比較できます。[**例を試してください→**](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)  
+wandbを使用すると、数行のコードでscikit-learnモデルのパフォーマンスを視覚化して比較できます。[**例をお試しください→**](https://colab.research.google.com/drive/1j_4UQTT0Lib8ueAU5zXECxesCj_ofjw7)  
 
 
 ### プロットを作成します
@@ -42,19 +42,19 @@ wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.46.34-am.png)
 
- さまざまな長さのデータセットでモデルをトレーニングし、トレーニングセットとテストセットの両方について、相互検証されたスコアとデータセットサイズのプロットを生成します。
+ さまざまな長さのデータセットでモデルをトレーニングし、トレーニングセットとテストセット両方について、相互検証したスコアvsデータセットサイズのプロットを生成します。
 
 `wandb.sklearn.plot_learning_curve(model, X, y)`
 
 * model（clf or reg）：適合したリグレッサーまたは分類器を取り込みます。
-* x（arr）：データセットの機能.
+* x（arr）：データセットの特徴.
 * y（arr）：データセットラベル
 
 #### ROC
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.48.02-am.png)
 
- ROC曲線は、真陽性率（y軸）と偽陽性率（x軸）をプロットします。理想的なスコアは、TPR = 1およびFPR = 0で、これは左上のポイントです。通常、ROC曲線の下の面積（AUC-ROC）を計算し、AUC-ROCが大きいほど好ましいです。
+ROC曲線は、真陽性率（y軸）と偽陽性率（x軸）をプロットします。理想的なスコアは、TPR = 1およびFPR = 0（つまり左上のポイント）です。通常、ROC曲線の下側の面積（AUC-ROC）を計算し、AUC-ROCが大きいほど好ましいと考えます。
 
 `wandb.sklearn.plot_roc(y_true, y_probas, labels)`
 
@@ -118,7 +118,7 @@ wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.49.11-am.png)
 
- 混同行列を計算して、分類の精度を評価します。これは、モデル予測の品質を評価し、モデルが間違っている予測のパターンを見つけるのに役立ちます。対角線は、モデルが正しく行った予測を表します。つまり、実際のラベルが予測されたラベルと等しい場合です。
+ 混同行列を計算して、分類精度を評価します。これは、モデル予測の品質を評価し、間違った予測のパターンを見つけるのに役立ちます。対角線は、モデルが正しく行った予測を表します。つまり、実際のラベルが予測されたラベルと等しい場合です。
 
 `wandb.sklearn.plot_confusion_matrix(y_true, y_pred, labels)`
 
@@ -126,19 +126,19 @@ wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model
 *  y\_pred（arr）：テストセットの予測ラベル。
 *    labels（list）：ターゲット変数（y）の名前付きラベル。
 
-####  メトリックサマリー
+####  **要約メトリック**
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.49.28-am.png)
 
-回帰アルゴリズムと分類アルゴリズムの両方のメトリックサマリー（分類のf1、精度、適合率、再現率、回帰のmse、mae、r2スコアなど）を計算します。
+回帰アルゴリズムと分類アルゴリズム両方の要約メトリック（分類でのf1・正解率・適合率・再現率、そして回帰でのmse・mae・r2スコアなど）を計算します。
 
 `wandb.sklearn.plot_summary_metrics(model, X_train, X_test, y_train, y_test)`
 
-* model \(clf or reg\): Takes in a fitted regressor or classifier.
-* X \(arr\): Training set features.
-* y \(arr\): Training set labels.
-  * X\_test \(arr\): Test set features.
-* y\_test \(arr\): Test set labels.
+* model \(clf or reg\): 適合したリグレッサーまたは分類器を取り込みます。
+* X \(arr\): トレーニングセットの特徴
+* y \(arr\): トレーニングセットのラベル
+  * X\_test \(arr\): テストセットの特徴
+* y\_test \(arr\):テストセットのラベル
 
 ####  エルボープロット
 
@@ -155,7 +155,9 @@ wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.53.12-am.png)
 
-1つのクラスター内の各ポイントが隣接するクラスター内のポイントにどれだけ近いかを測定してプロットします。クラスターの厚さは、クラスターのサイズに対応します。縦線は、すべてのポイントの平均シルエットスコアを表します。+1に近いシルエット係数は、サンプルが隣接するクラスターから遠く離れていることを示します。値0は、サンプルが2つの隣接するクラスター間の決定境界上にあるか、非常に近いことを示し、負の値は、それらのサンプルが間違ったクラスターに割り当てられた可能性があることを示します。一般に、すべてのシルエットクラスタースコアを平均より上（赤い線を過ぎて）にし、可能な限り1に近づける必要があります。また、データの基になるパターンを反映するクラスターサイズも優先します。
+1クラスター内の各ポイントが隣接するクラスター内のポイントにどれだけ近いかを測定してプロットします。クラスターの厚さは、クラスターのサイズを表します。縦線は、全ポイントの平均シルエットスコアを表します。
+
+シルエット係数が+1に近いと、そのサンプルは隣接するクラスターから遠く離れていることを示します。値0は、サンプルが2つの隣接するクラスター間の決定境界上にあるか、それに非常に近いことを示し、負の値は、サンプルが違うクラスターに割り当てられた可能性があることを示します。
 
 `wandb.sklearn.plot_silhouette(model, X_train, ['spam', 'not spam'])`
 
@@ -167,7 +169,9 @@ wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model
 
 ![](../.gitbook/assets/screen-shot-2020-02-26-at-2.52.34-am.png)
 
- クックの距離を介して回帰モデルに対するデータポイントの影響を測定します。影響が大きく歪んでいるインスタンスは、外れ値である可能性があります。これは、外れ値の検出に役立ちます。
+ 予測目標値（y軸） vs 実際の目標値と予測目標値の差（x軸）、そして残差分布を測定してプロットします。
+
+一般に、適切なモデルの残差はランダムに分布されていなければなりません。なぜなら、適切なモデルはランダムエラーを除いてデータセット内のほとんどの現象を構成するためです。
 
 `wandb.sklearn.plot_outlier_candidates(model, X, y)`
 

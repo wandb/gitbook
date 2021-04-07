@@ -63,7 +63,7 @@ wandb login
 W＆Bダッシュボードで結果を動的に調べます。数十の実験の調査、興味深い結果の拡大、高次元のデータの視覚化などが簡単になります。  
 
 
-![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29.gif)
+![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29.gif)
 
  これは、[BERTとDistilBERT](https://wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU)を比較する例です。自動折れ線グラフの視覚化により、さまざまなアーキテクチャがトレーニング全体の評価精度にどのように影響するかを簡単に確認できます。
 
