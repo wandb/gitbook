@@ -28,7 +28,7 @@ wandb local
 
 to pull the latest version of [our Docker image from Docker Hub](https://hub.docker.com/r/wandb/local) and run the container on your system. The full command, in case you want to modify the port or other details, is
 
-```text
+```bash
 docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
@@ -36,7 +36,7 @@ This runs a **local** instance of wandb on your machine: all your training logs 
 
 Once the container spins up, you will be able to create a new user account and will be prompted to login to wandb by fetching the API key for this new account from [http://localhost:8080/authorize](http://localhost:8080/authorize). To start logging locally, [install the wandb Python package](https://github.com/wandb/client) \(e.g. from the command line, `pip install wandb`\). Then run any script like the toy example below \(or [any of these](https://github.com/wandb/examples)\).
 
-```text
+```python
 import wandb
 
 # 1. Start a new W&B experiment run
@@ -87,13 +87,13 @@ If you're running wandb on multiple machines or switching between a local instan
 * set the host flag to the address of the local instance whenever you login:
 
 ```text
- wandb login —host=http://wandb.your-shared-local-host.com
+ wandb login --host=http://wandb.your-shared-local-host.com
 ```
 
 * set the environment variable `WANDB_BASE_URL` to the address of the local instance:
 
-```text
-export WANDB_BASE_URL = "<http://wandb.your-shared-local-host.com>"
+```python
+export WANDB_BASE_URL = "http://wandb.your-shared-local-host.com"
 ```
 
 In an automated environment, you can set the `WANDB_API_KEY` which is accessible at [wandb.your-shared-local-host.com/authorize](http://wandb.your-shared-local-host.com/authorize).
@@ -106,8 +106,8 @@ wandb login --host=https://api.wandb.ai
 
 or
 
-```text
-export WANDB_BASE_URL = "<https://api.wandb.ai>"
+```python
+export WANDB_BASE_URL = "https://api.wandb.ai"
 ```
 
 You can also switch to your cloud API key, available at [https://wandb.ai/settings](https://wandb.ai/settings) when you're logged in to your cloud-hosted wandb account in your browser.
