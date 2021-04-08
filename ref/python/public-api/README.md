@@ -11,8 +11,6 @@ Before using this API, you'll want to log data from your script — check the [Q
 * **Export Data**: Pull down a dataframe for custom analysis in a Jupyter Notebook. Once you have explored the data, you can sync your findings by creating a new analysis run and logging results, for example: `wandb.init(job_type="analysis")`
 * **Update Existing Runs**: You can update the data logged in association with a W&B run. For example, you might want to update the config of a set of runs to include additional information, like the architecture or a hyperparameter that wasn't originally logged.
 
-See the [Generated Reference Docs](https://github.com/wandb/gitbook/tree/b9e9fd3df4c7b79df37418912a685a72dcb8e29c/ref/python/ref/public-api/README.md) for details on available functions.
-
 ## Classes
 
 [`class Api`](api.md): Used for querying the wandb server.
