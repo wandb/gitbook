@@ -9,9 +9,11 @@ Call `wandb.init()` once at the beginning of your script to initialize a new job
 * **On Prem**: If you need a private cloud or local instance of W&B, see our [Self Hosted](../self-hosted/) offerings. 
 * **Automated Environments**: Most of these settings can also be controlled via [Environment Variables](environment-variables.md). This is often useful when you're running jobs on a cluster.
 
-### Reference Docs
+### Reference Documentation
 
-Check the reference docs for arguments.
+View the reference docs, generated from the `wandb` Python library.
+
+{% page-ref page="../ref/python/init.md" %}
 
 ## Common Questions
 

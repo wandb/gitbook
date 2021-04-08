@@ -22,6 +22,8 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 
 View the reference docs, generated from the `wandb` Python library.
 
+{% page-ref page="../ref/python/log.md" %}
+
 ## Logging Objects
 
 We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
