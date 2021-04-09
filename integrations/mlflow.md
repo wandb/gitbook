@@ -17,15 +17,15 @@ I 이미 [MLflow](https://www.mlflow.org/docs/latest/tracking.html)를 사용하
 | MLflow | W&B |
 | :--- | :--- |
 | [Experiment](https://www.mlflow.org/docs/latest/tracking.html#organizing-runs-in-experiments) | [Project](../app/pages/project-page.md) |
-| [mlflow.start\_run](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [wandb.init](../library/init.md) |
-| [mlflow.log\_params](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_param) | [wandb.config](../library/config.md) |
+| [mlflow.start\_run](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [wandb.init](https://docs.wandb.ai/v/ko/library/init) |
+| [mlflow.log\_params](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_param) | [wandb.config](https://docs.wandb.ai/v/ko/library/config) |
 | [mlflow.log\_metrics](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_metric) | [wandb.log](../library/log.md) |
 | [mlflow.log\_artifacts](https://www.mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact) | [wandb.save](../library/save.md) |
 | [mlflow.start\_run\(nested=True\)](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.start_run) | [Grouping](../library/grouping.md) |
 
 ##  **풍부한 메트릭 로깅**
 
-이미지, 비디오, 플롯과 같은 풍부한 미디어를 로그하고 싶으시다면, [wandb.log](https://docs.wandb.com/library/log)을 여러분의 코드에서도 호출하실 수 있습니다. 단계 전달인자\(step argument\)를 로그할 호출에 전달하여, mlflow로 로깅하는 메트릭과 정렬되도록 하셔야 합니다.
+이미지, 비디오, 플롯과 같은 풍부한 미디어를 로그하고 싶으시다면, [wandb.log](https://docs.wandb.ai/v/ko/library/log)을 여러분의 코드에서도 호출하실 수 있습니다. 단계 전달인자\(step argument\)를 로그할 호출에 전달하여, mlflow로 로깅하는 메트릭과 정렬되도록 하셔야 합니다.
 
 ##  **고급 구성**
 

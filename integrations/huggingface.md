@@ -18,7 +18,7 @@ wandb login
 
  `Trainer` 또는 `TFTrainer`는 손실, 평가 매트릭, 모델 토폴로지\(topology\) 및 경사\(gradients\)를 자동으로 로그합니다.
 
- [wandb 환경변수\(environment variables\)](https://docs.wandb.com/library/environment-variables)를 통해 고급 구성을 하실 수 있습니다.
+ [wandb 환경변수\(environment variables\)](https://docs.wandb.ai/v/ko/library/environment-variables)를 통해 고급 구성을 하실 수 있습니다.
 
 트랜스포머\(transformer\)를 활용해 추가 변수를 사용하실 수 있습니다:
 
@@ -64,7 +64,7 @@ wandb login
 
 ###  **피드백**
 
- 저희는 여러분들의 피드백을 얻고 싶으며, 이러한 통합\(integration\)을 개선할 수 있게 되어 매우 기쁩니다. 문의 및 제안 하실 점이 있으시면 언제든 저희에게 [문의](https://docs.wandb.com/company/getting-help)해 주시기 바랍니다  
+ 저희는 여러분들의 피드백을 얻고 싶으며, 이러한 통합\(integration\)을 개선할 수 있게 되어 매우 기쁩니다. 문의 및 제안 하실 점이 있으시면 언제든 저희에게 [문의](https://docs.wandb.ai/v/ko/company/getting-help)해 주시기 바랍니다  
 
 
 ### **결과 시각화**

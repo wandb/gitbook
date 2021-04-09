@@ -631,7 +631,7 @@ wandb.log({"example": wandb.Video("myvideo.mp4")})
 
  포인트를 더 많이 보낼수록, UI에서 그래프를 로딩하는 시간이 더 길어집니다. 라인에 1000개 이상의 포인트가 있는 경우, 저희는 여러분의 브라우저로 데이터를 전송하기 전에 백엔드에서 1000개의 포인트로 줄여서 샘플링합니다. 이 샘플링은 비결정적\(nondeterministic\)이므로, 페이지를 새로 고침 하시면 다른 세트의 샘플링된 포인트를 확인하실 수 있습니다.
 
- 원본 데이터 전부를 원하신다면, [data API](https://docs.wandb.com/library/api)를 사용하셔서 샘플링 되지 않은 데이터를 끌어 오실 수 있습니다.
+ 원본 데이터 전부를 원하신다면, [data API](https://docs.wandb.ai/library/public-api-guide)를 사용하셔서 샘플링 되지 않은 데이터를 끌어 오실 수 있습니다.
 
  **가이드라인**
 

@@ -49,9 +49,10 @@ os.environ['WANDB_MODE'] = 'dryrun'
     <tr>
       <td style="text-align:left"><b>WANDB_BASE_URL</b>
       </td>
-      <td style="text-align:left"><a href="https://docs.wandb.ai/self-hosted">wandb/local</a>&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC2DC;&#xB294;
-        &#xACBD;&#xC6B0;, &#xC774; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB97C; <code>http://YOUR_IP:YOUR_PORT</code>&#xC5D0;
-        &#xC124;&#xC815;&#xD558;&#xC154;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left"><a href="https://docs.wandb.ai/v/ko/self-hosted">wandb/local</a>&#xC744;
+        &#xC0AC;&#xC6A9;&#xD558;&#xC2DC;&#xB294; &#xACBD;&#xC6B0;, &#xC774; &#xD658;&#xACBD;
+        &#xBCC0;&#xC218;&#xB97C; <code>http://YOUR_IP:YOUR_PORT</code>&#xC5D0; &#xC124;&#xC815;&#xD558;&#xC154;&#xC57C;
+        &#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>WANDB_NAME</b>
@@ -220,7 +221,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
       <td style="text-align:left">
         <p>wandb.config&#xB85C; &#xB85C;&#xB529;&#xD560; yaml &#xD30C;&#xC77C;&#xC758;
           &#xCF64;&#xB9C8;&#xB85C; &#xAD6C;&#xBD84;&#xB41C; &#xBAA9;&#xB85D;&#xC785;&#xB2C8;&#xB2E4;.</p>
-        <p><a href="https://docs.wandb.com/library/config#file-based-configs">config(&#xAD6C;&#xC131;)</a>&#xB97C;
+        <p><a href="https://docs.wandb.ai/v/ko/library/config">config(&#xAD6C;&#xC131;)</a>&#xB97C;
           &#xCC38;&#xC870;&#xD558;&#xC138;&#xC694;.</p>
       </td>
     </tr>

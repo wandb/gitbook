@@ -31,7 +31,7 @@ description: 훈련 및 평가 실행을 더 큰 실험으로 그룹화합니다
 
  **그룹 환경 변수 설정하기**
 
-`WANDB_RUN_GROUP`을 사용하여 환경변수로써 실행에 대한 그룹을 지정합니다. 더 자세한 내용은 [**환경변수\(Environment Variables\)**](https://docs.wandb.com/library/environment-variables)에 관한 문서를 확인하시기 바랍니다.
+`WANDB_RUN_GROUP`을 사용하여 환경변수로써 실행에 대한 그룹을 지정합니다. 더 자세한 내용은 [**환경변수\(Environment Variables\)**](https://docs.wandb.ai/v/ko/library/environment-variables)에 관한 문서를 확인하시기 바랍니다.
 
 ###  **UI에서 그룹화 토글**
 

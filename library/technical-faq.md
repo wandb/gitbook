@@ -91,7 +91,7 @@ pip install wandb
 
 ###  **wandb가 터미널\(terminal\) 또는 jupyter notebook 출력에 작성하는 것을 중지하려면 어떻게 해야 하나요?**
 
-환경변수 [WANDB\_SILENT](https://docs.wandb.com/library/environment-variables)를 설정하십시오.
+환경변수 [WANDB\_SILENT](https://docs.wandb.ai/v/ko/library/environment-variables)를 설정하십시오.
 
  노트북에서 다음을 수행합니다:
 
@@ -113,7 +113,7 @@ Ctrl 키+D 키를 눌러 wandb로 계측\(instrument\)된 스크립트를 중지
 
 1. SSL certificate\(인증서\)를 업그레이드합니다. Ubuntu 서버에서 스크립트를 실행하고 있는 경우, update-ca-certificates를 실행합니다. 보안 취약성 때문에 유효한 SSL 인증서가 없으면 저희는 훈련 로그를 동기화 할 수 없습니다.
 2. 네트워크가 불안정한 경우, [오프라인 모드](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline)에서 훈련을 실행하고 인터넷에 액세스 할 수 있는 머신에서 파일을 저희에게 동기화합니다.
-3.  머신에서 작동하며, 파일을 저희 클라우드 서버에 동기화 하지 않는 [W&B 로컬](https://docs.wandb.com/self-hosted/local)을 실행합니다.
+3.  머신에서 작동하며, 파일을 저희 클라우드 서버에 동기화 하지 않는 [W&B 로컬](https://docs.wandb.ai/v/ko/self-hosted/local)을 실행합니다.
 
 **SSL CERTIFICATE\_VERIFY\_FAILED:** 이 오류는 여러분 회사의 방화벽 때문에 발생하는 것일 수 있습니다. 로컬 CA를 설정하고 다음을 사용하실 수 있습니다:
 
@@ -139,7 +139,7 @@ Ctrl 키+D 키를 눌러 wandb로 계측\(instrument\)된 스크립트를 중지
 
 복잡한 워크플로우의 경우 여러 실행을 사용하고 [wandb.init](https://docs.wandb.ai/v/ko/library/init)의 그룹 매개변수를 단일 실험의 일부로 실행되는 모든 프로세스에 고유한 값에 설정하는 것을 권장합니다. [runs table\(실행 테이블\)](file:////app/pages/run-page)은 그룹 ID별로 테이블을 자동으로 그룹화 하며 시각화는 예상대로 작동하게 됩니다. 이러한 작업을 통해 개별 프로세스가 모든 결과를 단일 공간에 로그할 때 여러 실험 및 훈련 실행을 실행하실 수 있습니다.
 
- 보다 간단한 워크플로의 경우, resume=True and id=UNIQUE\_ID wandb.init을 호출한 다음 동일한 id=UNIQUE\_ID으로 wandb.init를 호출하실 수 있습니다. 그러면 [wandb.log](file:////library/log) 또는 wandb.summary를 통해 정상적으로 로그할 수 있으며, 실행 값\(runs values\)이 업데이트됩니다.
+ 보다 간단한 워크플로의 경우, resume=True and id=UNIQUE\_ID wandb.init을 호출한 다음 동일한 id=UNIQUE\_ID으로 wandb.init를 호출하실 수 있습니다. 그러면 [wandb.log ](https://docs.wandb.ai/v/ko/library/log)또는 wandb.summary를 통해 정상적으로 로그할 수 있으며, 실행 값\(runs values\)이 업데이트됩니다.
 
 어느 시점이든, 언제든지 [API](https://docs.wandb.com/ref/export-api)를 사용하여 추가적인 평가 메트릭을 추가하실 수 있습니다.
 

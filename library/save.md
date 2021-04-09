@@ -10,7 +10,7 @@ description: 현재 실행을 연결할 파일을 클라우드에 저장합니�
 2. wandb 실행 디렉토리에 파일을 넣으시면 실행이 끝 날 때 업로드 됩니다
 
 {% hint style="info" %}
-실행을 [재개\(resuming\)](https://docs.wandb.com/library/advanced/resuming) 하는 경우, wandb.restore\(파일이름\)를 호출하여 파일을 복구할 수 있습니다  
+실행을 [재개\(resuming\)](https://docs.wandb.ai/v/ko/library/resuming) 하는 경우, wandb.restore\(파일이름\)를 호출하여 파일을 복구할 수 있습니다  
 {% endhint %}
 
  ****파일이 작성되는 동안 동기화 하고 싶으시면, `wandb.save`에서 파일이름 또는 글로브\(glob\)를 지정할 수 있습니다.  

@@ -27,7 +27,7 @@ learn = learner(..., cbs=WandbCallback())
 ```
 
 {% hint style="info" %}
-Fastai 버전1을 사용하시는 경우, 다음을 참조하시기 바랍니다: [Fastai v1 docs](https://docs.wandb.com/library/integrations/fastai/fastai)
+Fastai 버전1을 사용하시는 경우, 다음을 참조하시기 바랍니다:[ Fastai v1 docs](https://docs.wandb.ai/v/ko/integrations/fastai/v1)
 {% endhint %}
 
  `WandbCallback`은 다음의 전달인자를 허용합니다:

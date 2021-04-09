@@ -172,7 +172,7 @@ description: '모델 메트릭을 로그하는 훈련 루프 이전에, 새로�
         &#xC7AC;&#xAC1C;&#xB429;&#xB2C8;&#xB2E4;. &#xC2E4;&#xD589;&#xC744; &#xC218;&#xB3D9;&#xC73C;&#xB85C;
         &#xC7AC;&#xAC1C;&#xD558;&#xB824;&#xBA74; &#xACE0;&#xC720;&#xD55C; &#xC2E4;&#xD589;
         ID&#xB85C; &#xC124;&#xC815;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.
-        &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740; <a href="https://docs.wandb.com/library/resuming">&#xC7AC;&#xAC1C;</a>&#xB97C;
+        &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740; <a href="https://docs.wandb.ai/v/ko/library/resuming">&#xC7AC;&#xAC1C;</a>&#xB97C;
         &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.
         (&#xAE30;&#xBCF8;&#xAC12;: False)</td>
     </tr>

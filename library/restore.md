@@ -17,7 +17,7 @@ description: 모델 체크포인트 등의 파일을 스크립트 내에서 액�
  공통 사용 케이스
 
 * 과거 실행으로 생성된 모델 아키텍처 또는 가중치를 복원합니다
-* 실행이 실패한 경우. 마지막 체크포인트에서부터 훈련을 재개합니다 \(중요 세부 사항은 [재개\(resuming\)](https://docs.wandb.com/library/advanced/resuming)에 관한 섹션 참조\)
+* 실행이 실패한 경우. 마지막 체크포인트에서부터 훈련을 재개합니다 \(중요 세부 사항은 [재개\(resuming\)](https://docs.wandb.ai/v/ko/library/resuming)에 관한 섹션 참조\)
 
 ##  **예시**
 
@@ -35,5 +35,5 @@ weights_file = wandb.restore('weights.h5')
 my_predefined_model.load_weights(weights_file.name)
 ```
 
-> **run\_path를 지정하지 않은 경우, 실행을 위해** [**재개\(resuming\)**](https://docs.wandb.com/library/advanced/resuming)**를 구성하셔야 합니다. 프로그래밍 방식으로 훈련 밖의 파일에 액세스 하고 싶으시다면 을 사용하시기 바랍니다.**
+> **run\_path를 지정하지 않은 경우, 실행을 위해** [**재개\(resuming\)**](https://docs.wandb.ai/v/ko/library/resuming)**를 구성하셔야 합니다. 프로그래밍 방식으로 훈련 밖의 파일에 액세스 하고 싶으시다면 을 사용하시기 바랍니다.**
 
