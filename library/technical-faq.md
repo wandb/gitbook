@@ -59,7 +59,7 @@ wandb는 여러분이 정상적으로 사용할 경우 여러분의 훈련 퍼�
 
 ###  **W&B는 TensorBoard와 어떤 점이 다른가요?**
 
-저희는 TensorBoard 사용자 여러분을 환영하며, [TensorBoard 통합](https://docs.wandb.com/library/integrations/tensorboard)을 지원합니다! 저희는 여러분 모두를 위한 실험 추적 툴 개선을 위해 최선을 다하고 있습니다. 저희 공동 창립자들이 W&B 작업을 시작했을 때, OpenAI에 실망한 TensorBoard 사용자들을 위한 툴을 개발하기 위해 영감을 받았습니다. 다음은 저희가 개선을 위해 중점을 두고 있는 몇 가지 사항입니다:
+저희는 TensorBoard 사용자 여러분을 환영하며, [TensorBoard 통합](https://docs.wandb.ai/v/ko/integrations/tensorboard)을 지원합니다! 저희는 여러분 모두를 위한 실험 추적 툴 개선을 위해 최선을 다하고 있습니다. 저희 공동 창립자들이 W&B 작업을 시작했을 때, OpenAI에 실망한 TensorBoard 사용자들을 위한 툴을 개발하기 위해 영감을 받았습니다. 다음은 저희가 개선을 위해 중점을 두고 있는 몇 가지 사항입니다:
 
 1. **모델 재현:** Weights & Biases는 실험 탐색 및 추후 모델 재현에 유용합니다. 저희는 메트릭뿐만 아니라 초매개변수 및 코드의 버전을 캡처하고, 프로젝트를 재현 할 수 있도록 모델체크포인트를 저장합니다.
 2. **자동 구성:** 프로젝트를 공동작업자에게 넘기거나, 휴가를 낸 경우, W&B는 여러분이 시도한 모든 모델을 쉽게 확인할 수 있도록 해드립니다. 따라서 오래된 실험 재실행에 시간을 허비하지 않으셔도 됩니다.
@@ -137,7 +137,7 @@ Ctrl 키+D 키를 눌러 wandb로 계측\(instrument\)된 스크립트를 중지
 
 이 작업을 수행하기 위한 몇 가지 방법이 있습니다.
 
-복잡한 워크플로우의 경우 여러 실행을 사용하고 [wandb.init](https://docs.wandb.com/library/init)의 그룹 매개변수를 단일 실험의 일부로 실행되는 모든 프로세스에 고유한 값에 설정하는 것을 권장합니다. [runs table\(실행 테이블\)](file:////app/pages/run-page)은 그룹 ID별로 테이블을 자동으로 그룹화 하며 시각화는 예상대로 작동하게 됩니다. 이러한 작업을 통해 개별 프로세스가 모든 결과를 단일 공간에 로그할 때 여러 실험 및 훈련 실행을 실행하실 수 있습니다.
+복잡한 워크플로우의 경우 여러 실행을 사용하고 [wandb.init](https://docs.wandb.ai/v/ko/library/init)의 그룹 매개변수를 단일 실험의 일부로 실행되는 모든 프로세스에 고유한 값에 설정하는 것을 권장합니다. [runs table\(실행 테이블\)](file:////app/pages/run-page)은 그룹 ID별로 테이블을 자동으로 그룹화 하며 시각화는 예상대로 작동하게 됩니다. 이러한 작업을 통해 개별 프로세스가 모든 결과를 단일 공간에 로그할 때 여러 실험 및 훈련 실행을 실행하실 수 있습니다.
 
  보다 간단한 워크플로의 경우, resume=True and id=UNIQUE\_ID wandb.init을 호출한 다음 동일한 id=UNIQUE\_ID으로 wandb.init를 호출하실 수 있습니다. 그러면 [wandb.log](file:////library/log) 또는 wandb.summary를 통해 정상적으로 로그할 수 있으며, 실행 값\(runs values\)이 업데이트됩니다.
 

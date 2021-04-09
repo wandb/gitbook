@@ -4,7 +4,7 @@ description: '모델 메트릭을 로그하는 훈련 루프 이전에, 새로�
 
 # wandb.init\(\)
 
-모델 메트릭을 로그하는 훈련 루프 이전에, 새로운 실행을 시작할 때마다 `wandb.init()`을 호출합니다. 스크립트 시작 시에 `wandb.init()`를 한 번 호출하여 새 작업을 초기화합니다. 이를 통해 W&B에 새로운 실행을 생성하고, 데이터를 동기화하는 백그라운드 프로세스를 시작합니다. 프라이빗 클라우드 또는 W&B 로컬 설치가 필요한 경우, 저희는 [자체 호스팅](https://docs.wandb.com/self-hosted) 서비스에서 이를 제공합니다. `wandb.init()`은 [실행](https://docs.wandb.com/ref/export-api/api#run) 객체를 반환하고 `wandb.run`와 함께 실행 객체에 액세스할 수도 있습니다.
+모델 메트릭을 로그하는 훈련 루프 이전에, 새로운 실행을 시작할 때마다 `wandb.init()`을 호출합니다. 스크립트 시작 시에 `wandb.init()`를 한 번 호출하여 새 작업을 초기화합니다. 이를 통해 W&B에 새로운 실행을 생성하고, 데이터를 동기화하는 백그라운드 프로세스를 시작합니다. 프라이빗 클라우드 또는 W&B 로컬 설치가 필요한 경우, 저희는 [자체 호스팅](https://docs.wandb.ai/v/ko/self-hosted) 서비스에서 이를 제공합니다. `wandb.init()`은 [실행](https://docs.wandb.com/ref/export-api/api#run) 객체를 반환하고 `wandb.run`와 함께 실행 객체에 액세스할 수도 있습니다.
 
 ###  생략 가능한 전달인자
 
@@ -72,7 +72,7 @@ description: '모델 메트릭을 로그하는 훈련 루프 이전에, 새로�
         &#xAD6C;&#xC131;&#xD560; &#xC218; &#xC788;&#xC73C;&#xBA70;, UI&#xC5D0;&#xC11C;
         &#xC774;&#xB97C; &#xD1A0;&#xAE00;&#xD558;&#xC5EC; &#xCF1C;&#xAC70;&#xB098;
         &#xB04C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC790;&#xC138;&#xD55C;
-        &#xB0B4;&#xC6A9;&#xC740; <a href="https://docs.wandb.com/library/grouping">&#xADF8;&#xB8F9;&#xD654;</a>&#xB97C;
+        &#xB0B4;&#xC6A9;&#xC740; <a href="https://docs.wandb.ai/v/ko/library/grouping">&#xADF8;&#xB8F9;&#xD654;</a>&#xB97C;
         &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;.</td>
     </tr>
     <tr>
@@ -162,7 +162,7 @@ description: '모델 메트릭을 로그하는 훈련 루프 이전에, 새로�
         W&amp;B&#xC5D0; &#xBCF5;&#xC0AC;&#xD560;&#xC9C0; &#xC5EC;&#xBD80;&#xB97C;
         &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;. &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740;
         <a
-        href="https://docs.wandb.com/integrations/tensorboard">Tensorboard</a>&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;
+        href="https://docs.wandb.ai/v/ko/integrations/tensorboard">Tensorboard</a>&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;
           (&#xAE30;&#xBCF8;&#xAC12;: False)</td>
     </tr>
     <tr>
@@ -237,7 +237,7 @@ description: '모델 메트릭을 로그하는 훈련 루프 이전에, 새로�
       <td style="text-align:left">unique str</td>
       <td style="text-align:left">&#xC2E4;&#xD589;&#xC5D0; &#xB300;&#xD55C; &#xACE0;&#xC720;&#xD55C; ID&#xB85C;
         <a
-        href="https://docs.wandb.com/library/resuming">&#xC7AC;&#xAC1C;</a>&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
+        href="https://docs.wandb.ai/v/ko/library/resuming">&#xC7AC;&#xAC1C;</a>&#xC5D0; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.
           &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC5D0;&#xC11C; &#xBC18;&#xB4DC;&#xC2DC;
           &#xACE0;&#xC720;&#xD55C; &#xAC83;&#xC774;&#xC5B4;&#xC57C; &#xD558;&#xBA70;,
           &#xC2E4;&#xD589;&#xC744; &#xC0AD;&#xC81C;&#xD558;&#xBA74; &#xD574;&#xB2F9;
@@ -256,7 +256,7 @@ description: '모델 메트릭을 로그하는 훈련 루프 이전에, 새로�
       <td style="text-align:left">OpenAI Gym&#xC758; &#xBE44;&#xB514;&#xC624; &#xB85C;&#xADF8;&#xD560;&#xC9C0;&#xC5D0;
         &#xB300;&#xD55C; &#xC5EC;&#xBD80;. &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740;
         <a
-        href="https://docs.wandb.com/integrations/ray-tune">Ray Tune</a>&#xC744; &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;
+        href="https://docs.wandb.ai/v/ko/integrations/ray-tune">Ray Tune</a>&#xC744; &#xCC38;&#xC870;&#xD558;&#xC2DC;&#xAE30; &#xBC14;&#xB78D;&#xB2C8;&#xB2E4;
           (&#xAE30;&#xBCF8;&#xAC12;: False)</td>
     </tr>
     <tr>
@@ -276,7 +276,7 @@ description: '모델 메트릭을 로그하는 훈련 루프 이전에, 새로�
   </tbody>
 </table>
 
-이러한 설정의 대부분은 [환경 변수](https://docs.wandb.com/library/environment-variables)를 통해 제어할 수도 있습니다. 클러스터에서 작업을 실행할 때 유용합니다.
+이러한 설정의 대부분은 [환경 변수](https://docs.wandb.ai/v/ko/library/environment-variables)를 통해 제어할 수도 있습니다. 클러스터에서 작업을 실행할 때 유용합니다.
 
 저희는 wandb.init\(\)를 실행하는 스크립트 복사본을 자동으로 저장합니다. 코드 비교 기능에 대한 자세한 사항은 [Code Comparer](https://docs.wandb.com/app/features/panels/code)에서 참조하시기 바랍니다. 이 기능을 비활성화하시려면, 환경 변수 WANDB\_DISABLE\_CODE=true를 설정합니다.
 

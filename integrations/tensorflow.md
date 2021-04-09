@@ -13,7 +13,7 @@ wandb.init(config=tf.fla
 gs.FLAGS, sync_tensorboard=True)
 ```
 
-전체 스크립트 예시를 보시려면 [예시 프로젝트](https://docs.wandb.com/examples)를 참조해 주시기 바랍니다.
+전체 스크립트 예시를 보시려면 [예시 프로젝트](https://docs.wandb.ai/v/ko/examples)를 참조해 주시기 바랍니다.
 
 ##  **사용자 정의 메트릭**
 

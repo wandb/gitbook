@@ -19,7 +19,7 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 ```
 {% endcode %}
 
- ****[**colab notebook**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb)**에서 통합\(Integration\)을 실행하거나,** [**비디오 자습서**](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases)**를 학습하거나, 전체 스크립트 예제를 보시려면** [**예시 프로젝트\(example projects\)**](https://docs.wandb.com/examples)**를 참조하십시오.**  
+ ****[**colab notebook**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb)**에서 통합\(Integration\)을 실행하거나,** [**비디오 자습서**](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases)**를 학습하거나, 전체 스크립트 예제를 보시려면**[ **예시 프로젝트\(example projects\)**](https://docs.wandb.ai/v/ko/examples)**를 참조하십시오.**  
 
 
 #### **옵션**

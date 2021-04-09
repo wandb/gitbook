@@ -395,8 +395,6 @@ wandb.log({"generated_samples":
 ```
 
 ![&#xD5E4;&#xB4DC;&#xD3F0; &#xD3EC;&#xC778;&#xD2B8; &#xD074;&#xB77C;&#xC6B0;&#xB4DC;&#xC758; &#xCC38; &#xAC12;\(Ground Truth\) &#xBC0F; &#xC608;&#xCE21;](../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
-
-[See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
 
 {% tab title="포인트 클라우드" %}

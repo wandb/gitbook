@@ -263,7 +263,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
       </td>
       <td style="text-align:left">&#xC2E4;&#xD589;&#xC744; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xADF8;&#xB8F9;&#xD654;&#xD560;
         &#xC2E4;&#xD5D8; &#xC774;&#xB984;&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
-        &#xB354; &#xC790;&#xC138;&#xD55C; &#xC815;&#xBCF4;&#xB294; <a href="https://docs.wandb.com/library/advanced/grouping">&#xADF8;&#xB8E8;&#xD551;(grouping)</a>&#xC744;
+        &#xB354; &#xC790;&#xC138;&#xD55C; &#xC815;&#xBCF4;&#xB294; <a href="https://docs.wandb.ai/v/ko/library/grouping">&#xADF8;&#xB8E8;&#xD551;(grouping)</a>&#xC744;
         &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</td>
     </tr>
     <tr>
@@ -272,13 +272,13 @@ os.environ['WANDB_MODE'] = 'dryrun'
       <td style="text-align:left">&#xB2E4;&#xB978; &#xC720;&#xD615;&#xC758; &#xC2E4;&#xD589;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xAE30;
         &#xC704;&#xD574; &#xC791;&#xC5C5; &#xC720;&#xD615;(&#xC608;: &quot;training(&#xD6C8;&#xB828;)&quot;
         or &quot;evaluation(&#xD3C9;&#xAC00;)&quot;)&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
-        &#xB354; &#xC790;&#xC138;&#xD55C; &#xC815;&#xBCF4;&#xB294; <a href="https://docs.wandb.com/library/advanced/grouping">&#xADF8;&#xB8E8;&#xD551;(grouping)</a>&#xC744;
+        &#xB354; &#xC790;&#xC138;&#xD55C; &#xC815;&#xBCF4;&#xB294; <a href="https://docs.wandb.ai/v/ko/library/grouping">&#xADF8;&#xB8E8;&#xD551;(grouping)</a>&#xC744;
         &#xCC38;&#xC870;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</td>
     </tr>
   </tbody>
 </table>
 
-## **Singularity Environments\(특이성 환경\)** 
+## **Singularity Environments\(특이성 환경\)**
 
 [특이성\(Singularity\)](https://singularity.lbl.gov/index.html)에서 컨테이너\(container\)를 실행하는 경우, 위의 변수 앞에 **SINGULARITYENV\_**를 추가하여 환경변수를 전달할 수 있습니다. 특이성 환경 변수에 관한 자세한 내용은 [여기](https://singularity.lbl.gov/docs-environment-metadata#environment)에서 확인하실 수 있습니다.
 
@@ -317,7 +317,7 @@ logger.setLevel(logging.WARNING)
 
 ### **공유 머신에 여러 사용자가 있는 경우**
 
-당신이 공유 머신을 사용 중이고, 또 다른 wandb 사용자가 있는 경우, 실행이 항상 적절한 계정에 로그되어 있는지 쉽게 확인할 수 있습니다. 인증할 [WANDB\_API\_KEY 환경 변수](https://docs.wandb.ai/v/han-guo-yu/library/environment-variables)를 설정합니다. 당신의 환경에서 이 정보를 소스화하면 로그인할 때 올바른 자격 증명이 제공되거나 스크립트에서 환경 변수를 설정할 수 있습니다.
+당신이 공유 머신을 사용 중이고, 또 다른 wandb 사용자가 있는 경우, 실행이 항상 적절한 계정에 로그되어 있는지 쉽게 확인할 수 있습니다. 인증할 [WANDB\_API\_KEY 환경 변수](https://docs.wandb.ai/v/ko/library/environment-variables)를 설정합니다. 당신의 환경에서 이 정보를 소스화하면 로그인할 때 올바른 자격 증명이 제공되거나 스크립트에서 환경 변수를 설정할 수 있습니다.
 
 `export WANDB_API_KEY=X` 명령을 실행합니다. 여기서 X는 사용자의 API 키입니다. 로그인하면 [wandb.ai/authorize](https://app.wandb.ai/authorize)에서 당신의 API 키를 찾을 수 있습니다.  
 

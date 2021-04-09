@@ -25,7 +25,7 @@ for batch_idx, (data, target) in enumerate(train_loader):
 
 > **경사\(gradients\), 메트릭 및 그래프는 정방향 및 역방향 패스 후 `wandb.log`가 호출될 때까지 로그 되지 않습니다.**
 
- wandb와 PyTorch 통합에 대한 통합적인 예시는 [비디오 자습서](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases)를 포함한 [Colab notebook](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-intro/intro.ipynb)을 참조하십시오. 또한, [예시 프로젝트\(example projects\)](https://docs.wandb.com/examples) 섹션에서 더 많은 예시를 찾으실 수 있습니다.  
+ wandb와 PyTorch 통합에 대한 통합적인 예시는 [비디오 자습서](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases)를 포함한 [Colab notebook](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-intro/intro.ipynb)을 참조하십시오. 또한,[ 예시 프로젝트\(example projects\) ](https://docs.wandb.ai/v/ko/examples)섹션에서 더 많은 예시를 찾으실 수 있습니다.  
 
 
 ###  **옵션**
