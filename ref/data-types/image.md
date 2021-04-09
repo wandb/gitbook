@@ -43,7 +43,7 @@ all_captions(
 
 ### `all_masks` <a id="all_masks"></a>
 
-[View source](https://www.github.com/wandb/client/tree/master/wandb/data_types.py#L2010-L2025)
+ [ **소스 보기**](https://github.com/wandb/client/blob/master/wandb/data_types.py#L2010-L2025)\*\*\*\*
 
 ```text
 @classmethod

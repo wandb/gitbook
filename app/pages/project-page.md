@@ -8,11 +8,11 @@ description: '모델의 버전 비교, 스크래치 작업 공간에서 결과 �
 
  프로젝트 페이지 탭:
 
-1.  [**개요\(Overview\)**](https://docs.wandb.com/app/pages/project-page#overview-tab): 프로젝트의 스냅샷
-2.   [**작업공간\(Workspace\)**](https://docs.wandb.com/app/pages/project-page#workspace-tab): 개인 시각화 샌드박스
-3.  [**테이블\(Table\)**](https://docs.wandb.com/app/pages/project-page#table-tab): 모든 실행의 조감도
-4.  [**리포트\(Reports\)**](https://docs.wandb.com/app/pages/project-page#reports-tab): 노트, 실행 및 그래프의 저장된 스냅샷
-5.  [**스윕\(Sweeps\)**](https://docs.wandb.com/app/pages/project-page#sweeps-tab): 자동화된 탐색 및 최적화
+1.  [**개요\(Overview\)**](https://docs.wandb.ai/v/ko/app/pages/project-page): 프로젝트의 스냅샷
+2. [  **작업공간\(Workspace\)**](https://docs.wandb.ai/v/ko/app/pages/workspaces): 개인 시각화 샌드박스
+3.  [**테이블\(Table\)**](https://docs.wandb.ai/v/ko/app/pages/project-page#undefined-8): 모든 실행의 조감도
+4.  [**리포트\(Reports\)**](https://docs.wandb.ai/v/ko/app/pages/project-page#undefined-1): 노트, 실행 및 그래프의 저장된 스냅샷
+5. [ **스윕\(Sweeps\)**](https://docs.wandb.ai/v/ko/app/pages/project-page#undefined-2): 자동화된 탐색 및 최적화
 
 ##  **개요\(Overview\) 탭**
 

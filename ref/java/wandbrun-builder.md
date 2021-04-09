@@ -15,9 +15,9 @@ Builder 패턴을 사용하면 WandbRun 설정을 위한 판독 가능 코드\(r
 * **builder.withNotes\(String notes\)** — 실행과 관련된 설명
 * **builder.setTags\(List&lt;String&gt; tags\)** — 실행과 함께 사용되는 태그 배열
 * **builder.setJobType\(String type\)** — 로그 중인 작업 유형. 예: eval, worker, ps \(기본값: training\)
-* **builder.withGroup\(String group\)** — 다른 실행을 그룹화하는데 사용되는 스트링; [그룹화](https://docs.wandb.com/library/grouping) 참조
+* **builder.withGroup\(String group\)** — 다른 실행을 그룹화하는데 사용되는 스트링; [그룹화](https://docs.wandb.ai/v/ko/library/grouping) 참조
 
- 이러한 설정의 대부분은 [환경 변수](https://docs.wandb.com/library/environment-variables)를 통해서도 제어할 수 있습니다. 클러스터\(cluster\)에서 작업을 실행 중일 때 유용합니다.
+ 이러한 설정의 대부분은 [환경 변수](https://docs.wandb.ai/v/ko/library/environment-variables)를 통해서도 제어할 수 있습니다. 클러스터\(cluster\)에서 작업을 실행 중일 때 유용합니다.
 
 ### **예시**
 

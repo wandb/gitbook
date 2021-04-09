@@ -4,7 +4,7 @@ description: '실행이 충돌, 완료 또는 wandb.alert()을 호출 할 때 �
 
 # Alerts
 
-W&B는 실행이 충돌, 완료 또는 [wandb.alert\(\)](https://docs.wandb.com/library/wandb.alert)을 호출 할 때마다 Slack에 경보를 게시할 수 있습니다.
+W&B는 실행이 충돌, 완료 또는 [wandb.alert\(\)](https://docs.wandb.ai/v/ko/library/wandb.alert)을 호출 할 때마다 Slack에 경보를 게시할 수 있습니다.
 
 Jupyter Notebook 환경에서는 모든 셀 실행 시 경보 알림을 방지하기 위해 완료된 실행에 대한 경보가 비활성화됩니다. 대신 Jupyter Notebook 환경에서 wandb.alert\(\)를 사용하십시오.
 

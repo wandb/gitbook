@@ -14,7 +14,7 @@ description: 머신러닝 프로젝트를 위한 프로젝트 관리 및 협업 
 
 ###  [OpenAI 케이스 연구 보기 →](https://bit.ly/wandb-learning-dexterity)
 
- [W&B에 실험](https://docs.wandb.com/quickstart)이 있다면, 리포트에서 간편하게 시각화할 수 있습니다. 다음은 간단한 개요를 설명한 비디오입니다.
+[ W&B에 실험](https://docs.wandb.ai/v/ko/quickstart)이 있다면, 리포트에서 간편하게 시각화할 수 있습니다. 다음은 간단한 개요를 설명한 비디오입니다.
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" caption="" %}
 

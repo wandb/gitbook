@@ -20,7 +20,7 @@ Weights & Biases 스윕\(Sweeps\)을 사용해서 초매개변수 최적화를 �
 
 ##  **처리 방법\(Apporach\)**
 
-1.  **wandb 추가하기**: Python 스크립트에서 몇 줄의 코드를 추가하여 초매개변수를 로그하고 스크립트에서 메트릭을 출력합니다. [지금 시작하세요 ](https://docs.wandb.com/sweeps/quickstart)
+1.  **wandb 추가하기**: Python 스크립트에서 몇 줄의 코드를 추가하여 초매개변수를 로그하고 스크립트에서 메트릭을 출력합니다. [지금 시작하세요](https://docs.wandb.ai/v/ko/sweeps/quickstart) 
 2. **config\(구성\) 작성하기:** 스윕할 변수와 범위를 정의합니다. 검색 전략\(search strategy\)를 선택합니다. 저희는 grid\(그리드\), random\(임의\), 및 베이지안\(Bayesian\) 검색뿐만 아니라 조기 중지\(early stopping\)을 지원합니다. [여기](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion)에서 몇 가지 예시 구성을 확인하세요.
 3. **스윕 초기화하기\(Initialize sweep\)**: 스윕 서버를 시작합니다. 중앙 컨트롤러를 호스트하고 스윕을 수행하는 에이전트\(agents\)간 조정을 수행합니다.
 4.  **에이전트 시작하기\(Launch agent\(s\)\)**: 스윕에서 모델을 훈련하는 데 사용할 각 머신에 이 명령을 실행합니다. 에이전트는 다음에 시도할 초매개변수를 중앙 스윕서버에 요청하고 그 다음, 실행을 수행합니다.

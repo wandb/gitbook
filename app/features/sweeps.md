@@ -1,6 +1,6 @@
 # Sweeps
 
-[스윕 문서\(sweep docs\)](https://docs.wandb.com/sweeps)를 사용하여 YAML 파일을 생성하고 명령줄에서 스윕을 실행하세요.
+[스윕 문서\(sweep docs\)](https://docs.wandb.ai/v/ko/sweeps)를 사용하여 YAML 파일을 생성하고 명령줄에서 스윕을 실행하세요.
 
 ![](https://downloads.intercomcdn.com/i/o/146037524/72377a59652df4df916ef61e/sweep.png)
 

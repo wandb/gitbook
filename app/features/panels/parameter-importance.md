@@ -29,7 +29,7 @@ Weights & Biases Project로 이동합니다. 없는 경우, [이 프로젝트](h
 
  **그 후, Parameter Importance\(매개변수 중요도\)를 선택합니다.**
 
-여러분의 프로젝트로 [Weights & Biases 통합하기\(integrating Weights & Biases\)](https://docs.wandb.com/quickstart)외에 새로운 코드를 작성하실 필요는 없습니다.
+여러분의 프로젝트로 [Weights & Biases 통합하기\(integrating Weights & Biases\)](https://docs.wandb.ai/v/ko/quickstart)외에 새로운 코드를 작성하실 필요는 없습니다.
 
 ![](https://paper-attachments.dropbox.com/s_B78AACEDFC4B6CE0BF245AA5C54750B01173E5A39173E03BE6F3ACF776A01267_1578795636072_image.png)
 

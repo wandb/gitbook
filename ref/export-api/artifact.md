@@ -182,7 +182,7 @@ used_by()
 
 ### `verify` <a id="verify"></a>
 
-​[View source](https://www.github.com/wandb/client/tree/master/wandb/apis/public.py#L2917-L2942)​
+​ [소스 보기](https://www.github.com/wandb/client/tree/master/wandb/apis/public.py#L2917-L2942)​
 
 ```text
 verify(    root=None)

@@ -42,7 +42,7 @@ ${config:x}가 실행 또는 그룹에 대한 x의 구성 값을 삽입합니다
 
 ##  **평활\(Smoothing\)**
 
- [평활계수\(smoothing coefficient\)](https://docs.wandb.com/library/technical-faq#what-formula-do-you-use-for-your-smoothing-algorithm)를 0과 1 사이로 설정하실 수 있습니다. 여기서 0은 평활이 없음을 의미하며 1은 최대 평활을 의미합니다.
+ [평활계수\(smoothing coefficient\)](https://docs.wandb.ai/v/ko/library/technical-faq#w-and-b-tensorboard)를 0과 1 사이로 설정하실 수 있습니다. 여기서 0은 평활이 없음을 의미하며 1은 최대 평활을 의미합니다.
 
 ##  **이상치 무시\(Ignore Outliers\)**
 

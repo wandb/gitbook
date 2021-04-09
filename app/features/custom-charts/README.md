@@ -17,7 +17,7 @@ description: 쿼리를 사용한 사용자 정의 시각화 및 패널
 
 ### **작동 방식**
 
-1. **데이터 로그하기**: 스크립트에서 W&B로 실행하실 때, 평소에 사용하는 것과 같이 [구성\(config\)](https://docs.wandb.com/library/config) 및 요약 데이터를 로그합니다. 특정 시간에 로그된 여러 값의 리스트를 시각화하시려면 사용자 정의 `wandb.Table`를 사용하세요
+1. **데이터 로그하기**: 스크립트에서 W&B로 실행하실 때, 평소에 사용하는 것과 같이 [구성\(config\)](https://docs.wandb.ai/v/ko/library/config) 및 요약 데이터를 로그합니다. 특정 시간에 로그된 여러 값의 리스트를 시각화하시려면 사용자 정의 `wandb.Table`를 사용하세요
 2. **차트 사용자 정의하기:** [GraphQL](https://graphql.org/) 쿼리를 사용해서 로그된 데이터를 끌어옵니다. 강력한 시각화 문법\(visualization grammar\) [Vega](https://vega.github.io/vega/)를 사용해서 쿼리의 결과를 시각화하세요
 3. **차트 로그하기**: wandb.plot\_table\(\)를 사용해 스크립트에서 여러분의 프리셋\(preset\)를 호출하거나 저희 기본 빌트인\(builtin\) 중 하나를 사용하세요
 

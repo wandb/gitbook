@@ -10,8 +10,8 @@ description: 각 모델의 훈련 실행은 더 큰 프로젝트 내에서 구�
 
 * 실행 이름, 설명 및 태그
 * 호스트 이름, 운영 체제, 실행을 Python 버전 및 실행을 시작한 명령
-* [wandb.config](https://docs.wandb.com/library/config)​를 사용해 저장된 구성 매개변수\(config parameters\)
-* [wandb.log\(\)](https://docs.wandb.com/library/log)을 사용해 저장된 요약 매개변수\(summary parameters\) 리스트. 기본값으로 마지막으로 로그된 값으로 설정
+* [wandb.config](https://docs.wandb.ai/v/ko/library/config)​를 사용해 저장된 구성 매개변수\(config parameters\)
+* [wandb.log\(\)](https://docs.wandb.ai/v/ko/library/log)을 사용해 저장된 요약 매개변수\(summary parameters\) 리스트. 기본값으로 마지막으로 로그된 값으로 설정
 
 [라이브 예시 보기 →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)​  
 
@@ -62,11 +62,11 @@ description: 각 모델의 훈련 실행은 더 큰 프로젝트 내에서 구�
 
 ##  **파일 탭\(Files Tab\)**
 
-* [wandb.save\(\)](https://docs.wandb.com/library/save)를 사용하는 실행과 동기화 할 파일을 저장하세요 — AI용 Dropbpx입니다.
+* [wandb.save\(\)](https://docs.wandb.ai/v/ko/library/save)를 사용하는 실행과 동기화 할 파일을 저장하세요 — AI용 Dropbpx입니다.
 * 모델 체크포인트, 검증 세트 예시 등을 보관합니다.
-* diff.patch를 사용해 코드의 정확한 버전을 [복구](https://docs.wandb.com/library/restore)합니다.
+* diff.patch를 사용해 코드의 정확한 버전을 [복구](https://docs.wandb.ai/v/ko/library/restore)합니다.
 
-**🌟**새로운 권장사항: 입력 및 출력 추적을 위해 [아티팩트\(Artifacts\)](https://docs.wandb.ai/artifacts)를 사용해 보시기 바랍니다.
+**🌟**새로운 권장사항: 입력 및 출력 추적을 위해 [아티팩트\(Artifacts\)](https://docs.wandb.ai/v/ko/artifacts)를 사용해 보시기 바랍니다.
 
   [라이브 예시 보기 →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)​ 
 

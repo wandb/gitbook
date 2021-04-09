@@ -56,9 +56,9 @@ YAML 파일을 설정하여 훈련 스크립트, 매개변수 범위\(parameter 
 다음은 몇 가지 구성 리소스\(config resources\)입니다:
 
 1.  [예시 YAML \(Example YAML\)](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml): 스크립트의 코드 예시 및 스윕을 수행하는 YAML 파일
-2. [구성\(Configuration\)](https://docs.wandb.com/sweeps/configuration): 스윕 구성\(sweep config\)을 설정하는 전체 스펙\(spec\)
-3. [Jupyter Notebook](https://docs.wandb.com/sweeps/python-api): YAML 파일 대신 Python 사전을 사용해 스윕 구성\(sweep config\)을 설정
-4. [UI에서 구성\(config\) 생성하기](https://docs.wandb.com/sweeps/existing-project): 기존 W&B 프로젝트를 가져와 구성\(config\) 파일 생성하기
+2. [구성\(Configuration\)](https://docs.wandb.ai/v/ko/sweeps/configuration): 스윕 구성\(sweep config\)을 설정하는 전체 스펙\(spec\)
+3. [Jupyter Notebook](https://docs.wandb.ai/v/ko/sweeps/python-api): YAML 파일 대신 Python 사전을 사용해 스윕 구성\(sweep config\)을 설정
+4. [UI에서 구성\(config\) 생성하기](https://docs.wandb.ai/v/ko/sweeps/existing-project): 기존 W&B 프로젝트를 가져와 구성\(config\) 파일 생성하기
 5.  [이전 실행의 피드\(Feed\)](https://docs.wandb.com/sweeps/overview/add-to-existing#seed-a-new-sweep-with-existing-runs): 이전 실행 가져와 새 스윕\(sweep\)에 추가하기
 
 다음은 **sweep.yaml**이라고 불리는 스윕 구성 YAML 파일 예시입니다:

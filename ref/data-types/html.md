@@ -17,7 +17,7 @@ Html(    data, inject=True)
 
 ### `inject_head` <a id="inject_head"></a>
 
-​[View source](https://www.github.com/wandb/client/tree/master/wandb/data_types.py#L1279-L1294)​
+​
 
 ```text
 inject_head()
