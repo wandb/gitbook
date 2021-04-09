@@ -8,14 +8,14 @@ wandb Python 라이브러리를 사용하여 단 몇 줄의 코드로 머신러�
 
 ##  **스크립트에 W&B 통합하기**
 
- 다음은 W&B로 실험을 추적할 수 있는 간단한 빌딩 블록입니다. 저희는 또한 [PyTorch](https://docs.wandb.com/integrations/pytorch), [Keras](https://docs.wandb.com/integrations/keras), [Scikit](https://docs.wandb.com/integrations/scikit) 등에 대하여 다양한 특별 통합\(integrations\)를 제공하고 있습니다. 자세한 내용은 [통합](https://docs.wandb.com/integrations)기능을 참조해 주십시오.
+ 다음은 W&B로 실험을 추적할 수 있는 간단한 빌딩 블록입니다. 저희는 또한 [PyTorch](https://docs.wandb.ai/v/ko/integrations/pytorch), [Keras](https://docs.wandb.ai/v/ko/integrations/keras), [Scikit](https://docs.wandb.ai/v/ko/integrations/scikit) 등에 대하여 다양한 특별 통합\(integrations\)를 제공하고 있습니다. 자세한 내용은[ 통합](https://docs.wandb.ai/v/ko/integrations)기능을 참조해 주십시오.
 
-1. [**wandb.init\(\)**](https://docs.wandb.com/library/init): 스크립트 상단에 새 실행을 초기화합니다. 이를 통해서 실행 객체가 반환되고 모든 로그 및 파일이 저장된 후 비동기식으로 W&B로 스트리밍 되는 로컬 디렉토리를 생성합니다. 저희의 호스팅 클라우드 서버 대신 개인 서버를 사용하려는 경우, 저희는 [자체 호스팅\(Self-Hosting\)](https://docs.wandb.com/self-hosted) 서비스를 제공하고 있습니다.
-2.  [**wandb.config**](https://docs.wandb.com/library/config): 학습률 또는 모델 유형과 같은 초매개변수 사전을 저장합니다. 구성\(config\)에서 캡처한 모델 설정은 나중에 결과 구성 및 쿼리 시에 유용합니다.
-3. [**wandb.log\(\)**](https://docs.wandb.com/library/log): 시간 경과에 따라 정확성 및 손실과 같은 훈련 반복 루프\(training loop\)에 메트릭을 로그 합니다. 기본값으로 wandb.log\(\)를 호출하면, 히스토리 객체에 새로운 단계를 추가하고 요약 객체를 업데이트합니다.
+1. \*\*\*\*[**wandb.init\(\)**:](https://docs.wandb.ai/v/ko/library/init) 스크립트 상단에 새 실행을 초기화합니다. 이를 통해서 실행 객체가 반환되고 모든 로그 및 파일이 저장된 후 비동기식으로 W&B로 스트리밍 되는 로컬 디렉토리를 생성합니다. 저희의 호스팅 클라우드 서버 대신 개인 서버를 사용하려는 경우, 저희는 [자체 호스팅\(Self-Hosting\)](https://docs.wandb.com/self-hosted) 서비스를 제공하고 있습니다.
+2. [ **wandb.config**](https://docs.wandb.ai/v/ko/library/config): 학습률 또는 모델 유형과 같은 초매개변수 사전을 저장합니다. 구성\(config\)에서 캡처한 모델 설정은 나중에 결과 구성 및 쿼리 시에 유용합니다.
+3. \*\*\*\*[**wandb.log\(\)**](https://docs.wandb.ai/v/ko/library/log): 시간 경과에 따라 정확성 및 손실과 같은 훈련 반복 루프\(training loop\)에 메트릭을 로그 합니다. 기본값으로 wandb.log\(\)를 호출하면, 히스토리 객체에 새로운 단계를 추가하고 요약 객체를 업데이트합니다.
    * **히스토리**: 시간 경과에 따라 메트릭을 추적하는 사전 같은 객체의 배열입니다. 이러한 시계열\(time series\) 값은 기본값 라인 플롯으로 UI에 표시됩니다.
    * **요약**: 기본값으로 wandb.log\(\)로 로그된 메트릭의 최종 값입니다. 메트릭에 대한 요약을 수동으로 설정하여 최종 값 대신 가장 높은 정확도 또는 가장 낮은 손실을 캡처할 수 있습니다. 이러한 값들은 실행을 비교하는 테이블, 플롯에 사용됩니다. 즉, 프로젝트에서 모든 실행 과정을 높은 정확도로 시각화할 수 있습니다.
-4.  [**아티팩트\(Artifacts\)**](https://docs.wandb.com/artifacts): 모델 가중치 또는 예측 테이블과 같은 실행의 출력을 저장합니다. 이를 통해서 모델 훈련뿐만 아니라 최종 모델에 영향을 미치는 모든 파이프라인을 추적하실 수 있습니다.
+4.  [**아티팩트\(Artifacts\)**](https://docs.wandb.ai/v/ko/artifacts): 모델 가중치 또는 예측 테이블과 같은 실행의 출력을 저장합니다. 이를 통해서 모델 훈련뿐만 아니라 최종 모델에 영향을 미치는 모든 파이프라인을 추적하실 수 있습니다.
 
 ## **모범 사례**
 

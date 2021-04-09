@@ -8,7 +8,7 @@ description: 라이브 프레젠테이션 및 강연의 링크 및 리소스
 
 다음 [5분 예시](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)와 함께 시험 추적에 대한 무료 툴을 한 번 사용해 보시기 바랍니다 →​
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%281%29%20%284%29.png)
 
 ## **현실에서의 딥러닝** 
 
