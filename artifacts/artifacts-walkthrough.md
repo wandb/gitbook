@@ -6,7 +6,7 @@
 
 ## 1.  **실행 초기화** <a id="1-initialize-a-run"></a>
 
-파이프라인 단계를 추적하시려면, 스크립트의 실행을 초기화합니다. job\_type에 대한 스트링을 지정하여 다른 파이프라인 단계를 \(사전처리\(preprocessing\), 훈련\(training\), 평가\(evaluation\) 등\) 구분합니다. W&B로 실행을 조직한 적이 없는 경우, 저희의 [Python 라이브러리](https://docs.wandb.com/library) 문서에 더 자세히 설명된 실험 추적에 대한 가이드라인을 제공하고 있으니 참조하시기 바랍니다.
+파이프라인 단계를 추적하시려면, 스크립트의 실행을 초기화합니다. job\_type에 대한 스트링을 지정하여 다른 파이프라인 단계를 \(사전처리\(preprocessing\), 훈련\(training\), 평가\(evaluation\) 등\) 구분합니다. W&B로 실행을 조직한 적이 없는 경우, 저희의[ Python 라이브러리 ](https://docs.wandb.ai/v/ko/library)문서에 더 자세히 설명된 실험 추적에 대한 가이드라인을 제공하고 있으니 참조하시기 바랍니다.
 
 ```text
 run = wandb.init(job_type='train')

@@ -6,8 +6,8 @@
 
 1.  `wandb sweep`로의 명령줄 전달인자 \(`--project` 및 `--entity` 전달인자\)
 2.  wandb 설정 파일 \(`project` 및 `entity` 키\)
-3.   [스윕 구성\(sweep configuration\)](https://docs.wandb.com/sweeps/configuration) \(`project` 및 `entity` 키\)
-4. [환경 변수\(environment variables\)](https://docs.wandb.com/library/environment-variables) \(`WANDB_PROJECT` 및 `WANDB_ENTITY` 변수\)
+3.   [스윕 구성\(sweep configuration\) ](https://docs.wandb.ai/v/ko/sweeps/configuration)\(`project` 및 `entity` 키\)
+4. [환경 변수\(environment variables\)](https://docs.wandb.ai/v/ko/library/environment-variables) \(`WANDB_PROJECT` 및 `WANDB_ENTITY` 변수\)
 
 ### **첫 실행 완료 후 에이전트가 중단하는 스윕\(Sweeps agents stop after the first runs finish\)**
 

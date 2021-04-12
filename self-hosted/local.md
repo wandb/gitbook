@@ -20,7 +20,7 @@ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 
 ### **중앙 집중식 호스팅**
 
-localhost에서 wandb를 실행하는 것은 초기 실험에는 좋지만, wandb/local의 협력 기능을 활용하려면 서비스를 중앙 서버에서 호스팅 하셔야 합니다. 중앙 집중식 서버 설정 방법은 [설정](https://docs.wandb.com/self-hosted/setup) 섹션에서 확인하실 수 있습니다.
+localhost에서 wandb를 실행하는 것은 초기 실험에는 좋지만, wandb/local의 협력 기능을 활용하려면 서비스를 중앙 서버에서 호스팅 하셔야 합니다. 중앙 집중식 서버 설정 방법은 [설정](https://docs.wandb.ai/v/ko/self-hosted/setup) 섹션에서 확인하실 수 있습니다.
 
 ###  **기본 구성**
 

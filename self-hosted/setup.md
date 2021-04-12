@@ -19,7 +19,7 @@ AWS 콘솔에 Fargate를 입력하시거나 [ECS management 페이지](https://c
 * **Define Your Service\(서비스 정의하기\)**: SSL을 종료하고 요청을 port 8080으로 전달할 수 있는 ALB를 생성하실 수 있습니다.
 * **IAM Permissions\(IAM 권한\)**: 클라우드 파일 백엔드\(선택사항\)를 사용하실 예정이시라면, 인스턴스\(instance\)에 S3에 액세스하고 SQS를 구독을 허용하는 IAM role이 필요합니다.
 
- 일단 서비스가 프로비저닝\(provision\) 되면, ALB 또는 인스턴스의 IP 및 PORT를 통해 직접 액세스하실 수 있습니다. 부팅 시 인스턴스를 사용하실 수 있지만, 고급 옵션의 경우, 이제 [configuring your instance\(인스턴스 구성\)](https://docs.wandb.com/self-hosted/configuration)를 계속해서 하실 수 있습니다.
+ 일단 서비스가 프로비저닝\(provision\) 되면, ALB 또는 인스턴스의 IP 및 PORT를 통해 직접 액세스하실 수 있습니다. 부팅 시 인스턴스를 사용하실 수 있지만, 고급 옵션의 경우, 이제 [configuring your instance\(인스턴스 구성\)](https://docs.wandb.ai/v/ko/self-hosted/configuration)를 계속해서 하실 수 있습니다.
 
 ### EC2
 

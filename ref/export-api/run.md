@@ -70,29 +70,48 @@ files(    names=[], per_page=50)
 
 | **전달인자** |
 | :--- |
-| A \`Files\` object, which is an iterator over \`File\` obejcts. |
+| `Files` 객체, 즉 `File` 객체를 반복하는 반복자\(iterator\)입니다. |
 
 ### `history` <a id="history"></a>
 
-​[View source](https://www.github.com/wandb/client/tree/master/wandb/apis/public.py#L1157-L1189)​
+​ [소스 보기](https://www.github.com/wandb/client/tree/master/wandb/apis/public.py#L1157-L1189)​​
 
 ```text
 history(    samples=500, keys=None, x_axis='_step', pandas=True,    stream='default')
 ```
 
-Returns sampled history metrics for a run. This is simpler and faster if you are ok with the history records being sampled.
+실행에 대한 샘플링된 히스토리 메트릭을 반환합니다. 히스토리 기록이 샘플링되는 것이 괜찮으시다면 이 작업이 더 간단하고 빠릅니다.
 
-| Arguments |
-| :--- |
-| samples \(int, optional\): The number of samples to return pandas \(bool, optional\): Return a pandas dataframe keys \(list, optional\): Only return metrics for specific keys x\_axis \(str, optional\): Use this metric as the xAxis defaults to \_step stream \(str, optional\): "default" for metrics, "system" for machine metrics |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">&#xC804;&#xB2EC;&#xC778;&#xC790;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">
+        <p>samples (int, optional): &#xBC18;&#xD658;&#xD560; &#xC0D8;&#xD50C; &#xC218;</p>
+        <p>pandas (bool, optional): panda dataframe(&#xD310;&#xB2E4; &#xB370;&#xC774;&#xD130;&#xD504;&#xB808;&#xC784;)&#xC744;
+          &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>keys (list, optional): &#xD2B9;&#xC815; &#xD0A4;(keys)&#xC5D0; &#xB300;&#xD55C;
+          &#xBA54;&#xD2B8;&#xB9AD;&#xB9CC; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>x_axis (str, optional): &#xC774; &#xBA54;&#xD2B8;&#xB9AD;&#xC744; xAxis&#xB85C;
+          &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xAE30;&#xBCF8;&#xAC12;&#xC740;
+          _step stream (str, optional): &#xBA54;&#xD2B8;&#xB9AD;&#xC758; &#xACBD;&#xC6B0;&#x201C;default&#x201D;,
+          &#xBA38;&#xC2E0; &#xBA54;&#xD2B8;&#xB9AD;&#xC758; &#xACBD;&#xC6B0; &quot;system&quot;&#xC785;&#xB2C8;&#xB2E4;.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-| Returns |
+|  반환 |
 | :--- |
-| If pandas=True returns a \`pandas.DataFrame\` of history metrics. If pandas=False returns a list of dicts of history metrics. |
+| pandas=True인 경우 히스토릭 메트릭의 `pandas.DataFrame`를 반환합니다. pandas=False인 경우, 히스토리 메트릭의 dict의 리스트를 반환합니다. |
 
 ### `load` <a id="load"></a>
 
-​[View source](https://www.github.com/wandb/client/tree/master/wandb/apis/public.py#L934-L996)​
+​[소스 보기](https://www.github.com/wandb/client/tree/master/wandb/apis/public.py#L934-L996)​​
 
 ```text
 load(    force=False)
@@ -100,18 +119,18 @@ load(    force=False)
 
 ### `log_artifact` <a id="log_artifact"></a>
 
-​[View source](https://www.github.com/wandb/client/tree/master/wandb/apis/public.py#L1275-L1307)​
+​ [소스 보기](https://www.github.com/wandb/client/tree/master/wandb/apis/public.py#L1275-L1307)​​
 
 ```text
 log_artifact(    artifact, aliases=None)
 ```
 
-Declare an artifact as output of a run.
+아티팩트를 실행의 출력으로 선언\(declare\)합니다.
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Arguments</th>
+      <th style="text-align:left">&#xC804;&#xB2EC;&#xC778;&#xC790;</th>
     </tr>
   </thead>
   <tbody>
@@ -218,7 +237,7 @@ upload_file(    path, root='.')
 root \(str\): 관련된 파일을 저장할 루트\(root\) 경로. 즉, 실행에서 파일을 "my\_dir/file.txt"로 저장하고자 하고 현재 "my\_dir"에 있는 경우 루트\(root\)를 "../"로 설정합니다.  
 
 
-| Returns |
+| 반환 |
 | :--- |
 | name 전달인자와 일치하는 \`File\` |
 
@@ -232,9 +251,9 @@ use_artifact(    artifact)
 
 아티팩트를 실행에 대한 입력으로 선언\(declare\)합니다.
 
-| Arguments |
+| 전달인자 |
 | :--- |
-| artifact \(\`Artifact\`\): An artifact returned from \`wandb.Api\(\).artifact\(name\)\` |
+| artifact \(`Artifact`\): `wandb.Api().artifact(name)`에서 반환된 아티팩트 |
 
 | **반환** |
 | :--- |

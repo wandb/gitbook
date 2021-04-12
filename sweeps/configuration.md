@@ -7,7 +7,7 @@ description: '초매개변수 범위, 검색 전략 및 기타 swe 측면 설정
 다음의 구성 영역\(configuration fields\)를 사용하여 스윕을 사용자 정의합니다. 구성을 지정하는 방법으로 두 가지가 있습니다.
 
 1.  [YAML 파일](https://docs.wandb.com/sweeps/overview/quickstart#2-sweep-config): 분산된 스윕\(distributed sweeps\)에 가장 적합합니다. [여기서](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion) 예시를 확인하세요. 
-2. [Python 데이터 스트럭처](https://docs.wandb.com/sweeps/python-api): **​:** Jupyter Notebook에서 스윕을 실행하기에 가장 적합합니다.
+2. [Python 데이터 스트럭처](https://docs.wandb.ai/v/ko/sweeps/python-api): **​:** Jupyter Notebook에서 스윕을 실행하기에 가장 적합합니다.
 
 | 최상위 수준 키 | 의미 |
 | :--- | :--- |
@@ -20,7 +20,7 @@ description: '초매개변수 범위, 검색 전략 및 기타 swe 측면 설정
 | parameters | 검색할 [매개변수](https://docs.wandb.com/sweeps/configuration#parameters) 경계 지정 \(필수\) |
 | project | 이 스윕에 대한 프로젝트 지정 |
 | entity | 이 스윕에 대한 개체\(entity\) 지정 |
-| command | 훈련 스크립트 실행 방법에 대한 [명령줄](https://docs.wandb.com/sweeps/configuration#command) 지정 |
+| command | 훈련 스크립트 실행 방법에 대한 [명령줄](https://docs.wandb.ai/v/ko/sweeps/configuration) 지정 |
 
 ###  **메트릭**
 

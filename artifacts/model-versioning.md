@@ -8,26 +8,26 @@ W&B 아티팩트는 프로젝트 라이프사이클 전반에 걸쳐 머신 러�
 
 ### **일반 사용 사례** <a id="common-use-cases"></a>
 
-1. 여러 머신에 걸쳐 모델을 전송하여 [안정적으로 버저닝 및 저장합니다](https://docs.wandb.ai/artifacts/model-versioning#version-and-store-reliably).
-2. ​다양한 모델 아이디어를 구분하여, [브랜치\(branch\)에서 아이디어를 탐색합니다](https://docs.wandb.ai/artifacts/model-versioning#explore-ideas-in-branches).
-3. ​ 여러 변형\(variants\)에 걸쳐 [모델을 정확하게 비교합니다](https://docs.wandb.ai/artifacts/model-versioning#compare-models-precisely).
-4. ​ 심지어 종\(species\)이 증식하더라도 [모델 생태계\(model ecosystem\)를 관리합니다](https://docs.wandb.ai/artifacts/model-versioning#manage-a-model-ecosystem).
-5. [데이터 워크플로를 시각화 및 공유하여](https://docs.wandb.ai/artifacts/model-versioning#visualize-and-easily-share-your-workflow) 모든 작업을 한곳에 둡니다.
+1. 여러 머신에 걸쳐 모델을 전송하여 [안정적으로 버저닝 및 저장합니다](https://docs.wandb.ai/v/ko/artifacts/model-versioning#version-and-store-reliably).
+2. ​다양한 모델 아이디어를 구분하여, [브랜치\(branch\)에서 아이디어를 탐색합니다](https://docs.wandb.ai/v/ko/artifacts/model-versioning#explore-ideas-in-branches).
+3. ​ 여러 변형\(variants\)에 걸쳐 [모델을 정확하게 비교합니다](https://docs.wandb.ai/v/ko/artifacts/model-versioning#compare-models-precisely).
+4. ​ 심지어 종\(species\)이 증식하더라도 [모델 생태계\(model ecosystem\)를 관리합니다](https://docs.wandb.ai/v/ko/artifacts/model-versioning#manage-a-model-ecosystem).
+5. [데이터 워크플로를 시각화 및 공유하여 ](https://docs.wandb.ai/v/ko/artifacts/model-versioning)모든 작업을 한곳에 둡니다.
 
 ### **유연한 추적 및 호스팅** <a id="flexible-tracking-and-hosting"></a>
 
  이러한 일반적인 경우 이외에도, 핵심 아티팩트 기능을 사용하여 데이터를 업로드, 버전, 별칭 붙이기\(alias\), 비교 및 다운로드할 수 있으며, S3, GCP, https를 통해 로컬 및 원격 파일 시스템에서 사용자 지정 데이터세트 워크플로를 지원합니다.
 
- 이러한 기능에 대한 세부 정보는 [아티팩트 핵심 개념](https://docs.wandb.ai/artifacts/artifacts-core-concepts)을 참조하시기 바랍니다.
+ 이러한 기능에 대한 세부 정보는 [아티팩트 핵심 개념](https://docs.wandb.ai/v/ko/artifacts/artifacts-core-concepts)을 참조하시기 바랍니다.
 
 ## **핵심 아티팩트 기능** <a id="core-artifacts-features"></a>
 
 W&B 아티팩트는 다음의 기본 기능을 통해 모델 관리를 지원합니다:
 
-1.  **업로드:** `run.log_artifact()`를 사용해 임의의 모델을 \(디렉토리 또는 임의의 포맷 파일로써\) 저장합니다. 또한 원시 콘텐츠\(raw contents\) 대신 링크 또는 URI를 사용하여 [참조로](https://docs.wandb.ai/artifacts/api#adding-references) 원격 파일 시스템\(예: S3 또는 GCP의 클라우드 저장소\)에서 데이터세트를 추적할 수도 있습니다.
+1.  **업로드:** `run.log_artifact()`를 사용해 임의의 모델을 \(디렉토리 또는 임의의 포맷 파일로써\) 저장합니다. 또한 원시 콘텐츠\(raw contents\) 대신 링크 또는 URI를 사용하여 [참조로](https://docs.wandb.ai/v/ko/artifacts/model-versioning#core-artifacts-features) 원격 파일 시스템\(예: S3 또는 GCP의 클라우드 저장소\)에서 데이터세트를 추적할 수도 있습니다.
 2. **버전:** 아티팩트에  유형\(`"resnet50",` `"bert"`, `"stacked_lstm"`\) 및 이름`("my_resnet50_variant_with_attention")`을 지정하여 아티팩트를 정의합니다. 동일한 이름을 다시 로그하는 경우, W&B는 최신 콘텐츠를 포함한 새 버전의 아티팩트를 자동 생성합니다. 훈련 중에 아티팩트 버전을 사용하여 모델의 체크포인트를 설정할 수 있습니다. 새 모델 파일을 각 체크포인트에 동일한 이름으로 로그하기만 하시면 됩니다.
 3.  **별칭\(alias\):** `"baseline"`, `"best"`, `"production"`과 같은 별칭을 설정하여 실험 및 개발된 모델의 계통\(lineage\)에서 중요한 버전을 강조 표시합니다.
-4. **비교:** 임의의 두 버전을 선택하여 콘텐츠를 나란히 탐색합니다. 또한, 저희는 모델 입력 및 출력 시각화를 위한 툴도 개발 중입니다. [자세한 내용은 이곳을 참조하시기 바랍니다 →](https://docs.wandb.ai/datasets-and-predictions)**​**​
+4. **비교:** 임의의 두 버전을 선택하여 콘텐츠를 나란히 탐색합니다. 또한, 저희는 모델 입력 및 출력 시각화를 위한 툴도 개발 중입니다. [자세한 내용은 이곳을 참조하시기 바랍니다 →](https://docs.wandb.ai/v/ko/datasets-and-predictions)**​**​
 5. **다운로드:** 모델의 로컬 복사본을 \(예: 추론에 대한\) 가져오거나 아티팩트 콘텐츠를 참조로 확인합니다.
 
 ## **안정적인 버저닝 및 저장** <a id="version-and-store-reliably"></a>
@@ -58,13 +58,13 @@ A partial view of an artifact tree showing two versions of an Inception-based CN
 
 ##  **정확한 모델 비교** <a id="compare-models-precisely"></a>
 
-로그된 또는 파생 메트릭\(예: 손실, 정확도, 평균 IoU\(intersection over union\)\)이나 동일 세트의 데이터를\(예: 테스트 또는 검증\) 기준으로 모델을 비교합니다. 다른 모델 변형을 시각화하고, 그 계통\(lineage\)을 추적하고 아티팩트 계산 그래프\(하단의 첫 번째 이미지\)를 통해 동일한 데이터 세트 버전을 사용하고 있는지 확인할 수 있습니다. 아티팩트 버전을 선택하여 여러분 및 동료가 남긴 노트를 확인할 수 있으며, 세부 정보를 자세히 살펴보거나 연결을 추적하여 실행 및 다른 아티팩트\(두 번째 이미지\)를 계산하거나 [데이터세트 및 예측을 \(베타\)](https://docs.wandb.ai/datasets-and-predictions) 통하여 모델 예측의 시각적 side-by-side diff 모드를 입력할 수 있습니다. 또한, W&B 작업 공간을 대시보드로 사용하여 프로젝트의 실행을 구성 및 쿼리하고 다운로드, 미세 조정 및 추가 분석\(마지막 이미지\)에 대한 특정 실행과 연관된 모델 아티팩트를 찾을 수 있습니다. 
+로그된 또는 파생 메트릭\(예: 손실, 정확도, 평균 IoU\(intersection over union\)\)이나 동일 세트의 데이터를\(예: 테스트 또는 검증\) 기준으로 모델을 비교합니다. 다른 모델 변형을 시각화하고, 그 계통\(lineage\)을 추적하고 아티팩트 계산 그래프\(하단의 첫 번째 이미지\)를 통해 동일한 데이터 세트 버전을 사용하고 있는지 확인할 수 있습니다. 아티팩트 버전을 선택하여 여러분 및 동료가 남긴 노트를 확인할 수 있으며, 세부 정보를 자세히 살펴보거나 연결을 추적하여 실행 및 다른 아티팩트\(두 번째 이미지\)를 계산하거나 [데이터세트 및 예측을 \(베타\) ](https://docs.wandb.ai/v/ko/datasets-and-predictions)통하여 모델 예측의 시각적 side-by-side diff 모드를 입력할 수 있습니다. 또한, W&B 작업 공간을 대시보드로 사용하여 프로젝트의 실행을 구성 및 쿼리하고 다운로드, 미세 조정 및 추가 분석\(마지막 이미지\)에 대한 특정 실행과 연관된 모델 아티팩트를 찾을 수 있습니다. 
 
 이 아티팩트 트리는 12개의 모델 변형\(좌측 하단\)을 나타내며, test\_dataset: 14 entry\_predictions 및 2 predictions에서 두 세트의 예측\(predictions\)을 생성합니다. 이들은 19개의 결과 아티팩트\(계산 메트릭 및 이미지에 대한 ground truth 주석\)를 생산하도록 평가됩니다.
 
 ![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MUxuBZhlYFKA7_UAH1j%2F-MUxuugRG6h9JE18vk6q%2Fimage.png?alt=media&token=e4321ce7-dd5e-40c7-9d66-a9f1dac4839d)
 
-여러 이름에서 버전을 선택하여 \(여기서는 여러 팀에서의 경쟁 벤치마크에 대한 모델 엔트리\) 세부 사항 및 연결된 실험 실행을 탐색합니다. 두 버전을 선택하는 경우 콘텐츠를 나란히 비교할 수 있습니다. \(시각적 비교의 경우 [데이터세트 및 예측 베타](https://docs.wandb.ai/datasets-and-predictions)를 참조하시기 바랍니다\)
+여러 이름에서 버전을 선택하여 \(여기서는 여러 팀에서의 경쟁 벤치마크에 대한 모델 엔트리\) 세부 사항 및 연결된 실험 실행을 탐색합니다. 두 버전을 선택하는 경우 콘텐츠를 나란히 비교할 수 있습니다. \(시각적 비교의 경우 [데이터세트 및 예측 베타](https://docs.wandb.ai/v/ko/datasets-and-predictions)를 참조하시기 바랍니다\)
 
 ![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MUxuBZhlYFKA7_UAH1j%2F-MUxuxe9yhhvO6QQR6YI%2Fimage.png?alt=media&token=4bc8080f-c1e9-4406-9176-a8f95e0f1f3a)
 

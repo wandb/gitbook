@@ -8,7 +8,7 @@ description: ✨베타✨ Ray Tune 스윕 검색 및 스케줄러 API 지원
 Ray Tune](https://ray.readthedocs.io/en/latest/tune.html)은 확장 가능한 초매개변수 튜닝 라이브러리입니다. 저희는 W&B 스윕에 Ray Tune에 대한 지원을 추가하고 있으며, 즉, 다양한 머신에서 실행을 시작하고 중앙에서 결과 시각화를 쉽고 간편하게 하실 수 있습니다.
 
 {% hint style="info" %}
-Ray Tune과 W&B를 모두 활용을 위한 완벽하고 창의적인 솔루션에 대해서 [W&B용 Ray Tune 통합](https://docs.wandb.com/library/integrations/ray-tune)을 확인해보시기 바랍니다!
+Ray Tune과 W&B를 모두 활용을 위한 완벽하고 창의적인 솔루션에 대해서[ W&B용 Ray Tune 통합](https://docs.wandb.ai/v/ko/sweeps/ray-tune)을 확인해보시기 바랍니다!
 {% endhint %}
 
 {% hint style="info" %}

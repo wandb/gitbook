@@ -4,7 +4,7 @@ description: 데이터세트를 반복하고 모델 예측을 이해합니다.
 
 # Datasets & Predictions \[Early Access\]
 
-이 기능은 현재 얼리 액세스 단계에 있습니다. wandb.ai의 프로덕션 서비스에서 이를 사용하실 수 있지만 [몇가지 제한 사항](https://docs.wandb.com/untitled#current-limitations)이 있습니다. API는 추후 변경될 수 있습니다. 저희는 여러분의 질문, 코멘트, 아이디어를 기다리고 있습니다! [feedback@wandb.com](mailto:feedback@wandb.com)으로 여러분의 생각을 알려주시기 바랍니다.
+이 기능은 현재 얼리 액세스 단계에 있습니다. wandb.ai의 프로덕션 서비스에서 이를 사용하실 수 있지만[ 몇가지 제한 사항](https://docs.wandb.ai/v/ko/datasets-and-predictions#undefined-3)이 있습니다. API는 추후 변경될 수 있습니다. 저희는 여러분의 질문, 코멘트, 아이디어를 기다리고 있습니다! [feedback@wandb.com](mailto:feedback@wandb.com)으로 여러분의 생각을 알려주시기 바랍니다.
 
 데이터는 모든 ML 워크플로우의 핵심입니다. 저희는 사용자들이 예시 수준으로 데이터세트 및 모델 평가의 시각화하고 쿼리할 수 있도록 W&B 아티팩트에 인상적인 새로운 기능을 추가하였습니다. 이 새로운 툴을 통해 데이터세트를 분석 및 이해하고, 모델 퍼포먼스를 측정 및 디버그\(debug\) 할 수 있습니다.
 

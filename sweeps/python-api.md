@@ -26,9 +26,9 @@ sweep_id = wandb.sweep(sweep_config)
 스윕에 대한 개체\(entity\) 또는 프로젝트를 지정하시려면 다음의 방법을 사용하시기 바랍니다:
 
 * Arguments to wandb.sweep\(\) For example: `wandb.sweep(sweep_config, entity="user", project="my_project")`
-* [Environment Variables](../library/environment-variables.md) `WANDB_ENTITY` and `WANDB_PROJECT`
-* [Command Line Interface](../library/cli.md) using the `wandb init` command
-* [Sweep configuration ](configuration.md)using the keys "entity" and "project"
+* [Environment Variables](https://docs.wandb.ai/v/ko/library/environment-variables) `WANDB_ENTITY` and `WANDB_PROJECT`
+* [Command Line Interface](https://docs.wandb.ai/v/ko/library/cli) using the `wandb init` command
+* [Sweep configuration](https://docs.wandb.ai/v/ko/sweeps/configuration) using the keys "entity" and "project"
 {% endhint %}
 
 ##  **에이전트 실행하기**

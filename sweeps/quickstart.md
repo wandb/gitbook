@@ -5,7 +5,7 @@
 ![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%284%29%20%283%29%20%282%29.png)
 
 {% hint style="info" %}
-이미 Weights & Biases 프로젝트가 있으신가요? [다음 스윕 튜토리얼로 건너뛰기 →](https://docs.wandb.com/sweeps/existing-project)​
+이미 Weights & Biases 프로젝트가 있으신가요? [다음 스윕 튜토리얼로 건너뛰기 →](https://docs.wandb.ai/v/ko/sweeps/existing-project)​
 {% endhint %}
 
 ## 1. **wandb 추가하기**

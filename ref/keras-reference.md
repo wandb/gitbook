@@ -18,7 +18,7 @@ WandbCallback은 자동으로 kreas를 wandb와 통합시킵니다.
 model.fit(X_train, y_train,  validation_data=(X_test, y_test),callbacks=[WandbCallback()])
 ```
 
-WandbCallback은 자동으로 keras: loss and anything passed into keras\_model.compile\(\)가 수집한 모든 데이터에서 히스토리 데이터를 로그합니다.
+WandbCallback은 자동으로 `keras: loss and anything passed into keras_model.compile()`가 수집한 모든 데이터에서 히스토리 데이터를 로그합니다.
 
  WandbCallback은 “best”가 `monitor` 및`mode` 속성에 의해 정의되는 “best” 훈련 단계와 연관된 실행에 대한 요약 메트릭을 설정합니다.
 

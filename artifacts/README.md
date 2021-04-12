@@ -58,12 +58,12 @@ run = wandb.init(job_type="dataset-creation")artifact = wandb.Artifact('my-datas
 
 데이터 및 모델 버저닝에 대한 아티팩트 사용법을 자세히 살펴보시기 바랍니다.
 
-1. ​ [아티팩트 핵심 개념](https://docs.wandb.ai/artifacts/artifacts-core-concepts)​​
-2. ​ [아티팩트 상세 설명](https://docs.wandb.ai/artifacts/api)​​
-3. ​ [데이터세트 버저닝](https://docs.wandb.ai/artifacts/dataset-versioning)​​
-4. ​ [모델 버저닝](https://docs.wandb.ai/artifacts/model-versioning)​​
-5. ​ [아티팩트 FAQ](https://docs.wandb.ai/artifacts/artifacts-faqs)​​
-6. ​ [아티팩트 예시](https://docs.wandb.ai/artifacts/examples)​​
+1. ​ [아티팩트 핵심 개념](https://docs.wandb.ai/v/ko/artifacts/artifacts-core-concepts)​​
+2. ​ [아티팩트 상세 설명](https://docs.wandb.ai/v/ko/artifacts/artifacts-walkthrough)​​
+3. ​ [데이터세트 버저닝](https://docs.wandb.ai/v/ko/artifacts/dataset-versioning)​​
+4. ​ [모델 버저닝](https://docs.wandb.ai/v/ko/artifacts/model-versioning)​​
+5. ​[ 아티팩트 FAQ​​](https://docs.wandb.ai/v/ko/artifacts/api)
+6. [​ 아티팩트 예시](https://docs.wandb.ai/v/ko/artifacts/examples)​​
 7. ​[아티팩트](https://docs.wandb.ai/ref/artifact) 참조 문서
 
 ## **W&B 아티팩트 비디오 튜토리얼**  <a id="video-tutorial-for-w-and-b-artifacts"></a>
