@@ -6,8 +6,8 @@
 
 * [견적 페이지](https://www.wandb.com/pricing): 개인, 스타트업, 팀, 기업용 계정
 * [아카데믹](https://www.wandb.com/academic): 공동작업자와 결과 공유를 할 수 있도록 아카데믹 팀에 액세스권한 신청하기
-* [온프램](https://docs.wandb.com/self-hosted): 온프램 및 프라이빗 클라우드 설치를 위한 옵션을 제공합니다.
-* [문의하기](https://docs.wandb.com/company/getting-help): 문의 사항이 있으시면 연락해 주시기 바랍니다
+* [온프램](https://docs.wandb.ai/v/ko/self-hosted): 온프램 및 프라이빗 클라우드 설치를 위한 옵션을 제공합니다.
+* [문의하기](https://docs.wandb.ai/v/ko/company/getting-help): 문의 사항이 있으시면 연락해 주시기 바랍니다
 * [데모 요청하기](https://www.wandb.com/contact): 저희는 여러분과 통화하고 맞춤형 기업 계정 요금제에 대해 논의할 수 있게 되어 진심으로 기쁩니다.
 
 ##  **Weights & Biases는 TensorBoard와 어떻게 다른가요?**

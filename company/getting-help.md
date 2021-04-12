@@ -2,7 +2,7 @@
 
 ## **리소스**
 
-1.  [예시 프로젝트](https://docs.wandb.com/examples) - Keras, PyTorch, 및 TensorFlow를 사용한 모델의 전체 스크립트
+1. [ 예시 프로젝트](https://docs.wandb.ai/v/ko/examples) - Keras, PyTorch, 및 TensorFlow를 사용한 모델의 전체 스크립트
 2. [기사](https://www.wandb.com/articles) – 머신 러닝 모범 사례 및 동향에 관한 블로그 게시물
 3. [Slack](http://bit.ly/wandb-forum) – 오픈 포럼에 참여하셔서 질문 및 프로젝트에 관한 토의를 하실 수 있습니다.
 

@@ -12,7 +12,7 @@ Wandb는 머신 러닝을 위한 실험 추적 툴입니다. 저희는 머신 �
 
 Wandb로 훈련코드를 계측하면, 저희 백그라운드 프로세스는 모델을 훈련할 때 발생하는 유용한 데이터를 수집합니다. 예를 들면, 저희는 모델 퍼포먼스 메트릭, 초매개변수, 경사\(gradients\), 시스템 메트릭, 출력 파일 및 가장 최근의 git 커밋\(commit\) 파일을 추적할 수 있습니다.
 
-[Weights & Biases](https://docs.wandb.ai/)
+[Weights & Biases](https://docs.wandb.ai/v/ko/)
 
 ###  **설정하는 것은 어렵나요?**
 

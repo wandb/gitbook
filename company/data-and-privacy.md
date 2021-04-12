@@ -17,9 +17,9 @@
 
 ## **자체 호스팅 및 프라이빗 클라우드**
 
-저희는 저희 클라우드 호스팅 서비스에서 보안 및 암호화에 대한 업체 모범 사례를 준수합니다. 또한, 기업 고객을 위해 프라이빗 클라우드 및 자체 호스팅 설치도 제공합니다. 여러분의 비즈니스 옵션에 대해 좀 더 자세하게 알아보시려면 [문의해 주시기 바랍니다.](https://docs.wandb.com/company/getting-help)
+저희는 저희 클라우드 호스팅 서비스에서 보안 및 암호화에 대한 업체 모범 사례를 준수합니다. 또한, 기업 고객을 위해 프라이빗 클라우드 및 자체 호스팅 설치도 제공합니다. 여러분의 비즈니스 옵션에 대해 좀 더 자세하게 알아보시려면 [문의해 주시기 바랍니다.](https://docs.wandb.ai/v/ko/company/getting-help)
 
- 개인 용도의 경우, 저희는 사용자 자신의 머신에서 실행할 수 있는 [로컬 도커 설치\(local Docker installation\)](https://docs.wandb.com/self-hosted/local)가 있습니다.
+ 개인 용도의 경우, 저희는 사용자 자신의 머신에서 실행할 수 있는 [로컬 도커 설치\(local Docker installation\)](https://docs.wandb.ai/v/ko/self-hosted/local)가 있습니다.
 
 ##  **프로젝트 프라이버시 및 팀**
 
@@ -41,5 +41,5 @@
 
 ##  **연결 계정**
 
- Weights & Biases 계정 생성 및 로그인을 위해 Google 또는 GitHub OAuth를 사용하시는 경우, 저희는 여러분의 보관소\(repositories\) 또는 폴더의 데이터를 읽거나 동기화하지 않습니다. 이러한 연결은 순수하게 인증 목적으로만 사용됩니다. 사용자는 W&B [아티팩트\(Artifacts\)](https://docs.wandb.com/artifacts)를 사용하는 실행과 연결하기 위해 파일 및 코드를 로그 하실 수 있습니다.
+ Weights & Biases 계정 생성 및 로그인을 위해 Google 또는 GitHub OAuth를 사용하시는 경우, 저희는 여러분의 보관소\(repositories\) 또는 폴더의 데이터를 읽거나 동기화하지 않습니다. 이러한 연결은 순수하게 인증 목적으로만 사용됩니다. 사용자는 W&B [아티팩트\(Artifacts\)](https://docs.wandb.ai/v/ko/artifacts)를 사용하는 실행과 연결하기 위해 파일 및 코드를 로그 하실 수 있습니다.
 
