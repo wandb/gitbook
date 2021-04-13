@@ -6,8 +6,7 @@ description: >-
 
 # Hugging Face
 
-  
-​[**Click here**](https://discuss.huggingface.co/t/weights-biases-supporting-wave2vec2-finetuning/4839) **to see how Weights & Biases can help you with the Hugging Face Wav2vec2-XLSR Community Challenge or check out our** [**XLSR colab**](https://colab.research.google.com/drive/1oqMZAtRYkurKqePGxFKpnU9n6L8Qk9hM?usp=sharing) **to see a full, end to end example of using Weights & Biases with Hugging Face**
+ ****[抱抱脸的Transformers（HuggingFace Transformers）](https://huggingface.co/transformers/)项目提供了用于自然语言理解（NLU）和自然语言生成（NLG）的通用架构，拥有100多种语言的预训练模型，并在TensorFlow 2.0与PyTorch之间能够进行深度互操作。
 
 ## Just show me the code! <a id="just-show-me-the-code"></a>
 

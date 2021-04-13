@@ -1,11 +1,11 @@
 # PyTorch Ignite
 
-* See the resulting visualizations in this [example W&B report →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
-* Try running the code yourself in this [example hosted notebook →](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)
+* 请看这篇[W&B报告示例→](https://wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W&B--Vmlldzo0NzkwMg)中的可视化结果。
+* 试着自己在这个[托管的笔记本示例→](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)中运行代码
 
-Ignite supports Weights & Biases handler to log metrics, model/optimizer parameters, gradients during training and validation. It can also be used to log model checkpoints to the Weights & Biases cloud. This class is also a wrapper for the wandb module. This means that you can call any wandb function using this wrapper. See examples on how to save model parameters and gradients.
+Ignite支持Weights&Biases处理器（handler），在训练和验证过程中记录指标、模型参数/优化器参数、梯度。还可用来记录模型检查点并保存至Weights&Biases云。这个类同时也是权阈（wandb）模块的一个封装器。这就是说你可以用这个封装器调用所有wandb的函数。 请看关于如何保存模型参数和梯度的示例。
 
-## The basic PyTorch setup
+## **PyTorch的基础设置**
 
 ```python
 from argparse import ArgumentParser
@@ -54,12 +54,12 @@ def get_data_loaders(train_batch_size, val_batch_size):
     return train_loader, val_loader
 ```
 
-Using WandBLogger in ignite is a 2-step modular process: First, you need to create a WandBLogger object. Then it can be attached to any trainer or evaluator to automatically log the metrics. We'll do the following tasks sequentially: 1\) Create a WandBLogger object 2\) Attach the Object to the output handlers to:
+在Ignite中使用WandBLogger，分为两个模块化过程：首先，需要创建一个WandBLogger对象。随后，该对象可被附加到任何训练器（trainer）或评估器（evaluator），以自动记录指标。我们将依次执行以下任务：1）创建一个WandBLogger对象；2）把该对象附加到输出处理器上，以：
 
-* Log training loss - attach to trainer object
-* Log validation loss - attach to evaluator
-* Log optional Parameters - Say, learning rate
-* Watch the model
+* 记录训练损失——附加到训练器上。
+* 记录验证损失——附加到评估器上
+* 记录可选参数——比如学习率。
+* 观察模型。
 
 ```python
 from ignite.contrib.handlers.wandb_logger import *
@@ -116,7 +116,7 @@ def run(train_batch_size, val_batch_size, epochs, lr, momentum, log_interval):
     wandb_logger.watch(model)
 ```
 
-Optionally, we can also utilize ignite `EVENTS` to log the metrics directly to the terminal
+根据需要，我们还可以利用Ignite的`EVENTS`直接把指标记录到终端。
 
 ```python
     @trainer.on(Events.ITERATION_COMPLETED(every=log_interval))
@@ -171,7 +171,7 @@ if __name__ == "__main__":
     run(args.batch_size, args.val_batch_size, args.epochs, args.lr, args.momentum, args.log_interval)
 ```
 
-We get these visualizations on running the above code:
+运行以上代码后，我们得到下列可视化结果：
 
 ![](https://i.imgur.com/CoBDShx.png)
 
@@ -181,5 +181,5 @@ We get these visualizations on running the above code:
 
 ![](https://i.imgur.com/rHNPyw3.png)
 
-Refer [Ignite Docs](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger) for more detailed documentation
+ 更详细的文档请参考 [Ignite文档](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger)
 
