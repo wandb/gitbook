@@ -14,7 +14,7 @@ pip install wandbwandb login
 import wandbfrom fastai.callback.wandb import *​# start logging a wandb runwandb.init(project='my_project')​# To log only during one training phaselearn.fit(..., cbs=WandbCallback())​# To log continuously for all training phaseslearn = learner(..., cbs=WandbCallback())
 ```
 
-如果你用的Fastai v1，请参考[Fastai v1文档](https://app.gitbook.com/@weights-and-biases/s/docs/library/integrations/fastai/fastai)。​
+如果你用的Fastai v1，请参考[Fastai v1文档](https://docs.wandb.ai/v/zh-hans/integrations/fast.ai/fastai-v1)。​
 
 `WandbCallback` 接受下列参数：
 

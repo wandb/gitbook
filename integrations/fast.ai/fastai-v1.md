@@ -1,6 +1,6 @@
 # fastai v1
 
-提示：这篇文档专用于Fastai v1。如果你用的是Fastai最新版，请参考[Fastai页面](https://app.gitbook.com/@weights-and-biases/s/docs/library/integrations/fastai)。
+提示：这篇文档专用于Fastai v1。如果你用的是Fastai最新版，请参考[Fastai页面](https://docs.wandb.ai/v/zh-hans/integrations/fast.ai)。
 
 对于使用Fastai v1的脚本，我们有一个回调函数，可以自动记录模型拓扑、损失、指标、权重、梯度、样本预测以及最佳训练模型。
 

@@ -10,8 +10,8 @@ description: 你的模型的每一个训练运行会获得一个独立页面，�
 
 * 运行名称、描述和标签
 * 主机名称、操作系统、Python版本和启动运行的命令。
-* 用[wandb.config](https://docs.wandb.ai/library/config)保存的配置参数列表​
-* 用[wandb.log\(\)](https://docs.wandb.ai/library/log)保存的总结参数列表，默认设置为最后一个记录的值。
+* 用[wandb.config](https://docs.wandb.ai/v/zh-hans/library/wandb.config)保存的配置参数列表​
+* 用[wandb.log\(\)](https://docs.wandb.ai/v/zh-hans/library/wandb.log)保存的总结参数列表，默认设置为最后一个记录的值。
 
 ​ [查看实战案例 →](https://wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey) W&B仪表盘运行概览选项卡​
 
@@ -28,7 +28,7 @@ description: 你的模型的每一个训练运行会获得一个独立页面，�
   * 修改x轴、指标（Metric）和范围
   * 编辑图表的图例、标题和颜色
 * 查看验证集中的示例预测
-* 要获得这些图表，请使用[wandb.log\(\)](https://docs.wandb.ai/library/log)记录数据​
+* 要获得这些图表，请使用[wandb.log\(\)](https://docs.wandb.ai/v/zh-hans/library/wandb.log)记录数据​
 
 ​[查看实战案例](https://wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)[ →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)​​
 
@@ -63,11 +63,11 @@ description: 你的模型的每一个训练运行会获得一个独立页面，�
 
 ## **文件选项卡** <a id="files-tab"></a>
 
-* 使用[wandb.save\(\)](https://docs.wandb.ai/library/save)保存文件与运行同步​
+* 使用[wandb.save\(\)](https://docs.wandb.ai/v/zh-hans/library/wandb.save)保存文件与运行同步​
 * 保存模型检查点、验证集示例等
-* 使用diff.patch来[恢复](https://docs.wandb.ai/library/restore)你的代码的指定版本
+* 使用diff.patch来[恢复](https://docs.wandb.ai/v/zh-hans/library/wandb.restore)你的代码的指定版本
 
-🌟新推荐：尝试用 [Artifacts](https://docs.wandb.ai/artifacts)跟踪输入和输出
+🌟新推荐：尝试用 [Artifacts](https://docs.wandb.ai/v/zh-hans/artifacts)跟踪输入和输出
 
 ​ [查看实战案例 →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)​​[  
 ](https://docs.wandb.ai/app/pages/workspaces)

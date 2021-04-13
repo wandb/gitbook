@@ -32,5 +32,5 @@ import osimport wandb​api_key = dbutils.secrets.get("wandb", "api_key")wandb.l
 import os# These will not be necessary in the futureos.environ['WANDB_ENTITY'] = "my-entity"os.environ['WANDB_PROJECT'] = "my-project-that-exists"
 ```
 
-我们在这里介绍了更多关于如何在笔记本中运行扫描（sweep）的细节：[从Jupyter 笔记本上扫描（sweep）/sweeps/python-api](https://docs.wandb.ai/sweeps/python-api)
+我们在这里介绍了更多关于如何在笔记本中运行扫描（sweep）的细节：[从Jupyter 笔记本上扫描（sweep）/sweeps/python-api](https://docs.wandb.ai/v/zh-hans/sweeps-1/sweep-from-jupyter-notebook)
 

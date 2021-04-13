@@ -8,11 +8,11 @@ description: 比较你的模型版本，在一个临时工作空间中探究结�
 
 项目页面的标签:
 
-1. ​ [**概览**](https://docs.wandb.ai/app/pages/project-page#overview-tab): 你项目的快照
-2. **​**[**工作空间**](https://docs.wandb.ai/app/pages/project-page#workspace-tab): 个人可视化沙盒
-3. ​ [**表格**](https://docs.wandb.ai/app/pages/project-page#table-tab)**:** 所有运行的鸟瞰图
-4. ​ [**报告**](https://docs.wandb.ai/app/pages/project-page#reports-tab): 保存的笔记、运行和图表的快照
-5. ​ [**扫描**](https://docs.wandb.ai/app/pages/project-page#sweeps-tab): 自动探索和优化
+1. ​ [**概览**](https://docs.wandb.ai/v/zh-hans/dashboard/page/project-page#overview-tab): 你项目的快照
+2. \*\*\*\*[**​工作空间**](https://docs.wandb.ai/v/zh-hans/dashboard/page/project-page#workspace-tab): 个人可视化沙盒
+3. ​ [**表格**](https://docs.wandb.ai/v/zh-hans/dashboard/page/project-page#table-tab)**:** 所有运行的鸟瞰图
+4. ​[ **报告**](https://docs.wandb.ai/v/zh-hans/dashboard/page/project-page#reports-tab): 保存的笔记、运行和图表的快照
+5. ​ [**扫描**](https://docs.wandb.ai/v/zh-hans/dashboard/page/project-page#sweeps-tab): 自动探索和优化
 
 ##  **概览标签** <a id="overview-tab"></a>
 

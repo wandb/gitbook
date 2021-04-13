@@ -21,7 +21,7 @@ for batch_idx, (data, target) in enumerate(train_loader):
 
 > 梯度、指标和图（Graph）不会被记录,直到`wandb.log`在forward和bacward通过后被调用。
 
-请参阅[colab笔记本](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) ，以了解将wandb与PyTorch集成的端到端示例，包括一个[视频教](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights&Biases)程 。你也可以在我们的[示例项目](https://docs.wandb.ai/examples)部分找到更多示例。
+请参阅[colab笔记本](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) ，以了解将wandb与PyTorch集成的端到端示例，包括一个[视频教](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights&Biases)程 。你也可以在我们的[示例项目](https://docs.wandb.ai/v/zh-hans/examples)部分找到更多示例。
 
 ### **选项**
 
