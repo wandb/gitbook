@@ -59,7 +59,7 @@ wandb login
 
 _Or if you are using a Jupyter or Google Colab notebook:_
 
-```text
+```python
 !pip install wandb
 
 import wandb
@@ -74,7 +74,7 @@ To add a run to a project simply set the `WANDB_PROJECT` environment variable to
 
 _If using a python script, set the following before initialising_  `Trainer`_:_
 
-```text
+```python
 import os
 os.environ['WANDB_PROJECT'] = 'amazon_sentiment_analysis'
 ```
@@ -95,13 +95,13 @@ Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) you can use
 
 _If using a python script, set the following before initialising_  `Trainer`_:_
 
-```text
+```python
 os.environ['WANDB_LOG_MODEL'] = 'true'
 ```
 
 _If using a Notebook, set the following before initialising_  `Trainer`_:_
 
-```text
+```python
 %env WANDB_LOG_MODEL = true 
 ```
 
@@ -130,7 +130,7 @@ python run_glue.py \
 
 _Or if you are using a Jupyter or Google Colab notebook:_
 
-```text
+```python
 from transformers import TrainingArguments, Trainer
 
 args = TrainingArguments(
@@ -155,7 +155,7 @@ You're models will now train while logging losses, evaluation metrics, model top
 
 If you are using a Jupyter or Google Colab notebook, your training run is finished and you do not want to log any more to your run it is a good idea to "finish" the W&B run. Calling `wandb.finish()` will close the W&B python process. This should also be done if you would like to start another, new run \(after modifying some hyperparameters for example\).
 
-```text
+```python
 wandb.finish() 
 ```
 
@@ -256,7 +256,7 @@ A full list of W&B environment variables [**can be found here**](https://docs.wa
 
 _If using a python script or Notebook, set the following before initialising your_ `Trainer`_:_
 
-```text
+```python
 import os
 os.environ['WANDB_WATCH'] = 'all'
 os.environ['WANDB_SILENT'] = 'true'
@@ -264,7 +264,7 @@ os.environ['WANDB_SILENT'] = 'true'
 
 _If using a Notebook, set the following before initialising your_ `Trainer`_:_
 
-```text
+```python
 %env WANDB_WATCH = 'all'
 %env WANDB_SILENT = 'true'
 ```
