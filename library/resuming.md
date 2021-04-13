@@ -48,5 +48,5 @@ wandb.init()
 
 如果你断点续训一个运行，并且在`wandb.init() 中指定了注解`, 这些注解将会覆盖你在UI中添加的任何注解。
 
-注意:作为[扫描](https://docs.wandb.ai/sweeps)部分执行的运行不支持断点续训。
+注意:作为[扫描](https://docs.wandb.ai/v/zh-hans/sweeps-1)部分执行的运行不支持断点续训。
 

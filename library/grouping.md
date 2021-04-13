@@ -20,7 +20,7 @@ description: 将单独的训练和评估运行分组到更大的实验中。
 
 ### **2. 设置一个组环境变量** <a id="2-set-a-group-environment-variable"></a>
 
-使用`WANDB_RUN_GROUP` 为你的运行指定一个组作为环境变量。更多信息，请查看我们的[环境变量](https://docs.wandb.ai/library/environment-variables)文档。group应该在你的项目中是唯一的，并且由该组中所有运行共享。你可以使用wandb.util.generate\_id\(\)生成一个长度8个字符的唯一的字符串，在你的所有—进程中是使用。 例如:os.environ\["WANDB\_RUN\_GROUP"\] = "experiment-" + wandb.util.generate\_id\(\)
+使用`WANDB_RUN_GROUP` 为你的运行指定一个组作为环境变量。更多信息，请查看我们的[环境变量](https://docs.wandb.ai/v/zh-hans/library/environment-variables)文档。group应该在你的项目中是唯一的，并且由该组中所有运行共享。你可以使用wandb.util.generate\_id\(\)生成一个长度8个字符的唯一的字符串，在你的所有—进程中是使用。 例如:os.environ\["WANDB\_RUN\_GROUP"\] = "experiment-" + wandb.util.generate\_id\(\)
 
 ### **3. 在UI中切换分组** <a id="3-toggle-grouping-in-the-ui"></a>
 

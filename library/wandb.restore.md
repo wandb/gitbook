@@ -17,7 +17,7 @@ description: 还原文件，例如模型检查点，还原至本地运行项文�
 常见使用情景：
 
 * 还原之前的运行项生成的模型架构和权值。
-*  出现故障之后，从上一个检查点开始断点续训。（进入[断点续训](https://app.gitbook.com/@weights-and-biases/s/docs/library/resuming)板块详细了解）
+*  出现故障之后，从上一个检查点开始断点续训。（进入[断点续训](https://docs.wandb.ai/v/zh-hans/library/resuming)板块详细了解）
 
 ## **示例**
 
@@ -35,5 +35,5 @@ weights_file = wandb.restore('weights.h5')
 my_predefined_model.load_weights(weights_file.name)
 ```
 
-> 如果你不指定run\_path，就需要为运行项配置[断点续训](https://app.gitbook.com/@weights-and-biases/s/docs/library/resuming)。如果你想在训练之外用编程方式访问文件，就用[运行项API](https://app.gitbook.com/@weights-and-biases/s/docs/library/restore)
+> 如果你不指定run\_path，就需要为运行项配置[断点续训](https://docs.wandb.ai/v/zh-hans/library/resuming)。如果你想在训练之外用编程方式访问文件，就用[运行项API](https://docs.wandb.ai/v/zh-hans/library/import-export-api-guide)
 

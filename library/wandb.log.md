@@ -22,6 +22,8 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 
 查看参考文档，由 wandb Python库生成。
 
+{% page-ref page="../" %}
+
 ##  **记录对象**
 
 我们支持图像、视频、音频、自定义图表等等。记录富媒体以探究结果并可视化不同运行之间的对比结果。
@@ -665,7 +667,7 @@ wandb.log({"example": wandb.Video("myvideo.mp4")})
 
 你给我们发送的点越多，在UI中加载你的图表所用的时间就越长。如果你在一条线上有超过1000个点，那么我们在向你的浏览器发送数据之前，会在后台采样其中的1000个点。这种采样具有不确定性，所以，如果你刷新页面，你会看到一组不同的采样点。
 
-如果你想要全部原始数据，可以用我们的[数据API](https://docs.wandb.com/library/api)提取未采样的数据。
+如果你想要全部原始数据，可以用我们的[数据API](https://docs.wandb.ai/v/zh-hans/library/import-export-api-guide)提取未采样的数据。
 
 **指南**
 

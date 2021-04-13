@@ -4,18 +4,18 @@ description: Weights&Biases用于实验跟踪、数据集版本化和模型管�
 
 # Library
 
-使用`wandb` Python库跟踪机器学习实验，只需几行代码。如果你用的是[PyTorch](file:////integrations/pytorch) 或 [Keras](file:////integrations/keras) 等流行框架，我们有轻量级[集成](https://docs.wandb.com/integrations)
+使用`wandb` Python库跟踪机器学习实验，只需几行代码。如果你用的是[PyTorch](../integrations/pytorch.md) 或 [Keras](../integrations/keras.md) 等流行框架，我们有轻量级[集成](https://docs.wandb.ai/v/zh-hans/integrations)
 
 ##  **在你的脚本中集成W&B**
 
-以下是使用 W&B 跟踪实验的简单构件。我们还为[PyTorch](file:////integrations/pytorch), [Keras](file:////integrations/keras), [Scikit](file:////integrations/scikit)等提供了大量特殊集成。参见 [集成](https://docs.wandb.com/integrations)。
+以下是使用 W&B 跟踪实验的简单构件。我们还为[PyTorch](../integrations/pytorch.md), [Keras](../integrations/keras.md), [Scikit](../integrations/scikit.md)等提供了大量特殊集成。参见 [集成](https://docs.wandb.ai/v/zh-hans/integrations)。
 
-1.  [wandb.init\(\)](https://docs.wandb.com/library/init): 在你的脚本顶部初始化一个新的运行。这将返回一个Run 对象，并创建一个本地目录，所有的日志和文件都保存在该目录下，然后异步流式地传输到 W&B服务器。如果你想要使用私人服务器而不是我们的托管云服务器，我们提供了[自托管（Self-Hosting）](https://docs.wandb.com/self-hosted)选项。
-2.  [wandb.config](https://docs.wandb.com/library/config): 保存超参数字典，如，学习率或模型类型。你在配置（config）中捕获的模型设置在以后组织和查询结果时非常有用。
-3. [wandb.log\(\)](https://docs.wandb.com/library/log): 在训练循环中随时间记录指标（Metric）,如准确率（Accuracy）和损失（Loss）。默认情况下，当你调用wandb.log\(\),它会添加一个新步（Step）到历史对象中并更新总结（Summary）对象。
+1.  [wandb.init\(\)](https://docs.wandb.ai/v/zh-hans/library/wandb.init): 在你的脚本顶部初始化一个新的运行。这将返回一个Run 对象，并创建一个本地目录，所有的日志和文件都保存在该目录下，然后异步流式地传输到 W&B服务器。如果你想要使用私人服务器而不是我们的托管云服务器，我们提供了[自托管（Self-Hosting）](https://docs.wandb.ai/v/zh-hans/self-hosted)选项。
+2. [ wandb.config](https://docs.wandb.ai/v/zh-hans/library/wandb.config): 保存超参数字典，如，学习率或模型类型。你在配置（config）中捕获的模型设置在以后组织和查询结果时非常有用。
+3. [wandb.log\(\)](https://docs.wandb.ai/v/zh-hans/library/wandb.log): 在训练循环中随时间记录指标（Metric）,如准确率（Accuracy）和损失（Loss）。默认情况下，当你调用wandb.log\(\),它会添加一个新步（Step）到历史对象中并更新总结（Summary）对象。
    *  **历史（history）**:一个类似字典的对象数组，用于随时间推移跟踪指标（Metric）。这些时间序列值在UI中显示为默认的线图。
    * **总结（summary）**:默认情况下，用wandb.log\(\)记录指标（Metric）的最终值。你可以手动为一个指标（Metric）设置总结（Summary）,以捕获最高准确率（Accuracy）或最低损失（Loss）而不是最终值。这些值在比较运行的表格和图中会使用--例如，你可以可视化你项目中所有运行的最终准确率（Accuracy）。
-4.   ****[制品（Artifacts）](https://docs.wandb.com/artifacts):保存运行的输出，如模型权重（Weight）或预测表。这让你不仅可以跟踪模型训练，还可以跟踪影响最终模型的所有流水线步骤。
+4.   ****[制品（Artifacts）](https://docs.wandb.ai/v/zh-hans/artifacts):保存运行的输出，如模型权重（Weight）或预测表。这让你不仅可以跟踪模型训练，还可以跟踪影响最终模型的所有流水线步骤。
 
 ##  **最佳实践**
 
@@ -47,7 +47,7 @@ wandb.init(
 
 ##  **什么数据会被记录？**
 
- 你的脚本记录的全部数据都被保存在本地机器的一个**wandb**路径下，然后同步到云端或你的[私人服务器](https://docs.wandb.com/self-hosted)。
+ 你的脚本记录的全部数据都被保存在本地机器的一个**wandb**路径下，然后同步到云端或你的[私人服务器](https://docs.wandb.ai/v/zh-hans/self-hosted)。
 
 ###  **自动记录**
 

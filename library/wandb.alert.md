@@ -2,7 +2,7 @@
 
 通过Python脚本触发警报（Alert），通过Slack或电子邮件发送给你。
 
-1.  [在你的账户中设置警报→](https://docs.wandb.ai/app/features/alerts)
+1.  [在你的账户中设置警报→](https://docs.wandb.ai/v/zh-hans/dashboard/features/alerts)
 2.   ****[试试代码→](http://tiny.cc/wb-alerts)
 3. 检查你的Slack或电子邮件以查看脚本触发的警报。
 

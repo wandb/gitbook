@@ -10,7 +10,7 @@ description: 把当前运行的关联文件保存至云端。
 2. 将一个文件放到 wandb运行目录下，运行结束后就会被上传。
 
 {% hint style="info" %}
- 如果你要做[断点续训](https://app.gitbook.com/@weights-and-biases/s/docs/library/resuming)，调用wandb.restore\(filename\)即可恢复关联文件
+ 如果你要做[断点续训](https://docs.wandb.ai/v/zh-hans/library/resuming)，调用wandb.restore\(filename\)即可恢复关联文件
 {% endhint %}
 
 你如果想在写入文件的同时就同步文件，在`wandb.save`中指定一个文件名或通配符。

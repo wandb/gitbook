@@ -43,7 +43,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
     <tr>
       <td style="text-align:left"><b>WANDB_BASE_URL</b>
       </td>
-      <td style="text-align:left">&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x662F; <a href="https://docs.wandb.ai/self-hosted">wandb/local</a>&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x5C06;&#x8BE5;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x4E3A;<code>http://&#x4F60;&#x7684;IP:&#x4F60;&#x7684;&#x7AEF;&#x53E3;</code>
+      <td style="text-align:left">&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x662F; <a href="https://docs.wandb.ai/v/zh-hans/self-hosted">wandb/local</a>&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x5C06;&#x8BE5;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x4E3A;<code>http://&#x4F60;&#x7684;IP:&#x4F60;&#x7684;&#x7AEF;&#x53E3;</code>
       </td>
     </tr>
     <tr>
@@ -146,7 +146,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
       <td style="text-align:left"><b>WANDB_CONFIG_PATHS</b>
       </td>
       <td style="text-align:left">&#x8981;&#x52A0;&#x8F7D;&#x5230;wandb.config&#x4E2D;&#x7684;&#x4EE5;&#x9017;&#x53F7;&#x5206;&#x5272;&#x7684;yaml
-        &#x6587;&#x4EF6;&#x5217;&#x8868;&#x3002;&#x53C2;&#x89C1; <a href="https://docs.wandb.ai/library/config#file-based-configs">config</a>.</td>
+        &#x6587;&#x4EF6;&#x5217;&#x8868;&#x3002;&#x53C2;&#x89C1; <a href="https://docs.wandb.ai/v/zh-hans/library/wandb.config">config</a>.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>WANDB_CONFIG_DIR</b>
@@ -173,7 +173,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
       </td>
       <td style="text-align:left">&#x6307;&#x5B9A;&#x5B9E;&#x9A8C;&#x540D;&#x79F0;&#x4EE5;&#x81EA;&#x52A8;&#x5C06;&#x8FD0;&#x884C;&#x5206;&#x7EC4;&#x3002;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x8BF7;&#x53C2;&#x89C1;
         <a
-        href="https://docs.wandb.ai/library/grouping">&#x5206;&#x7EC4;</a>
+        href="https://docs.wandb.ai/v/zh-hans/library/grouping">&#x5206;&#x7EC4;</a>
       </td>
     </tr>
     <tr>
@@ -181,7 +181,7 @@ os.environ['WANDB_MODE'] = 'dryrun'
       </td>
       <td style="text-align:left">&#x6307;&#x5B9A;&#x4F5C;&#x4E1A;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#x2018;&#x8BAD;&#x7EC3;&#x2019;&#x6216;&#x2018;&#x8BC4;&#x4F30;&#x2019;&#xFF0C;&#x4EE5;&#x8868;&#x793A;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x8FD0;&#x884C;&#x3002;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x8BF7;&#x53C2;&#x89C1;
         <a
-        href="https://docs.wandb.ai/library/grouping">&#x5206;&#x7EC4;</a>
+        href="https://docs.wandb.ai/v/zh-hans/library/grouping">&#x5206;&#x7EC4;</a>
       </td>
     </tr>
   </tbody>
@@ -221,7 +221,7 @@ import logginglogger = logging.getLogger("wandb")logger.setLevel(logging.WARNING
 
 ### **共享机器上有多个wandb用户** <a id="multiple-wandb-users-on-shared-machines"></a>
 
-如果你使用的是一个共享机器，而另一个用户是wandb用户，确保你的运行登录到正确的账户很容易。设置[WANDB\_API\_KEY环](https://docs.wandb.ai/library/environment-variables)境变量 来验证。如果你在你的环境中source 它，当你登录时，你将有正确的凭证。 或者你也可以从你的脚本中设置环境变量。
+如果你使用的是一个共享机器，而另一个用户是wandb用户，确保你的运行登录到正确的账户很容易。设置[WANDB\_API\_KEY环](https://docs.wandb.ai/v/zh-hans/library/environment-variables)境变量 来验证。如果你在你的环境中source 它，当你登录时，你将有正确的凭证。 或者你也可以从你的脚本中设置环境变量。
 
 运行命令 `export WANDB_API_KEY=X` 其中X是你的API密匙。当你登录后，你可以在[wandb.ai/authorize](https://app.wandb.ai/authorize) 找到你的API密匙。
 

@@ -43,7 +43,7 @@
  有两种方法可以关闭代码记录：
 
 1. 将**WANDB\_DISABLE\_CODE** 设置为**true** ，以关闭所有代码跟踪。我们将不提取git SHA或diff补丁。
-2.  将**WANDB\_IGNORE\_GLOBS** 设置为 **\*.patch** ，以关闭将diff补丁同步到我们的服务器。你将仍然在本地拥有它，并且能够用命令[wandb restore](https://docs.wandb.ai/library/cli#restore-the-state-of-your-code)来应用它。
+2.  将**WANDB\_IGNORE\_GLOBS** 设置为 **\*.patch** ，以关闭将diff补丁同步到我们的服务器。你将仍然在本地拥有它，并且能够用命令[wandb restore](https://docs.wandb.ai/v/zh-hans/library/wandb.restore)来应用它。
 
 ### **记录会阻塞我的训练吗？**
 
@@ -57,7 +57,7 @@
 
 ###  **W&B与TensorBoard有何不同?**
 
-我们热爱TensorBoard的人们, 而且我们有一个[TensorBoard集](https://docs.wandb.ai/integrations/tensorboard)成! 我们受到启发要为大家改进实验跟踪工具。当合伙人开始构建W&B的工作时，他们受到启发要为OpenAI中受挫的TensorBoard 用户打造一个工具。以下是我们重点改进的几项内容：
+我们热爱TensorBoard的人们, 而且我们有一个[TensorBoard集](https://docs.wandb.ai/v/zh-hans/integrations/tensorboard)成! 我们受到启发要为大家改进实验跟踪工具。当合伙人开始构建W&B的工作时，他们受到启发要为OpenAI中受挫的TensorBoard 用户打造一个工具。以下是我们重点改进的几项内容：
 
 1. **重现模型**: Weights & Biases有利于实验、探索和以后重现模型。我们不仅可以捕获指标（Metric）,还可以捕获超参数和代码版本，我们还可以为你保存你的模型检查点，这样你的项目可以被重现。
 2. **自动组织**: 如果你将一个项目交给一个同事或者你要去休假。W&B使得很容易查看所有你试过的实验，这样就不用浪费时间重新运行旧实验。
@@ -89,7 +89,7 @@ pip install wandb
 
 ###  **如何阻止wandb写到我的终端或jupyter笔记本输出?**
 
-设置环境变量 [WANDB\_SILENT](https://docs.wandb.ai/library/environment-variables)。
+设置环境变量 [WANDB\_SILENT](https://docs.wandb.ai/v/zh-hans/library/environment-variables)。
 
 在一个笔记本中:
 
@@ -113,7 +113,7 @@ os.environ["WANDB_SILENT"] = "true"
 
 1. 升级你的SSL证书。如果你在Ubuntu服务器上运行脚本，请运行`update-ca-certificates` ，如果没有有效的SSL证书，我们无法同步训练记录，因为存在安全隐患。
 2. 如果你的网络存在故障，请以[离线模式](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline)运行训练，然后从一个可以访问互联网的机器将文件同步给我们。
-3. 尝试运行[W&B本](https://docs.wandb.ai/self-hosted/local)地, 它将在你的机器上操作，而不会将文件同步到我们的云服务器。
+3. 尝试运行[W&B本](https://docs.wandb.ai/v/zh-hans/self-hosted/local)地, 它将在你的机器上操作，而不会将文件同步到我们的云服务器。
 
 **SSL CERTIFICATE\_VERIFY\_FAILED:** 这个错误可能是由于你公司的防火墙引起的。你可以设置本地CAs然后使用：
 
@@ -137,9 +137,9 @@ os.environ["WANDB_SILENT"] = "true"
 
 有几种方式可以做到这一点。
 
-对于复杂的工作流程，我们建议使用多个运行，并在组成单个实验的所有进程中为[wandb.init](https://docs.wandb.ai/library/init)将组参数设置为一个唯一的值。[运行表](https://docs.wandb.ai/app/pages/run-page)将根据组ID自动分组并按照预期可视化。这将允许你运行多个实验并以独立进程记录所有结果到一个地方。
+对于复杂的工作流程，我们建议使用多个运行，并在组成单个实验的所有进程中为[wandb.init](https://docs.wandb.ai/v/zh-hans/library/wandb.init)将组参数设置为一个唯一的值。[运行表](https://docs.wandb.ai/v/zh-hans/dashboard/page/run-page)将根据组ID自动分组并按照预期可视化。这将允许你运行多个实验并以独立进程记录所有结果到一个地方。
 
-对于比较简单的工作流程，你可以使用参数resume=True 和id=UNIQUE\_ID调用wandb.init，然后以同样的参数id=UNIQUE\_ID调用wandb.init。然后你就可以使用[wandb.log](https://docs.wandb.ai/library/log) 或wandb.summary正常记录，运行值会更新。
+对于比较简单的工作流程，你可以使用参数resume=True 和id=UNIQUE\_ID调用wandb.init，然后以同样的参数id=UNIQUE\_ID调用wandb.init。然后你就可以使用[wandb.log ](https://docs.wandb.ai/v/zh-hans/library/wandb.log)或wandb.summary正常记录，运行值会更新。
 
 在任何时候，你都可以使用[API](https://docs.wandb.ai/ref/export-api) 来添加额外的评估指标（Metric）。
 

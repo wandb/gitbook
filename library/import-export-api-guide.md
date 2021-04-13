@@ -4,7 +4,7 @@ description: 我们的公共API的最佳实践和常见用例——用于导出�
 
 # Import/Export API Guide
 
-使用公共API导出或更新已保存到W＆B的数据。在使用API之前，您需要记录脚本中的数据——有关详情，请参见[快速入门](https://docs.wandb.ai/quickstart)。
+使用公共API导出或更新已保存到W＆B的数据。在使用API之前，您需要记录脚本中的数据——有关详情，请参见[快速入门](https://docs.wandb.ai/v/zh-hans/quickstart)。
 
  **公共API的用例**
 

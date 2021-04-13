@@ -6,8 +6,8 @@ description: 在你的脚本顶部调用 wandb.init() 以启动一个新运行
 
 在你的脚本开始调用一次wandb.init\(\) 以初始化一个新作业，这将在W&B 中创建一个新运行并启动一个后台进程来同步数据。
 
-* **On Prem:** 如果你需要W&B 的私有云或本地实例，请参见我们的[自托管](https://docs.wandb.com/self-hosted)产品。
-*  **自动化环境**: 大多数这些设置也可以通过[环境变量](https://docs.wandb.com/library/environment-variables)进行控制。当你在集群上运行作业时，这非常有用。
+* **On Prem:** 如果你需要W&B 的私有云或本地实例，请参见我们的[自托管](https://docs.wandb.ai/v/zh-hans/self-hosted)产品。
+*  **自动化环境**: 大多数这些设置也可以通过[环境变量](https://docs.wandb.ai/v/zh-hans/library/environment-variables)进行控制。当你在集群上运行作业时，这非常有用。
 
 ### 参考文档 <a id="reference-docs"></a>
 
@@ -60,7 +60,7 @@ import wandbwandb.init()wandb.run.name = wandb.run.idwandb.run.save()
 
 ###  **保存git commit** <a id="save-the-git-commit"></a>
 
-当`wandb.init()` 在你的脚本中被调用时，我们会自动查找git信息，以保存一个指向你仓库的链接，即最新提交的SHA值。git信息应该显示在你的[运行页](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/app/pages/run-page#overview-tab)面，如果没有的话，请确保你调用wandb.init\(\)的脚本位于一个有git信息的文件夹中。
+当`wandb.init()` 在你的脚本中被调用时，我们会自动查找git信息，以保存一个指向你仓库的链接，即最新提交的SHA值。git信息应该显示在你的[运行页](https://docs.wandb.ai/v/zh-hans/dashboard/page/run-page)面，如果没有的话，请确保你调用wandb.init\(\)的脚本位于一个有git信息的文件夹中。
 
  git commit以及运行实验的命令对你可见但对外部用户隐藏，所以，即使你的项目是公开的，这些详细信息将仍然保持私有。
 
@@ -87,7 +87,7 @@ import wandbimport os​os.environ["WANDB_API_KEY"] = YOUR_KEY_HEREos.environ["W
 
 `wandb sync wandb/dryrun-folder-name`
 
-[PreviousLibrary](https://docs.wandb.ai/library)
+
 
 ![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-M4ZqIaDYRFSEiZrYTaI%2F-M4ZxQU2WrG9S0MZzqDI%2Fimage.png?alt=media&token=0295541a-90bf-464f-8899-2f9a53c45e1c)
 
