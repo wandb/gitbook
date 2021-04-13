@@ -1,84 +1,69 @@
 # Fast.ai
 
-모델을 훈련시키기 위해 **fastai**를 사용하시는 경우, W&B에서 `WandbCallback`을 사용하여 쉽게 통합하실 수 있습니다. 더자세한 사항은 다음에서 확인하실 수 있습니다. [예시를 포함한 양방향식 doc\(interactive docs with examples\) →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)​ ​
+ ​如果你正在用**fastai**训练模型，利用`WandbCallback`很容易就集成到W&B。详细信息请查看带有示例的[交互式文档→](https://wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
 
-우선 Weights & Biases를 설치하고 로그인합니다:
+首先安装Weights&Biases并登录：
 
 ```text
 pip install wandbwandb login
 ```
 
-다음, callback을 `learner` 또는 `fit` 방법에 추가합니다:
+ 然后把回调函数（callback）添加到`learner`方法或`fit`方法：
 
 ```text
 import wandbfrom fastai.callback.wandb import *​# start logging a wandb runwandb.init(project='my_project')​# To log only during one training phaselearn.fit(..., cbs=WandbCallback())​# To log continuously for all training phaseslearn = learner(..., cbs=WandbCallback())
 ```
 
-Fastai 버전1을 사용하시는 경우, 다음을 참조하시기 바랍니다: [Fastai v1 docs](https://docs.wandb.com/library/integrations/fastai/fastai)​
+如果你用的Fastai v1，请参考[Fastai v1文档](https://app.gitbook.com/@weights-and-biases/s/docs/library/integrations/fastai/fastai)。​
 
- `WandbCallback`은 다음의 전달인자를 허용합니다:
+`WandbCallback` 接受下列参数：
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">&#xC804;&#xB2EC;&#xC778;&#xC790;</th>
-      <th style="text-align:left">&#xC124;&#xBA85;</th>
+      <th style="text-align:left">&#x53C2;&#x6570;</th>
+      <th style="text-align:left">&#x8BF4;&#x660E;</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">log</td>
-      <td style="text-align:left">&quot;gradients&quot; (&#xAE30;&#xBCF8;&#xAC12;), &quot;parameters(&#xB9E4;&#xAC1C;&#xBCC0;&#xC218;)&quot;,
-        &quot;all(&#xC804;&#xBD80;)&quot; &#xB610;&#xB294; None(&#xC5C6;&#xC74C;).
-        &#xC190;&#xC2E4;&#xAC12; &#xBC0F; &#xBA54;&#xD2B8;&#xB9AD;&#xC740; &#xC5B8;&#xC81C;&#xB098;
-        &#xB85C;&#xADF8;&#xB429;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">&quot;gradients&#x201D;&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#x3001;&#x201C;parameters&#x201D;&#x3001;&#x201C;all&#x201D;&#x6216;&#x8005;None&#x3002;&#x635F;&#x5931;&#x548C;&#x6307;&#x6807;&#x603B;&#x662F;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">log_preds</td>
-      <td style="text-align:left">&#xC608;&#xCE21; &#xC0D8;&#xD50C;&#xC744; &#xB85C;&#xADF8;&#xD560;&#xC9C0;&#xC5D0;
-        &#xB300;&#xD55C; &#xC5EC;&#xBD80; (&#xAE30;&#xBCF8;&#xAC12;&#xC740; True(&#xCC38;).</td>
+      <td style="text-align:left">&#x662F;&#x5426;&#x8981;&#x8BB0;&#x5F55;&#x9884;&#x6D4B;&#x6837;&#x672C;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;True&#xFF09;&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">log_model</td>
-      <td style="text-align:left">&#xBAA8;&#xB378;&#xC5D0; &#xB85C;&#xADF8;&#xD560; &#xC9C0;&#xC5D0; &#xB300;&#xD55C;
-        &#xC5EC;&#xBD80; (&#xAE30;&#xBCF8;&#xAC12;&#xC740; True(&#xCC38;)). &#xB610;&#xD55C;SaveModelCallback&#xC774;
-        &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</td>
+      <td style="text-align:left">&#x662F;&#x5426;&#x8981;&#x8BB0;&#x5F55;&#x6A21;&#x578B;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;True&#xFF09;&#x3002;&#x8BE5;&#x53C2;&#x6570;&#x8FD8;&#x9700;&#x8981;SaveModelCallback</td>
     </tr>
     <tr>
       <td style="text-align:left">log_dataset</td>
       <td style="text-align:left">
         <ul>
-          <li>False (&#xAE30;&#xBCF8;&#xAC12;)</li>
-          <li>True&#xB294; learn.dls.path&#xC5D0;&#xC11C; &#xCC38;&#xC870;&#xD558;&#xB294;
-            &#xD3F4;&#xB354;&#xB97C; &#xB85C;&#xADF8;&#xD569;&#xB2C8;&#xB2E4;.</li>
-          <li>&#xACBD;&#xB85C;&#xB97C; &#xC5B4;&#xB5A4; &#xD3F4;&#xB354;&#xB97C; &#xB85C;&#xADF8;&#xD560;
-            &#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xCC38;&#xC870;&#xC5D0; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C;
-            &#xC815;&#xC758;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
+          <li>False&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;</li>
+          <li>&#x4E3A;True&#x5C31;&#x4F1A;&#x8BB0;&#x5F55;learn.dls.path&#x6240;&#x5F15;&#x7528;&#x7684;&#x6587;&#x4EF6;&#x5939;</li>
+          <li>&#x53EF;&#x663E;&#x5F0F;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x6765;&#x5F15;&#x7528;&#x8981;&#x8BB0;&#x5F55;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;</li>
         </ul>
-        <p><em>&#xCC38;&#xACE0;</em>: &#xD558;&#xC704; &#xD3F4;&#xB354; &#x201C;models&#x201D;&#xB294;
-          &#xD56D;&#xC0C1; &#xBB34;&#xC2DC;&#xB429;&#xB2C8;&#xB2E4;.</p>
+        <p>&#x6CE8;&#x610F;&#xFF1A;&#x5B50;&#x6587;&#x4EF6;&#x5939;&#x201C;models&#x201D;&#x59CB;&#x7EC8;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">dataset_name</td>
-      <td style="text-align:left">&#xB85C;&#xADF8;&#xB41C; &#xB370;&#xC774;&#xD130; &#xC138;&#xD2B8;&#xC758;
-        &#xC774;&#xB984; (&#xAE30;&#xBCF8;&#xAC12;&#xC740; &#xD3F4;&#xB354; &#xC774;&#xB984;).</td>
+      <td style="text-align:left">&#x6240;&#x8BB0;&#x5F55;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x540D;&#x79F0;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;&#x6587;&#x4EF6;&#x5939;&#x540D;&#xFF09;&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">valid_dl</td>
-      <td style="text-align:left">&#xC608;&#xCE21; &#xC0D8;&#xD50C;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294;
-        &#xD56D;&#xBAA9;(item)&#xC744; &#xD3EC;&#xD568;&#xD558;&#xB294; <code>DataLoaders </code>(&#xAE30;&#xBCF8;&#xAC12;&#xC740; <code>learn.dls.valid</code>&#xC5D0;&#xC11C;&#xC758;
-        &#xC784;&#xC758;&#xC758; &#xD56D;&#xBAA9;(random items)).</td>
+      <td style="text-align:left"><code>DataLoaders</code>&#x5305;&#x542B;&#x4E86;&#x9884;&#x6D4B;&#x6837;&#x672C;&#x7528;&#x5230;&#x7684;&#x9879;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;&#x6765;&#x81EA;<code>learn.dls.valid</code>&#x7684;&#x968F;&#x673A;&#x9879;&#x3002;&#xFF09;&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">n_preds</td>
-      <td style="text-align:left">&#xB85C;&#xADF8;&#xB41C; &#xC608;&#xCE21;&#xC758; &#xC218; (&#xAE30;&#xBCF8;&#xAC12;&#xC740;
-        36)</td>
+      <td style="text-align:left">&#x8BB0;&#x5F55;&#x7684;&#x9884;&#x6D4B;&#x6570;&#x91CF;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;36&#xFF09;&#x3002;</td>
     </tr>
     <tr>
       <td style="text-align:left">seed</td>
-      <td style="text-align:left">&#xC784;&#xC758;&#xC758; &#xC0D8;&#xD50C;&#xC744; &#xC815;&#xC758;&#xD558;&#xB294;
-        &#xB370; &#xC0AC;&#xC6A9;.</td>
+      <td style="text-align:left">&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x968F;&#x673A;&#x6837;&#x672C;&#x3002;</td>
     </tr>
   </tbody>
 </table>
@@ -88,10 +73,12 @@ Fastai 버전1을 사용하시는 경우, 다음을 참조하시기 바랍니다
 * `log_dataset(path, name=None, medata={})`
 * `log_model(path, name=None, metadata={})`
 
-참고: 모든 하위 폴더 “models”는 무시됩니다.
+对于自定义工作流，你可以手动记录数据集和模型：
 
-## **예시** <a id="examples"></a>
+注意：任何子文件夹“models”会被忽略。
 
-* ​[Fastai models 모델 시각화, 추적 및 비교](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): 완전하게 문서화된 자세한 설명\(walkthrough\)
-* ​[CamVid에서 이미지 분할\(Image Segmentation\)](http://bit.ly/fastai-wandb): 통합 샘플 이용 사례 
+## **示例** <a id="examples"></a>
+
+* ​[可视化、跟踪与比较Fastai模型](https://wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)：详尽教程
+* [CamVid上的图像分割：](https://colab.research.google.com/drive/1IWrhwcJoncCKHm6VXsNwOr9Yukhz3B49?usp=sharing)一个集成的使用案例 
 
