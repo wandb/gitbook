@@ -53,6 +53,6 @@ If you're setting `use_multiprocessing=True` and seeing the error `Error('You mu
 We've created a few examples for you to see how the integration works:
 
 * [Example on Github](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py):  Fashion MNIST example in a Python script
-* Run in Google Colab: A simple notebook example to get you started
+* [Run in Google Colab](http://wandb.me/keras-colab): A simple notebook example to get you started
 * [Wandb Dashboard](https://app.wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs): View result on W&B
 
