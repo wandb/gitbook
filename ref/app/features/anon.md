@@ -1,8 +1,5 @@
 ---
-description: >-
-  Log and visualize runs without creating an account, and give paper reviewers
-  code that they can run and visualize without setting up Weights & Biases
-  themselves
+description: Log and visualize data without a W&B account
 ---
 
 # Anonymous Mode

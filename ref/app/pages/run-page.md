@@ -12,16 +12,16 @@ Use the run page to explore detailed information about a single version of your 
 
 * Run name, description, and tags
 * Host name, operating system, Python version, and command that launched the run
-* List of config parameters saved with [wandb.config](../../library/config.md)
-* List of summary parameters saved with [wandb.log\(\)](../../library/log.md), by default set to the last value logged
+* List of config parameters saved with [wandb.config](../../../library/config.md)
+* List of summary parameters saved with [wandb.log\(\)](../../../library/log.md), by default set to the last value logged
 
 [View a live example →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
 
-![W&amp;B Dashboard run overview tab](../../.gitbook/assets/wandb-run-overview-page.png)
+![W&amp;B Dashboard run overview tab](../../../.gitbook/assets/wandb-run-overview-page.png)
 
 The Python details are private, even if you make the page itself public. Here is an example of my run page in incognito on the left and my account on the right.
 
-![](../../.gitbook/assets/screen-shot-2020-04-07-at-7.46.39-am.png)
+![](../../../.gitbook/assets/screen-shot-2020-04-07-at-7.46.39-am.png)
 
 ## Charts Tab
 
@@ -30,11 +30,11 @@ The Python details are private, even if you make the page itself public. Here is
   * change x-axis, metrics, and ranges
   * edit legends, titles, and colors of charts
 * View examples predictions from your validation set
-* To get these charts, log data with [wandb.log\(\)](../../library/log.md)
+* To get these charts, log data with [wandb.log\(\)](../../../library/log.md)
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](../../.gitbook/assets/wandb-run-page-workspace-tab%20%281%29.png)
+![](../../../.gitbook/assets/wandb-run-page-workspace-tab%20%281%29.png)
 
 ## System Tab
 
@@ -43,7 +43,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://wandb.ai/stacey/deep-drive/runs/ki2biuqy/system?workspace=user-carey)
 
-![](../../.gitbook/assets/wandb-system-utilization.png)
+![](../../../.gitbook/assets/wandb-system-utilization.png)
 
 ## Model Tab
 
@@ -51,7 +51,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
-![](../../.gitbook/assets/wandb-run-page-model-tab.png)
+![](../../../.gitbook/assets/wandb-run-page-model-tab.png)
 
 ## Logs Tab
 
@@ -60,17 +60,17 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
-![](../../.gitbook/assets/wandb-run-page-log-tab.png)
+![](../../../.gitbook/assets/wandb-run-page-log-tab.png)
 
 ## Files Tab
 
-* Save files to sync with the run using [wandb.save\(\)](../../library/save.md)
+* Save files to sync with the run using [wandb.save\(\)](../../../library/save.md)
 * Keep model checkpoints, validation set examples, and more
-* Use the diff.patch to [restore](../../library/restore.md) the exact version of your code
+* Use the diff.patch to [restore](../../../library/restore.md) the exact version of your code
 
-🌟New recommendation: Try [Artifacts](../../artifacts/) for tracking inputs and outputs
+🌟New recommendation: Try [Artifacts](../../../artifacts/) for tracking inputs and outputs
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
 
-![](../../.gitbook/assets/wandb-run-page-files-tab.png)
+![](../../../.gitbook/assets/wandb-run-page-files-tab.png)
 

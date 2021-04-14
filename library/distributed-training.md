@@ -1,5 +1,5 @@
 ---
-description: How to use W&B with multiprocessing
+description: How to use W&B with multiprocess training
 ---
 
 # Distributed Training

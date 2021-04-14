@@ -2,7 +2,7 @@
 description: Generated documentation for Weights & Biases tools
 ---
 
-# Reference Docs
+# Reference
 
 The Reference Docs are automatically generated from the `wandb` [client library](https://github.com/wandb/client).
 

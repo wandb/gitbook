@@ -6,7 +6,7 @@ description: >-
 
 # Alerts
 
-W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../library/wandb.alert.md).
+W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../../library/wandb.alert.md).
 
 {% hint style="warning" %}
 Alerts for finished runs are disabled in Jupyter Notebook environments to prevent alert notifications on every cell execution. Use `wandb.alert()` in Jupyter Notebook environments instead.
@@ -22,7 +22,7 @@ In your [User Settings](https://wandb.ai/settings):
 * Click **Connect Slack** to pick a channel to post alerts. We recommend the **Slackbot** channel because it keeps the alerts private.
 * **Email** will go to the email address you used when you signed up for W&B. We recommend setting up a filter in your email so all these alerts go into a folder and don't fill up your inbox.
 
-![](../../.gitbook/assets/demo-connect-slack.png)
+![](../../../.gitbook/assets/demo-connect-slack.png)
 
 ### Team Alerts
 

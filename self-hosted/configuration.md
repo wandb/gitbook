@@ -272,5 +272,5 @@ You'll need to supply your Slack application's client ID and secret, which you c
 
 ![](../.gitbook/assets/image%20%28120%29.png)
 
-That's it! You can now verify that everything is working by setting up a Slack integration in the W&B app. Visit [this page](../app/features/alerts.md) for more detailed information.
+That's it! You can now verify that everything is working by setting up a Slack integration in the W&B app. Visit [this page](../ref/app/features/alerts.md) for more detailed information.
 

@@ -8,7 +8,7 @@ Weights & Biases helps you keep track of your machine learning projects. Use our
 
 Here is a quick overview of our lightweight, modular tools:
 
-1. [**Dashboard**](app/): Experiment tracking
+1. [**Dashboard**](app.md): Experiment tracking
 2. [**Artifacts**](artifacts/): Dataset versioning, model versioning
 3. [**Sweeps**](sweeps/): Hyperparameter optimization
 4. [**Reports**](reports.md): Save and share reproducible findings

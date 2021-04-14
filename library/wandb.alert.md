@@ -6,7 +6,7 @@ description: 'Scriptable alerts triggered from Python, sent to you via Slack or 
 
 Send a Slack or email alert, triggered from your Python script.
 
-1. [Set up alerts in your account→](../app/features/alerts.md)
+1. [Set up alerts in your account→](../ref/app/features/alerts.md)
 2. [Try the code →](http://tiny.cc/wb-alerts)
 3. Check your Slack or email to see the scriptable alerts.
 

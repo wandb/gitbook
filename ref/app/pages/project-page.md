@@ -28,9 +28,9 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%284%29%20%281%29.png)
+![](../../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%284%29%20%281%29.png)
 
-![](../../.gitbook/assets/undelete.png)
+![](../../../.gitbook/assets/undelete.png)
 
 ## Workspace Tab
 
@@ -50,13 +50,13 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%283%29%20%283%29%20%282%29%20%282%29.png)
+![](../../../.gitbook/assets/image%20%2838%29%20%282%29%20%283%29%20%283%29%20%282%29%20%281%29%20%282%29.png)
 
 ### Search for runs
 
 Search for a run by name in the sidebar. You can use regex to filter down your visible runs. The search box affects which runs are shown on the graph. Here's an example:
 
-![](../../.gitbook/assets/2020-02-21-13.51.26.gif)
+![](../../../.gitbook/assets/2020-02-21-13.51.26.gif)
 
 ### Add a section of panels
 
@@ -72,26 +72,26 @@ Each section has options in the upper right corner:
 * **Delete section**: Remove the whole section and all the charts. This can be undone with the undo button at the bottom of the page in the workspace bar.
 * **Add panel**: Click the plus button to add a panel to the section. 
 
-![](../../.gitbook/assets/add-section.gif)
+![](../../../.gitbook/assets/add-section.gif)
 
 ### Move panels between sections
 
 Drag and drop panels to reorder and organize into sections. You can also click the "Move" button in the upper right corner of a panel to select a section to move the panel to.
 
-![](../../.gitbook/assets/move-panel.gif)
+![](../../../.gitbook/assets/move-panel.gif)
 
 ### Resize panels
 
 * **Standard layout**: All panels maintain the same size, and there are pages of panels. You can resize the panels by clicking and dragging the lower right corner. Resize the section by clicking and dragging the lower right corner of the section. 
 * **Custom layout**: All panels are sized individually, and there are no pages. 
 
-![](../../.gitbook/assets/resize-panel.gif)
+![](../../../.gitbook/assets/resize-panel.gif)
 
 ### Search for metrics
 
 Use the search box in the workspace to filter down the panels. This search matches the panel titles, which are by default the name of the metrics visualized.
 
-![](../../.gitbook/assets/search-in-the-workspace.png)
+![](../../../.gitbook/assets/search-in-the-workspace.png)
 
 ## Table Tab
 
@@ -99,19 +99,19 @@ Use the table to filter, group, and sort your results.
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
 
-![](../../.gitbook/assets/image%20%2886%29.png)
+![](../../../.gitbook/assets/image%20%2886%29.png)
 
 ## Reports Tab
 
 See all the snapshots of results in one place, and share findings with your team.
 
-![](../../.gitbook/assets/reports-tab.png)
+![](../../../.gitbook/assets/reports-tab.png)
 
 ## Sweeps Tab
 
 Start a new sweep from your project.
 
-![](../../.gitbook/assets/sweeps-tab.png)
+![](../../../.gitbook/assets/sweeps-tab.png)
 
 ## Common Questions
 
@@ -125,17 +125,17 @@ Add **?workspace=clear** to the end of the URL and press enter. This should take
 
 You can delete your project by clicking the three dots on the right of the overview tab.
 
-![](../../.gitbook/assets/howto-delete-project.gif)
+![](../../../.gitbook/assets/howto-delete-project.gif)
 
 ### Privacy settings
 
 Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
 
-![](../../.gitbook/assets/image%20%2879%29.png)
+![](../../../.gitbook/assets/image%20%2879%29.png)
 
 ### Delete an empty project
 
 Delete a project with no runs by clicking the dropdown menu and selecting "Delete project".
 
-![](../../.gitbook/assets/image%20%2866%29.png)
+![](../../../.gitbook/assets/image%20%2866%29.png)
 
