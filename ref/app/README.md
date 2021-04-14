@@ -4,27 +4,27 @@ This section contains reference docs for the web app interface, hosted in the cl
 
 ### Pages
 
-* [Project page](pages/project-page.md): Compare multiple experiments in a unified place
-* [Run page](pages/run-page.md): Dive into the results of a single run
-* [Workspaces](pages/workspaces.md): Configure and customize visualizations in your sandbox
+* \*\*\*\*[**Project page**](pages/project-page.md): Compare multiple experiments in a unified place
+* \*\*\*\*[**Run page**](pages/run-page.md): Dive into the results of a single run
+* [**Workspaces**](pages/workspaces.md): Configure and customize visualizations in your sandbox
 
-### Features
+### Feature**s**
 
-* [Panels](features/panels/)
-  * [Line Plot](features/panels/line-plot/)
-  * [Run Colors](features/panels/run-colors.md)
-  * [Parallel Coordinates](features/panels/parallel-coordinates.md)
-  * [Scatter Plot](features/panels/scatter-plot.md)
-  * [Code Saving](features/panels/code.md)
-  * [Parameter Importance](features/panels/parameter-importance.md)
-  * [Run Comparer](features/panels/run-comparer.md)
-* [Custom Charts](features/custom-charts/)
-* [Runs Table](features/runs-table.md)
-* [Tags](features/tags.md)
-* [Notes](features/notes.md)
-* [Sweeps](features/sweeps.md)
-* [Alerts](features/alerts.md)
-* [Teams](features/teams.md)
-* [System Metrics](features/system-metrics.md)
-* [Anonymous Mode](features/anon.md)
+* \*\*\*\*[**Panels**](features/panels/): Default visualizations available in workspaces and reports
+  * \*\*\*\*[**Line Plot**](features/panels/line-plot/)\*\*\*\*
+  * \*\*\*\*[**Run Colors**](features/panels/run-colors.md)\*\*\*\*
+  * \*\*\*\*[**Parallel Coordinates**](features/panels/parallel-coordinates.md)\*\*\*\*
+  * \*\*\*\*[**Scatter Plot**](features/panels/scatter-plot.md)\*\*\*\*
+  * \*\*\*\*[**Code Saving**](features/panels/code.md)\*\*\*\*
+  * \*\*\*\*[**Parameter Importance**](features/panels/parameter-importance.md)\*\*\*\*
+  * \*\*\*\*[**Run Comparer**](features/panels/run-comparer.md)\*\*\*\*
+* \*\*\*\*[**Custom Charts**](features/custom-charts/): Deeply customizable visualizations built on Vega
+* \*\*\*\*[**Runs Table**](features/runs-table.md): Queryable tool for organizing and comparing runs
+* \*\*\*\*[**Tags**](features/tags.md)\*\*\*\*
+* \*\*\*\*[**Notes**](features/notes.md)\*\*\*\*
+* \*\*\*\*[**Sweeps**](features/sweeps.md)\*\*\*\*
+* \*\*\*\*[**Alerts**](features/alerts.md)\*\*\*\*
+* \*\*\*\*[**Teams**](features/teams.md)\*\*\*\*
+* \*\*\*\*[**System Metrics**](features/system-metrics.md)\*\*\*\*
+* \*\*\*\*[**Anonymous Mode**](features/anon.md)\*\*\*\*
 
