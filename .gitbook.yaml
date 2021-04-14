@@ -1,6 +1,5 @@
 ---
 redirects:
-  alerts/slack: ./app/features/alerts.md
   api: ./ref/python/public-api/README.md
   api/overview: ./library/public-api-guide.md
   api/project: ./ref/python/public-api/project.md
@@ -113,3 +112,31 @@ redirects:
   ref/data-types/table: ./ref/python/data-types/table.md
   ref/data-types/video: ./ref/python/data-types/video.md
   ref/cli: ./ref/cli/README.md
+  alerts/slack: ./ref/app/features/alerts.md
+  app/pages: ./ref/app/pages/README.md
+  app/pages/project-page: ./ref/app/pages/project-page.md
+  app/pages/workspaces: ./ref/app/pages/workspaces.md
+  app/pages/run-page: ./ref/app/pages/run-page.md
+  app/features: ./ref/app/features/README.md
+  app/features/anon: ./ref/app/features/anon.md
+  app/features/custom-charts: ./ref/app/features/custom-charts/README.md
+  app/features/custom-charts/walkthrough: ./ref/app/features/custom-charts/walkthrough.md
+  app/features/sidebar: ./ref/app/features/runs-table.md
+  app/features/tags: ./ref/app/features/tags.md
+  app/features/notes: ./ref/app/features/notes.md
+  app/features/sweeps: ./ref/app/features/sweeps.md
+  app/features/alerts: ./ref/app/features/alerts.md
+  app/features/teams: ./ref/app/features/teams.md
+  app/features/system-metrics: ./ref/app/features/system-metrics.md
+  app/features/panels: ./ref/app/features/panels/README.md
+  app/features/panels/code: ./ref/app/features/panels/code.md
+  app/features/panels/parallel-coordinates: ./ref/app/features/panels/parallel-coordinates.md
+  app/features/panels/compare-metrics: ./ref/app/features/panels/line-plot/README.md
+  app/features/panels/compare-metrics/reference: ./ref/app/features/panels/line-plot/reference.md
+  app/features/panels/compare-metrics/sampling-and-bucketing: ./ref/app/features/panels/line-plot/sampling.md
+  app/features/panels/compare-metrics/smoothing: ./ref/app/features/panels/line-plot/smoothing.md
+  app/features/panels/parameter-importance: ./ref/app/features/panels/parameter-importance.md
+  app/features/panels/run-colors: ./ref/app/features/panels/run-colors.md
+  app/features/panels/run-comparer: ./ref/app/features/panels/run-comparer.md
+  app/features/panels/scatter-plot: ./ref/app/features/panels/scatter-plot.md
+  
