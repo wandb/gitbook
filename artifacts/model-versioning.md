@@ -1,138 +1,138 @@
 ---
-description: Guide to using Artifacts for model versioning
+description: 使用工件进行模型版本控制​的指南
 ---
 
 # Model Versioning
 
-W&B Artifacts help you save and organize machine learning models throughout a project's lifecycle.
+W&B Artifacts可帮助您在项目的整个生命周期中保存和组织机器学习模型。
 
-### Common Use Cases
+### **常见使用案例**
 
-1. \*\*\*\*[**Version and store reliably**](), transferring models across machines
-2. \*\*\*\*[**Explore ideas in branches**](), keeping different model ideas separate
-3. \*\*\*\*[**Compare models precisely**](), across many variants
-4. \*\*\*\*[**Manage a model ecosystem**](), even as the species multiply
-5. \*\*\*\*[**Visualize & share your workflow**](), keeping all your work in one place
+1. **​**[**可靠的版本控制和存储**](https://docs.wandb.ai/artifacts/model-versioning#version-and-store-reliably)，跨计算机传输模型
+2. **​**[**探索分支的想法**](https://docs.wandb.ai/artifacts/model-versioning#explore-ideas-in-branches)，区分不同的模型想法
+3. [**精确对比模型**](https://docs.wandb.ai/artifacts/model-versioning#compare-models-precisely)，跨变体对比
+4. **​**[**管理一个模型生态系统**](https://docs.wandb.ai/artifacts/model-versioning#manage-a-model-ecosystem)，即使存在大量繁殖的物种
+5. **​**[**可视化和共享您的工作流**](https://docs.wandb.ai/artifacts/model-versioning#visualize-and-easily-share-your-workflow)，将所有工作集中在一个位置
 
-### Flexible tracking and hosting
+###  **灵活的追踪和托管**
 
-Beyond these common scenarios, you can use core Artifact features to upload, version, alias, compare, and download models, supporting any custom model training and management process on local or remote filesystems, via S3, GCP, or https.
+除了这些常见的场景之外，您还可以使用核心Artifact功能来上传、版本控制、指定别名、比较和下载模型，通过S3、GCP或https支持本地或远程文件系统上的任何自定义模型训练与管理流程。
 
-For more detail on these features, check out [Artifacts Core Concepts]().
+有关这些特性的更多详细信息，请查看[Artifacts Core Concepts](https://docs.wandb.ai/artifacts/artifacts-core-concepts)。
 
-## Core Artifacts features
+##  **核心Artifacts功能**
 
-W&B Artifacts support model management through these basic features:
+W&B Artifacts通过以下基本功能为模型管理提供支持：
 
-1. **Upload**: Save any model \(as a directory or file in any format\) with`run.log_artifact()`. You can also track datasets in a remote filesystem \(e.g. cloud storage in S3 or GCP\) [by reference](https://docs.wandb.ai/artifacts/api#adding-references), using a link or URI instead of the raw contents.
-2. **Version**: Define an artifact by giving it a type \(`"resnet50"`, `"bert"`, `"stacked_lstm"`\) and a name \(`"my_resnet50_variant_with_attention"`\). When you log the same name again, W&B automatically creates a new version of the artifact with the latest contents. You can use artifact versions to checkpoint models during training — just log a new model file to the same name at each checkpoint.
-3. **Alias**: Set an alias like `"baseline"`, `"best"`, or `"production"` to highlight the important versions in a lineage of experiments and developed models.
-4. **Compare**: Select any two versions to browse the contents side-by-side. We're also working on a tool for visualizing model inputs and outputs, [learn more here →](https://docs.wandb.ai/datasets-and-predictions)
-5. **Download**: Obtain a local copy of the model \(e.g. for inference\) or verify the artifact contents by reference.
+1. **上传：**使用run.log\_artifact\(\)保存任何模型（作为任何格式的目录或文件）。您也可以[通过引用](https://docs.wandb.ai/artifacts/api#adding-references)追踪远程文件系统（例如S3或GCP中的云存储）中的数据集，使用链接或URI而不是原始内容。
+2. **版本控制：**定义工件，为其指定类型 \(`"resnet50"`, `"bert"`、`"stacked_lstm")` 和名称\(`"my_resnet50_variant_with_attention"`\)。当您再次记录相同的名称时，W&B将自动创建包含最新内容的工件的新版本。您可以在训练期间使用工件版本为模型设置检查点——只需在每个检查点将新的模型文件记录为相同的名称。
+3. **指定别名：**设置别名，如`"baseline"`、`"best"`或`"production"`，以突出显示实验和开发模型系列中的重要版本。
+4. **对比：**选择任意两个版本并排浏览内容。我们也在研究一个模型输入输出可视化工具，[在这里了解更多→](https://docs.wandb.ai/datasets-and-predictions)​
+5. **下载：**获取模型的本地副本（例如，用于推断）或通过引用验证工件内容。
 
-## Version and store reliably
+## **可靠的版本控制和存储**
 
-With automatic saving and versioning, each experiment you run stores the most recently trained model artifact to W&B. You can scroll through all these model versions, annotating and renaming as necessary while maintaining the development history. Know exactly which experiment code and configuration generated which weights and architecture. You and your team can download and restore any of your model checkpoints—across projects, hardware, and dev environments.
+通过自动保存和版本控制，您运行的每个实验都会将最近训练的模型工件存储到W&B。您可以滚动浏览所有这些模型版本，根据需要进行注释和重命名，同时维护开发历史记录。准确知道哪些实验代码和配置生成了哪些权重和架构。您和您的团队可以跨项目、硬件和开发环境下载和恢复任何模型的检查点。
 
-Train a model on a local machine and log it as an artifact. Each training run will create a new version of the model named "inceptionV3".
+在本地机器上训练模型，并将其记录为工件。每次培训运行将创建名为“inceptionV3”模型的新版本。
 
 ![](../.gitbook/assets/image%20%2838%29.png)
 
-Load the same model by name for inference in a Google Colab, using the "latest" version to get the most recent one. You can also refer to any other version by index or other custom alias.
+ 在Google Colab中按名称加载相同的模型以进行推断，使用“latest”版本获取最新版本。您也可以通过索引或其他自定义别名引用任何其他版本。
 
 ![](../.gitbook/assets/image%20%2825%29.png)
 
-## Explore ideas in branches
+## **探索分支想法**
 
-To test a new hypothesis or start a set of experiments—say changing the core architecture or varying a key hyperparameter—create a new name and optionally artifact type for your model. Types could correspond to broader differences \(`"cnn_model"` vs `"rnn_model"`, `"ppo_agent"` vs `"dqn_agent"`\) while names could capture more detail \(`"cnn_5conv_2fc"`, `"ppo_lr_3e4_lmda_0.95_y_0.97"`, etc\). Checkpoint your model as versions of the artifact under the same name to easily organize and track your work. From your code or browser, you can associate individual checkpoints with descriptive notes or tags and access any experiment runs which use that particular model checkpoint \(for inference, fine-tuning, etc\). When creating the artifact, you can also upload associated metadata as a key-value dictionary \(e.g. hyperparameter values, experiment settings, or longer descriptive text\).
+若要测试一个新的假设或开始一组实验比如说改变核心架构或改变关键的超参数为您的模型——创建一个新的名称和可选的工件类型。类型可以对应更广泛的差异 \(`"cnn_model"` 与 `"rnn_model"`、`"ppo_agent"` 与 `"dqn_agent"`\) ，而名称可以捕获更多的细节 \(`"cnn_5conv_2fc"`、`"ppo_lr_3e4_lmda_0.95_y_0.97"`等）。为您的模型在同一名称下建立版本检查点，以轻松地组织和追踪您的工作。通过代码或浏览器，您可以将各个检查点关联到描述性注释或标记，并访问使用该特定模型检查点的任何实验运行（用于推断、微调等）。创建工件时，还可以将关联的元数据作为键值词典上传（例如，超参数值、实验设置或更长的描述性文本）。
 
-On any model version, you can take notes, add descriptive tags and arbitrary metadata, and view all the experiments which loaded in this version of the model.
+在任何模型版本上，您都可以做笔记、添加描述性标记和任意元数据，并查看在该模型版本中加载的所有实验。
 
 ![](../.gitbook/assets/image%20%2824%29.png)
 
-A partial view of an artifact tree showing two versions of an Inception-based CNN, iv3. A model checkpoint is saved before starting training \(with pre-existing ImageNet weights\) and after finishing training \(suffix \_trained\). The rightmost nodes show various inference runs which loaded the iv3\_trained:v2 model checkpoint and the test data in inat\_test\_data\_10:v0 \(bottom right\).
+ 工件树的局部视图，显示了基于初期的CNN iv3的两个版本。在开始训练之前（使用预先存在的ImageNet权重）和完成训练之后（后缀＿trained）保存模型检查点。最右边的节点显示了加载iv3\_trained:v2模型检查点和inat\_test\_data\_10：v0（右下角）中的测试数据的各种推断运行。
 
 ![](../.gitbook/assets/image%20%2830%29.png)
 
-A partial view of a complex artifact tree focusing on two training runs \(prefixed train\), named beyond roads iou 0.48 \(top left square node\) and fastai baseline \(bottom left square node\). Each experiment produces many artifacts: sample predictions of the model on training and validation images after every epoch. In the right half of the image, you can see some test runs \(prefixed test\) which load in the model checkpoints of training runs \(out of visible frame\) and store predictions on the test data as artifacts \(prefixed test\_preds\).
+复杂工件树的局部视图，关注两个训练运行（前缀train），命名为beyond roads iou 0.48（左上角正方形节点）和fastai baseline（左下角正方形节点）。每个实验都会产生许多工件：对训练和验证每个历元之后的图像上的模型的样本预测。在图像的右半部分，您可以看到一些测试运行（前缀test），它们加载训练运行的模型检查点（在可见框架外），并将测试数据上的预测存储为工件（前缀test\_preds）。
 
 ![](../.gitbook/assets/image%20%2826%29%20%281%29.png)
 
-## Compare models precisely
+##  **精确对比模型**
 
-Compare your models by logged or derived metrics \(e.g. loss, accuracy, mean intersection over union\) or by their predictions on the same set of data \(e.g. test or validation\). You can visualize different model variants, trace their lineage, and ascertain they're using identical dataset versions via the Artifacts compute graph \(first image below\). You can select versions of an artifact to see notes you or a colleague left, dive deep into the details, chase the connections to compute runs and other artifacts \(second image\) or enter a visual side-by-side diff mode of model predictions with [Datasets & Predictions \(in beta\)](https://docs.wandb.ai/datasets-and-predictions). You can also use the W&B workspace as a dashboard to organize and query the runs in your project, then locate the model artifacts associated with a particular run for download, fine-tuning, or further analysis \(last image\).
+通过记录或导出的指标（例如损失、精度、平均交集超过并集）或通过它们对同一组数据的预测（例如测试或验证）来对比模型。您可以可视化不同的模型变体、跟踪它们的沿袭，并通过工件计算图（下面的第一张图）确定它们使用相同的数据集版本。您可以选择工件的版本以查看您或同事留下的注释、深入细节、追踪计算运行和其他工件的连接（第二张图），或者进入包含[数据集和预测（Beta版）](https://docs.wandb.ai/datasets-and-predictions)的模型预测的视觉并排diff模式（beta版）。您还可以使用W&B工作区作为仪表板来组织和查询项目中的运行，然后查找与特定运行关联的模型工件以供下载、微调或进一步分析（最后一张图）。
 
-This artifact tree shows 12 model variants \(bottom left\), creating two sets of predictions from the test\_dataset: 14 entry\_predictions and 2 predictions. These are all evaluated to produce 19 result artifacts \(computed metrics and ground truth annotations on images\).
+此工件树显示12个模型变量（左下），从test\_dataset创建两组预测：14个entry\_predictions和2个predictions。它们在经过评估后产生了19个结果工件（计算的度量和图像上的地面实况注释）。
 
 ![](../.gitbook/assets/image%20%2823%29.png)
 
-Select versions across names \(here, model entries to a competitive benchmark from different teams\) to browse details and connected experiment runs. You can compare contents side-by-side when you select two versions \(check out our [Datasets & Predictions Beta](https://docs.wandb.ai/datasets-and-predictions) for visual comparison\).
+跨名称选择版本（在此指的是来自不同团队的竞争基准的模型条目），以浏览详细信息和关联的实验运行。当您选择两个版本时，您可以并排比较内容（请查看我们的[数据集和预测（Beta版）](https://docs.wandb.ai/datasets-and-predictions)以进行视觉比较）。
 
 ![](../.gitbook/assets/image%20%2831%29.png)
 
-Each experiment run visible in the workspace links to its associated artifacts. Find a particular run—here the top mean\_class\_iou by team name "Daenerys"—and download the corresponding model.
+在工作区中运行的每个实验都链接到其关联的工件。找到一个特定的运行——这里指的是顶部的mean\_class\_iou，团队名为"Daenerys"——并下载相应的模型。
 
 ![](../.gitbook/assets/image%20%2842%29.png)
 
-## Manage a model ecosystem
+##  **管理模型生态系统**
 
-The artifacts graph records and makes traceable the evolution of your models across datasets, training and evaluation code repositories, projects, and teammates. To help organize the proliferation of models, you can
+工件图记录并追踪跨数据集、训练和评估代码存储库、项目和团队的模型的迭代。若要帮助组织模型的扩散，您可以
 
-* **use aliases to designate particular models** as `"baseline"`, `"production"`, `"ablation"`, or any other custom tag, from the W&B UI or [from your code](https://docs.wandb.ai/artifacts/api#updating-artifacts). You can also add longer notes or dictionary-style metadata elsewhere.
-* leverage the [artifacts API](https://docs.wandb.ai/artifacts/api#updating-artifacts) to **traverse the artifacts graph** and script pipelines, e.g. to automatically evaluate new models once they're finished training
-* **create dynamically-updating** [**reports**](https://docs.wandb.ai/reports) **and dashboards** to show the top-performing models for your target metrics and **deep-link to the relevant model** artifacts for downstream use
-* **maintain lineages of models** via fixed artifact types and only save models which improve on the best performance, such that the `"latest"` alias always points to the best model version of that type
-* refer to fixed model artifacts by name and alias \(or version\) when running experiments, such that across individuals and teams **all projects** **use an identical copy of the model**
+* **使用别名将特定模型指定为**"baseline"、"production"、"ablation"或来自W&B Ui或您的代码.de[您的代码](https://docs.wandb.ai/artifacts/api#updating-artifacts)的其他自定义标记。您也可以在其他地方添加较长的注释或词典样式的元数据。
+* 利用[工件API](https://docs.wandb.ai/artifacts/api#updating-artifacts)来**遍历工件图**和脚本管道，例如，在新模型完成训练后自动评估新模型
+* **创建动态更新**[**报告**](https://docs.wandb.ai/reports)**和仪表板**，以显示目标指标的最佳性能模型，并**深度链接至相关模型工件**，以供下游使用
+* 通过固定的工件类型**维护模型的沿袭**，并且仅保存改进最佳性能的模型，使得"latest"别名始终指向该类型的最佳模型版本
+* 在运行实验时，按名称和别名（或版本）引用固定的模型工件，从而让跨个人和团队的**所有项目使用模型的相同副本**
 
-From the project dashboard, see which runs are prod\_ready and find the corresponding model artifacts for download by clicking on the run name.
+从“项目”操控板中，查看哪些运行是prod\_ready的，并通过单击运行名称来查找要下载的相应模型对象。
 
 ![](../.gitbook/assets/image%20%2843%29.png)
 
-## Visualize & share your workflow
+## **可视化并共享您的工作流**
 
-Artifacts let you see and formalize the stages of your model development, keeping all the model variants reliably accessible and organized in helpful ways **for your entire team,** giving you one shared source of truth for each
+Artifacts 让您看到并将模型开发的各个阶段书面化，使所有模型变体都能够可靠地访问，并以对整个团队有益的方式进行组织，为每个模型变体提供一个共享的真理来源
 
-* **meaningful type of model your team creates**: use the artifact type to group different named artifacts together in the compute graph \(e.g. `"resnet_model"` vs `"inceptionV3_model"`, `"a2c_agent"` vs `"a3c_agent"`\). Different model artifacts within the type then have different names. For a given named model artifact, we recommend that the artifact's versions correspond to consecutive model checkpoints \[1\]
-* **hypothesis or exploration branch your team tries: e**asily track which parameter or code changes in your experiments led to which model checkpoints. Interact with all the connections between your data, training code, and resulting models as you explore the artifact graph \(input artifact\(s\) → script or job → output artifact\(s\)\). Click "explode" on the compute graph to see all the versions for each artifact or all the runs of each script by job type. Click individual nodes to see further details in a new tab \(file contents or code, annotations/metadata, config, timestamp, parent/child nodes, etc\).
-* **meaningful instance pointer or alias your team needs**: use an alias like `"prod_ready"`, `"SOTA"`, or "`baseline"` to standardize models across your team. These will reliably return the same model checkpoint files, facilitating more scalable and reproducible workflows across file systems, environments, hardware, user accounts, etc.
+* **您的团队创建的有意义的模型类型：**使用工件类型在计算图中将不同的命名工件分组在一起（如"resnet\_model"与"inceptionV3\_model"、"a2c\_agent"与"a3c\_agent"）。然后，类型中的不同模型工件具有不同的名称。对于给定的命名模型工件，建议工件的版本对应于连续的模型检查点\[1\]
+* **您的团队尝试的假设或探索分支**：轻松追踪您的实验中的哪些参数或代码更改生成了哪些模型检查点。在浏览工件图（输入工件→脚本或作业→输出工件）时，与数据、训练代码和结果模型之间的所有连接进行交互。单击计算图上的“分解”以查看每个工件的所有版本或按作业类型查看每个脚本的所有运行。单机各个节点可在新标签页上查看更多详细信息（文件内容或代码、注释/元数据、配置、时间戳、父/子节点等）。
+* **团队所需的有意义的实例指针或别名：**使用别名，如"prod\_ready", "SOTA",或 "baseline" 等来对团队中的模型进行标准化。它们将可靠地返回相同模型的检查点文件，从而促进跨文件系统、环境、硬件、用户帐户等环境提高工作流的可扩展性和可复制性。
 
-With artifacts, you can iterate confidently, knowing that the models resulting from all of your experiments will be saved, versioned, and organized for easy retrieval. Cleanup of unused artifacts is straightforward through the browser or [API](https://docs.wandb.ai/artifacts/api#cleaning-up-unused-versions).
+有了工件，您可以放心地迭代，因为您知道所有实验产生的模型将被保存、版本控制和组织，可以轻松检索。清理未使用的工件可以通过浏览器或[API](https://docs.wandb.ai/artifacts/api#cleaning-up-unused-versions)直接进行。
 
-Below is a walkthrough of a combination of these features for visualizing a workflow.
+以下是用于可视化工作流功能的组合演练。
 
-## Longer example: Compute graph exploration
+##  **较长的示例：计算图形探索**
 
-[Follow along here →](https://wandb.ai/stacey/evalserver_answers_2/workspace?workspace=user-stacey)
+ ​[跟随这里 →](https://wandb.ai/stacey/evalserver_answers_2/workspace?workspace=user-stacey)​
 
-Let's find the best results across experiments: here, evaluations of candidate models entered into a comparison benchmark. Swept-water-5 \(boxed in green\) has the highest mean class IOU. Click on the run name to see the input and output artifacts.
+让我们找到实验中最好的结果：在此，候选模型的评估已被输入到比较基准中。Swept-water-5（绿色框）具有最高的平均等级IOU。单击运行名称查看输入和输出工件。
 
 ![](../.gitbook/assets/image%20%2839%29.png)
 
-This view shows the input and output artifacts of the experiment run "swept-water-5". This run read in a labeled test dataset and a model entry's predictions on that data, evaluated the correctness of the predictions based on the ground truth labels, and saved the results as an artifact. Click on "entry\_predictions" to see how they were generated.
+ 此视图显示了实验运行“swept-water-5”的输入和输出工件。此运行读取已标记的测试数据集和模型条目对该数据的预测、基于基本事实标签评估预测的正确性，并将结果保存为工件。单击“entry\_predictions”，查看它们是如何生成的。
 
 ![](../.gitbook/assets/image%20%2832%29.png)
 
-These model predictions were one entry from a long list of submissions to the benchmark by different teams shown in the sidebar. They were generated by the run "skilled-tree-6".
+这些模型预测是侧边栏中显示的不同团队向基准测试提交的长列表中的一个条目。它们是由运行“skilled-tree-6”生成的。
 
 ![](../.gitbook/assets/image%20%2834%29.png)
 
-View the model used to generate these predictions.
+查看用于生成这些预测的模型。
 
 ![](../.gitbook/assets/image%20%2829%29.png)
 
-View the training details of this model and all the runs using it for evaluation.
+查看此模型的培训详细信息以及使用它进行评估的所有运行。
 
 ![](../.gitbook/assets/image%20%2835%29.png)
 
-View all the predictions saved after each epoch on a random subset of training images and a fixed subset of validation images.
+在训练图像的随机子集和验证图像的固定子集上查看每个历元之后保存的所有预测。
 
 ![](../.gitbook/assets/image%20%2828%29.png)
 
-The model itself—attempt v3 of a resnet18 architecture—appears as an output artifact at the end of this list.
+此模型本身—resnet18架构的attempt v3—作为输出工件在此列表的末尾显示。
 
 ![](../.gitbook/assets/image%20%2840%29.png)
 
-**Endnotes**
+**尾注**
 
-\[1\] For a short experiment, the versions can also be distinct model variants \(e.g. various learning rates on the same model architecture\). This may get unwieldy after a handful of numerically indexed versions, as you may forget what exactly changed between v4 and v6 in terms of learning rate. Aliases help here, and we suggest using a new meaningful artifact name once you're juggling many substantially different model variants under one name.
+\[1\]对于一个简短实验而言，版本也可以是截然不同的模型变体（例如，同一模型架构上的各种学习率）。在一些数字索引版本之后，它可能会变得笨拙，因为您可能会忘记在v4和v6之间在学习率方面到底发生了什么变化。这个时候，别名就很有帮助，当您在一个名称下处理许多本质上不同的模型变体时，我们会建议使用一个新的有意义的工件名称。
 
