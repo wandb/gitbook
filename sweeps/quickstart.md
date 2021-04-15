@@ -125,5 +125,5 @@ wandb agent your-sweep-id.
 
  [ダッシュボードの例→](https://wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29.png)
 

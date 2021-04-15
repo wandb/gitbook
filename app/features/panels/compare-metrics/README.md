@@ -59,7 +59,7 @@ description: メトリックを視覚化し、軸をカスタマイズし、同�
 
 Here I have grouped the lines to see the average value across runs.
 
-![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%282%29.png)
+![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29.png)
 
 ## Compare two metrics on one chart
 
