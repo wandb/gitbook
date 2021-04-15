@@ -63,7 +63,7 @@ Nos encantaría oír los comentarios y estamos entusiasmados por mejorar esta in
 
 Explora tus resultados dinámicamente en el Tablero de Control de W&B. Es fácil buscar a través de docenas de experimentos, enfocarte en los resultados interesantes, y visualizar los datos multidimensionales.
 
-![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29.gif)
+![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%283%29.gif)
 
 Aquí hay un ejemplo que compara [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) – es fácil ver cómo las diferentes arquitecturas afectan a la precisión de la evaluación durante todo el entrenamiento, a través de las visualizaciones de los diagramas de líneas automáticos.
 

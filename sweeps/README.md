@@ -26,7 +26,7 @@ Utiliza los Barridos de Weights & Biases para automatizar la optimización de lo
 4. Lanza el\(los\) agente\(s\): Ejecuta este comando en cada máquina que te gustaría usar para entrenar a los modelos en el barrido. Los agentes le pedirán al servidor central de barridos qué hiperparámetros probar a continuación, y entonces van a correr las ejecuciones.
 5. Visualiza los resultados: Abre nuestro tablero de control para ver todos los resultados en un lugar centralizado.
 
-![](../.gitbook/assets/central-sweep-server-3%20%282%29%20%282%29%20%283%29%20%283%29%20%282%29.png)
+![](../.gitbook/assets/central-sweep-server-3%20%282%29%20%282%29%20%283%29%20%283%29%20%282%29%20%281%29%20%282%29.png)
 
 {% page-ref page="quickstart.md" %}
 

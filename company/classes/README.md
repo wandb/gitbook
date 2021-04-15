@@ -44,7 +44,7 @@ Lukas y Chris han construido una biblioteca de proyectos de tutoriales cortos, c
 
  [Ver los tutoriales →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%281%29%20%282%29.png)
 
 ### Clases gratuitas
 
