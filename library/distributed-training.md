@@ -1,68 +1,42 @@
 ---
-description: How to use W&B with multiprocess training
+description: How to use W&B when training with multiple GPUs
 ---
 
 # Distributed Training
 
-In distributed training, models are trained using multiple GPUs in parallel, for example with PyTorch DDP. To track distributed training using Weights & Biases, here are two patterns we support:
+In distributed training, models are trained using multiple GPUs in parallel. To track distributed training using Weights & Biases, here are two patterns we support:
 
-1. **One Process**: Only call `wandb.init()` and `wandb.log()` from the rank0 process, or a dedicated process for logging. This is the most common solution for logging with PyTorch DDP. In some cases, users funnel data over from other processes using a multiprocessing queue \(or another communication primitive\) to the main logging process.
-2. **All Processes**: In every process, call `wandb.init()` and set the `group` parameter to the shared experiment name. [See details below](distributed-training.md#how-to-track-all-processes-with-grouping).
+1. **One Process**: Only call `wandb.init()` and `wandb.log()` from a single process, e.g. the rank0 process. This is the most common solution for logging with PyTorch DDP. In some cases, users funnel data over from other processes using a multiprocessing queue \(or another communication primitive\) to the main logging process.
+2. **All Processes**: In every process, call `wandb.init()`. These are effectively separate experiments, so use the `group` parameter to set a shared experiment name and group the logged values together in the UI.
 
-## Common issues
+Below, you'll find a more thorough description of these two patterns, based on a[ code example](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-ddp) from our repository of examples. Check out the "Common Issues" section at the bottom of this guide for some gotchas.
 
-### Hanging at the beginning of training
+## Logging distributed training experiments with W&B
 
-If launching the wandb process hangs, set the WANDB\_START\_METHOD environment variable to "thread" to have wandb not use multiprocessing.
+{% hint style="info" %}
+Check out the code behind these examples in our examples repository [here](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-ddp).
+{% endhint %}
 
-### Hanging at the end of training
-
-Is your process hanging at the end of training? The wandb.init\(\) process might not know it needs to exit, and cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause wandb to exit.
-
-## How to track all processes with grouping
-
-There are a three ways to set grouping. Here's a quick, easy example of setting grouping:
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/grouping)
-
-### **1. Set group in your script**
-
-Pass an optional group and job\_type to wandb.init\(\). This gives you a dedicated group page for each experiment, which contains the individual runs. For example:`wandb.init(group="experiment_1", job_type="eval")`
-
-### **2. Set a group environment variable**
-
-Use `WANDB_RUN_GROUP` to specify a group for your runs as an environment variable. For more on this, check our docs for [**Environment Variables**](environment-variables.md)**. Group** should be unique within your project and shared by all runs in the group.  You can use `wandb.util.generate_id()` to generate a unique 8 character string to use in all your processes— for example:`os.environ["WANDB_RUN_GROUP"] = "experiment-" + wandb.util.generate_id()`
-
-### **3. Toggle grouping in the UI**
-
-You can dynamically group by any config column. For example, if you use `wandb.config` to log batch size or learning rate, you can then group by those hyperparameters dynamically in the web app. 
-
-## Distributed training with grouping
-
-If you set grouping in `wandb.init()` , we will group runs by default in the UI. You can toggle this on and off by clicking the purple Group button at the top of the table. Here's an [example project](https://wandb.ai/carey/group-demo?workspace=user-carey) generated from [sample code](http://wandb.me/grouping) where we set grouping. You can click on each "Group" row in the sidebar to get to a dedicated group page for that experiment.
-
-![](../.gitbook/assets/image%20%2850%29.png)
-
-From the project page above, you can click a **Group** in the left sidebar to get to a dedicated page like [this one](https://wandb.ai/carey/group-demo/groups/exp_5?workspace=user-carey):
-
-![](../.gitbook/assets/image%20%2851%29.png)
-
-## Example of distributed training with W&B
-
-Sometimes a single GPU is insufficient for training large deep learning models on huge amounts of data, so we use distributed training on multiple GPUS in parallel. PyTorch DDP \(`torch.nn.DistributedDataParallel`\) is a popular library for distributed training. In this walkthrough we'll show how to track metrics with Weights & Biases using PyTorch DDP for training on multiple parallel GPUs.
+Sometimes a single GPU is insufficient for training large deep learning models on huge amounts of data, so we distribute our training runs across multiple GPUs. [PyTorch DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) \(`DistributedDataParallel` in`torch.nn`\) is a popular library for distributed training. In this walkthrough, we'll show how to track metrics with Weights & Biases using PyTorch DDP on two GPUs on a single machine. The basic principles apply to any distributed training setup, but the details of implementation may differ.
 
 ### Method 1: `wandb.init` on `rank0` process
 
 In multi-GPU training, the `rank0` process is the main process and coordinates the other processes. Often, it's useful to just track this single process as a W&B run, using `wandb.init()` in just the `rank0` process and only calling `wandb.log()` there, not in any sub-processes.
 
-In this example, we launch multiple processes with `torch.distributed.launch`. With this module, we can intercept the rank of the process with `--local_rank` argument. Now that we have the local-rank of the process we can set up conditional tracking in the `train()` function.
+This method is simple and robust, but it means that model metrics from other processes \(e.g. loss values or inputs from their batches\) are not logged. System metrics, like usage and memory for all GPUs, are still logged.
 
-```text
+{% hint style="info" %}
+**Use this method if the metrics you care about are available from a single process**. Typical examples include GPU/CPU utilization, behavior on a shared validation set, gradients and parameters, and loss values on representative data examples.
+{% endhint %}
+
+In [our example](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-ddp#method-1-log-from-a-single-process) of this method, we launch multiple processes with `torch.distributed.launch`. With this module, we can determine the rank of the process from the `--local_rank` argument. Now that we have the rank of the process, we can set up `wandb` logging conditionally in the `train()` function.
+
+```python
 if __name__ == "__main__":
-    # get args
+    # Get args
     args = parse_args()
 
-    if args.local_rank == 0:
+    if args.local_rank == 0:  # only on main process
         # Initialize wandb run
         run = wandb.init(
             entity=args.entity,
@@ -82,19 +56,25 @@ In the [W&B dashboard](https://wandb.ai/ayush-thakur/DDP/runs/1s56u3hc) you can 
 
 ### Method 2: `wandb.init` on all processes
 
-In this process, we track each process in the job, calling `wandb.init()` and `wandb.log()` from each individual process. It's also useful to call `wandb.finish()` at the end of training, to mark that the run has completed so all processes exit properly.
+In this method, we track each process in the job, calling `wandb.init()` and `wandb.log()` from each process separately. It's also useful to call `wandb.finish()` at the end of training, to mark that the run has completed so that all processes exit properly.
 
-To organize each sub-process job into a larger group, set the `group` parameter in `wandb.init()`. This is useful because we can track every metric, including system utilization, for each process individually. These results will be grouped together on the **group page** in the W&B UI to keep things organized.
+The benefit of this method is that more information is accessible for logging and that logging doesn't need to be made conditional on process rank in the code. However, it results in information from a single experiment being reported from multiple runs in the W&B UI.
 
-```text
+{% hint style="info" %}
+**Use this method if you care about the private metrics of individual processes**. Typical examples include the data and predictions on each node \(for debugging data distribution\) and metrics on individual batches outside of the main node. This method is not necessary to get system metrics from all nodes nor to get summary statistics available on the main node.
+{% endhint %}
+
+In order to keep track of which runs correspond to which experiments, we use the [grouping](grouping.md) feature of Weights & Biases. It's as simple as setting the `group` parameter in `wandb.init()`. These results will be shown together on a **group page** in the W&B UI, so our experiments stay organized.
+
+```python
 if __name__ == "__main__":
-    # get args
+    # Get args
     args = parse_args()
     # Initialize run
     run = wandb.init(
         entity=args.entity,
         project=args.project,
-        group = "DDP",
+        group="DDP",  # all runs for the experiment in one group
     )
     # Train model with DDP
     train(args, run)
@@ -103,4 +83,14 @@ if __name__ == "__main__":
 In the [W&B UI](https://wandb.ai/ayush-thakur/DDP), you can see the two runs are grouped together in the sidebar. You can click on this group to get to the dedicated group page for your experiment.
 
 ![](../.gitbook/assets/image%20%2863%29.png)
+
+## Common issues
+
+### Hanging at the beginning of training
+
+If launching the `wandb` process hangs, it could be because the `wandb` multiprocessing is interfering with the multiprocessing from distributed training. Try setting the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead.
+
+### Hanging at the end of training
+
+Is your process hanging at the end of training? The `wandb` process might not know it needs to exit, and that will cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause `wandb` to exit.
 
