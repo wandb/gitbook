@@ -71,7 +71,7 @@ wandb login
 
 **W&B 대시보드에서 결과를 동적으로 탐색합니다. 수십 개의 실험을 쉽게 살펴보고, 흥미로운 결과를 확대해 볼 수 있으며, 고차원 데이터를 시각화하실 수 있습니다.**
 
-![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29.gif)
+![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%283%29.gif)
 
  다음은 [BERT 대 DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) 비교 예시입니다. 자동 라인 플롯 시각화를 활용한 훈련을 통해서 평과 정확도에 서로 다른 아키텍처가 어떤 영향을 끼치는지 쉽게 확인하실 수 있습니다.
 
