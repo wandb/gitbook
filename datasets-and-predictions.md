@@ -165,7 +165,7 @@ Dive in and try an end-to-end demo using semantic segmentation: [![](https://col
 
 ### Image classification
 
-Explore a more detailed image classification example using photos of plants of animals. Try it yourself in a Google Colab: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-nature-colab)or follow along with [this report](https://wandb.ai/stacey/mendeleev/reports/Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA).
+Explore a more detailed image classification example using photos of plants and animals. Try it yourself in a notebook: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-nature-colab)or follow along with [this report](https://wandb.ai/stacey/mendeleev/reports/Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA).
 
 ### **Visualize audio data**
 
@@ -173,15 +173,15 @@ Explore a more detailed image classification example using photos of plants of a
 
 ### Visualize predictions over time
 
-Track changes at the level of model predictions on specific examples in your dataset at a specific step during training. Aggregate over these dynamically and interactively analyze the specific predictions to understand patterns of errors and opportunities for improvement—within the same model over time or across different model variants. 
+Track changes at the level of model predictions on specific examples from your dataset at a specific step in your training pipeline. Aggregate over these dynamically, and interactively analyze the specific predictions to understand patterns of errors and opportunities for improvement—within the same model over time or across different model variants. 
 
 Try this yourself on MNIST: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-mnist-colab)or read a [more detailed walkthrough](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk).
 
 **Log details for each prediction; query dynamically** \([live example](https://wandb.ai/stacey/mnist-viz/artifacts/predictions/baseline/7dd0cd845c0edb469dec/files/predictions.table.json)\)
 
-View the image pixels, true and guessed labels, example id, confidence scores for all labels, and any other useful information for each example in your data. Once you've logged this to a wandb.Table, you can run dynamic visual queries without needing to rerun any code: filter, sort, group, and create new columns with derived information.
+View the image pixels, true and guessed labels, example id, confidence scores for all labels, and any other useful information for each example in your data. Once you've logged this to a wandb.Table, you can execute dynamic visual queries without needing to rerun any code: filter, sort, group, create new columns with derived information, and more.
 
-![Baseline model&apos;s predictions after 5 epochs of training](.gitbook/assets/screen-shot-2021-04-15-at-12.02.04-am.png)
+![Explore the baseline model&apos;s predictions after 5 epochs of training](.gitbook/assets/screen-shot-2021-04-15-at-12.02.04-am.png)
 
 **Compare a single model's predictions after 1 vs 5 epochs of training** \([live example](https://wandb.ai/stacey/mnist-viz/artifacts/predictions/baseline/d888bc05719667811b23/files/predictions.table.json#7dd0cd845c0edb469dec)\)
 
@@ -191,11 +191,9 @@ The left side shows the baseline model's predictions on the validation data afte
 
 **Compare across model variants** \([live example](https://wandb.ai/stacey/mnist-viz/artifacts/predictions/baseline/d888bc05719667811b23/files/predictions.table.json#2bb3b1d40aa777496b5d$2x_layers_2x_lr)\)
 
-The left side shows a baseline model's predictions after 1 epoch of training. The right side shows a new variant's predictions on the same images after 1 epoch of training. The new variant has a few architectural changes for illustration purposes \(double the size of the two convolutional layers, double the learning rate\). In a few clicks, we can see the most confused classes for each model variant and a distribution of true labels for each of those guessed labels. For step-by-step instructions, see [this report.](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk) 
+The left side shows a baseline model's predictions after 1 epoch of training. The right side shows a new variant's predictions on the same images after 1 epoch of training. The new variant has a few architectural changes for illustration purposes \(double the size of the two convolutional layers, double the learning rate\). In a few clicks, we can see the most confused classes for each model variant and a distribution of true labels for each of those guessed classes. For step-by-step instructions, see [this report.](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk) 
 
-![Filter to wrong guesses, group by guess, sort by frequency to see the top confused classes for each variant.](.gitbook/assets/screen-shot-2021-04-14-at-11.52.32-pm.png)
-
-### \*\*\*\*
+![Filter to wrong guesses, group by guess, sort by frequency to see the top confused classes for each model.](.gitbook/assets/screen-shot-2021-04-14-at-11.52.32-pm.png)
 
 ## FAQ
 
