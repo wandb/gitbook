@@ -42,7 +42,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/feb8-emotion/runs/toxllrmm/system)
 
-![](../../.gitbook/assets/image%20%2888%29%20%282%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%282%29.png)
 
 ## Model Tab
 
@@ -50,7 +50,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
-![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%283%29.png)
+![](../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%284%29%20%285%29.png)
 
 ## Logs Tab
 
