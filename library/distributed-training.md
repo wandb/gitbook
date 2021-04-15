@@ -23,7 +23,7 @@ Sometimes a single GPU is insufficient for training large deep learning models o
 
 In multi-GPU training, the `rank0` process is the main process and coordinates the other processes. Often, it's useful to just track this single process as a W&B run, using `wandb.init()` in just the `rank0` process and only calling `wandb.log()` there, not in any sub-processes.
 
-This method is simple and robust, but it means that model metrics from other processes \(e.g. loss values or inputs from their batches\) are not logged. System metrics, like usage and memory for all GPUs, are still logged.
+This method is simple and robust, but it means that model metrics from other processes \(e.g. loss values or inputs from their batches\) are not logged. System metrics, like usage and memory, are still logged for all GPUs, since that information is available to all processes.
 
 {% hint style="info" %}
 **Use this method if the metrics you care about are available from a single process**. Typical examples include GPU/CPU utilization, behavior on a shared validation set, gradients and parameters, and loss values on representative data examples.
@@ -48,9 +48,11 @@ if __name__ == "__main__":
         train(args)
 ```
 
-In the [W&B dashboard](https://wandb.ai/ayush-thakur/DDP/runs/1s56u3hc) you can see that both GPUs were tracked in this single run.
+If you want to see what the outputs look like for this method, check out an example dashboard [here](https://wandb.ai/ayush-thakur/DDP/runs/1s56u3hc/system). There, you can see that system metrics, like temperature and utilization, were tracked for both GPUs.
 
 ![](../.gitbook/assets/image%20%2869%29.png)
+
+The epoch-wise and batch-wise loss values, however, are only logged from a single GPU.
 
 ![](../.gitbook/assets/image%20%2868%29.png)
 
@@ -64,7 +66,7 @@ The benefit of this method is that more information is accessible for logging an
 **Use this method if you care about the private metrics of individual processes**. Typical examples include the data and predictions on each node \(for debugging data distribution\) and metrics on individual batches outside of the main node. This method is not necessary to get system metrics from all nodes nor to get summary statistics available on the main node.
 {% endhint %}
 
-In order to keep track of which runs correspond to which experiments, we use the [grouping](grouping.md) feature of Weights & Biases. It's as simple as setting the `group` parameter in `wandb.init()`. These results will be shown together on a **group page** in the W&B UI, so our experiments stay organized.
+In order to keep track of which runs correspond to which experiments, we use the [grouping](grouping.md) feature of Weights & Biases. It's as simple as setting the `group` parameter in `wandb.init()`. These results will be shown together on a group page in the W&B UI, so our experiments stay organized.
 
 ```python
 if __name__ == "__main__":
@@ -80,7 +82,7 @@ if __name__ == "__main__":
     train(args, run)
 ```
 
-In the [W&B UI](https://wandb.ai/ayush-thakur/DDP), you can see the two runs are grouped together in the sidebar. You can click on this group to get to the dedicated group page for your experiment.
+If you want to see what the outputs look like for this method, check out an example dashboard [here](https://wandb.ai/ayush-thakur/DDP). You'll see two runs grouped together in the sidebar. You can click on this group to get to the dedicated group page for the experiment, which displays metrics from each process separately.
 
 ![](../.gitbook/assets/image%20%2863%29.png)
 
