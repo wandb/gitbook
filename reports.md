@@ -71,7 +71,7 @@ Si vous avez vraiment besoin de comparer des essais de deux projets et que les c
 
 Envoyez un graphique depuis votre workspace à un rapport pour garder une trace de vos progrès. Cliquez sur le menu déroulant sur le graphique ou le panneau que vous souhaitez copier dans un rapport et cliquez sur **Ajouter à rapport** \(Add a report\) pour sélectionner le rapport de destination.
 
-![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%283%29%20%283%29%20%281%29.gif)
+![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%281%29.gif)
 
 ##  FAQ des Rapports
 

@@ -122,5 +122,5 @@ Ouvrez votre projet pour voir les résultats en direct dans le tableau de bord d
 
  [Exemple de tableau de bord →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%281%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29.png)
 
