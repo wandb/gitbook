@@ -173,13 +173,13 @@ Explore a more detailed image classification example using photos of plants and 
 
 ### Visualize predictions over time
 
-Track changes at the level of model predictions on specific examples from your dataset at a specific step in your training pipeline. Aggregate over these dynamically, and interactively analyze the specific predictions to understand patterns of errors and opportunities for improvement—within the same model over time or across different model variants. 
+Track changes at the level of model predictions on specific examples from your dataset at a specific step in your training pipeline. Aggregate over these dynamically, and interactively analyze the specific predictions to understand patterns of errors and opportunities for improvement—within the same model over time or across different model variants. Note that you'll need to log a unique identifier for each row \(e.g. the example id of each image in your dataset\) to join across different tables for comparison views.
 
 Try this yourself on MNIST: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-mnist-colab)or read a [more detailed walkthrough](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk).
 
 **Log details for each prediction; query dynamically** \([live example](https://wandb.ai/stacey/mnist-viz/artifacts/predictions/baseline/7dd0cd845c0edb469dec/files/predictions.table.json)\)
 
-View the image pixels, true and guessed labels, example id, confidence scores for all labels, and any other useful information for each example in your data. Once you've logged this to a wandb.Table, you can execute dynamic visual queries without needing to rerun any code: filter, sort, group, create new columns with derived information, and more.
+View the image pixels, true and guessed labels, example id, confidence scores for all labels, and any other useful information for each example in your data. Once you've logged this to a wandb.Table, you can execute dynamic visual queries without needing to rerun any code: filter, sort, group, create new columns with derived information, and more. 
 
 ![Explore the baseline model&apos;s predictions after 5 epochs of training](.gitbook/assets/screen-shot-2021-04-15-at-12.02.04-am.png)
 
