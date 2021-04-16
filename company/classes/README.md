@@ -20,7 +20,7 @@ Ask your students to submit reports so you can explore their results and compare
 
 Create a project in your academic team, and have your students compete to achieve the best accuracy on a shared task. Here's a screenshot of an example competition. Each row is a different experiment, and users are competing for the highest accuracy. [View the project →](https://app.wandb.ai/wandb/feb8-emotion)
 
-![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%283%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2857%29%20%284%29%20%285%29%20%283%29%20%285%29.png)
 
 ## Resources
 
@@ -44,7 +44,7 @@ Lukas and Chris have built a library of short tutorial projects with notes on ea
 
 [View the tutorials →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%281%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%281%29%20%283%29.png)
 
 ### Free classes
 
