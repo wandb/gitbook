@@ -134,7 +134,7 @@ redirects:
   library/restore: ./guides/track/advanced/save-restore.md
   library/alert: ./guides/track/advanced/alert.md
   library/environment-variables: ./guides/track/advanced/environment-variables.md
-  library/cli: ./ref/cli.md
+  library/cli: ./ref/cli/README.md
   library/init: ./guides/track/launch.md
   library/config: ./guides/track/config.md
   library/log: ./guides/track/log.md
