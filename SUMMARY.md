@@ -2,7 +2,7 @@
 
 * [Weights & Biases](README.md)
 * [Quickstart](quickstart.md)
-* [Examples](http://github.com/wandb/examples)
+* [Examples](examples.md)
 * [Guides](guides/README.md)
   * [Experiment Tracking](guides/track/README.md)
     * [Launch Runs](guides/track/launch.md)

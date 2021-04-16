@@ -2,7 +2,7 @@
 
 ### What does this do to my training process?
 
-When `wandb.init()` is called from your training script an API call is made to create a run object on our servers. A new process is started to stream and collect metrics, thereby keeping all threads and logic out of your primary process. Your script runs normally and writes to local files, while the separate process streams them to our servers along with system metrics. You can always turn off streaming by running `wandb off` from your training directory, or setting the **WANDB\_MODE** environment variable to "dryrun".
+When `wandb.init()` is called from your training script an API call is made to create a run object on our servers. A new process is started to stream and collect metrics, thereby keeping all threads and logic out of your primary process. Your script runs normally and writes to local files, while the separate process streams them to our servers along with system metrics. You can always turn off streaming by running `wandb off` from your training directory, or setting the **WANDB\_MODE** environment variable to `dryrun`.
 
 ### If wandb crashes, will it possibly crash my training run?
 
@@ -131,19 +131,19 @@ Yes, you can do this by logging multiple metrics and then setting them a x axis 
 
 ### How can I log a metric that doesn't change over time such as a final evaluation accuracy?
 
-Using wandb.log\({'final\_accuracy': 0.9} will work fine for this.  By default wandb.log\({'final\_accuracy'}\) will update wandb.settings\['final\_accuracy'\] which is the value shown in the runs table.
+Using `wandb.log({'final_accuracy': 0.9}` will work fine for this.  By default `wandb.log({'final_accuracy'})` will update `wandb.settings['final_accuracy']`, which is the value shown in the runs table.
 
 ### How can I log additional metrics after a run completes?
 
 There are several ways to do this.
 
-For complicated workflows, we recommend using multiple runs and setting group parameter in [wandb.init](track/launch.md) to a unique value in all the processes that are run as part of a single experiment. The [runs table](../ref/app/pages/run-page.md) will automatically group the table by the group ID and the visualizations will behave as expected. This will allow you to run multiple experiments and training runs as separate processes log all the results into a single place.
+For complicated workflows, we recommend using multiple runs and setting group parameter in [`wandb.init`](track/launch.md) to a unique value in all the processes that are run as part of a single experiment. The [runs table](../ref/app/pages/run-page.md) will automatically group the table by the group ID and the visualizations will behave as expected. This will allow you to run multiple experiments and training runs as separate processes log all the results into a single place.
 
-For simpler workflows, you can call wandb.init with resume=True and id=UNIQUE\_ID and then later call wandb.init with the same id=UNIQUE\_ID. Then you can log normally with [wandb.log](track/log.md) or wandb.summary and the runs values will update.
+For simpler workflows, you can call `wandb.init` with `resume=True` and `id=UNIQUE_ID` and then later call `wandb.init` with the same `id=UNIQUE_ID`. Then you can log normally with [`wandb.log`](track/log.md) or `wandb.summary` and the runs values will update.
 
 At any point you can always use the [API](https://docs.wandb.ai/library/public-api-guide#update-metrics-for-a-run-after-the-run-has-finished) to add additional evaluation metrics.
 
-### What is the difference between  .log\(\) and .summary?  
+### What is the difference between  `.log()` and `.summary`?  
 
 The summary is the value that shows in the table while log will save all the values for plotting later.  
 
@@ -185,4 +185,21 @@ With wandb reports the procedure is as follows:
 * Have multiple panel grids.
 * Add filters to filter the run sets of each panel grid. This will help in selecting the runs that you want to portray in the respective panels.
 * Create the charts you want in the panel grids.
+
+### How is access to the API controlled?
+
+For simplicity W&B uses API keys for authorization when accessing the API. You can find your API keys in your [settings](https://app.wandb.ai/settings). Your API key should be stored securely and never checked into version control. In addition to personal API keys, you can add Service Account users to your team.
+
+### How can I rotate or revoke access?
+
+Both personal and service account keys can be rotated or revoked. Simply create a new API Key or Service Account user and reconfigure your scripts to use the new key. Once all processes are reconfigured, you can remove the old API key from your profile or team.
+
+### How do I switch between accounts on the same machine?
+
+If you have two W&B accounts working from the same machine, you'll need a nice way to switch between your different API keys. You can store both API keys in a file on your machine then add code like the following to your repos. This is to avoid checking your secret key into a source control system, which is potentially dangerous.
+
+```python
+if os.path.exists("~/keys.json"):
+   os.environ["WANDB_API_KEY"] = json.loads("~/keys.json")["work_account"]
+```
 

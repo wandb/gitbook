@@ -376,7 +376,7 @@ You can log this wherever your code has access to:
 * the corresponding ground truth labels for those examples \(`y_true`\)
 * a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 is cat, 1=dog, 2=bird, etc\)
 
-![](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 ​[See in the app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)​
 
@@ -386,7 +386,7 @@ You can log this wherever your code has access to:
 {% tab title="Multi-line" %}
 `wandb.plot.line_series()`
 
- Plot multiple lines, or multiple different lists of x-y coordinate pairs, on one shared set of x-y axes:
+Plot multiple lines, or multiple different lists of x-y coordinate pairs, on one shared set of x-y axes:
 
 ```python
 wandb.log({"my_custom_id" : wandb.plot.line_series(

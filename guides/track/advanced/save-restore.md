@@ -8,8 +8,8 @@ This guide first demonstrates how to save files to the cloud with `wandb.save`, 
 
 ## Saving Files
 
-Sometimes, rather than logging a numerical value or a piece of media, you want to log a whole file: the weights of a model, the output of other logging software, even source code.   
-  
+Sometimes, rather than logging a numerical value or a piece of media, you want to log a whole file: the weights of a model, the output of other logging software, even source code.
+
 There are two ways to associate a file with a run and upload it to W&B.
 
 1. Use `wandb.save(filename)`.
@@ -57,7 +57,7 @@ Here's a public example page. You can see on the files tab, there's a `model-bes
 
 [See the live example →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
 
-![](../../../.gitbook/assets/image%20%2839%29%20%286%29%20%281%29%20%286%29.png)
+![](../../../.gitbook/assets/image%20%2839%29%20%286%29%20%281%29%20%289%29.png)
 
 ## Restoring Files
 
