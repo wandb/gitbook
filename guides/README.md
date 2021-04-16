@@ -1,6 +1,6 @@
 ---
 description: >-
-  Weights & Biases for experiment tracking, dataset versioning, and model
+  Use Weights & Biases for experiment tracking, dataset versioning, and model
   management
 ---
 
