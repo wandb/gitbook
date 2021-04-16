@@ -1,98 +1,38 @@
 ---
 redirects:
   api: ./ref/python/public-api/README.md
-  api/overview: ./library/public-api-guide.md
+  api/overview: ./guides/track/public-api-guide.md
   api/project: ./ref/python/public-api/project.md
   api/run: ./ref/python/public-api/README.md
   cli/overview: ./ref/cli/README.md
   cli/restoring: ./ref/cli/wandb-restore.md
-  docs/: ./README.md
+  docs: ./README.md
   docs/getting-started: ./quickstart.md
   getting-started: ./quickstart.md
-  huggingface: ./integrations/huggingface.md
   java: ./ref/java/README.md
   java/wandbrun-builder: ./ref/java/wandbrun-builder.md
   java/wandbrun: ./ref/java/wandbrun.md
-  library/advanced: ./library/README.md
-  library/advanced/grouping: ./library/grouping.md
-  library/advanced/resuming: ./library/resuming.md
-  library/advanced/security: ./library/security.md
-  library/advanced/limits: ./library/limits.md
+  library/advanced: ./guides/track/advanced/README.md
+  library/advanced/grouping: ./guides/track/advanced/grouping.md
+  library/advanced/resuming: ./guides/track/advanced/resuming.md
+  library/advanced/security: ./guides/technical-faq.md
+  library/advanced/limits: ./guides/track/advanced/limits.md
   library/reference: ./ref/README.md
   library/reference/wandb_api: ./ref/public-api/api.md
-  library/reference/keras: ./ref/keras.md
   library/reference/data_types: ./ref/python/data-types/README.md
-  library/reference/fastai: ./integrations/fastai/README.md
-  library/sweeps: ./sweeps/README.md
-  library/sweeps/configuration: ./sweeps/configuration.md
-  library/sweeps/advanced: ./sweeps/ray-tune.md
-  library/sweeps/local-controller: ./sweeps/local-controller.md
-  library/sweeps/python-api: ./sweeps/python-api.md
-  library/example-projects: ./examples.md
-  overview/overview: ./overview.md
-  sweeps/local: ./sweeps/local-controller.md
-  sweeps/python: ./sweeps/python-api.md
+  overview/overview: ./quickstart.md
   wandb/config: ./ref/python/config.md
   wandb/init: ./ref/python/init.md
   wandb/log: ./ref/python/log.md
   wandb/restore: ./ref/python/restore.md
   wandb/save: ./ref/python/save.md
   integrations/api: ./ref/python/public-api/README.md
-  library/api: ./library/public-api-guide.md
-  sweeps/overview: ./sweeps/README.md
+  library/api: ./guides/track/public-api-guide.md
   ref/config: ./ref/python/config.md
-  library/integrations/pytorch: ./integrations/pytorch.md
-  library/integrations/pytorch/lightning: ./integrations/.md
-  library/integrations/keras: ./integrations/keras.md
-  library/integrations/tensorflow: ./integrations/tensorflow.md
-  library/integrations/scikit: ./integrations/scikit.md
-  library/integrations/fastai: ./integrations/fastai/README.md
-  library/integrations/fastai/fastai: ./integrations/fastai/v1.md
-  library/integrations/xgboost: ./integrations/xgboost.md
-  library/integrations/lightgbm: ./integrations/lightgbm.md
-  library/integrations/huggingface: ./integrations/huggingface.md
-  library/integrations/tensorboard: ./integrations/tensorboard.md
-  library/integrations/sagemaker: ./integrations/sagemaker.md
-  library/integrations/lightning: ./integrations/lightning.md
-  library/integrations/ignite: ./integrations/ignite.md
-  library/integrations/kubeflow: ./integrations/kubeflow.md
-  library/integrations/docker: ./integrations/docker.md
-  library/integrations/jupyter: ./integrations/jupyter.md
-  library/integrations/databricks: ./integrations/databricks.md
-  library/integrations/ray-tune: ./integrations/ray-tune.md
-  library/integrations/catalyst: ./integrations/catalyst.md
-  library/integrations/skorch: ./integrations/skorch.md
-  library/integrations/simpletransformers: ./integrations/simpletransformers.md
-  library/integrations/openai-gym: ./integrations/openai-gym.md
-  library/integrations/numpy: ./integrations/numpy.md
-  library/integrations/jax: ./integrations/jax.md
-  library/frameworks: ./integrations/README.md
-  library/frameworks/fastai: ./integrations/fastai/README.md
-  library/frameworks/fastai-example: ./integrations/fastai/README.md
-  library/frameworks/jax-example: ./library/example-projects/jax.md
-  library/frameworks/keras: ./integrations/keras.md
-  library/frameworks/numpy-example: ./library/example-projects/numpy.md
-  library/frameworks/pytorch: ./integrations/pytorch.md
-  library/frameworks/scikit: ./integrations/scikit.md
-  library/frameworks/tensorflow: ./integrations/tensorflow.md
-  library/frameworks/xgboost: ./integrations/xgboost.md
-  frameworks/catalyst: ./integrations/catalyst.md
-  frameworks/examples: ./examples.md
-  frameworks/fastai: ./integrations/fastai/README.md
-  frameworks/fastai-example: ./integrations/fastai/README.md
-  frameworks/keras: ./integrations/keras.md
-  frameworks/keras-example: ./integrations/keras.md
-  frameworks/pytorch: ./integrations/pytorch.md
-  frameworks/pytorch-example: ./integrations/pytorch.md
-  frameworks/scikit: ./integrations/scikit.md
-  frameworks/scikit-example: ./integrations/scikit.md
-  frameworks/tensorflow: ./integrations/tensorflow.md
-  frameworks/tensorflow-example: ./integrations/tensorflow.md
-  frameworks/xgboost: ./integrations/xgboost.md
-  frameworks/xgboost-example: ./integrations/xgboost.md
-  ref/export-api: ./library/public-api-guide.md
+  frameworks/examples: ./guides/integrations/README.md
+  ref/export-api: ./guides/track/library/public-api-guide.md
   ref/export-api/api: ./ref/public-api/README.md
-  ref/export-api/examples: ./library/public-api-guide.md
+  ref/export-api/examples: ./guides/track/public-api-guide.md
   ref/artifact: ./ref/python/artifact.md
   ref/run: ./ref/python/run.md
   ref/run/alert: ./ref/python/run.md
@@ -139,4 +79,103 @@ redirects:
   app/features/panels/run-colors: ./ref/app/features/panels/run-colors.md
   app/features/panels/run-comparer: ./ref/app/features/panels/run-comparer.md
   app/features/panels/scatter-plot: ./ref/app/features/panels/scatter-plot.md
-  
+  huggingface: ./guides/integrations/huggingface.md
+  library/reference/fastai: ./guides/integrations/fastai/README.md
+  library/integrations/pytorch: ./guides/integrations/pytorch.md
+  library/integrations/pytorch/lightning: ./guides/integrations/lightning.md
+  library/integrations/keras: ./guides/integrations/keras.md
+  library/integrations/tensorflow: ./guides/integrations/tensorflow.md
+  library/integrations/scikit: ./guides/integrations/scikit.md
+  library/integrations/fastai: ./guides/integrations/fastai/README.md
+  library/integrations/fastai/fastai: ./guides/integrations/fastai/v1.md
+  library/integrations/xgboost: ./guides/integrations/xgboost.md
+  library/integrations/lightgbm: ./guides/integrations/lightgbm.md
+  library/integrations/huggingface: ./guides/integrations/huggingface.md
+  library/integrations/tensorboard: ./guides/integrations/tensorboard.md
+  library/integrations/sagemaker: ./guides/integrations/sagemaker.md
+  library/integrations/lightning: ./guides/integrations/lightning.md
+  library/integrations/ignite: ./guides/integrations/ignite.md
+  library/integrations/kubeflow: ./guides/integrations/kubeflow.md
+  library/integrations/docker: ./guides/integrations/docker.md
+  library/integrations/jupyter: ./guides/integrations/jupyter.md
+  library/integrations/databricks: ./guides/integrations/databricks.md
+  library/integrations/ray-tune: ./guides/integrations/ray-tune.md
+  library/integrations/catalyst: ./guides/integrations/catalyst.md
+  library/integrations/skorch: ./guides/integrations/skorch.md
+  library/integrations/simpletransformers: ./guides/integrations/simpletransformers.md
+  library/integrations/openai-gym: ./guides/integrations/openai-gym.md
+  library/integrations/numpy: ./guides/integrations/numpy.md
+  library/integrations/jax: ./guides/integrations/jax.md
+  library/frameworks: ./guides/integrations/README.md
+  library/frameworks/fastai: ./guides/integrations/fastai/README.md
+  library/frameworks/fastai-example: ./guides/integrations/fastai/README.md
+  library/frameworks/keras: ./guides/integrations/keras.md
+  library/frameworks/pytorch: ./guides/integrations/pytorch.md
+  library/frameworks/scikit: ./guides/integrations/scikit.md
+  library/frameworks/tensorflow: ./guides/integrations/tensorflow.md
+  library/frameworks/xgboost: ./guides/integrations/xgboost.md
+  frameworks: ./guides/integrations/README.md
+  frameworks/catalyst: ./guides/integrations/catalyst.md
+  frameworks/fastai: ./guides/integrations/fastai/README.md
+  frameworks/fastai-example: ./guides/integrations/fastai/README.md
+  frameworks/keras: ./guides/integrations/keras.md
+  frameworks/keras-example: ./guides/integrations/keras.md
+  frameworks/pytorch: ./guides/integrations/pytorch.md
+  frameworks/pytorch-example: ./guides/integrations/pytorch.md
+  frameworks/scikit: ./guides/integrations/scikit.md
+  frameworks/scikit-example: ./guides/integrations/scikit.md
+  frameworks/tensorflow: ./guides/integrations/tensorflow.md
+  frameworks/tensorflow-example: ./guides/integrations/tensorflow.md
+  frameworks/xgboost: ./guides/integrations/xgboost.md
+  frameworks/xgboost-example: ./guides/integrations/xgboost.md
+  library/resuming: ./guides/track/advanced/resuming.md
+  library/grouping: ./guides/track/advanced/grouping.md
+  library/save: ./guides/track/advanced/save-restore.md
+  library/restore: ./guides/track/advanced/save-restore.md
+  library/alert: ./guides/track/advanced/alert.md
+  library/environment-variables: ./guides/track/advanced/environment-variables.md
+  library/cli: ./ref/cli.md
+  library/init: ./guides/track/launch.md
+  library/config: ./guides/track/config.md
+  library/log: ./guides/track/log.md
+  library/limits: ./guides/track/limits.md
+  library/public-api-guide: ./guides/track/public-api-guide.md
+  library/security: ./guides/technical-faq.md
+  sweeps: ./guides/sweeps/README.md
+  sweeps/ray-tune: ./guides/sweeps/ray-tune.md
+  sweeps/existing-project: ./guides/sweeps/existing-project.md
+  sweeps/configuration: ./guides/sweeps/configuration.md
+  sweeps/python-api: ./guides/sweeps/python-api.md
+  sweeps/sweeps-examples: ./guides/sweeps/sweeps-examples.md
+  sweeps/quickstart: ./guides/sweeps/quickstart.md
+  sweeps/visualize-sweep-results: ./guides/sweeps/visualize-sweep-results.md
+  sweeps/faq: ./guides/sweeps/faq.md
+  sweeps/local-controller: ./guides/sweeps/local-controller.md
+  sweeps/local: ./guides/sweeps/local-controller.md
+  sweeps/python: ./guides/sweeps/python-api.md
+  sweeps/overview: ./guides/sweeps/README.md
+  library/sweeps: ./guides/sweeps/README.md
+  library/sweeps/configuration: ./guides/sweeps/configuration.md
+  library/sweeps/advanced: ./guides/sweeps/ray-tune.md
+  library/sweeps/local-controller: ./guides/sweeps/local-controller.md
+  library/sweeps/python-api: ./guides/sweeps/python-api.md
+  artifacts: ./guides/artifacts/README.md
+  artifacts/artifacts-core-concepts: ./guides/artifacts/artifacts-core-concepts.md
+  artifacts/api: ./guides/artifacts/api.md
+  artifacts/dataset-versioning: ./guides/artifacts/dataset-versioning.md
+  artifacts/model-versioning: ./guides/artifacts/model-versioning.md
+  artifacts/artifact-creation-modes: ./guides/artifacts/artifact-creation-modes.md
+  artifacts/references: ./guides/artifacts/references.md
+  artifacts/examples: ./guides/artifacts/examples.md
+  artifacts/artifacts-faqs: ./guides/artifacts/artifacts-faqs.md
+  reports: ./guides/reports.md
+  app: ./guides/track/app.md
+  datasets-and-predictions: ./guides/datasets-and-predictions.md
+  self-hosted: ./guides/self-hosted/README.md
+  self-hosted/local: ./self-hosted/local.md
+  self-hosted/setup: ./self-hosted/setup.md
+  self-hosted/configuration: ./self-hosted/configuration.md
+  self-hosted/cloud: ./self-hosted/cloud.md
+  self-hosted/local-common-questions: ./self-hosted/local-common-questions.md
+  library/reference/keras: ./guides/integrations/keras.md
+  library/distributed-training: ./guides/track/advanced/distributed-training.md
