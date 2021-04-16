@@ -4,7 +4,7 @@ description: >-
   lightweight building blocks
 ---
 
-# Dataset Versioning
+# Data Versioning
 
 Use W&B Artifacts for dataset versioning, model versioning, and tracking dependencies and results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems like S3, GCP, or your own system.
 

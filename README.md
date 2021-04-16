@@ -4,14 +4,18 @@ description: 'Track machine learning experiments, visualize metrics, and share r
 
 # Weights & Biases
 
-Weights & Biases helps you keep track of your machine learning projects. Use our tools to log hyperparameters and output metrics from your runs, then visualize and compare results and quickly share findings with your colleagues. 
+Weights & Biases helps you build better models faster with a central dashboard for machine learning projects. Use our tools to log hyperparameters and output metrics from your runs, then visualize and compare results and quickly share findings with your colleagues. 
 
-Here is a quick overview of our lightweight, modular tools:
+### Guides
 
-1. [**Dashboard**](guides/track/app.md): Experiment tracking
-2. [**Artifacts**](guides/artifacts/): Dataset versioning, model versioning
-3. [**Sweeps**](guides/sweeps/): Hyperparameter optimization
-4. [**Reports**](guides/reports.md): Save and share reproducible findings
+1. \*\*\*\*[**Experiment tracking**](guides/track/)\*\*\*\*
+2. **Integrations**
+3. **Hyperparameter tuning**
+4. **Dataset versioning**
+5. \*\*\*\*
+6. [**Artifacts**](guides/artifacts/): Dataset versioning, model versioning
+7. [**Sweeps**](guides/sweeps/): Hyperparameter optimization
+8. [**Reports**](guides/reports.md): Save and share reproducible findings
 
 ![](.gitbook/assets/workflow-june-2020-v1.png)
 
