@@ -8,9 +8,9 @@ This guide first demonstrates how to save files to the cloud with `wandb.save`, 
 
 ## Saving Files
 
-Sometimes, rather than logging a piece of media  
+Sometimes, rather than logging a numerical value or a piece of media, you want to log a whole file: the weights of a model, the output of other logging software, even source code.   
   
-There are two ways to save a file to associate with a run.
+There are two ways to associate a file with a run and upload it to W&B.
 
 1. Use `wandb.save(filename)`.
 2. Put a file in the wandb run directory, and it will get uploaded at the end of the run.
@@ -89,11 +89,11 @@ my_predefined_model.load_weights(weights_file.name)
 
 ## Common Questions
 
-### Ignoring certain files
+### How do I ignore files?
 
-You can edit the `wandb/settings` file and set ignore\_globs equal to a comma separated list of [globs](https://en.wikipedia.org/wiki/Glob_%28programming%29). You can also set the **WANDB\_IGNORE\_GLOBS** environment variable. A common use case is to prevent the git patch that we automatically create from being uploaded i.e. **WANDB\_IGNORE\_GLOBS=\*.patch**
+You can edit the `wandb/settings` file and set `ignore_globs` equal to a comma separated list of [globs](https://en.wikipedia.org/wiki/Glob_%28programming%29). You can also set the `WANDB_IGNORE_GLOBS` [environment variable](environment-variables.md). A common use case is to prevent the git patch that we automatically create from being uploaded i.e. `WANDB_IGNORE_GLOBS=*.patch`.
 
-### Sync files before the end of the run
+### How can I sync files before the run ends?
 
 If you have a long run, you might want to see files like model checkpoints uploaded to the cloud before the end of the run. By default, we wait to upload most files until the end of the run. You can add a `wandb.save('*.pth')` or just `wandb.save('latest.pth')` in your script to upload those files whenever they are written or updated.
 
@@ -101,13 +101,13 @@ If you have a long run, you might want to see files like model checkpoints uploa
 
 If you default to saving files in AWS S3 or Google Cloud Storage, you might get this error:`events.out.tfevents.1581193870.gpt-tpu-finetune-8jzqk-2033426287 is a cloud storage url, can't save file to wandb.`
 
-To change the log directory for TensorBoard events files or other files you'd like us to sync, save your files to the wandb.run.dir so they're synced to our cloud.
+To change the log directory for TensorBoard events files or other files you'd like us to sync, save your files to the `wandb.run.dir` so they're synced to our cloud.
 
-### Get the run name
+### How do I get the name of a run?
 
 If you'd like to use the run name from within your script, you can use `wandb.run.name` and you'll get the run name— "blissful-waterfall-2" for example.
 
-you need to call save on the run before being able to access the display name:
+You need to call save on the run before you can access the display name:
 
 ```text
 run = wandb.init(...)
@@ -115,11 +115,25 @@ run.save()
 print(run.name)
 ```
 
-### Push all saved files to wandb
+### How can I push all saved files from local?
 
-Call `wandb.save("*.pt")` once at the top of your script after wandb.init, then all files that match that pattern will save immediately once they're written to wandb.run.dir.
+Call `wandb.save("*.pt")` once at the top of your script after `wandb.init`, then all files that match that pattern will save immediately once they're written to `wandb.run.dir`.
 
-### Remove local files that have been synced to cloud storage
+### Can I remove local files that have already been synced to cloud storage?
 
 There’s a command `wandb sync --clean` that you can run to remove local files that have already been synced to cloud storage. More information about usage can be found with `wandb sync --help`
+
+### What if I want to restore the state of my code?
+
+Use the `restore` command of our [command line tool](../../../ref/cli/) to return to the state of your code when you ran a given run.
+
+```python
+# creates a branch and restores the code to the state
+# it was in when run $RUN_ID was executed
+wandb restore $RUN_ID
+```
+
+### **How does `wandb` capture the state of the code?**
+
+When `wandb.init` is called from your script, a link is saved to the last git commit if the code is in a git repository. A diff patch is also created in case there are uncommitted changes or changes that are out of sync with your remote.
 
