@@ -2,7 +2,7 @@
 description: Iterate on datasets and understand model predictions.
 ---
 
-# Dataset Visualization
+# Data Visualization
 
 _This feature is currently in the early-access phase. You can use it in our production service at wandb.ai, with_ [_some limitations_](https://docs.wandb.com/untitled#current-limitations)_. APIs are subject to change. We'd love to hear questions, comments, and ideas! Drop us a line at_ [_feedback@wandb.com_](mailto:feedback@wandb.com)_._
 

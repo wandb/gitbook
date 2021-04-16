@@ -9,13 +9,18 @@ Weights & Biases helps you build better models faster with a central dashboard f
 ### Guides
 
 1. \*\*\*\*[**Experiment tracking**](guides/track/)\*\*\*\*
-2. **Integrations**
-3. **Hyperparameter tuning**
-4. **Dataset versioning**
-5. \*\*\*\*
-6. [**Artifacts**](guides/artifacts/): Dataset versioning, model versioning
-7. [**Sweeps**](guides/sweeps/): Hyperparameter optimization
-8. [**Reports**](guides/reports.md): Save and share reproducible findings
+2. \*\*\*\*[**Integrations**](guides/integrations/)\*\*\*\*
+3. \*\*\*\*[**Hyperparameter tuning**](guides/sweeps/)\*\*\*\*
+4. \*\*\*\*[**Data versioning**](guides/artifacts/)\*\*\*\*
+5. \*\*\*\*[**Data Visualization**](guides/datasets-and-predictions.md)\*\*\*\*
+6. \*\*\*\*[**Collaborative Reports**](guides/reports.md)\*\*\*\*
+7. \*\*\*\*[**Self-Hosting**](guides/self-hosted/)\*\*\*\*
+
+### **Reference**
+
+1. \*\*\*\*[**App Reference**](ref/app/)\*\*\*\*
+2. \*\*\*\*[**Python Library**](ref/python/)\*\*\*\*
+3. \*\*\*\*[**Command Line Interface**](ref/cli/)\*\*\*\*
 
 ![](.gitbook/assets/workflow-june-2020-v1.png)
 
