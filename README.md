@@ -8,19 +8,19 @@ Weights & Biases helps you build better models faster with a central dashboard f
 
 ### Guides
 
-1. \*\*\*\*[**Experiment tracking**](guides/track/)\*\*\*\*
-2. \*\*\*\*[**Integrations**](guides/integrations/)\*\*\*\*
-3. \*\*\*\*[**Hyperparameter tuning**](guides/sweeps/)\*\*\*\*
-4. \*\*\*\*[**Data versioning**](guides/artifacts/)\*\*\*\*
-5. \*\*\*\*[**Data Visualization**](guides/datasets-and-predictions.md)\*\*\*\*
-6. \*\*\*\*[**Collaborative Reports**](guides/reports.md)\*\*\*\*
-7. \*\*\*\*[**Self-Hosting**](guides/self-hosted/)\*\*\*\*
+1. [Experiment tracking](guides/track/)
+2. [Integrations](guides/integrations/)
+3. [Hyperparameter tuning](guides/sweeps/)
+4. [Data versioning](guides/artifacts/)
+5. [Data Visualization](guides/datasets-and-predictions.md)
+6. [Collaborative Reports](guides/reports.md)
+7. [Self-Hosting](guides/self-hosted/)
 
-### **Reference**
+### Reference
 
-1. \*\*\*\*[**App Reference**](ref/app/)\*\*\*\*
-2. \*\*\*\*[**Python Library**](ref/python/)\*\*\*\*
-3. \*\*\*\*[**Command Line Interface**](ref/cli/)\*\*\*\*
+1. [App Reference](ref/app/)
+2. [Python Library](ref/python/)
+3. [Command Line Interface](ref/cli/)
 
 ![](.gitbook/assets/workflow-june-2020-v1.png)
 
