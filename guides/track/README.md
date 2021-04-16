@@ -1,7 +1,7 @@
 ---
 description: >-
-  Use Weights & Biases for experiment tracking, dataset versioning, and model
-  management
+  Track and visualize experiments in real time, compare baselines, and iterate
+  quickly on ML projects
 ---
 
 # Experiment Tracking

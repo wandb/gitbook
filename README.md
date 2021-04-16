@@ -8,7 +8,7 @@ Weights & Biases helps you build better models faster with a central dashboard f
 
 ### Guides
 
-1. [Experiment tracking](guides/track/)
+1. [Experiment tracking](guides/track/): Visualize experiments in real time, compare to baselines
 2. [Integrations](guides/integrations/)
 3. [Hyperparameter tuning](guides/sweeps/)
 4. [Data versioning](guides/artifacts/)
