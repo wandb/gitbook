@@ -6,7 +6,7 @@ description: >-
 
 # Alerts
 
-W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../../library/wandb.alert.md).
+W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../../guides/track/advanced/alert.md).
 
 {% hint style="warning" %}
 Alerts for finished runs are disabled in Jupyter Notebook environments to prevent alert notifications on every cell execution. Use `wandb.alert()` in Jupyter Notebook environments instead.

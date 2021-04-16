@@ -17,7 +17,7 @@ pip install wandb
 ```
 
 {% hint style="info" %}
-If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our [Environment Variables](library/environment-variables.md).
+If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our [Environment Variables](guides/track/advanced/environment-variables.md).
 {% endhint %}
 
 ## 2. Create Account
@@ -33,12 +33,12 @@ wandb login
 Add a few lines to your script to log hyperparameters and metrics.
 
 {% hint style="info" %}
-Weights and Biases is framework agnostic, but if you are using a common ML framework, you may find framework-specific examples even easier for getting started. We've built framework-specific hooks to simplify the integration for [Keras](integrations/keras.md), [TensorFlow](integrations/tensorflow.md), [PyTorch](integrations/pytorch.md), [Fast.ai](integrations/fastai/), [Scikit](integrations/scikit.md), [XGBoost](integrations/xgboost.md), [Catalyst](integrations/catalyst.md).
+Weights and Biases is framework agnostic, but if you are using a common ML framework, you may find framework-specific examples even easier for getting started. We've built framework-specific hooks to simplify the integration for [Keras](guides/integrations/keras.md), [TensorFlow](guides/integrations/tensorflow.md), [PyTorch](guides/integrations/pytorch.md), [Fast.ai](guides/integrations/fastai/), [Scikit](guides/integrations/scikit.md), [XGBoost](guides/integrations/xgboost.md), [Catalyst](guides/integrations/catalyst.md).
 {% endhint %}
 
 ### Initialize W&B
 
-Initialize `wandb` at the beginning of your script, before you start logging. Some integrations, like our [Hugging Face](integrations/huggingface.md) integration, include wandb.init\(\) internally.
+Initialize `wandb` at the beginning of your script, before you start logging. Some integrations, like our [Hugging Face](guides/integrations/huggingface.md) integration, include wandb.init\(\) internally.
 
 ```python
 # Inside my model training code
@@ -46,11 +46,11 @@ import wandb
 wandb.init(project="my-project")
 ```
 
-We automatically create the project for you if it doesn't exist. Runs of the training script above will sync to a project named "my-project". See the [wandb.init](library/init.md) documentation for more initialization options.
+We automatically create the project for you if it doesn't exist. Runs of the training script above will sync to a project named "my-project". See the [wandb.init](guides/track/launch.md) documentation for more initialization options.
 
 ### Declare Hyperparameters
 
-It's easy to save hyperparameters with the [wandb.config](library/config.md) object.
+It's easy to save hyperparameters with the [wandb.config](guides/track/config.md) object.
 
 ```python
 wandb.config.dropout = 0.2
@@ -59,7 +59,7 @@ wandb.config.hidden_layer_size = 128
 
 ### Log Metrics
 
-Log metrics like loss or accuracy as your model trains \(in many cases we provide framework-specific defaults\). Log more complicated output or results like histograms, graphs, or images with [wandb.log](library/log.md).
+Log metrics like loss or accuracy as your model trains \(in many cases we provide framework-specific defaults\). Log more complicated output or results like histograms, graphs, or images with [wandb.log](guides/track/log.md).
 
 ```python
 def my_train_loop():
@@ -84,7 +84,7 @@ model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 Great! Now run your script normally and we'll sync the logs in a background process. Your terminal output, metrics, and files will be synced to the cloud, along with a record of your git state if you're running from a git repo.
 
 {% hint style="info" %}
-If you're testing and want to disable wandb syncing, set the [environment variable](library/environment-variables.md) WANDB\_MODE=dryrun
+If you're testing and want to disable wandb syncing, set the [environment variable](guides/track/advanced/environment-variables.md) WANDB\_MODE=dryrun
 {% endhint %}
 
 ## Next Steps
@@ -93,8 +93,8 @@ Now you've got the instrumentation working, here's a quick overview of cool feat
 
 1. **Project Page**: Compare lots of different experiments in a project dashboard. Every time you run a model in a project, a new line appears in the graphs and in the table. Click the table icon on the left sidebar to expand the table and see all your hyperparameters and metrics. Create multiple projects to organize your runs, and use the table to add tags and notes to your runs.
 2. **Custom Visualizations**: Add parallel coordinates charts, scatter plots, and other advanced visualizations to explore your results.
-3. \*\*\*\*[**Reports**](reports.md): Add a Markdown panel to describe your research results alongside your live graphs and tables. Reports make it easy to share a snapshot of your project with collaborators, your professor, or your boss!
-4. \*\*\*\*[**Integrations**](integrations/): We have special integrations for popular frameworks like PyTorch, Keras, and XGBoost.
+3. \*\*\*\*[**Reports**](guides/reports.md): Add a Markdown panel to describe your research results alongside your live graphs and tables. Reports make it easy to share a snapshot of your project with collaborators, your professor, or your boss!
+4. \*\*\*\*[**Integrations**](guides/integrations/): We have special integrations for popular frameworks like PyTorch, Keras, and XGBoost.
 5. **Showcase**: Interested in sharing your research? We're always working on blog posts to highlight the amazing work of our community. Message us at contact@wandb.com.
 
 ### [Contact us with questions →](company/getting-help.md)

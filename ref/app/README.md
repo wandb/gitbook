@@ -1,6 +1,6 @@
 # App Reference
 
-This section contains reference docs for the web app interface, hosted in the cloud at wandb.ai or [self-hosted with W&B Local](../../self-hosted/).
+This section contains reference docs for the web app interface, hosted in the cloud at wandb.ai or [self-hosted with W&B Local](../../guides/self-hosted/).
 
 ### Pages
 

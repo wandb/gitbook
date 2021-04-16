@@ -1,4 +1,4 @@
-# Company
+# About Us
 
 ### What is wandb?
 

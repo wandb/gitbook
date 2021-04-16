@@ -14,7 +14,7 @@ To go beyond the built-in charts in Weights & Biases, use the new **Custom Chart
 
 ## 1. Log data to W&B
 
-First, log data in your script. Use [wandb.config](../../../../library/config.md) for single points set at the beginning of training, like hyperparameters. Use [wandb.log\(\)](../../../../library/log.md) for multiple points over time, and log custom 2D arrays with wandb.Table\(\). We recommend logging up to 10,000 data points per logged key.
+First, log data in your script. Use [wandb.config](../../../../guides/track/config.md) for single points set at the beginning of training, like hyperparameters. Use [wandb.log\(\)](../../../../guides/track/log.md) for multiple points over time, and log custom 2D arrays with wandb.Table\(\). We recommend logging up to 10,000 data points per logged key.
 
 ```python
 # Logging a custom table of data

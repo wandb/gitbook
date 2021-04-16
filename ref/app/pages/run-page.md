@@ -12,8 +12,8 @@ Use the run page to explore detailed information about a single version of your 
 
 * Run name, description, and tags
 * Host name, operating system, Python version, and command that launched the run
-* List of config parameters saved with [wandb.config](../../../library/config.md)
-* List of summary parameters saved with [wandb.log\(\)](../../../library/log.md), by default set to the last value logged
+* List of config parameters saved with [wandb.config](../../../guides/track/config.md)
+* List of summary parameters saved with [wandb.log\(\)](../../../guides/track/log.md), by default set to the last value logged
 
 [View a live example →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
 
@@ -30,7 +30,7 @@ The Python details are private, even if you make the page itself public. Here is
   * change x-axis, metrics, and ranges
   * edit legends, titles, and colors of charts
 * View examples predictions from your validation set
-* To get these charts, log data with [wandb.log\(\)](../../../library/log.md)
+* To get these charts, log data with [wandb.log\(\)](../../../guides/track/log.md)
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
@@ -64,11 +64,11 @@ The Python details are private, even if you make the page itself public. Here is
 
 ## Files Tab
 
-* Save files to sync with the run using [wandb.save\(\)](../../../library/save.md)
+* Save files to sync with the run using [wandb.save\(\)](../../../guides/track/advanced/save-restore.md)
 * Keep model checkpoints, validation set examples, and more
-* Use the diff.patch to [restore](../../../library/restore.md) the exact version of your code
+* Use the diff.patch to [restore]() the exact version of your code
 
-🌟New recommendation: Try [Artifacts](../../../artifacts/) for tracking inputs and outputs
+🌟New recommendation: Try [Artifacts](../../../guides/artifacts/) for tracking inputs and outputs
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
 

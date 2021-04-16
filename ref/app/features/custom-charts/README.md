@@ -17,7 +17,7 @@ Contact Carey \(c@wandb.com\) with questions or suggestions
 
 ### How it works
 
-1. **Log data**: From your script, log [config](../../../../library/config.md) and summary data as you normally would when running with W&B. To visualize a list of multiple values logged at one specific time, use a custom`wandb.Table`
+1. **Log data**: From your script, log [config](../../../../guides/track/config.md) and summary data as you normally would when running with W&B. To visualize a list of multiple values logged at one specific time, use a custom`wandb.Table`
 2. **Customize the chart**: Pull in any of this logged data with a [GraphQL](https://graphql.org/) query. Visualize the results of your query with [Vega](https://vega.github.io/vega/), a powerful visualization grammar.
 3. **Log the chart**: Call your own preset from your script with `wandb.plot_table()` or use one of our builtins.
 

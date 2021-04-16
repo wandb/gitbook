@@ -8,10 +8,10 @@ Weights & Biases helps you keep track of your machine learning projects. Use our
 
 Here is a quick overview of our lightweight, modular tools:
 
-1. [**Dashboard**](app.md): Experiment tracking
-2. [**Artifacts**](artifacts/): Dataset versioning, model versioning
-3. [**Sweeps**](sweeps/): Hyperparameter optimization
-4. [**Reports**](reports.md): Save and share reproducible findings
+1. [**Dashboard**](guides/track/app.md): Experiment tracking
+2. [**Artifacts**](guides/artifacts/): Dataset versioning, model versioning
+3. [**Sweeps**](guides/sweeps/): Hyperparameter optimization
+4. [**Reports**](guides/reports.md): Save and share reproducible findings
 
 ![](.gitbook/assets/workflow-june-2020-v1.png)
 
@@ -22,10 +22,10 @@ Here is a quick overview of our lightweight, modular tools:
 Easily add our Python library `wandb` to your machine learning script.
 
 * [Quickstart](quickstart.md)
-* [Keras integration](integrations/keras.md)
-* [PyTorch integration](integrations/pytorch.md)
-* [TensorFlow integration](integrations/tensorflow.md)
-* [Jupyter notebook integration](integrations/jupyter.md)
+* [Keras integration](guides/integrations/keras.md)
+* [PyTorch integration](guides/integrations/pytorch.md)
+* [TensorFlow integration](guides/integrations/tensorflow.md)
+* [Jupyter notebook integration](guides/integrations/jupyter.md)
 
 Here's a sample screenshot from a [Species Identification project](https://app.wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification) in W&B.
 
@@ -36,5 +36,5 @@ Here's a sample screenshot from a [Species Identification project](https://app.w
 If you're interested in example projects, we have a few resources:
 
 * [App Gallery](https://app.wandb.ai/gallery): A gallery of featured reports in our web app
-* [Example Projects](examples.md): Code and projects in GitHub and Colab
+* [Example Projects](): Code and projects in GitHub and Colab
 

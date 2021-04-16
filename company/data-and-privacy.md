@@ -17,9 +17,9 @@ All data is stored encrypted at rest and is encrypted in transit in our cloud of
 
 ## Self hosted and private cloud
 
-We follow industry best practices for security and encryption in our cloud-hosted service. We also offer [private cloud and self hosted installations](../self-hosted/) for enterprise customers. [Contact us](getting-help.md) to learn about options for your business.
+We follow industry best practices for security and encryption in our cloud-hosted service. We also offer [private cloud and self hosted installations](../guides/self-hosted/) for enterprise customers. [Contact us](getting-help.md) to learn about options for your business.
 
-For personal use, we have a [local Docker installation](../self-hosted/local.md) that you can run on your own machine.‌
+For personal use, we have a [local Docker installation](../guides/self-hosted/local.md) that you can run on your own machine.‌
 
 ## Project privacy and teams
 
@@ -39,5 +39,5 @@ You can download data saved with Weights & Biases using our [export API](). We w
 
 ## Linked accounts
 
-If you use Google or GitHub OAuth to create and log in to a Weights & Biases account, we don't read or sync data from your repositories or folders. These connections are purely for authentication purposes. You can log files and code to associate with your runs using W&B [Artifacts](../artifacts/).
+If you use Google or GitHub OAuth to create and log in to a Weights & Biases account, we don't read or sync data from your repositories or folders. These connections are purely for authentication purposes. You can log files and code to associate with your runs using W&B [Artifacts](../guides/artifacts/).
 
