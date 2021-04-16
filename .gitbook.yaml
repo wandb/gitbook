@@ -28,6 +28,7 @@ redirects:
   wandb/save: ./ref/python/save.md
   integrations/api: ./ref/python/public-api/README.md
   library/api: ./guides/track/public-api-guide.md
+  library/cli: ./ref/cli/README.md
   ref/config: ./ref/python/config.md
   frameworks/examples: ./guides/integrations/README.md
   ref/export-api: ./guides/track/library/public-api-guide.md
