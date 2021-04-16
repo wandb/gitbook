@@ -1,5 +1,5 @@
 ---
-description: Dictionary-like object to save your experiment configuration
+description: Use a dictionary-like object to save your experiment configuration
 ---
 
 # Configure Runs

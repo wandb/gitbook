@@ -1,5 +1,5 @@
 ---
-description: Machine learning experiment tracking and visualizations
+description: 'Create centralized, interactive, visual dashboards for your ML experiments'
 ---
 
 # Dashboards
