@@ -41,7 +41,7 @@ wandb.config.dropout = 0.2
 ## Quickstart FAQ
 
 **How do I use wandb in an automated environment?**  
-If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our [Environment Variables](guides/track/advanced/environment-variables.md).
+If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our guide to configuration with [Environment Variables](guides/track/advanced/environment-variables.md).
 
 **Do you offer on-prem or private cloud installations?**  
 Yes, learn more about[ W&B Local installations](guides/self-hosted/).
