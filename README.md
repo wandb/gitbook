@@ -8,13 +8,13 @@ Weights & Biases helps you build better models faster with a central dashboard f
 
 ### Guides
 
-1. [Experiment tracking](guides/track/): Visualize experiments in real time, compare to baselines
-2. [Integrations](guides/integrations/)
-3. [Hyperparameter tuning](guides/sweeps/)
-4. [Data versioning](guides/artifacts/)
-5. [Data Visualization](guides/datasets-and-predictions.md)
-6. [Collaborative Reports](guides/reports.md)
-7. [Self-Hosting](guides/self-hosted/)
+1. [Experiment tracking](guides/track/): Visualize experiments in real time
+2. [Integrations](guides/integrations/): PyTorch, Keras, Hugging Face, and more
+3. [Hyperparameter tuning](guides/sweeps/): Optimize models quickly
+4. [Data versioning](guides/artifacts/): Version datasets and models
+5. [Data Visualization](guides/datasets-and-predictions.md): Visualize predictions across model versions
+6. [Collaborative Reports](guides/reports.md): Describe and share findings
+7. [Self-Hosting](guides/self-hosted/): Private cloud and local hosting of the W&B app
 
 ### Reference
 
@@ -22,9 +22,9 @@ Weights & Biases helps you build better models faster with a central dashboard f
 2. [Python Library](ref/python/)
 3. [Command Line Interface](ref/cli/)
 
-![](.gitbook/assets/workflow-june-2020-v1.png)
-
 {% embed url="https://www.youtube.com/watch?v=EIgoKitLUqM" %}
+
+![](.gitbook/assets/workflow-june-2020-v1.png)
 
 ## Getting Started
 
