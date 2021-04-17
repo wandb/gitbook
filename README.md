@@ -26,24 +26,3 @@ Weights & Biases helps you build better models faster with a central dashboard f
 
 ![](.gitbook/assets/workflow-june-2020-v1.png)
 
-## Getting Started
-
-Easily add our Python library `wandb` to your machine learning script.
-
-* [Quickstart](quickstart.md)
-* [Keras integration](guides/integrations/keras.md)
-* [PyTorch integration](guides/integrations/pytorch.md)
-* [TensorFlow integration](guides/integrations/tensorflow.md)
-* [Jupyter notebook integration](guides/integrations/jupyter.md)
-
-Here's a sample screenshot from a [Species Identification project](https://app.wandb.ai/stacey/curr_learn/reports?view=stacey%2FSpecies%20Identification) in W&B.
-
-![](.gitbook/assets/screen-shot-2020-08-07-at-1.16.16-pm.png)
-
-## Examples
-
-If you're interested in example projects, we have a few resources:
-
-* [App Gallery](https://app.wandb.ai/gallery): A gallery of featured reports in our web app
-* [Example Projects](): Code and projects in GitHub and Colab
-
