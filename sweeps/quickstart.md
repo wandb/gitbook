@@ -2,7 +2,7 @@
 
 Commencez à partir de n’importe quel modèle d’apprentissage automatique et mettez en place un balayage d’hyperparamètres en quelques minutes. Vous voulez voir un exemple en action ? Voici un [exemple de code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) et un [exemple de tableau de bord](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
 
-![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%284%29%20%283%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%284%29%20%283%29%20%283%29.png)
 
 {% hint style="info" %}
 \(i\) Vous avez déjà un projet Weights & Biases ? [Passez directement à notre tutoriel suivant de Balayages →](https://docs.wandb.ai/sweeps/existing-project)
@@ -122,5 +122,5 @@ Ouvrez votre projet pour voir les résultats en direct dans le tableau de bord d
 
  [Exemple de tableau de bord →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29.png)
+![](../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29.png)
 

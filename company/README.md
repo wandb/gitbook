@@ -32,7 +32,7 @@ La plupart des personnes qui entraînent des modèles d’apprentissage automati
 
 Vous pouvez visualiser des mesures de performance à travers de nombreux essais et filtrer, regrouper, et les libeller comme vous le souhaitez.Un bon exemple de projet est l’[estuary project](https://app.wandb.ai/stacey/estuary) de Stacey. Dans la barre latérale, vous pouvez activer ou désactiver l’affichage d’essais sur les graphiques, ou cliquer sur un essai pour aller plus en profondeur. Tous vos essais sont sauvegardés et organisés dans un workspace unifié pour vous.
 
-![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29.png)
+![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%283%29%20%283%29.png)
 
 ### 3. Partage des résultats
 
