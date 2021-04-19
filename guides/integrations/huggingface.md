@@ -159,7 +159,7 @@ If you are using a Jupyter or Google Colab notebook, your training run is finish
 wandb.finish()
 ```
 
-### 7 \[Optional\] Loading a Saved Model
+### 7\) \[Optional\] Loading a Saved Model
 
 If you saved your model to W&B Artifacts with `WANDB_LOG_MODEL` you can download your model weights for additional training or to run inference on it. You can load it back into the same Hugging Face architecture that you used before like so:
 
