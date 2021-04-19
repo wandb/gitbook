@@ -269,7 +269,7 @@ _If using a Notebook, set the following before initialising your_ `Trainer`_:_
 %env WANDB_SILENT = 'true'
 ```
 
-### Custom wandb Init
+### Customize `wandb.init`
 
 The `WandbCallback` that `Trainer` uses will call `wandb.init` under the hood when `Trainer` is initialised. You can alternatively set up your runs manually by calling `wandb.init(**optional_args)` before `Trainer` is initialised.
 
@@ -284,7 +284,7 @@ wandb.init(project="amazon_sentiment_analysis",
 
 ## Issues, Questions, Feature Requests
 
-For any issues, question or feature request with this Hugging Face W&B integration, feel free to post **\*\*\[**in this thread**\]\(**[https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498)**\) on the Hugging Face forums or open an issue on the Hugging Face \[**Transformers github repo_\*\]\(%20_[https://github.com/huggingface/transformers   \)\](https://github.com/huggingface/transformers%20%20%20%29\)\*\*\*
+For any issues, question or feature request with this Hugging Face W&B integration, feel free to post in [this thread ****on the Hugging Face forums](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) or open an issue on the Hugging Face [Transformers GitHub repo](https://github.com/huggingface/transformers).
 
 ## Visualize Results
 
