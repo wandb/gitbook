@@ -14,7 +14,7 @@ A Weights & Biases integration for Hugging Face's [Transformers library](https:/
 
 ## Just show me the code!
 
-* Sure, here you go:  [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)\*\*\*\*
+Sure, here you go:  [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)**.**
 
 ### Quick and Easy Hugging Face Model Tracking with Weights & Biases
 
