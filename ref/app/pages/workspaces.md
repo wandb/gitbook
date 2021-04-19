@@ -11,7 +11,17 @@ Your workspace is your personal sandbox to customize charts and explore model re
 
 ![](../../../.gitbook/assets/workspace-table-and-panels.png)
 
+Want to organize charts by default? Add a prefix to metric names to sort charts into sections in the UI. You can also drag and drop charts into sections to reorganize them after logging. For example, this code block will produce the chart sections below:
 
+```python
+run = wandb.init()
+with run:
+    for idx in range(100):
+        run.log({"section-a/metric": idx})
+        run.log({"section-b/metric": idx*2})
+```
+
+![](../../../.gitbook/assets/image%20%2841%29.png)
 
 At the bottom of the page is a workspace control bar:
 
