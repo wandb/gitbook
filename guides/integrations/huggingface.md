@@ -38,7 +38,7 @@ This section covers:
 
 We've created a few examples for you to see how the W&B integration works:
 
-* \*\*\*\*[**W&B and Hugging Face demo**](http://wandb.me/hf) _\*\*_in Google Colab with model logging
+* [**W&B and Hugging Face demo**](http://wandb.me/hf) in Google Colab with model logging
 * [**Huggingtweets** ](https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI)- Train a GPT-2 Hugging Face model to generate tweets
 * [**Does model size matter?**](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) - A comparison of BERT and DistilBERT
 
