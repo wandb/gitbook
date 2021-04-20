@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/apis/public.py#L1389-L1567)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1403-L1581)
 
 
 
@@ -80,7 +80,7 @@ api.sweep(sweep_path)
 
 <h3 id="best_run"><code>best_run</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/apis/public.py#L1475-L1498">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1489-L1512">View source</a>
 
 <pre><code>best_run(
     order=None
@@ -91,7 +91,7 @@ Returns the best run sorted by the metric defined in config or the order passed 
 
 <h3 id="get"><code>get</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/apis/public.py#L1514-L1564">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1528-L1578">View source</a>
 
 <pre><code>@classmethod</code>
 <code>get(
@@ -104,7 +104,7 @@ Execute a query against the cloud backend
 
 <h3 id="load"><code>load</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/apis/public.py#L1455-L1464">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1469-L1478">View source</a>
 
 <pre><code>load(
     force=(False)
@@ -115,7 +115,7 @@ Execute a query against the cloud backend
 
 <h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/apis/public.py#L561-L563">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L561-L563">View source</a>
 
 <pre><code>snake_to_camel(
     string

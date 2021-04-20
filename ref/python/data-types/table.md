@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L139-L755)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L146-L791)
 
 
 
@@ -58,7 +58,7 @@ allow_mixed_types (bool): Determines if columns are allowed to have mixed types 
 
 <h3 id="add_column"><code>add_column</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L682-L721">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L689-L728">View source</a>
 
 <pre><code>add_column(
     name, data, optional=(False)
@@ -71,9 +71,38 @@ Arguments
     data: (list | np.array) - a column of homogenous data
     optional: (bool) - if null-like values are permitted
 
+<h3 id="add_computed_columns"><code>add_computed_columns</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L771-L791">View source</a>
+
+<pre><code>add_computed_columns(
+    fn
+)</code></pre>
+
+Adds one or more computed columns based on existing data
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Args</th></tr>
+<tr>
+<td>
+fn (function): A function which accepts one or two paramters: ndx (int) and row (dict)
+which is expected to return a dict representing new columns for that row, keyed
+by the new column names.
+- <code>ndx</code> is an integer representing the index of the row. Only included if <code>include_ndx</code>
+is set to true
+- <code>row</code> is a dictionary keyed by existing columns
+</td>
+</tr>
+
+</table>
+
+
+
 <h3 id="add_data"><code>add_data</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L359-L389">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L366-L396">View source</a>
 
 <pre><code>add_data(
     *data
@@ -84,7 +113,7 @@ Add a row of data to the table. Argument length should match column length
 
 <h3 id="add_row"><code>add_row</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L355-L357">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L362-L364">View source</a>
 
 <pre><code>add_row(
     *row
@@ -95,7 +124,7 @@ Add a row of data to the table. Argument length should match column length
 
 <h3 id="cast"><code>cast</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L254-L308">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L261-L315">View source</a>
 
 <pre><code>cast(
     col_name, dtype, optional=(False)
@@ -137,7 +166,7 @@ normal python class, internal WB type, or an example object (eg. an instance of 
 
 <h3 id="get_column"><code>get_column</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L723-L746">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L730-L753">View source</a>
 
 <pre><code>get_column(
     name, convert_to=None
@@ -152,16 +181,27 @@ Arguments
 
 <h3 id="get_index"><code>get_index</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L748-L755">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L755-L762">View source</a>
 
 <pre><code>get_index()</code></pre>
 
 Returns an array of row indexes which can be used in other tables to create links
 
 
+<h3 id="index_ref"><code>index_ref</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L764-L769">View source</a>
+
+<pre><code>index_ref(
+    index
+)</code></pre>
+
+Get a reference to a particular row index in the table
+
+
 <h3 id="iterrows"><code>iterrows</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L561-L574">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L568-L581">View source</a>
 
 <pre><code>iterrows()</code></pre>
 
@@ -176,7 +216,7 @@ row : List[any]
 
 <h3 id="set_fk"><code>set_fk</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L581-L585">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L588-L592">View source</a>
 
 <pre><code>set_fk(
     col_name, table, table_col
@@ -187,7 +227,7 @@ row : List[any]
 
 <h3 id="set_pk"><code>set_pk</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/18a721ba0f880a64aea802ebd3e2862f394610f4/wandb/data_types.py#L576-L579">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L583-L586">View source</a>
 
 <pre><code>set_pk(
     col_name
