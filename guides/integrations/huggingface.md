@@ -8,7 +8,7 @@ description: >-
 
 ## In This Guide
 
-This section covers:
+This guide covers:
 
 * **Example notebooks** using W&B and Hugging Face Transformers
 * **Getting Started**: Track and Save your Models with  W&B and Transformers 
@@ -25,8 +25,6 @@ Sure, here you go:  [**W&B and Hugging Face Google Colab Demo**](http://wandb.me
 Below is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
 
 ![](../../.gitbook/assets/gif-for-comparing-bert.gif)
-
-Above is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
 
 ## Example Notebooks
 
