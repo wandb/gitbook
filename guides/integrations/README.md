@@ -4,7 +4,7 @@ description: Special features and examples of how to integrate W&B with other po
 
 # Integrations
 
-Weights & Biases integrations make it fast and easy to set up experiment tracking, data versioning, and data visualization inside existing projects.
+Weights & Biases integrations make it fast and easy to set up experiment tracking, and data versioning inside existing projects. If you're using a popular ML framework \(ex. PyTorch\), repository \(ex. Hugging Face\), or service \(ex. SageMaker\), check out the integrations below!
 
 ### Related Links
 
