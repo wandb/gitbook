@@ -38,7 +38,7 @@ Puedes visualizar las métricas del desempeño a través de muchas ejecuciones y
 
 
 
-![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%283%29%20%283%29.png)
+![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%283%29%20%281%29%20%283%29.png)
 
 ### 3. Comparte tus resultados
 
