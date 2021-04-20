@@ -1,28 +1,10 @@
 ---
 description: >-
-  W&B integration with the awesome NLP library Hugging Face, which has
-  pre-trained models, scripts, and datasets
+  A Weights & Biases integration for Hugging Face's Transformers library:
+  solving NLP, one logged run at a time!
 ---
 
 # Hugging Face
-
-A Weights & Biases integration for Hugging Face's [Transformers library](https://github.com/huggingface/transformers): solving NLP, one logged run at a time!
-
-{% hint style="info" %}
-\*\*\*\*[Click here](https://discuss.huggingface.co/t/weights-biases-supporting-wave2vec2-finetuning/4839) to see how Weights & Biases can help you with the Hugging Face Wav2Vec2-XLSR Community Challenge or check out our [XLSR colab](https://colab.research.google.com/drive/1oqMZAtRYkurKqePGxFKpnU9n6L8Qk9hM?usp=sharing) to see a full, end-to-end example of using Weights & Biases with Hugging Face.
-{% endhint %}
-
-## Just show me the code!
-
-Sure, here you go:  [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)**.**
-
-### Quick and Easy Hugging Face Model Tracking with Weights & Biases
-
-Below is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
-
-![](../../.gitbook/assets/gif-for-comparing-bert.gif)
-
-Above is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
 
 ## In This Guide
 
@@ -33,6 +15,18 @@ This section covers:
 * **Advanced W&B settings**
   * Additional Settings 
   * Customising wandb.init
+
+## Just show me the code!
+
+Sure, here you go:  [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)**.**
+
+## Quick and Easy Hugging Face Model Tracking with Weights & Biases
+
+Below is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
+
+![](../../.gitbook/assets/gif-for-comparing-bert.gif)
+
+Above is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) — it's easy to see how different architectures effect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to track and save your own Hugging Face models, keep reading!
 
 ## Example Notebooks
 
