@@ -31,7 +31,7 @@
     * [Simple Transformers](guides/integrations/simpletransformers.md)
     * [Catalyst](guides/integrations/catalyst.md)
     * [Skorch](guides/integrations/skorch.md)
-    * [Scikit](guides/integrations/scikit.md)
+    * [Scikit-Learn](guides/integrations/scikit.md)
     * [XGBoost](guides/integrations/xgboost.md)
     * [LightGBM](guides/integrations/lightgbm.md)
     * [Jupyter](guides/integrations/jupyter.md)
