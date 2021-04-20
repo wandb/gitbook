@@ -30,7 +30,7 @@ Click **Create report** in the upper right corner of your workspace. This gives 
 
 We provide a few quick templates to guide you, or you can create a new blank report.‌
 
-![](../.gitbook/assets/image%20%2847%29%20%281%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%281%29%20%282%29%20%282%29.png)
 
 * **Snapshot** adds the current date/time to the title, and adds a filter to the run set, which means only runs created before the current time are included in the snapshot.
 * **Dashboard** titles the report “Project Dashboard” and adds a filter to match exactly the current set of selected runs.
@@ -119,7 +119,7 @@ Share a view-only link to a report that is in a private project or team project.
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](../.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%284%29%20%281%29.gif)
+![](../.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%284%29%20%285%29%20%281%29.gif)
 
 ## Reports FAQ
 

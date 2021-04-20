@@ -6,7 +6,7 @@
 
 **Summary**
 
-Launch local W&B container (Experimental)
+Launch local W&B container \(Experimental\)
 
 **Options**
 
