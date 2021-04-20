@@ -18,7 +18,7 @@ Weights & Biases helps you build better models faster with a central dashboard f
 
 ### Reference
 
-1. [App Reference](ref/app/)
+1. [App User Interface ](ref/app/)
 2. [Python Library](ref/python/)
 3. [Command Line Interface](ref/cli/)
 
