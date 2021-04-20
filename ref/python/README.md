@@ -24,9 +24,9 @@
 
 [`config(...)`](./config.md): Config object
 
-[`init(...)`](./init.md): Start a new tracked run with <code>wandb.init()</code>.
+[`finish(...)`](./finish.md): Marks a run as finished, and finishes uploading all data.
 
-[`join(...)`](./join.md): Marks a run as finished, and finishes uploading all data.
+[`init(...)`](./init.md): Start a new tracked run with <code>wandb.init()</code>.
 
 [`log(...)`](./log.md): Log a dict to the global run's history.
 

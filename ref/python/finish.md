@@ -1,4 +1,4 @@
-# join
+# finish
 
 
 
@@ -9,7 +9,7 @@
 
 Marks a run as finished, and finishes uploading all data.
 
-<pre><code>join(
+<pre><code>finish(
     exit_code: int = None
 ) -> None</code></pre>
 
