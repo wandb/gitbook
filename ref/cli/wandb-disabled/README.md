@@ -2,16 +2,15 @@
 
 **Usage**
 
-` wandb disabled [OPTIONS]`
+`wandb disabled [OPTIONS]`
 
 **Summary**
 
 Disable W&B.
 
-
 **Options**
-| **Options** | **Description** |
-|:--|:--|:--|
-|--help|Show this message and exit.|
 
+| **Options** | **Description** |
+| :--- | :--- |
+| --help | Show this message and exit. |
 

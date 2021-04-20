@@ -2,7 +2,7 @@
 
 **Usage**
 
-` wandb docker [OPTIONS] [DOCKER_RUN_ARGS]... [DOCKER_IMAGE]`
+`wandb docker [OPTIONS] [DOCKER_RUN_ARGS]... [DOCKER_IMAGE]`
 
 **Summary**
 
@@ -24,20 +24,18 @@ detect nvidia-docker on your system we will use the nvidia runtime.  If
 you just want wandb to set environment variable to an existing docker run
 command, see the wandb docker-run command.
 
-
 **Options**
-| **Options** | **Description** |
-|:--|:--|:--|
-|--nvidia|/ --no-nvidia    Use the nvidia runtime, defaults to nvidia if|
-|nvidia-docker|is present|
-|--digest|Output the image digest and exit|
-|--jupyter|/ --no-jupyter  Run jupyter lab in the container|
-|--dir|Which directory to mount the code in the container|
-|--no-dir|Don't mount the current directory|
-|--shell|The shell to start the container with|
-|--port|The host port to bind jupyter on|
-|--cmd|The command to run in the container|
-|--no-tty|Run the command without a tty|
-|--help|Show this message and exit.|
 
+| **Options** | **Description** |
+| :--- | :--- |
+| --nvidia / --no-nvidia | Use the nvidia runtime, defaults to nvidia if nvidia-docker is present |
+| --digest | Output the image digest and exit |
+| --jupyter / --no-jupyter | Run jupyter lab in the container |
+| --dir | Which directory to mount the code in the container |
+| --no-dir | Don't mount the current directory |
+| --shell | The shell to start the container with |
+| --port | The host port to bind jupyter on |
+| --cmd | The command to run in the container |
+| --no-tty | Run the command without a tty |
+| --help | Show this message and exit. |
 

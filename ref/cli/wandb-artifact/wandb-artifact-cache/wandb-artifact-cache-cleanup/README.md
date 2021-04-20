@@ -2,16 +2,15 @@
 
 **Usage**
 
-` wandb artifact cache cleanup [OPTIONS] TARGET_SIZE`
+`wandb artifact cache cleanup [OPTIONS] TARGET_SIZE`
 
 **Summary**
 
 Clean up less frequently used files from the artifacts cache
 
-
 **Options**
-| **Options** | **Description** |
-|:--|:--|:--|
-|--help|Show this message and exit.|
 
+| **Options** | **Description** |
+| :--- | :--- |
+| --help | Show this message and exit. |
 
