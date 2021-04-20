@@ -4,6 +4,18 @@ description: Special features and examples of how to integrate W&B with other po
 
 # Integrations
 
+Weights & Biases integrations make it fast and easy to set up experiment tracking, data versioning, and data visualization inside existing projects.
+
+### Related Links
+
+* [Examples](https://github.com/wandb/examples): GitHub repo with fully working code examples
+* [Colabs](https://github.com/wandb/examples/tree/master/colabs): Quick Google Colab examples of W&B with different frameworks, such as PyTorch Lightning
+* [Video Tutorials](https://www.youtube.com/playlist?list=PLD80i8An1OEGajeVo15ohAQYF1Ttle0lk): Learn to use W&B with YouTube videos for PyTorch, Keras, and more. Here's an example:
+
+{% embed url="https://youtu.be/G7GH0SeNBMA" %}
+
+## Integrations
+
 ### Popular Frameworks
 
 * [Keras](keras.md)
