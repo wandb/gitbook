@@ -12,8 +12,6 @@ import wandb
 wandb.init(config=tf.flags.FLAGS, sync_tensorboard=True)
 ```
 
-See our [example projects]() for a complete script example.
-
 ## Custom Metrics
 
 If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code `wandb.log({"custom": 0.8})` 
@@ -79,7 +77,7 @@ We were inspired to improve experiment tracking tools for everyone. When the cof
 
 Get started with a [free personal account →](http://app.wandb.ai/)
 
-## Example
+## Examples
 
 We've created a few examples for you to see how the integration works:
 
