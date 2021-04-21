@@ -15,7 +15,7 @@ Below is an example comparing BERT vs DistilBERT from [this W&B Report](https://
 ## This guide covers
 
 * how to [**get started using W&B with Hugging Face Transformers**](huggingface.md#getting-started-track-and-save-your-models) to track your NLP experiments and
-* how to use [**advanced features of the W&B Hugging Face integration**](huggingface.md#advanced) to get the most out of experiment tracking.
+* how to use [**advanced features of the W&B Hugging Face integration**](../track/advanced/) to get the most out of experiment tracking.
 
 {% hint style="info" %}
 If you'd rather dive straight into working code, check out this [Google Colab](https://wandb.me/hf).
