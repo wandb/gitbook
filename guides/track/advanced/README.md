@@ -16,8 +16,6 @@ The behavior of the tool is **controllable from the command line**, as described
 
 {% page-ref page="distributed-training.md" %}
 
-{% page-ref page="environment-variables.md" %}
-
 {% page-ref page="grouping.md" %}
 
 {% page-ref page="resuming.md" %}
@@ -25,4 +23,6 @@ The behavior of the tool is **controllable from the command line**, as described
 {% page-ref page="save-restore.md" %}
 
 {% page-ref page="alert.md" %}
+
+{% page-ref page="environment-variables.md" %}
 
