@@ -104,8 +104,6 @@ redirects:
   library/integrations/skorch: ./guides/integrations/skorch.md
   library/integrations/simpletransformers: ./guides/integrations/simpletransformers.md
   library/integrations/openai-gym: ./guides/integrations/openai-gym.md
-  library/integrations/numpy: ./guides/integrations/numpy.md
-  library/integrations/jax: ./guides/integrations/jax.md
   library/frameworks: ./guides/integrations/README.md
   library/frameworks/fastai: ./guides/integrations/fastai/README.md
   library/frameworks/fastai-example: ./guides/integrations/fastai/README.md
@@ -179,3 +177,7 @@ redirects:
   self-hosted/local-common-questions: ./self-hosted/local-common-questions.md
   library/reference/keras: ./guides/integrations/keras.md
   library/distributed-training: ./guides/track/advanced/distributed-training.md
+  guides/integrations/numpy: ./examples/README.md
+  guides/integrations/jax: ./examples/README.md
+  library/integrations/jax: ./examples/README.md
+  library/integrations/numpy: ./examples/README.md
