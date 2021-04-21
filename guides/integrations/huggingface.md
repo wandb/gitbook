@@ -272,5 +272,5 @@ wandb.init(project="amazon_sentiment_analysis",
 
 ## Issues, Questions, Feature Requests
 
-For any issues, questions, or feature requests for the Hugging Face W&B integration, feel free to post in [this thread _\*\*_on the Hugging Face forums](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) or open an issue on the Hugging Face [Transformers GitHub repo](https://github.com/huggingface/transformers).
+For any issues, questions, or feature requests for the Hugging Face W&B integration, feel free to post in [this thread on the Hugging Face forums](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) or open an issue on the Hugging Face [Transformers GitHub repo](https://github.com/huggingface/transformers).
 
