@@ -18,7 +18,7 @@ Below is an example comparing BERT vs DistilBERT from [this W&B Report](https://
 * how to use [**advanced features of the W&B Hugging Face integration**](huggingface.md#advanced) to get the most out of experiment tracking.
 
 {% hint style="info" %}
-If you'd rather dive straight into working code, check out this [Google Colab](https://wandb.me/hf). 
+If you'd rather dive straight into working code, check out this [Google Colab](https://wandb.me/hf).
 {% endhint %}
 
 ## Getting Started: Track and Save your Models
@@ -78,7 +78,7 @@ If a project name is not specified the project name defaults to "huggingface"
 Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) you can use up to 100GB of storage for free to store your Models or Datasets. Logging your Hugging Face model to W&B Artifacts can be done by setting a W&B environment variable which will then be picked up by the `WandbCallback` that `Trainer` uses. You can later easily reload this model if you wanted to do additional inference or do additional training.
 
 {% hint style="info" %}
-Your model will be saved to W&B Artifacts as `run-{run_name}`. By default, run names are automatically generated. We'll see how to choose run names in the next step. 
+Your model will be saved to W&B Artifacts as `run-{run_name}`. By default, run names are automatically generated. We'll see how to choose run names in the next step.
 {% endhint %}
 
 {% tabs %}
@@ -105,7 +105,7 @@ If `load_best_model_at_end=True` is passed to `Trainer`, then W&B will save the 
 
 This is **the most important step:** when defining your `Trainer` training arguments, either inside your code or from the command line, set `report_to` to `"wandb"` in order enable logging with Weights & Biases.
 
-You can also give a name to the training run using the `run_name` argument. 
+You can also give a name to the training run using the `run_name` argument.
 
 That's it! Now your models will log losses, evaluation metrics, model topology, and gradients to Weights & Biases while they train.
 
@@ -210,7 +210,7 @@ Advanced configuration of what is logged with `Trainer` is possible by setting e
     <tr>
       <td style="text-align:left"><code>WANDB_LOG_MODEL</code>
       </td>
-      <td style="text-align:left">Log the model as artifact at the end of training (<code>false </code>by
+      <td style="text-align:left">Log the model as artifact at the end of training (<code>false</code> by
         default)</td>
     </tr>
     <tr>
@@ -272,5 +272,5 @@ wandb.init(project="amazon_sentiment_analysis",
 
 ## Issues, Questions, Feature Requests
 
-For any issues, questions, or feature requests for the Hugging Face W&B integration, feel free to post in [this thread ****on the Hugging Face forums](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) or open an issue on the Hugging Face [Transformers GitHub repo](https://github.com/huggingface/transformers).
+For any issues, questions, or feature requests for the Hugging Face W&B integration, feel free to post in [this thread _\*\*_on the Hugging Face forums](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) or open an issue on the Hugging Face [Transformers GitHub repo](https://github.com/huggingface/transformers).
 

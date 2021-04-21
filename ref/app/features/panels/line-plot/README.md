@@ -65,7 +65,7 @@ Here is what the graph looks like before averaging:
 
 Here I have grouped the lines to see the average value across runs.
 
-![](../../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%284%29%20%285%29%20%281%29.png)
+![](../../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%284%29%20%285%29%20%285%29%20%281%29.png)
 
 ## Compare two metrics on one chart
 

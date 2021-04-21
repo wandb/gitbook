@@ -47,6 +47,6 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 
 ### Examples
 
-* [JAX Example](jax.md)
-* [Numpy Example](numpy.md)
+* [JAX Example]()
+* [Numpy Example]()
 

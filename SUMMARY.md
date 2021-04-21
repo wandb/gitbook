@@ -41,8 +41,6 @@
     * [Databricks](guides/integrations/databricks.md)
     * [Ray Tune](guides/integrations/ray-tune.md)
     * [OpenAI Gym](guides/integrations/openai-gym.md)
-    * [JAX Example](guides/integrations/jax.md)
-    * [Numpy Example](guides/integrations/numpy.md)
   * [Hyperparameter Tuning](guides/sweeps/README.md)
     * [Sweeps Quickstart](guides/sweeps/quickstart.md)
     * [Example Sweep](guides/sweeps/sweeps-examples.md)
