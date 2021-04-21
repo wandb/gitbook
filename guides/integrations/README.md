@@ -45,8 +45,3 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 * [Ray Tune](ray-tune.md)
 * [OpenAI Gym](openai-gym.md)
 
-### Examples
-
-* [JAX Example]()
-* [Numpy Example]()
-
