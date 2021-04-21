@@ -51,7 +51,7 @@
     * [Local Controller](guides/sweeps/local-controller.md)
     * [Ray Tune Sweeps](guides/sweeps/ray-tune.md)
     * [Visualize Sweep Results](guides/sweeps/visualize-sweep-results.md)
-  * [Data Versioning](guides/artifacts/README.md)
+  * [Data + Model Versioning](guides/artifacts/README.md)
     * [Artifacts Core Concepts](guides/artifacts/artifacts-core-concepts.md)
     * [Artifacts Walkthrough](guides/artifacts/api.md)
     * [Dataset Versioning](guides/artifacts/dataset-versioning.md)
