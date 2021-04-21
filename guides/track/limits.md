@@ -15,7 +15,13 @@ If you send us more than that, your data will be saved and tracked, but pages ma
 
 ### Python Script Performance
 
-Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds. 
+Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance.
+
+{% hint style="info" %}
+Is frequent logging slowing your training runs down? Check out [this Colab](http://wandb.me/log-hf-colab) for methods to get better performance by changing your logging strategy.
+{% endhint %}
+
+We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds. 
 
 ### Rate Limits
 
