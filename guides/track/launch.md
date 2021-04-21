@@ -11,7 +11,7 @@ Call `wandb.init()` once at the beginning of your script to initialize a new job
 
 ### Reference Documentation
 
-View the reference docs, generated from the `wandb` Python library.
+View the reference docs for this function, generated from the `wandb` Python library.
 
 {% page-ref page="../../ref/python/init.md" %}
 
@@ -21,13 +21,13 @@ View the reference docs, generated from the `wandb` Python library.
 
 If you're trying to start multiple runs from one script, add two things to your code:
 
-1. run = wandb.init\(**reinit=True**\): Use this setting to allow reinitializing runs
-2. **run.finish\(\)**: Use this at the end of your run to finish logging for that run
+1. `run = wandb.init(reinit=True)`: Use this setting to allow reinitializing runs
+2. `run.finish()`: Use this at the end of your run to finish logging for that run
 
 ```python
 import wandb
 for x in range(10):
-    run = wandb.init(project="runs-from-for-loop", reinit=True)
+    run = wandb.init(reinit=True)
     for y in range (100):
         wandb.log({"metric": x+y})
     run.finish()
@@ -44,39 +44,42 @@ for x in range(10):
             run.log({"metric": x+y})
 ```
 
-### LaunchError: Permission denied
+### `InitStartError: Error communicating with wandb process` <a id="init-start-error"></a>
 
-If you're getting a **LaunchError: Launch exception: Permission denied** error, you don't have permissions to log to the project you're trying to send runs to. This might be for a few different reasons.
-
-1. You aren't logged in on this machine. Run `wandb login` on the command line.
-2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
-3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
-
-### InitStartError: Error communicating with wandb process <a id="init-start-error"></a>
-
-The **InitStartError: Error communicating with wandb process** error indicates that the library is having difficulty launching the process which synchronizes data to the server. 
+This error indicates that the library is having difficulty launching the process which synchronizes data to the server. 
 
 The following workarounds can help resolve the issue in certain environments: 
 
-```text
-# Try this if using linux or macos
+{% tabs %}
+{% tab title="Linux / OS X" %}
+```python
 wandb.init(settings=wandb.Settings(start_method="fork"))
-# Try this if using google colab
+```
+{% endtab %}
+
+{% tab title="Google Colab" %}
+```python
 wandb.init(settings=wandb.Settings(start_method="thread"))
 ```
+{% endtab %}
+{% endtabs %}
 
-### Multiprocessing not supported yet <a id="multiprocess"></a>
+### How can I use wandb with multiprocessing, e.g. distributed training? <a id="multiprocess"></a>
 
-If your training program uses multiple processes you will need to structure your program to avoid making wandb method calls from processes where you did not run wandb.init\(\).  
+If your training program uses multiple processes you will need to structure your program to avoid making wandb method calls from processes where you did not run `wandb.init()`.  
   
 There are several approaches to managing multiprocess training:
 
-1. Call wandb.init\(\) specifying a common group for all your processes.  Each process will have its own wandb run and the UI will group the training processes together.
-2. Call wandb.init\(\) from just one process and pass data to be logged over multiprocessing queues. 
+1. Call `wandb.init` in all your processes, using the [group](advanced/grouping.md) keyword argument to define a shared group.  Each process will have its own wandb run and the UI will group the training processes together.
+2. Call `wandb.init` from just one process and pass data to be logged over [multiprocessing queues](https://docs.python.org/3/library/multiprocessing.html#exchanging-objects-between-processes).
 
-### Get the readable run name
+{% hint style="info" %}
+Check out the [Distributed Training Guide](advanced/distributed-training.md) for more detail on these two approaches, including code examples with Torch DDP.
+{% endhint %}
 
-Get the nice, readable name for your run.
+### How do I programmatically access the human-readable run name?
+
+It's available as the `.name` attribute of a [`wandb.Run`](../../ref/python/run.md).
 
 ```python
 import wandb
@@ -85,7 +88,7 @@ wandb.init()
 run_name = wandb.run.name
 ```
 
-### Set the run name to the generated run ID
+### Can I just set the run name to the run ID?
 
 If you'd like to overwrite the run name \(like snowy-owl-10\) with the run ID \(like qvlp96vk\) you can use this snippet:
 
@@ -96,22 +99,22 @@ wandb.run.name = wandb.run.id
 wandb.run.save()
 ```
 
-### Save the git commit
+### How can I save the git commit associated with my run?
 
-When wandb.init\(\) is called in your script, we automatically look for git information to save a link to your repo the SHA of the latest commit. The git information should show up on your [run page](../../ref/app/pages/run-page.md#overview-tab). If you aren't seeing it appear there, make sure that your script where you call wandb.init\(\) is located in a folder that has git information.
+When `wandb.init` is called in your script, we automatically look for git information to save, including a link to a remote repo and the SHA of the latest commit. The git information should show up on your [run page](../../ref/app/pages/run-page.md#overview-tab). If you aren't seeing it appear there, make sure that your script where you call `wandb.init` is located in a folder managed by git.
 
 The git commit and command used to run the experiment are visible to you but are hidden to external users, so if you have a public project, these details will remain private.
 
-### Save logs offline
+### Is it possible to save metrics offline and sync them to W&B later?
 
-By default, wandb.init\(\) starts a process that syncs metrics in real time to our cloud hosted app. If your machine is offline or you don't have internet access, here's how to run wandb using the offline mode and sync later.
+By default, `wandb.init` starts a process that syncs metrics in real time to our cloud hosted app. If your machine is offline, you don't have internet access, or you just want to hold off on the upload, here's how to run `wandb` in offline mode and sync later.
 
-Set two environment variables:
+You'll need to set two [environment variables](advanced/environment-variables.md).
 
-1. **WANDB\_API\_KEY**: Set this to your account's API key, on your [settings page](https://app.wandb.ai/settings)
-2. **WANDB\_MODE**: dryrun
+1. `WANDB_API_KEY=$KEY`, where `$KEY` is the API Key from your [settings page](https://app.wandb.ai/settings)
+2. `WANDB_MODE="dryrun"`
 
-Here's a sample of what this would look like in your script:
+And here's a sample of what this would look like in your script:
 
 ```python
 import wandb
@@ -138,9 +141,21 @@ Here's a sample terminal output:
 
 ![](../../.gitbook/assets/image%20%2881%29.png)
 
-And once I have internet, I run a sync command to send that folder to the cloud.
+And once you're ready, just run a sync command to send that folder to the cloud.
 
-`wandb sync wandb/dryrun-folder-name`
+```python
+wandb sync wandb/dryrun-folder-name
+```
 
 ![](../../.gitbook/assets/image%20%2836%29.png)
+
+
+
+### `LaunchError: Permission denied`
+
+If you're getting the error message `Launch Error: Permission denied`, you don't have permissions to log to the project you're trying to send runs to. This might be for a few different reasons.
+
+1. You aren't logged in on this machine. Run `wandb login` on the command line.
+2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
+3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
 
