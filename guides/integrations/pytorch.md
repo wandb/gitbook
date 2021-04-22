@@ -21,7 +21,7 @@ import wandb
 wandb.init(config=args)
 
 # Magic
-wandb.watch(model)
+wandb.watch(model, log_freq=100)
 
 model.train()
 for batch_idx, (data, target) in enumerate(train_loader):
@@ -66,7 +66,7 @@ By default the hook only logs gradients.
       <td style="text-align:left"><code>log_freq</code>
       </td>
       <td style="text-align:left">integer (default <code>1000</code>): The number of steps between logging
-        gradients</td>
+        gradients/parameters</td>
     </tr>
   </tbody>
 </table>
