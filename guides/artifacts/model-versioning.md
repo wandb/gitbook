@@ -34,11 +34,11 @@ W&B Artifacts support model management through these basic features:
 
 With automatic saving and versioning, each experiment you run stores the most recently trained model artifact to W&B. You can scroll through all these model versions, annotating and renaming as necessary while maintaining the development history. Know exactly which experiment code and configuration generated which weights and architecture. You and your team can download and restore any of your model checkpoints—across projects, hardware, and dev environments.
 
-Train a model on a local machine and log it as an artifact. Each training run will create a new version of the model named "inceptionV3".
+Train a model on a local machine and log it as an artifact. Each training run will create a new version of the model named `inceptionV3`.
 
 ![](../../.gitbook/assets/image%20%2838%29.png)
 
-Load the same model by name for inference in a Google Colab, using the "latest" version to get the most recent one. You can also refer to any other version by index or other custom alias.
+Load the same model by name for inference in another machine, e.g. via Google Colab, using the "latest" version to get the most recent one. You can also refer to any other version by index or other custom alias.
 
 ![](../../.gitbook/assets/image%20%2825%29.png)
 
