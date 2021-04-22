@@ -27,7 +27,7 @@ If you'd rather dive straight into working code, check out this [Google Colab](h
 
 W&B logging can be set up by passing just a few arguments to the [Transformers `Trainer` class](https://huggingface.co/transformers/main_classes/trainer.html). Under the hood, `Trainer` uses [`WandbCallback`](https://huggingface.co/transformers/main_classes/callback.html#transformers.integrations.WandbCallback), which will take care of all our logging, but `WandbCallback` won't need to be modified at all for most use cases. Note that the steps below work for both for Hugging Face Transformers' PyTorch `Trainer` and TensorFlow `TFTrainer`.
 
-### **1\)** **Install the `wandb`Library and Log in**
+### **1\)** **Install the `wandb` Library and Log in**
 
 {% tabs %}
 {% tab title="Notebook" %}
@@ -116,8 +116,8 @@ from transformers import TrainingArguments, Trainer
 
 args = TrainingArguments(
     # other args and kwargs here
-    report_to='wandb',  # enable logging to W&B
-    run_name='bert-base-high-lr'  # name of the W&B run (optional)
+    report_to="wandb",  # enable logging to W&B
+    run_name="bert-base-high-lr"  # name of the W&B run (optional)
 )
 
 trainer = Trainer(
@@ -166,7 +166,7 @@ If you saved your model to W&B Artifacts with `WANDB_LOG_MODEL`, you can downloa
 with wandb.init(project="amazon_sentiment_analysis") as run:
 
   # Connect an Artifact to the run
-  my_model_name = 'run-bert-base-high-lr:latest'
+  my_model_name = "run-bert-base-high-lr:latest"
   my_model_artifact = run.use_artifact(my_model_name)
 
   # Download model weights to a folder and return the path
@@ -244,15 +244,15 @@ Advanced configuration of what is logged with `Trainer` is possible by setting e
 {% tabs %}
 {% tab title="Notebook" %}
 ```python
-%env WANDB_WATCH='all'
-%env WANDB_SILENT='true'
+%env WANDB_WATCH="all"
+%env WANDB_SILENT="true"
 ```
 {% endtab %}
 
 {% tab title="Command Line" %}
 ```bash
-WANDB_WATCH='all'
-WANDB_SILENT='true'
+WANDB_WATCH="all"
+WANDB_SILENT="true"
 ```
 {% endtab %}
 {% endtabs %}
@@ -266,7 +266,7 @@ An example of what you might want to pass to `init` is below. For more details o
 ```python
 wandb.init(project="amazon_sentiment_analysis", 
            name="bert-base-high-lr",
-           tags=['baseline', 'high-lr'],
+           tags=["baseline", "high-lr"],
            group="bert")
 ```
 
