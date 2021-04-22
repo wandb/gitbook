@@ -39,7 +39,7 @@ The `WandbCallback()` class supports a number of options:
 | `log_gradients` | `False` | log the gradients of each layers parameters at each epoch |
 | `training_data` | `None` | tuple `(X,y)` needed for calculating gradients |
 | `data_type` | `None` | the type of data we're saving, currently only `"image"` is supported |
-| `labels` | `None` | only used if data\_type is specified, list of labels to convert numeric output to if you are building classifier. \(supports binary classification\) |
+| `labels` | `None` | only used if `data_type` is specified, list of labels to convert numeric output to if you are building classifier. \(supports binary classification\) |
 | `predictions` | `36` | the number of predictions to make if `data_type` is specified. Max is `100`. |
 | `generator` | `None` | if using data augmentation and `data_type` you can specify a generator to make predictions with. |
 
