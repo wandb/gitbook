@@ -15,7 +15,7 @@ wandb login
 
 ### 2. Start a new run
 
-Initialize a new run in W&B in your Python script or notebook. `wandb.init()` will start tracking system metrics and console logs, right out of the box. Run your code to see the new run appear in W&B. [Learn more →](guides/track/launch.md)
+Initialize a new run in W&B in your Python script or notebook. `wandb.init()` will start tracking system metrics and console logs, right out of the box. Run your code, put in [your API key](https://wandb.ai/authorize) when prompted, and you'll see the new run appear in W&B. [Learn more →](guides/track/launch.md)
 
 ```python
 import wandb
@@ -40,14 +40,21 @@ wandb.config.dropout = 0.2
 
 ## Quickstart FAQ
 
-**How do I use wandb in an automated environment?**  
+### Where do I find my API key?
+
+Just head to [https://wandb.ai/authorize](https://wandb.ai/authorize).
+
+### **How do I use wandb in an automated environment?**
+
 If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our guide to configuration with [Environment Variables](guides/track/advanced/environment-variables.md).
 
-**Do you offer on-prem or private cloud installations?**  
+### **Do you offer on-prem or private cloud installations?**
+
 Yes, learn more about[ W&B Local installations](guides/self-hosted/).
 
-**How do I turn off wandb logging temporarily**?  
-If you're testing later and want to disable wandb syncing, set the environment variable [WANDB\_MODE=dryrun](guides/track/advanced/environment-variables.md).
+### **How do I turn off wandb logging temporarily**?
+
+If you're testing code and want to disable wandb syncing, set the environment variable [`WANDB_MODE=offline`](guides/track/advanced/environment-variables.md).
 
 
 
