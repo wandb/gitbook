@@ -26,6 +26,7 @@
     * [TensorFlow](guides/integrations/tensorflow.md)
     * [TensorBoard](guides/integrations/tensorboard.md)
     * [Hugging Face](guides/integrations/huggingface.md)
+    * [YOLO](guides/integrations/yolo.md)
     * [Fastai](guides/integrations/fastai/README.md)
       * [fastai v1](guides/integrations/fastai/v1.md)
     * [Simple Transformers](guides/integrations/simpletransformers.md)
