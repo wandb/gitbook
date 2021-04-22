@@ -86,5 +86,3 @@ Parameters:
 * **metric** \(numeric\) – dictionary with metric names as keys and measured quantities as values
 * **step** \(int\|None\) – step number at which the metrics should be recorded
 
-\*\*\*\*
-
