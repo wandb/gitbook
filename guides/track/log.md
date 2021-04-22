@@ -16,7 +16,7 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 
 1. **Compare the best accuracy**: To compare the best value of a metric across runs, set the summary value for that metric. By default, summary is set to the last value you logged for each key. This is useful in the table in the UI, where you can sort and filter runs based on their summary metrics — so you could compare runs in a table or bar chart based on their _best_ accuracy, instead of final accuracy. For example, you could set summary like so: `wandb.run.summary["accuracy"] = best_accuracy`
 2. **Multiple metrics on one chart**: Log multiple metrics in the same call to wandb.log\(\), like this: `wandb.log({'acc': 0.9, 'loss': 0.1})`  and they will both be available to plot against in the UI
-3. **Custom x-axis**: Add a custom x-axis to the same log call to visualize your metrics against a different axis in the W&B dashboard. For example: `wandb.log({'acc': 0.9, 'custom_step': 3})`
+3. **Custom x-axis**: Add a custom x-axis to the same log call to visualize your metrics against a different axis in the W&B dashboard. For example: `wandb.log({'acc': 0.9, 'epoch': 3, 'batch': 117})`
 
 ### **Reference Documentation**
 
@@ -28,18 +28,27 @@ View the reference docs, generated from the `wandb` Python library.
 
 We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
 
-[Try it in Colab ](https://colab.research.google.com/drive/15MJ9nLDIXRvy_lCwAou6C2XN3nppIeEK)
+{% hint style="info" %}
+You can see working code to log all of these media objects in [this Colab Notebook](http://wandb.me/media-colab), check out what the results look like on wandb.ai [here](https://wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA), and follow along with a video tutorial, linked below.
+{% endhint %}
+
+{% embed url="https://www.youtube.com/watch?v=96MxRvx15Ts" %}
+
+{% hint style="info" %}
+Looking for reference docs for our media types? You want [this page](../../ref/python/data-types/).
+{% endhint %}
 
 ### Histograms
 
 ```python
 wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
-wandb.run.summary.update({"gradients": wandb.Histogram(np_histogram=np.histogram(data))})
+wandb.run.summary.update(  # if only in summary, only visible on overview tab
+  {"final_logits": wandb.Histogram(np_histogram=np.histogram(logits))})
 ```
 
-If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from np.histogram to the np\_histogram keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional num\_bins keyword argument when passing a sequence to override the default of 64 bins.
+If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from `np.histogram` to the `np_histogram` keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional `num_bins` keyword argument when passing a sequence to override the default of 64 bins.
 
-If histograms are in your summary they will appear as sparklines on the individual run pages. If they are in your history, we plot a heatmap of bins over time.
+If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
 
 ### Images and Overlays
 
@@ -47,14 +56,14 @@ If histograms are in your summary they will appear as sparklines on the individu
 {% tab title="Image" %}
 `wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})`
 
-If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. You can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
+If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. If you want to normalize your images differently, ou can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
 {% endtab %}
 
 {% tab title="Segmentation Mask" %}
 If you have images with masks for semantic segmentation, you can log the masks and toggle them on and off in the UI. To log multiple masks, log a mask dictionary with multiple keys. Here's an example:
 
-* **mask\_data**: a 2D numpy array containing an integer class label for each pixel
-* **class\_labels**: a dictionary mapping the numbers from **mask\_data** to readable labels
+* `mask_data`: a 2D numpy array containing an integer class label for each pixel
+* `class_labels`: a dictionary mapping the numbers from `mask_data` to readable labels
 
 ```python
 mask_data = np.array([[1, 2, 2, ... , 2, 2, 1], ...])
@@ -125,11 +134,11 @@ img = wandb.Image(image, boxes={
 wandb.log({"driving_scene": img})
 ```
 
-Optional Parameters
+**Optional Parameters**
 
-`class_labels` An optional argument mapping your class\_ids to string values. By default we will generate class\_labels `class_0`, `class_1`, etc...
+`class_labels`: An optional argument mapping your class\_ids to string values. By default we will generate class\_labels `class_0`, `class_1`, etc...
 
-Boxes - Each box passed into box\_data can be defined with different coordinate systems.
+Each box passed into `box_data` can be defined with different coordinate systems.
 
 `position`
 
@@ -152,7 +161,8 @@ Boxes - Each box passed into box\_data can be defined with different coordinate 
 {% tabs %}
 {% tab title="Audio" %}
 ```python
-wandb.log({"examples": [wandb.Audio(numpy_array, caption="Nice", sample_rate=32)]})
+wandb.log(
+  {"whale songs": [wandb.Audio(np_array, caption="OooOoo", sample_rate=32)]})
 ```
 
 The maximum number of audio clips that can be logged per step is 100.
@@ -160,16 +170,17 @@ The maximum number of audio clips that can be logged per step is 100.
 
 {% tab title="Video" %}
 ```python
-wandb.log({"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
+wandb.log(
+  {"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
 ```
 
-If a numpy array is supplied we assume the dimensions are: time, channels, width, height. By default we create a 4 fps gif image \(ffmpeg and the moviepy python library is required when passing numpy objects\). Supported formats are "gif", "mp4", "webm", and "ogg". If you pass a string to `wandb.Video` we assert the file exists and is a supported format before uploading to wandb. Passing a BytesIO object will create a tempfile with the specified format as the extension.
+If a numpy array is supplied we assume the dimensions are, in order: time, channels, width, height. By default we create a 4 fps gif image \([`ffmpeg`](https://www.ffmpeg.org/) and the [`moviepy`](https://pypi.org/project/moviepy/) python library are required when passing numpy objects\). Supported formats are `"gif"`, `"mp4"`, `"webm"`, and `"ogg"`. If you pass a string to `wandb.Video` we assert the file exists and is a supported format before uploading to wandb. Passing a `BytesIO` object will create a tempfile with the specified format as the extension.
 
-On the W&B runs page, you will see your videos in the Media section.
+On the W&B [Run](../../ref/app/pages/run-page.md) and [Project](../../ref/app/pages/project-page.md) Pages, you will see your videos in the Media section.
 {% endtab %}
 
 {% tab title="Text Table" %}
-Use wandb.Table\(\) to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. To ensure optimal UI performance, the default maximum number of rows is set to 10,000. However, users can explicitly override the maximum with `wandb.Table.MAX_ROWS = {DESIRED_MAX}`.
+Use `wandb.Table` to log text in tables to show up in the UI. By default, the column headers are `["Input", "Output", "Expected"]`. To ensure optimal UI performance, the default maximum number of rows is set to 10,000. However, users can explicitly override the maximum with `wandb.Table.MAX_ROWS = {DESIRED_MAX}`.
 
 ```python
 # Method 1
@@ -196,7 +207,7 @@ wandb.log({"custom_file": wandb.Html(open("some.html"))})
 wandb.log({"custom_string": wandb.Html('<a href="https://mysite">Link</a>')})
 ```
 
-Custom html can be logged at any key, this exposes an HTML panel on the run page. By default we inject default styles, you can disable default styles by passing `inject=False`.
+Custom html can be logged at any key, and this exposes an HTML panel on the run page. By default we inject default styles, you can disable default styles by passing `inject=False`.
 
 ```python
 wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
@@ -432,7 +443,7 @@ my_custom_chart = wandb.plot_table(vega_spec_name="carey/new_chart",
 ```python
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
-plt.ylabel('some interesting numbers')
+plt.ylabel("some interesting numbers")
 wandb.log({"chart": plt})
 ```
 
@@ -549,7 +560,7 @@ wandb.log({'loss': 0.2}, step=step)
 
 As long as you keep passing the same value for `step`, W&B will collect the keys and values from each call in one unified dictionary. As soon you call `wandb.log()` with a different value for `step` than the previous one, W&B will write all the collected keys and values to the history, and start collection over again. Note that this means you should only use this with consecutive values for `step`: 0, 1, 2, .... This feature doesn't let you write to absolutely any history step that you'd like, only the "current" one and the "next" one.
 
-You can also set **commit=False** in `wandb.log` to accumulate metrics, just be sure to call `wandb.log` without the **commit** flag to persist the metrics.
+You can also set `commit=False` in `wandb.log` to accumulate metrics, just be sure to eventually call `wandb.log` with `commit=True` \(the default\) to persist the metrics.
 
 ```python
 wandb.log({'loss': 0.2}, commit=False)
@@ -572,7 +583,7 @@ for epoch in range(1, args.epochs + 1):
     best_accuracy = test_accuracy
 ```
 
-You may want to store evaluation metrics in a runs summary after training has completed. Summary can handle numpy arrays, pytorch tensors or tensorflow tensors. When a value is one of these types we persist the entire tensor in a binary file and store high level metrics in the summary object such as min, mean, variance, 95% percentile, etc.
+You may want to store evaluation metrics in a runs summary after training has completed. Summary can handle numpy arrays, PyTorch tensors or TensorFlow tensors. When a value is one of these types we persist the entire tensor in a binary file and store high level metrics in the summary object such as min, mean, variance, 95th percentile, etc.
 
 ```python
 api = wandb.Api()
@@ -583,41 +594,7 @@ run.summary.update()
 
 ### Accessing Logs Directly
 
-The history object is used to track metrics logged by _wandb.log_. You can access a mutable dictionary of metrics via `run.history.row`. The row will be saved and a new row created when `run.history.add` or `wandb.log` is called.
-
-#### Tensorflow Example
-
-```python
-wandb.init(config=flags.FLAGS)
-
-# Start tensorflow training
-with tf.Session() as sess:
-  sess.run(init)
-
-  for step in range(1, run.config.num_steps+1):
-      batch_x, batch_y = mnist.train.next_batch(run.config.batch_size)
-      # Run optimization op (backprop)
-      sess.run(train_op, feed_dict={X: batch_x, Y: batch_y})
-      # Calculate batch loss and accuracy
-      loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
-
-      wandb.log({'acc': acc, 'loss':loss}) # log accuracy and loss
-```
-
-#### PyTorch Example
-
-```python
-# Start pytorch training
-wandb.init(config=args)
-
-for epoch in range(1, args.epochs + 1):
-  train_loss = train(epoch)
-  test_loss, test_accuracy = test()
-
-  torch.save(model.state_dict(), 'model')
-
-  wandb.log({"loss": train_loss, "val_loss": test_loss})
-```
+The history object is used to track metrics logged by `wandb.log`. You can access a mutable dictionary of metrics via `run.history.row`. The row will be saved and a new row created when `run.history.add` or `wandb.log` is called.
 
 ## Common Questions
 
@@ -625,21 +602,18 @@ for epoch in range(1, args.epochs + 1):
 
 Each time you log images from a step, we save them to show in the UI. Pin the image panel, and use the **step slider** to look at images from different steps. This makes it easy to compare how a model's output changes over training.
 
-```python
-wandb.log({'epoch': epoch, 'val_acc': 0.94})
-```
-
 ### Batch logging
 
 If you'd like to log certain metrics in every batch and standardize plots, you can log x axis values that you want to plot with your metrics. Then in the custom plots, click edit and select the custom x-axis.
 
 ```python
-wandb.log({'batch': 1, 'loss': 0.3})
+wandb.log({'batch': batch_idx, 'loss': 0.3})
+wandb.log({'epoch': epoch, 'val_acc': 0.94})
 ```
 
 ### **Log a PNG**
 
-wandb.Image converts numpy arrays or instances of PILImage to PNG's by default.
+`wandb.Image` converts numpy arrays or instances of `PILImage` to PNGs by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
@@ -668,11 +642,11 @@ Now you can view videos in the media browser. Go to your project workspace, run 
 
 ### Custom x-axis
 
-By default, we increment the global step every time you call wandb.log. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
+By default, we increment the global step every time you call `wandb.log`. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
 
-For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({"acc":1, "global_step":1})`. Then in the graphs choose "global\_step" as the x-axis.
+For example, if you have training and validation steps you'd like to align, pass us your own step counter: `wandb.log({"acc": 1, "global_step": 1})`. Then in the graphs choose "global\_step" as the x-axis.
 
-`wandb.log({"acc":1, "batch":10}, step=epoch)` would enable you to choose "batch" as an x axis in addition to the default step axis
+`wandb.log({"acc": 1, "batch": 10}, step=epoch)` would enable you to choose "batch" as an x axis in addition to the default step axis
 
 ### Navigating and zooming in point clouds
 
@@ -680,11 +654,11 @@ You can hold control and use the mouse to move around inside the space
 
 ### Nothing shows up in the graphs
 
-If you're seeing "No visualization data logged yet" that means that we haven't gotten the first wandb.log call from your script yet. This could be because your run takes a long time to finish a step. If you're logging at the end of each epoch, you could log a few times per epoch to see data stream in more quickly.
+If you're seeing "No visualization data logged yet" that means that we haven't gotten the first `wandb.log` call from your script yet. This could be because your run takes a long time to finish a step. If you're logging at the end of each epoch, you could log a few times per epoch to see data stream in more quickly.
 
 ### **Duplicate metric names**
 
-If you're logging different types under the same key, we have to split them out in the database. This means you'll see multiple entries of the same metric name in a dropdown in the UI. The types we group by are `number`, `string`, `bool`, `other` \(mostly arrays\), and any wandb type \(`histogram`, `images`, etc\). Please send only one type to each key to avoid this behavior.
+If you're logging different types under the same key, we have to split them out in the database. This means you'll see multiple entries of the same metric name in a dropdown in the UI. The types we group by are `number`, `string`, `bool`, `other` \(mostly arrays\), and any wandb type \(`Histogram`, `Image`, etc\). Please send only one type to each key to avoid this behavior.
 
 ### Performance and limits
 
@@ -696,15 +670,15 @@ If you'd like all the original data, you can use our [data API](https://docs.wan
 
 **Guidelines**
 
-We recommend that you try to log less than 10,000 points per metric. If you have more than 500 columns of config and summary metrics, we'll only show 500 in the table. If you log more than 1 million points in a line, it will take us while to load the page.
+We recommend that you try to log less than 10,000 points per metric. If you log more than 1 million points in a line, it will take us while to load the page. For more on strategies for reducing logging footprint without sacrificing accuracy, check out [this Colab](http://wandb.me/log-hf-colab). If you have more than 500 columns of config and summary metrics, we'll only show 500 in the table.
 
-We store metrics in a case-insensitive fashion, so make sure you don't have two metrics with the same name like "My-Metric" and "my-metric".
+We store metrics in a case-insensitive fashion, so make sure you don't have two metrics with the same name like `"My-Metric"` and `"my-metric"`.
 
 ### Control image uploading
 
 "I want to integrate W&B in my project, but I don't want to upload any images"
 
-Our integration doesn't automatically upload images— you specify any files you'd like to upload explicitly. Here's a quick example I made for PyTorch where I explicitly log images: [http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)
+Our integration doesn't automatically upload images— you specify any files you'd like to upload explicitly. Here's a quick example in PyTorch that explicitly logs images: [http://bit.ly/pytorch-mnist-colab](http://bit.ly/pytorch-mnist-colab)
 
 ```python
 wandb.log({
