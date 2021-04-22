@@ -67,13 +67,13 @@ In an ML training pipeline, you could add `wandb.init()` to the beginning of you
 
 Basic usage
 
-```text
+```python
 wandb.init()
 ```
 
 Launch multiple runs from the same script
 
-```text
+```python
 for x in range(10):
     with wandb.init(project="my-projo") as run:
         for y in range(100):
