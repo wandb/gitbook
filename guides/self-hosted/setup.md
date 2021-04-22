@@ -41,7 +41,7 @@ The following k8s yaml can be customized but should serve as a basic foundation 
 gcloud compute addresses create wandb-local-static-ip --global
 ```
 
-```bash
+```yaml
 spec:
   strategy:
     type: Recreate
@@ -145,7 +145,7 @@ You can run _wandb/local_ on any Compute Engine instance that also has Docker in
 
 The following k8s yaml can be customized but should serve as a basic foundation for configuring local.
 
-```text
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -240,7 +240,7 @@ The k8s YAML above in the Azure Kubernetes Service section should work in most o
 
 You can run _wandb/local_ on any instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
 
-```text
+```bash
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
