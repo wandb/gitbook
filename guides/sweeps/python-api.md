@@ -26,14 +26,24 @@ sweep_config = {
 sweep_id = wandb.sweep(sweep_config)
 ```
 
-{% hint style="info" %}
-Use the following methods in order to specify the entity or project for the sweep:
+You can also choose the project and entity to log the sweep under, using [`wandb.sweep`](../../ref/python/sweep.md) or by setting [Environment Variables](../track/advanced/environment-variables.md).
 
-* Pass arguments to `wandb.sweep`. For example: `wandb.sweep(sweep_config, entity="user", project="my_project")`
-* Set the [Environment Variables](../track/advanced/environment-variables.md) `WANDB_ENTITY` and `WANDB_PROJECT`
-* Using the [Command Line Interface](../../ref/cli/), run[`wandb sweep`](https://docs.wandb.ai/ref/cli/wandb-sweep)\`\`
-* Set up a [Sweep configuration ](configuration.md)yaml file with the keys `"entity"` and `"project"`
-{% endhint %}
+{% tabs %}
+{% tab title="wandb.sweep" %}
+```python
+sweep_id = wandb.sweep(sweep_config, entity="ghinton", project="capsules")
+```
+{% endtab %}
+
+{% tab title="Environment Variables" %}
+```python
+%env WANDB_ENTITY=ghinton
+%env WANDB_PROJECT=capsules
+
+sweep_id = wandb.sweep(sweep_config)
+```
+{% endtab %}
+{% endtabs %}
 
 ## Run an agent
 
