@@ -27,7 +27,7 @@ W&B Artifacts support model management through these basic features:
 1. **Upload**: Save any model \(as a directory or file in any format\) with`run.log_artifact()`. You can also track datasets in a remote filesystem \(e.g. cloud storage in S3 or GCP\) [by reference](https://docs.wandb.ai/artifacts/api#adding-references), using a link or URI instead of the raw contents.
 2. **Version**: Define an artifact by giving it a type \(`"resnet50"`, `"bert"`, `"stacked_lstm"`\) and a name \(`"my_resnet50_variant_with_attention"`\). When you log the same name again, W&B automatically creates a new version of the artifact with the latest contents. You can use artifact versions to checkpoint models during training — just log a new model file to the same name at each checkpoint.
 3. **Alias**: Set an alias like `"baseline"`, `"best"`, or `"production"` to highlight the important versions in a lineage of experiments and developed models.
-4. **Compare**: Select any two versions to browse the contents side-by-side. We're also working on a tool for visualizing model inputs and outputs, [learn more here →](https://docs.wandb.ai/datasets-and-predictions)
+4. **Compare**: Select any two versions to browse the contents side-by-side. We also have tools for visualizing model inputs and outputs, [learn more here →](https://docs.wandb.ai/datasets-and-predictions)
 5. **Download**: Obtain a local copy of the model \(e.g. for inference\) or verify the artifact contents by reference.
 
 ## Version and store reliably
