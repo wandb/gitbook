@@ -56,7 +56,7 @@ To add a run to a project simply set the `WANDB_PROJECT` environment variable to
 {% tabs %}
 {% tab title="Notebook" %}
 ```python
-%env WANDB_PROJECT = amazon_sentiment_analysis
+%env WANDB_PROJECT=amazon_sentiment_analysis
 ```
 {% endtab %}
 
@@ -184,7 +184,7 @@ See the [Weights & Biases Artifacts](https://docs.wandb.ai/artifacts) documentat
 
 ### 4\) Visualize Results
 
-Once you have logged your training results you can explore your results dynamically in the[ W&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations. We've
+Once you have logged your training results you can explore your results dynamically in the[ W&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations.
 
 ![](../../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29%20%281%29%20%281%29%20%285%29.gif)
 
@@ -244,8 +244,8 @@ Advanced configuration of what is logged with `Trainer` is possible by setting e
 {% tabs %}
 {% tab title="Notebook" %}
 ```python
-%env WANDB_WATCH = 'all'
-%env WANDB_SILENT = 'true'
+%env WANDB_WATCH='all'
+%env WANDB_SILENT='true'
 ```
 {% endtab %}
 
@@ -267,7 +267,7 @@ An example of what you might want to pass to `init` is below. For more details o
 wandb.init(project="amazon_sentiment_analysis", 
            name="bert-base-high-lr",
            tags=['baseline', 'high-lr'],
-           group = "bert")
+           group="bert")
 ```
 
 ## Issues, Questions, Feature Requests
