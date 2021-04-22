@@ -1,5 +1,11 @@
 # Artifacts FAQs
 
+## What happens if I log a new version of same artifact with only minor changes? Does the storage used double?
+
+No need to worry! When logging a new version of an artifact, W&B only uploads the files that changed between the last version and the new version. For example, if your first version uploads 100 files and the second version adds 10 more files, the second artifact will only consume the space of the 10 new files.
+
+![v1 of the artifact &quot;dataset&quot; only has 2/5 images that differ, so it only uses 40% of the space.](../../.gitbook/assets/artifacts-dedupe.png)
+
 ## How do I programmatically update artifacts?
 
 You can update various artifact properties \(such as `description`, `metadata`, and `aliases`\) directly from your scripts simply by setting them to the desired values and then calling `.save()`:
