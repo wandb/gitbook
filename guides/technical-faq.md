@@ -6,7 +6,7 @@ When `wandb.init()` is called from your training script an API call is made to c
 
 ### If wandb crashes, will it possibly crash my training run?
 
-It is extremely important to us that we never interfere with your training runs. We run wandb in a separate process to make sure that if wandb somehow crashes, your training will continue to run. If the internet goes out, wandb will continue to retry sending data to wandb.com.
+It is extremely important to us that we never interfere with your training runs. We run wandb in a separate process to make sure that if wandb somehow crashes, your training will continue to run. If the internet goes out, wandb will continue to retry sending data to [wandb.ai](https://wandb.ai).
 
 ### Will wandb slow down my training?
 
@@ -70,7 +70,7 @@ Get started with a [free personal account →](http://app.wandb.ai/)
 
 ### How can I configure the name of the run in my training code?
 
-At the top of your training script when you call wandb.init, pass in an experiment name, like this: `wandb.init(name="my awesome run")`
+At the top of your training script when you call `wandb.init`, pass in an experiment name, like this: `wandb.init(name="my awesome run")`
 
 ### How do I get the random run name in my script?
 
@@ -78,18 +78,29 @@ Call `wandb.run.save()` and then get the name with `wandb.run.name` .
 
 ### Is there an anaconda package?
 
-We don't have an anaconda package but you should be able to install wandb using:
+Yes! You can either install with `pip` or with `conda`. For the latter, you'll need to get the package from the [conda-forge](https://conda-forge.org/) channel.
 
-```text
+{% tabs %}
+{% tab title="pip" %}
+```bash
 conda activate myenv
 pip install wandb
 ```
+{% endtab %}
+
+{% tab title="conda" %}
+```
+conda activate myenv
+conda install wandb --channel conda-forge
+```
+{% endtab %}
+{% endtabs %}
 
 If you run into issues with this install, please let us know. This Anaconda [doc on managing packages](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) has some helpful guidance.
 
 ### How do I stop wandb from writing to my terminal or my jupyter notebook output?
 
-Set the environmental variable [WANDB\_SILENT](track/advanced/environment-variables.md).
+Set the environment variable [`WANDB_SILENT`](track/advanced/environment-variables.md) to `true`.
 
 {% tabs %}
 {% tab title="Python" %}
@@ -123,7 +134,7 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 2. If your network is flaky, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
 3. Try running [W&B Local](self-hosted/local.md), which operates on your machine and doesn't sync files to our cloud servers.
 
-**SSL CERTIFICATE\_VERIFY\_FAILED:** this error could be due to your company's firewall. You can set up local CAs and then use:
+`SSL CERTIFICATE_VERIFY_FAILED`: this error could be due to your company's firewall. You can set up local CAs and then use:
 
 `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
 
@@ -131,11 +142,11 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 
 If our library is unable to connect to the internet it will enter a retry loop and keep attempting to stream metrics until the network is restored.  During this time your program is able to continue running.  
 
-If you need to run on a machine without internet, you can set WANDB\_MODE=dryrun to only have metrics stored locally on your harddrive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
+If you need to run on a machine without internet, you can set `WANDB_MODE=offline` to only have metrics stored locally on your hard drive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
 
 ### Can I log metrics on two different time scales?  \(For example I want to log training accuracy per batch and validation accuracy per epoch.\)
 
-Yes, you can do this by logging multiple metrics and then setting them a x axis values.  So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`
+Yes, you can do this by logging your indices \(e.g. `batch` and `epoch`\) whenever you log your other metrics.  So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`. Then, in the UI, you can set the appropriate value as the x-axis for each chart.
 
 ### How can I log a metric that doesn't change over time such as a final evaluation accuracy?
 
@@ -170,21 +181,22 @@ unable to execute 'gcc': No such file or directory
 error: command 'gcc' failed with exit status 1
 ```
 
-You can install psutil directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)  
+You can install `psutil` directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)  
 
-For example, to install psutil on python 3.8 in linux:
+For example, to install `psutil` on Python 3.8 in Linux:
 
-```text
-pip install https://github.com/pywharf/pywharf-pkg-repo/releases/download/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl#sha256=adc36dabdff0b9a4c84821ef5ce45848f30b8a01a1d5806316e068b5fd669c6d
+```bash
+WHEEL_URL=https://github.com/pywharf/pywharf-pkg-repo/releases/download/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl#sha256=adc36dabdff0b9a4c84821ef5ce45848f30b8a01a1d5806316e068b5fd669c6d
+pip install $WHEEL_URL
 ```
 
-After psutil has been installed, you can install wandb with `pip install wandb`
+After `psutil` has been installed, you can install wandb with `pip install wandb`
 
 ### How does wandb stream logs and writes to disk?
 
 W&B queues in memory but also [write the events to disk](https://github.com/wandb/client/blob/7cc4dd311f3cdba8a740be0dc8903075250a914e/wandb/sdk/internal/datastore.py) asynchronously to handle failures and for the `WANDB_MODE=offline` case where you can sync the data after it's been logged.
 
-In your terminal, you can see a path to the local run directory. This directory will contain a ".wandb" file that is the datastore above. If you're also logging images, we write them to "media/images" in that directory before uploading them to cloud storage.
+In your terminal, you can see a path to the local run directory. This directory will contain a `.wandb` file that is the datastore above. If you're also logging images, we write them to `media/images` in that directory before uploading them to cloud storage.
 
 ### How to get multiple charts with different selected runs?
 
