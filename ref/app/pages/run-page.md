@@ -66,7 +66,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 * Save files to sync with the run using [wandb.save\(\)](../../../guides/track/advanced/save-restore.md)
 * Keep model checkpoints, validation set examples, and more
-* Use the diff.patch to [restore]() the exact version of your code
+* Use the `diff.patch` to [restore](../../../guides/track/advanced/save-restore.md) the exact version of your code
 
 🌟New recommendation: Try [Artifacts](../../../guides/artifacts/) for tracking inputs and outputs
 
