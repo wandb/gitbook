@@ -203,7 +203,7 @@ Use `wandb.Table()` to log your data as a 2D array. Typically each row of this t
 ```python
 # Logging a custom table of data
 my_custom_data = [[x1, y1, z1], [x2, y2, z2]]
-wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,
+wandb.log({"custom_data_table": wandb.Table(data=my_custom_data,
                                 columns = ["x", "y", "z"])})
 ```
 
