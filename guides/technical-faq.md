@@ -2,7 +2,7 @@
 
 ### What does this do to my training process?
 
-When `wandb.init()` is called from your training script an API call is made to create a run object on our servers. A new process is started to stream and collect metrics, thereby keeping all threads and logic out of your primary process. Your script runs normally and writes to local files, while the separate process streams them to our servers along with system metrics. You can always turn off streaming by running `wandb off` from your training directory, or setting the **WANDB\_MODE** environment variable to `dryrun`.
+When `wandb.init()` is called from your training script an API call is made to create a run object on our servers. A new process is started to stream and collect metrics, thereby keeping all threads and logic out of your primary process. Your script runs normally and writes to local files, while the separate process streams them to our servers along with system metrics. You can always turn off streaming by running `wandb off` from your training directory, or setting the `WANDB_MODE` environment variable to `dryrun`.
 
 ### If wandb crashes, will it possibly crash my training run?
 
@@ -42,14 +42,14 @@ By default, we don't log any of your dataset examples. You can explicitly turn t
 
 There's two ways to turn off code logging:
 
-1. Set **WANDB\_DISABLE\_CODE** to **true** to turn off all code tracking. We won't pick up the git SHA or the diff patch.
-2. Set **WANDB\_IGNORE\_GLOBS** to **\*.patch** to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore]() command.
+1. Set `WANDB_DISABLE_CODE` to `true` to turn off all code tracking. We won't pick up the git SHA or the diff patch.
+2. Set `WANDB_IGNORE_GLOBS` to `*.patch` to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](track/advanced/save-restore.md) command.
 
 ### Does logging block my training? 
 
 "Is the logging function lazy? I don't want to be dependent on the network to send the results to your servers and then carry on with my local operations."
 
-Calling **wandb.log** writes a line to a local file; it does not block on any network calls. When you call wandb.init we launch a new process on the same machine that listens for filesystem changes and talks to our web service asynchronously from your training process.
+Calling `wandb.log` writes a line to a local file; it does not block on any network calls. When you call `wandb.init` we launch a new process on the same machine that listens for filesystem changes and talks to our web service asynchronously from your training process.
 
 ### What formula do you use for your smoothing algorithm?
 
@@ -91,17 +91,25 @@ If you run into issues with this install, please let us know. This Anaconda [doc
 
 Set the environmental variable [WANDB\_SILENT](track/advanced/environment-variables.md).
 
-In a notebook:
-
-```text
-%env WANDB_SILENT true
-```
-
-In a python script:
-
-```text
+{% tabs %}
+{% tab title="Python" %}
+```python
 os.environ["WANDB_SILENT"] = "true"
 ```
+{% endtab %}
+
+{% tab title="Jupyter Notebook" %}
+```python
+%env WANDB_SILENT=true
+```
+{% endtab %}
+
+{% tab title="Command Line" %}
+```python
+WANDB_SILENT=true
+```
+{% endtab %}
+{% endtabs %}
 
 ### How do I kill a job with wandb?
 
@@ -112,7 +120,7 @@ Press ctrl+D on your keyboard to stop a script that is instrumented with wandb.
 If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), entering retry loop.` you can try a couple of different approaches to solving this issue:
 
 1. Upgrade your SSL certificate. If you're running the script on an Ubuntu server, run `update-ca-certificates`  We can't sync training logs without a valid SSL certificate because it's a security vulnerability.
-2. If your network is flakey, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
+2. If your network is flaky, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
 3. Try running [W&B Local](self-hosted/local.md), which operates on your machine and doesn't sync files to our cloud servers.
 
 **SSL CERTIFICATE\_VERIFY\_FAILED:** this error could be due to your company's firewall. You can set up local CAs and then use:
