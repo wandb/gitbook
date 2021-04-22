@@ -233,7 +233,7 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 
 ### Custom Charts
 
-These presets have builtin `wandb.plot` methods that make it fast to log charts directly from your script and see the exact visualizations you're looking for in the UI.
+These presets have built-in `wandb.plot` methods that make it fast to log charts directly from your script and see the exact visualizations you're looking for in the UI.
 
 {% tabs %}
 {% tab title="Line" %}
