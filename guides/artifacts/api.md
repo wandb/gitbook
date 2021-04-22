@@ -346,41 +346,40 @@ with wandb.init(group=group_name) as run:
 
 ## Using and downloading artifacts
 
-```python
-run.use_artifact(artifact=None)
-```
-
-* Marks an artifact as an input to your run.
-
 There are two patterns for using artifacts. You can use an artifact name that is explicitly stored in W&B, or you can construct an artifact object and pass it in to be deduplicated as necessary.
 
 ### Use an artifact stored in W&B
+
+To get started, first indicate which artifact you'd like to use with `use_artifact`.
 
 ```python
 artifact = run.use_artifact('bike-dataset:latest')
 ```
 
-You can call the following methods on the returned artifact:
+Then, if you want to use most or all of the files in the artifact, call the `.download` method.
 
 ```python
 datadir = artifact.download(root=None)
 ```
 
-* Download all of the artifact’s contents that aren't currently present. This returns a path to a directory containing the artifact’s contents. You can explicitly specify the download destination by setting **root**.
+This will download all of the artifact’s contents that aren't currently present. The returned `datadir` is a path to a directory containing the artifact’s contents. You can explicitly specify the download destination by setting `root`.
+
+If you're only interested in a subset of files, use the `get_path` method.
 
 ```python
 path = artifact.get_path(name)
 ```
 
-* Fetches only the file at the path `name`. Returns an `Entry` object with the following methods:
-  * **Entry.download\(\)**: Downloads file from the artifact at path `name`
-  * **Entry.ref\(\)**: If the entry was stored as a reference using `add_reference`, returns the URI
+This fetches only the file at the path `name`. It returns an `Entry` object with the following methods:
+
+* `Entry.download`: Downloads file from the artifact at path `name`
+* `Entry.ref`: If the entry was stored as a reference using `add_reference`, returns the URI
 
 References that have schemes that W&B knows how to handle can be downloaded just like artifact files. The consumer API is the same.
 
 ### Construct and use an artifact
 
-You can also construct an artifact object and pass it to **use\_artifact**. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, so you can do it as many times as you like. The artifact will only be created once, as long as the contents of `model.h5` remain the same.
+You can also construct an artifact object and pass it to `use_artifact`. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, so you can do it as many times as you like. The artifact will only be created once, as long as the contents of `model.h5` remain the same.
 
 ```python
 artifact = wandb.Artifact('reference model')
