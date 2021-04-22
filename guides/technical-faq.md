@@ -210,6 +210,10 @@ With wandb reports the procedure is as follows:
 
 For simplicity W&B uses API keys for authorization when accessing the API. You can find your API keys in your [settings](https://app.wandb.ai/settings). Your API key should be stored securely and never checked into version control. In addition to personal API keys, you can add Service Account users to your team.
 
+### What is a service account, and why is it useful?
+
+A service account is an API key that has permissions to write to your team, but is not associated with a particular user. Among other things, service accounts are useful for tracking automated jobs logged to wandb, like periodic retraining, nightly builds, and so on. If you'd like, you can associate a username with one of these machine-launched runs with the [environment variable](track/advanced/environment-variables.md) `WANDB_USERNAME`.
+
 ### How can I rotate or revoke access?
 
 Both personal and service account keys can be rotated or revoked. Simply create a new API Key or Service Account user and reconfigure your scripts to use the new key. Once all processes are reconfigured, you can remove the old API key from your profile or team.
