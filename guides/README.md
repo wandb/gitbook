@@ -20,7 +20,7 @@ Getting started with experiment tracking? Try the [Quickstart →](../quickstart
 
 ### Reference
 
-1. [App Reference](../ref/app/)
-2. [Python Library](../ref/python/)
-3. [Command Line Interface](../ref/cli/)
+1. [Python Library](../ref/python/)
+2. [Command Line Interface](../ref/cli/)
+3. [App UI](../ref/app/)
 
