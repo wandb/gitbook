@@ -158,36 +158,48 @@ project-directory
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">artifact.add_file(&apos;model.h5&apos;)</td>
-      <td style="text-align:left">model.h5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">artifact.add_file(&apos;checkpoints/model.h5&apos;)</td>
-      <td style="text-align:left">model.h5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">artifact.add_file(&apos;model.h5&apos;, name=&apos;models/mymodel.h5&apos;)</td>
-      <td
-      style="text-align:left">models/mymodel.h5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">artifact.add_dir(&apos;images&apos;)</td>
-      <td style="text-align:left">
-        <p>cat.png</p>
-        <p>dog.png</p>
+      <td style="text-align:left"><code>artifact.add_file(&apos;model.h5&apos;)</code>
+      </td>
+      <td style="text-align:left"><code>model.h5</code>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">artifact.add_dir(&apos;images&apos;, name=&apos;images&apos;)</td>
-      <td
-      style="text-align:left">
-        <p>images/cat.png</p>
-        <p>images/dog.png</p>
-        </td>
+      <td style="text-align:left"><code>artifact.add_file(&apos;checkpoints/model.h5&apos;)</code>
+      </td>
+      <td style="text-align:left"><code>model.h5</code>
+      </td>
     </tr>
     <tr>
-      <td style="text-align:left">artifact.new_file(&apos;hello.txt&apos;)</td>
-      <td style="text-align:left">hello.txt</td>
+      <td style="text-align:left"><code>artifact.add_file(&apos;model.h5&apos;, name=&apos;models/mymodel.h5&apos;)</code>
+      </td>
+      <td style="text-align:left"><code>models/mymodel.h5</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>artifact.add_dir(&apos;images&apos;)</code>
+      </td>
+      <td style="text-align:left">
+        <p><code>cat.png</code>
+        </p>
+        <p><code>dog.png</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>artifact.add_dir(&apos;images&apos;, name=&apos;images&apos;)</code>
+      </td>
+      <td style="text-align:left">
+        <p><code>images/cat.png</code>
+        </p>
+        <p><code>images/dog.png</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>artifact.new_file(&apos;hello.txt&apos;)</code>
+      </td>
+      <td style="text-align:left"><code>hello.txt</code>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -229,33 +241,42 @@ s3://my-bucket
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/model.h5&apos;)</td>
-      <td style="text-align:left">model.h5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/checkpoints/model.h5&apos;)</td>
-      <td
-      style="text-align:left">model.h5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/model.h5&apos;, name=&apos;models/mymodel.h5&apos;)</td>
-      <td
-      style="text-align:left">models/mymodel.h5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/images&apos;)</td>
-      <td style="text-align:left">
-        <p>cat.png</p>
-        <p>dog.png</p>
+      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/model.h5&apos;)</code>
+      </td>
+      <td style="text-align:left"><code>model.h5</code>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">artifact.add_reference(&apos;s3://my-bucket/images&apos;, name=&apos;images&apos;)</td>
-      <td
-      style="text-align:left">
-        <p>images/cat.png</p>
-        <p>images/dog.png</p>
-        </td>
+      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/checkpoints/model.h5&apos;)</code>
+      </td>
+      <td style="text-align:left"><code>model.h5</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/model.h5&apos;, name=&apos;models/mymodel.h5&apos;)</code>
+      </td>
+      <td style="text-align:left"><code>models/mymodel.h5</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/images&apos;)</code>
+      </td>
+      <td style="text-align:left">
+        <p><code>cat.png</code>
+        </p>
+        <p><code>dog.png</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/images&apos;, name=&apos;images&apos;)</code>
+      </td>
+      <td style="text-align:left">
+        <p><code>images/cat.png</code>
+        </p>
+        <p><code>images/dog.png</code>
+        </p>
+      </td>
     </tr>
   </tbody>
 </table>
