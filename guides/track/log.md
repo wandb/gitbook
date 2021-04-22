@@ -418,7 +418,7 @@ Note that the number of x and y points must match exactly. You can supply one li
 
 ### **Custom presets**
 
-Tweak a builtin Custom Chart preset, or create a new preset, then save the chart. Use the chart ID to log data to that custom preset directly from your script.
+Tweak a built-in Custom Chart preset, or create a new preset, then save the chart. Use the chart ID to log data to that custom preset directly from your script.
 
 ```python
 # Create a table with the columns to plot
