@@ -2,11 +2,11 @@
 description: You'll Easily Log Everything if you combine W&B with YOLO.
 ---
 
-# YOLO
+# YOLOv5
 
 [YOLO](https://github.com/ultralytics/yolov5) \("You Only Look Once"\) provides tools for real-time object detection with convolutional neural networks.
 
-[Weights & Biases](http://wandb.com) is directly integrated into YOLO, providing experiment metric tracking, model and dataset versioning, rich model prediction visualization, and more. **It's as easy as running a single `pip install` before you run your YOLO experiments!**
+[Weights & Biases](http://wandb.com) is directly integrated into YOLOv5, providing experiment metric tracking, model and dataset versioning, rich model prediction visualization, and more. **It's as easy as running a single `pip install` before you run your YOLO experiments!**
 
 {% hint style="info" %}
 For a quick overview of the model and data-logging features of our YOLOv5 integration, check out [this Colab](https://wandb.me/yolo-colab) and accompanying video tutorial, linked below.
