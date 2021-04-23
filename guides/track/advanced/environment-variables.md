@@ -49,6 +49,7 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_CONSOLE** | Set this to "off" to disable stdout / stderr logging.  This defaults to "on" in environments that support it. |
 | **WANDB\_CONFIG\_PATHS** | Comma separated list of yaml files to load into wandb.config.  See [config](../config.md#file-based-configs). |
 | **WANDB\_CONFIG\_DIR** | This defaults to ~/.config/wandb, you can override this location with this environment variable |
+| **WANDB\_CACHE\_DIR** | This defaults to ~/.cache/wandb, you can override this location with thsi environment variable |
 | **WANDB\_NOTEBOOK\_NAME** | If you're running in jupyter you can set the name of the notebook with this variable. We attempt to auto detect this. |
 | **WANDB\_HOST** | Set this to the hostname you want to see in the wandb interface if you don't want to use the system provided hostname |
 | **WANDB\_SILENT** | Set this to **true** to silence wandb log statements. If this is set all logs will be written to **WANDB\_DIR**/debug.log |
