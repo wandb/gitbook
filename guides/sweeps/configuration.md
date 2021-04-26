@@ -1,10 +1,10 @@
 ---
 description: >-
   Syntax to set the hyperparameter ranges, search strategy, and other aspects of
-  your swe
+  your sweeps
 ---
 
-# Configuration
+# Sweep Configuration
 
 Use these configuration fields to customize your sweep. There are two ways to specify your configuration:
 

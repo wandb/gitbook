@@ -46,7 +46,7 @@
     * [Sweeps Quickstart](guides/sweeps/quickstart.md)
     * [Example Sweep](guides/sweeps/sweeps-examples.md)
     * [Sweep from an existing project](guides/sweeps/existing-project.md)
-    * [Configuration](guides/sweeps/configuration.md)
+    * [Sweep Configuration](guides/sweeps/configuration.md)
     * [Common Questions](guides/sweeps/faq.md)
     * [Sweep from Jupyter Notebook](guides/sweeps/python-api.md)
     * [Local Controller](guides/sweeps/local-controller.md)
