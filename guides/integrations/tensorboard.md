@@ -19,9 +19,17 @@ Setting the step argument in `wandb.log` is disabled when syncing Tensorboard. I
 
 ### Advanced Configuration
 
-If you want more control over how TensorBoard is patched you can call `wandb.tensorboard.patch` instead of passing `sync_tensorboard=True` to init. You can pass `tensorboardX=False` to this method to ensure vanilla TensorBoard is patched, if you're using TensorBoard &gt; 1.14 with PyTorch you can pass `pytorch=True` to ensure it's patched. Both of these options are have smart defaults depending on what versions of these libraries have been imported.
+If you want more control over how TensorBoard is patched you can call `wandb.tensorboard.patch` instead of passing `sync_tensorboard=True` to init. 
 
-By default we also sync the `tfevents` files and any `.pbtxt` files. This enables us to launch a TensorBoard instance on your behalf. You will see a [TensorBoard tab](https://www.wandb.com/articles/hosted-tensorboard) on the run page. This behavior can be disabled by passing `save=False` to `wandb.tensorboard.patch`
+```python
+import wandb
+wandb.tensorboard.patch(root_logdir="<logging_directory>")
+wandb.init()
+```
+
+You can pass `tensorboardX=False` to this method to ensure vanilla TensorBoard is patched, if you're using TensorBoard &gt; 1.14 with PyTorch you can pass `pytorch=True` to ensure it's patched. Both of these options have smart defaults depending on what versions of these libraries have been imported.
+
+By default, we also sync the `tfevents` files and any `.pbtxt` files. This enables us to launch a TensorBoard instance on your behalf. You will see a [TensorBoard tab](https://www.wandb.com/articles/hosted-tensorboard) on the run page. This behaviour can be disabled by passing `save=False` to `wandb.tensorboard.patch`
 
 ```python
 import wandb
@@ -29,30 +37,26 @@ wandb.init()
 wandb.tensorboard.patch(save=False, tensorboardX=True)
 ```
 
-**Note:** if your script instantiates a File Writer via `tf.summary.create_file_writer`, you must call either `wandb.init` or `wandb.tensorboard.patch` before constructing the File Writer.
+{% hint style="info" %}
+If your script instantiates a File Writer via `tf.summary.create_file_writer` or a Summary Writer via `torch.utils.tensorboard.SummaryWriter` you must call either `wandb.init` or `wandb.tensorboard.patch` **before** constructing the File Writer/ Summary Writer.
+{% endhint %}
 
 ### Syncing Previous TensorBoard Runs
 
-If you have existing `tfevents` files stored locally that were already generated using the wandb library integration and you would like to import them into wandb, you can run `wandb sync log_dir`, where `log_dir` is a local directory containing the `tfevents` files.
-
-You can also run `wandb sync directory_with_tf_event_file`
-
-```bash
-"""This script will import a directory of tfevents files into a single W&B run.
-You must install wandb from a special branch until this feature is merged
-into the mainline:""" 
-pip install --upgrade git+git://github.com/wandb/client.git@feature/import#egg=wandb
-```
+If you have existing `tfevents` files stored locally and you would like to import them into wandb, you can run `wandb sync log_dir`, where `log_dir` is a local directory containing the `tfevents` files.
 
 You can call this script with `python no_image_import.py dir_with_tf_event_file`. This will create a single run in wandb with metrics from the event files in that directory. If you want to run this on many directories, you should only execute this script once per run, so a loader might look like:
 
+{% code title="call.py" %}
 ```python
 import glob
 for run_dir in glob.glob("logdir-*"):
   subprocess.Popen(["python", "no_image_import.py", run_dir],
                    stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 ```
+{% endcode %}
 
+{% code title="no\_image\_import.py" %}
 ```python
 import glob
 import os
@@ -108,6 +112,7 @@ while True:
 print("Persisting %i events..." % total_events)
 con.shutdown(); print("Import complete")
 ```
+{% endcode %}
 
 ### Google Colab and TensorBoard
 
