@@ -23,9 +23,7 @@ If you'd rather dive straight into working code, check out this [Google Colab](h
 
 ## Getting Started: Track and Save your Models
 
-### Under the Hood
-
-W&B logging can be set up by passing just a few arguments to the [Transformers `Trainer` class](https://huggingface.co/transformers/main_classes/trainer.html). Under the hood, `Trainer` uses [`WandbCallback`](https://huggingface.co/transformers/main_classes/callback.html#transformers.integrations.WandbCallback), which will take care of all our logging, but `WandbCallback` won't need to be modified at all for most use cases. Note that the steps below work for both for Hugging Face Transformers' PyTorch `Trainer` and TensorFlow `TFTrainer`.
+Note the steps below work for both Hugging Face Transformers' PyTorch `Trainer` and TensorFlow `TFTrainer`
 
 ### **1\)** **Install the `wandb` Library and Log in**
 
@@ -72,34 +70,6 @@ Make sure you set the project name _before_ you initialize the `Trainer`.
 {% endhint %}
 
 If a project name is not specified the project name defaults to "huggingface"
-
-#### **\[Optional\] Turn on Model Versioning**
-
-Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) you can use up to 100GB of storage for free to store your Models or Datasets. Logging your Hugging Face model to W&B Artifacts can be done by setting a W&B environment variable which will then be picked up by the `WandbCallback` that `Trainer` uses. You can later easily reload this model if you wanted to do additional inference or do additional training.
-
-{% hint style="info" %}
-Your model will be saved to W&B Artifacts as `run-{run_name}`. By default, run names are automatically generated. We'll see how to choose run names in the next step.
-{% endhint %}
-
-{% tabs %}
-{% tab title="Notebook" %}
-```python
-%env WANDB_LOG_MODEL=true
-```
-{% endtab %}
-
-{% tab title="Command Line" %}
-```python
-WANDB_LOG_MODEL=true
-```
-{% endtab %}
-{% endtabs %}
-
-Any `Trainer`s you initialize from now on will upload models to your W&B project. Your model file will be viewable through the W&B Artifacts UI. See the [Weights & Biases' Artifacts guide](https://docs.wandb.ai/artifacts) for more about how to use Artifacts for model and dataset versioning.
-
-#### **How do I save the best model?**
-
-If `load_best_model_at_end=True` is passed to `Trainer`, then W&B will save the best performing model checkpoint to Artifacts instead of the final checkpoint.
 
 ### **3\)** Log your Training Runs to W&B
 
@@ -157,7 +127,43 @@ wandb.finish()
 {% endtab %}
 {% endtabs %}
 
-#### \[Optional\] Loading a Saved Model
+### 4\) Visualize Results
+
+Once you have logged your training results you can explore your results dynamically in the[ W&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations.
+
+![](../../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29%20%281%29%20%281%29%20%285%29.gif)
+
+## Advanced Features
+
+### **Turn on Model Versioning**
+
+Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) you can use up to 100GB of storage for free to store your Models or Datasets. Logging your Hugging Face model to W&B Artifacts can be done by setting a W&B environment variable called `WANDB_LOG_MODEL` to true
+
+{% tabs %}
+{% tab title="Notebook" %}
+```python
+%env WANDB_LOG_MODEL=true
+```
+{% endtab %}
+
+{% tab title="Command Line" %}
+```python
+WANDB_LOG_MODEL=true
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+Your model will be saved to W&B Artifacts as `run-{run_name}`
+{% endhint %}
+
+Any `Trainer` you initialize from now on will upload models to your W&B project. Your model file will be viewable through the W&B Artifacts UI. See the [Weights & Biases' Artifacts guide](https://docs.wandb.ai/artifacts) for more about how to use Artifacts for model and dataset versioning.
+
+#### **How do I save the best model?**
+
+If `load_best_model_at_end=True` is passed to `Trainer`, then W&B will save the best performing model checkpoint to Artifacts instead of the final checkpoint.
+
+### Loading a Saved Model
 
 If you saved your model to W&B Artifacts with `WANDB_LOG_MODEL`, you can download your model weights for additional training or to run inference. You just load them back into the same Hugging Face architecture that you used before.
 
@@ -179,16 +185,6 @@ with wandb.init(project="amazon_sentiment_analysis") as run:
 
   # Do additional training, or run inference
 ```
-
-See the [Weights & Biases Artifacts](https://docs.wandb.ai/artifacts) documentation for more details on managing versioned models and datasets with Artifacts.
-
-### 4\) Visualize Results
-
-Once you have logged your training results you can explore your results dynamically in the[ W&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations.
-
-![](../../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29%20%281%29%20%281%29%20%285%29.gif)
-
-## Advanced Features
 
 ### Additional W&B Settings
 
@@ -244,15 +240,15 @@ Advanced configuration of what is logged with `Trainer` is possible by setting e
 {% tabs %}
 {% tab title="Notebook" %}
 ```python
-%env WANDB_WATCH="all"
-%env WANDB_SILENT="true"
+%env WANDB_WATCH=all
+%env WANDB_SILENT=true
 ```
 {% endtab %}
 
 {% tab title="Command Line" %}
 ```bash
-WANDB_WATCH="all"
-WANDB_SILENT="true"
+WANDB_WATCH=all
+WANDB_SILENT=true
 ```
 {% endtab %}
 {% endtabs %}
@@ -269,6 +265,10 @@ wandb.init(project="amazon_sentiment_analysis",
            tags=["baseline", "high-lr"],
            group="bert")
 ```
+
+### Custom Logging
+
+Logging to Weights & Biases via the [Transformers `Trainer` ](https://huggingface.co/transformers/main_classes/trainer.html) is taken care of with the [`WandbCallback`](https://huggingface.co/transformers/main_classes/callback.html#transformers.integrations.WandbCallback) in the Transformers library. If you need to customise your Hugging Face logging you can modify this callback, but shouldn't be needed in the vast majority of cases.
 
 ## Issues, Questions, Feature Requests
 
