@@ -8,7 +8,7 @@
 
 ###  **联系我们**
 
-We really appreciate hearing from people who are using our tools. If you have questions or suggestions, please reach out! 我们非常感谢收到使用我们工具的人的来信。 如果您有任何疑问或建议，请联系我们！
+ 我们非常感谢收到使用我们工具的人的来信。 如果您有任何疑问或建议，请联系我们！
 
 1. 电子邮件——support@wandb.com直接发送给团队
 2. 对讲机——单击页面右下角的黄色小部件与我们聊天

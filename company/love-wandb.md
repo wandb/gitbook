@@ -8,7 +8,7 @@ description: 您喜欢使用wandb吗？ 以下是与别人分享我们的工具�
 
 ###  **吆喝一下**
 
-* \*\*\*\*[**Twitter**](https://twitter.com/weights_biases): tweet at us, our handle is @weights\_biases   推特（[**Twitter**](https://twitter.com/weights_biases)）：为我们发推，您可以@weights\_biases
+* 推特（[**Twitter**](https://twitter.com/weights_biases)）：为我们发推，您可以@weights\_biases
 *   [产品搜寻](https://www.producthunt.com/posts/weights-biases)：您的评论可帮助其他人找到我们的产品
 * [**Reddit**](https://www.reddit.com/r/MachineLearning/comments/bx0apm/d_how_do_you_manage_your_machine_learning/):：关于r / MachineLearning的帖子或评论会很有用
 * \*\*\*\*[**Product Hunt**](https://www.producthunt.com/posts/weights-biases): a review helps other people find our product
