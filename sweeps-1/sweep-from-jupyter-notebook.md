@@ -4,8 +4,6 @@ description: 从Jupyter Notebook中运行sweep
 
 # Sweep from Jupyter Notebook
 
-
-
 ### **初始化一个sweep**
 
 ```python

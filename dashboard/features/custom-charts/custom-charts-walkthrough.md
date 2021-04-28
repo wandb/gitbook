@@ -14,7 +14,7 @@ description: Weights & Biases UI中自定义图表功能的使用教程
 
 ## 1.  **记录数据到W&B** <a id="1-log-data-to-w-and-b"></a>
 
-首先，在你的脚本中记录数据。使用[wandb.config](https://docs.wandb.ai/library/config) 来记录训练开始时设置的单个点，例如超参数。使用[wandb.log\(\)](https://docs.wandb.ai/library/log) 来记录一段时间内的多个点，并使用wandb.Table\(\)来记录自定义的二维数组。我们建议每个记录键最多记录10,000 个数据点。
+首先，在你的脚本中记录数据。使用[wandb.config](https://docs.wandb.ai/v/zh-hans/library/wandb.config) 来记录训练开始时设置的单个点，例如超参数。使用[wandb.log\(\) ](https://docs.wandb.ai/v/zh-hans/library/wandb.log)来记录一段时间内的多个点，并使用wandb.Table\(\)来记录自定义的二维数组。我们建议每个记录键最多记录10,000 个数据点。
 
 ```text
 # Logging a custom table of datamy_custom_data = [[x1, y1, z1], [x2, y2, z2]]wandb.log({“custom_data_table”: wandb.Table(data=my_custom_data,                                columns = ["x", "y", "z"])})

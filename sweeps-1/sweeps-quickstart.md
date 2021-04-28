@@ -57,7 +57,7 @@ Here are some config resources:
 
 1. [ 示例YAML](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-cnn-fashion/sweep-grid-hyperband.yaml)：执行扫描的脚本和YAML文件的代码示例
 2. [置](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/configuration)：设置扫描配置的完整规格
-3. [Jupyter Notebook](): 使用Python字典而不是YAML文件设置扫描配置
+3. [Jupyter Notebook:](https://docs.wandb.ai/v/zh-hans/integrations/jupyter) 使用Python字典而不是YAML文件设置扫描配置
 4.  [从UI生成配置](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/sweeps/add-to-existing)：接受现有的W＆B项目并生成配置文件
 5.  [输入先前的运行](https://docs.wandb.com/sweeps/add-to-existing#seed-a-new-sweep-with-existing-runs)：进行先前的运行并将其添加到新扫描中
 
@@ -127,10 +127,4 @@ wandb agent your-sweep-id
 ## 
 
 ![](../.gitbook/assets/image%20%2847%29%20%282%29%20%283%29%20%284%29%20%283%29%20%283%29.png)
-
-{% hint style="info" %}
-Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →]()
-{% endhint %}
-
-
 

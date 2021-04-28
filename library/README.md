@@ -68,9 +68,5 @@ wandb.init(
 * **配置（config）**：记录超参数、数据集链接或所使用的架构名称，并作为配置（config）参数，传值方式如下：wandb.init\(config=your\_config\_dictionary\)
 * **指标（Metrics）**：用wandb.log\(\)记录你的模型指标。如果你从你的训练循环内部记录如准确率（Accuracy）、损失（Loss）等指标，，就可以在界面中看到实时更新图。
 
-###  ****
-
-
-
-
+### 
 

@@ -4,7 +4,7 @@ description: 每当你的运行崩溃、完成或调用wandb.alert()时，都会
 
 # Alerts
 
-每当你的运行崩溃、完成或调用[wandb.alert\(\)](https://docs.wandb.ai/library/wandb.alert)时，W&B可以将通知推送到电子邮件或Slack。
+每当你的运行崩溃、完成或调用[wandb.alert\(\)](https://docs.wandb.ai/v/zh-hans/library/wandb.alert)时，W&B可以将通知推送到电子邮件或Slack。
 
 {% hint style="warning" %}
 在Jupyter Notebook环境中，对已完成运行的警报是被禁用的，以防止在每个单元格执行时发出警报通知。在Jupyter Notebook环境中使用wandb.alert\(\)代替。
