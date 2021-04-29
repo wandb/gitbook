@@ -1,9 +1,8 @@
-# wandb
+# Command Line Interface
 
 **Usage**
 
 `wandb [OPTIONS] COMMAND [ARGS]...`
-
 
 **Options**
 
@@ -24,7 +23,7 @@
 | docker-run | Simple wrapper for `docker run` which sets W&B environment... |
 | enabled | Enable W&B. |
 | init | Configure a directory with Weights & Biases |
-| local | Launch local W&B container (Experimental) |
+| local | Launch local W&B container \(Experimental\) |
 | login | Login to Weights & Biases |
 | offline | Disable W&B sync |
 | online | Enable W&B sync |
@@ -34,3 +33,4 @@
 | sweep | Create a sweep |
 | sync | Upload an offline training directory to W&B |
 | verify | Verify your local instance |
+

@@ -22,3 +22,4 @@ Commands for interacting with artifacts
 | get | Download an artifact from wandb |
 | ls | List all artifacts in a wandb project |
 | put | Upload an artifact to wandb |
+

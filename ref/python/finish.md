@@ -1,20 +1,14 @@
-# finish
-
-
+# wandb.finish
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.28/wandb/sdk/wandb_run.py#L2417-L2425)
 
-
-
-
 Marks a run as finished, and finishes uploading all data.
 
-<pre><code>finish(
+```text
+finish(
     exit_code: int = None
-) -> None</code></pre>
+) -> None
+```
 
+This is used when creating multiple runs in the same process. We automatically call this method when your script exits.
 
-
-
-This is used when creating multiple runs in the same process.
-We automatically call this method when your script exits.

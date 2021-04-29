@@ -1,82 +1,46 @@
-# File
-
-
+# wandb.apis.public.File
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1655-L1758)
 
-
-
-
 File is a class associated with a file saved by wandb.
 
-<pre><code>File(
+```text
+File(
     client, attrs
-)</code></pre>
+)
+```
 
-
-
-
-
-
-
-<!-- Tabular view -->
-<table>
-<tr><th>Attributes</th></tr>
-
-
-</table>
-
+| Attributes |
+| :--- |
 
 
 ## Methods
 
-<h3 id="delete"><code>delete</code></h3>
+### `delete` <a id="delete"></a>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1738-L1751">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1738-L1751)
 
-<pre><code>delete()</code></pre>
+```text
+delete()
+```
 
+### `download` <a id="download"></a>
 
+[View source](https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1715-L1736)
 
-
-<h3 id="download"><code>download</code></h3>
-
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1715-L1736">View source</a>
-
-<pre><code>download(
-    root=&#x27;.&#x27;, replace=(False)
-)</code></pre>
+```text
+download(
+    root='.', replace=(False)
+)
+```
 
 Downloads a file previously saved by a run from the wandb server.
 
+| Arguments |
+| :--- |
+|  replace \(boolean\): If `True`, download will overwrite a local file if it exists. Defaults to `False`. root \(str\): Local directory to save the file. Defaults to ".". |
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-<tr>
-<td>
-replace (boolean): If <code>True</code>, download will overwrite a local file
-if it exists. Defaults to <code>False</code>.
-root (str): Local directory to save the file.  Defaults to ".".
-</td>
-</tr>
-
-</table>
-
-
-
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-<tr>
-<td>
-<code>ValueError</code> if file already exists and replace=False
-</td>
-</tr>
-
-</table>
-
-
-
-
+| Raises |
+| :--- |
+|  `ValueError` if file already exists and replace=False |
 
