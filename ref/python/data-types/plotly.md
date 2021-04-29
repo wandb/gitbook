@@ -1,33 +1,51 @@
-# wandb.data\_types.Plotly
+# Plotly
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/sdk/data_types.py#L1995-L2042)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.28/wandb/sdk/data_types.py#L1999-L2048)
+
+
+
 
 Wandb class for plotly plots.
 
-```text
-Plotly(
+<pre><code>Plotly(
     val: Union['plotly.Figure', 'matplotlib.artist.Artist']
-)
-```
+)</code></pre>
 
-| Arguments |  |
-| :--- | :--- |
-|  `val` |  matplotlib or plotly figure |
+
+
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Arguments</th></tr>
+
+<tr>
+<td>
+<code>val</code>
+</td>
+<td>
+matplotlib or plotly figure
+</td>
+</tr>
+</table>
+
+
 
 ## Methods
 
-### `make_plot_media` <a id="make_plot_media"></a>
+<h3 id="make_plot_media"><code>make_plot_media</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/sdk/data_types.py#L2003-L2011)
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/sdk/data_types.py#L2009-L2017">View source</a>
 
-```text
-@classmethod
-make_plot_media(
+<pre><code>@classmethod</code>
+<code>make_plot_media(
     val: Union['plotly.Figure', 'matplotlib.artist.Artist']
-) -> Union[Image, 'Plotly']
-```
+) -> Union[Image, 'Plotly']</code></pre>
 
-| Class Variables |  |
-| :--- | :--- |
-|  artifact\_type |  `None` |
+
+
+
+
 

@@ -1,77 +1,134 @@
-# wandb.apis.public.Sweep
+# Sweep
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1403-L1581)
 
-A set of runs associated with a sweep
 
-```text
-Sweep(
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1403-L1586)
+
+
+
+
+A set of runs associated with a sweep.
+
+<pre><code>Sweep(
     client, entity, project, sweep_id, attrs={}
-)
+)</code></pre>
+
+
+
+
+
+#### Examples:
+
+Instantiate with:
+```
+api = wandb.Api()
+sweep = api.sweep(path/to/sweep)
 ```
 
-#### Instantiate with:
 
-api.sweep\(sweep\_path\)
 
-| Attributes |  |
-| :--- | :--- |
-|  `config` |  |
-|  `entity` |  |
-|  `order` |  |
-|  `path` |  |
-|  `url` |  |
-|  `username` |  |
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Attributes</th></tr>
+
+<tr>
+<td>
+<code>runs</code>
+</td>
+<td>
+(<code>Runs</code>) list of runs
+</td>
+</tr><tr>
+<td>
+<code>id</code>
+</td>
+<td>
+(str) sweep id
+</td>
+</tr><tr>
+<td>
+<code>project</code>
+</td>
+<td>
+(str) name of project
+</td>
+</tr><tr>
+<td>
+<code>config</code>
+</td>
+<td>
+(str) dictionary of sweep configuration
+</td>
+</tr>
+</table>
+
+
 
 ## Methods
 
-### `best_run` <a id="best_run"></a>
+<h3 id="best_run"><code>best_run</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1489-L1512)
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1494-L1517">View source</a>
 
-```text
-best_run(
+<pre><code>best_run(
     order=None
-)
-```
+)</code></pre>
 
 Returns the best run sorted by the metric defined in config or the order passed in
 
-### `get` <a id="get"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1528-L1578)
+<h3 id="get"><code>get</code></h3>
 
-```text
-@classmethod
-get(
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1533-L1583">View source</a>
+
+<pre><code>@classmethod</code>
+<code>get(
     client, entity=None, project=None, sid=None, withRuns=(True), order=None,
     query=None, **kwargs
-)
-```
+)</code></pre>
 
 Execute a query against the cloud backend
 
-### `load` <a id="load"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1469-L1478)
+<h3 id="load"><code>load</code></h3>
 
-```text
-load(
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1474-L1483">View source</a>
+
+<pre><code>load(
     force=(False)
-)
-```
+)</code></pre>
 
-### `snake_to_camel` <a id="snake_to_camel"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L561-L563)
 
-```text
-snake_to_camel(
+
+<h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L561-L563">View source</a>
+
+<pre><code>snake_to_camel(
     string
-)
-```
+)</code></pre>
 
-| Class Variables |  |
-| :--- | :--- |
-|  QUERY |  |
+
+
+
+
+
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Class Variables</th></tr>
+
+<tr>
+<td>
+QUERY<a id="QUERY"></a>
+</td>
+<td>
+
+</td>
+</tr>
+</table>
 

@@ -1,77 +1,89 @@
-# wandb.data\_types.Graph
+# Graph
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L1223-L1381)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.28/wandb/data_types.py#L1217-L1377)
+
+
+
 
 Wandb class for graphs
 
-```text
-Graph(
-    format='keras'
-)
-```
+<pre><code>Graph(
+    format=&#x27;keras&#x27;
+)</code></pre>
 
-This class is typically used for saving and diplaying neural net models. It represents the graph as an array of nodes and edges. The nodes can have labels that can be visualized by wandb.
+
+
+
+This class is typically used for saving and diplaying neural net models.  It
+represents the graph as an array of nodes and edges.  The nodes can have
+labels that can be visualized by wandb.
 
 #### Examples:
 
 Import a keras model:
-
-```text
+```
     Graph.from_keras(keras_model)
 ```
 
+
+
 ## Methods
 
-### `add_edge` <a id="add_edge"></a>
+<h3 id="add_edge"><code>add_edge</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L1307-L1311)
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/data_types.py#L1303-L1307">View source</a>
 
-```text
-add_edge(
+<pre><code>add_edge(
     from_node, to_node
-)
-```
+)</code></pre>
 
-### `add_node` <a id="add_node"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L1293-L1305)
 
-```text
-add_node(
+
+<h3 id="add_node"><code>add_node</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/data_types.py#L1289-L1301">View source</a>
+
+<pre><code>add_node(
     node=None, **node_kwargs
-)
-```
+)</code></pre>
 
-### `from_keras` <a id="from_keras"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L1313-L1342)
 
-```text
-@classmethod
-from_keras(
+
+<h3 id="from_keras"><code>from_keras</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/data_types.py#L1309-L1338">View source</a>
+
+<pre><code>@classmethod</code>
+<code>from_keras(
     model
-)
-```
+)</code></pre>
 
-### `pprint` <a id="pprint"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L1287-L1291)
 
-```text
-pprint()
-```
 
-### `__getitem__` <a id="__getitem__"></a>
+<h3 id="pprint"><code>pprint</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/data_types.py#L1284-L1285)
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/data_types.py#L1283-L1287">View source</a>
 
-```text
-__getitem__(
+<pre><code>pprint()</code></pre>
+
+
+
+
+<h3 id="__getitem__"><code>__getitem__</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/data_types.py#L1280-L1281">View source</a>
+
+<pre><code>__getitem__(
     nid
-)
-```
+)</code></pre>
 
-| Class Variables |  |
-| :--- | :--- |
-|  artifact\_type |  `None` |
+
+
+
+
 

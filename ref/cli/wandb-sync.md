@@ -10,7 +10,7 @@ Upload an offline training directory to W&B
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | --id | The run you want to upload to. |
 | -p, --project | The project you want to upload to. |

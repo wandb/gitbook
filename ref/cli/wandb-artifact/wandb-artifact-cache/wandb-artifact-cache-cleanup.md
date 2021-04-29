@@ -10,7 +10,7 @@ Clean up less frequently used files from the artifacts cache
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | --help | Show this message and exit. |
 

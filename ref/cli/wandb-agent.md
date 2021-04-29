@@ -10,7 +10,7 @@ Run the W&B agent
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | -p, --project | The project of the sweep. |
 | -e, --entity | The entity scope for the project. |

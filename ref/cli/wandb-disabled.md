@@ -10,7 +10,7 @@ Disable W&B.
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | --help | Show this message and exit. |
 

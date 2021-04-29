@@ -10,7 +10,7 @@ Pull files from Weights & Biases
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | -p, --project | The project you want to download. |
 | -e, --entity | The entity to scope the listing to. |

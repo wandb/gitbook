@@ -6,11 +6,11 @@
 
 **Summary**
 
-Launch local W&B container \(Experimental\)
+Launch local W&B container (Experimental)
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | -p, --port | The host port to bind W&B local on |
 | -e, --env | Env vars to pass to wandb/local |

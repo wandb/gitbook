@@ -10,7 +10,7 @@ Configure a directory with Weights & Biases
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | -p, --project | The project to use. |
 | -e, --entity | The entity to scope the project to. |

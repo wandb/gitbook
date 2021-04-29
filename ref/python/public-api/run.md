@@ -1,167 +1,230 @@
-# wandb.apis.public.Run
+# Run
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L843-L1400)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L843-L1400)
+
+
+
 
 A single run associated with an entity and project.
 
-```text
-Run(
+<pre><code>Run(
     client, entity, project, run_id, attrs={}
-)
-```
+)</code></pre>
 
-| Attributes |  |
-| :--- | :--- |
-|  `entity` |  |
-|  `id` |  |
-|  `json_config` |  |
-|  `lastHistoryStep` |  |
-|  `name` |  |
-|  `path` |  |
-|  `storage_id` |  |
-|  `summary` |  |
-|  `url` |  |
-|  `username` |  |
+
+
+
+
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Attributes</th></tr>
+
+
+</table>
+
+
 
 ## Methods
 
-### `create` <a id="create"></a>
+<h3 id="create"><code>create</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L925-L965)
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L925-L965">View source</a>
 
-```text
-@classmethod
-create(
+<pre><code>@classmethod</code>
+<code>create(
     api, run_id=None, project=None, entity=None
-)
-```
+)</code></pre>
 
 Create a run for the given project
 
-### `delete` <a id="delete"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1060-L1094)
+<h3 id="delete"><code>delete</code></h3>
 
-```text
-delete(
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1060-L1094">View source</a>
+
+<pre><code>delete(
     delete_artifacts=(False)
-)
-```
+)</code></pre>
 
 Deletes the given run from the wandb backend.
 
-### `file` <a id="file"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1156-L1165)
+<h3 id="file"><code>file</code></h3>
 
-```text
-file(
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1156-L1165">View source</a>
+
+<pre><code>file(
     name
-)
-```
+)</code></pre>
 
-Arguments: name \(str\): name of requested file.
+Arguments:
+    name (str): name of requested file.
 
-| Returns |
-| :--- |
-|  A `File` matching the name argument. |
+<!-- Tabular view -->
+<table>
+<tr><th>Returns</th></tr>
+<tr>
+<td>
+A <code>File</code> matching the name argument.
+</td>
+</tr>
 
-### `files` <a id="files"></a>
+</table>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1144-L1154)
 
-```text
-files(
+
+<h3 id="files"><code>files</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1144-L1154">View source</a>
+
+<pre><code>files(
     names=[], per_page=50
-)
-```
+)</code></pre>
 
-Arguments: names \(list\): names of the requested files, if empty returns all files per\_page \(int\): number of results per page
+Arguments:
+    names (list): names of the requested files, if empty returns all files
+    per_page (int): number of results per page
 
-| Returns |
-| :--- |
-|  A `Files` object, which is an iterator over `File` obejcts. |
+<!-- Tabular view -->
+<table>
+<tr><th>Returns</th></tr>
+<tr>
+<td>
+A <code>Files</code> object, which is an iterator over <code>File</code> obejcts.
+</td>
+</tr>
 
-### `history` <a id="history"></a>
+</table>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1190-L1229)
 
-```text
-history(
-    samples=500, keys=None, x_axis='_step', pandas=(True),
-    stream='default'
-)
-```
 
-Returns sampled history metrics for a run. This is simpler and faster if you are ok with the history records being sampled.
+<h3 id="history"><code>history</code></h3>
 
-| Arguments |
-| :--- |
-|  samples \(int, optional\): The number of samples to return pandas \(bool, optional\): Return a pandas dataframe keys \(list, optional\): Only return metrics for specific keys x\_axis \(str, optional\): Use this metric as the xAxis defaults to \_step stream \(str, optional\): "default" for metrics, "system" for machine metrics |
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1190-L1229">View source</a>
 
-| Returns |
-| :--- |
-|  If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics. |
+<pre><code>history(
+    samples=500, keys=None, x_axis=&#x27;_step&#x27;, pandas=(True),
+    stream=&#x27;default&#x27;
+)</code></pre>
 
-### `load` <a id="load"></a>
+Returns sampled history metrics for a run.  This is simpler and faster if you are ok with
+the history records being sampled.
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L967-L1029)
+<!-- Tabular view -->
+<table>
+<tr><th>Arguments</th></tr>
+<tr>
+<td>
+samples (int, optional): The number of samples to return
+pandas (bool, optional): Return a pandas dataframe
+keys (list, optional): Only return metrics for specific keys
+x_axis (str, optional): Use this metric as the xAxis defaults to _step
+stream (str, optional): "default" for metrics, "system" for machine metrics
+</td>
+</tr>
 
-```text
-load(
+</table>
+
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Returns</th></tr>
+<tr>
+<td>
+If pandas=True returns a <code>pandas.DataFrame</code> of history metrics.
+If pandas=False returns a list of dicts of history metrics.
+</td>
+</tr>
+
+</table>
+
+
+
+<h3 id="load"><code>load</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L967-L1029">View source</a>
+
+<pre><code>load(
     force=(False)
-)
-```
+)</code></pre>
 
-### `log_artifact` <a id="log_artifact"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1322-L1354)
 
-```text
-log_artifact(
+
+<h3 id="log_artifact"><code>log_artifact</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1322-L1354">View source</a>
+
+<pre><code>log_artifact(
     artifact, aliases=None
-)
-```
+)</code></pre>
 
 Declare an artifact as output of a run.
 
-| Arguments |
-| :--- |
-|  artifact \(`Artifact`\): An artifact returned from `wandb.Api().artifact(name)` aliases \(list, optional\): Aliases to apply to this artifact |
 
-| Returns |
-| :--- |
-|  A `Artifact` object. |
+<!-- Tabular view -->
+<table>
+<tr><th>Arguments</th></tr>
+<tr>
+<td>
+artifact (<code>Artifact</code>): An artifact returned from
+<code>wandb.Api().artifact(name)</code>
+aliases (list, optional): Aliases to apply to this artifact
+</td>
+</tr>
 
-### `logged_artifacts` <a id="logged_artifacts"></a>
+</table>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1287-L1289)
 
-```text
-logged_artifacts(
+
+<!-- Tabular view -->
+<table>
+<tr><th>Returns</th></tr>
+<tr>
+<td>
+A <code>Artifact</code> object.
+</td>
+</tr>
+
+</table>
+
+
+
+<h3 id="logged_artifacts"><code>logged_artifacts</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1287-L1289">View source</a>
+
+<pre><code>logged_artifacts(
     per_page=100
-)
-```
+)</code></pre>
 
-### `save` <a id="save"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1096-L1097)
 
-```text
-save()
-```
 
-### `scan_history` <a id="scan_history"></a>
+<h3 id="save"><code>save</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1231-L1285)
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1096-L1097">View source</a>
 
-```text
-scan_history(
+<pre><code>save()</code></pre>
+
+
+
+
+<h3 id="scan_history"><code>scan_history</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1231-L1285">View source</a>
+
+<pre><code>scan_history(
     keys=None, page_size=1000, min_step=None, max_step=None
-)
-```
+)</code></pre>
 
 Returns an iterable collection of all history records for a run.
+
 
 #### Example:
 
@@ -173,77 +236,131 @@ history = run.scan_history(keys=["Loss"])
 losses = [row["Loss"] for row in history]
 ```
 
-| Arguments |
-| :--- |
-|  keys \(\[str\], optional\): only fetch these keys, and only fetch rows that have all of keys defined. page\_size \(int, optional\): size of pages to fetch from the api |
 
-| Returns |
-| :--- |
-|  An iterable collection over history records \(dict\). |
 
-### `snake_to_camel` <a id="snake_to_camel"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L561-L563)
+<!-- Tabular view -->
+<table>
+<tr><th>Arguments</th></tr>
+<tr>
+<td>
+keys ([str], optional): only fetch these keys, and only fetch rows that have all of keys defined.
+page_size (int, optional): size of pages to fetch from the api
+</td>
+</tr>
 
-```text
-snake_to_camel(
+</table>
+
+
+
+<!-- Tabular view -->
+<table>
+<tr><th>Returns</th></tr>
+<tr>
+<td>
+An iterable collection over history records (dict).
+</td>
+</tr>
+
+</table>
+
+
+
+<h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L561-L563">View source</a>
+
+<pre><code>snake_to_camel(
     string
-)
-```
+)</code></pre>
 
-### `update` <a id="update"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1031-L1058)
 
-```text
-update()
-```
+
+<h3 id="update"><code>update</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1031-L1058">View source</a>
+
+<pre><code>update()</code></pre>
 
 Persists changes to the run object to the wandb backend.
 
-### `upload_file` <a id="upload_file"></a>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1167-L1188)
+<h3 id="upload_file"><code>upload_file</code></h3>
 
-```text
-upload_file(
-    path, root='.'
-)
-```
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1167-L1188">View source</a>
 
-Arguments: path \(str\): name of file to upload. root \(str\): the root path to save the file relative to. i.e. If you want to have the file saved in the run as "my\_dir/file.txt" and you're currently in "my\_dir" you would set root to "../"
+<pre><code>upload_file(
+    path, root=&#x27;.&#x27;
+)</code></pre>
 
-| Returns |
-| :--- |
-|  A `File` matching the name argument. |
+Arguments:
+    path (str): name of file to upload.
+    root (str): the root path to save the file relative to.  i.e.
+        If you want to have the file saved in the run as "my_dir/file.txt"
+        and you're currently in "my_dir" you would set root to "../"
 
-### `use_artifact` <a id="use_artifact"></a>
+<!-- Tabular view -->
+<table>
+<tr><th>Returns</th></tr>
+<tr>
+<td>
+A <code>File</code> matching the name argument.
+</td>
+</tr>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1295-L1320)
+</table>
 
-```text
-use_artifact(
+
+
+<h3 id="use_artifact"><code>use_artifact</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1295-L1320">View source</a>
+
+<pre><code>use_artifact(
     artifact
-)
-```
+)</code></pre>
 
 Declare an artifact as an input to a run.
 
-| Arguments |
-| :--- |
-|  artifact \(`Artifact`\): An artifact returned from `wandb.Api().artifact(name)` |
 
-| Returns |
-| :--- |
-|  A `Artifact` object. |
+<!-- Tabular view -->
+<table>
+<tr><th>Arguments</th></tr>
+<tr>
+<td>
+artifact (<code>Artifact</code>): An artifact returned from
+<code>wandb.Api().artifact(name)</code>
+</td>
+</tr>
 
-### `used_artifacts` <a id="used_artifacts"></a>
+</table>
 
-[View source](https://www.github.com/wandb/client/tree/c129c32964aca6a8509d98a0cc3c9bc46f2d8a4c/wandb/apis/public.py#L1291-L1293)
 
-```text
-used_artifacts(
+
+<!-- Tabular view -->
+<table>
+<tr><th>Returns</th></tr>
+<tr>
+<td>
+A <code>Artifact</code> object.
+</td>
+</tr>
+
+</table>
+
+
+
+<h3 id="used_artifacts"><code>used_artifacts</code></h3>
+
+<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.28/wandb/apis/public.py#L1291-L1293">View source</a>
+
+<pre><code>used_artifacts(
     per_page=100
-)
-```
+)</code></pre>
+
+
+
+
+
 

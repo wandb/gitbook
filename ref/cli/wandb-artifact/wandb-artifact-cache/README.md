@@ -10,13 +10,12 @@ Commands for interacting with the artifact cache
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | --help | Show this message and exit. |
 
 **Commands**
 
-| **Commands** | **Description** |
+| **Command** | **Description** |
 | :--- | :--- |
 | cleanup | Clean up less frequently used files from the artifacts cache |
-

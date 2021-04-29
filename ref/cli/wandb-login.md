@@ -10,7 +10,7 @@ Login to Weights & Biases
 
 **Options**
 
-| **Options** | **Description** |
+| **Option** | **Description** |
 | :--- | :--- |
 | --cloud | Login to the cloud instead of local |
 | --host | Login to a specific instance of W&B |
