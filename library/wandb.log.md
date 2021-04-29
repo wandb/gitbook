@@ -367,7 +367,7 @@ wandb.log({"conf_mat" : wandb.plot.confusion_matrix(
 * 这些示例的相应的基准真值`（ground truth）`标签`（ground_truth）`
 *  一个完整的标签/类名字符串列表`（class_names,例如class_names=["cat", "dog", "bird"...]`如果标签索引0表示`cat,那么1=dog,2=bird,等）`
 
-![](../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%281%29.png)
+![](../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.png)
 
 ​​ ​[在应用程序中查看 →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)​
 
