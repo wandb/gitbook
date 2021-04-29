@@ -57,7 +57,7 @@ wandb.config.update(flags.FLAGS) # adds all absl flags to config
 
 ## File-Based Configs
 
-You can create a file called **config-defaults.yaml,** \_\_and it will automatically be loaded into `wandb.config`
+You can create a file called **config-defaults.yaml,**  and it will automatically be loaded into `wandb.config`
 
 ```yaml
 # sample config defaults file
