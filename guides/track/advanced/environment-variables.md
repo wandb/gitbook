@@ -35,7 +35,7 @@ Use these optional environment variables to do things like set up authentication
 | **WANDB\_USERNAME** | The username of a member of your team associated with the run. This can be used along with a service account API key to enable attribution of automated runs to members of your team. |
 | **WANDB\_USER\_EMAIL** | The email of a member of your team associated with the run. This can be used along with a service account API key to enable attribution of automated runs to members of your team. |
 | **WANDB\_PROJECT** | The project associated with your run. This can also be set with `wandb init`, but the environmental variable will override the value. |
-| **WANDB\_MODE** | By default this is set to _run_ which saves results to wandb. If you just want to save your run metadata locally, you can set this to _dryrun_. |
+| **WANDB\_MODE** | By default this is set to _run_ which saves results to wandb. If you just want to save your run metadata locally, you can set this to _offline_. |
 | **WANDB\_TAGS** | A comma separated list of tags to be applied to the run. |
 | **WANDB\_DIR** | Set this to an absolute path to store all generated files here instead of the _wandb_ directory relative to your training script. _be sure this directory exists and the user your process runs as can write to it_ |
 | **WANDB\_RESUME** | By default this is set to _never_. If set to _auto_ wandb will automatically resume failed runs. If set to _must_ forces the run to exist on startup. If you want to always generate your own unique ids, set this to _allow_ and always set **WANDB\_RUN\_ID**. |
@@ -80,7 +80,7 @@ Arguments passed to `wandb.init` take precedence over the environment. You could
 
 ### Turn off logging
 
-The command `wandb off` sets an environment variable, `WANDB_MODE=dryrun` . This stops any data from syncing from your machine to the remote wandb server. If you have multiple projects, they will all stop syncing logged data to W&B servers.
+The command `wandb off` sets an environment variable, `WANDB_MODE=offline` . This stops any data from syncing from your machine to the remote wandb server. If you have multiple projects, they will all stop syncing logged data to W&B servers.
 
 To quiet the warning messages:
 
