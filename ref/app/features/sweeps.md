@@ -1,4 +1,8 @@
-# Sweeps
+---
+description: User interface for controlling in-progress hyperparameter sweeps
+---
+
+# Sweeps UI
 
 Use the [sweep docs](../../../guides/sweeps/) to create a YAML file and run sweeps from the command line.
 

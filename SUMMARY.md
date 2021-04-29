@@ -151,7 +151,7 @@
       * [Runs Table](ref/app/features/runs-table.md)
       * [Tags](ref/app/features/tags.md)
       * [Notes](ref/app/features/notes.md)
-      * [Sweeps](ref/app/features/sweeps.md)
+      * [Sweeps UI](ref/app/features/sweeps.md)
       * [Alerts](ref/app/features/alerts.md)
       * [Teams](ref/app/features/teams.md)
       * [System Metrics](ref/app/features/system-metrics.md)
