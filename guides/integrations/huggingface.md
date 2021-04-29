@@ -23,7 +23,9 @@ If you'd rather dive straight into working code, check out this [Google Colab](h
 
 ## Getting Started: Track and Save your Models
 
-Note the steps below work for both Hugging Face Transformers' PyTorch `Trainer` and TensorFlow `TFTrainer`
+{% hint style="info" %}
+Note the steps below work for both Hugging Face Transformers' PyTorch `Trainer` and TensorFlow `TFTrainer`.
+{% endhint %}
 
 ### **1\)** **Install the `wandb` Library and Log in**
 
@@ -137,7 +139,7 @@ Once you have logged your training results you can explore your results dynamica
 
 ### **Turn on Model Versioning**
 
-Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) you can use up to 100GB of storage for free to store your Models or Datasets. Logging your Hugging Face model to W&B Artifacts can be done by setting a W&B environment variable called `WANDB_LOG_MODEL` to true
+Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts), you can store up to 100GB of models and datasets. Logging your Hugging Face model to W&B Artifacts can be done by setting a W&B environment variable called `WANDB_LOG_MODEL` to true
 
 {% tabs %}
 {% tab title="Notebook" %}
@@ -154,7 +156,7 @@ WANDB_LOG_MODEL=true
 {% endtabs %}
 
 {% hint style="info" %}
-Your model will be saved to W&B Artifacts as `run-{run_name}`
+Your model will be saved to W&B Artifacts as `run-{run_name}`.
 {% endhint %}
 
 Any `Trainer` you initialize from now on will upload models to your W&B project. Your model file will be viewable through the W&B Artifacts UI. See the [Weights & Biases' Artifacts guide](https://docs.wandb.ai/artifacts) for more about how to use Artifacts for model and dataset versioning.
