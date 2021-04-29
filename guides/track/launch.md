@@ -112,7 +112,7 @@ By default, `wandb.init` starts a process that syncs metrics in real time to our
 You'll need to set two [environment variables](advanced/environment-variables.md).
 
 1. `WANDB_API_KEY=$KEY`, where `$KEY` is the API Key from your [settings page](https://app.wandb.ai/settings)
-2. `WANDB_MODE="dryrun"`
+2. `WANDB_MODE="offline"`
 
 And here's a sample of what this would look like in your script:
 
