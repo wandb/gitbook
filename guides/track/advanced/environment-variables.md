@@ -18,7 +18,7 @@ WANDB_PROJECT=$project
 
 ```python
 # If you don't want your script to sync to the cloud
-os.environ['WANDB_MODE'] = 'dryrun'
+os.environ['WANDB_MODE'] = 'offline'
 ```
 
 ## Optional Environment Variables
