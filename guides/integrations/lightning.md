@@ -1,5 +1,7 @@
 ---
-description: Visualize PyTorch Lightning models with W&B
+description: >-
+  Build scalable, structured, high-performance PyTorch models with Lightning and
+  log them with W&B.
 ---
 
 # PyTorch Lightning
