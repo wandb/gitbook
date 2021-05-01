@@ -20,7 +20,7 @@ trainer = Trainer(logger=wandb_logger)
 
 ![Interactive dashboards accessible anywhere, and more!](../../.gitbook/assets/n6p7k4m.gif)
 
-## Check out **real** examples!
+## Check out interactive examples!
 
 {% tabs %}
 {% tab title="Colab + Video Tutorial" %}
