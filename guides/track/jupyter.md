@@ -1,5 +1,5 @@
 ---
-description: Retain the flexibility and interactivity of Jupyter and add robust logging
+description: Retain the flexibility and interactivity of Jupyter and add robust logging.
 ---
 
 # Tracking Jupyter Notebooks
