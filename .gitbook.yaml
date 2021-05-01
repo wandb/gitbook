@@ -89,7 +89,7 @@ redirects:
   library/integrations/fastai: ./guides/integrations/fastai/README.md
   library/integrations/fastai/fastai: ./guides/integrations/fastai/v1.md
   library/integrations/xgboost: ./guides/integrations/boosting.md
-  library/integrations/lightgbm: ./guides/integrations/lightgbm.md
+  library/integrations/lightgbm: ./guides/integrations/boosting.md
   library/integrations/huggingface: ./guides/integrations/huggingface.md
   library/integrations/tensorboard: ./guides/integrations/tensorboard.md
   library/integrations/sagemaker: ./guides/integrations/sagemaker.md
@@ -182,3 +182,4 @@ redirects:
   library/integrations/jax: ./examples.md
   library/integrations/numpy: ./examples.md
   guides/integrations/xgboost: ./guides/integrations/boosting.md
+  guides/integrations/lightgbm: ./guides/integrations/boosting.md
