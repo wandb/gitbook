@@ -181,3 +181,4 @@ redirects:
   guides/integrations/jax: ./examples.md
   library/integrations/jax: ./examples.md
   library/integrations/numpy: ./examples.md
+  guides/integrations/xgboost: ./guides/integrations/boosting.md
