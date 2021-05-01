@@ -88,7 +88,7 @@ redirects:
   library/integrations/scikit: ./guides/integrations/scikit.md
   library/integrations/fastai: ./guides/integrations/fastai/README.md
   library/integrations/fastai/fastai: ./guides/integrations/fastai/v1.md
-  library/integrations/xgboost: ./guides/integrations/xgboost.md
+  library/integrations/xgboost: ./guides/integrations/boosting.md
   library/integrations/lightgbm: ./guides/integrations/lightgbm.md
   library/integrations/huggingface: ./guides/integrations/huggingface.md
   library/integrations/tensorboard: ./guides/integrations/tensorboard.md
@@ -111,7 +111,7 @@ redirects:
   library/frameworks/pytorch: ./guides/integrations/pytorch.md
   library/frameworks/scikit: ./guides/integrations/scikit.md
   library/frameworks/tensorflow: ./guides/integrations/tensorflow.md
-  library/frameworks/xgboost: ./guides/integrations/xgboost.md
+  library/frameworks/xgboost: ./guides/integrations/boosting.md
   frameworks: ./guides/integrations/README.md
   frameworks/catalyst: ./guides/integrations/catalyst.md
   frameworks/fastai: ./guides/integrations/fastai/README.md
@@ -124,8 +124,8 @@ redirects:
   frameworks/scikit-example: ./guides/integrations/scikit.md
   frameworks/tensorflow: ./guides/integrations/tensorflow.md
   frameworks/tensorflow-example: ./guides/integrations/tensorflow.md
-  frameworks/xgboost: ./guides/integrations/xgboost.md
-  frameworks/xgboost-example: ./guides/integrations/xgboost.md
+  frameworks/xgboost: ./guides/integrations/boosting.md
+  frameworks/xgboost-example: ./guides/integrations/boosting.md
   library/resuming: ./guides/track/advanced/resuming.md
   library/grouping: ./guides/track/advanced/grouping.md
   library/save: ./guides/track/advanced/save-restore.md
