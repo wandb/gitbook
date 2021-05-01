@@ -32,7 +32,7 @@
     * [Scikit-Learn](guides/integrations/scikit.md)
     * [XGBoost](guides/integrations/xgboost.md)
     * [LightGBM](guides/integrations/lightgbm.md)
-    * [Jupyter](guides/integrations/jupyter.md)
+    * [Tracking Jupyter Notebooks](guides/integrations/jupyter.md)
     * [Ray Tune](guides/integrations/ray-tune.md)
     * [OpenAI Gym](guides/integrations/openai-gym.md)
     * [Other Integrations](guides/integrations/other/README.md)
