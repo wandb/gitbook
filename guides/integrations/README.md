@@ -37,7 +37,7 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 
 ### Common Tools
 
-* [Jupyter](jupyter.md)
+* [Jupyter](../track/jupyter.md)
 * [SageMaker](other/sagemaker.md)
 * [Kubeflow](other/kubeflow.md)
 * [Docker](other/docker.md)
