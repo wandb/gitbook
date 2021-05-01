@@ -42,6 +42,6 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 * [Kubeflow](other/kubeflow.md)
 * [Docker](other/docker.md)
 * [Databricks](other/databricks.md)
-* [Ray Tune](ray-tune.md)
-* [OpenAI Gym](openai-gym.md)
+* [Ray Tune](other/ray-tune.md)
+* [OpenAI Gym](other/openai-gym.md)
 
