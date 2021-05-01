@@ -72,7 +72,7 @@ Comparte un enlace de sólo lectura para un reporte que esté en un proyecto pri
 
 Envía un gráfico desde tu entorno de trabajo a un reporte para hacer el seguimiento de tu progreso. Haz click en el menú desplegable sobre el gráfico o sobre el panel que te gustaría copiar al reporte, y haz click en **Agregar a reporte** para seleccionar el reporte destino.
 
-![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%284%29%20%285%29%20%281%29%20%281%29%20%281%29%20%282%29.gif)
+![](.gitbook/assets/demo-export-to-existing-report%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%284%29%20%285%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29.gif)
 
 ## Preguntas Frecuentes de los Reportes
 
