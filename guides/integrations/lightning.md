@@ -110,7 +110,7 @@ When manually calling `wandb.log` or `trainer.logger.experiment.log`, make sure 
 {% tab title="Image Logging" %}
 Log the input and output images of an autoencoder or other image-to-image transformation network. Input-output pairs are combined into single images.
 
-![Outputs \(top\) for given inputs \(bottom\) of an auto-encoder trained on MNIST. ReLU troubles!](../../.gitbook/assets/lit-ae-example-images.png)
+![Outputs \(top\) for given inputs \(bottom\) of an auto-encoder trained on MNIST. ReLU troubles!](../../.gitbook/assets/lit-ae-example-images%20%281%29.png)
 
 ```python
 import pytorch_lightning as pl
@@ -148,6 +148,52 @@ class WandbImageCallback(pl.Callback):
 trainer = pl.Trainer(
     ...
     callbacks=[WandbImageCallback(val_samples)]
+)
+```
+{% endtab %}
+
+{% tab title="Image Classification Logging" %}
+Logs the input image and the output label for a single-class classification network.
+
+![Images and labels for a classifier trained on MNIST. Look for the mistake!](../../.gitbook/assets/lit-wandb-example-images%20%281%29.png)
+
+```python
+import pytorch_lightning as pl
+from pytorch_lightning.loggers import WandbLogger
+import torch
+import wandb
+
+
+class WandbImagePredCallback(pl.Callback):
+    """Logs the input images and output predictions of a module.
+    
+    Predictions and labels are logged as class indices."""
+    
+    def __init__(self, val_samples, num_samples=32):
+        super().__init__()
+        self.val_imgs, self.val_labels = val_samples
+        self.val_imgs = self.val_imgs[:num_samples]
+        self.val_labels = self.val_labels[:num_samples]
+          
+    def on_validation_epoch_end(self, trainer, pl_module):
+        val_imgs = self.val_imgs.to(device=pl_module.device)
+
+        logits = pl_module(val_imgs)
+        preds = torch.argmax(logits, 1)
+
+        trainer.logger.experiment.log({
+            "val/examples": [
+                wandb.Image(x, caption=f"Pred:{pred}, Label:{y}") 
+                    for x, pred, y in zip(val_imgs, preds, self.val_labels)
+                ],
+            "global_step": trainer.global_step
+            })
+            
+...
+
+trainer = pl.Trainer(
+    ...
+    callbacks=[WandbImagePredCallback(val_samples)]
 )
 ```
 {% endtab %}
