@@ -32,8 +32,8 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 * [Simple Transformers](other/simpletransformers.md)
 * [Catalyst](other/catalyst.md)
 * [Scikit](scikit.md)
-* [XGBoost](xgboost.md)
-* [LightGBM](lightgbm.md)
+* [XGBoost](boosting.md)
+* [LightGBM]()
 
 ### Common Tools
 
