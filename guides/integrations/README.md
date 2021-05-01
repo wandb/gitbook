@@ -16,7 +16,7 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 
 ## Guides for Specific Integrations
 
-### Popular Frameworks
+### Popular ML Frameworks
 
 * [Keras](keras.md)
 * [PyTorch](pytorch.md)
@@ -24,14 +24,16 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
   * [PyTorch Ignite](other/ignite.md)
 * [TensorFlow](tensorflow.md)
   * [TensorBoard](tensorboard.md)
+* [Fastai](fastai/)
+* [Scikit](scikit.md)
 
 ### Popular Repositories
 
 * [Hugging Face](huggingface.md)
-* [Fastai](fastai/)
+* [spaCy](spacy.md)
+* [YOLOv5](yolov5.md)
 * [Simple Transformers](other/simpletransformers.md)
 * [Catalyst](other/catalyst.md)
-* [Scikit](scikit.md)
 * [XGBoost and LightGBM](boosting.md)
 
 ### Common Tools
