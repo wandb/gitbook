@@ -8,11 +8,19 @@ description: >-
 
 Use W&B Teams as a central workspace for your ML team to build better models faster.
 
-* **Track all the experiments** your team has tried so you never duplicate work. Just a few lines of instrumentation give you fast, reliable tracking of model performance metrics, predictions, GPU usage, and the version of the code that trained the model.
+* **Track all the experiments** your team has tried so you never duplicate work.
 * **Save, restore and reproduce** previously trained models.
 * **Share progress** and results with your boss and collaborators.
 * **Catch regressions** and immediately get alerted when performance drops.
 * **Benchmark model performance** and customize queries to compare your model versions.
+
+## Create a collaborative team
+
+1. \*\*\*\*[**Sign up or log in**](https://app.wandb.ai/login?signup=true) to your free W&B account
+2. Click **Invite Team** in the navigation bar
+3. Create your team and invite collaborators
+
+![](../../../.gitbook/assets/wandb-demo-create-a-team.gif)
 
 ## Common Questions
 
