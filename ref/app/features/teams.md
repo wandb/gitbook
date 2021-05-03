@@ -6,7 +6,7 @@ description: >-
 
 # Teams
 
-Use Weights & Biases as a central repository for your machine learning team.
+Use W&B Teams as a central workspace for your ML team to build better models faster.
 
 * **Track all the experiments** your team has tried so you never duplicate work. Just a few lines of instrumentation give you fast, reliable tracking of model performance metrics, predictions, GPU usage, and the version of the code that trained the model.
 * **Save, restore and reproduce** previously trained models.
