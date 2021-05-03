@@ -200,6 +200,14 @@ for artifact in best_run.logged_artifacts():
   print(artifact_path)
 ```
 
+## How do I best log models from runs in a sweep?
+
+One effective pattern for logging models in a sweep is to have a model artifact for the sweep, where the versions will correspond to different runs from the sweep. More concretely, you would have:
+
+```text
+wandb.Artifact(name=<sweep_name>, type='model')
+```
+
 ## How do I save code?‌
 
 Use `save_code=True` in `wandb.init` to save the main script or notebook where you’re launching the run. To save all your code to a run, version code with Artifacts. Here’s an example:
