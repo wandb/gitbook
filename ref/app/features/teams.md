@@ -26,17 +26,9 @@ We also offer [Self-Hosted](../../../guides/self-hosted/) installs for on-prem o
 
 ## Common Questions
 
-### Get access to private teams
-
-If you're at a company, we have enterprise plans. Check the [pricing page](https://www.wandb.com/pricing) for more details. We offer free private teams for academics working on open source projects. Check the [academic page](https://www.wandb.com/academic) to apply for an upgrade.
-
-### Create a new team
-
-Once you have the feature enabled, create a new team on your [Settings](https://app.wandb.ai/settings) page in the app. The name will be used in the URL of all your team projects, so make sure you pick something short and descriptive, since you won't be able to change it later.
-
 ### Move runs to a team
 
-It's easy to move runs between projects you have access to. On the project page:
+On the project page:
 
 1. Click the table tab to expand the runs table
 2. Click the checkbox to select all runs
@@ -59,18 +51,14 @@ Your **default entity** is updated when you join a team. This means that on your
 ### Invite team members
 
 You can invite new members to your team on your team settings page:  
-app.wandb.ai/teams/&lt;your-team-here&gt;
+app.wandb.ai/teams/&lt;your-team-name&gt;
 
 ### See privacy settings
 
 You can see the privacy settings of all team projects on the team settings page:  
-app.wandb.ai/teams/&lt;your-team-here&gt;
+app.wandb.ai/teams/&lt;your-team-name&gt;
 
-Here's what the team settings page looks like. In this screenshot the privacy toggle is on, which means all projects in the team are only visible to the team.
-
-![](../../../.gitbook/assets/demo-team-settings.png)
-
-### Removing members from teams
+### Remove members from teams
 
 When a team member leaves, it's easy to remove them. Team admins can open the team settings page and click the delete button next to the departing member's name. Any runs that they logged to the team will remain after a user is removed.
 
