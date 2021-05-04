@@ -38,7 +38,7 @@ But that's not all! By passing a few simple command line arguments to YOLO, you 
 
 * Passing a number to `--save_period` will turn on [model versioning](../artifacts/model-versioning.md). At the end of every `save_period` epochs, the model weights will be saved to W&B. The best-performing model on the validation set will be tagged automatically.
 * Turning on the `--upload_dataset` flag will also upload the dataset for [data versioning](../artifacts/dataset-versioning.md).
-* Passing a number to `--bbox_interval` will turn on [data visualization](../data-viz/). At the end of every `bbox_interval` epochs, the outputs of the model on the validation set will be uploaded to W&B.
+* Passing a number to `--bbox_interval` will turn on [data visualization](../data-vis/). At the end of every `bbox_interval` epochs, the outputs of the model on the validation set will be uploaded to W&B.
 
 {% tabs %}
 {% tab title="Model Versioning Only" %}
@@ -73,5 +73,5 @@ With data and model versioning, you can resume paused or crashed experiments fro
 
 {% page-ref page="../artifacts/" %}
 
-{% page-ref page="../data-viz/" %}
+{% page-ref page="../data-vis/" %}
 
