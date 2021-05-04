@@ -4,27 +4,33 @@ description: 'Log, visualize, dynamically query, and understand your data with W
 
 # Tables
 
-## Overview
+Use W&B Tables to log and visualize data and model predictions. Interactively explore your data:
 
-Tables for dataset and prediction visualization enable you to interactively explore your data; compare changes precisely across models, epochs, or individual examples; understand higher-level patterns in your data, and capture and communicate your insights.
+* Compare changes precisely across models, epochs, or individual examples
+* Understand higher-level patterns in your data
+* Capture and communicate your insights with visual samples
 
-* **actually see your data**: log metrics, images, text, video, audio, & more during model training or evaluation; visualize everything persistently in the cloud \(e.g. [a balanced split of a photos dataset →](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat_80-10-10_5K/ab79f01e007113280018/files/data_split.table.json)\)
+## Why are Tables useful?
+
+**Actually see your data**  
+Log metrics and rich media during model training or evaluation, then visualize results in a persistent database synced to the cloud, or to your [self-hosted W&B instance](../self-hosted/). For example, check out this [balanced split of a photos dataset →](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat_80-10-10_5K/ab79f01e007113280018/files/data_split.table.json)
 
 ![Browse actual examples and verify the counts &amp; distribution of your data](../../.gitbook/assets/screen-shot-2021-04-30-at-7.57.22-am.png)
 
-* **interactively explore your data**: view, sort, filter, group, join, and query Tables to understand your data and model performance—no need to browse static files or rerun analysis scripts. \(e.g.: [listen to style-transfered audio →](https://wandb.ai/stacey/cshanty/reports/Visualize-Audio-Data-in-W-B--Vmlldzo1NDMxMDk)\)
+**Interactively explore your data**  
+View, sort, filter, group, join, and query Tables to understand your data and model performance—no need to browse static files or rerun analysis scripts. For example, see this project on[ style-transfered audio →](https://wandb.ai/stacey/cshanty/reports/Visualize-Audio-Data-in-W-B--Vmlldzo1NDMxMDk)
 
 ![Listen to original songs and their synthesized versions \(with timbre transfer\)](../../.gitbook/assets/screen-shot-2021-04-29-at-8.52.10-pm.png)
 
-* **compare model versions** dynamically across different training epochs, datasets, hyperparameter choices, etc. \(e.g.: [compare two models on the same test images →](https://wandb.ai/stacey/evalserver_answers_2/artifacts/results/eval_Daenerys/c2290abd3d7274f00ad8/files/eval_results.table.json#b6dae62d4f00d31eeebf$eval_Bob)\)
+**Compare model versions**  
+Quickly compare results across different training epochs, datasets, hyperparameter choices, model architectures etc. For example, take a look at this comparison of[ two models on the same test images →](https://wandb.ai/stacey/evalserver_answers_2/artifacts/results/eval_Daenerys/c2290abd3d7274f00ad8/files/eval_results.table.json#b6dae62d4f00d31eeebf$eval_Bob)
 
 ![See granular differences: the left model detects some red sidewalk, the right does not.](../../.gitbook/assets/screen-shot-2021-04-29-at-8.55.25-pm.png)
 
-* **track every detail and see the bigger picture**: visualize changes down to the level of predictions on specific examples in your dataset, at a specific step. Aggregate over these to notice and analyze patterns of errors and understand opportunities for improvement, within the same model over time or across different models \(e.g. mistakes [after 1 vs 5 epochs on MNIST → ](https://wandb.ai/stacey/mnist-viz/artifacts/predictions/baseline/d888bc05719667811b23/files/predictions.table.json#7dd0cd845c0edb469dec)\)
+**Track every detail and see the bigger picture**  
+Zoom in to visualize a specific prediction at a specific step. Zoom out to see the aggregate statistics, identify patterns of errors, and understand opportunities for improvement. This tool works for comparing steps from a single model training, or results across different model versions. Check out this example table analyzing results [after 1 vs 5 epochs on MNIST → ](https://wandb.ai/stacey/mnist-viz/artifacts/predictions/baseline/d888bc05719667811b23/files/predictions.table.json#7dd0cd845c0edb469dec)
 
 ![](../../.gitbook/assets/screen-shot-2021-04-30-at-7.49.27-am.png)
-
-* **collect and share your insights**: save specific results as Table configurations or views in your workspace as notes to yourself—say, the top false positives for your baseline model, or the distribution of confidence scores before and after an ablation. Save Tables to a Report to communicate your results—in a dense and visual way—to teammates and beyond.
 
 ## Log a Table
 
@@ -278,7 +284,7 @@ join_at.add(join_table, "synth_explore")
 run.log_artifact(join_at)
 ```
 
-## Further Examples
+## Example projects with W&B Tables
 
 ### Image classification
 
