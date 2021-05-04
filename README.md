@@ -12,7 +12,7 @@ Weights & Biases helps you build better models faster with a central dashboard f
 2. [Integrations](guides/integrations/): PyTorch, Keras, Hugging Face, and more
 3. [Hyperparameter Tuning](guides/sweeps/): Optimize models quickly
 4. [Data + Model Versioning](guides/artifacts/): Version datasets and models
-5. [Data Visualization](guides/datasets-and-predictions/): Visualize predictions across model versions
+5. [Data Visualization](guides/data-viz/): Visualize predictions across model versions
 6. [Collaborative Reports](guides/reports.md): Describe and share findings
 7. [Self-Hosting](guides/self-hosted/): Private cloud and local hosting of the W&B app
 
