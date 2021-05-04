@@ -10,7 +10,7 @@ Data is at the core of every ML workflow. We’ve added powerful new features to
 
 Dive in and try an end-to-end demo: [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/dsviz-cars-demo)
 
-![Here&apos;s a preview of the dataset table UI](../.gitbook/assets/table-ui.png)
+![Here&apos;s a preview of the dataset table UI](../../.gitbook/assets/table-ui.png)
 
 ## How it works
 
@@ -29,25 +29,25 @@ _Follow along by opening this_ [_example project_](https://wandb.ai/stacey/dsviz
 
 Here's an [example table](https://wandb.ai/stacey/dsviz-demo/artifacts/raw_data/bdd_raw_data_500/afcb923f719b14370215/files/raw_examples.table.json) with a raw logged dataset. To visualize logged tables and media objects, open an artifact, go to the **Files** tab, and click on the table or object. Switch to the **Graph view** to see how artifacts and runs in the project are connected. Toggle **Explode** to see the individual executions of each step in the pipeline.
 
-![](../.gitbook/assets/screen-shot-2021-02-22-at-6.04.03-pm.png)
+![](../../.gitbook/assets/screen-shot-2021-02-22-at-6.04.03-pm.png)
 
 ### Filtering
 
 Specify filters on any column to limit the visible rows down to only rows that match. In the [demo](https://wandb.ai/stacey/dsviz-demo/artifacts/raw_data/bdd_raw_data_500/afcb923f719b14370215/files/raw_examples.table.json), try filtering down to just rows that are mostly vegetation with `%_vegetation > 0.5`.
 
-![](../.gitbook/assets/screen-shot-2021-02-22-at-8.31.23-pm.png)
+![](../../.gitbook/assets/screen-shot-2021-02-22-at-8.31.23-pm.png)
 
 ### Sorting
 
 Sort by metadata to find the most interesting or troublesome examples. In the [demo](https://wandb.ai/stacey/dsviz-demo/artifacts/train_data/bdd_train_data_500/0d2650b62d7e6201f9eb/files/train_table.table.json), sort by the `%_person` column to find the images with the most pedestrians.
 
-![](../.gitbook/assets/screen-shot-2021-02-22-at-6.25.50-pm.png)
+![](../../.gitbook/assets/screen-shot-2021-02-22-at-6.25.50-pm.png)
 
 ### **Comparison**
 
 Compare any two artifact versions in the table. In this [comparison of model predictions](https://wandb.ai/stacey/dsviz-demo/artifacts/val_epoch_preds/val_pred_55oxnv95/e7956e9367bf5369712c/files/val_epoch_results.table.json#8ea156e10e0099fe58d8), we're comparing v0 with v19, as seen in the left sidebar highlights. This shows predictions from both artifact versions in a single table. Think of both tables being overlaid on top of eachother. The table decides to render bar charts for incoming numeric columns, with one bar for each table being compared.
 
-![](../.gitbook/assets/image-7-.png)
+![](../../.gitbook/assets/image-7-.png)
 
 ## Python API
 
@@ -181,19 +181,19 @@ Try this yourself on MNIST: [![](https://colab.research.google.com/assets/colab-
 
 View the image pixels, true and guessed labels, example id, confidence scores for all labels, and any other useful information for each example in your data. Once you've logged this to a wandb.Table, you can execute dynamic visual queries without needing to rerun any code: filter, sort, group, create new columns with derived information, and more. 
 
-![Explore the baseline model&apos;s predictions after 5 epochs of training](../.gitbook/assets/screen-shot-2021-04-15-at-12.02.04-am.png)
+![Explore the baseline model&apos;s predictions after 5 epochs of training](../../.gitbook/assets/screen-shot-2021-04-15-at-12.02.04-am.png)
 
 **Compare a single model's predictions after 1 vs 5 epochs of training** \([live example](https://wandb.ai/stacey/mnist-viz/artifacts/predictions/baseline/d888bc05719667811b23/files/predictions.table.json#7dd0cd845c0edb469dec)\)
 
 The left side shows the baseline model's predictions on the validation data after one epoch of training \(v0 of the predictions, blue highlight\), and the right shows predictions on the same images after five epochs of training \(v4, yellow highlight\).
 
-![Confidence scores for incorrect labels decrease with more training epochs](../.gitbook/assets/screen-shot-2021-04-14-at-11.45.58-pm.png)
+![Confidence scores for incorrect labels decrease with more training epochs](../../.gitbook/assets/screen-shot-2021-04-14-at-11.45.58-pm.png)
 
 **Compare across model variants** \([live example](https://wandb.ai/stacey/mnist-viz/artifacts/predictions/baseline/d888bc05719667811b23/files/predictions.table.json#2bb3b1d40aa777496b5d$2x_layers_2x_lr)\)
 
 The left side shows a baseline model's predictions after 1 epoch of training. The right side shows a new variant's predictions on the same images after 1 epoch of training. The new variant has a few architectural changes for illustration purposes \(double the size of the two convolutional layers, double the learning rate\). In a few clicks, we can see the most confused classes for each model variant and a distribution of true labels for each of those guessed classes. For step-by-step instructions, see [this report.](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk) 
 
-![Filter to wrong guesses, group by guess, sort by frequency to see the top confused classes for each model.](../.gitbook/assets/screen-shot-2021-04-14-at-11.52.32-pm.png)
+![Filter to wrong guesses, group by guess, sort by frequency to see the top confused classes for each model.](../../.gitbook/assets/screen-shot-2021-04-14-at-11.52.32-pm.png)
 
 ## FAQ
 
