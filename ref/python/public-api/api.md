@@ -178,7 +178,7 @@ runs(
 
 Return a set of runs from a project that match the filters provided.
 
-You can filter by `config.*<code>, </code>summary.*<code>, </code>state<code>, </code>entity<code>, </code>createdAt`, etc.
+You can filter by `config.*`, `summary.*`, `state`, `entity`, `createdAt`, etc.
 
 #### Examples:
 
