@@ -4,7 +4,7 @@
 
 Use the Public API to export or update data that you have saved to W&B.
 
-Before using this API, you'll want to log data from your script — check the [Quickstart](https://github.com/wandb/gitbook/tree/aeb4af40be452ae77c1f4a8f9679a40679fa0872/ref/python/quickstart.md) for more details.
+Before using this API, you'll want to log data from your script — check the [Quickstart](https://docs.wandb.ai/quickstart) for more details.
 
 **Use Cases for the Public API**
 
