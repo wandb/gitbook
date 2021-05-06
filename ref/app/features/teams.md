@@ -9,20 +9,24 @@ description: >-
 Use W&B Teams as a central workspace for your ML team to build better models faster.
 
 * **Track all the experiments** your team has tried so you never duplicate work.
-* **Save, restore and reproduce** previously trained models.
+* **Save and reproduce** previously trained models.
 * **Share progress** and results with your boss and collaborators.
 * **Catch regressions** and immediately get alerted when performance drops.
-* **Benchmark model performance** and customize queries to compare your model versions.
+* **Benchmark model performance** and compare model versions.
 
 ## Create a collaborative team
 
-1. \*\*\*\*[**Sign up or log in**](https://app.wandb.ai/login?signup=true) to your free W&B account
-2. Click **Invite Team** in the navigation bar
-3. Create your team and invite collaborators
+1. \*\*\*\*[**Sign up or log in**](https://app.wandb.ai/login?signup=true) to your free W&B account.
+2. Click **Invite Team** in the navigation bar.
+3. Create your team and invite collaborators.
 
 We also offer [Self-Hosted](../../../guides/self-hosted/) installs for on-prem or private cloud customers.
 
 ![](../../../.gitbook/assets/wandb-demo-create-a-team.gif)
+
+## Team Trials
+
+We offer 30 day free trials for business teams. During the trial, you and your colleagues will have access to all the features in W&B. Once the trial is over, you can upgrade your plan to continue using a W&B Team to collaborate. Your personal W&B account will always remain free, and if you're a student or teacher you can enroll in an academic plan.
 
 ## Common Questions
 
