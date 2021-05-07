@@ -136,7 +136,7 @@ We support the following stopping algorithm\(s\):
 | :--- | :--- |
 | hyperband | Use the [hyperband method](https://arxiv.org/abs/1603.06560) |
 
-Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program. Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged — if the metric is logged every epoch, then there are epoch iterations\).
+Hyperband stopping evaluates whether a program should be stopped or permitted to continue at one or more brackets during the execution of the program. Brackets are configured at static iterations for a specified `metric` \(where an iteration is the number of times a metric has been logged — if the metric is logged every epoch, then there are epoch iterations\). The hyperband early terminator runs periodically, every few minutes, and checks what runs to terminate. 
 
 In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
 
