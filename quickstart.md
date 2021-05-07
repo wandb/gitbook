@@ -15,7 +15,8 @@ wandb login
 
 ### 2. Start a new run
 
-Initialize a new run in W&B in your Python script or notebook. `wandb.init()` will start tracking system metrics and console logs, right out of the box. Run your code, put in [your API key](https://wandb.ai/authorize) when prompted, and you'll see the new run appear in W&B. [Learn more →](guides/track/launch.md)
+Initialize a new run in W&B in your Python script or notebook. `wandb.init()` will start tracking system metrics and console logs, right out of the box. Run your code, put in [your API key](https://wandb.ai/authorize) when prompted, and you'll see the new run appear in W&B. [  
+More about wandb.init\(\) →](guides/track/launch.md)
 
 ```python
 import wandb
@@ -24,7 +25,8 @@ wandb.init(project="my-test-project")
 
 ### 3. Track metrics
 
-Use `wandb.log()` to track metrics, or a framework [integration](guides/integrations/) for easy instrumentation. [Learn more →](guides/track/log.md)
+Use `wandb.log()` to track metrics, or a framework [integration](guides/integrations/) for easy instrumentation.   
+[More about wandb.log\(\) →](guides/track/log.md)
 
 ```python
 wandb.log({'accuracy': train_acc, 'loss': train_loss})
@@ -34,7 +36,8 @@ wandb.log({'accuracy': train_acc, 'loss': train_loss})
 
 ###  4. Track hyperparameters
 
-Save hyperparameters so you can quickly compare experiments. [Learn more →](guides/track/config.md)
+Save hyperparameters so you can quickly compare experiments.   
+[More about wandb.config →](guides/track/config.md)
 
 ```python
 wandb.config.dropout = 0.2
