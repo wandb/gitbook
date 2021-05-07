@@ -4,6 +4,10 @@ description: Start tracking machine learning experiments in 5 minutes
 
 # Quickstart
 
+Build better models more efficiently with Weights & Biases experiment tracking.
+
+![](.gitbook/assets/wandb-demo-experiments-gif.gif)
+
 ### 1. Set up wandb
 
 [Sign up](https://app.wandb.ai/login?signup=true) for a free account and install the library `wandb` in a Python 3 environment from the command line. In a notebook, call `wandb.login()` in Python istead.
