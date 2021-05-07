@@ -61,7 +61,7 @@
     * [Sweep from an existing project](guides/sweeps/existing-project.md)
     * [Sweep Configuration](guides/sweeps/configuration.md)
     * [Common Questions](guides/sweeps/faq.md)
-    * [Sweep from Jupyter Notebook](guides/sweeps/python-api.md)
+    * [Running Sweeps in Jupyter](guides/sweeps/python-api.md)
     * [Local Controller](guides/sweeps/local-controller.md)
     * [Ray Tune Sweeps](guides/sweeps/ray-tune.md)
     * [Visualize Sweep Results](guides/sweeps/visualize-sweep-results.md)
