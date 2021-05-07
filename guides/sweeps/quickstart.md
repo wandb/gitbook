@@ -18,7 +18,7 @@ Already have a Weights & Biases project? [Skip to our next Sweeps tutorial →](
 
 ### **Set up your Python training script**
 
-1. Import our library `wandb`  
+1. Import our library `wandb`.
 2. Make sure your hyperparameters can be properly set by the sweep. Define them in a dictionary at the top of your script and pass them into `wandb.init`.
 3. Use the values in `wandb.config` to build you model.
 4. Log metrics to see them in the live dashboard. 
