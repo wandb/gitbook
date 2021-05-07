@@ -49,6 +49,39 @@ wandb.config.dropout = 0.2
 
 ![](.gitbook/assets/wandb-demo-logging-config.png)
 
+## What next?
+
+1. \*\*\*\*[**Collaborative Reports**](guides/reports.md): Snapshot results, take notes, and share findings
+2. \*\*\*\*[**Data + Model Versioning**](guides/artifacts/): Track dependencies and results in your ML pipeline
+3. \*\*\*\*[**Data Visualization**](guides/data-vis/)**:** Visualize and query datasets and model evaluations
+4. \*\*\*\*[**Hyperparameter Tuning**](guides/sweeps/): Quickly automate optimizing hyperparameters
+
+{% tabs %}
+{% tab title="Reports" %}
+### Reports
+
+* Snapshot visualizations and comparisons
+* Capture notes during the course of your research
+* Share highlights with collaborators or your boss
+
+[More about Reports →](guides/reports.md)
+{% endtab %}
+
+{% tab title="Artifacts" %}
+### Artifacts
+
+* Save 
+{% endtab %}
+
+{% tab title="Tables" %}
+
+{% endtab %}
+
+{% tab title="Sweeps" %}
+
+{% endtab %}
+{% endtabs %}
+
 ## Common Questions
 
 **Where do I find my API key?**  
