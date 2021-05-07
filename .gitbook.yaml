@@ -140,22 +140,22 @@ redirects:
   library/public-api-guide: ./guides/track/public-api-guide.md
   library/security: ./guides/technical-faq.md
   sweeps: ./guides/sweeps/README.md
-  sweeps/ray-tune: ./guides/sweeps/ray-tune.md
+  sweeps/ray-tune: ./guides/sweeps/advanced-sweeps/ray-tune.md
   sweeps/existing-project: ./guides/sweeps/existing-project.md
   sweeps/configuration: ./guides/sweeps/configuration.md
   sweeps/python-api: ./guides/sweeps/python-api.md
-  sweeps/sweeps-examples: ./guides/sweeps/sweeps-examples.md
+  sweeps/sweeps-examples: ./guides/sweeps/quickstart.md
   sweeps/quickstart: ./guides/sweeps/quickstart.md
-  sweeps/visualize-sweep-results: ./guides/sweeps/visualize-sweep-results.md
+  sweeps/visualize-sweep-results: ./guides/sweeps/quickstart.md
   sweeps/faq: ./guides/sweeps/faq.md
-  sweeps/local-controller: ./guides/sweeps/local-controller.md
-  sweeps/local: ./guides/sweeps/local-controller.md
+  sweeps/local-controller: ./guides/sweeps/advanced-sweeps/local-controller.md
+  sweeps/local: ./guides/sweeps/advanced-sweeps/local-controller.md
   sweeps/python: ./guides/sweeps/python-api.md
   sweeps/overview: ./guides/sweeps/README.md
   library/sweeps: ./guides/sweeps/README.md
   library/sweeps/configuration: ./guides/sweeps/configuration.md
-  library/sweeps/advanced: ./guides/sweeps/ray-tune.md
-  library/sweeps/local-controller: ./guides/sweeps/local-controller.md
+  library/sweeps/advanced: ./guides/sweeps/advanced-sweeps/README.md
+  library/sweeps/local-controller: ./guides/sweeps/advanced-sweeps/local-controller.md
   library/sweeps/python-api: ./guides/sweeps/python-api.md
   artifacts: ./guides/artifacts/README.md
   artifacts/artifacts-core-concepts: ./guides/artifacts/artifacts-core-concepts.md
