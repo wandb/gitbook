@@ -59,7 +59,7 @@
     * [Sweeps Quickstart](guides/sweeps/quickstart.md)
     * [Running Sweeps in Jupyter](guides/sweeps/python-api.md)
     * [Example Sweep](guides/sweeps/sweeps-examples.md)
-    * [Sweep from an existing project](guides/sweeps/existing-project.md)
+    * [Sweep from an Existing Project](guides/sweeps/existing-project.md)
     * [Sweep Configuration](guides/sweeps/configuration.md)
     * [Local Controller](guides/sweeps/local-controller.md)
     * [Ray Tune Sweeps](guides/sweeps/ray-tune.md)
