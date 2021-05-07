@@ -30,6 +30,8 @@ Use `wandb.log()` to track metrics, or a framework [integration](guides/integrat
 wandb.log({'accuracy': train_acc, 'loss': train_loss})
 ```
 
+![](.gitbook/assets/wandb-demo-logging-metrics.png)
+
 ###  4. Track hyperparameters
 
 Save hyperparameters so you can quickly compare experiments. [Learn more →](guides/track/config.md)
@@ -37,6 +39,8 @@ Save hyperparameters so you can quickly compare experiments. [Learn more →](gu
 ```python
 wandb.config.dropout = 0.2
 ```
+
+![](.gitbook/assets/wandb-demo-logging-config.png)
 
 ## Common Questions
 
