@@ -36,5 +36,5 @@ Use Weights & Biases Sweeps to automate hyperparameter optimization and explore 
 
 {% page-ref page="configuration.md" %}
 
-{% page-ref page="local-controller.md" %}
+{% page-ref page="advanced-sweeps/local-controller.md" %}
 
