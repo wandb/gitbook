@@ -70,7 +70,7 @@ Here's an example sweep config YAML file called `sweep.yaml`:
 
 {% tabs %}
 {% tab title="sweep.yaml" %}
-```text
+```yaml
 program: train.py
 method: bayes
 metric:
