@@ -32,7 +32,7 @@ Run GPU-accelerated PyTorch Lighting plus W&B logging without installing anythin
 {% tab title="Kaggle Kernel" %}
 See how PyTorch Lighting and W&B can accelerate your model development and help you climb the leaderboard with [this Kaggle Kernel](https://www.kaggle.com/ayuraj/use-pytorch-lightning-with-weights-and-biases).
 
-![](../../.gitbook/assets/lgklnrt%20%281%29%20%281%29.gif)
+![](../../.gitbook/assets/lgklnrt%20%281%29%20%281%29%20%281%29.gif)
 {% endtab %}
 
 {% tab title="Blog Posts" %}
