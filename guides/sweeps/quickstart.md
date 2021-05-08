@@ -193,7 +193,7 @@ wandb agent your-sweep-id
 
 ## 5. Visualize results
 
-Open your project to see your live results in the sweep dashboard.
+Open your project to see your live results in the sweep dashboard. With just a few clicks, construct rich, interactive charts like [parallel coordinates plots](../../ref/app/features/panels/parallel-coordinates.md),[ parameter importance analyses](../../ref/app/features/panels/parameter-importance.md), and [more](../../ref/app/features/panels/).
 
 [Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
