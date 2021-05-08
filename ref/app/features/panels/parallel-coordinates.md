@@ -1,12 +1,14 @@
 ---
-description: Visualize highly dimensional data across your machine learning experiments
+description: Compare results across machine learning experiments
 ---
 
 # Parallel Coordinates
 
-Here's an example of a parallel coordinates plot. Each axis represents a different In this case I've chosen four vertical axes. In this case I'm visualizing the relationship between different hyperparameters and the final accuracy of my model.
+Parallel coordinates charts summarize the relationship between large numbers of hyperparameters and model metrics at a glance.
 
-* **Axes**: Different hyperparameters from [wandb.config](../../../../guides/track/config.md) and metrics from [wandb.log\(\)](../../../../guides/track/log.md)
+![](../../../../.gitbook/assets/2020-04-27-16.11.43.gif)
+
+* **Axes**: Different hyperparameters from [`wandb.config`](../../../../guides/track/config.md) and metrics from [`wandb.log`](../../../../guides/track/log.md).
 * **Lines**: Each line represents a single run. Mouse over a line to see a tooltip with details about the run. All lines that match the current filters will be shown, but if you turn off the eye, lines will be grayed out.
 
 **Panel Settings**
@@ -20,6 +22,4 @@ Configure these features in the panel settings— click the edit button in the u
 * **Flip axis**: Switch the axis direction— this is useful when you have both accuracy and loss as columns
 
   [See it live →](https://app.wandb.ai/example-team/sweep-demo/reports/Zoom-in-on-Parallel-Coordinates-Charts--Vmlldzo5MTQ4Nw)
-
-![](../../../../.gitbook/assets/2020-04-27-16.11.43.gif)
 
