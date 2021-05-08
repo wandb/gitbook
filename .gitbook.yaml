@@ -157,6 +157,7 @@ redirects:
   library/sweeps/advanced: ./guides/sweeps/advanced-sweeps/README.md
   library/sweeps/local-controller: ./guides/sweeps/advanced-sweeps/local-controller.md
   library/sweeps/python-api: ./guides/sweeps/python-api.md
+  guides/sweeps/visualize-sweep-results: ./guides/sweeps/quickstart.md
   artifacts: ./guides/artifacts/README.md
   artifacts/artifacts-core-concepts: ./guides/artifacts/artifacts-core-concepts.md
   artifacts/api: ./guides/artifacts/api.md
