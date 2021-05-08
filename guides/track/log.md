@@ -9,7 +9,11 @@ Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a ste
 ### Example Usage
 
 ```python
-wandb.log({'accuracy': 0.9, 'epoch': 5})
+wandb.log({"loss": 0.314, "epoch": 5,
+           "inputs": wandb.Image(inputs),
+           "logits": wandb.Histogram(ouputs),
+           "captions": wandb.HTML(captions)
+           })
 ```
 
 ### **Common Workflows**
@@ -24,9 +28,11 @@ View the reference docs, generated from the `wandb` Python library.
 
 {% page-ref page="../../ref/python/log.md" %}
 
+{% page-ref page="../../ref/python/data-types/" %}
+
 ## Logging Objects
 
-We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visualize comparisons between your runs.
+We support images, video, audio, custom graphs, and more. Log rich media to explore your results and visually compare your runs, models, and datasets.
 
 {% hint style="info" %}
 You can see working code to log all of these media objects in [this Colab Notebook](http://wandb.me/media-colab), check out what the results look like on wandb.ai [here](https://wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA), and follow along with a video tutorial, linked below.
@@ -38,32 +44,74 @@ You can see working code to log all of these media objects in [this Colab Notebo
 Looking for reference docs for our media types? You want [this page](../../ref/python/data-types/).
 {% endhint %}
 
-### Histograms
+### Images
 
-```python
-wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
-wandb.run.summary.update(  # if only in summary, only visible on overview tab
-  {"final_logits": wandb.Histogram(np_histogram=np.histogram(logits))})
-```
+Log images to track inputs, outputs, filter weights, activations, and more!
 
-If a sequence is provided as the first argument, we will bin the histogram automatically. You can also pass what is returned from `np.histogram` to the `np_histogram` keyword argument to do your own binning. The maximum number of bins supported is 512. You can use the optional `num_bins` keyword argument when passing a sequence to override the default of 64 bins.
+![Inputs and outputs of an autoencoder network performing in-painting.](../../.gitbook/assets/image%20%2876%29.png)
 
-If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
+Images can be logged directly from numpy arrays, as PIL images, or from the filesystem.
 
-### Images and Overlays
+{% hint style="info" %}
+It's recommended to log fewer than 50 images per step to prevent logging from becoming a bottleneck during training and image loading from becoming a bottleneck when viewing results.
+{% endhint %}
 
 {% tabs %}
-{% tab title="Image" %}
-`wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})`
+{% tab title="Logging Arrays as Images" %}
+Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make_grid). 
 
-If a numpy array is supplied we assume it's gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats we convert them to ints between 0 and 255. If you want to normalize your images differently, ou can specify a [mode](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a `PIL.Image`. It's recommended to log fewer than 50 images per step.
+Arrays are converted to png using [Pillow](https://pillow.readthedocs.io/en/stable/index.html).
+
+```python
+images = wandb.Image(image_array, caption="Top: Output, Bottom: Input")
+          
+wandb.log({"examples": images}
+```
+
+We assume the image is gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats, we convert them to integers between `0` and `255`. If you want to normalize your images differently, you can specify the [`mode`](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a [`PIL.Image`](https://pillow.readthedocs.io/en/stable/reference/Image.html), as described in the "Logging PIL Images" tab of this panel.
 {% endtab %}
 
-{% tab title="Segmentation Mask" %}
-If you have images with masks for semantic segmentation, you can log the masks and toggle them on and off in the UI. To log multiple masks, log a mask dictionary with multiple keys. Here's an example:
+{% tab title="Logging PIL Images" %}
+For full control over the conversion of arrays to images, construct the [`PIL.Image`](https://pillow.readthedocs.io/en/stable/reference/Image.html) yourself and provide it directly.
 
-* `mask_data`: a 2D numpy array containing an integer class label for each pixel
-* `class_labels`: a dictionary mapping the numbers from `mask_data` to readable labels
+```python
+images = [PIL.Image.fromarray(image, ...) for image in image_array]
+          
+wandb.log({"examples": wandb.Image(images)}
+```
+{% endtab %}
+
+{% tab title="Logging Images from Paths" %}
+For even more control, create images however you like, save them to disk, and provide a path.
+
+```python
+im = PIL.fromarray(...)
+rgb_im = im.convert('RGB')
+rgb_im.save('myimage.jpg')
+
+wandb.log({"example": wandb.Image("myimage.jpg")})
+```
+{% endtab %}
+{% endtabs %}
+
+### Image Overlays
+
+{% tabs %}
+{% tab title="Segmentation Masks" %}
+Log semantic segmentation masks and interact with them \(altering opacity, viewing changes over time, and more\) via the W&B UI.
+
+![Interactive mask viewing in the W&amp;B UI.](../../.gitbook/assets/semantic-segmentation.gif)
+
+To log an overlay, you'll need to provide a dictionary with the following keys and values to the `masks` keyword argument of `wandb.Image`:
+
+* `"mask_data"`: a 2D numpy array containing an integer class label for each pixel
+* `"class_labels"`: a dictionary mapping the numbers from `mask_data` to readable labels
+
+To log multiple masks, log a mask dictionary with multiple keys, as in the code snippet below.
+
+[See a live example →](https://app.wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)
+
+[Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
 
 ```python
 mask_data = np.array([[1, 2, 2, ... , 2, 2, 1], ...])
@@ -79,22 +127,32 @@ mask_img = wandb.Image(image, masks={
     "mask_data": mask_data,
     "class_labels": class_labels
   },
-  "groud_truth": {
+  "ground_truth": {
     ...
   },
   ...
 })
 ```
-
-[See a live example →](https://app.wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)
-
-[Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
-
-![](../../.gitbook/assets/semantic-segmentation.gif)
 {% endtab %}
 
-{% tab title="Bounding Box" %}
+{% tab title="Bounding Boxes" %}
 Log bounding boxes with images, and use filters and toggles to dynamically visualize different sets of boxes in the UI.
+
+![](../../.gitbook/assets/bb-docs.jpeg)
+
+[See a live example →](https://app.wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ)
+
+To log a bounding box, you'll need to provide a dictionary with the following keys and values to the boxes keyword argument of `wandb.Image`:
+
+* `box_data`: a list of dictionaries, one for each box. The box dictionary format is described below.
+  * `position`: a dictionary representing the position and size of the box in one of two formats, as described below. Boxes need not all use the same format.
+    * _Option 1:_ `{"minX", "maxX", "minY", "maxY"}`. Provide a set of coordinates defining the upper and lower bounds of each box dimension.
+    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
+  * `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
+  * `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
+* `class_labels`: \(optional\) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
+
+Check out this example:
 
 ```python
 class_id_to_label = {
@@ -133,26 +191,6 @@ img = wandb.Image(image, boxes={
 
 wandb.log({"driving_scene": img})
 ```
-
-**Optional Parameters**
-
-`class_labels`: An optional argument mapping your class\_ids to string values. By default we will generate class\_labels `class_0`, `class_1`, etc...
-
-Each box passed into `box_data` can be defined with different coordinate systems.
-
-`position`
-
-* Option 1: `{minX, maxX, minY, maxY}` Provide a set of coordinates defining the upper and lower bounds of each box dimension.
-* Option 2: `{middle, width, height}`  Provide a set of coordinates specifying the middle coordinates as `[x,y]`, and `width`, and `height` as scalars 
-
-`domain` Change the domain of your position values based on your data representation
-
-* `percentage` \(Default\) A relative value representing the percent of the image as distance
-* `pixel`An absolute pixel value
-
-[See a live example →](https://app.wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ)
-
-![](../../.gitbook/assets/bb-docs.jpeg)
 {% endtab %}
 {% endtabs %}
 
@@ -162,7 +200,7 @@ Each box passed into `box_data` can be defined with different coordinate systems
 {% tab title="Audio" %}
 ```python
 wandb.log(
-  {"whale songs": [wandb.Audio(np_array, caption="OooOoo", sample_rate=32)]})
+  {"whale songs": wandb.Audio(np_array, caption="OooOoo", sample_rate=32)})
 ```
 
 The maximum number of audio clips that can be logged per step is 100.
@@ -230,6 +268,44 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 ![](../../.gitbook/assets/docs-molecule.png)
 {% endtab %}
 {% endtabs %}
+
+### Histograms
+
+{% tabs %}
+{% tab title="Basic Histogram Logging" %}
+If a sequence of numbers \(e.g. list, array, tensor\) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened.  You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
+
+In the UI, histograms are plotted with the training step on the x-axis, the metric value on the y-axis, and the count represented by color, to ease comparison of histograms logged throughout training. See the "Histograms in Summary" tab of this panel for details on logging one-off histograms.
+
+```python
+wandb.log({"gradients": wandb.Histogram(grads)})
+```
+
+![Gradients for the discriminator in a GAN.](../../.gitbook/assets/image%20%2874%29.png)
+{% endtab %}
+
+{% tab title="Flexible Histogram Logging" %}
+If you want more control, call `np.histogram` and pass the returned tuple to the `np_histogram` keyword argument.
+
+```python
+np_hist_grads = np.histogram(grads, density=True, range=(0., 1.))
+wandb.log({"gradients": wandb.Histogram(np_hist_grads)})
+```
+{% endtab %}
+
+{% tab title="Histograms in Summary" %}
+
+
+```python
+wandb.run.summary.update(  # if only in summary, only visible on overview tab
+  {"final_logits": wandb.Histogram(logits)})
+```
+{% endtab %}
+{% endtabs %}
+
+ 
+
+If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
 
 ### Custom Charts
 
@@ -619,17 +695,6 @@ wandb.log({'epoch': epoch, 'val_acc': 0.94})
 wandb.log({"example": wandb.Image(...)})
 # Or multiple images
 wandb.log({"example": [wandb.Image(...) for img in images]})
-```
-
-### **Log a JPEG**
-
-To save a JPEG you can pass a path to a file:
-
-```python
-im = PIL.fromarray(...)
-rgb_im = im.convert('RGB')
-rgb_im.save('myimage.jpg')
-wandb.log({"example": wandb.Image("myimage.jpg")})
 ```
 
 ### **Log a Video**
