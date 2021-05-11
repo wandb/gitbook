@@ -68,7 +68,7 @@ Click **Create report** in the upper right corner of your workspace. This gives 
 
 We provide a few quick templates to guide you, or you can create a new blank report.‌
 
-![](../.gitbook/assets/image%20%2847%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29%20%282%29%20%282%29%20%282%29.png)
+![](../.gitbook/assets/image%20%2847%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 * **Snapshot** adds the current date/time to the title, and adds a filter to the run set, which means only runs created before the current time are included in the snapshot.
 * **Dashboard** titles the report “Project Dashboard” and adds a filter to match exactly the current set of selected runs.

@@ -19,3 +19,4 @@ Commands for interacting with the artifact cache
 | **Command** | **Description** |
 | :--- | :--- |
 | cleanup | Clean up less frequently used files from the artifacts cache |
+
