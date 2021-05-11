@@ -10,14 +10,14 @@
 
 Use the Public API to export or update data that you have saved to W&B.
 
-Before using this API, you'll want to log data from your script — check the [Quickstart](../quickstart.md) for more details.
+Before using this API, you'll want to log data from your script — check the [Quickstart](https://docs.wandb.ai/quickstart) for more details.
 
 **Use Cases for the Public API**
 
 * **Export Data**: Pull down a dataframe for custom analysis in a Jupyter Notebook. Once you have explored the data, you can sync your findings by creating a new analysis run and logging results, for example: `wandb.init(job_type="analysis")`
 * **Update Existing Runs**: You can update the data logged in association with a W&B run. For example, you might want to update the config of a set of runs to include additional information, like the architecture or a hyperparameter that wasn't originally logged.
 
-See the [Generated Reference Docs](../ref/python/public-api/) for details on available functions.
+See the [Generated Reference Docs](https://docs.wandb.ai/quickstart) for details on available functions.
 
 ## Classes
 
