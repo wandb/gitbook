@@ -3,7 +3,7 @@
 <!-- Insert buttons and diff -->
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.30/wandb/__init__.py)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/__init__.py)
 
 
 
@@ -30,13 +30,13 @@
 
 [`log(...)`](./log.md): Log a dict to the global run's history.
 
-[`save(...)`](./save.md): Ensure all files matching *glob_str* are synced to wandb with the policy specified.
+[`save(...)`](./save.md): Ensure all files matching <code>glob_str</code> are synced to wandb with the policy specified.
 
 [`summary(...)`](./summary.md): Tracks single values for each metric for each run.
 
 [`sweep(...)`](./sweep.md): Initialize a hyperparameter sweep.
 
-[`watch(...)`](./watch.md): Hooks into the torch model to collect gradients and the topology.  Should be extended
+[`watch(...)`](./watch.md): Hooks into the torch model to collect gradients and the topology.
 
 
 
@@ -49,7 +49,7 @@
 __version__<a id="__version__"></a>
 </td>
 <td>
-`'0.10.30'`
+`'0.10.31.dev1'`
 </td>
 </tr>
 </table>

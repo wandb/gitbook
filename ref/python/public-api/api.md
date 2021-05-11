@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L191-L560)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L191-L560)
 
 
 
@@ -59,7 +59,7 @@ You can also set defaults for <code>entity</code>, <code>project</code>, and <co
 
 <h3 id="artifact"><code>artifact</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L539-L560">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L539-L560">View source</a>
 
 <pre><code>artifact(
     name, type=None
@@ -110,7 +110,7 @@ A <code>Artifact</code> object.
 
 <h3 id="artifact_type"><code>artifact_type</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L528-L531">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L528-L531">View source</a>
 
 <pre><code>artifact_type(
     type_name, project=None
@@ -121,7 +121,7 @@ A <code>Artifact</code> object.
 
 <h3 id="artifact_types"><code>artifact_types</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L523-L526">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L523-L526">View source</a>
 
 <pre><code>artifact_types(
     project=None
@@ -132,7 +132,7 @@ A <code>Artifact</code> object.
 
 <h3 id="artifact_versions"><code>artifact_versions</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L533-L537">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L533-L537">View source</a>
 
 <pre><code>artifact_versions(
     type_name, name, per_page=50
@@ -143,7 +143,7 @@ A <code>Artifact</code> object.
 
 <h3 id="create_run"><code>create_run</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L253-L257">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L253-L257">View source</a>
 
 <pre><code>create_run(
     **kwargs
@@ -154,7 +154,7 @@ Create a new run
 
 <h3 id="flush"><code>flush</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L308-L314">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L308-L314">View source</a>
 
 <pre><code>flush()</code></pre>
 
@@ -164,7 +164,7 @@ to get the latest values associated with the run.
 
 <h3 id="projects"><code>projects</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L371-L393">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L371-L393">View source</a>
 
 <pre><code>projects(
     entity=None, per_page=200
@@ -213,7 +213,7 @@ A <code>Projects</code> object which is an iterable collection of <code>Project<
 
 <h3 id="reports"><code>reports</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L395-L426">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L395-L426">View source</a>
 
 <pre><code>reports(
     path=&#x27;&#x27;, name=None, per_page=50
@@ -269,7 +269,7 @@ A <code>Reports</code> object which is an iterable collection of <code>BetaRepor
 
 <h3 id="run"><code>run</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L487-L503">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L487-L503">View source</a>
 
 <pre><code>run(
     path=&#x27;&#x27;
@@ -311,7 +311,7 @@ A <code>Run</code> object.
 
 <h3 id="runs"><code>runs</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L428-L485">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L428-L485">View source</a>
 
 <pre><code>runs(
     path=&#x27;&#x27;, filters=None, order=&#x27;-created_at&#x27;, per_page=50
@@ -400,7 +400,7 @@ A <code>Runs</code> object, which is an iterable collection of <code>Run</code> 
 
 <h3 id="sweep"><code>sweep</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L505-L521">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L505-L521">View source</a>
 
 <pre><code>sweep(
     path=&#x27;&#x27;
@@ -442,7 +442,7 @@ A <code>Sweep</code> object.
 
 <h3 id="sync_tensorboard"><code>sync_tensorboard</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L259-L280">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L259-L280">View source</a>
 
 <pre><code>sync_tensorboard(
     root_dir, run_id=None, project=None, entity=None

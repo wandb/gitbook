@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.30/wandb/sdk/data_types.py#L969-L1147)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/sdk/data_types.py#L969-L1147)
 
 
 
@@ -68,7 +68,7 @@ Channels should be (time, channel, height, width) or
 
 <h3 id="encode"><code>encode</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/sdk/data_types.py#L1038-L1075">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/sdk/data_types.py#L1038-L1075">View source</a>
 
 <pre><code>encode() -> None</code></pre>
 

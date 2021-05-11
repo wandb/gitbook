@@ -2,12 +2,12 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.30/wandb/sdk/wandb_watch.py#L19-L98)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/sdk/wandb_watch.py#L19-L99)
 
 
 
 
-Hooks into the torch model to collect gradients and the topology.  Should be extended
+Hooks into the torch model to collect gradients and the topology.
 
 <pre><code>watch(
     models, criterion=None, log=&#x27;gradients&#x27;, log_freq=1000, idx=None
@@ -15,7 +15,8 @@ Hooks into the torch model to collect gradients and the topology.  Should be ext
 
 
 
-to accept arbitrary ML models.
+
+Should be extended to accept arbitrary ML models.
 
 <!-- Tabular view -->
 <table>

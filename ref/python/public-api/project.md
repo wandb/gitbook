@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L723-L741)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L723-L741)
 
 
 
@@ -32,7 +32,7 @@ A project is a namespace for runs.
 
 <h3 id="artifacts_types"><code>artifacts_types</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L739-L741">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L739-L741">View source</a>
 
 <pre><code>artifacts_types(
     per_page=50
@@ -43,7 +43,7 @@ A project is a namespace for runs.
 
 <h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.30/wandb/apis/public.py#L567-L569">View source</a>
+<a target="_blank" href="https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/apis/public.py#L567-L569">View source</a>
 
 <pre><code>snake_to_camel(
     string
