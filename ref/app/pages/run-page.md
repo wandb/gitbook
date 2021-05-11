@@ -11,6 +11,11 @@ Use the run page to explore detailed information about a single version of your 
 ## Overview Tab
 
 * Run name, description, and tags
+* Run state
+  * **finished**: script ended and fully synced data, or called `wandb.finish()` 
+  * **failed**: script ended with a non-zero exit status
+  * **crashed**: script stopped sending heartbeats in the internal process, which can happen if the machine crashes
+  * **running**: script is still running and has recently sent a heartbeat
 * Host name, operating system, Python version, and command that launched the run
 * List of config parameters saved with [wandb.config](../../../guides/track/config.md)
 * List of summary parameters saved with [wandb.log\(\)](../../../guides/track/log.md), by default set to the last value logged
