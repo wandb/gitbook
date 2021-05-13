@@ -59,9 +59,11 @@ for i in range(10):
 This private instance of wandb is excellent for initial testing. To enjoy the powerful collaborative features of wandb, you will need a shared instance on a central server, which you can [set up on AWS, GCP, Azure, Kubernetes, or Docker](https://docs.wandb.ai/self-hosted/setup).
 
 {% hint style="warning" %}
-**Risk of Data Loss** 
+**Trial Mode vs. Production Setup**
 
-It is crucial that you set up a scalable file system to avoid data loss: allocate extra space in advance, resize the file system proactively as you log more data, and configure external metadata and object stores for backup. If you run out of disk space, the instance will stop working, and additional data will be lost.
+In Trial Mode of W&B Local, you're running the Docker container on a single machine. This setup is quick and painless, but isn't scalable. 
+
+Once you're ready to move from test projects to real production work, it  is crucial that you set up a scalable file system to avoid data loss: allocate extra space in advance, resize the file system proactively as you log more data, and configure external metadata and object stores for backup. If you run out of disk space, the instance will stop working, and additional data will be lost.
 {% endhint %}
 
 
