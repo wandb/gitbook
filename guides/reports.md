@@ -6,7 +6,7 @@ description: Project management and collaboration tools for machine learning pro
 
 Reports let you organize and embed visualizations, describe your findings, share updates with collaborators, and more. 
 
-## Typical Use Cases for Reports
+## Typical use cases for reports
 
 1. **Notes**: Add a graph with a quick note to yourself.
 2. **Collaboration**: Share findings with your colleagues.
@@ -123,11 +123,11 @@ Click the comment button on a panel in a report to add a comment directly to tha
 
 ![](../.gitbook/assets/demo-comment-on-panels-in-reports.gif)
 
-## Panel Grids
+## Panel grids
 
 If you'd like to compare a different set of runs, create a new panel grid. Each section's graphs are controlled by the **Run Sets** at the bottom of that section.
 
-## Run Sets
+## Run sets
 
 * **Dynamic run sets**: If you start from "Visualize all" and filter or deselect runs to visualize, the run set will automatically update to show any new runs that match the filters.
 * **Static run sets**: If you start from "Visualize none" and select the runs you want to include in your run set, you will only ever get those runs in the run set. No new runs will be added.
