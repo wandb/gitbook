@@ -4,9 +4,9 @@ description: Project management and collaboration tools for machine learning pro
 
 # Collaborative Reports
 
-Reports let you organize visualizations, describe your findings, and share updates with collaborators.
+Reports let you organize and embed visualizations, describe your findings, share updates with collaborators, and more. 
 
-## Use Cases for Reports
+## Typical Use Cases for Reports
 
 1. **Notes**: Add a graph with a quick note to yourself.
 2. **Collaboration**: Share findings with your colleagues.
@@ -14,7 +14,7 @@ Reports let you organize visualizations, describe your findings, and share updat
 
 ### **Notes: Add a visualization with a quick summary**
 
-Capture an important observation, idea for future work, or milestone reached in the development of a project. All experiment runs in your report will link to their parameters, metrics, logs, and code, so  you can save the full context of your work.
+Capture an important observation, an idea for future work, or a milestone reached in the development of a project. All experiment runs in your report will link to their parameters, metrics, logs, and code, so  you can save the full context of your work.
 
 Jot down some text and pull in relevant charts to illustrate your insight \([comparing networks in distributed training →](https://wandb.ai/stacey/estuary/reports/When-Inception-ResNet-V2-is-too-slow--Vmlldzo3MDcxMA) \)
 
@@ -26,9 +26,9 @@ Save the best examples from a complex code base for easy reference and future in
 
 ### **Collaboration: Share findings with your colleagues**
 
-Explain how to get started with a project, what you've observed so far, and synthesize the latest findings. Your colleagues can make suggestions or discuss details using comments on any panel or at the end of the report.
+Explain how to get started with a project, share what you've observed so far, and synthesize the latest findings. Your colleagues can make suggestions or discuss details using comments on any panel or at the end of the report.
 
-Include dynamic settings so that readers can explore for themselves, get additional insights, and better plan their next steps. In this example, three types of experiments can be visualized independently, compared, or averaged \([SafeLife benchmark experiments →](https://wandb.ai/stacey/saferlife/reports/SafeLife-Benchmark-Experiments--Vmlldzo0NjE4MzM)\).
+Include dynamic settings so that your colleagues can explore for themselves, get additional insights, and better plan their next steps. In this example, three types of experiments can be visualized independently, compared, or averaged \([SafeLife benchmark experiments →](https://wandb.ai/stacey/saferlife/reports/SafeLife-Benchmark-Experiments--Vmlldzo0NjE4MzM)\).
 
 ![](../.gitbook/assets/screen-shot-2021-04-19-at-2.32.11-pm.png)
 
@@ -42,7 +42,7 @@ Use sliders and configurable media panels to showcase a model's results or train
 
 ### **Work log: Track what you've tried and plan next steps**
 
-Write down your thoughts on experiments, your findings, and any gotchas and next steps as you work through a project, keeping everything organized in one place. This lets you expressively "document" all the important pieces beyond your scripts \(example: [tuning transformers →](https://wandb.ai/stacey/winograd/reports/Who-is-Them-Text-Disambiguation-with-Transformers--VmlldzoxMDU1NTc)\).
+Write down your thoughts on experiments, your findings, and any gotchas and next steps as you work through a project, keeping everything organized in one place. This lets you "document" all the important pieces beyond your scripts \(example: [tuning transformers →](https://wandb.ai/stacey/winograd/reports/Who-is-Them-Text-Disambiguation-with-Transformers--VmlldzoxMDU1NTc)\).
 
 ![](../.gitbook/assets/screen-shot-2021-04-19-at-2.44.02-pm.png)
 
@@ -66,7 +66,7 @@ Click **Create report** in the upper right corner of your workspace. This gives 
 
 ![](../.gitbook/assets/image%20%2844%29.png)
 
-We provide a few quick templates to guide you, or you can create a new blank report.‌
+We provide a few quick templates to guide you or you can create a blank report and start there.‌
 
 ![](../.gitbook/assets/image%20%2847%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
@@ -85,7 +85,7 @@ Go to the Reports tab in your project, and click **Create Report** button on the
 
 Create a new report, and start typing. The whole page is a rich text area where you can write notes and save custom visualizations and tables.
 
-### Add new charts, headings, or LaTex equations
+### Add new charts, headings, lists, or LaTex equations
 
 On a new line, press `/` to add rich content.
 
@@ -93,7 +93,7 @@ On a new line, press `/` to add rich content.
 
 ### Add charts to a report
 
-Add a panel grid, then add a panel \(like a line plot, scatter plot, or parallel coordinates chart\). Each panel grid has a set of run sets and a set of panels. The run sets at the bottom of the section control what data shows up on the panels in the grid. Create a new panel grid if you want to add charts that pull data from a different set of runs.
+Again press `/`, then add a panel grid, then add a panel \(like a line plot, scatter plot, or parallel coordinates chart\). Each panel grid has a set of run sets and a set of panels. The run sets at the bottom of the section control what data shows up on the panels in the grid. Create a new panel grid if you want to add charts that pull data from a different set of runs.
 
 ![](../.gitbook/assets/demo-report-add-panel-grid.gif)
 
@@ -215,7 +215,7 @@ If you converted your report using the message at the top of the report, simply 
 
 If you converted a single Markdown block, try hitting cmd+z to undo.
 
-If neither of these options work because you've closed your session after converting, consider discarding your draft and editing your report from its last saved state. If this isn't an option either, let us know through the Intercom bubble at the bottom right and our team can try to restore your last working state.
+If neither of these options work because you've closed your session after converting, consider discarding your draft and editing your report from its last saved state. If this isn't an option either, let us know through the Intercom bubble at the bottom right and our team can try to restore your last working state. 
 
 **I have a problem that isn't addressed by this FAQ.**
 
