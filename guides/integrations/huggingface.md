@@ -6,11 +6,18 @@ description: >-
 
 # Hugging Face
 
-## Quick and Easy NLP Experiment Tracking with Hugging Face and W&B
+Hugging Face Transformers gives you access to the latest state of the art NLP models and also provides an easy to use Trainer which takes care of mixed precision training, distributed training, gradient checkpointing and more. W&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the Hugging Face Transformers library, so you can always check out t[heir documentation](https://huggingface.co/transformers/) for reference information on the API.
 
-Below is an example comparing BERT vs DistilBERT from [this W&B Report](https://wandb.ai/jack-morris/david-vs-goliath/reports/Does-Model-Size-Matter-A-Comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) by Jack Morris — it's easy to see how different architectures affect the evaluation accuracy throughout training with automatic line plot visualizations. To see how easy it is to use W&B to track and save your own Hugging Face models, keep reading!
+## 🤗 Next level Hugging Face logging in 2 lines   
 
-![](../../.gitbook/assets/gif-for-comparing-bert.gif)
+```python
+from transformers import TrainingArguments, Trainer
+
+args = TrainingArguments(... , report_to="wandb")
+trainer = Trainer(... , args=args)
+```
+
+![Explore your experiment results in the W&amp;B interactive dashboard](../../.gitbook/assets/huggingface_gif.gif)
 
 ## This guide covers
 
