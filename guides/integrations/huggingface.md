@@ -6,9 +6,9 @@ description: >-
 
 # Hugging Face
 
-Hugging Face Transformers gives you access to the latest state of the art NLP models and also provides an easy to use Trainer which takes care of mixed precision training, distributed training, gradient checkpointing and more. W&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the Hugging Face Transformers library, so you can always check out [their documentation](https://huggingface.co/transformers/) for reference information on the API.
+The [Hugging Face Transformers](https://huggingface.co/transformers/) library makes state-of-the-art NLP models like BERT and training techniques like mixed precision and gradient checkpointing easy to use. The [W&B integration](https://huggingface.co/transformers/main_classes/callback.html#transformers.integrations.WandbCallback) adds rich, flexible experiment tracking and model versioning to interactive centralized dashboards without compromising that ease of use.
 
-## 🤗 Next level Hugging Face logging in 2 lines   
+## 🤗 Next-level Hugging Face logging in 2 lines   
 
 ```python
 from transformers import TrainingArguments, Trainer
@@ -28,11 +28,7 @@ trainer = Trainer(... , args=args)
 If you'd rather dive straight into working code, check out this [Google Colab](https://wandb.me/hf).
 {% endhint %}
 
-## Getting Started: Track and Save your Models
-
-{% hint style="info" %}
-Note the steps below work for both Hugging Face Transformers' PyTorch `Trainer` and TensorFlow `TFTrainer`.
-{% endhint %}
+## Getting started: track experiments
 
 ### **1\)** **Install the `wandb` library and log in**
 
@@ -78,13 +74,17 @@ WANDB_PROJECT=amazon_sentiment_analysis
 Make sure you set the project name _before_ you initialize the `Trainer`.
 {% endhint %}
 
-If a project name is not specified the project name defaults to "huggingface"
+If a project name is not specified the project name defaults to "huggingface".
 
 ### **3\)** Log your training runs to W&B
 
 This is **the most important step:** when defining your `Trainer` training arguments, either inside your code or from the command line, set `report_to` to `"wandb"` in order enable logging with Weights & Biases.
 
 You can also give a name to the training run using the `run_name` argument.
+
+{% hint style="info" %}
+ Using TensorFlow? Just swap the PyTorch `Trainer` for the TensorFlow `TFTrainer`.
+{% endhint %}
 
 That's it! Now your models will log losses, evaluation metrics, model topology, and gradients to Weights & Biases while they train.
 
@@ -112,7 +112,7 @@ trainer.train()  # start training and logging to W&B
 ```python
 python run_glue.py \     # run your Python script
   --report_to wandb \    # enable logging to W&B
-  --run_name bert-base-high-lr\   # name of the W&B run (optional)
+  --run_name bert-base-high-lr \   # name of the W&B run (optional)
   # other command line arguments here
 ```
 {% endtab %}
@@ -136,17 +136,17 @@ wandb.finish()
 {% endtab %}
 {% endtabs %}
 
-### 4\) Visualize Results
+### 4\) Visualize your results
 
 Once you have logged your training results you can explore your results dynamically in the[ W&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations.
 
 ![](../../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29%20%281%29%20%281%29%20%285%29.gif)
 
-## Advanced Features
+## Advanced features
 
-### **Turn on Model Versioning**
+### **Turn on model versioning**
 
-Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts), you can store up to 100GB of models and datasets. Logging your Hugging Face model to W&B Artifacts can be done by setting a W&B environment variable called `WANDB_LOG_MODEL` to true
+Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts), you can store up to 100GB of models and datasets. Logging your Hugging Face model to W&B Artifacts can be done by setting a W&B environment variable called `WANDB_LOG_MODEL` to `true`.
 
 {% tabs %}
 {% tab title="Notebook" %}
@@ -172,7 +172,7 @@ Any `Trainer` you initialize from now on will upload models to your W&B project.
 
 If `load_best_model_at_end=True` is passed to `Trainer`, then W&B will save the best performing model checkpoint to Artifacts instead of the final checkpoint.
 
-### Loading a Saved Model
+### Loading a saved model
 
 If you saved your model to W&B Artifacts with `WANDB_LOG_MODEL`, you can download your model weights for additional training or to run inference. You just load them back into the same Hugging Face architecture that you used before.
 
@@ -195,9 +195,9 @@ with wandb.init(project="amazon_sentiment_analysis") as run:
   # Do additional training, or run inference
 ```
 
-### Additional W&B Settings
+### Additional W&B settings
 
-Advanced configuration of what is logged with `Trainer` is possible by setting environment variables. A full list of W&B environment variables [can be found here](https://docs.wandb.ai/library/environment-variables).
+Further configuration of what is logged with `Trainer` is possible by setting environment variables. A full list of W&B environment variables [can be found here](https://docs.wandb.ai/library/environment-variables).
 
 <table>
   <thead>
@@ -275,11 +275,11 @@ wandb.init(project="amazon_sentiment_analysis",
            group="bert")
 ```
 
-### Custom Logging
+### Custom logging
 
-Logging to Weights & Biases via the [Transformers `Trainer` ](https://huggingface.co/transformers/main_classes/trainer.html) is taken care of with the [`WandbCallback`](https://huggingface.co/transformers/main_classes/callback.html#transformers.integrations.WandbCallback) in the Transformers library. If you need to customise your Hugging Face logging you can modify this callback, but shouldn't be needed in the vast majority of cases.
+Logging to Weights & Biases via the [Transformers `Trainer` ](https://huggingface.co/transformers/main_classes/trainer.html) is taken care of by the `WandbCallback` \([reference documentation](https://huggingface.co/transformers/main_classes/callback.html#transformers.integrations.WandbCallback)\) in the Transformers library. If you need to customize your Hugging Face logging you can modify this callback.
 
-## Issues, Questions, Feature Requests
+## Issues, questions, feature requests
 
 For any issues, questions, or feature requests for the Hugging Face W&B integration, feel free to post in [this thread on the Hugging Face forums](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) or open an issue on the Hugging Face [Transformers GitHub repo](https://github.com/huggingface/transformers).
 
