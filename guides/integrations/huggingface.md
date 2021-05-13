@@ -6,7 +6,7 @@ description: >-
 
 # Hugging Face
 
-Hugging Face Transformers gives you access to the latest state of the art NLP models and also provides an easy to use Trainer which takes care of mixed precision training, distributed training, gradient checkpointing and more. W&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the Hugging Face Transformers library, so you can always check out t[heir documentation](https://huggingface.co/transformers/) for reference information on the API.
+Hugging Face Transformers gives you access to the latest state of the art NLP models and also provides an easy to use Trainer which takes care of mixed precision training, distributed training, gradient checkpointing and more. W&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the Hugging Face Transformers library, so you can always check out [their documentation](https://huggingface.co/transformers/) for reference information on the API.
 
 ## 🤗 Next level Hugging Face logging in 2 lines   
 
@@ -34,7 +34,7 @@ If you'd rather dive straight into working code, check out this [Google Colab](h
 Note the steps below work for both Hugging Face Transformers' PyTorch `Trainer` and TensorFlow `TFTrainer`.
 {% endhint %}
 
-### **1\)** **Install the `wandb` Library and Log in**
+### **1\)** **Install the `wandb` library and log in**
 
 {% tabs %}
 {% tab title="Notebook" %}
@@ -54,7 +54,7 @@ wandb login
 {% endtab %}
 {% endtabs %}
 
-### **2\) Name the Project**
+### **2\) Name the project**
 
 A [Project](../../ref/app/pages/project-page.md) is where all of the charts, data, and models logged from related runs are stored. Naming your project helps you organize your work and keep all the information about a single project in one place.
 
@@ -80,7 +80,7 @@ Make sure you set the project name _before_ you initialize the `Trainer`.
 
 If a project name is not specified the project name defaults to "huggingface"
 
-### **3\)** Log your Training Runs to W&B
+### **3\)** Log your training runs to W&B
 
 This is **the most important step:** when defining your `Trainer` training arguments, either inside your code or from the command line, set `report_to` to `"wandb"` in order enable logging with Weights & Biases.
 
