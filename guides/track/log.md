@@ -75,9 +75,9 @@ We assume the image is gray scale if the last dimension is 1, RGB if it's 3, and
 For full control over the conversion of arrays to images, construct the [`PIL.Image`](https://pillow.readthedocs.io/en/stable/reference/Image.html) yourself and provide it directly.
 
 ```python
-images = [PIL.Image.fromarray(image, ...) for image in image_array]
+images = [PIL.Image.fromarray(image) for image in image_array]
           
-wandb.log({"examples": wandb.Image(images)}
+wandb.log({"examples": [wandb.Image(image) for image in images]}
 ```
 {% endtab %}
 
