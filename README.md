@@ -1,7 +1,5 @@
 ---
-description: >-
-  Haz un seguimiento de los experimentos de machine learning, visualiza
-  métricas, y comparte resultados
+description: "\U0001F680 Nuestra documentación se está expandiendo y mejorando rápidamente. Consulte la versión en inglés para obtener la documentación más actualizada."
 ---
 
 # Weights & Biases
