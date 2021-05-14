@@ -674,7 +674,13 @@ run.summary.update()
 
 ### Accessing Logs Directly
 
-The history object is used to track metrics logged by `wandb.log`. You can access a mutable dictionary of metrics via `run.history.row`. The row will be saved and a new row created when `run.history.add` or `wandb.log` is called.
+The history object is used to track metrics logged by `wandb.log`. You can access the history object via `run.history()`. 
+
+```python
+api = wandb.Api()
+run = api.run("username/project/run_id")
+print(run.history())
+```
 
 ## Common Questions
 
