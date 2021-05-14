@@ -1,5 +1,5 @@
 ---
-description: 跟踪机器学习实验，可视化指标(metric)并分享结果。
+description: "\U0001F680 我们的说明文档一直在快速扩充和改进。若要获取最新的说明文档，请参考英语版。"
 ---
 
 # Weights & Biases
@@ -39,4 +39,6 @@ description: 跟踪机器学习实验，可视化指标(metric)并分享结果�
 
 *  [应用库](https://wandb.ai/gallery)：我们web应用中的一个功能报告库
 *  [示例项目](https://docs.wandb.com/examples)：Github和Colab中的代码和项目
+
+
 
