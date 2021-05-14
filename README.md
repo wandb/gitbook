@@ -1,7 +1,5 @@
 ---
-description: >-
-  Suivre les expériences d’apprentissage automatique, visualiser les métriques,
-  et partager les résultats
+description: "\U0001F680 \"Notre documentation se développe et s'améliore rapidement. Merci de vous référer à la version anglaise pour avoir la documentation la plus à jour.\""
 ---
 
 # Weights & Biases
