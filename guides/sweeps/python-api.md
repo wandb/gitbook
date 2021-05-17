@@ -31,7 +31,7 @@ import wandb
 
 sweep_config = {
   "name" : "my-sweep",
-  "method" : "grid",
+  "method" : "random",
   "parameters" : {
     "epochs" : {
       "values" : [10, 20, 50]
@@ -121,9 +121,9 @@ from wandb.sweeps import GridSearch, RandomSearch, BayesianSearch
 
 sweep = wandb.controller()
 sweep.configure_search(GridSearch)
-sweep.configure_program('train-dummy.py')
+sweep.configure_program("train-dummy.py")
 sweep.configure_controller(type="local")
-sweep.configure_parameter('param1', value=3)
+sweep.configure_parameter("param1", value=3)
 sweep.create()
 sweep.run()
 ```
