@@ -9,7 +9,7 @@ description: "\U0001F680 現在ドキュメントの改善および拡張に迅�
 弊社モジュラーツールの概要：
 
 1. [**ダッシュボード**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/app)：実験の記録
-2. [**アーティファクト**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/artifacts)：データセットおよびモデルのバージョン管理
+2. [**アーティファクト**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/artifacts)**:** データセットおよびモデルのバージョン管理
 3. [**スイープ**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/sweeps)：ハイパーパラメータの最適化
 4. [**レポート**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/reports)：再現可能な調査結果を保存・共有 
 
@@ -17,7 +17,7 @@ description: "\U0001F680 現在ドキュメントの改善および拡張に迅�
 
 {% embed url="https://www.youtube.com/watch?v=EIgoKitLUqM" %}
 
-##  **始めましょう**
+##   **始めましょう**
 
 当社のPythonライブラリ`wandb`をあなたの機械学習スクリプトに簡単に追加できます。
 

@@ -14,7 +14,8 @@ Python3の使用環境に当社のライブラリをインストールします�
 pip install wandb
 ```
 
-GoogleのCloudMLなど、シェルコマンド実行に適さない自動環境でモデルをトレーニングしている場合は、[自動環境での実行](https://docs.wandb.com/advanced/automated)に関するドキュメントをご参照ください。
+GoogleのCloudMLなど、シェルコマンド実行に適さない自動環境でモデルをトレーニングしている場合は、[自動環境での実行](https://docs.wandb.com/advanced/automated)に関するドキュメントをご参照ください。  
+
 
 ## 2. **アカウントの作成** <a id="2-create-account"></a>
 
@@ -70,12 +71,14 @@ def my_train_loop():    for epoch in range(10):        loss = 0 # change as appr
 
 ## **次のステップ** <a id="next-steps"></a>
 
+
+
 これで機能するようになりました。次は、素敵な機能についての簡単な概要です。
 
 1. **プロジェクトページ**：プロジェクトダッシュボードでさまざまな実験を比較します。プロジェクトでモデルを実行する度に、グラフとテーブルに新しい線が表示されます。左側のサイドバーにあるテーブルアイコンをクリックしてテーブルを展開し、すべてのハイパーパラメータとメトリックを表示します。複数のプロジェクトを作成して実行を整理したり、テーブルで実行内容にタグやメモを追加できます。
 2. **カスタムビジュアライゼーション**：平行座標チャート、散布図、およびその他の高度なビジュアライゼーションを追加して、結果を調査します。
 3. [**レポート**](file:////reports)：マークダウンパネルを追加して、ライブグラフや表と一緒に調査結果を説明できます。このレポート機能で、プロジェクトのスナップショットを共同編集者、教授、または上司と簡単に共有できます。
-4. [**インテグレーション**](file:////integrations)： PyTorch、Keras、XGBoostなどの一般的なフレームワークに特別に統合できます。
+4. [**インテグレーション**](file:////integrations)：PyTorch、Keras、XGBoostなどの一般的なフレームワークに特別に統合できます。
 5. **ショーケース**：あなたの研究を共有することにご関心をお持ちですか？当社は、コミュニティのすばらしい成果に注目を集めるために、常にブログ投稿に取り組んでいます。[contact@wandb.com](mailto:contact@wandb.com)までご連絡ください。
 
 ### ​ **​**[**ご不明な点がございましたらお問い合わせください →**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MNTAj1Pg4WBXiUUFUpS/v/japanese/company/getting-help)**​**​ <a id="contact-us-with-questions"></a>

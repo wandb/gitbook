@@ -36,11 +36,11 @@ import wandbfor x in range(10):    run = wandb.init(reinit=True)    with run:   
 
 **LaunchError：Launch exception：Permission denied**エラーが発生した場合、あなたはrunを送信しようとしているプロジェクトにログに記録する許可がありません。これにはいくつかの理由が考えられます。
 
-1. このマシンにログインしていません。コマンドラインで`wandb login`を実行します。
+1. このマシンにログインしていません。コマンドラインで**wandb login**を実行します。
 2. 存在しないエンティティを設定しました。「エンティティ」は、ユーザー名または既存のチーム名である必要があります。チームを作成する必要がある場合は、[サブスクリプションページ](https://app.wandb.ai/billing)にアクセスしてください。
 3. プロジェクトの権限がありません。プロジェクトの作成者に依頼してプライバシーを**Open**に設定してもらい、このプロジェクトの実行をログに記録できるようにしてください。
 
-### InitStartError: wandbプロセスとのコミュニケーションエラー <a id="init-start-error"></a>
+###  InitStartError: wandbプロセスとのコミュニケーションエラー <a id="init-start-error"></a>
 
 **InitStartError：wandbプロセスとのコミュニケーションエラー**は、データをサーバーに同期するプロセスをライブラリが起動できないエラーです。
 

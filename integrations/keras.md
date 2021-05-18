@@ -19,7 +19,8 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 ```
 {% endcode %}
 
- [colabノートブック](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb)で統合をお試しください。[ビデオチュートリアル](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases)もあります。完全なスクリプトの例については[サンプルプロジェクト](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/examples)を参照してください。
+ [colabノートブック](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Simple_Keras_Integration.ipynb)で統合をお試しください。[ビデオチュートリアル](https://www.youtube.com/watch?v=Bsudo7jbMow&ab_channel=Weights%26Biases)もあります。完全なスクリプトの例については[サンプルプロジェクト](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MN_4xmW6jcYndpU_n9G/v/japanese/examples)を参照してください。  
+
 
 #### オプション
 

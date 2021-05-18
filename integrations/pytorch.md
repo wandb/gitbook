@@ -23,9 +23,9 @@ for batch_idx, (data, target) in enumerate(train_loader):
         wandb.log({"loss": loss})
 ```
 
-> グラデーション、メトリック、グラフは、順方向および逆方向のパスの後に`wandb.log`が呼び出されるまでログに記録されません。
+> グラデーション、メトリック、グラフは、順方向および逆方向のパスの後にwandb.logが呼び出されるまでログに記録されません。
 
- [ビデオチュートリアル](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases)[\[KinoTrans1\]](applewebdata://06DFC33A-D952-4B5D-8160-04283E55F43E#_msocom_1) などの、wandbとPyTorchの統合のエンドツーエンドの例については、この[colabノートブック](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb)を参照してください。また、サ[ンプルプロジェクト](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb)セクションで他にも例を見つけることができます。
+ [ビデオチュートリアル](https://www.youtube.com/watch?v=G7GH0SeNBMA&ab_channel=Weights%26Biases)[\[KinoTrans1\]](applewebdata://C58DC8C6-6E64-45F0-90A8-9CB7B19D91FA#_msocom_1) などの、wandbとPyTorchの統合のエンドツーエンドの例については、この[colabノートブック](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb)を参照してください。また、サ[ンプルプロジェクト](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb)セクションで他にも例を見つけることができます。
 
 ###  **オプション**
 
