@@ -1,12 +1,19 @@
-# Keras
+# keras
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/94c226afc4925535e6301c9bc9b9ee36061d99d4/wandb/integration/keras/__init__.py)
+<!-- Insert buttons and diff -->
 
-Tools for integrating `wandb` with [`Keras`](https://keras.io/), a deep learning API for [TensorFlow](https://www.tensorflow.org/).
 
-Use the `WandbCallback` to add `wandb` logging to any `Keras` model.
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/7e65d3b4f98261a70a14749af55a46433d6881c2/wandb/integration/keras/__init__.py)
+
+
+
+
+Tools for integrating <code>wandb</code> with [`Keras`](https://keras.io/), a deep learning API for [`TensorFlow`](https://www.tensorflow.org/).
+
+
+Use the <code>WandbCallback</code> to add <code>wandb</code> logging to any <code>Keras</code> model.
 
 ## Classes
 
-[`class WandbCallback`](wandbcallback.md): `WandbCallback` automatically integrates keras with wandb.
+[`class WandbCallback`](./wandbcallback.md): <code>WandbCallback</code> automatically integrates keras with wandb.
 
