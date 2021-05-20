@@ -21,7 +21,7 @@
 | controller | Run the W&B local sweep controller |
 | disabled | Disable W&B. |
 | docker | W&B docker lets you run your code in a docker image ensuring... |
-| docker-run | Simple wrapper for `docker run` which sets W&B environment... |
+| docker-run | Simple wrapper for `docker run` which adds WANDB_API_KEY and... |
 | enabled | Enable W&B. |
 | init | Configure a directory with Weights & Biases |
 | local | Launch local W&B container (Experimental) |
