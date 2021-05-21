@@ -150,6 +150,8 @@ To log a bounding box, you'll need to provide a dictionary with the following ke
     * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
   * `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
   * `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
+  * `domain`: specify the units/format of the box coordinates. **Set this to "pixel"** if the box coordinates are expressed in pixel space \(i.e. as integers within the bounds of the image dimensions\). By default, the domain is assumed to be a fraction/percentage of the image \(a floating point number between 0 and 1\).
+  * `box_caption`: \(optional\) a string to be displayed as the label text on this box 
 * `class_labels`: \(optional\) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
 
 Check out this example:
@@ -165,26 +167,42 @@ class_id_to_label = {
 img = wandb.Image(image, boxes={
     "predictions": {
         "box_data": [{
+            # one box expressed in the default relative/fractional domain
             "position": {
                 "minX": 0.1,
                 "maxX": 0.2,
                 "minY": 0.3,
-                "maxY": 0.4,
+                "maxY": 0.4
             },
             "class_id" : 2,
-            "box_caption": "minMax(pixel)",
+            "box_caption": class_id_to_label[2],
             "scores" : {
                 "acc": 0.1,
                 "loss": 1.2
             },
-        }, 
-        # Log as many boxes as needed
-        ...
+            # another box expressed in the pixel domain
+            # (for illustration purposes only, all boxes are likely
+            # to be in the same domain/format)
+            "position": {
+                "middle": [150, 20],
+                "width": 68,
+                "height": 112
+            },
+            "domain" : "pixel",
+            "class_id" : 3,
+            "box_caption": "a building",
+            "scores" : {
+                "acc": 0.5,
+                "loss": 0.7
+            },
+            ...
+            # Log as many boxes an as needed
+        }
         ],
         "class_labels": class_id_to_label
     },
+    # Log each meaningful group of boxes with a unique key name
     "ground_truth": {
-    # Log each group of boxes with a unique key name
     ...
     }
 })
