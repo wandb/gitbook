@@ -1,6 +1,6 @@
 ---
 description: >-
-  Un objet comme un dictionnaire qui sauvegarde la configuration de votre
+  Un objet similaire à un dictionnaire qui sauvegarde la configuration de votre
   expérience
 ---
 
@@ -10,9 +10,9 @@ description: >-
 
 [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/colab)
 
-Ajoutez l’objet `wandb.config` à votre script pour sauvegarder la configuration de votre entraînement : hyperparamètres, paramètres d’entrée comme le nom du dataset ou le type de modèle, et toute autre variable indépendante pour vos expériences. Cette fonction est utile pour analyser vos expériences et reproduire votre travail plus tard. Vous serez capable de regrouper vos valeurs de configuration dans l’interface web, de comparer les paramètres de vos différents essais et de voir comment ils ont affecté vos résultats. Notez bien que les mesures des résultats ou les variables dépendantes \(comme les pertes ou la précision\) devraient plutôt être sauvegardées avec `wandb.log`.
+Ajoutez l’objet `wandb.config` à votre script pour sauvegarder la configuration de votre entraînement : hyperparamètres, paramètres d’entrée comme le nom du jeu de données ou le type de modèle, et toute autre variable indépendante pour vos expériences. Cette fonction est utile pour analyser vos expériences et reproduire votre travail plus tard. Vous serez capable de regrouper vos valeurs de configuration dans l’interface web, de comparer les paramètres de vos différents essais et de voir comment ils affectent vos résultats. Notez bien que les métriques des résultats ou les variables dépendantes \(comme les pertes ou la précision\) devraient plutôt être sauvegardées avec `wandb.log`.
 
- Vous pouvez nous envoyer un dictionnaire imbriqué dans votre configuration, et nous aplatirons les noms en utilisant des points de notre côté. Nous vous recommandons d’éviter d’utiliser des points dans les noms de variables de votre configuration, et d’utiliser un tiret ou un tiret bas à la place. Une fois que vous avez créé votre dictionnaire de configuration wandb, si votre script accède à des clefs wandb.config en-dessous du root, utilisez la syntaxe `[ ]`plutôt que la syntaxe `.` .
+ Vous pouvez nous envoyer un dictionnaire imbriqué dans votre configuration, et nous aplanirons les noms en utilisant des points de notre côté en backend. Nous vous recommandons d’éviter d’utiliser des points dans les noms de variables de votre configuration, et d’utiliser un tiret ou un tiret bas à la place. Une fois que vous avez créé votre dictionnaire de configuration wandb, si votre script accède à des clefs wandb.config en-dessous du root, utilisez la syntaxe `[ ]` plutôt que la syntaxe `.` .
 
 ##  Exemple simple
 
@@ -25,7 +25,7 @@ wandb.init(config={"epochs": 4})
 
 ##  Initialisation efficace
 
-Vous pouvez traiter `wandb.config` comme un dictionnaire, en mettant à jour de multiples valeurs d’un seul coup.
+ Vous pouvez gérer `wandb.config` comme un dictionnaire, en mettant à jour de multiples valeurs en une seule fois.
 
 ```python
 wandb.init(config={"epochs": 4, "batch_size": 32})
@@ -33,9 +33,9 @@ wandb.init(config={"epochs": 4, "batch_size": 32})
 wandb.config.update({"epochs": 4, "batch_size": 32})
 ```
 
-##  Flags Argparse
+##  **Drapeaux Argparse**
 
- Vous pouvez accéder au dictionnaire des arguments depuis argparse. Ça s’avère pratique pour rapidement essayer différentes valeurs d’hyperparamètres depuis la ligne de commande.
+ Vous pouvez accéder au dictionnaire des arguments depuis argparse. Cela s’avère pratique pour testerrapidement différentes valeurs d’hyperparamètres depuis la ligne de commande.
 
 ```python
 wandb.init()
@@ -48,9 +48,9 @@ args = parser.parse_args()
 wandb.config.update(args) # adds all of the arguments as config variables
 ```
 
-## Flags Absl
+## **Drapeaux Absl**
 
-Vous pouvez aussi ajouter des flags absl.
+Vous pouvez aussi ajouter des drapeaux absl.
 
 ```python
 flags.DEFINE_string(‘model’, None, ‘model to run’) # name, default, help
@@ -73,7 +73,7 @@ batch_size:
 
 Vous pouvez indiquer à wandb de charger différents fichiers de configuration avec l’argument de ligne de commande `--configs special-configs.yaml` qui chargera les paramètres depuis le fichier special-congifs.yaml.
 
- Voici un exemple concret : vous avez un fichier YAML avec certaines métadonnées pour cet essai, ainsi qu’un dictionnaire d’hyperparamètres dans votre script Python. Vous pouvez sauvegarder les deux dans l’objet config imbriqué :
+En voici un exemple concret : vous avez un fichier YAML avec des métadonnées pour l’essai, ainsi qu’un dictionnaire d’hyperparamètres dans votre script Python. Vous pouvez sauvegarder les deux dans l’objet de configuration imbriqué :
 
 ```python
 hyperparameter_defaults = dict(
@@ -90,17 +90,17 @@ config_dictionary = dict(
 wandb.init(config=config_dictionary)
 ```
 
-## Dataset Identifier
+##  **Identifiant de jeu de données**
 
-Vous pouvez ajouter un identifiant unique \(comme un dièse ou un autre identifiant\) dans la configuration de vos essais pour votre dataset en le cherchant en tant que donnée entrante dans votre expérience en utilisant `wandb.config`
+Vous pouvez ajouter un identifiant unique \(comme un dièse ou tout autre identifiant\) dans la configuration de vos essais pour votre jeu de données en le suivant en tant que donnée entrante dans votre expérience, en utilisant `wandb.config`
 
 ```yaml
 wandb.config.update({'dataset':'ab131'})
 ```
 
-### Mise à jour des fichiers de configuration
+### **Mise à jour des fichiers de configuration**
 
- Vous pouvez utiliser l’API publique pour mettre à jour votre fichier de configuration
+Vous pouvez utiliser l’API publique pour mettre à jour votre fichier de configuration
 
 ```yaml
 import wandb
@@ -112,11 +112,11 @@ run.update()
 
 ### Combinaisons clef/valeur
 
-Vous pouvez enregistrer n’importe quelle combinaison clef/valeur dans wandb.config. Elles seront différentes pour chaque type de modèles que vous entraînez. i.e.
+Vous pouvez enregistrer n’importe quelle combinaison clef-valeur dans wandb.config. Elles seront différentes pour chaque type de modèles que vous entraînez. Par exemple :
 
 `wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`
 
-##  Flags TensorFlow \(obsolète pour tensorflow v2\)
+##  **Drapeaux TensorFlow \(obsolète pour tensorflow v2\)**
 
 Vous pouvez ajouter des flags TensorFlow dans l’objet de configuration.
 
