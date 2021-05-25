@@ -229,5 +229,5 @@ if os.path.exists("~/keys.json"):
 
 ### Does the W&B client support Python 2?
 
-Until version 0.11.0, the W&B client supported both Python 2.7 and Python 3. Due to the Python 2 end of life, version 0.10.31 was the final version of the W&B client to support Python 2.7. Users who run`pip install --upgrade wandb` on a Python 2.7 system will no longer get the latest release after version 0.10.31. New releases of the 0.10.x series will be limited to critical bugfixes.
+Until version 0.11.0, the W&B client supported both Python 2.7 and Python 3. Due to the Python 2 end of life, version 0.10.31 was the final version of the W&B client to support Python 2.7. Users who run`pip install --upgrade wandb` on a Python 2.7 system will no longer get the latest release after version 0.10.31. Support for the 0.10.x series will be limited to critical bugfixes and patches.
 
