@@ -68,9 +68,7 @@ wandb.mark_preempting()
 
 to immediately signal to the W&B backend that your run believes it is about to be preempted. If a run that is marked preeempting exits with status code 0, W&B will consider the run to have terminated successfully and it will not be requeued. If a preempting run exits with a nonzero status, W&B will consider the run to have been preempted, and it will automatically append the run to a run queue associated with the sweep. If a run exits with no status, W&B will mark the run preempted 5 minutes after the run's final heartbeat, then add it to the sweep run queue. Sweep agents will consume runs off the run queue until the queue is exhausted, at which point they will resume generating new runs based on the standard sweep search algorithm. 
 
-{% hint style="info" %}
-As of version 0.10.31, requeued preempted runs begin execution from their initial step, rather than starting from the training iteration that they were at when they were preempted. Automated checkpointing for preempted runs is an area of future development.
-{% endhint %}
+By default, requeued runs begin logging from their initial step. To instruct a run to resume logging at the step where it was interrupted, initialize the resumed run with `wandb.init(resume=True)`.
 
 
 
