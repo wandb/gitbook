@@ -58,9 +58,7 @@ To use an AWS S3 bucket as the file storage backend for W&B, you'll need to crea
 
 **Create an SQS Queue**
 
-First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage` and `ReceiveMessage` actions as well as `GetQueueUrl` . \(If you like you can further lock this down using an advanced policy document.\)
-
-![Enterprise file storage settings](../../.gitbook/assets/sqs-perms.png)
+First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage`, `ReceiveMessage`, `ChangeMessageVisibility`, `DeleteMessage`, and `GetQueueUrl` actions. \(If you'd like you can further lock this down using an advanced policy document\)
 
 **Create an S3 Bucket and Bucket Notifications**
 
@@ -80,6 +78,31 @@ Enable CORS access: your CORS configuration should look like the following:
     <AllowedHeader>*</AllowedHeader>
 </CORSRule>
 </CORSConfiguration>
+```
+
+**Grant Permissions to Node Running W&B**
+
+The node on which W&B Local is running must be configured to permit access to s3 and SQS. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
+
+```text
+{
+   "Statement":[
+      {
+         "Sid":"",
+         "Effect":"Allow",
+         "Action":"s3:*",
+         "Resource":"arn:aws:s3:::<WANDB_BUCKET>"
+      },
+      {
+         "Sid":"",
+         "Effect":"Allow",
+         "Action":[
+            "sqs:*"
+         ],
+         "Resource":"arn:aws:sqs:<REGION>:<ACCOUNT>:<WANDB_QUEUE>"
+      }
+   ]
+}
 ```
 
 **Configure W&B Server**
