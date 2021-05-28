@@ -14,7 +14,7 @@ You can then review the results in an [interactive dashboard](app.md) or export 
 
 Below are the simple building blocks to track an experiment with W&B. We also have a whole host of special integrations for [PyTorch](../integrations/pytorch.md), [Keras](../integrations/keras.md), [Scikit](../integrations/scikit.md), etc. See ****our [Integration guides](../integrations/).
 
-1. [**`wandb.init()`**](launch.md): Initialize a new run at the top of your script. This returns a `Run` object and creates a local directory where all logs and files are saved, then streamed asynchronously to a W&B server. If you want to use a private server instead of our hosted cloud server, we offer [Self-Hosting](../self-hosted/).
+1. [**`wandb.init()`**](launch.md): Initialize a new run at the top of your script. This returns a `Run` object and creates a local directory where all logs and files are saved, then streamed asynchronously to a W&B server. If you want to use a private server instead of our hosted cloud server, we offer [Self-Hosting](../sweeps/self-hosted/).
 2. [**`wandb.config`**](config.md): Save a dictionary of hyperparameters such as learning rate or model type. The model settings you capture in config are useful later to organize and query your results.
 3. [**`wandb.log()`**](log.md): Log metrics over time in a training loop, such as accuracy and loss. By default, when you call `wandb.log` it appends a new step to the `history` object and updates the `summary` object.
    * `history`: An array of dictionary-like objects that tracks metrics over time. These time series values are shown as default line plots in the UI.
@@ -51,7 +51,7 @@ wandb.init(
 
 ## What data is logged?
 
-All the data logged from your script is saved locally to your machine in a directory called `wandb`, then synced to the W&B cloud or your [private server](../self-hosted/).
+All the data logged from your script is saved locally to your machine in a directory called `wandb`, then synced to the W&B cloud or your [private server](../sweeps/self-hosted/).
 
 ### **Logged Automatically**
 

@@ -13,7 +13,7 @@ Use W&B Tables to log and visualize data and model predictions. Interactively ex
 ## Why are Tables useful?
 
 **Actually see your data**  
-Log metrics and rich media during model training or evaluation, then visualize results in a persistent database synced to the cloud, or to your [self-hosted W&B instance](../self-hosted/). For example, check out this [balanced split of a photos dataset →](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat_80-10-10_5K/ab79f01e007113280018/files/data_split.table.json)
+Log metrics and rich media during model training or evaluation, then visualize results in a persistent database synced to the cloud, or to your [self-hosted W&B instance](../sweeps/self-hosted/). For example, check out this [balanced split of a photos dataset →](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat_80-10-10_5K/ab79f01e007113280018/files/data_split.table.json)
 
 ![Browse actual examples and verify the counts &amp; distribution of your data](../../.gitbook/assets/screen-shot-2021-04-30-at-7.57.22-am.png)
 

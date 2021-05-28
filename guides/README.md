@@ -16,7 +16,7 @@ Getting started with experiment tracking? Try the [Quickstart →](../quickstart
 4. [Data + Model Versioning](artifacts/): Version datasets and models
 5. [Data Visualization](data-vis/): Visualize predictions across model versions
 6. [Collaborative Reports](reports.md): Describe and share findings
-7. [Self-Hosting](self-hosted/): Private cloud and local hosting of the W&B app
+7. [Self-Hosting](sweeps/self-hosted/): Private cloud and local hosting of the W&B app
 
 ### Reference
 
