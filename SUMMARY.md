@@ -66,7 +66,6 @@
     * [Running Sweeps in Jupyter](guides/sweeps/python-api.md)
     * [Sweep from an Existing Project](guides/sweeps/existing-project.md)
     * [Sweep Configuration](guides/sweeps/configuration.md)
-    * [Preemptible Sweeps](guides/sweeps/preemptible-sweeps.md)
     * [Common Questions](guides/sweeps/faq.md)
     * [Advanced Sweeps Features](guides/sweeps/advanced-sweeps/README.md)
       * [Local Controller](guides/sweeps/advanced-sweeps/local-controller.md)
