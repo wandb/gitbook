@@ -14,6 +14,10 @@ A W&B Table \(`wandb.Table`\) is a two dimensional grid of data where each colum
 
 Tables are great for storing, understanding, and sharing any form of data critical to your ML workflow—from datasets to model predictions and everything in between.
 
+{% page-ref page="log-tables.md" %}
+
+{% page-ref page="tables.md" %}
+
 ## Why use Tables?
 
 ### **Actually see your data**
