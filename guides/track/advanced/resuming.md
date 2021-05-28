@@ -56,3 +56,21 @@ If you resume a run and you have **notes** specified in `wandb.init()`, those no
 Note that resuming a run which was executed as part of a [Sweep](../../sweeps/) is not supported.
 {% endhint %}
 
+### Preemptible Sweeps
+
+If you are running a sweep agent in a compute environment that is subject to preemption  \(e.g., a SLURM job in a preemptible queue, an EC2 spot instance, or a Google Cloud preemptible VM\), you can automatically requeue your interrupted sweep runs, ensuring they will be retried until they run to completion.
+
+When you learn your current run is about to be preempted, call 
+
+```
+wandb.mark_preempting()
+```
+
+to immediately signal to the W&B backend that your run believes it is about to be preempted. If a run that is marked preeempting exits with status code 0, W&B will consider the run to have terminated successfully and it will not be requeued. If a preempting run exits with a nonzero status, W&B will consider the run to have been preempted, and it will automatically append the run to a run queue associated with the sweep. If a run exits with no status, W&B will mark the run preempted 5 minutes after the run's final heartbeat, then add it to the sweep run queue. Sweep agents will consume runs off the run queue until the queue is exhausted, at which point they will resume generating new runs based on the standard sweep search algorithm. 
+
+{% hint style="info" %}
+As of version 0.10.31, requeued preempted runs begin execution from their initial step, rather than starting from the training iteration that they were at when they were preempted. Automated checkpointing for preempted runs is an area of future development.
+{% endhint %}
+
+
+
