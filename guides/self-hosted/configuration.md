@@ -36,15 +36,15 @@ After creating an Auth0 app, you'll need to configure your Auth0 callbacks to th
 * Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
 * Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
 
-![Auth0 Settings](../../../.gitbook/assets/auth0-1.png)
+![Auth0 Settings](../../.gitbook/assets/auth0-1.png)
 
 Save the Client ID and domain from your Auth0 app.
 
-![Auth0 Settings](../../../.gitbook/assets/auth0-2.png)
+![Auth0 Settings](../../.gitbook/assets/auth0-2.png)
 
 Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Customize Authentication with Auth0" option, and fill in the Client ID and domain from your Auth0 app.
 
-![Enterprise authentication settings](../../../.gitbook/assets/enterprise-auth.png)
+![Enterprise authentication settings](../../.gitbook/assets/enterprise-auth.png)
 
 Finally, press "Update settings and restart W&B".
 
@@ -60,13 +60,13 @@ To use an AWS S3 bucket as the file storage backend for W&B, you'll need to crea
 
 First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage` and `ReceiveMessage` actions as well as `GetQueueUrl` . \(If you like you can further lock this down using an advanced policy document.\)
 
-![Enterprise file storage settings](../../../.gitbook/assets/sqs-perms.png)
+![Enterprise file storage settings](../../.gitbook/assets/sqs-perms.png)
 
 **Create an S3 Bucket and Bucket Notifications**
 
 Then, create an S3 bucket. Under the bucket properties page in the console, in the "Events" section of "Advanced Settings", click "Add notification", and configure all object creation events to be sent to the SQS Queue you configured earlier.
 
-![Enterprise file storage settings](../../../.gitbook/assets/s3-notification.png)
+![Enterprise file storage settings](../../.gitbook/assets/s3-notification.png)
 
 Enable CORS access: your CORS configuration should look like the following:
 
@@ -90,7 +90,7 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/ad
 * **File Storage Region**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![AWS file storage settings](../../../.gitbook/assets/aws-filestore.png)
+![AWS file storage settings](../../.gitbook/assets/aws-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
 
@@ -163,7 +163,7 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/ad
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![GCP file storage settings](../../../.gitbook/assets/gcloud-filestore.png)
+![GCP file storage settings](../../.gitbook/assets/gcloud-filestore.png)
 
 Press "update settings and restart W&B" to apply the new settings.
 
@@ -177,56 +177,56 @@ If you have a storage account you want to use already, you can skip this step.
 
 Navigate to [Storage Accounts &gt; Add ](https://portal.azure.com/#create/Microsoft.StorageAccount)in the Azure portal. Select an Azure subscription, and select any resource group or create a new one. Enter a name for your storage account.
 
-![Azure storage account setup](../../../.gitbook/assets/image%20%28106%29.png)
+![Azure storage account setup](../../.gitbook/assets/image%20%28106%29.png)
 
 Click Review and Create, and then, on the summary screen, click Create:
 
-![Azure storage account details review](../../../.gitbook/assets/image%20%28114%29.png)
+![Azure storage account details review](../../.gitbook/assets/image%20%28114%29.png)
 
 #### Creating the blob container
 
 Go to  [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service &gt; Containers in the menu:
 
-![](../../../.gitbook/assets/image%20%28102%29.png)
+![](../../.gitbook/assets/image%20%28102%29.png)
 
 Create a new container, and set it to Private:
 
-![](../../../.gitbook/assets/image%20%28110%29.png)
+![](../../.gitbook/assets/image%20%28110%29.png)
 
 Go to Settings &gt; CORS &gt; Blob service, and enter the IP of your wandb server as an allowed origin, with allowed methods `GET` and `PUT`, and all headers allowed and exposed, then save your CORS settings.
 
-![](../../../.gitbook/assets/image%20%28119%29.png)
+![](../../.gitbook/assets/image%20%28119%29.png)
 
 #### Creating the Queue
 
 Go to Queue service &gt; Queues in your storage account, and create a new Queue:
 
-![](../../../.gitbook/assets/image%20%28101%29.png)
+![](../../.gitbook/assets/image%20%28101%29.png)
 
 Go to Events in your storage account, and create an event subscription:
 
-![](../../../.gitbook/assets/image%20%28108%29.png)
+![](../../.gitbook/assets/image%20%28108%29.png)
 
 Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
 
-![](../../../.gitbook/assets/image%20%28116%29.png)
+![](../../.gitbook/assets/image%20%28116%29.png)
 
 In the Filters tab, enable subject filtering for subjects beginning with `/blobServices/default/containers/your-blob-container-name/blobs/`
 
-![](../../../.gitbook/assets/image%20%28105%29.png)
+![](../../.gitbook/assets/image%20%28105%29.png)
 
 #### Configure W&B Server
 
 Go to Settings &gt; Access keys in your storage account, click "Show keys", and then copy either key1 &gt; Key or key2 &gt; Key. Set this key on your W&B server as the environment variable `AZURE_STORAGE_KEY`.
 
-![](../../../.gitbook/assets/image%20%28115%29.png)
+![](../../.gitbook/assets/image%20%28115%29.png)
 
 Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
 * **File Storage Bucket**: `az://<storage-account-name>/<blob-container-name>`
 * **Notification Subscription**: `az://<storage-account-name>/<queue-name>`
 
-![](../../../.gitbook/assets/image%20%28109%29.png)
+![](../../.gitbook/assets/image%20%28109%29.png)
 
 Press "Update settings" to apply the new settings.
 
@@ -238,25 +238,25 @@ In order to integrate your local W&B installation with Slack, you'll need to cre
 
 Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Create New App** in the top right.
 
-![](../../../.gitbook/assets/image%20%28123%29.png)
+![](../../.gitbook/assets/image%20%28123%29.png)
 
 You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
 
-![](../../../.gitbook/assets/image%20%28124%29.png)
+![](../../.gitbook/assets/image%20%28124%29.png)
 
 #### Configuring the Slack application
 
 Now that we have a Slack application ready, we need to authorize for use as an OAuth bot. Select **OAuth & Permissions** in the sidebar to the left.
 
-![](../../../.gitbook/assets/image%20%28125%29.png)
+![](../../.gitbook/assets/image%20%28125%29.png)
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](../../../.gitbook/assets/image%20%28128%29%20%281%29%20%281%29.png)
+![](../../.gitbook/assets/image%20%28128%29%20%281%29%20%281%29.png)
 
 Finally, configure the **Redirect URL** to point to your W&B installation. You should use the same value as what you set **Frontend Host** to ****in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
-![](../../../.gitbook/assets/image%20%28127%29.png)
+![](../../.gitbook/assets/image%20%28127%29.png)
 
 Hit **Save URLs** once finished.
 
@@ -266,11 +266,11 @@ To further secure your Slack application and prevent abuse, you can specify an I
 
 Navigate to the **System Settings** page of your W&B instance. Check the box to enable a custom Slack application:
 
-![](../../../.gitbook/assets/image%20%28126%29.png)
+![](../../.gitbook/assets/image%20%28126%29.png)
 
 You'll need to supply your Slack application's client ID and secret, which you can find in the **Basic Information** tab.
 
-![](../../../.gitbook/assets/image%20%28120%29.png)
+![](../../.gitbook/assets/image%20%28120%29.png)
 
-That's it! You can now verify that everything is working by setting up a Slack integration in the W&B app. Visit [this page](../../../ref/app/features/alerts.md) for more detailed information.
+That's it! You can now verify that everything is working by setting up a Slack integration in the W&B app. Visit [this page](../../ref/app/features/alerts.md) for more detailed information.
 

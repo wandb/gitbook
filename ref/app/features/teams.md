@@ -20,7 +20,7 @@ Use W&B Teams as a central workspace for your ML team to build better models fas
 2. Click **Invite Team** in the navigation bar.
 3. Create your team and invite collaborators.
 
-We also offer [Self-Hosted](../../../guides/sweeps/self-hosted/) installs for on-prem or private cloud customers.
+We also offer [Self-Hosted](../../../guides/self-hosted/) installs for on-prem or private cloud customers.
 
 ![](../../../.gitbook/assets/wandb-demo-create-a-team.gif)
 
