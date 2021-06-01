@@ -107,7 +107,7 @@ To log an overlay, you'll need to provide a dictionary with the following keys a
 * one of two keys representing the image mask:
   * `"mask_data"`: a 2D numpy array containing an integer class label for each pixel
   * `"path"`: \(string\) a path to a saved image mask file
-* `"class_labels"`: a dictionary mapping the numbers from `mask_data` to readable labels
+* `"class_labels"`:  \(optional\) a dictionary mapping the integer class labels in the image mask to their readable class names
 
 To log multiple masks, log a mask dictionary with multiple keys, as in the code snippet below.
 
