@@ -4,7 +4,9 @@ description: How to configure the W&B Local Server installation
 
 # Advanced Configuration
 
-Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
+Your W&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.  
+
+The following are detailed information about manually configuring your local instance.  When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance. 
 
 ## Configuration as code
 
@@ -26,15 +28,13 @@ All configuration settings can be set via the UI however if you would like to ma
 
 ## Authentication
 
-By default, a W&B Local Server run with manual user management enabling up to 4 users. Licensed versions of _wandb/local_ also unlock SSO using Auth0.
+By default, a W&B Local Server run with manual user management enabling up to 4 users.  Licensed versions of _wandb/local_ also unlock SSO.  W&B can configure a Auth0 for you with any Identity provider they support such as Okta, Gsuite, Active Directory, etc.  Just reach out to your account executive to schedule a setup call with one of our engineers.  If you already use Auth0 or want to manage your own tenant, you can follow the instructions below.
 
-Your server supports any authentication provider supported by [Auth0](https://auth0.com/). You should set up your own Auth0 domain and application that will be under your teams' control.
+Your server supports any authentication provider supported by [Auth0](https://auth0.com/).  After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
 
-After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
-
-* Set the Callback URL to `http(s)://YOUR-W&B-SERVER-HOST`
-* Set the Allowed Web Origin to `http(s)://YOUR-W&B-SERVER-HOST`
-* Set the Logout URL to `http(s)://YOUR-W&B-SERVER-HOST/logout`
+* Add the following Callback URLs to `http(s)://YOUR-W&B-SERVER-HOST/login, http(s)://YOUR-W&B-HOST/oidc/callback`
+* Set the Logout URL to `http(s)://YOUR-W&B-HOST`
+* Set the Allowed Web Origin to `http(s)://YOUR-W&B-HOST`
 
 ![Auth0 Settings](../../.gitbook/assets/auth0-1.png)
 
@@ -42,15 +42,19 @@ Save the Client ID and domain from your Auth0 app.
 
 ![Auth0 Settings](../../.gitbook/assets/auth0-2.png)
 
-Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Customize Authentication with Auth0" option, and fill in the Client ID and domain from your Auth0 app.
+Then, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`.  Choose "Enable SSO" option, and fill in the Client ID and domain from your Auth0 app.
 
-![Enterprise authentication settings](../../.gitbook/assets/enterprise-auth.png)
+![](../../.gitbook/assets/sso.png)
 
-Finally, press "Update settings and restart W&B".
+Finally, press "Update settings".
 
 ## File Storage
 
 By default, a W&B Enterprise Server saves files to a local data disk with a capacity that you set when you provision your instance. To support limitless file storage, you may configure your server to use an external cloud file storage bucket with an S3-compatible API.
+
+{% hint style="info" %}
+You should always specify the bucket you're using with the BUCKET environment variable.  This removes the need for a persistent volume as all settings can then be persisted to your bucket.
+{% endhint %}
 
 ### Amazon Web Services
 
@@ -107,15 +111,15 @@ The node on which W&B Local is running must be configured to permit access to s3
 
 **Configure W&B Server**
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
 * **File Storage Bucket**: `s3://<bucket-name>`
-* **File Storage Region**: `<region>`
+* **File Storage Region \(AWS only\)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![AWS file storage settings](../../.gitbook/assets/aws-filestore.png)
+![](../../.gitbook/assets/file-store%20%281%29.png)
 
-Press "update settings and restart W&B" to apply the new settings.
+Press "Update settings" to apply the new settings.
 
 ### Google Cloud Platform
 
@@ -180,15 +184,15 @@ The node on which W&B Local is running must be configured to permit access to s3
 
 **Configure W&B Server**
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
 * **File Storage Bucket**: `gs://<bucket-name>`
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![GCP file storage settings](../../.gitbook/assets/gcloud-filestore.png)
+![](../../.gitbook/assets/file-store%20%282%29.png)
 
-Press "update settings and restart W&B" to apply the new settings.
+Press "update settings" to apply the new settings.
 
 ### Azure
 
@@ -244,7 +248,7 @@ Go to Settings &gt; Access keys in your storage account, click "Show keys", and 
 
 ![](../../.gitbook/assets/image%20%28115%29.png)
 
-Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/admin-settings`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
+Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
 * **File Storage Bucket**: `az://<storage-account-name>/<blob-container-name>`
 * **Notification Subscription**: `az://<storage-account-name>/<queue-name>`
