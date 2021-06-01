@@ -1,89 +1,73 @@
-# Graph
-
-
+# wandb.data\_types.Graph
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1247-L1407)
 
-
-
-
 Wandb class for graphs
 
-<pre><code>Graph(
-    format=&#x27;keras&#x27;
-)</code></pre>
+```text
+Graph(
+    format='keras'
+)
+```
 
-
-
-
-This class is typically used for saving and diplaying neural net models.  It
-represents the graph as an array of nodes and edges.  The nodes can have
-labels that can be visualized by wandb.
+This class is typically used for saving and diplaying neural net models. It represents the graph as an array of nodes and edges. The nodes can have labels that can be visualized by wandb.
 
 #### Examples:
 
 Import a keras model:
-```
+
+```text
     Graph.from_keras(keras_model)
 ```
 
-
-
 ## Methods
 
-<h3 id="add_edge"><code>add_edge</code></h3>
+### `add_edge` <a id="add_edge"></a>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1333-L1337">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1333-L1337)
 
-<pre><code>add_edge(
+```text
+add_edge(
     from_node, to_node
-)</code></pre>
+)
+```
 
+### `add_node` <a id="add_node"></a>
 
+[View source](https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1319-L1331)
 
-
-<h3 id="add_node"><code>add_node</code></h3>
-
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1319-L1331">View source</a>
-
-<pre><code>add_node(
+```text
+add_node(
     node=None, **node_kwargs
-)</code></pre>
+)
+```
 
+### `from_keras` <a id="from_keras"></a>
 
+[View source](https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1339-L1368)
 
-
-<h3 id="from_keras"><code>from_keras</code></h3>
-
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1339-L1368">View source</a>
-
-<pre><code>@classmethod</code>
-<code>from_keras(
+```text
+@classmethod
+from_keras(
     model
-)</code></pre>
+)
+```
 
+### `pprint` <a id="pprint"></a>
 
+[View source](https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1313-L1317)
 
+```text
+pprint()
+```
 
-<h3 id="pprint"><code>pprint</code></h3>
+### `__getitem__` <a id="__getitem__"></a>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1313-L1317">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1310-L1311)
 
-<pre><code>pprint()</code></pre>
-
-
-
-
-<h3 id="__getitem__"><code>__getitem__</code></h3>
-
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1310-L1311">View source</a>
-
-<pre><code>__getitem__(
+```text
+__getitem__(
     nid
-)</code></pre>
-
-
-
-
-
+)
+```
 

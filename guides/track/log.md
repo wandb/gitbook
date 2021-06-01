@@ -104,7 +104,9 @@ Log semantic segmentation masks and interact with them \(altering opacity, viewi
 
 To log an overlay, you'll need to provide a dictionary with the following keys and values to the `masks` keyword argument of `wandb.Image`:
 
-* `"mask_data"`: a 2D numpy array containing an integer class label for each pixel
+* one of two keys representing the image mask:
+  * `"mask_data"`: a 2D numpy array containing an integer class label for each pixel
+  * `"path"`: \(string\) a path to a saved image mask file
 * `"class_labels"`: a dictionary mapping the numbers from `mask_data` to readable labels
 
 To log multiple masks, log a mask dictionary with multiple keys, as in the code snippet below.
@@ -481,7 +483,7 @@ You can log this wherever your code has access to:
 * the corresponding ground truth labels for those examples \(`y_true`\)
 * a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 is cat, 1=dog, 2=bird, etc\)
 
-![](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 ​[See in the app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)​
 
