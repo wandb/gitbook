@@ -20,9 +20,11 @@ run.log({"Table Name": my_table})
 
 ## 2. Visualize in the dashboard
 
-See the resulting table in the Weights & Biases web app.
+See the resulting table in the workspace. A new panel is added for each unique table key. In the above example, `my_table` is logged under the key `Table Name`, which creates the displayed table below:
 
 ![](../../.gitbook/assets/wandb-demo-logged-sample-table.png)
+
+
 
 ## 3. Compare across model versions
 
@@ -33,6 +35,14 @@ Log sample tables from multiple different runs, then compare results in the proj
 Use the table filter, sort, and grouping features to explore and evaluate model results.
 
 ![](../../.gitbook/assets/wandb-demo-filter-on-a-table.png)
+
+
+
+Now that you've run through the quickstart, learn more about the power and flexibility of tables:
+
+{% page-ref page="log-tables.md" %}
+
+{% page-ref page="tables.md" %}
 
 
 
