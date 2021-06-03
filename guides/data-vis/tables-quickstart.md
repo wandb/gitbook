@@ -18,7 +18,7 @@ my_table = wandb.Table(columns=["a", "b"], data=[["a1", "b1"], ["a2", "b2"]])
 run.log({"Table Name": my_table})
 ```
 
-## 2. Visualize in the dashboard
+## 2. Visualize tables in the workspace
 
 See the resulting table in the workspace. A new panel is added for each unique table key. In the above example, `my_table` is logged under the key `Table Name`, which creates the displayed table below:
 
