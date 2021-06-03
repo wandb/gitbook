@@ -4,7 +4,7 @@ description: Try visualizing data and model predictions in 5 minutes
 
 # Tables Quickstart
 
-Try logging data and visualize and query that data in the W&B UI. Click the button below to try a PyTorch quickstart example project on MNIST data.
+Explore how to use W&B Tables with this 5 minute quickstart, which runs through how to log data tables, then visualize and query that data. Click the button below to try a PyTorch quickstart example project on MNIST data.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/tables-quickstart)
 
