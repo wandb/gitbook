@@ -41,6 +41,10 @@ Metrics are sampled to 1500 data points by default before displaying in the UI.
 
 While a run is in progress we tail the last 5000 lines of your log for you in the UI. After a run is completed the entire log is archived and can be downloaded from an individual run page.
 
+**Config**
+
+We support up to 15MB of serialized config data per run.
+
 ### Logging Guidance
 
 Here are some additional guidelines for logging data to W&B.
