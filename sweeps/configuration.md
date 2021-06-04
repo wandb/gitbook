@@ -9,16 +9,16 @@ description: >-
 Utilisez ces champs de configuration pour personnaliser votre balayage. Il y a deux manières de spécifier votre configuration :
 
 1.  [Fichier YAML ](https://docs.wandb.com/sweeps/quickstart#2-sweep-config): idéal pour les balayages distribués. Voir des exemples [ici](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
-2.  [Structure de données Python ](https://docs.wandb.ai/sweeps/python-api): idéal pour exécuter un balayage dans un Jupyter Notebook
+2.  [Structure de données Python ](https://docs.wandb.ai/sweeps/python-api): idéal pour exécuter un balayage à partir d’un notebook Jupyter
 
 | **Clef de niveau supérieur** | **Signification** |
 | :--- | :--- |
-| name | Le nom du balayage, affiché dans l’IU W&B |
-| description | Description textuelle du balayages \(notes\) |
+| name | Le nom du balayage, affiché dans l’interface utilisateur de W&B |
+| description | Description textuelle du balayage \(notes\) |
 | program | Script d’entraînement à exécuter \(requis\) |
-| metric | Spécifie la mesure à optimiser \(utilisé dans certaines stratégies de recherches et de critères d’arrêt\) |
+| metric | Spécifie la métrique à optimiser \(utilisé dans certaines stratégies de recherches et certains critères d’arrêt\) |
 | method | Spécifie la [stratégie de recherche](https://docs.wandb.ai/sweeps/configuration#search-strategy) \(requis\) |
-| early\_terminate | Spécifie les critères d’arrêts \(optionnel, par défaut, aucun arrêt précoce\) |
+| early\_terminate | Spécifie les critères d’arrêts \(optionnel, par défaut, aucun arrêt prématuré\) |
 | parameters | Spécifie les[ paramètres](https://docs.wandb.ai/sweeps/configuration#parameters) liés à la recherche \(requis\) |
 | project | Spécifie le projet pour ce balayage |
 | entity | Spécifie l’entité pour ce balayage |
@@ -26,22 +26,22 @@ Utilisez ces champs de configuration pour personnaliser votre balayage. Il y a d
 
 ### Metric
 
-Spécifiez la mesure à optimiser. Cette mesure doit être explicitement enregistrée dans W&B par votre script d’entraînement. Par exemple, si vous voulez minimiser la perte de validation \(validation loss\) de votre modèle :
+Spécifiez la métrique à optimiser. Cette métrique doit être explicitement enregistrée sur W&B par votre script d’entraînement. Par exemple, si vous voulez minimiser la perte de validation \(validation loss\) de votre modèle :
 
 ```python
 # [model training code that returns validation loss as valid_loss]
 wandb.log({"val_loss" : valid_loss})
 ```
 
-| `metric` sub-key | **Signification** |
+| `metric` sous-clé | **Signification** |
 | :--- | :--- |
-| name | Nom de la mesure à optimiser |
-| goal | `minimize` ou `maximize` \(Default is `minimize`\) |
-| target | Valeur cible pour la mesure que vous optimisez. Lorsqu’un essai dans un balayage parvient à cette valeur cible, l’état du balayage est réglé sur **finished** \(terminé\). Cela signifie que tous les agents avec des essais actifs finiront leur tâche en cours, mais qu’aucun nouvel essai ne sera lancer dans ce balayage. |
+| name | Nom de la métrique à optimiser |
+| goal | `minimize` ou `maximize` \(par défaut `minimize`\) |
+| target | Valeur cible pour la métrique que vous optimisez. Lorsqu’un essai dans un balayage parvient à cette valeur cible, l’état du balayage sera configuré sur **finished**\(terminé\). Cela signifie que tous les agents avec des essais actifs finiront leur tâche en cours, mais qu’aucun nouvel essai ne sera lancé dans ce balayage. |
 
- ⚠️ Impossible d’optimiser les mesures imbriquées
+ ⚠️  Ne peut pas optimiser les métriques imbriquées
 
-La mesure que vous optimisez doit être au **niveau supérieur** de la config.
+La métrique que vous optimisez doit être au **niveau supérieur** de la configuration.
 
 Ceci ne fonctionnera **PAS** :  
 Configuration de balayage  
@@ -50,7 +50,7 @@ Configuration de balayage
 _Code_  
 `nested_metrics = {"nested": 4} wandb.log({"my_metric", nested_metrics}`
 
-Solution : enregistrer la mesure au niveau supérieur
+**Solution de contournement** : enregistrer la métrique au niveau supérieur
 
 Configuration de balayage  
 `metric:   
@@ -93,9 +93,9 @@ Spécifiez la stratégie de recherche avec la clef `method` dans la configuratio
 
 | `method` | **Signification** |
 | :--- | :--- |
-| grid | La recherche de grille fait des itérations sur toutes les combinaisons possibles de valeurs de paramètres. |
+| grid | La recherche par quadrillage \(grid search\) fait des itérations sur toutes les combinaisons possibles de valeurs de paramètres. |
 | random | La recherche aléatoire choisit des sets aléatoires de valeurs. |
-| bayes | L’Optimisation Bayésienne utilise un processus gaussien pour modéliser la fonction puis pour choisir les paramètres pour optimiser la probabilité d’amélioration. Cette stratégie requiert qu’une clef de mesure soit spécifiée. |
+| bayes | L’optimisation bayésienne utilise un processus gaussien pour modéliser la fonction puis pour choisir les paramètres pour optimiser la probabilité d’amélioration. Cette stratégie requiert la spécification d’une clef. |
 
 **Exemples**
 
@@ -124,28 +124,28 @@ metric:
 
 ### Critères d’arrêt
 
-L’arrêt précoce est une fonctionnalité optionnelle qui accélère la recherche d’hyperparamètres en coupant court aux essais qui ne sont pas prometteurs. Lorsque l’arrêt précoce est déclenché, l’agent arrête l’essai en cours et obtient le prochain set d’hyperparamètres à essayer.
+L’arrêt prématuré est une fonctionnalité optionnelle qui accélère la recherche d’hyperparamètres en mettant finaux essais qui ne sont pas prometteurs. Lorsque l’arrêt prématuré est déclenché, l’agent arrête l’essai en cours et reçoit le prochain set d’hyperparamètres à essayer.
 
-| `early_terminate` sub-key | Meaning |
+| `early_terminate` sous-clé | Signification |
 | :--- | :--- |
-| type | specify the stopping algorithm |
+| type | Spécifie l’algorithme d’arrêt |
 
-We support the following stopping algorithm\(s\):
+ Nous prenons en charge l’\(les\) algorithme\(s\):
 
 | `type` | **Signification** |
 | :--- | :--- |
-| hyperband |  spécifie[ l’algorithme d’arrêt](https://arxiv.org/abs/1603.06560) |
+| hyperband |  Utilise[ la méthode hyperband](https://arxiv.org/abs/1603.06560) |
 
- L’arrêt Hyperband évalue si un programme devrait être arrêté ou s’il lui est permis de continuer à une ou plusieurs parenthèses \(brackets\) durant l’exécution du programme. Les parenthèses sont configurées pour être des itérations statiques pour une `mesure ( metric )` spécifiée \( où une itération est le nombre de fois qu’une mesure a été enregistrée – si la mesure est enregistrée à chaque epoch, ce sont alors des itérations d’epoch\).
+ L’algorithme d’arrêt hyperband évalue si un programme devrait être arrêté ou autorisé à continuer sur une ou plusieurs parenthèses \(brackets\) durant l’exécution du programme. Les parenthèses sont configurées pour être des itérations statiques pour une `metric` spécifiée \(où une itération représente le nombre de fois où une métrique a été enregistrée –si la métrique est enregistrée à chaque epoch, il y a des itérations d’epoch\).
 
-Pour spécifier la planification des parenthèses, il faut que `min_iter` or `max_iter soit définie.`
+Pour spécifier la planification des parenthèses, il faut que la `min_iter` ou `max_iter` soit définie.
 
 | `early_terminate` sub-key | Meaning |
 | :--- | :--- |
 | min\_iter | spécifie l’itération pour la première parenthèse |
 | max\_iter | spécifie le nombre maximal d’itérations pour le programme |
 | s | spécifie le nombre total de parenthèses \(requis pour `max_iter`\) |
-| eta | spécifie la planification de multiplication des parenthèses \(par défaut : 3\) |
+| eta | spécifie la planification de multiplication des parenthèses \(par défaut, : 3\) |
 
  **Exemples**
 
@@ -157,7 +157,7 @@ early_terminate:
   min_iter: 3
 ```
 
-Brackets: 3, 9 \(3\*eta\), 27 \(9 \* eta\), 81 \(27 \* eta\)
+Parenthèses : 3, 9 \(3_eta\), 27 \(9_  eta\), 81 \(27 \* eta\)
 {% endtab %}
 
 {% tab title="Hyperband \(max\_iter\)" %}
@@ -174,30 +174,30 @@ Brackets: 9 \(27/eta\), 3 \(9/eta\)
 
 ### Paramètres
 
- Décrivez les hyperparamètres à explorer. Pour chaque hyperparamètre, spécifiez le nom et les valeurs possibles sous liste de constantes \(pour toute méthode\) ou spécifiez une distribution \(pour `random` ou `bayes` \).
+ Décrivez les hyperparamètres à explorer. Pour chaque hyperparamètre, spécifiez le nom et les valeurs possibles dans une liste de constantes \(pour toute méthode\) ou spécifiez une distribution \(pour `random` ou `bayes` \).
 
 | Values | **Signification** |
 | :--- | :--- |
 | values: \[\(type1\), \(type2\), ...\] | Spécifie toutes les valeurs valides pour cet hyperparamètre. Compatible avec`grid`. |
 | value: \(type\) | Spécifie la valeur unique valide pour cet hyperparamètre. Compatible avec `grid`. |
-| distribution: \(distribution\) | Sélectionne une distribution du tableau de distribution plus bas. Si non spécifié, sera par défaut `categorical` si `values est réglé, int_uniform` si `max` et `min sont réglées sur des entiers relatifs,` `uniform` si `max` et `min sont réglées sur des floats, ouconstant` si `value` est réglée. |
-| min: \(float\) max: \(float\) | Valeurs valides maximum et `minimum` pour. |
+| distribution: \(distribution\) | Sélectionne une distribution à partir du tableau de distribution ci-dessous. Si elle n’est pas spécifiée, elle sera par défaut `categorical` si des values sont paramétrées, `int_uniform` si max et min sont paramétrées sur des nombres entiers \(integers\),uniform sont paramétrées sur des nombres à virgules \(floats\), ouconstant si une value est paramétrée. |
+| min: \(float\) max: \(float\) | Valeurs valides maximales et minimales pour int\_uniform – hyperparamètres distribués. |
 | min: \(int\) max: \(int\) | Valeurs valides maximum et minimum pour les hyperparamètres distribués par `int_uniform` |
-| mu: \(float\) | Paramètre moyen pour les hyperparamètres distribués par `normal` – ou `lognormal` |
+| mu: \(float\) | Paramètre moyen pour `normal` – ou `lognormal` – hyperparamètres distribués. |
 | sigma: \(float\) | Paramètre de déviation standard pour les hyperparamètres distribués par `normal` – ou `lognormal` |
 | q: \(float\) | Taille d’étape de quantification pour les hyperparamètres quantifiés |
 
 **Exemple**
 
 {% tabs %}
-{% tab title="grid - single value" %}
+{% tab title="Grille – valeur unique" %}
 ```text
 parameter_name:
   value: 1.618
 ```
 {% endtab %}
 
-{% tab title="grid - multiple values" %}
+{% tab title="Grille – valeurs multiples" %}
 ```text
 parameter_name:
   values:
@@ -211,7 +211,7 @@ parameter_name:
 ```
 {% endtab %}
 
-{% tab title="random or bayes - normal distribution" %}
+{% tab title="Distribution normale – aléatoire ou bayésienne" %}
 ```text
 parameter_name:
   distribution: normal
@@ -223,16 +223,16 @@ parameter_name:
 
 ### Distributions
 
-| Name | Meaning |
+| Nom | Signification |
 | :--- | :--- |
 | constant |  Distribution constante. Doit spécifier `value`. |
 | categorical | Distribution catégorielle. Doit spécifier `values`. |
-| int\_uniform |  Distribution uniforme discrète sur des entiers relatifs. Doit spécifier `max` et`min` comme entiers relatifs. |
-| uniform | Distribution uniforme continue. Doit spécifier `max` and `min` comme floats. |
+| int\_uniform | Distribution uniforme discrète sur des nombres entiers \(integers\). Doit spécifier max et min comme des nombres entiers \(integers\). |
+| uniform | Distribution uniforme continue. Doit spécifier max and min comme des nombres à virgule \(floats\). |
 | q\_uniform | Distribution uniforme quantifiée. Renvoie `round(X / q) * q où X est uniforme. Par défaut, q est` `1`. |
 | log\_uniform | Distribution uniforme logarithmique. Renvoie une valeur entre `exp(min)` et `exp(max) de sorte que le logarithme naturel soit uniformément distribué entre min` et `max`. |
 | q\_log\_uniform | Distribution uniforme logarithmique quantifiée. Renvoie `round(X / q) * q où X est` log\_uniform`. Par défaut, q est` `1`. |
-| normal | Normal distribution. Return value is normally-distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
+| normal | Distribution normale. La valeur renvoyée est distribuée normalement avec un écart-moyen mu \(par défaut, 0\) et un écart-type sigma \(par défaut, 1\). |
 | q\_normal | Distribution normale. La valeur renvoyée est distribuée normalement avec une moyenne `mu` \(par défaut, `0`\) et une déviation standard `sigma` \(par défaut, `1`\). |
 | log\_normal | Distribution normale logarithmique. Renvoie une valeur X de sorte que le logarithme naturel log\(X\) est normalement distribué avec une moyenne `mu`\(par défaut, `0`\) et une déviation standard `sigma` \(par défaut, `1`\). |
 | q\_log\_normal | Distribution normale logarithmique quantifiée. Renvoie `round(X / q) * q où X est log_normal. Par défaut, q est` `1`. |
@@ -240,7 +240,7 @@ parameter_name:
 **Exemple**
 
 {% tabs %}
-{% tab title="constant" %}
+{% tab title="Constante" %}
 ```text
 parameter_name:
   distribution: constant
@@ -248,7 +248,7 @@ parameter_name:
 ```
 {% endtab %}
 
-{% tab title="categorical" %}
+{% tab title="Catégorielle" %}
 ```text
 parameter_name:
   distribution: categorical
@@ -265,7 +265,7 @@ parameter_name:
 ```
 {% endtab %}
 
-{% tab title="uniform" %}
+{% tab title="Uniforme" %}
 ```text
 parameter_name:
   distribution: uniform
@@ -274,7 +274,7 @@ parameter_name:
 ```
 {% endtab %}
 
-{% tab title="q\_uniform" %}
+{% tab title="Uniforme Uniforme quantifiée" %}
 ```text
 parameter_name:
   distribution: q_uniform
@@ -285,7 +285,7 @@ parameter_name:
 {% endtab %}
 {% endtabs %}
 
-### Command Line Ligne de commande <a id="command"></a>
+### **Ligne de commande** <a id="command"></a>
 
 L’agent de balayage construit une ligne de commande avec le format suivant par défaut :
 
@@ -319,7 +319,7 @@ command:
 | ${json} | Arguments encodés en JSON |
 | ${json\_file} | Le chemin à un fichier qui contient les arguments encodés en JSON |
 
-Examples:
+**Examples:**
 
 {% tabs %}
 {% tab title="Utiliser avec Hydra " %}
@@ -376,5 +376,5 @@ command:
 
 ###  Config imbriquée
 
-Pour l’instant, les balayages ne prennent pas en charge les valeurs imbriquées, mais nous prévoyons de les prendre en charge dans un avenir proche.
+Pour l’instant, les balayages ne prennent pas en charge les valeurs imbriquées, mais nous envisageons de les prendre en charge dans un avenir proche.
 

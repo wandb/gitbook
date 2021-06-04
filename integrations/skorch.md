@@ -1,6 +1,6 @@
 # Skorch
 
-Vous pouvez utiliser Weights & Biases avec Skorch pour enregistrer automatiquement le modèle avec la meilleure performance – ainsi que les mesures de performance de tous les modèles, la topologie du modèle et les ressources de calcul après chaque epoch. Chaque fichier sauvegardé dans wandb\_run.dir est automatiquement enregistré sur les serveurs W&B.
+Vous pouvez utiliser Weights & Biases avec Skorch pour enregistrer automatiquement le modèle ayant la meilleure performance – ainsi que les métriques de performance de tous les modèles, la topologie et les ressources de calcul du modèle après chaque epoch. Chaque fichier sauvegardé dans wandb\_run.dir est automatiquement enregistré sur les serveurs W&B.
 
 Voir un [exemple d’essai](https://app.wandb.ai/borisd13/skorch/runs/s20or4ct?workspace=user-borisd13).
 
@@ -19,7 +19,7 @@ Voir un [exemple d’essai](https://app.wandb.ai/borisd13/skorch/runs/s20or4ct?w
         <p><b>wandb_run</b>:</p>
         <p>wandb.wandb_run.Run</p>
       </td>
-      <td style="text-align:left">l&#x2019;essai wandb utilis&#xE9; pour enregistrer les donn&#xE9;es.</td>
+      <td style="text-align:left">L&#x2019;ex&#xE9;cution wandb utilis&#xE9;e pour enregistrer les donn&#xE9;es.</td>
     </tr>
     <tr>
       <td style="text-align:left"><b>save_model<br /></b>bool (default=True)</td>

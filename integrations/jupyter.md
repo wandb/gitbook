@@ -1,14 +1,14 @@
 # Jupyter
 
- Utilisez Weights & Biases dans vos notebooks Jupyter pour obtenir des visuels interactifs et faire des analyses personnalisées de vos essais d’entraînement.
+Utilisez Weights & Biases dans vos notebooks Jupyter pour obtenir des visualisations interactifs et réaliser des analyses personnalisées sur vos essais d’entraînement.
 
 ##  ****Cas d’utilisation pour W&B avec les notebooks Jupyter
 
-1. **Expérimentations itératives :**  Essayez et réessayez des expériences, ajustez des paramètres, tandis que tous vos essais sont automatiquement enregistrés sur W&B sans avoir besoin de prendre des notes de manière manuelle tout du long.
-2. **Sauvegarde de code :** Lorsque vous reproduisez un modèle, il est compliqué de savoir quelles cellules d’un notebook ont été exécutées, et dans quel ordre. Activez la sauvegarde de code sur votre [page de paramètres](https://wandb.ai/settings) pour sauvegarder un enregistrement d’exécution de cellule pour chaque expérience.
-3.  **Analyse personnalisée :** Une fois que vos essais sont enregistrés dans W&B, il est facile d’obtenir une dataframe depuis l’API et de faire une analyse personnalisée, puis d’enregistrer ces résultats dans W&B pour les sauvegarder et les partager dans des rapports.
+1. **Expérimentations itératives :** exécuter et réexécuter des expériences, ajuster les paramètres, faire enregistrer tous vos essais automatiquement sur W&B sans devoir prendre des notes manuellement tout au long du processus.
+2. **Sauvegarde de code :** lorsque vous reproduisez un modèle, il est compliqué de savoir quelles cellules d’un notebook ont été exécutées, et dans quel ordre. Activez la sauvegarde de code sur votre [page de paramètres](https://wandb.ai/settings) pour sauvegarder un enregistrement de l’exécution des cellules pour chaque expérience.
+3.  **Analyse personnalisée :** une fois que vos essais sont enregistrés sur W&B, il est facile d’obtenir une DataFrame à partir de l’API et de faire une analyse personnalisée, puis d’enregistrer ces résultats sur W&B pour les sauvegarder et les partager via des rapports.
 
-## Configurer les notebooks
+## **Configuration des notebooks**
 
 Commencez votre notebook avec le code suivant pour installer W&B et lier votre compte :
 
@@ -18,7 +18,7 @@ import wandb
 wandb.login()
 ```
 
-Ensuite, mettez en place votre expérience et sauvegardez les hyperparamètres :
+Ensuite, configurez votre expérience et sauvegardez les hyperparamètres :
 
 ```python
 wandb.init(project="jupyter-projo",
@@ -29,7 +29,7 @@ wandb.init(project="jupyter-projo",
            })
 ```
 
- Après avoir exécuté `wandb.init()` , commencez une nouvelle cellule avec `%%wandb` pour voir des graphiques en direct dans le notebook. Si vous exécutez cette cellule plusieurs fois, les données seront annexées à l’essai.
+Après avoir exécuté `wandb.init()` , lancez une nouvelle cellule avec `%%wandb` pour voir des graphiques en direct dans le notebook. Si vous exécutez cette cellule plusieurs fois, les données seront annexées à l’essai.
 
 ```python
 %%wandb
@@ -37,7 +37,7 @@ wandb.init(project="jupyter-projo",
 # Your training loop here
 ```
 
-Essayez par vous-même dans cet [exemple de script rapide →](https://bit.ly/wandb-jupyter-widgets-colab)
+Essayez-le par vous-même dans cet [exemple de script rapide →](https://bit.ly/wandb-jupyter-widgets-colab)​
 
 ![](../.gitbook/assets/jupyter-widget.png)
 

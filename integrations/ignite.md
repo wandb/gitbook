@@ -4,12 +4,12 @@ description: Use wandb with PyTorch Ignite
 
 # PyTorch Ignite
 
-*  Regardez les résultats visuels dans cet [exemple de rapport W&B →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)
-* Essayez d’exécuter le code vous-même dans cet [exemple notebook hébergé →](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)
+*  Consultez les visualisations résultantes dans ce [rapport d’un exemple W&B →](https://app.wandb.ai/example-team/pytorch-ignite-example/reports/PyTorch-Ignite-with-W%26B--Vmlldzo0NzkwMg)​
+* Essayez d’exécuter le code vous-même dans ce [notebook hébergé d’un exemple →](https://colab.research.google.com/drive/15e-yGOvboTzXU4pe91Jg-Yr7sae3zBOJ#scrollTo=ztVifsYAmnRr)​
 
-Ignite prend en charge le gestionnaire Weights & Biases pour enregistrer des mesures, des paramètres de modèle/d’optimiseur, des dégradés pendant l’entraînement et la validation. Il peut aussi être utilisé pour enregistrer des checkpoints de modèles sur le cloud Weights & Biases. Cette classe est aussi un wrapper léger pour le module wandb. Cela signifie que vous pouvez appeler n’importe quelle fonction wandb en l’utilisant. Consultez des exemples sur la manière de sauvegarder des paramètres de modèle et des dégradés.
+Ignite prend en charge le gestionnaire de Weights & Biases pour enregistrer des métriques, des paramètres de modèle/d’optimiseur, et des dégradés pendant l’entraînement et la validation. Il peut également être utilisé pour enregistrer des checkpoints de modèles sur le cloud de Weights & Biases. Cette classe est aussi un wrapper pour le module wandb. Cela signifie que vous pouvez appeler n’importe quelle fonction wandb en l’utilisant. Consultez des exemples sur la manière de sauvegarder des paramètres de modèle et des dégradés.
 
-##  Le setup PyTorch de base 
+##  **La configuration de base PyTorch**
 
 ```python
 from argparse import ArgumentParser
@@ -58,11 +58,11 @@ def get_data_loaders(train_batch_size, val_batch_size):
     return train_loader, val_loader
 ```
 
-Utiliser WandBLogger dans Ignite est un processus modulaire en deux étapes : D’abord, vous devez créer un objet WandBLogger. Puis, il peut être attaché à n’importe quel entraîneur ou évaluateur pour automatiquement sauvegarder les mesures. Nous allons faire les tâches suivantes de manière séquentielle : 1\) Créer un objet WandBLogger 2\) Attacher l’objet sur les gestionnaires de sortie \(output handlers\) afin de pouvoir :
+L’utilisation de WandBLogger sur Ignite se rapporte à un processus modulaire en deux étapes : tout d’abord, vous devez créer un objet WandBLogger. Puis, il peut être attaché à n’importe quel entraîneur ou évaluateur pour sauvegarder automatiquement les métriques. Nous allons faire les tâches suivantes de manière séquentielle : 1\) créer un objet WandBLogger 2\) attacher l’objet aux gestionnaires de sortie \(output handlers\) afin de pouvoir :
 
-* Enregistrer les pertes d’entraînement – attacher à l’objet d’entraînement
-* Enregistrer la perte de validation – attacher à l’évaluateur
-* Enregistrer les paramètres additionnels – Par exemple, le taux d’apprentissage \(learning rate\)
+* Enregistrer les pertes d’entraînement – les attacher à l’objet d’entraînement
+* Enregistrer la perte de validation – les attacher à l’évaluateur
+* Enregistrer les paramètres additionnels – par exemple, le taux d’apprentissage \(learning rate\)
 * Observer le modèle
 
 ```python
@@ -120,7 +120,7 @@ def run(train_batch_size, val_batch_size, epochs, lr, momentum, log_interval):
     wandb_logger.watch(model)
 ```
 
- De manière annexe, nous pouvons aussi utiliser les `EVENTS` ignite pour enregistrer les mesures directement dans le terminal
+ Facultativement, nous pouvons aussi utiliser les `EVENTS` Ignite pour enregistrer les métriques directement surle terminal
 
 ```python
     @trainer.on(Events.ITERATION_COMPLETED(every=log_interval))
@@ -175,7 +175,7 @@ if __name__ == "__main__":
     run(args.batch_size, args.val_batch_size, args.epochs, args.lr, args.momentum, args.log_interval)
 ```
 
-En exécutant le code ci-dessus, on obtient ces visuels :
+En exécutant le code ci-dessus, on obtient ces visualisations :
 
 ![](https://i.imgur.com/CoBDShx.png)
 
@@ -185,5 +185,5 @@ En exécutant le code ci-dessus, on obtient ces visuels :
 
 ![](https://i.imgur.com/rHNPyw3.png)
 
- Référez-vous à la [Docu Ignite](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger) pour une documentation plus détaillée. 
+  Référez-vous aux [documents d’Ignite](https://pytorch.org/ignite/contrib/handlers.html#module-ignite.contrib.handlers.wandb_logger) pour une documentation plus détaillée. 
 

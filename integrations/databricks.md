@@ -1,16 +1,16 @@
 # Databricks
 
- W&B s’intègre avec [Databricks](https://www.databricks.com/) en personnalisant l’expérience W&B Jupyter notebook dans l’environnement Databricks.
+W&B s’intègre avec [Databricks](https://www.databricks.com/) en personnalisant l’expérience W&B sur un notebook Jupyter dans l’environnement Databricks.
 
 ## Configuration Databricks
 
-### Installer wandb dans le cluster
+###  **Installer wandb dans le cluster \(agrégat\)**
 
-Naviguez dans la configuration de votre cluster, choisissez votre cluster, cliquez sur Libraries, puis sur Install New, Choose PyPI et ajoutez le package `wandb`.
+Naviguez dans votre configuration de clusters, choisissez votre cluster, cliquez sur Libraries, puis sur Install New, Choose PyPI et ajoutez le package `wandb`.
 
 ### Authentification
 
-Pour authentifier votre compte W&B, vous pouvez ajouter un secret databricks que vos notebooks peuvent quérir.
+ Pour authentifier votre compte W&B, vous pouvez ajouter une identification databricks secrète que vos notebooks peuvent exiger.
 
 ```bash
 # install databricks cli
@@ -46,7 +46,9 @@ wandb.log({"foo": 1})
 
 ### Balayages
 
-Set-up \(temporairement\) nécessaire pour les notebooks qui essayent d’utiliser wandb.sweep\(\) ou wandb.agent\(\) :
+Configuration \(temporairement\) requise pour les notebooks qui essaient d’utiliser wandb.sweep\(\) ou wandb.agent\(\) :
+
+Nous expliquons plus en détails comment effectuer un balayage dans un notebook ici :
 
 ```python
 import os

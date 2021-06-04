@@ -1,6 +1,6 @@
 # JAX Example
 
-Voici un exemple complet de code JAX qui entraîne un perceptron multi-couches \(MLP\) et sauvegarde sur W&B.
+Voici un exemple complet de code JAX qui entraîne un perceptron multi-couches \(MLP\) et le sauvegarde sur W&B.
 
 Vous pouvez retrouver cet exemple sur [GitHub](https://github.com/wandb/examples/tree/master/examples/jax/jax-mnist) et voir les résultats sur [W&B](https://app.wandb.ai/l2k2/examples-jax-mnist/runs/g0vgca81).
 

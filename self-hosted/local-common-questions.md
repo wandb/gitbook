@@ -1,36 +1,44 @@
 ---
 description: >-
-  Foire aux questions sur la mise en place des versions localement hébergées de
-  notre app
+  Foire aux questions sur la configuration des versions hébergées localement de
+  notre application
 ---
 
 # Local FAQ
 
-## Mon serveur a-t-il besoin d’une connexion à internet ?
+## **Mon serveur nécessite-t-il une connexion Internet ?**
 
-Non, wandb/local peut fonctionner dans des environnements air gap. Le seul prérequis est que les machines qui entraînent vos modèles puissent se connecter à ce serveur par le réseau.
+Non, wandb/local peut fonctionner dans des environnements air gap. Le seul prérequis est que les ordinateurs sur lesquels vous entraînez vos modèles puissent se connecter à ce serveur par le réseau.
 
 ## Où sont stockées mes données ?
 
-L’image docker par défaut exécute MySQL et Minio à l’intérieur du conteneur et inscrit toutes les données dans des sous-dossiers de `/vol` . Vous pouvez configurer un MySQL et un Stockage d’Object externe en obtenant une licence. Envoyez un email à [contact@wandb.com](mailto:contact@wandb.com) pour obtenir plus de détails.
+L’image Docker par défaut exécute MySQL et Minio au sein du conteneur et inscrit toutes les données dans des sous-dossiers de `/vol` . Vous pouvez configurer un moteur de stockage MySQL et un stockage d’objet externes en obtenant une licence. Envoyez-nous un e-mail à l’adresse [contact@wandb.com](mailto:contact@wandb.com) pour plus d’informations.
 
-## Vous sortez souvent des mises à niveau \(upgrade\) ?
+## **À quel fréquence sortez-vous des mises à jour ?**
 
- Nous nous efforçons de sortir des versions mises à niveau de notre serveur au moins une fois par mois.
+ Nous nous efforçons de sortir des versions mises à jour de notre serveur au moins une fois par mois.
 
-## Que se passe-t-il si mon serveur s’éteint ?
+##  **Que se passe-t-il si mon serveur tombe en panne ?**
 
 Les expériences en cours de progression entreront dans une boucle backoff de nouvel essai et continuera d’essayer de se connecter pendant 24 heures.
 
-##  Quelles sont les caractéristiques scalables de ce service ?
+##  **Que se passe-t-il si mon espace de stockage est insuffisant ?**
 
-Une seule instance de wandb/local sans stockage MySQL externe scalera jusqu’à 10 expériences concomitantes retracées à la fois. Les instances connectées à un stockage MySQL externe scaleront des centaines d’essais concomitants. Si vous avez besoin de garder la trace de plus d’expériences concomitantes, envoyez-nous un message à [contact@wandb.com](mailto:contact@wandb.com) pour vous renseigner sur nos options d’installations à haute disponibilité multi-instances.
+Assurez-vous de configurer **des stockages d’objets et de métadonnées externes** afin d’éviter les pertes de données. Aucune sauvegarde de données n’est prévue en cas de saturation de l’espace de stockage du disque dur. L’instance va s’arrêter de fonctionner.
+
+## **Quelles sont les caractéristiques d’extensibilité de ce service ?**
+
+Une seule instance de wandb/local sans stockage MySQL externe mettra à l’échelle jusqu’à 10 expériences concomitantes retracées simultanément. Les instances connectées à un stockage MySQL externe mettront à l’échelle des centaines d’essais concomitants. Si vous souhaitez faire un suivi d’un plus grand nombred’expériences concomitantes, contactez-nous au [contact@wandb.com](mailto:contact@wandb.com) pour découvrir nos options d’installations multi-instances à disponibilité élevée.
 
 ##  Comment réinitialiser aux paramètres d’usine si je ne peux pas accéder à mon instance ?
 
-Si vous n’arrivez pas à vous connecter à votre instance, vous pouvez la placer en mode restauration en paramétrant la variable d’environnement LOCAL\_RESTORE lorsque vous lancez local. Si vous lancez wandb local en utilisant notre cli, vous pouvez le faire avec `wandb local -e LOCAL_RESTORE=true`Regardez les logs imprimés au startup pour obtenir un nom d’utilisateur et un mot de passe temporaires pour accéder à l’instance.
+Si vous n’arrivez pas à vous connecter à votre instance, vous pouvez la mettre en mode restauration en paramétrant la variable d’environnement LOCAL\_RESTORE lorsque vous lancez Local. Si vous lancez wandb Local en utilisant notre interface en ligne de commande \(CLI\), vous pouvez le faire avec l’argument `wandb local -e LOCAL_RESTORE=true`. Consultez les fichiers journaux affichés au démarrage pour un nom d’utilisateur et un mot de passe temporaires pour accéder à l’instance.
 
-##  Comment repasser au cloud après avoir utilisé local ?
+##   **Comment repasser au cloud après avoir utilisé l’appli Local ?**
 
-Pour restaurer une machine de sorte qu’elle envoie les mesures à notre solution hébergée en cloud, exécutez `wandb log`
+Pour restaurer un ordinateur de façon à ce qu’il envoie les métriques à notre solution hébergée en cloud,exécutez wandb login --host=[https://api.wandb.ai](https://api.wandb.ai).
+
+**Un serveur wandb doit-il avoir une autorisation de lecture et d’écriture pour accéder au compartiment S3 ?**
+
+Oui, les deux. Le serveur wandb doit être capable de lire dans le compartiment pour générer des URL signées destinées à l’usage des clients, et il doit avoir une autorisation d’écriture pour mettre à jour les fichiers de métadonnées. Dans la mesure où le serveur wandb génère des URL temporaires à l’usage des clients, il n’est pas nécessaire de mettre le compartiment s3 en **mode public** ou d’attribuer explicitement des autorisations aux utilisateurs finaux.
 

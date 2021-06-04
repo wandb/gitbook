@@ -1,6 +1,6 @@
 # Numpy Example
 
-Voici un exemple complet de code numpy brut qui entraîne un perceptron et enregistre les résultats dans W&B.
+Voici un exemple complet de code brut numpy qui entraîne un perceptron et enregistre les résultats sur W&B.
 
  Vous pouvez trouver ce code sur [GitHub](https://github.com/wandb/examples/blob/master/examples/machine-learning/numpy-boston/train.py).
 
