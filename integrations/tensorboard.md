@@ -1,23 +1,28 @@
 # TensorBoard
 
-W&B prend en charge le patching TensorBoard pour automatiquement enregistrer toutes les mesures issues de votre script dans nos graphiques de manière native.
+W&B prend en charge le déploiement de correctifs \(patching\) sur TensorBoard pour automatiquement enregistrer toutes les métriques issues de votre script dans nos graphiques natifs.
 
 ```python
 import wandb
 wandb.init(sync_tensorboard=True)
 ```
 
-Nous prenons en charge TensorBoard avec toutes les versions de TensorFlow. Si vous utilisez TensorBoard avec un autre framework, W&B prend en charge TensorBoard &gt; 1.14 avec PyTorch, ainsi qu’avec TensorBoardX.
+Nous prenons en charge TensorBoard avec toutes les versions de TensorFlow. Si vous utilisez TensorBoard avec un autre framework, W&B prend en charge TensorBoard &gt; 1.14 avec PyTorch et avec TensorBoardX.
 
-### Mesures personnalisées
+### **Métriques personnalisées**
 
-Si vous avez besoin d’enregistrer des mesures personnalisées supplémentaires qui ne sont pas enregistrées dans TensorBoard, vous pouvez appeler `wandb.log` dans votre code, à la même étape d’argument que celle utilisée par TensorBoard : i.e.`wandb.log({"custom": 0.8}, step=global_step)`
+Si vous devez enregistrer des métriques personnalisées supplémentaires qui ne sont pas enregistrées sur TensorBoard, vous pouvez appeler `wandb.log` dans votre code `wandb.log({"custom": 0.8})`
+
+La configuration de `wandb.log` est désactivée lors de la synchronisation avec TensorBoard. Si vous voulez configurer un autre compte d’étape, vous pouvez enregistrer les métriques avec une étape de métrique comme suit :  `wandb.log({"custom": 0.8, "global_step"=global_step})`  
+
 
 ###  Configuration avancée
 
- Si vous voulez avoir plus de contrôle sur la manière dont TensorBoard est patché, vous pouvez appeler `wandb.tensorboard.patch plutôt que de passer sync_tensorboard=True` dans init. Vous pouvez passer `tensorboardX=False` dans cette méthode pour vous assurer que le TensorBoard vanilla est patché, et si vous utilisez TensorBoard &gt; 1.14 avec PyTorch, vous pouvez passer `pytorch=True` pour vous assurer qu’il est patché. Ces deux options ont de petits défauts, dépendant de quelles versions de ces librairies ont été importées.
+ Si vous voulez avoir plus de contrôle sur la manière dont TensorBoard est patché, vous pouvez appeler `wandb.tensorboard.patch au lieu d’ajouter sync_tensorboard=True` dans init. Vous pouvez ajouter tensorboardX=False dans cette méthode pour vous assurer que le TensorBoard Vanilla est patché, et si vous utilisez TensorBoard &gt; 1.14 avec PyTorch, vous pouvez ajouter pytorch=True pour vous assurer qu’il est patché. Ces deux options ont de petits défauts, selon les versions importées de ces bibliothèques.
 
- Par défaut, nous synchronisons aussi les fichiers `tfevents` et tout fichier `.pbtxt` . Cela nous permet de lancer une instance TensorBoard pour vous. Vous verrez un onglet [TensorBoard sur la page](https://wandb.ai/site/articles/hosted-tensorboard) d’essai. Ce comportement peut être désactivé en passant `save=False` dans `wandb.tensorboard.patch`
+Par défaut, nous synchronisons également les fichiers `tfevents` et tout fichier `.pbtxt` . Cela nous permet de lancer une instance TensorBoard pour vous. Vous verrez un [onglet TensorBoard](https://wandb.ai/site/articles/hosted-tensorboard) sur la page d’exécution. Ce comportement peut être désactivé en passant `save=False` dans `wandb.tensorboard.patch`
+
+**Note :** si votre script instancie un FileWriter via tf.summary.create\_file\_writer, vous devez appeler soitwandb.init, soit wandb.tensorboard.patch avant de développer le FileWriter.
 
 ```python
 import wandb
@@ -25,9 +30,9 @@ wandb.init()
 wandb.tensorboard.patch(save=False, tensorboardX=True)
 ```
 
-### Synchroniser des essais TensorBoard antérieurs
+### **Synchronisation des essais TensorBoard antérieurs**
 
- Si vous avez des fichiers `tfevents` existants stockés localement qui ont déjà été générés en utilisant l’intégration de librairie wandb et que vous aimeriez les importer dans wandb, vous pouvez exécuter wandb sync log\_dir , où log\_dir est un répertoire contenant les fichiers `tfevents` .
+  Si vous avez des fichiers tfevents existants stockés localement qui ont déjà été générés en utilisant l’intégration de la bibliothèque wandb et que vous aimeriez les importer dans wandb, vous pouvez exécuter `wandb sync log_dir`, où `log_dir`, est un répertoire contenant les fichiers tfevents .
 
 Vous pouvez aussi exécuter `wandb sync directory_with_tf_event_file`
 
@@ -38,7 +43,7 @@ into the mainline:"""
 pip install --upgrade git+git://github.com/wandb/client.git@feature/import#egg=wandb
 ```
 
-Vous pouvez appeler ce script avec **``**`python no_image_import.py dir_with_tf_event_file`. Cela créera un simple essai \(run\) dans wandb avec les mesures issues des fichiers d’événements dans ce répertoire. Si vous voulez exécuter ceci dans plusieurs répertoires, vous ne devriez exécuter ce script qu’une fois par essai, de sorte qu’un loader ressemble à ceci :
+ Vous pouvez appeler ce script avec`python no_image_import.py dir_with_tf_event_file`. Cela créera un seul essai \(run\) dans wandb avec les métriques issues des fichiers d’événements dans ce répertoire. Si vous voulez exécuter ceci dans plusieurs répertoires, vous devriez exécuter ce script uniquement une fois par essai, par conséquent, un chargeur \(loader\) pourrait ressembler à ceci :
 
 ```python
 import glob
@@ -111,14 +116,16 @@ Pour exécuter des commandes sur la ligne de commande dans Colab, vous devez ex�
 
 ##  En quoi W&B est-il différent de TensorBoard ?
 
-Nous avons voulu améliorer les outils de traçage d’expérience pour tout le monde. Lorsque les cofondateurs ont commencé à travailler sur W&B, ils ont voulu construire un outil pour les utilisateurs frustrés de TensorBoard qui travaillaient à OpenAI. Voici quelques points sur lesquels nous avons concentré nos efforts d’amélioration :
+Nous aspirons à améliorer les outils de suivi d’expérience pour tout le monde. Lorsque nos cofondateurs ont commencé à travailler sur W&B, ils ont voulu construire un outil pour les utilisateurs frustrés de TensorBoard qui travaillaient chez OpenAI. Voici quelques points sur lesquels nous avons concentré nos efforts d’amélioration :
 
-1. **Reproduire les modèles** : Weights & Biases est efficace pour expérimenter, explorer, et reproduire les modèles plus tard. Nous enregistrons non seulement les mesures, mais aussi les hyperparamètres et la version du code, et nous pouvons sauvegarder les checkpoints de votre modèle pour vous pour que votre projet soit reproductible.
-2.  **Organisation automatique** : Si vous passez un projet à un collaborateur ou que vous partez en vacances, W&B rend facile la visualisation de tous les modèles que vous avez déjà essayés, pour que vous ne passiez pas des heures à remodéliser d’anciennes expériences.
-3.  **Intégration rapide et flexible** : Ajoutez W&B à votre projet en 5 minutes. Installez notre package Python gratuit et open-source et ajoutez quelques lignes à votre code, et à chaque fois que vous essaierez votre modèle, vous aurez de magnifiques enregistrements de données et de mesures.
-4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
-5.  **Tableau puissant** : Recherchez, filtrez, organisez, et regroupez vos résultats depuis différents modèles. Il est facile de visualiser des milliers de versions de modèle et de trouver ceux qui offrent les meilleures performances dans différentes tâches. TensorBoard n’est pas construit pour bien fonctionner sur de grands projets.
-6. **Des outils pour la collaboration** : Utilisez W&B pour organiser des projets complexes d’apprentissage automatique. Il est facile de partager un lien vers W&B, et vous pouvez utiliser des équipes privées pour que tout le monde envoie des résultats sur un projet en commun. Nous soutenons aussi la collaboration par les rapports – ajoutez des visuels interactifs et décrivez votre travail dans un Markdown. C’est une manière excellente de garder un journal de travail, de partager vos découvertes avec votre superviseur, ou de présenter vos découvertes à votre laboratoire. 
+1. **Reproduire les modèles** : Weights & Biases est efficace pour expérimenter, explorer et reproduire les modèles ultérieurement. Nous enregistrons non seulement les métriques, mais aussi les hyperparamètres et la version du code, et nous pouvons sauvegarder les checkpoints de votre modèle pour vous pour que votre projet soit reproductible.
+2.  **Organisation automatique** : si vous passez un projet à un collaborateur ou que vous partez en vacances, W&B facilite la visualisation de tous les modèles que vous avez déjà essayés, ce qui vous évite de passer des heures à réexécuter d’anciennes expériences.
+3.  **Intégration rapide et flexible** : ajoutez W&B à votre projet en 5 minutes. Installez notre package Python gratuitement en open-source et ajoutez quelques lignes à votre code, et à chaque fois que vous essaierez votre modèle, vous aurez d’excellents enregistrements de données et de métriques.
+4. **Tableau de bord centralisé permanent** : quel que soit l’emplacement où vous souhaitez entraîner vos modèles, que ce soit sur votre ordinateur local, dans la grappe de serveurs \(cluster\) de votre Lab, ou pour des instances ponctuelles dans le cloud, nous vous fournissons le même tableau de bord centralisé. Vous n’avez pas besoin de passer votre temps à copier et à organiser des fichiers TensorBoard depuis différentes machines.
+5.  **Tableau puissant** : recherchez, filtrez, organisez et regroupez vos résultats depuis différents modèles. Il facilite la visualisation de milliers de versions de modèle et la recherche de ceux qui offrent les meilleures performances dans différentes tâches. TensorBoard n’est pas conçu pour bien fonctionner sur de grands projets.
+6. **Des outils dédiés à la collaboration** : utilisez W&B pour organiser des projets complexes d’apprentissage automatique. Il est facile de partager un lien vers W&B, et vous pouvez utiliser la fonction d’équipe privée pour que tout le monde puisse envoyer des résultats sur un projet en commun. Nous soutenons aussi la collaboration via des rapports – ajoutez des visuels interactifs et décrivez votre travail dans un Markdown. C’est une excellente manière de maintenir un journal de bord, partager vos résultats avec votre superviseur, ou de présenter vos résultats à votre Lab.
+
+  
 
 Commencez en créant un [compte personnel gratuit →](http://app.wandb.ai/)
 

@@ -1,6 +1,6 @@
 # LightGBM
 
-Utilisez notre callback pour visualiser les performances de votre LightGBM en une seule ligne de code.
+Utilisez notre fonction de rappel \(callback\) pour visualiser les performances de votre LightGBM en une seule ligne de code.
 
 ```python
 from wandb.lightgbm import wandb_callback

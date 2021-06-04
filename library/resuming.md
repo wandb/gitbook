@@ -1,6 +1,6 @@
 # Resuming
 
- Vous pouvez faire en sorte que wandb reprenne automatiquement vos essais en passant resume=True dans wandb.init\(\). Si votre processus ne s’est pas fermé avec succès, la prochaine fois que vous le lancerez, wandb reprendra l’enregistrement depuis la dernière étape. Ci-dessous, un exemple simple dans Keras :
+ Vous pouvez faire en sorte que wandb reprenne automatiquement vos essais en ajoutant resume=True surwandb.init\(\). Si votre processus n’a pas pu être fermé correctement, la prochaine fois que vous le lancerez, wandb reprendra l’enregistrement à partir de la dernière étape. Ci-dessous, un exemple simple dans Keras :
 
 ```python
 import keras
@@ -25,7 +25,7 @@ model.fit(np.random.rand(100, 32), np.random.rand(100, 10),
     callbacks=[WandbCallback(save_model=True, monitor="loss")])
 ```
 
-La reprise automatique fonctionne uniquement si le processus recommence depuis le haut du même fichier système que le processus qui a échoué. Si vous ne pouvez pas partager un fichier système, nous vous permettons de régler **WANDB\_RUN\_ID** : une chaîne globalement unique \(par projet\) qui correspond à un seul essai de votre script. Elle ne doit pas excéder 64 caractères. Tous les caractères non-reconnus seront transformés en tiret.
+Le redémarrage automatique fonctionne uniquement si le processus est repris au début du même fichier système que celui du processus qui a échoué. Si vous ne pouvez pas partager de fichier système, nous vous permettons de paramétrer **WANDB\_RUN\_ID** : une chaîne globalement unique \(par projet\) qui correspond à un seul essai de votre script. Elle ne doit pas excéder 64 caractères. Tous les caractères qui ne forment pas un mot seront convertis en tiret.
 
 ```python
 # store this id to use it later when resuming
@@ -37,9 +37,9 @@ os.environ["WANDB_RUN_ID"] = wandb.util.generate_id()
 wandb.init()
 ```
 
-Si vous réglez **WANDB\_RESUME** égale à "allow" \(permettre\), vous pouvez toujours régler **WANDB\_RUN\_ID** sur une chaîne unique, et les reprises depuis le début du processus seront automatiquement gérées. Si vous réglez **WANDB\_RESUME** égale à "must" \(devoir\), wandb vous enverra une erreur si l’essai à reprendre n’existe pas encore, plutôt que de créer automatiquement un nouvel essai.
+Si vous paramétrez **WANDB\_RESUME** égal à allow \(permettre\), vous pouvez toujours régler **WANDB\_RUN\_ID** sur une chaîne unique de caractères, et les redémarrages du processus seront automatiquement gérées. Si vous paramétrez **WANDB\_RESUME** égal à must \(devoir\), wandb vous enverra un message d’erreur si l’essai à reprendre n’existe pas encore, au lieu de créer automatiquement un nouvel essai.
 
-| Méthode | Syntaxe | Jamais reprendre \(défaut\) | Toujours reprendre | Reprendre en spécifiant un ID d’essai \(run\_id\) | Reprendre depuis le même dossier |
+| Méthode | Syntaxe | Ne jamais reprendre \(défaut\) | Toujours reprendre | Reprendre en spécifiant un ID d’essai \(run\_id\) | Reprendre depuis le même dossier |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | ligne de commande | wandb run --resume= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
 | environnement | WANDB\_RESUME= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
@@ -50,6 +50,8 @@ Si plusieurs processus utilisent le même run\_id de manière concurrente, des r
 {% endhint %}
 
 {% hint style="info" %}
-Si vous reprenez un essai et que vous avez des **notes** spécifiées dans wand.init\(\) , ces notes écraseront toutes notes que vous avez ajoutées dans l’IU.
+Si vous reprenez un essai et que vous avez des **notes** spécifiées dans wand.init\(\) , ces notes écraseront toutes les notes que vous avez ajoutées dans l’interface utilisateur.
 {% endhint %}
+
+Notez bien que le redémarrage d’un essai exécuté en tant partie d’un balayage n’est pas pris en charge sur wandb.
 

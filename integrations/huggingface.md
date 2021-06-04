@@ -6,7 +6,7 @@ description: >-
 
 # Hugging Face
 
-[Hugging Face Transformers](https://huggingface.co/transformers/) fournit des architectures à vocation générale pour la Compréhension du Langage Naturel \(NLU\) et la Génération Automatique de Textes \(NLG\) avec des modèles pré-entraînés dans plus de 100 langues et une profonde interopérabilité entre TensorFlow 2.0 et PyTorch.
+[Hugging Face Transformers](https://huggingface.co/transformers/) fournit des architectures à vocation générale pour la Compréhension du Langage Naturel \(NLU\) et la Génération Automatique de Textes \(NLG\) avec des modèles pré-entraînés dans plus de 100 langues et une profonde interopérabilité entre TensorFlow 2.0 et PyTorch. ​
 
 Pour automatiquement obtenir l’enregistrement des entraînements, installez tout simplement la librairie et connectez-vous :
 
@@ -59,9 +59,9 @@ Nous avons créé quelques exemples pour que vous puissiez voir comment l’int�
 
 Nous serons ravis d’entendre vos retours et de pouvoir améliorer cette intégration. [Contactez-nous](https://docs.wandb.ai/company/getting-help) si vous avez des questions ou des suggestions à nous faire parvenir.
 
-## Visualiser les résultats
+### **Visualisation des résultats**
 
-Explorez vos résultats de manière dynamique dans le Tableau de Bord W&B. Il est facile de balayer du regard des douzaines d’expériences, de zoomer sur des découvertes intéressantes, et de visualiser des données hautement dimensionnelles.
+Une fois que vous avez enregistré les résultats de votre entraînement, vous pouvez les explorez de façon dynamique dans le tableau de bord de W&B. Celui-ci vous permet d’avoir une vue d’ensemble sur desdouzaines d’expériences, de zoomer sur des résultats intéressants, et de visualiser des données hautement dimensionnelles.
 
 ![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29%20%281%29%20%281%29%20%284%29.gif)
 

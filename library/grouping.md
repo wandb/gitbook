@@ -6,12 +6,12 @@ description: >-
 
 # Grouping
 
-Regroupez des essais individuels en expériences en passant un nom de **groupe** \(group\) unique dans **wandb.init\(\)**.
+Regroupez des essais individuels en expériences en ajoutant un nom de groupe ****\(group\) unique à **wandb.init\(\)**.
 
 ### Cas d’utilisation
 
-1. **Entraînement distribué** : Utilisez les regroupements si vos expériences sont divisées en différentes parties avec des entraînements séparés et des scripts d’évaluation qui devraient être vus comme des parties d’un plus grand tout.
-2. **Processus multiples** : Regroupez de multiples petits processus ensemble dans une expérience.
+1. **Entraînement distribué** : utilisez le regroupement si vos expériences sont divisées en différentes parties avec des entraînements séparés et des scripts d’évaluation qui devraient être vus comme des parties d’un plus grand tout.
+2. **Processus multiples** : regroupez de multiples petits processus ensemble dans une expérience.
 3. **Validation croisée à k blocs** : Regroupez des essais avec des seeds aléatoires différentes pour visualiser une expérience plus grande. Voici [un exemple](https://github.com/wandb/examples/tree/master/examples/wandb-sweeps/sweeps-cross-validation) de validation croisée à k blocs avec des balayages et des regroupements.
 
 ### À quoi ça ressemble

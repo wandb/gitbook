@@ -1,15 +1,15 @@
 # Fast.ai
 
-Si vous utilisez **fastai** pour entraîner vos modèles, W&B propose une intégration facile en utilisant le `WandbCallback`. Retrouvez tous les détails dans des [documents interactifs avec des exemples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
+Si vous utilisez **fastai** pour entraîner vos modèles, W&B propose une intégration simplifiée en utilisant le WandbCallback. Retrouvez tous les détails dans notre [documentation interactive avec des exemples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)​
 
-D’abord, installez Weights & Biases et connectez-vous :
+Tout d’abord, installez Weights & Biases et connectez-vous :
 
 ```text
 pip install wandb
 wandb login
 ```
 
- Puis, ajoutez le callback à la méthode `learner` ou `fit` :
+ Puis, ajoutez la fonction de rappel \(callback\) à la méthode `learner` ou `fit` :
 
 ```python
 import wandb
@@ -34,7 +34,7 @@ learn = learner(..., cbs=WandbCallback())
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Args</th>
+      <th style="text-align:left">Arguments</th>
       <th style="text-align:left">Description</th>
     </tr>
   </thead>
@@ -60,11 +60,11 @@ learn = learner(..., cbs=WandbCallback())
         <ul>
           <li>False (par d&#xE9;faut)</li>
           <li>True enregistrera un dossier r&#xE9;f&#xE9;renc&#xE9; par learn.dls.path.</li>
-          <li>le chemin (path) peut &#xEA;tre explicitement d&#xE9;fini pour r&#xE9;f&#xE9;rencer
-            dans quel dossier enregistrer.</li>
+          <li>Un chemin d&#x2019;acc&#xE8;s peut &#xEA;tre explicitement d&#xE9;fini
+            pour r&#xE9;f&#xE9;rencer dans quel dossier enregistrer.</li>
         </ul>
-        <p><em>Note : Les &quot;models&quot; de sous-dossiers sont toujours ignor&#xE9;s.</em>
-        </p>
+        <p><em>Note : </em>Tout sous-dossier &quot;models&quot; sera syst&#xE9;matiquement
+          ignor&#xE9;.</p>
       </td>
     </tr>
     <tr>
@@ -97,6 +97,6 @@ Note : Tout sous-dossier "models" sera ignoré.
 
 ## Exemples
 
-* [Visualisez, retracez et comparez des modèles Fastai ](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): Un suivi pas-à-pas très documenté
-* [Segmentation d’image sur CamVid ](http://bit.ly/fastai-wandb): Un exemple d’utilisation d’échantillon de l’intégration
+* [Visualisez, retracez et comparez des modèles Fastai ](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): un guide très documenté sur la marche à suivre
+* [Segmentation d’images sur CamVid ](http://bit.ly/fastai-wandb): un exemple d’utilisation de l’intégration
 

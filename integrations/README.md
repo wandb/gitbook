@@ -1,7 +1,7 @@
 ---
 description: >-
-  Une galerie de toutes nos intégrations avec les meilleures librairies
-  d’apprentissage automatique et pour les meilleurs flux de travaux.
+  Une galerie de toutes nos intégrations avec les meilleures bibliothèques
+  d’apprentissage automatique et les meilleurs flux de travaux.
 ---
 
 # Intégrations
@@ -22,7 +22,7 @@ Voici les articles de cette section :
 
 [LightGBM](https://docs.wandb.ai/integrations/lightgbm)
 
-[Hugging Face](https://docs.wandb.ai/integrations/huggingface)
+[Hugging Face](https://docs.wandb.ai/integrations/huggingface) Intégration de W&B avec l’impressionnante bibliothèque de traitement naturel du langage \(NLP\) de Hugging Face qui inclut des modèles, scripts et jeux de données pré-entraînés.
 
 [TensorBoard](https://docs.wandb.ai/integrations/tensorboard)
 
