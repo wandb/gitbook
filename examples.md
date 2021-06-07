@@ -80,7 +80,7 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 {% endtab %}
 
 {% tab title="PDF scans" %}
-[Parse TV ad receipts for political campaigns](https://wandb.ai/stacey/deepform_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg) to extract amount paid, organization, dates of ad, and receipt id from 100s of different receipt formats \(also applicable to records from healthcare, climate/weather logs, old archives, etc\).
+[Parse TV ad receipts for political campaigns](https://wandb.ai/stacey/deepform_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg) to extract amount paid, organization, dates of ad, and receipt id from 100s of different receipt formats.
 
 ![](.gitbook/assets/image%20%28132%29.png)
 {% endtab %}
