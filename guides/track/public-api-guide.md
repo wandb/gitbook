@@ -199,9 +199,27 @@ run.summary["accuracy_histogram"] = wandb.Histogram(numpy_array)
 run.summary.update()
 ```
 
+### Rename a metric in a run, after the run has finished
+
+This example renames a summary column in your tables.
+
+```python
+import wandb
+
+api = wandb.Api()
+run = api.run("<entity>/<project>/<run_id>")
+run.summary['new_name'] = run.summary['old_name']
+del run.summary['old_name']
+run.summary.update()
+```
+
+{% hint style="warning" %}
+Renaming a column only applies to tables. Charts will still refer to metrics by their original names.
+{% endhint %}
+
 ### Update config for an existing run
 
-This examples updates one of your configuration settings
+This examples updates one of your configuration settings.
 
 ```python
 import wandb
