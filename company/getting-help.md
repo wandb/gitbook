@@ -2,7 +2,7 @@
 
 ## Ressources
 
-1. \*\*\*\*[Projets d’exemple](https://docs.wandb.ai/examples) – scripts complets de modèles utilisant Keras, PyTorch, et TensorFlow
+1. **​**[Exemple](https://docs.wandb.ai/examples)s de projets – scripts complets de modèles utilisant Keras, PyTorch, et TensorFlow.
 2. [Articles](https://www.wandb.com/articles) – articles de blog sur les meilleures pratiques et les tendances dans l’apprentissage automatique
 3.  [Slack](http://wandb.me/slack) – rejoignez notre forum ouvert pour nous poser des questions et discuter des projets
 

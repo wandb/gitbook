@@ -1,19 +1,19 @@
 ---
 description: >-
-  Prise en charge ✨BETA✨ pour la recherche de balayage Ray Tune et le Scheduler
-  API
+  Prise en charge ✨BÊTA✨ pour l’API de recherche et d’ordonnancement de
+  balayages sur Ray Tune
 ---
 
 # Ray Tune Sweeps
 
-[Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) est une librairie de réglages d’hyperparamètres évolutive. Nous ajoutons la prise en charge de Ray Tune sur les Balayages W&B, ce qui rend plus facile le lancement d’essais sur de nombreuses machines et la visualisation des résultats en un point central.
+ ​[Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) est une bibliothèque évolutive de configuration d’hyperparamètres. Nous ajoutons la prise en charge de Ray Tune sur les balayages W&B, ce qui facilite le lancement d’essais sur plusieurs ordinateurs et la visualisation des résultats dans un emplacement central.
 
 {% hint style="info" %}
-Jetez aussi un œil [aux intégrations Ray Tune pour W&B](https://docs.wandb.ai/integrations/ray-tune) pour une solution complète prête à l’emploi, pour exploiter à la fois Ray Tune et W&B !
+ Nous vous invitons également à consulter notre documentation sur [les intégrations Ray Tune pour W&B](https://docs.wandb.ai/integrations/ray-tune) pour une solution complète prête à l’emploi, pour exploiter à la fois Ray Tune et W&B !
 {% endhint %}
 
 {% hint style="info" %}
-Cette fonctionnalité est en beta ! Nous adorons les retours, et nous aimons vraiment entendre les critiques de personnes qui expérimentent avec nos produits de Balayage.
+Cette fonctionnalité est en bêta-test ! Vos commentaires et remarques seront toujours les bienvenus, et nous apprécierons grandement les retours d’expérience des utilisateurs de nos produits de balayage.
 {% endhint %}
 
 Voici un exemple rapide :
@@ -77,15 +77,15 @@ wandb.sweep(tune_config)
 | hp.lognormal | Planifié |
 | hp.qlognormal | Planifié |
 
-###  Schedulers Tune
+###  **Ordonnanceurs de Tune \(Tune schedulers\)**
 
-Par défaut, Tune prévoit les essais dans un ordre de série. Vous pouvez aussi spécifier un algorithme de prévision personnalisé qui peut arrêter les essais de manière précoce ou perturber les paramètres. Lisez-en plus à ce sujet dans la [docu Tune →](https://ray.readthedocs.io/en/latest/tune-schedulers.html)
+Par défaut, Tune prévoit les essais dans un ordre de série. Vous pouvez aussi spécifier un algorithme d’ordonnancement personnalisé qui peut arrêter les essais prématurément ou perturber les paramètres. Plus d’informations dans la [documentation de Tune →](https://ray.readthedocs.io/en/latest/tune-schedulers.html)​
 
-| Scheduler | **Prise en charge** |
+| Ordonnanceur | **Prise en charge** |
 | :--- | :--- |
 | [Population Based Training \(PBT\)](https://ray.readthedocs.io/en/latest/tune-schedulers.html#population-based-training-pbt) | En cours d’étude |
-| [Asynchronous HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#asynchronous-hyperband) |   |
-| [HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#hyperband) |  |
+| [Asynchronous HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#asynchronous-hyperband) |  Planifiée |
+| [HyperBand](https://ray.readthedocs.io/en/latest/tune-schedulers.html#hyperband) | En cours d’étude |
 | [HyperBand \(BOHB\)](https://ray.readthedocs.io/en/latest/tune-schedulers.html#hyperband-bohb) |  En cours d’étude |
 | [Median Stopping Rule](https://ray.readthedocs.io/en/latest/tune-schedulers.html#median-stopping-rule) | En cours d’étude |
 

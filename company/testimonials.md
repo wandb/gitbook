@@ -4,21 +4,21 @@ description: Messages aimables des utilisateurs de Weights & Biases
 
 # Testimonials
 
-## Jeffrey Wardman, Scientifique en IA Appliquée à [Harrison.ai](https://www.harrison.ai/)​
+## **Jeffrey Wardman, scientifique spécialisé en IA appliquée chez** [**Harrison.ai**](https://www.harrison.ai/)**​**​
 
-WandB est un vrai paradis.
+WandB est un vrai bonheur.
 
-Quasiment sans modifier mon code, je suis capable de visualiser des mesures en temps réel lorsque j’entraîne mes modèles sur de multiples systèmes, et je peux voir quelles sont leurs performances les uns par rapport aux autres, et avec les essais précédents, n’importe quand, sur n’importe quel appareil. Les balayages me permettent aussi d’entraîner mes modèles avec des réglages de paramètres différents sur de multiples systèmes en unisson, via une approche Bayésienne pour tester de manière optimale un ensemble d’arguments d’entrée pour trouver la meilleure solution.
+Je suis capable, quasiment sans modifier mon code, de visualiser des métriques en temps réel lorsque j’entraîne mes modèles sur de multiples systèmes, et je peux voir quelles sont leurs performances les uns par rapport aux autres, et par rapport aux essais précédents, à tout moment, sur n’importe quel appareil. Les balayages me permettent aussi d’entraîner mes modèles avec des configurations de paramètres différents sur de multiples systèmes simultanément, via une approche bayésienne pour tester de manière optimale un ensemble d’arguments d’entrée et trouver la meilleure solution.
 
-Je n’imagine pas retourner à mon ancienne manière de faire les choses.
+Je ne m’imagine pas retourner aux anciennes méthodes.
 
 ##  ****Ian Thompson, [**Latent Space**](https://www.latentspace.co/)​
 
-WandB est devenu un outil crucial pour nous, car il nous permet de réunir le travail de chercheurs à distance à travers plusieurs continents. Sur un article récent, nous avons commencé à utiliser un rapport wandb comme point central pour la collaboration, sur lequel tout le monde pouvait voir les résultats expérimentaux les plus récents, et, pour ainsi dire, la version la plus récente du brouillon de l’article. La flexibilité et la clarté des rapports wandb nous ont permis de collaborer de manières qui n’étaient autrefois possibles qu’en personne.
+WandB est devenu un outil crucial pour nous, car il nous permet de réunir les travaux de chercheurs géographiquement éloignés à travers plusieurs continents. Dans un article récent, nous avons commencé à utiliser un rapport wandb comme point central pour la collaboration, sur lequel tout le monde pouvait voir les résultats expérimentaux les plus récents, et principalement, la version la plus récente de l’ébauche de l’article. La flexibilité et la clarté des rapports wandb nous ont permis de collaborer d’une maniè
 
-## Daniel Bourke, ingénieur en apprentissage automatique 
+## Daniel Bourke, ingénieur en apprentissage automatique
 
-Puisque l’apprentissage automatique est un processus très expérimental, ce qui signifie qu’on essaye quelque chose, qu’on regarde si ça fonctionne et si ce n’est pas le cas, on essaye autre chose, je prévois de construire un nombre de modèles différents pour voir lequel fonctionne le mieux. Pour garder une trace des résultats de chaque modèle différent, je mets en place Weights & Biases, un outil pour avoir un suivi des expériences de deep learning.
+WandB est devenu un outil crucial pour nous, car il nous permet de réunir les travaux de chercheurs géographiquement éloignés à travers plusieurs continents. Dans un article récent, nous avons commencé à utiliser un rapport wandb comme point central pour la collaboration, sur lequel tout le monde pouvait voir les résultats expérimentaux les plus récents, et principalement, la version la plus récente de l’ébauche de l’article. La flexibilité et la clarté des rapports wandb nous ont permis de collaborer d’une manière qui n’était auparavant possible qu’en présentiel.
 
 [Regardez la vidéo ici →](https://www.youtube.com/watch?v=83s-OEFMgVY)
 
@@ -90,15 +90,15 @@ Super outil ! Il y a encore beaucoup à améliorer, mais apparemment vous avez u
 
 -Résumer tous les enregistrements sur le cloud m’aide à rester concentré sur les choses importantes.
 
-- Balayage : version plug-n-play de méthodologies d’ajustement d’hyperparam
+- Balayage : version plug and play de méthodologies d’ajustement d’hyperparamètres
 
-##  Michael, un utilisateur merveilleux
+##  **Michael, un utilisateur formidable**
 
 C’est juste fantastique, vous faites vraiment un boulot fantastique les gars ! J’en parle déjà à tous mes amis, tout le monde devrait utiliser wandb !
 
 ## [Shivam Kaushik](https://www.kaggle.com/mythrex/competitions), Utilisateur Kaggle
 
- J’adore vraiment la manière dont on peut faire des rapports et partager notre travail. Je l’utilise principalement pour kaggle et je sais à quel point c’était compliqué pour moi de compiler des résultats pour l’équipe.
+ J’adore vraiment la manière dont on peut faire des rapports et partager nos travaux. Je l’utilise principalement pour Kaggle et je sais à quel point c’était compliqué pour moi de compiler des résultats pour l’équipe.
 
 ##  Dinis Rodrigues, [INESC](https://www.inesc-id.pt/), étudiant à [Técnico Lisboa](https://tecnico.ulisboa.pt/pt/)​
 
@@ -108,7 +108,7 @@ C’est juste fantastique, vous faites vraiment un boulot fantastique les gars !
 
 Je vous adore, les gars. Votre système est fantastique ! S’il vous plaît, continuez à proposer ce service. Merci les gars.
 
-##  Rohit P N, Étudiant au Ramaiah Institute of Technology, Bangalore
+##  **Rohit P. N., étudiant au Ramaiah Institute of Technology, Bangalore**
 
- Cette plateforme est absolument fantastique et facilite tellement la vie. Un grand merci aux développeurs de cette plateforme !
+Cette plateforme est absolument fantastique et nous simplifie tellement la vie. Un grand merci aux développeurs de cette plateforme !
 

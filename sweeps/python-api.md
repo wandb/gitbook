@@ -1,5 +1,5 @@
 ---
-description: Exécuter des balayages depuis les Jupyter Notebooks
+description: Exécuter des balayages à partir de notebooks Jupyter
 ---
 
 # Sweep from Jupyter Notebook
@@ -73,7 +73,7 @@ Une manière temporaire de contourner le problème \(jusqu’à ce qu’on puiss
 
 ##  Exécuter un contrôleur local
 
-Si vous voulez développer vos propres algorithmes de recherche de paramètres, vous pouvez exécuter votre contrôleur depuis python.
+Si vous voulez développer vos propres algorithmes de recherche de paramètres, vous pouvez exécuter votre contrôleur depuis Python.
 
 La manière la plus simple d’exécuter un contrôleur :
 
@@ -82,7 +82,7 @@ sweep = wandb.controller(sweep_id)
 sweep.run()
 ```
 
-Si vous voulez davantage de contrôle sur la boucle de contrôleur :
+Si vous voulez davantage de contrôle sur la boucle du contrôleur :
 
 ```python
 import wandb
@@ -104,7 +104,7 @@ while not sweep.done():
     sweep.print_status()
 ```
 
-Si vous souhaitez spécifier votre balayage entièrement avec du code, vous pouvez faire quelque chose comme ça :
+Si vous voulez davantage de contrôle sur la boucle du contrôleur :
 
 ```python
 import wandb
@@ -118,4 +118,8 @@ sweep.configure_parameter('param1', value=3)
 sweep.create()
 sweep.run()
 ```
+
+Ou encore plus de contrôle sur les paramètres servis :
+
+Si vous souhaitez spécifier votre balayage entièrement avec du code, vous pouvez faire quelque chose comme ce qui suit :
 
