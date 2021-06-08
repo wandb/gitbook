@@ -23,7 +23,7 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
 Try our integration out in a [colab notebook](http://wandb.me/keras-colab) \(with video walkthrough below\) or see our [example repo](https://github.com/wandb/examples) for scripts, including a [Fashion MNIST example](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py) and the [W&B Dashboard](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs) it generates.
 {% endhint %}
 
-{% embed url="https://www.youtube.com/watch?v=Bsudo7jbMow" caption="Follow along with a video tutorial!" %}
+{% embed url="https://www.youtube.com/watch?v=Bsudo7jbMow" caption="" %}
 
 ## Using the `WandbCallback`
 
