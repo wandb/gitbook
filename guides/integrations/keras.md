@@ -52,5 +52,3 @@ If you're setting `use_multiprocessing=True` and seeing the error `Error('You mu
 1. In the `Sequence` class init, add: `wandb.init(group='...')` 
 2. In your main program, make sure you're using `if __name__ == "__main__":` and then put the rest of your script logic inside that.
 
-## 
-
