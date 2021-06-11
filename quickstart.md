@@ -2,7 +2,7 @@
 description: 轻松编写一段脚本，就可以在你自己的项目中查看我们的实验跟踪和可视化功能。
 ---
 
-# Quickstart
+# Quickstart \(快速上手\)
 
 简单三步即可开始记录机器学习实验。
 
@@ -15,7 +15,7 @@ pip install wandb
 ```
 
 {% hint style="info" %}
- 如果你在不方便运行shell命令的自动化环境中训练模型，比如谷歌的CloudML，你应当查看一下我们的[环境变量](https://docs.wandb.ai/library/environment-variables)。
+ 如果你在不方便运行shell命令的自动化环境中训练模型，比如谷歌的CloudML，你应当查看一下我们的[环境变量](https://docs.wandb.ai/v/zh-hans/library/environment-variables)。
 {% endhint %}
 
 ## 2. **创建账号**
@@ -31,7 +31,7 @@ wandb login
 在你的脚本中插入几行代码，用以记录超参数和指标（Metric）。
 
 {% hint style="info" %}
-权重（Weights）和偏差\(Biases\)是框架无关的，但如果你用的是常见机器学习框架，你可能会发现特定框架的例子更容易上手。我们针对特定框架开发了对应的钩子（hook）,以简化集成，这些框架包括 [Keras](https://docs.wandb.com/frameworks/keras), [TensorFlow](https://docs.wandb.com/frameworks/tensorflow), [PyTorch](https://docs.wandb.com/frameworks/pytorch), [Fast.ai](https://docs.wandb.com/frameworks/fastai), [Scikit-learn](https://docs.wandb.com/frameworks/scikit), [XGBoost](https://docs.wandb.com/frameworks/xgboost), [Catalyst](https://docs.wandb.com/frameworks/catalyst), 和 [Jax](https://docs.wandb.com/frameworks/jax-example).
+权重（Weights）和偏差\(Biases\)是框架无关的，但如果你用的是常见机器学习框架，你可能会发现特定框架的例子更容易上手。我们针对特定框架开发了对应的钩子（hook）,以简化集成，这些框架包括 [Keras](https://docs.wandb.ai/v/zh-hans/integrations/keras), [TensorFlow](https://docs.wandb.ai/v/zh-hans/integrations/tensorflow), [PyTorch](https://docs.wandb.ai/v/zh-hans/integrations/pytorch), [Fast.ai](https://docs.wandb.ai/v/zh-hans/integrations/fast.ai), [Scikit-learn](https://docs.wandb.ai/v/zh-hans/integrations/scikit), [XGBoost](https://docs.wandb.ai/v/zh-hans/integrations/xgboost), [Catalyst](https://docs.wandb.ai/v/zh-hans/integrations/catalyst), 和 [Jax](https://docs.wandb.ai/v/zh-hans/integrations/jax-example).
 {% endhint %}
 
 **初始化W&B**
@@ -44,11 +44,11 @@ import wandb
 wandb.init(project="my-project")
 ```
 
-如果项目不存在，我们会自动为你创建项目。上方训练脚本的运行会同步到一个名称为“my-project”的项目中。要了解更多初始化选项，请查看[wandb.init](https://docs.wandb.com/library/init)文档。
+如果项目不存在，我们会自动为你创建项目。上方训练脚本的运行会同步到一个名称为“my-project”的项目中。要了解更多初始化选项，请查看[wandb.init](https://docs.wandb.ai/v/zh-hans/library/wandb.init)文档。
 
 **声明超参数**
 
-用对象[wandb.config](https://docs.wandb.com/library/config)保存超参数很容易。
+用对象[wandb.config](https://docs.wandb.ai/v/zh-hans/library/wandb.config)保存超参数很容易。
 
 ```python
 wandb.config.dropout = 0.2
@@ -57,7 +57,7 @@ wandb.config.hidden_layer_size = 128
 
 **记录指标（Metric）**
 
-在训练模型过程中记录指标（Metric），如损失（Loss）和准确率（Accuracy）（很多情况下，我们会提供特定框架的默认值）。用[wandb.log](https://docs.wandb.com/library/log)记录更加复杂的输出和结果，如直方图、图形和图像。
+在训练模型过程中记录指标（Metric），如损失（Loss）和准确率（Accuracy）（很多情况下，我们会提供特定框架的默认值）。用[wandb.log](https://docs.wandb.ai/v/zh-hans/library/wandb.log)记录更加复杂的输出和结果，如直方图、图形和图像。
 
 ```python
 def my_train_loop():
@@ -82,7 +82,7 @@ model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 很好！现在正常运行你的脚本，我们会在一个后台进程中同步那些记录。你的终端输出、指标（Metric）和文件将被同步到云端，如果你从一个git 库中运行的话，还会同步你的git状态记录。
 
 {% hint style="info" %}
- 如果你是在做测试，想禁用wandb同步，可以设置[环境变量](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/library/environment-variables)WANDB\_MODE=dryrun
+ 如果你是在做测试，想禁用wandb同步，可以设置[环境变量](https://docs.wandb.ai/v/zh-hans/library/environment-variables)WANDB\_MODE=dryrun
 {% endhint %}
 
 ## **下一步**
@@ -95,7 +95,7 @@ model.save(os.path.join(wandb.run.dir, "mymodel.h5"))
 4. **集成**：对于流行框架如PyTorch、Keras和XGBoost，我们有专用集成。
 5. **展示成果**：想要分享你的研究成果？我们一直在发布博客来展示我们社区的杰出成果。请发消息至[contact@wandb.com](mailto:contact@wandb.com)​
 
-### [**有疑问要联系我们→**](https://app.gitbook.com/@weights-and-biases/s/docs/~/drafts/-MKaPhwzNIegNuInaekR/company/getting-help)\*\*\*\*
+### \*\*\*\*[**有疑问要联系我们→**](https://docs.wandb.ai/v/zh-hans/company/getting-help)\*\*\*\*
 
 ### [**参见OpenAI案例研究→**](https://wandb.ai/openai/published-work/Learning-Dexterity-End-to-End--VmlldzoxMTUyMDQ)\*\*\*\*
 

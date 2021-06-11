@@ -2,7 +2,7 @@
 description: 如何使用Weights&Biases的一些项目示例、演练和教程。
 ---
 
-# Examples
+# Examples \(示例\)
 
  探索这些示例如何使用Weights&Biases以：
 

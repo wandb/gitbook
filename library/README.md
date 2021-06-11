@@ -2,7 +2,7 @@
 description: Weights&Biases用于实验跟踪、数据集版本化和模型管理
 ---
 
-# Library
+# Library \(库\)
 
 使用`wandb` Python库跟踪机器学习实验，只需几行代码。如果你用的是[PyTorch](../integrations/pytorch.md) 或 [Keras](../integrations/keras.md) 等流行框架，我们有轻量级[集成](https://docs.wandb.ai/v/zh-hans/integrations)
 

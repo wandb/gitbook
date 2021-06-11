@@ -1,4 +1,4 @@
-# Company
+# Company \(公司\)
 
 **什么是wandb？**
 
