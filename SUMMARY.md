@@ -111,6 +111,7 @@
     * [wandb.watch](ref/python/watch.md)
     * [Data Types](ref/python/data-types/README.md)
       * [wandb.data\_types.Audio](ref/python/data-types/audio.md)
+      * [wandb.data\_types.BoundingBoxes2D](ref/python/data-types/boundingboxes2d.md)
       * [wandb.data\_types.Graph](ref/python/data-types/graph.md)
       * [wandb.data\_types.Histogram](ref/python/data-types/histogram.md)
       * [wandb.data\_types.Html](ref/python/data-types/html.md)
