@@ -2,16 +2,17 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2625-L3405)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2625-L3406)
 
 
 
 A wandb Artifact.
 
-<pre><code>Artifact(
+```python
+Artifact(
     client, entity, project, name, attrs=None
-)</code></pre>
+)
+```
 
 
 
@@ -79,151 +80,24 @@ artifact.delete()
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Attributes</th></tr>
-
-<tr>
-<td>
-<code>aliases</code>
-</td>
-<td>
-The aliases associated with this artifact.
-</td>
-</tr><tr>
-<td>
-<code>commit_hash</code>
-</td>
-<td>
-Returns:
-(str): The artifact's commit hash which is used in http URLs
-</td>
-</tr><tr>
-<td>
-<code>created_at</code>
-</td>
-<td>
-Returns:
-(datetime): The time at which the artifact was created.
-</td>
-</tr><tr>
-<td>
-<code>description</code>
-</td>
-<td>
-Returns:
-(str): Free text that offers a description of the artifact. The
-description is markdown rendered in the UI, so this is a good place
-to put links, etc.
-</td>
-</tr><tr>
-<td>
-<code>digest</code>
-</td>
-<td>
-Returns:
-(str): The artifact's logical digest, a checksum of its contents. If
-an artifact has the same digest as the current <code>latest</code> version,
-then <code>log_artifact</code> is a no-op.
-</td>
-</tr><tr>
-<td>
-<code>entity</code>
-</td>
-<td>
-Returns:
-(str): The name of the entity this artifact belongs to.
-</td>
-</tr><tr>
-<td>
-<code>id</code>
-</td>
-<td>
-Returns:
-(str): The artifact's ID
-</td>
-</tr><tr>
-<td>
-<code>manifest</code>
-</td>
-<td>
-Returns:
-(ArtifactManifest): The artifact's manifest, listing all of its contents.
-You cannot add more files to an artifact once you've retrieved its
-manifest.
-</td>
-</tr><tr>
-<td>
-<code>metadata</code>
-</td>
-<td>
-Returns:
-(dict): Structured data associated with the artifact,
-for example class distribution of a dataset. This will eventually be queryable
-and plottable in the UI. There is a hard limit of 100 total keys.
-</td>
-</tr><tr>
-<td>
-<code>name</code>
-</td>
-<td>
-Returns:
-(str): The artifact's name
-</td>
-</tr><tr>
-<td>
-<code>project</code>
-</td>
-<td>
-Returns:
-(str): The name of the project this artifact belongs to.
-</td>
-</tr><tr>
-<td>
-<code>size</code>
-</td>
-<td>
-Returns:
-(int): The size in bytes of the artifact. Includes any references
-tracked by this artifact.
-</td>
-</tr><tr>
-<td>
-<code>state</code>
-</td>
-<td>
-Returns:
-(str): The state of the artifact, which can be one of "PENDING",
-"COMMITTED", or "DELETED".
-</td>
-</tr><tr>
-<td>
-<code>type</code>
-</td>
-<td>
-Returns:
-(str): The artifact's type
-</td>
-</tr><tr>
-<td>
-<code>updated_at</code>
-</td>
-<td>
-Returns:
-(datetime): The time at which the artifact was last updated.
-</td>
-</tr><tr>
-<td>
-<code>version</code>
-</td>
-<td>
-Returns:
-(int): The version of this artifact. For example, if this
-is the first version of an artifact, its <code>version</code> will
-be 'v0'.
-</td>
-</tr>
-</table>
+| Attributes |  |
+| :--- | :--- |
+|  `aliases` |  The aliases associated with this artifact. |
+|  `commit\_hash` |  Returns: (str): The artifact's commit hash which is used in http URLs |
+|  `created\_at` |  Returns: (datetime): The time at which the artifact was created. |
+|  `description` |  Returns: (str): Free text that offers a description of the artifact. The description is markdown rendered in the UI, so this is a good place to put links, etc. |
+|  `digest` |  Returns: (str): The artifact's logical digest, a checksum of its contents. If an artifact has the same digest as the current `latest` version, then `log_artifact` is a no-op. |
+|  `entity` |  Returns: (str): The name of the entity this artifact belongs to. |
+|  `id` |  Returns: (str): The artifact's ID |
+|  `manifest` |  Returns: (ArtifactManifest): The artifact's manifest, listing all of its contents. You cannot add more files to an artifact once you've retrieved its manifest. |
+|  `metadata` |  Returns: (dict): Structured data associated with the artifact, for example class distribution of a dataset. This will eventually be queryable and plottable in the UI. There is a hard limit of 100 total keys. |
+|  `name` |  Returns: (str): The artifact's name |
+|  `project` |  Returns: (str): The name of the project this artifact belongs to. |
+|  `size` |  Returns: (int): The size in bytes of the artifact. Includes any references tracked by this artifact. |
+|  `state` |  Returns: (str): The state of the artifact, which can be one of "PENDING", "COMMITTED", or "DELETED". |
+|  `type` |  Returns: (str): The artifact's type |
+|  `updated\_at` |  Returns: (datetime): The time at which the artifact was last updated. |
+|  `version` |  Returns: (int): The version of this artifact. For example, if this is the first version of an artifact, its `version` will be 'v0'. |
 
 
 
@@ -231,56 +105,30 @@ be 'v0'.
 
 <h3 id="add"><code>add</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2945-L2946">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2945-L2946)
 
-<pre><code>add(
+```python
+add(
     obj, name
-)</code></pre>
+)
+```
 
-Adds wandb.WBValue <code>obj</code> to the artifact.
+Adds wandb.WBValue `obj` to the artifact.
 
 ```
 obj = artifact.get(name)
 ```
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>obj</code>
-</td>
-<td>
-(wandb.WBValue) The object to add. Currently support one of
-Bokeh, JoinedTable, PartitionedTable, Table, Classes, ImageMask,
-BoundingBoxes2D, Audio, Image, Video, Html, Object3D
-</td>
-</tr><tr>
-<td>
-<code>name</code>
-</td>
-<td>
-(str) The path within the artifact to add the object.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `obj` |  (wandb.WBValue) The object to add. Currently support one of Bokeh, JoinedTable, PartitionedTable, Table, Classes, ImageMask, BoundingBoxes2D, Audio, Image, Video, Html, Object3D |
+|  `name` |  (str) The path within the artifact to add the object. |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-
-<tr>
-<td>
-<code>ArtifactManifestEntry</code>
-</td>
-<td>
-the added manifest entry
-</td>
-</tr>
-</table>
+| Returns |  |
+| :--- | :--- |
+|  `ArtifactManifestEntry` |  the added manifest entry |
 
 
 
@@ -304,36 +152,21 @@ table = artifact.get("my_table")
 
 <h3 id="add_dir"><code>add_dir</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2939-L2940">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2939-L2940)
 
-<pre><code>add_dir(
+```python
+add_dir(
     path, name=None
-)</code></pre>
+)
+```
 
 Adds a local directory to the artifact.
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>local_path</code>
-</td>
-<td>
-(str) The path to the directory being added.
-</td>
-</tr><tr>
-<td>
-<code>name</code>
-</td>
-<td>
-(str, optional) The path within the artifact to use for the directory being added. Defaults
-to files being added under the root of the artifact.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `local\_path` |  (str) The path to the directory being added. |
+|  `name` |  (str, optional) The path within the artifact to use for the directory being added. Defaults to files being added under the root of the artifact. |
 
 
 
@@ -346,80 +179,41 @@ artifact.add_dir('my_dir/') # All files in `my_dir/` are added at the root of th
 
 Adding a directory without an explicit name:
 ```
-artifact.add_dir('my_dir/', path='destination') # All files in `my_dir/<code> are added under </code>destination/`.
+artifact.add_dir('my_dir/', path='destination') # All files in `my_dir/` are added under `destination/`.
 ```
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-
-<tr>
-<td>
-<code>Exception</code>
-</td>
-<td>
-if problem.
-</td>
-</tr>
-</table>
+| Raises |  |
+| :--- | :--- |
+|  `Exception` |  if problem. |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-None
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  None |
 
 
 
 <h3 id="add_file"><code>add_file</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2936-L2937">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2936-L2937)
 
-<pre><code>add_file(
+```python
+add_file(
     local_path, name=None, is_tmp=(False)
-)</code></pre>
+)
+```
 
 Adds a local file to the artifact.
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>local_path</code>
-</td>
-<td>
-(str) The path to the file being added.
-</td>
-</tr><tr>
-<td>
-<code>name</code>
-</td>
-<td>
-(str, optional) The path within the artifact to use for the file being added. Defaults
-to the basename of the file.
-</td>
-</tr><tr>
-<td>
-<code>is_tmp</code>
-</td>
-<td>
-(bool, optional) If true, then the file is renamed deterministically to avoid collisions.
-(default: False)
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `local\_path` |  (str) The path to the file being added. |
+|  `name` |  (str, optional) The path within the artifact to use for the file being added. Defaults to the basename of the file. |
+|  `is\_tmp` |  (bool, optional) If true, then the file is renamed deterministically to avoid collisions. (default: False) |
 
 
 
@@ -437,55 +231,37 @@ artifact.add_file('path/to/file.txt', name='new/path/file.txt') # Added as 'new/
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-
-<tr>
-<td>
-<code>Exception</code>
-</td>
-<td>
-if problem
-</td>
-</tr>
-</table>
+| Raises |  |
+| :--- | :--- |
+|  `Exception` |  if problem |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-
-<tr>
-<td>
-<code>ArtifactManifestEntry</code>
-</td>
-<td>
-the added manifest entry
-</td>
-</tr>
-</table>
+| Returns |  |
+| :--- | :--- |
+|  `ArtifactManifestEntry` |  the added manifest entry |
 
 
 
 <h3 id="add_reference"><code>add_reference</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2942-L2943">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2942-L2943)
 
-<pre><code>add_reference(
+```python
+add_reference(
     uri, name=None, checksum=(True), max_objects=None
-)</code></pre>
+)
+```
 
 Adds a reference denoted by a URI to the artifact. Unlike adding files or directories,
-references are NOT uploaded to W&B. However, artifact methods such as <code>download()</code> can
+references are NOT uploaded to W&B. However, artifact methods such as `download()` can
 be used regardless of whether the artifact contains references or uploaded files.
 
 By default, W&B offers special
 handling for the following schemes:
 
 - http(s): The size and digest of the file will be inferred by the `Content-Length` and
-    the <code>ETag</code> response headers returned by the server.
+    the `ETag` response headers returned by the server.
 - s3: The checksum and size will be pulled from the object metadata. If bucket versioning
     is enabled, then the version ID is also tracked.
 - gs: The checksum and size will be pulled from the object metadata. If bucket versioning
@@ -496,74 +272,24 @@ handling for the following schemes:
 
 For any other scheme, the digest is just a hash of the URI and the size is left blank.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>uri</code>
-</td>
-<td>
-(str) The URI path of the reference to add. Can be an object returned from
-Artifact.get_path to store a reference to another artifact's entry.
-</td>
-</tr><tr>
-<td>
-<code>name</code>
-</td>
-<td>
-(str) The path within the artifact to place the contents of this reference
-</td>
-</tr><tr>
-<td>
-<code>checksum</code>
-</td>
-<td>
-(bool, optional) Whether or not to checksum the resource(s) located at the
-reference URI. Checksumming is strongly recommended as it enables automatic integrity
-validation, however it can be disabled to speed up artifact creation. (default: True)
-</td>
-</tr><tr>
-<td>
-<code>max_objects</code>
-</td>
-<td>
-(int, optional) The maximum number of objects to consider when adding a
-reference that points to directory or bucket store prefix. For S3 and GCS, this limit
-is 10,000 by default but is uncapped for other URI schemes. (default: None)
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `uri` |  (str) The URI path of the reference to add. Can be an object returned from Artifact.get_path to store a reference to another artifact's entry. |
+|  `name` |  (str) The path within the artifact to place the contents of this reference |
+|  `checksum` |  (bool, optional) Whether or not to checksum the resource(s) located at the reference URI. Checksumming is strongly recommended as it enables automatic integrity validation, however it can be disabled to speed up artifact creation. (default: True) |
+|  `max\_objects` |  (int, optional) The maximum number of objects to consider when adding a reference that points to directory or bucket store prefix. For S3 and GCS, this limit is 10,000 by default but is uncapped for other URI schemes. (default: None) |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-
-<tr>
-<td>
-<code>Exception</code>
-</td>
-<td>
-If problem.
-</td>
-</tr>
-</table>
+| Raises |  |
+| :--- | :--- |
+|  `Exception` |  If problem. |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-List[ArtifactManifestEntry]: The added manifest entries.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  List[ArtifactManifestEntry]: The added manifest entries. |
 
 
 
@@ -571,7 +297,7 @@ List[ArtifactManifestEntry]: The added manifest entries.
 
 Adding an HTTP link:
 ```
-# Adds <code>file.txt</code> to the root of the artifact as a reference
+# Adds `file.txt` to the root of the artifact as a reference
 artifact.add_reference('http://myserver.com/file.txt')
 ```
 
@@ -583,219 +309,155 @@ artifact.add_reference('s3://mybucket/prefix')
 
 Adding a GCS prefix with an explicit name:
 ```
-# All objects under `prefix/<code> will be added under </code>path/` at the top of the artifact.
+# All objects under `prefix/` will be added under `path/` at the top of the artifact.
 artifact.add_reference('gs://mybucket/prefix', name='path')
 ```
 
 
 <h3 id="checkout"><code>checkout</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3065-L3080">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3065-L3080)
 
-<pre><code>checkout(
+```python
+checkout(
     root=None
-)</code></pre>
+)
+```
 
 Replaces the specified root directory with the contents of the artifact.
 
-WARNING: This will DELETE all files in <code>root</code> that are not included in the
+WARNING: This will DELETE all files in `root` that are not included in the
 artifact.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>root</code>
-</td>
-<td>
-(str, optional) The directory to replace with this artifact's files.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `root` |  (str, optional) The directory to replace with this artifact's files. |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-(str): The path to the checked out contents.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  (str): The path to the checked out contents. |
 
 
 
 <h3 id="delete"><code>delete</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2916-L2931">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2916-L2931)
 
-<pre><code>delete()</code></pre>
+```python
+delete()
+```
 
 Delete artifact and its files.
 
 
 <h3 id="download"><code>download</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3028-L3063">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3028-L3063)
 
-<pre><code>download(
+```python
+download(
     root=None, recursive=(False)
-)</code></pre>
+)
+```
 
 Downloads the contents of the artifact to the specified root directory.
 
-NOTE: Any existing files at <code>root</code> are left untouched. Explicitly delete
-root before calling <code>download</code> if you want the contents of <code>root</code> to exactly
+NOTE: Any existing files at `root` are left untouched. Explicitly delete
+root before calling `download` if you want the contents of `root` to exactly
 match the artifact.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>root</code>
-</td>
-<td>
-(str, optional) The directory in which to download this artifact's files.
-</td>
-</tr><tr>
-<td>
-<code>recursive</code>
-</td>
-<td>
-(bool, optional) If true, then all dependent artifacts are eagerly
-downloaded. Otherwise, the dependent artifacts are downloaded as needed.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `root` |  (str, optional) The directory in which to download this artifact's files. |
+|  `recursive` |  (bool, optional) If true, then all dependent artifacts are eagerly downloaded. Otherwise, the dependent artifacts are downloaded as needed. |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-(str): The path to the downloaded contents.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  (str): The path to the downloaded contents. |
 
 
 
 <h3 id="expected_type"><code>expected_type</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2874-L2914">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2874-L2914)
 
-<pre><code>@staticmethod</code>
-<code>expected_type(
+```python
+@staticmethod
+expected_type(
     client, name, entity_name, project_name
-)</code></pre>
+)
+```
 
 Returns the expected type for a given artifact name and project
 
 
 <h3 id="file"><code>file</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3114-L3135">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3114-L3135)
 
-<pre><code>file(
+```python
+file(
     root=None
-)</code></pre>
+)
+```
 
 Download a single file artifact to dir specified by the <root>
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>root</code>
-</td>
-<td>
-(str, optional) The root directory in which to place the file. Defaults to './artifacts/<self.name>/'.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `root` |  (str, optional) The root directory in which to place the file. Defaults to './artifacts/<self.name>/'. |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-(str): The full path of the downloaded file.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  (str): The full path of the downloaded file. |
 
 
 
 <h3 id="from_id"><code>from_id</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2710-L2750">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2710-L2750)
 
-<pre><code>@classmethod</code>
-<code>from_id(
+```python
+@classmethod
+from_id(
     artifact_id, client
-)</code></pre>
+)
+```
 
 
 
 
 <h3 id="get"><code>get</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3000-L3026">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3000-L3026)
 
-<pre><code>get(
+```python
+get(
     name
-)</code></pre>
+)
+```
 
-Gets the WBValue object located at the artifact relative <code>name</code>.
+Gets the WBValue object located at the artifact relative `name`.
 
 NOTE: This will raise an error unless the artifact has been fetched using
-<code>use_artifact</code>, fetched using the API, or <code>wait()</code> has been called.
+`use_artifact`, fetched using the API, or `wait()` has been called.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>name</code>
-</td>
-<td>
-(str) The artifact relative name to get
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `name` |  (str) The artifact relative name to get |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-
-<tr>
-<td>
-<code>Exception</code>
-</td>
-<td>
-if problem
-</td>
-</tr>
-</table>
+| Raises |  |
+| :--- | :--- |
+|  `Exception` |  if problem |
 
 
 
@@ -819,46 +481,28 @@ with wandb.init() as r:
 
 <h3 id="get_path"><code>get_path</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2988-L2998">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2988-L2998)
 
-<pre><code>get_path(
+```python
+get_path(
     name
-)</code></pre>
+)
+```
 
-Gets the path to the file located at the artifact relative <code>name</code>.
+Gets the path to the file located at the artifact relative `name`.
 
 NOTE: This will raise an error unless the artifact has been fetched using
-<code>use_artifact</code>, fetched using the API, or <code>wait()</code> has been called.
+`use_artifact`, fetched using the API, or `wait()` has been called.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>name</code>
-</td>
-<td>
-(str) The artifact relative name to get
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `name` |  (str) The artifact relative name to get |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-
-<tr>
-<td>
-<code>Exception</code>
-</td>
-<td>
-if problem
-</td>
-</tr>
-</table>
+| Raises |  |
+| :--- | :--- |
+|  `Exception` |  if problem |
 
 
 
@@ -884,60 +528,38 @@ with wandb.init() as r:
 
 <h3 id="logged_by"><code>logged_by</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3366-L3399">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3367-L3400)
 
-<pre><code>logged_by()</code></pre>
+```python
+logged_by()
+```
 
 Retrieves the run which logged this artifact
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-
-<tr>
-<td>
-<code>Run</code>
-</td>
-<td>
-Run object which logged this artifact
-</td>
-</tr>
-</table>
+| Returns |  |
+| :--- | :--- |
+|  `Run` |  Run object which logged this artifact |
 
 
 
 <h3 id="new_file"><code>new_file</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L2933-L2934">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L2933-L2934)
 
-<pre><code>new_file(
+```python
+new_file(
     name, mode=None
-)</code></pre>
+)
+```
 
 Open a new temporary file that will be automatically added to the artifact.
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>name</code>
-</td>
-<td>
-(str) The name of the new file being added to the artifact.
-</td>
-</tr><tr>
-<td>
-<code>mode</code>
-</td>
-<td>
-(str, optional) The mode in which to open the new file.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `name` |  (str) The name of the new file being added to the artifact. |
+|  `mode` |  (str, optional) The mode in which to open the new file. |
 
 
 
@@ -952,61 +574,52 @@ wandb.log_artifact(artifact)
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-(file): A new file object that can be written to. Upon closing,
-the file will be automatically added to the artifact.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  (file): A new file object that can be written to. Upon closing, the file will be automatically added to the artifact. |
 
 
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3152-L3190">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3152-L3190)
 
-<pre><code>save()</code></pre>
+```python
+save()
+```
 
 Persists artifact changes to the wandb backend.
 
 
 <h3 id="used_by"><code>used_by</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3322-L3364">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3323-L3365)
 
-<pre><code>used_by()</code></pre>
+```python
+used_by()
+```
 
 Retrieves the runs which use this artifact directly
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-[Run]: a list of Run objects which use this artifact
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  [Run]: a list of Run objects which use this artifact |
 
 
 
 <h3 id="verify"><code>verify</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3082-L3112">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3082-L3112)
 
-<pre><code>verify(
+```python
+verify(
     root=None
-)</code></pre>
+)
+```
 
 Verify that the actual contents of an artifact at a specified directory
-<code>root</code> match the expected contents of the artifact according to its
+`root` match the expected contents of the artifact according to its
 manifest.
 
 All files in the directory are checksummed and the checksums are then
@@ -1014,100 +627,59 @@ cross-referenced against the artifact's manifest.
 
 NOTE: References are not verified.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>root</code>
-</td>
-<td>
-(str, optional) The directory to verify. If None
-artifact will be downloaded to './artifacts/<self.name>/'
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `root` |  (str, optional) The directory to verify. If None artifact will be downloaded to './artifacts/<self.name>/' |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-<tr>
-<td>
-(ValueError): If the verification fails.
-</td>
-</tr>
-
-</table>
+| Raises |  |
+| :--- | :--- |
+|  (ValueError): If the verification fails. |
 
 
 
 <h3 id="wait"><code>wait</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3192-L3193">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3192-L3193)
 
-<pre><code>wait()</code></pre>
+```python
+wait()
+```
 
 Waits for this artifact to finish logging, if needed.
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-Artifact
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  Artifact |
 
 
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L3404-L3405">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L3405-L3406)
 
-<pre><code>__getitem__(
+```python
+__getitem__(
     name
-)</code></pre>
+)
+```
 
-Gets the WBValue object located at the artifact relative <code>name</code>.
+Gets the WBValue object located at the artifact relative `name`.
 
 NOTE: This will raise an error unless the artifact has been fetched using
-<code>use_artifact</code>, fetched using the API, or <code>wait()</code> has been called.
+`use_artifact`, fetched using the API, or `wait()` has been called.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>name</code>
-</td>
-<td>
-(str) The artifact relative name to get
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `name` |  (str) The artifact relative name to get |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-
-<tr>
-<td>
-<code>Exception</code>
-</td>
-<td>
-if problem
-</td>
-</tr>
-</table>
+| Raises |  |
+| :--- | :--- |
+|  `Exception` |  if problem |
 
 
 
@@ -1133,17 +705,7 @@ table = artifact["my_table"]
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Class Variables</th></tr>
-
-<tr>
-<td>
-QUERY<a id="QUERY"></a>
-</td>
-<td>
-
-</td>
-</tr>
-</table>
+| Class Variables |  |
+| :--- | :--- |
+|  QUERY<a id="QUERY"></a> |   |
 

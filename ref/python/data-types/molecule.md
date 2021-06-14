@@ -2,52 +2,32 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L780-L873)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L768-L861)
 
 
 
 Wandb class for Molecular data
 
-<pre><code>Molecule(
+```python
+Molecule(
     data_or_path: Union[str, 'TextIO'],
     **kwargs
-) -> None</code></pre>
+) -> None
+```
 
 
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>data_or_path</code>
-</td>
-<td>
-(string, io)
-Molecule can be initialized from a file name or an io object.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `data\_or\_path` |  (string, io) Molecule can be initialized from a file name or an io object. |
 
 
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Class Variables</th></tr>
-
-<tr>
-<td>
-SUPPORTED_TYPES<a id="SUPPORTED_TYPES"></a>
-</td>
-<td>
-
-</td>
-</tr>
-</table>
+| Class Variables |  |
+| :--- | :--- |
+|  SUPPORTED_TYPES<a id="SUPPORTED_TYPES"></a> |   |
 

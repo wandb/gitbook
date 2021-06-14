@@ -2,16 +2,17 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L723-L741)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L723-L741)
 
 
 
 A project is a namespace for runs.
 
-<pre><code>Project(
+```python
+Project(
     client, entity, project, attrs
-)</code></pre>
+)
+```
 
 
 
@@ -19,12 +20,8 @@ A project is a namespace for runs.
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Attributes</th></tr>
-
-
-</table>
+| Attributes |  |
+| :--- | :--- |
 
 
 
@@ -32,22 +29,26 @@ A project is a namespace for runs.
 
 <h3 id="artifacts_types"><code>artifacts_types</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L739-L741">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L739-L741)
 
-<pre><code>artifacts_types(
+```python
+artifacts_types(
     per_page=50
-)</code></pre>
+)
+```
 
 
 
 
 <h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L567-L569">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L567-L569)
 
-<pre><code>snake_to_camel(
+```python
+snake_to_camel(
     string
-)</code></pre>
+)
+```
 
 
 

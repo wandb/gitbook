@@ -3,8 +3,7 @@
 <!-- Insert buttons and diff -->
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/__init__.py)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/__init__.py)
 
 
 
@@ -26,11 +25,11 @@
 
 [`finish(...)`](./finish.md): Marks a run as finished, and finishes uploading all data.
 
-[`init(...)`](./init.md): Start a new tracked run with <code>wandb.init()</code>.
+[`init(...)`](./init.md): Start a new tracked run with `wandb.init()`.
 
 [`log(...)`](./log.md): Log a dict to the global run's history.
 
-[`save(...)`](./save.md): Ensure all files matching <code>glob_str</code> are synced to wandb with the policy specified.
+[`save(...)`](./save.md): Ensure all files matching `glob_str` are synced to wandb with the policy specified.
 
 [`summary(...)`](./summary.md): Tracks single values for each metric for each run.
 
@@ -40,17 +39,7 @@
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Other Members</th></tr>
-
-<tr>
-<td>
-__version__<a id="__version__"></a>
-</td>
-<td>
-`'0.10.31'`
-</td>
-</tr>
-</table>
+| Other Members |  |
+| :--- | :--- |
+|  __version__<a id="__version__"></a> |  `'0.10.32'` |
 

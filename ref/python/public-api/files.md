@@ -2,16 +2,17 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1596-L1659)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1596-L1659)
 
 
 
+An iterable collection of `File` objects.
 
-An iterable collection of <code>File</code> objects.
-
-<pre><code>Files(
+```python
+Files(
     client, run, names=[], per_page=50, upload=(False)
-)</code></pre>
+)
+```
 
 
 
@@ -19,17 +20,7 @@ An iterable collection of <code>File</code> objects.
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Class Variables</th></tr>
-
-<tr>
-<td>
-QUERY<a id="QUERY"></a>
-</td>
-<td>
-
-</td>
-</tr>
-</table>
+| Class Variables |  |
+| :--- | :--- |
+|  QUERY<a id="QUERY"></a> |   |
 

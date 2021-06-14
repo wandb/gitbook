@@ -2,14 +2,14 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L1527-L1997)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L1672-L2140)
 
 
 
 Wandb class for images.
 
-<pre><code>Image(
+```python
+Image(
     data_or_path: "ImageDataOrPathType",
     mode: Optional[str] = None,
     caption: Optional[str] = None,
@@ -17,42 +17,18 @@ Wandb class for images.
     classes: Optional[Union['Classes', Sequence[dict]]] = None,
     boxes: Optional[Union[Dict[str, 'BoundingBoxes2D'], Dict[str, dict]]] = None,
     masks: Optional[Union[Dict[str, 'ImageMask'], Dict[str, dict]]] = None
-) -> None</code></pre>
+) -> None
+```
 
 
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>data_or_path</code>
-</td>
-<td>
-(numpy array, string, io) Accepts numpy array of
-image data, or a PIL image. The class attempts to infer
-the data format and converts it.
-</td>
-</tr><tr>
-<td>
-<code>mode</code>
-</td>
-<td>
-(string) The PIL mode for an image. Most common are "L", "RGB",
-"RGBA". Full explanation at https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes.
-</td>
-</tr><tr>
-<td>
-<code>caption</code>
-</td>
-<td>
-(string) Label for display of image.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `data\_or\_path` |  (numpy array, string, io) Accepts numpy array of image data, or a PIL image. The class attempts to infer the data format and converts it. |
+|  `mode` |  (string) The PIL mode for an image. Most common are "L", "RGB", "RGBA". Full explanation at https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes. |
+|  `caption` |  (string) Label for display of image. |
 
 
 
@@ -60,65 +36,75 @@ the data format and converts it.
 
 <h3 id="all_boxes"><code>all_boxes</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L1946-L1967">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L2089-L2110)
 
-<pre><code>@classmethod</code>
-<code>all_boxes(
+```python
+@classmethod
+all_boxes(
     images: Sequence['Image'],
     run: "LocalRun",
     run_key: str,
     step: Union[int, str]
-) -> Union[List[Optional[dict]], bool]</code></pre>
+) -> Union[List[Optional[dict]], bool]
+```
 
 
 
 
 <h3 id="all_captions"><code>all_captions</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L1969-L1973">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L2112-L2116)
 
-<pre><code>@classmethod</code>
-<code>all_captions(
+```python
+@classmethod
+all_captions(
     images: Sequence['Media']
-) -> Union[bool, Sequence[Optional[str]]]</code></pre>
+) -> Union[bool, Sequence[Optional[str]]]
+```
 
 
 
 
 <h3 id="all_masks"><code>all_masks</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L1923-L1944">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L2066-L2087)
 
-<pre><code>@classmethod</code>
-<code>all_masks(
+```python
+@classmethod
+all_masks(
     images: Sequence['Image'],
     run: "LocalRun",
     run_key: str,
     step: Union[int, str]
-) -> Union[List[Optional[dict]], bool]</code></pre>
+) -> Union[List[Optional[dict]], bool]
+```
 
 
 
 
 <h3 id="guess_mode"><code>guess_mode</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L1817-L1831">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L1960-L1974)
 
-<pre><code>guess_mode(
+```python
+guess_mode(
     data: "np.ndarray"
-) -> str</code></pre>
+) -> str
+```
 
 Guess what type of image the np.array is representing
 
 
 <h3 id="to_uint8"><code>to_uint8</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L1833-L1855">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L1976-L1998)
 
-<pre><code>@classmethod</code>
-<code>to_uint8(
+```python
+@classmethod
+to_uint8(
     data: "np.ndarray"
-) -> "np.ndarray"</code></pre>
+) -> "np.ndarray"
+```
 
 Converts floating point image on the range [0,1] and integer images
 on the range [0,255] to uint8, clipping if necessary.
@@ -127,24 +113,8 @@ on the range [0,255] to uint8, clipping if necessary.
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Class Variables</th></tr>
-
-<tr>
-<td>
-MAX_DIMENSION<a id="MAX_DIMENSION"></a>
-</td>
-<td>
-<code>65500</code>
-</td>
-</tr><tr>
-<td>
-MAX_ITEMS<a id="MAX_ITEMS"></a>
-</td>
-<td>
-<code>108</code>
-</td>
-</tr>
-</table>
+| Class Variables |  |
+| :--- | :--- |
+|  MAX_DIMENSION<a id="MAX_DIMENSION"></a> |  `65500` |
+|  MAX_ITEMS<a id="MAX_ITEMS"></a> |  `108` |
 

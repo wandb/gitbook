@@ -2,39 +2,26 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L596-L777)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L586-L765)
 
 
 
 Wandb class for 3D point clouds.
 
-<pre><code>Object3D(
+```python
+Object3D(
     data_or_path: Union['np.ndarray', str, 'TextIO'],
     **kwargs
-) -> None</code></pre>
+) -> None
+```
 
 
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>data_or_path</code>
-</td>
-<td>
-(numpy array, string, io)
-Object3D can be initialized from a file or a numpy array.
-
-The file types supported are obj, gltf, babylon, stl.  You can pass a path to
-a file or an io object and a file_type which must be one of `'obj', 'gltf', 'babylon', 'stl'`.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `data\_or\_path` |  (numpy array, string, io) Object3D can be initialized from a file or a numpy array. The file types supported are obj, gltf, babylon, stl. You can pass a path to a file or an io object and a file_type which must be one of `'obj', 'gltf', 'babylon', 'stl'`. |
 
 
 The shape of the numpy array must be one of either:
@@ -46,17 +33,7 @@ The shape of the numpy array must be one of either:
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Class Variables</th></tr>
-
-<tr>
-<td>
-SUPPORTED_TYPES<a id="SUPPORTED_TYPES"></a>
-</td>
-<td>
-
-</td>
-</tr>
-</table>
+| Class Variables |  |
+| :--- | :--- |
+|  SUPPORTED_TYPES<a id="SUPPORTED_TYPES"></a> |   |
 

@@ -2,43 +2,27 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L876-L966)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L864-L954)
 
 
 
 Wandb class for arbitrary html
 
-<pre><code>Html(
+```python
+Html(
     data: Union[str, 'TextIO'],
     inject: bool = (True)
-) -> None</code></pre>
+) -> None
+```
 
 
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>data</code>
-</td>
-<td>
-(string or io object) HTML to display in wandb
-</td>
-</tr><tr>
-<td>
-<code>inject</code>
-</td>
-<td>
-(boolean) Add a stylesheet to the HTML object.  If set
-to False the HTML will pass through unchanged.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `data` |  (string or io object) HTML to display in wandb |
+|  `inject` |  (boolean) Add a stylesheet to the HTML object. If set to False the HTML will pass through unchanged. |
 
 
 
@@ -46,9 +30,11 @@ to False the HTML will pass through unchanged.
 
 <h3 id="inject_head"><code>inject_head</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/data_types.py#L918-L933">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/data_types.py#L906-L921)
 
-<pre><code>inject_head() -> None</code></pre>
+```python
+inject_head() -> None
+```
 
 
 

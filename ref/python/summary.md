@@ -2,16 +2,17 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/wandb_summary.py#L82-L134)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/wandb_summary.py#L82-L134)
 
 
 
 Tracks single values for each metric for each run.
 
-<pre><code>summary(
+```python
+summary(
     get_current_summary_callback: t.Callable
-)</code></pre>
+)
+```
 
 
 

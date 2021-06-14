@@ -2,29 +2,30 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/wandb_run.py#L934-L1098)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/wandb_run.py#L1020-L1184)
 
 
 
 Log a dict to the global run's history.
 
-<pre><code>log(
+```python
+log(
     data: Dict[str, Any],
     step: int = None,
     commit: bool = None,
     sync: bool = None
-) -> None</code></pre>
+) -> None
+```
 
 
 
 
-Use <code>wandb.log</code> to log data from runs, such as scalars, images, video,
+Use `wandb.log` to log data from runs, such as scalars, images, video,
 histograms, and matplotlib plots.
 
 The most basic usage is `wandb.log({'train-loss': 0.5, 'accuracy': 0.9})`.
 This will save a history row associated with the run with `train-loss=0.5`
-and <code>accuracy=0.9</code>. Visualize logged data in the workspace at wandb.ai,
+and `accuracy=0.9`. Visualize logged data in the workspace at wandb.ai,
 or locally on a self-hosted instance of the W&B app:
 https://docs.wandb.ai/self-hosted
 
@@ -60,47 +61,12 @@ wandb.log is not intended to be called more than a few times per second.
 If you want to log more frequently than that it's better to aggregate
 the data on the client side or you may get degraded performance.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-
-<tr>
-<td>
-<code>row</code>
-</td>
-<td>
-(dict, optional) A dict of serializable python objects i.e <code>str</code>,
-<code>ints</code>, <code>floats</code>, <code>Tensors</code>, <code>dicts</code>, or <code>wandb.data_types</code>.
-</td>
-</tr><tr>
-<td>
-<code>commit</code>
-</td>
-<td>
-(boolean, optional) Save the metrics dict to the wandb server
-and increment the step.  If false <code>wandb.log</code> just updates the current
-metrics dict with the row argument and metrics won't be saved until
-<code>wandb.log</code> is called with <code>commit=True</code>.
-</td>
-</tr><tr>
-<td>
-<code>step</code>
-</td>
-<td>
-(integer, optional) The global step in processing. This persists
-any non-committed earlier steps but defaults to not committing the
-specified step.
-</td>
-</tr><tr>
-<td>
-<code>sync</code>
-</td>
-<td>
-(boolean, True) This argument is deprecated and currently doesn't
-change the behaviour of <code>wandb.log</code>.
-</td>
-</tr>
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  `row` |  (dict, optional) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or `wandb.data_types`. |
+|  `commit` |  (boolean, optional) Save the metrics dict to the wandb server and increment the step. If false `wandb.log` just updates the current metrics dict with the row argument and metrics won't be saved until `wandb.log` is called with `commit=True`. |
+|  `step` |  (integer, optional) The global step in processing. This persists any non-committed earlier steps but defaults to not committing the specified step. |
+|  `sync` |  (boolean, True) This argument is deprecated and currently doesn't change the behaviour of `wandb.log`. |
 
 
 
@@ -156,24 +122,8 @@ For more examples, see https://docs.wandb.com/library/log
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Raises</th></tr>
-
-<tr>
-<td>
-<code>wandb.Error</code>
-</td>
-<td>
-if called before <code>wandb.init</code>
-</td>
-</tr><tr>
-<td>
-<code>ValueError</code>
-</td>
-<td>
-if invalid data is passed
-</td>
-</tr>
-</table>
+| Raises |  |
+| :--- | :--- |
+|  `wandb.Error` |  if called before `wandb.init` |
+|  `ValueError` |  if invalid data is passed |
 

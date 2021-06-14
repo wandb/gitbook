@@ -2,26 +2,27 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/sdk/wandb_config.py#L23-L239)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/sdk/wandb_config.py#L23-L239)
 
 
 
 Config object
 
-<pre><code>config() -> None</code></pre>
+```python
+config() -> None
+```
 
 
 
 
 Config objects are intended to hold all of the hyperparameters associated with
-a wandb run and are saved with the run object when <code>wandb.init</code> is called.
+a wandb run and are saved with the run object when `wandb.init` is called.
 
-We recommend setting <code>wandb.config</code> once at the top of your training experiment or
-setting the config as a parameter to init, ie. <code>wandb.init(config=my_config_dict)</code>
+We recommend setting `wandb.config` once at the top of your training experiment or
+setting the config as a parameter to init, ie. `wandb.init(config=my_config_dict)`
 
 You can create a file called `config-defaults.yaml`, and it will automatically be
-loaded into <code>wandb.config</code>. See https://docs.wandb.com/library/config#file-based-configs.
+loaded into `wandb.config`. See https://docs.wandb.com/library/config#file-based-configs.
 
 You can also load a config YAML file with your custom name and pass the filename
 into `wandb.init(config="special_config.yaml")`.

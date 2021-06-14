@@ -2,16 +2,17 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L849-L1407)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L849-L1407)
 
 
 
 A single run associated with an entity and project.
 
-<pre><code>Run(
+```python
+Run(
     client, entity, project, run_id, attrs={}
-)</code></pre>
+)
+```
 
 
 
@@ -19,12 +20,8 @@ A single run associated with an entity and project.
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Attributes</th></tr>
-
-
-</table>
+| Attributes |  |
+| :--- | :--- |
 
 
 
@@ -32,196 +29,166 @@ A single run associated with an entity and project.
 
 <h3 id="create"><code>create</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L931-L971">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L931-L971)
 
-<pre><code>@classmethod</code>
-<code>create(
+```python
+@classmethod
+create(
     api, run_id=None, project=None, entity=None
-)</code></pre>
+)
+```
 
 Create a run for the given project
 
 
 <h3 id="delete"><code>delete</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1067-L1101">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1067-L1101)
 
-<pre><code>delete(
+```python
+delete(
     delete_artifacts=(False)
-)</code></pre>
+)
+```
 
 Deletes the given run from the wandb backend.
 
 
 <h3 id="file"><code>file</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1163-L1172">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1163-L1172)
 
-<pre><code>file(
+```python
+file(
     name
-)</code></pre>
+)
+```
 
 Arguments:
     name (str): name of requested file.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-A <code>File</code> matching the name argument.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  A `File` matching the name argument. |
 
 
 
 <h3 id="files"><code>files</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1151-L1161">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1151-L1161)
 
-<pre><code>files(
+```python
+files(
     names=[], per_page=50
-)</code></pre>
+)
+```
 
 Arguments:
     names (list): names of the requested files, if empty returns all files
     per_page (int): number of results per page
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-A <code>Files</code> object, which is an iterator over <code>File</code> obejcts.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  A `Files` object, which is an iterator over `File` obejcts. |
 
 
 
 <h3 id="history"><code>history</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1197-L1236">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1197-L1236)
 
-<pre><code>history(
-    samples=500, keys=None, x_axis=&#x27;_step&#x27;, pandas=(True),
-    stream=&#x27;default&#x27;
-)</code></pre>
+```python
+history(
+    samples=500, keys=None, x_axis="_step", pandas=(True), stream="default"
+)
+```
 
 Returns sampled history metrics for a run.  This is simpler and faster if you are ok with
 the history records being sampled.
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-<tr>
-<td>
-samples (int, optional): The number of samples to return
-pandas (bool, optional): Return a pandas dataframe
-keys (list, optional): Only return metrics for specific keys
-x_axis (str, optional): Use this metric as the xAxis defaults to _step
-stream (str, optional): "default" for metrics, "system" for machine metrics
-</td>
-</tr>
-
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  samples (int, optional): The number of samples to return pandas (bool, optional): Return a pandas dataframe keys (list, optional): Only return metrics for specific keys x_axis (str, optional): Use this metric as the xAxis defaults to _step stream (str, optional): "default" for metrics, "system" for machine metrics |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-If pandas=True returns a <code>pandas.DataFrame</code> of history metrics.
-If pandas=False returns a list of dicts of history metrics.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics. |
 
 
 
 <h3 id="load"><code>load</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L973-L1035">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L973-L1035)
 
-<pre><code>load(
+```python
+load(
     force=(False)
-)</code></pre>
+)
+```
 
 
 
 
 <h3 id="log_artifact"><code>log_artifact</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1329-L1361">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1329-L1361)
 
-<pre><code>log_artifact(
+```python
+log_artifact(
     artifact, aliases=None
-)</code></pre>
+)
+```
 
 Declare an artifact as output of a run.
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-<tr>
-<td>
-artifact (<code>Artifact</code>): An artifact returned from
-<code>wandb.Api().artifact(name)</code>
-aliases (list, optional): Aliases to apply to this artifact
-</td>
-</tr>
-
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  artifact (`Artifact`): An artifact returned from `wandb.Api().artifact(name)` aliases (list, optional): Aliases to apply to this artifact |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-A <code>Artifact</code> object.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  A `Artifact` object. |
 
 
 
 <h3 id="logged_artifacts"><code>logged_artifacts</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1294-L1296">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1294-L1296)
 
-<pre><code>logged_artifacts(
+```python
+logged_artifacts(
     per_page=100
-)</code></pre>
+)
+```
 
 
 
 
 <h3 id="save"><code>save</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1103-L1104">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1103-L1104)
 
-<pre><code>save()</code></pre>
+```python
+save()
+```
 
 
 
 
 <h3 id="scan_history"><code>scan_history</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1238-L1292">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1238-L1292)
 
-<pre><code>scan_history(
+```python
+scan_history(
     keys=None, page_size=1000, min_step=None, max_step=None
-)</code></pre>
+)
+```
 
 Returns an iterable collection of all history records for a run.
 
@@ -239,60 +206,51 @@ losses = [row["Loss"] for row in history]
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-<tr>
-<td>
-keys ([str], optional): only fetch these keys, and only fetch rows that have all of keys defined.
-page_size (int, optional): size of pages to fetch from the api
-</td>
-</tr>
-
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  keys ([str], optional): only fetch these keys, and only fetch rows that have all of keys defined. page_size (int, optional): size of pages to fetch from the api |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-An iterable collection over history records (dict).
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  An iterable collection over history records (dict). |
 
 
 
 <h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L567-L569">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L567-L569)
 
-<pre><code>snake_to_camel(
+```python
+snake_to_camel(
     string
-)</code></pre>
+)
+```
 
 
 
 
 <h3 id="update"><code>update</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1037-L1065">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1037-L1065)
 
-<pre><code>update()</code></pre>
+```python
+update()
+```
 
 Persists changes to the run object to the wandb backend.
 
 
 <h3 id="upload_file"><code>upload_file</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1174-L1195">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1174-L1195)
 
-<pre><code>upload_file(
-    path, root=&#x27;.&#x27;
-)</code></pre>
+```python
+upload_file(
+    path, root="."
+)
+```
 
 Arguments:
     path (str): name of file to upload.
@@ -300,64 +258,46 @@ Arguments:
         If you want to have the file saved in the run as "my_dir/file.txt"
         and you're currently in "my_dir" you would set root to "../"
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-A <code>File</code> matching the name argument.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  A `File` matching the name argument. |
 
 
 
 <h3 id="use_artifact"><code>use_artifact</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1302-L1327">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1302-L1327)
 
-<pre><code>use_artifact(
+```python
+use_artifact(
     artifact
-)</code></pre>
+)
+```
 
 Declare an artifact as an input to a run.
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Arguments</th></tr>
-<tr>
-<td>
-artifact (<code>Artifact</code>): An artifact returned from
-<code>wandb.Api().artifact(name)</code>
-</td>
-</tr>
-
-</table>
+| Arguments |  |
+| :--- | :--- |
+|  artifact (`Artifact`): An artifact returned from `wandb.Api().artifact(name)` |
 
 
 
-<!-- Tabular view -->
-<table>
-<tr><th>Returns</th></tr>
-<tr>
-<td>
-A <code>Artifact</code> object.
-</td>
-</tr>
-
-</table>
+| Returns |  |
+| :--- | :--- |
+|  A `Artifact` object. |
 
 
 
 <h3 id="used_artifacts"><code>used_artifacts</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/apis/public.py#L1298-L1300">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/apis/public.py#L1298-L1300)
 
-<pre><code>used_artifacts(
+```python
+used_artifacts(
     per_page=100
-)</code></pre>
+)
+```
 
 
 

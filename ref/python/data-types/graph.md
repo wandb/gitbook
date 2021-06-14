@@ -2,16 +2,17 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1247-L1407)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1253-L1413)
 
 
 
 Wandb class for graphs
 
-<pre><code>Graph(
-    format=&#x27;keras&#x27;
-)</code></pre>
+```python
+Graph(
+    format="keras"
+)
+```
 
 
 
@@ -33,54 +34,64 @@ Import a keras model:
 
 <h3 id="add_edge"><code>add_edge</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1333-L1337">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1339-L1343)
 
-<pre><code>add_edge(
+```python
+add_edge(
     from_node, to_node
-)</code></pre>
+)
+```
 
 
 
 
 <h3 id="add_node"><code>add_node</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1319-L1331">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1325-L1337)
 
-<pre><code>add_node(
+```python
+add_node(
     node=None, **node_kwargs
-)</code></pre>
+)
+```
 
 
 
 
 <h3 id="from_keras"><code>from_keras</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1339-L1368">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1345-L1374)
 
-<pre><code>@classmethod</code>
-<code>from_keras(
+```python
+@classmethod
+from_keras(
     model
-)</code></pre>
+)
+```
 
 
 
 
 <h3 id="pprint"><code>pprint</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1313-L1317">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1319-L1323)
 
-<pre><code>pprint()</code></pre>
+```python
+pprint()
+```
 
 
 
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-<a target="_blank" href="https://www.github.com/wandb/client/tree/v0.10.31/wandb/data_types.py#L1310-L1311">View source</a>
+[View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1316-L1317)
 
-<pre><code>__getitem__(
+```python
+__getitem__(
     nid
-)</code></pre>
+)
+```
 
 
 

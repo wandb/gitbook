@@ -3,8 +3,7 @@
 <!-- Insert buttons and diff -->
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/__init__.py)
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/__init__.py)
 
 
 
@@ -27,11 +26,11 @@ See the [Generated Reference Docs](https://docs.wandb.ai/ref) for details on ava
 
 [`class File`](./file.md): File is a class associated with a file saved by wandb.
 
-[`class Files`](./files.md): An iterable collection of <code>File</code> objects.
+[`class Files`](./files.md): An iterable collection of `File` objects.
 
 [`class Project`](./project.md): A project is a namespace for runs.
 
-[`class Projects`](./projects.md): An iterable collection of <code>Project</code> objects.
+[`class Projects`](./projects.md): An iterable collection of `Project` objects.
 
 [`class Run`](./run.md): A single run associated with an entity and project.
 
