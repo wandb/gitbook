@@ -25,6 +25,8 @@
 
 [`class Image`](./image.md): Wandb class for images.
 
+[`class ImageMask`](./imagemask.md): Wandb class for image masks or overlays, useful for tasks like semantic segmentation.
+
 [`class Molecule`](./molecule.md): Wandb class for Molecular data
 
 [`class Object3D`](./object3d.md): Wandb class for 3D point clouds.
