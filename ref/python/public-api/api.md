@@ -148,7 +148,7 @@ Get projects for a given entity.
 | Arguments |  |
 | :--- | :--- |
 |  `entity` |  (str) Name of the entity requested. If None will fallback to default entity passed to `Api`. If no default entity, will raise a `ValueError`. |
-|  `per\_page` |  (int) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
+|  `per_page` |  (int) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
 
 
 
@@ -176,7 +176,7 @@ WARNING: This api is in beta and will likely change in a future release
 | :--- | :--- |
 |  `path` |  (str) path to project the report resides in, should be in the form: "entity/project" |
 |  `name` |  (str) optional name of the report requested. |
-|  `per\_page` |  (int) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
+|  `per_page` |  (int) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
 
 
 
@@ -309,5 +309,5 @@ Sync a local directory containing tfevent files to wandb
 
 | Class Variables |  |
 | :--- | :--- |
-|  VIEWER_QUERY<a id="VIEWER_QUERY"></a> |   |
+|  `VIEWER_QUERY`<a id="VIEWER_QUERY"></a> |   |
 

@@ -22,5 +22,5 @@ Files(
 
 | Class Variables |  |
 | :--- | :--- |
-|  QUERY<a id="QUERY"></a> |   |
+|  `QUERY`<a id="QUERY"></a> |   |
 

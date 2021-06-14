@@ -26,7 +26,7 @@ Image(
 
 | Arguments |  |
 | :--- | :--- |
-|  `data\_or\_path` |  (numpy array, string, io) Accepts numpy array of image data, or a PIL image. The class attempts to infer the data format and converts it. |
+|  `data_or_path` |  (numpy array, string, io) Accepts numpy array of image data, or a PIL image. The class attempts to infer the data format and converts it. |
 |  `mode` |  (string) The PIL mode for an image. Most common are "L", "RGB", "RGBA". Full explanation at https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes. |
 |  `caption` |  (string) Label for display of image. |
 
@@ -115,6 +115,6 @@ on the range [0,255] to uint8, clipping if necessary.
 
 | Class Variables |  |
 | :--- | :--- |
-|  MAX_DIMENSION<a id="MAX_DIMENSION"></a> |  `65500` |
-|  MAX_ITEMS<a id="MAX_ITEMS"></a> |  `108` |
+|  `MAX_DIMENSION`<a id="MAX_DIMENSION"></a> |  `65500` |
+|  `MAX_ITEMS`<a id="MAX_ITEMS"></a> |  `108` |
 

@@ -21,7 +21,7 @@ Molecule(
 
 | Arguments |  |
 | :--- | :--- |
-|  `data\_or\_path` |  (string, io) Molecule can be initialized from a file name or an io object. |
+|  `data_or_path` |  (string, io) Molecule can be initialized from a file name or an io object. |
 
 
 
@@ -29,5 +29,5 @@ Molecule(
 
 | Class Variables |  |
 | :--- | :--- |
-|  SUPPORTED_TYPES<a id="SUPPORTED_TYPES"></a> |   |
+|  `SUPPORTED_TYPES`<a id="SUPPORTED_TYPES"></a> |   |
 

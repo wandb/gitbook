@@ -64,7 +64,7 @@ wandb.log_artifact(artifact)
 | Attributes |  |
 | :--- | :--- |
 |  `aliases` |  Returns: (list): A list of the aliases associated with this artifact. The list is mutable and calling `save()` will persist all alias changes. |
-|  `commit\_hash` |  Returns: (str): The artifact's commit hash which is used in http URLs |
+|  `commit_hash` |  Returns: (str): The artifact's commit hash which is used in http URLs |
 |  `description` |  Returns: (str): Free text that offers a description of the artifact. The description is markdown rendered in the UI, so this is a good place to put links, etc. |
 |  `digest` |  Returns: (str): The artifact's logical digest, a checksum of its contents. If an artifact has the same digest as the current `latest` version, then `log_artifact` is a no-op. |
 |  `entity` |  Returns: (str): The name of the entity this artifact belongs to. |
@@ -146,7 +146,7 @@ Adds a local directory to the artifact.
 
 | Arguments |  |
 | :--- | :--- |
-|  `local\_path` |  (str) The path to the directory being added. |
+|  `local_path` |  (str) The path to the directory being added. |
 |  `name` |  (str, optional) The path within the artifact to use for the directory being added. Defaults to files being added under the root of the artifact. |
 
 
@@ -194,9 +194,9 @@ Adds a local file to the artifact.
 
 | Arguments |  |
 | :--- | :--- |
-|  `local\_path` |  (str) The path to the file being added. |
+|  `local_path` |  (str) The path to the file being added. |
 |  `name` |  (str, optional) The path within the artifact to use for the file being added. Defaults to the basename of the file. |
-|  `is\_tmp` |  (bool, optional) If true, then the file is renamed deterministically to avoid collisions. (default: False) |
+|  `is_tmp` |  (bool, optional) If true, then the file is renamed deterministically to avoid collisions. (default: False) |
 
 
 
@@ -263,7 +263,7 @@ For any other scheme, the digest is just a hash of the URI and the size is left 
 |  `uri` |  (str) The URI path of the reference to add. Can be an object returned from Artifact.get_path to store a reference to another artifact's entry. |
 |  `name` |  (str) The path within the artifact to place the contents of this reference |
 |  `checksum` |  (bool, optional) Whether or not to checksum the resource(s) located at the reference URI. Checksumming is strongly recommended as it enables automatic integrity validation, however it can be disabled to speed up artifact creation. (default: True) |
-|  `max\_objects` |  (int, optional) The maximum number of objects to consider when adding a reference that points to directory or bucket store prefix. For S3 and GCS, this limit is 10,000 by default but is uncapped for other URI schemes. (default: None) |
+|  `max_objects` |  (int, optional) The maximum number of objects to consider when adding a reference that points to directory or bucket store prefix. For S3 and GCS, this limit is 10,000 by default but is uncapped for other URI schemes. (default: None) |
 
 
 
@@ -453,7 +453,7 @@ Get the artifact relative name of a file added by a local filesystem path.
 
 | Arguments |  |
 | :--- | :--- |
-|  `local\_path` |  (str) The local path to resolve into an artifact relative name. |
+|  `local_path` |  (str) The local path to resolve into an artifact relative name. |
 
 
 

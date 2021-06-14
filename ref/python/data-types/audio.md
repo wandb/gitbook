@@ -20,8 +20,8 @@ Audio(
 
 | Arguments |  |
 | :--- | :--- |
-|  `data\_or\_path` |  (string or numpy array) A path to an audio file or a numpy array of audio data. |
-|  `sample\_rate` |  (int) Sample rate, required when passing in raw numpy array of audio data. |
+|  `data_or_path` |  (string or numpy array) A path to an audio file or a numpy array of audio data. |
+|  `sample_rate` |  (int) Sample rate, required when passing in raw numpy array of audio data. |
 |  `caption` |  (string) Caption to display with audio. |
 
 

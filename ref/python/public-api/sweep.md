@@ -101,5 +101,5 @@ snake_to_camel(
 
 | Class Variables |  |
 | :--- | :--- |
-|  QUERY<a id="QUERY"></a> |   |
+|  `QUERY`<a id="QUERY"></a> |   |
 

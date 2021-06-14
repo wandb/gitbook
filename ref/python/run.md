@@ -44,10 +44,10 @@ two objects will be merged.
 |  `path` |  Returns: (str): the path to the run `[entity]/[project]/[run_id]` |
 |  `project` |  Returns: (str): name of W&B project associated with run. |
 |  `resumed` |  Returns: (bool): whether or not the run was resumed |
-|  `start\_time` |  Returns: (int): the unix time stamp in seconds when the run started |
-|  `starting\_step` |  Returns: (int): the first step of the run |
+|  `start_time` |  Returns: (int): the unix time stamp in seconds when the run started |
+|  `starting_step` |  Returns: (int): the first step of the run |
 |  `step` |  Every time you call wandb.log() it will by default increment the step counter. |
-|  `sweep\_id` |  Returns: (str, optional): the sweep id associated with the run or None |
+|  `sweep_id` |  Returns: (str, optional): the sweep id associated with the run or None |
 |  `tags` |  Returns: (Tuple[str]): tags associated with the run |
 |  `url` |  Returns: (str): name of W&B url associated with run. |
 
@@ -76,7 +76,7 @@ Launch an alert with the given title and text.
 |  `title` |  (str) The title of the alert, must be less than 64 characters long. |
 |  `text` |  (str) The text body of the alert. |
 |  `level` |  (str or wandb.AlertLevel, optional) The alert level to use, either: `INFO`, `WARN`, or `ERROR`. |
-|  `wait\_duration` |  (int, float, or timedelta, optional) The time to wait (in seconds) before sending another alert with this title. |
+|  `wait_duration` |  (int, float, or timedelta, optional) The time to wait (in seconds) before sending another alert with this title. |
 
 
 
@@ -103,8 +103,8 @@ Define metric properties which will later be logged with `wandb.log()`.
 | Arguments |  |
 | :--- | :--- |
 |  `name` |  Name of the metric. |
-|  `step\_metric` |  Independent variable associated with the metric. |
-|  `step\_sync` |  Automatically add `step_metric` to history if needed. Defaults to True if step_metric is specified. |
+|  `step_metric` |  Independent variable associated with the metric. |
+|  `step_sync` |  Automatically add `step_metric` to history if needed. Defaults to True if step_metric is specified. |
 |  `hidden` |  Hide this metric from automatic plots. |
 |  `summary` |  Specify aggregate metrics added to summary. Supported aggregations: "min,max,mean,best,last,none" Default aggregation is `copy` Aggregation `best` defaults to `goal`==`minimize` |
 |  `goal` |  Specify direction for optimizing the metric. Supported direections: "minimize,maximize" |
@@ -150,11 +150,11 @@ the same distributed ID will result in a new version
 
 | Arguments |  |
 | :--- | :--- |
-|  `artifact\_or\_path` |  (str or Artifact) A path to the contents of this artifact, can be in the following forms: - `/local/directory` - `/local/directory/file.txt` - `s3://bucket/path` You can also pass an Artifact object created by calling `wandb.Artifact`. |
+|  `artifact_or_path` |  (str or Artifact) A path to the contents of this artifact, can be in the following forms: - `/local/directory` - `/local/directory/file.txt` - `s3://bucket/path` You can also pass an Artifact object created by calling `wandb.Artifact`. |
 |  `name` |  (str, optional) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: - name:version - name:alias - digest This will default to the basename of the path prepended with the current run id if not specified. |
 |  `type` |  (str) The type of artifact to log, examples include `dataset`, `model` |
 |  `aliases` |  (list, optional) Aliases to apply to this artifact, defaults to `["latest"]` |
-|  `distributed\_id` |  (string, optional) Unique string that all distributed jobs share. If None, defaults to the run's group name. |
+|  `distributed_id` |  (string, optional) Unique string that all distributed jobs share. If None, defaults to the run's group name. |
 
 
 
@@ -355,7 +355,7 @@ Declare an artifact as output of a run.
 
 | Arguments |  |
 | :--- | :--- |
-|  `artifact\_or\_path` |  (str or Artifact) A path to the contents of this artifact, can be in the following forms: - `/local/directory` - `/local/directory/file.txt` - `s3://bucket/path` You can also pass an Artifact object created by calling `wandb.Artifact`. |
+|  `artifact_or_path` |  (str or Artifact) A path to the contents of this artifact, can be in the following forms: - `/local/directory` - `/local/directory/file.txt` - `s3://bucket/path` You can also pass an Artifact object created by calling `wandb.Artifact`. |
 |  `name` |  (str, optional) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: - name:version - name:alias - digest This will default to the basename of the path prepended with the current run id if not specified. |
 |  `type` |  (str) The type of artifact to log, examples include `dataset`, `model` |
 |  `aliases` |  (list, optional) Aliases to apply to this artifact, defaults to `["latest"]` |
@@ -436,11 +436,11 @@ Creates a custom plot on a table.
 
 | Arguments |  |
 | :--- | :--- |
-|  `vega\_spec\_name` |  the name of the spec for the plot |
-|  `table\_key` |  the key used to log the data table |
-|  `data\_table` |  a wandb.Table object containing the data to be used on the visualization |
+|  `vega_spec_name` |  the name of the spec for the plot |
+|  `table_key` |  the key used to log the data table |
+|  `data_table` |  a wandb.Table object containing the data to be used on the visualization |
 |  `fields` |  a dict mapping from table keys to fields that the custom visualization needs |
-|  `string\_fields` |  a dict that provides values for any string constants the custom visualization needs |
+|  `string_fields` |  a dict that provides values for any string constants the custom visualization needs |
 
 
 
@@ -475,7 +475,7 @@ already exist.
 | Arguments |  |
 | :--- | :--- |
 |  `name` |  the name of the file |
-|  `run\_path` |  optional path to a run to pull files from, i.e. `username/project_name/run_id` if wandb.init has not been called, this is required. |
+|  `run_path` |  optional path to a run to pull files from, i.e. `username/project_name/run_id` if wandb.init has not been called, this is required. |
 |  `replace` |  whether to download the file even if it already exists locally |
 |  `root` |  the directory to download the file to. Defaults to the current directory or the run directory if wandb.init was called. |
 
@@ -511,8 +511,8 @@ Ensure all files matching `glob_str` are synced to wandb with the policy specifi
 
 | Arguments |  |
 | :--- | :--- |
-|  `glob\_str` |  (string) a relative or absolute path to a unix glob or regular path. If this isn't specified the method is a noop. |
-|  `base\_path` |  (string) the base path to run the glob relative to |
+|  `glob_str` |  (string) a relative or absolute path to a unix glob or regular path. If this isn't specified the method is a noop. |
+|  `base_path` |  (string) the base path to run the glob relative to |
 |  `policy` |  (string) on of `live`, `now`, or `end` - live: upload the file as it changes, overwriting the previous version - now: upload the file once now - end: only upload file when the run ends |
 
 
@@ -537,11 +537,11 @@ need to all contribute to the same artifact.
 
 | Arguments |  |
 | :--- | :--- |
-|  `artifact\_or\_path` |  (str or Artifact) A path to the contents of this artifact, can be in the following forms: - `/local/directory` - `/local/directory/file.txt` - `s3://bucket/path` You can also pass an Artifact object created by calling `wandb.Artifact`. |
+|  `artifact_or_path` |  (str or Artifact) A path to the contents of this artifact, can be in the following forms: - `/local/directory` - `/local/directory/file.txt` - `s3://bucket/path` You can also pass an Artifact object created by calling `wandb.Artifact`. |
 |  `name` |  (str, optional) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: - name:version - name:alias - digest This will default to the basename of the path prepended with the current run id if not specified. |
 |  `type` |  (str) The type of artifact to log, examples include `dataset`, `model` |
 |  `aliases` |  (list, optional) Aliases to apply to this artifact, defaults to `["latest"]` |
-|  `distributed\_id` |  (string, optional) Unique string that all distributed jobs share. If None, defaults to the run's group name. |
+|  `distributed_id` |  (string, optional) Unique string that all distributed jobs share. If None, defaults to the run's group name. |
 
 
 
@@ -566,7 +566,7 @@ the returned object to get the contents locally.
 
 | Arguments |  |
 | :--- | :--- |
-|  `artifact\_or\_name` |  (str or Artifact) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: - name:version - name:alias - digest You can also pass an Artifact object created by calling `wandb.Artifact` |
+|  `artifact_or_name` |  (str or Artifact) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: - name:version - name:alias - digest You can also pass an Artifact object created by calling `wandb.Artifact` |
 |  `type` |  (str, optional) The type of artifact to use. |
 |  `aliases` |  (list, optional) Aliases to apply to this artifact |
 

@@ -23,7 +23,7 @@ Video(
 
 | Arguments |  |
 | :--- | :--- |
-|  `data\_or\_path` |  (numpy array, string, io) Video can be initialized with a path to a file or an io object. The format must be "gif", "mp4", "webm" or "ogg". The format must be specified with the format argument. Video can be initialized with a numpy tensor. The numpy tensor must be either 4 dimensional or 5 dimensional. Channels should be (time, channel, height, width) or (batch, time, channel, height width) |
+|  `data_or_path` |  (numpy array, string, io) Video can be initialized with a path to a file or an io object. The format must be "gif", "mp4", "webm" or "ogg". The format must be specified with the format argument. Video can be initialized with a numpy tensor. The numpy tensor must be either 4 dimensional or 5 dimensional. Channels should be (time, channel, height, width) or (batch, time, channel, height width) |
 |  `caption` |  (string) caption associated with the video for display |
 |  `fps` |  (int) frames per second for video. Default is 4. |
 |  `format` |  (string) format of video, necessary if initializing with path or io object. |
@@ -49,5 +49,5 @@ encode() -> None
 
 | Class Variables |  |
 | :--- | :--- |
-|  EXTS<a id="EXTS"></a> |   |
+|  `EXTS`<a id="EXTS"></a> |   |
 

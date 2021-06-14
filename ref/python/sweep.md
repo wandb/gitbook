@@ -32,7 +32,7 @@ tool `wandb sweep` (https://docs.wandb.ai/ref/cli/wandb-sweep).
 
 | Returns |  |
 | :--- | :--- |
-|  `sweep\_id` |  str. A unique identifier for the sweep. |
+|  `sweep_id` |  str. A unique identifier for the sweep. |
 
 
 

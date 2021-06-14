@@ -24,7 +24,7 @@ Should be extended to accept arbitrary ML models.
 |  `models` |  (torch.Module) The model to hook, can be a tuple |
 |  `criterion` |  (torch.F) An optional loss value being optimized |
 |  `log` |  (str) One of "gradients", "parameters", "all", or None |
-|  `log\_freq` |  (int) log gradients and parameters every N batches |
+|  `log_freq` |  (int) log gradients and parameters every N batches |
 |  `idx` |  (int) an index to be used when calling wandb.watch on multiple models |
 
 

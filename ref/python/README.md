@@ -41,5 +41,5 @@
 
 | Other Members |  |
 | :--- | :--- |
-|  __version__<a id="__version__"></a> |  `'0.10.32'` |
+|  `__version__`<a id="__version__"></a> |  `'0.10.32'` |
 
