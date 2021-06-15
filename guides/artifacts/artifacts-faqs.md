@@ -12,7 +12,7 @@ You can update various artifact properties \(such as `description`, `metadata`, 
 
 ```python
 api = wandb.Api()
-artifact = api.artifact('projectName/bike-dataset:latest')
+artifact = api.artifact('car-vision-project/bike-dataset:latest')
 
 # Update the description
 artifact.description = "My new description"
@@ -51,13 +51,13 @@ with wandb.init(id="existing_run_id", resume="allow") as run:
 
 You can use the handy `wandb artifact put` command to log artifacts without needing to write a script to handle the upload:
 
-```bash
+```python
 $ wandb artifact put -n project/artifact -t dataset mnist/
 ```
 
 Similarly, you can then download artifacts to a directory with this command:
 
-```bash
+```python
 $ wandb artifact get project/artifact:alias --root mnist/
 ```
 
@@ -65,7 +65,7 @@ $ wandb artifact get project/artifact:alias --root mnist/
 
 You can use the handy `wandb artifact get` command to download artifacts:
 
-```bash
+```python
 $ wandb artifact get project/artifact:alias --root mnist/
 ```
 
@@ -74,24 +74,24 @@ Alternatively, you could write a script that uses the public API:
 ```python
 api = wandb.Api()
 
-artifact = api.artifact('projectName/data:v0')
+artifact = api.artifact('project/artifact:alias')
 artifact_dir = artifact.checkout()
 ```
 
 ## How do I clean up unused artifact versions?
 
-As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged latest\) of your artifact is useful. Here's how you can delete all versions of an artifact that don't have any aliases:
+As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged `latest`\) of your artifact is useful. Here's how you can delete all versions of an artifact that don't have any aliases:
 
 ```python
-api = wandb.Api(override={"project": projectName, "entity": entityName})
+api = wandb.Api(override={"project": "capsule-gpt", "entity": "geoff"})
 
 artifact_type, artifact_name = ... # fill in the desired type + name
 for version in api.artifact_versions(artifact_type, artifact_name):
-    # Clean up all versions that don't have an alias such as 'latest'.
-		#
-		# NOTE: You can put whatever deletion logic you want here.
-    if len(version.aliases) == 0:
-        version.delete()
+  # Clean up all versions that don't have an alias such as 'latest'.
+	#
+	# NOTE: You can put whatever deletion logic you want here.
+  if len(version.aliases) == 0:
+      version.delete()
 ```
 
 ## How do I traverse the artifact graph?
@@ -101,7 +101,7 @@ W&B automatically tracks the artifacts a given run has logged as well as the art
 ```python
 api = wandb.Api()
 
-artifact = api.artifact('projectName/data:v0')
+artifact = api.artifact("project/artifact:alias")
 
 # Walk up and down the graph from an artifact:
 producer_run = artifact.logged_by()
@@ -116,7 +116,7 @@ used_artifacts = run.used_artifacts()
 
 W&B caches artifact files to speed up downloads across versions that share many files in common. Over time, however, this cache directory can become large. You can run the following command to prune the cache, cleaning up any files that haven't been used recently:
 
-```text
+```python
 $ wandb artifact cache cleanup 1GB
 ```
 
@@ -192,7 +192,7 @@ Within a sweep, you may have the individual runs each emitting its own artifacts
 ```python
 import wandb
 api = wandb.Api()
-sweep = api.sweep("<entity>/<project>/<sweep_id>")
+sweep = api.sweep("entity/project/sweep_id")
 runs = sorted(sweep.runs, key=lambda run: run.summary.get("val_acc", 0), reverse=True)
 best_run = runs[0]
 for artifact in best_run.logged_artifacts():
@@ -204,8 +204,8 @@ for artifact in best_run.logged_artifacts():
 
 One effective pattern for logging models in a sweep is to have a model artifact for the sweep, where the versions will correspond to different runs from the sweep. More concretely, you would have:
 
-```text
-wandb.Artifact(name=<sweep_name>, type='model')
+```python
+wandb.Artifact(name="sweep_name", type="model")
 ```
 
 ## How do I save code?‌
@@ -214,7 +214,7 @@ Use `save_code=True` in `wandb.init` to save the main script or notebook where y
 
 ```python
 code_artifact = wandb.Artifact(type='code')
-code_artifact.add_dir('.')
+code_artifact.add_dir(".")
 wandb.log_artifact(code_artifact)
 ```
 
