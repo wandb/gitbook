@@ -13,7 +13,5 @@
 
 ## Modules
 
-[`integration_utils`](./integration_utils) module
-
 [`keras`](./keras) module: Tools for integrating `wandb` with [`Keras`](https://keras.io/), a deep learning API for [`TensorFlow`](https://www.tensorflow.org/).
 
