@@ -74,7 +74,7 @@ Alternatively, you could write a script that uses the public API:
 ```python
 api = wandb.Api()
 
-artifact = api.artifact('project/artifact:alias')
+artifact = api.artifact("project/artifact:alias")
 artifact_dir = artifact.checkout()
 ```
 
