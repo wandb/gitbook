@@ -375,7 +375,7 @@ system_metrics = run.history(stream = 'events')
 You can pass your dictionary to update summary metrics.
 
 ```python
-summary.update({“key”: val})
+summary.update({"key": val})
 ```
 
 ### Get the command that ran the run
