@@ -1,10 +1,6 @@
-# Graph
-
-
+# wandb.data\_types.Graph
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1253-L1413)
-
-
 
 Wandb class for graphs
 
@@ -14,25 +10,19 @@ Graph(
 )
 ```
 
-
-
-
-This class is typically used for saving and diplaying neural net models.  It
-represents the graph as an array of nodes and edges.  The nodes can have
-labels that can be visualized by wandb.
+This class is typically used for saving and diplaying neural net models. It represents the graph as an array of nodes and edges. The nodes can have labels that can be visualized by wandb.
 
 #### Examples:
 
 Import a keras model:
-```
+
+```text
     Graph.from_keras(keras_model)
 ```
 
-
-
 ## Methods
 
-<h3 id="add_edge"><code>add_edge</code></h3>
+### `add_edge` <a id="add_edge"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1339-L1343)
 
@@ -42,10 +32,7 @@ add_edge(
 )
 ```
 
-
-
-
-<h3 id="add_node"><code>add_node</code></h3>
+### `add_node` <a id="add_node"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1325-L1337)
 
@@ -55,10 +42,7 @@ add_node(
 )
 ```
 
-
-
-
-<h3 id="from_keras"><code>from_keras</code></h3>
+### `from_keras` <a id="from_keras"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1345-L1374)
 
@@ -69,10 +53,7 @@ from_keras(
 )
 ```
 
-
-
-
-<h3 id="pprint"><code>pprint</code></h3>
+### `pprint` <a id="pprint"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1319-L1323)
 
@@ -80,10 +61,7 @@ from_keras(
 pprint()
 ```
 
-
-
-
-<h3 id="__getitem__"><code>__getitem__</code></h3>
+### `__getitem__` <a id="__getitem__"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.10.32/wandb/data_types.py#L1316-L1317)
 
@@ -92,9 +70,4 @@ __getitem__(
     nid
 )
 ```
-
-
-
-
-
 
