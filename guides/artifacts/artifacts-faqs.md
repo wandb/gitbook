@@ -79,9 +79,13 @@ artifact_dir = artifact.checkout()
 
 ## How do I clean up unused artifact versions?
 
-As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged `latest`\) of your artifact is useful. Here's how you can delete all versions of an artifact that don't have any aliases:
+As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged `latest`\) of your artifact is useful.
+
+Here's how you can delete all versions of an artifact that don't have any aliases:
 
 ```python
+# When using artifact api methods that don't have an entity or project
+#  argument, you must provide that information when instantiating the wandb.Api
 api = wandb.Api(override={"project": "capsule-gpt", "entity": "geoff"})
 
 artifact_type, artifact_name = ... # fill in the desired type + name
