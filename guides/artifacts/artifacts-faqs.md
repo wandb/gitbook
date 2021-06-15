@@ -12,7 +12,7 @@ You can update various artifact properties \(such as `description`, `metadata`, 
 
 ```python
 api = wandb.Api()
-artifact = api.artifact('bike-dataset:latest')
+artifact = api.artifact('projectName/bike-dataset:latest')
 
 # Update the description
 artifact.description = "My new description"
@@ -74,7 +74,7 @@ Alternatively, you could write a script that uses the public API:
 ```python
 api = wandb.Api()
 
-artifact = api.artifact('data:v0')
+artifact = api.artifact('projectName/data:v0')
 artifact_dir = artifact.checkout()
 ```
 
@@ -83,7 +83,7 @@ artifact_dir = artifact.checkout()
 As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged latest\) of your artifact is useful. Here's how you can delete all versions of an artifact that don't have any aliases:
 
 ```python
-api = wandb.Api()
+api = wandb.Api(override={"project": projectName, "entity": entityName})
 
 artifact_type, artifact_name = ... # fill in the desired type + name
 for version in api.artifact_versions(artifact_type, artifact_name):
@@ -101,7 +101,7 @@ W&B automatically tracks the artifacts a given run has logged as well as the art
 ```python
 api = wandb.Api()
 
-artifact = api.artifact('data:v0')
+artifact = api.artifact('projectName/data:v0')
 
 # Walk up and down the graph from an artifact:
 producer_run = artifact.logged_by()
