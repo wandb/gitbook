@@ -12,7 +12,7 @@ You can update various artifact properties \(such as `description`, `metadata`, 
 
 ```python
 api = wandb.Api()
-artifact = api.artifact('car-vision-project/bike-dataset:latest')
+artifact = api.artifact("car-vision-project/bike-dataset:latest")
 
 # Update the description
 artifact.description = "My new description"
@@ -24,13 +24,12 @@ artifact.metadata["oldKey"] = "new value"
 artifact.metadata = {"newKey": "new value"}
 
 # Add an alias
-artifact.aliases.append('best')
-
+artifact.aliases.append("best")
 # Remove an alias
-artifact.aliases.remove('latest')
+artifact.aliases.remove("latest")
 
 # Completely replace the aliases
-artifact.aliases = ['replaced']
+artifact.aliases = ["replaced"]
 
 # Persist all artifact modifications
 artifact.save()
