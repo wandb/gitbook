@@ -11,10 +11,37 @@ ImageMask(
 ) -> None
 ```
 
-| Arguments |  |
-| :--- | :--- |
-| `val` | \(dictionary\) One of these two keys to represent the image: mask\_data : \(2D numpy array\) The mask containing an integer class label for each pixel in the image path : \(string\) The path to a saved image file of the mask class\_labels : \(dictionary of integers to strings, optional\) A mapping of the integer class labels in the mask to readable class names. These will default to class\_0, class\_1, class\_2, etc. |
-| `key` | \(string\) The readable name or id for this mask type \(e.g. predictions, ground\_truth\) |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Arguments</th>
+      <th style="text-align:left"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>val</code>
+      </td>
+      <td style="text-align:left">
+        <p>(dictionary) One of these two keys to represent the image:</p>
+        <p>
+          <br />&quot;mask_data&quot;: (2D numpy array) The mask containing an integer
+          class label for each pixel in the image
+          <br />&quot;path&quot;: (string) The path to a saved image file of the mask</p>
+        <p>
+          <br />&quot;class_labels&quot;: (dictionary of integers to strings, optional)
+          A mapping of the integer class labels in the mask to readable class names.
+          These will default to class_0, class_1, class_2, etc.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>key</code>
+      </td>
+      <td style="text-align:left">(string) The readable name or id for this mask type (e.g. predictions,
+        ground_truth)</td>
+    </tr>
+  </tbody>
+</table>
 
 #### Examples:
 
