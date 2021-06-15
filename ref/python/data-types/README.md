@@ -1,26 +1,39 @@
-# Data Types
+# data-types
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.31/wandb/__init__.py)
+<!-- Insert buttons and diff -->
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/__init__.py)
+
+
+
+
+
+
 
 ## Classes
 
-[`class Audio`](audio.md): Wandb class for audio clips.
+[`class Audio`](./audio.md): Wandb class for audio clips.
 
-[`class Graph`](graph.md): Wandb class for graphs
+[`class BoundingBoxes2D`](./boundingboxes2d.md): Wandb class for logging 2D bounding boxes on images, useful for tasks like object detection
 
-[`class Histogram`](histogram.md): wandb class for histograms.
+[`class Graph`](./graph.md): Wandb class for graphs
 
-[`class Html`](html.md): Wandb class for arbitrary html
+[`class Histogram`](./histogram.md): wandb class for histograms.
 
-[`class Image`](image.md): Wandb class for images.
+[`class Html`](./html.md): Wandb class for arbitrary html
 
-[`class Molecule`](molecule.md): Wandb class for Molecular data
+[`class Image`](./image.md): Wandb class for images.
 
-[`class Object3D`](object3d.md): Wandb class for 3D point clouds.
+[`class ImageMask`](./imagemask.md): Wandb class for image masks or overlays, useful for tasks like semantic segmentation.
 
-[`class Plotly`](plotly.md): Wandb class for plotly plots.
+[`class Molecule`](./molecule.md): Wandb class for Molecular data
 
-[`class Table`](table.md): The Table class is used to display and analyze tabular data.
+[`class Object3D`](./object3d.md): Wandb class for 3D point clouds.
 
-[`class Video`](video.md): Wandb representation of video.
+[`class Plotly`](./plotly.md): Wandb class for plotly plots.
+
+[`class Table`](./table.md): The Table class is used to display and analyze tabular data.
+
+[`class Video`](./video.md): Wandb representation of video.
 

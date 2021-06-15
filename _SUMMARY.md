@@ -54,6 +54,7 @@
     * [Artifacts FAQs](guides/artifacts/artifacts-faqs.md)
     * [Artifacts Examples](guides/artifacts/examples.md)
   * [Data Visualization](guides/data-vis/README.md)
+    * [Tables Quickstart](guides/data-vis/tables-quickstart.md)
     * [Log Tables](guides/data-vis/log-tables.md)
     * [Visualize & Analyze Tables](guides/data-vis/tables.md)
   * [Hyperparameter Tuning](guides/sweeps/README.md)
