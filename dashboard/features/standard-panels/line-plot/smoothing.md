@@ -1,53 +1,64 @@
 ---
-description: 'In line plots, use smoothing to see trends in noisy data.'
+description: 在线图中，使用平滑来查看有噪音的数据的趋势。
 ---
 
 # Smoothing
 
-In Weights & Biases line plots, we support three types of smoothing:
+在Weights & Biases线图中，我们支持三种类型的平滑：
 
-* ​[exponential moving average](https://docs.wandb.ai/app/features/panels/compare-metrics/smoothing#exponential-moving-average-default) \(default\)
-* ​[gaussian smoothing](https://docs.wandb.ai/app/features/panels/compare-metrics/smoothing#gaussian-smoothing)​
-* ​[running average](https://docs.wandb.ai/app/features/panels/compare-metrics/smoothing#running-average)​
+* [指数移动平均](https://docs.wandb.ai/v/zh-hans/dashboard/features/standard-panels/line-plot/smoothing#exponential-moving-average-default)（默认）
+* ​[高斯平滑​](https://docs.wandb.ai/v/zh-hans/dashboard/features/standard-panels/line-plot/smoothing#gaussian-smoothing)
+*  [运行平均​](https://docs.wandb.ai/v/zh-hans/dashboard/features/standard-panels/line-plot/smoothing#running-average)
 
-See these live in an [interactive W&B report](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc).
+ 在[交互式 W&B 报告](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc)中实时查看这些内容。
 
 ![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwQ9p8HMAXP_hdvAdY%2F-MVwR6xXY6CPDB14teMy%2Fbeamer%20-%20smoothing.gif?alt=media&token=b3a00a28-6e65-4e81-a42c-b891a483a2c5)
 
-## Exponential Moving Average \(Default\) <a id="exponential-moving-average-default"></a>
+## 指数移动平均（默认） <a id="exponential-moving-average-default"></a>
 
-Exponential moving average is implemented to match TensorBoard's smoothing algorithm. The range is 0 to 1. See [Exponential Smoothing](https://www.wikiwand.com/en/Exponential_smoothing) for background. There is a debias term added so that early values in the time series are not biases towards zero.
+ 实现指数移动平均以匹配 TensorBoard 的平滑算法。范围是 0 到 1。有关背景，请参阅[指数平滑](https://www.wikiwand.com/en/Exponential_smoothing)。这里添加了一个 debias 项，以便时间序列中的早期值不会偏向于零。
 
-Here is sample code for how this works under the hood:
+以下是有关其内部工作原理的示例代码：
 
 ```text
   data.forEach(d => {    const nextVal = d;    last = last * smoothingWeight + (1 - smoothingWeight) * nextVal;    numAccum++;    debiasWeight = 1.0 - Math.pow(smoothingWeight, numAccum);    smoothedData.push(last / debiasWeight);
 ```
 
-Here's what this looks like [in the app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc):![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwThFT-sefB8FrHjn6%2F-MVwZCKrKK0Wd8vs5dRZ%2FScreen%20Shot%202021-03-16%20at%2012.43.45%20PM.png?alt=media&token=882367c3-3be7-4385-8527-0c7c83e2508b)
+ 这是[app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc)中的样子
 
-## Gaussian Smoothing <a id="gaussian-smoothing"></a>
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwThFT-sefB8FrHjn6%2F-MVwZCKrKK0Wd8vs5dRZ%2FScreen%20Shot%202021-03-16%20at%2012.43.45%20PM.png?alt=media&token=882367c3-3be7-4385-8527-0c7c83e2508b)
 
-Gaussian smoothing \(or gaussian kernel smoothing\) computes a weighted average of the points, where the weights correspond to a gaussian distribution with the standard deviation specified as the smoothing parameter. See . The smoothed value is calculated for every input x value.
+## 高斯平滑 <a id="gaussian-smoothing"></a>
 
-Gaussian smoothing is a good standard choice for smoothing if you are not concerned with matching TensorBoard's behavior. Unlike an exponential moving average the point will be smoothed based on points occurring both before and after the value.
+高斯平滑（或高斯核平滑）计算点的加权平均值，其中权重对应于高斯分布，标准偏差指定为平滑参数。看 。为每个输入 x 值计算平滑值。
 
-Here's what this looks like [in the app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc#3.-gaussian-smoothing):![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwThFT-sefB8FrHjn6%2F-MVw_9RhHbqQTvW6-uxV%2Fimage.png?alt=media&token=2cff82ca-7d78-4c0b-adc9-1c9c8597091d)
+如果您不关心匹配 TensorBoard 的行为，高斯平滑是一个很好的平滑标准选择。与指数移动平均线不同，该点将根据该值前后出现的点进行平滑处理。
 
-## Running Average <a id="running-average"></a>
+ 这是[app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc#3.-gaussian-smoothing)中的样子：
 
-Running average is a simple smoothing algorithm that replaces a point with the average of points in a window before and after the given x value. See "Boxcar Filter" at [https://en.wikipedia.org/wiki/Moving\_average](https://en.wikipedia.org/wiki/Moving_average). The selected parameter for running average tells Weights and Biases the number of points to consider in the moving average.
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwThFT-sefB8FrHjn6%2F-MVw_9RhHbqQTvW6-uxV%2Fimage.png?alt=media&token=2cff82ca-7d78-4c0b-adc9-1c9c8597091d)
 
-Running average is a simple, trivial to replicate smoothing algorithm. If your points are spaced unevenly on the x-axis Gaussian Smoothing may be a better choice.
+## 运行平均 <a id="running-average"></a>
 
-Here's what this looks like [in the app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc#4.-running-average):![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwThFT-sefB8FrHjn6%2F-MVw_KWzi9oQGXccdoEV%2Fimage.png?alt=media&token=2504d9a7-d22e-4554-874b-ee2cc7a1eea0)
+运行平均是一种简单的平滑算法，它用给定 x 值前后的窗口中点的平均值替换一个点。请参阅[https://en.wikipedia.org/wiki/Moving\_average](https://en.wikipedia.org/wiki/Moving_average) 上的“Boxcar 过滤器”。为运行平均选择的参数告诉Weights and Biases在移动平均中要考虑的点数。
 
-## Implementation Details <a id="implementation-details"></a>
+运行平均是一种简单的用来复制平滑算法的方法。如果您的点在 x 轴上的间距不均匀，高斯平滑可能是更好的选择。
 
-All of the smoothing algorithms run on the sampled data, meaning that if you log more than 3000 points, the smoothing algorithm will run _after_ the points are downloaded from the server. The intention of the smoothing algorithms is to help find patterns in data quickly. If you need exact smoothed values on metrics with a large number of logged points, it may be better to download your metrics through the API and run your own smoothing methods.
+ 这是[app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc#4.-running-average)中的样子：
 
-## Hide original data <a id="hide-original-data"></a>
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwThFT-sefB8FrHjn6%2F-MVw_KWzi9oQGXccdoEV%2Fimage.png?alt=media&token=2504d9a7-d22e-4554-874b-ee2cc7a1eea0)
 
-By default we show the original, unsmoothed data as a faint line in the background. Click the **Show Original** toggle to turn this off.![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwThFT-sefB8FrHjn6%2F-MVw_lJkBdmzI9eZvWov%2Fdemo%20-%20wandb%20smoothing%20turn%20on%20and%20off%20original%20data.gif?alt=media&token=de5155ad-ff65-43b8-a96d-758bd5368c33)[  
+##  实施细则 <a id="implementation-details"></a>
+
+所有平滑算法都在采样数据上运行，这意味着如果您记录超过 3000 个点，平滑算法将在从服务器下载这些点后运行。平滑算法的目的是帮助快速找到数据中的模式。如果您需要具有大量记录点的指标的精确平滑值，最好通过 API 下载您的指标并运行您自己的平滑方法。
+
+##  隐藏原始数据 <a id="hide-original-data"></a>
+
+默认情况下，我们将原始的、未平滑的数据显示为背景中的一条模糊线。点击**Show Original**  
+
+
+切换以关闭此功能。[  
 ](https://docs.wandb.ai/app/features/panels/compare-metrics/sampling-and-bucketing)
+
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MVwThFT-sefB8FrHjn6%2F-MVw_lJkBdmzI9eZvWov%2Fdemo%20-%20wandb%20smoothing%20turn%20on%20and%20off%20original%20data.gif?alt=media&token=de5155ad-ff65-43b8-a96d-758bd5368c33)
 

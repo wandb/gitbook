@@ -1,10 +1,10 @@
 # Sampling and Bucketing
 
-## Sampling
+## 采样
 
-For performance reasons, when over 1500 points are chosen for a line plot metric, W&B returns 1500 randomly sampled points.  Each metric is sampled separately and only steps where the metric is actually logged are considered.
+出于性能原因，当为线图度量选择超过 1500 个点时，W&B 将返回 1500 个随机采样点。 每个指标都是单独采样的，并且只考虑实际记录指标的步骤。
 
-If you want to look at all of the metrics logged for a run or implement your own sampling you can use the W&B Api.
+如果您想查看为运行记录的所有指标或实施您自己的抽样，您可以使用 W&B Api。
 
 ```python
 run = api.run("l2k2/examples-numpy-boston/i0wt6xua")
@@ -12,7 +12,7 @@ history = run.scan_history(keys=["Loss"])
 losses = [row["Loss"] for row in history]
 ```
 
-## Bucketing
+## 分桶\(**Bucketing**\)
 
-When grouping or using expressions with multiple runs with possibly not-aligned x axis values, bucketing is used to downsample the points.  The x-axis is divided into 200 evenly sized segments and then within each segments all points for a given metric are averaged. When grouping or using expressions to combine metrics, this average inside a segment is used as the value of the metric.
+当分组或使用具有可能未对齐的 x 轴值的多次运行的表达式时，分桶用于对点进行下采样\(downsample\)。 x 轴被分成 200 个大小均匀的段，然后在每个段内对给定指标的所有点进行平均。 当分组或使用表达式来组合指标时，段内的这个平均值被用作指标的值
 
