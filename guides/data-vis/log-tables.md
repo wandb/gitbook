@@ -72,7 +72,7 @@ Once data is in a Table, access it by column or by row:
 
 ## Save Tables
 
-After you generate a table of data in your script, for example a table of model predictions, save it to W&B to visualize the results live. If you'd like to save and version larger datasets, check out Artifact Tables \(TODO link\).
+After you generate a table of data in your script, for example a table of model predictions, save it to W&B to visualize the results live. If you'd like to save and version larger datasets check out [Artifact Tables](https://docs.wandb.ai/guides/data-vis/log-tables#advanced-artifact-tables).
 
 ### Log a table to a run
 
