@@ -1,30 +1,32 @@
 # Artifacts Core Concepts
 
-In this guide you will learn everything you need to know to hit the ground running with W&B Artifacts. Let's get started!
+在本指南中，您将学习开始使用W&BArtifacts所需的一切。开始吧！
 
-## The Big Picture <a id="the-big-picture"></a>
+## **重点** <a id="the-big-picture"></a>
 
-W&B Artifacts was designed to make it effortless to version your datasets and models, regardless of whether you want to store your files with us or whether you already have a bucket you want us to track. Once you've tracked your dataset or model files, W&B will automatically log each and every modification, giving you a complete and auditable history of changes to your files. This lets you focus on the fun and important parts of evolving your datasets and training your models, while W&B handles the otherwise tedious process of tracking all the details.
+W&B Artifacts旨在轻松版本控制您的数据集和模型，无论您是否想将文件存储在我们这里，还是您已经有一个想要我们追踪的存储桶。一旦您追踪了您的数据集或模型文件，W&B将自动记录每一个修改，并为您提供完整且可审查的文件修改历史记录。从而让您专注于进化数据集和训练模型的有趣和重要的部分，而W&B则处理追踪细节的所有繁琐过程。
 
-## Terminology <a id="terminology"></a>
+## **术语** <a id="terminology"></a>
 
-Let's start with a few definitions. First off, what exactly do we mean by the word "artifact"?
+我们先从一些定义开始。首先，我们所说的“工件”（artifact）到底是什么意思？
 
-Conceptually, an **artifact** is simply a directory in which you can store whatever you want, be it images, HTML, code, audio, or raw binary data. You can use it the same way you would an S3 or Google Cloud Storage bucket. Every time you change the contents of this directory, W&B will create a new **version** of your artifact instead of simply overwriting the previous contents.
+从概念上讲，一个**工件**只是一个目录，您可以在其中存储任何东西，无论是图像、HTML、代码、音频还是原始二进制数据。您可以像使用S3或谷歌云存储一样使用它。每次更改此目录的内容时，W&B将创建工件的新**版本**，而不是简单地覆盖以前的内容。
 
-Assume we have the following directory structure:
+假设我们有以下目录结构：
 
 ```text
 images|-- cat.png (2MB)|-- dog.png (1MB)
 ```
 
-Let's log it as the first version of a new artifact, `animals`:
+我们把它记录为一个新工件的第一个版本`animals`：
 
 ```text
 #!/usr/bin/env python#log_artifact.pyimport wandb​run = wandb.init()artifact = wandb.Artifact('animals', type='dataset')artifact.add_dir('images')run.log_artifact(artifact) # Creates `animals:v0`
 ```
 
-In W&B parlance, this version has the **index** `v0`. Every new version of an artifact bumps the index by one. You can imagine that once you have hundreds of versions, referring to a specific version by its index would be confusing and error prone. This is where **aliases** come in handy. An alias allows you to apply a human-readable name to given version.
+用W&B的说法，这个版本的索引就是`v0`。工件的每个新版本都会增加一个索引。您可以想象，一旦您有数百个版本，通过索引引用特定版本就会变得混乱不堪且容易出错。这就是**别名**派上用场的地方。**别名**让您可以为特定版本指定人类可读的名称。
+
+更具体一点，假设我们想用新图像更新我们的数据集，并将新版本标记为我们的最新图像。以下是我们新目录结构：
 
 To make this more concrete, let's say we want to update our dataset with a new image and mark the new version as our `latest` image. Here's our new directory structure:
 
@@ -32,42 +34,46 @@ To make this more concrete, let's say we want to update our dataset with a new i
 images|-- cat.png (2MB)|-- dog.png (1MB)|-- rat.png (3MB)
 ```
 
-Now, we can simply rerun `log_artifact.py` to produce `animals:v1`. W&B will automatically assign the newest version the alias `latest`, so instead of using the version index we could also refer to it using `animals:latest`. You can customize the aliases to apply to a version by passing in `aliases=['my-cool-alias']` to `log_artifact`.
+现在，我们可以简单地重新运行`log_artifact.py`就可以生产`animals:v1`。W&B将自动为最新版本分配别名latest，因此我们还可以用animals:latest.对其引用，而不用版本索引。通过将`aliases=['my-cool-alias']`传递给`log_artifact`，可以自定义为版本应用的别名。
 
-Referring to artifacts is easy. In our training script, here's all we need to do to pull in the current the newest version of your dataset:
+引用工件很简单。在我们的训练脚本中，我们只需要这么做就可以拉入您的数据集的当前最新版本：
 
 ```text
 import wandb​run = wandb.init()animals = run.use_artifact('animals:latest')directory = animals.download()​# Train on our image dataset...
 ```
 
-That's it! Now, whenever we want to make changes to our dataset we can just run `log_artifact.py` again and W&B will take care of the rest. The training scripts will then automatically pull in the `latest` version.
+就这样！现在，每当我们想对数据集进行更改时，我们可以再次运行`log_artifact.py`，其余的则由W&B来处理。然后，训练脚本就会自动拉入`latest`版本。
 
-## Storage Layout <a id="storage-layout"></a>
+## **存储布局** <a id="storage-layout"></a>
 
-As an artifact evolves over time and versions start to accumulate, you may start to worry about the space requirements of storing all the iterations of the dataset. Luckily, W&B stores artifact files such that only the files that changed between two versions incur a storage cost.
+随着工件随时间的发展，版本开始积累，您可能会开始担心存储数据集所有迭代的空间需求。幸运的是，W&B存储工件文件时，只有在两个版本之间出现变化的文件才会产生存储成本。
 
-Let's refer back to `animals:v0` and `animals:v1`, which track the following contents:
+让我们再参考一下`animals:v0`和`animals:v1`，它们追踪了以下内容：
 
 ```text
 images|-- cat.png (2MB) # Added in `v0`|-- dog.png (1MB) # Added in `v0`|-- rat.png (3MB) # Added in `v1`
 ```
 
-While `v1` tracks a total of 6MB worth of files, it only takes up 3MB of space because it shares the remaining 3MB in common with `v0`. If you were to delete `v1`, you would reclaim the 3MB associated with `rat.png`. On the other hand, if you were to delete `v0` then `v1` would need to inherit the storage costs of `cat.png` and `dog.png` bringing its size to 6MB.
+虽然`v1` 总共跟踪6MB的文件，但它只占用了3MB的空间，因为它与`v0`共享剩余的3MB。如果您要删除`v1`，您将回收与rat.png关联的3MB。另一方面，如果要删除`v0`，那么`v1`将需要继承cat.png和dog.png的存储成本使其大小达到6MB。
 
-## Data Privacy & Compliance <a id="data-privacy-and-compliance"></a>
+## **数据隐私与合规性** <a id="data-privacy-and-compliance"></a>
 
-When logging artifacts, the files are uploaded to Google Cloud bucket managed by W&B. The contents of the bucket are encrypted both at rest and in transit. Moreover, the artifact files are only visible to users who have access to the corresponding project.![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MUtth0QHsFU8uW3xGHU%2F-MUtuFRyuOIF0Kzofe5f%2Fimage.png?alt=media&token=4a4d710c-4ee6-4c92-8b08-1b3c79074cf8)
+在记录工件时，文件将被上传到由W&B管理的Google云存储桶。静止和传输中的存储桶内容都经过加密。而且，工件文件只对有权访问相应项目的用户可见。
 
-When you delete a version of an artifact, all the files that can be safely deleted \(meaning the files are not used in previous or subsequent versions\) are _immediately_ removed from our bucket. Similarly, when you delete an entire artifact _all_ of its contents are removed from our bucket.
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MUtth0QHsFU8uW3xGHU%2F-MUtuFRyuOIF0Kzofe5f%2Fimage.png?alt=media&token=4a4d710c-4ee6-4c92-8b08-1b3c79074cf8)
 
-For sensitive datasets that cannot reside in a multi-tenant environment, you can use either a private W&B server connected to your cloud bucket or **reference artifacts**. Reference artifacts maintain links to files on your buckets or servers, meaning that W&B only keeps track of the metadata associated with the files and not the files themselves.![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MUtth0QHsFU8uW3xGHU%2F-MUtuIUyqweoWl7ACTWA%2Fimage.png?alt=media&token=7a26ccc4-f86c-456e-9603-c77da642fff1)
+当您删除工件的一个版本时，所有可以安全删除的文件（意味着这些文件不在以前或以后的版本中使用）都会立即从我们的存储桶中删除。同样，当您删除整个工件时，其所有内容都将从我们的存储中删除。
 
-Building reference artifacts works the same as a regular artifact:
+对于不能驻留在多租户环境中的敏感数据集，可以使用连接到您的云桶的私有W&B服务器或[**引用工件**](https://docs.wandb.ai/artifacts/references)。引用工件维护指向存储桶或服务器上的文件的链接，这意味着W&B仅追踪与文件相关联的元数据，而不是文件本身
+
+![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MUtth0QHsFU8uW3xGHU%2F-MUtuIUyqweoWl7ACTWA%2Fimage.png?alt=media&token=7a26ccc4-f86c-456e-9603-c77da642fff1)
+
+构建**引用工件**的原理与常规工件相同：
 
 ```text
 import wandb​run = wandb.init()artifact = wandb.Artifact('animals', type='dataset')artifact.add_reference('s3://my-bucket/animals')
 ```
 
-You maintain control over the bucket and its files, while W&B just keeps track of all the metadata on your behalf.[  
+您保有对存储桶及其文件的控制权，而W&B仅代表您追踪所有元数据。[  
 ](https://docs.wandb.ai/artifacts)
 
