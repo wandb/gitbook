@@ -25,4 +25,3 @@ Weights & Biases helps you build better models faster with a central dashboard f
 {% embed url="https://www.youtube.com/watch?v=EIgoKitLUqM" %}
 
 ![](.gitbook/assets/workflow-june-2020-v1.png)
-
