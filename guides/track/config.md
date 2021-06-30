@@ -2,7 +2,7 @@
 description: Use a dictionary-like object to save your experiment configuration
 ---
 
-# Configure Runs with wandb.config
+# Configure Experiments with wandb.config
 
 ## Overview
 

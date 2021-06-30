@@ -2,7 +2,7 @@
 description: Call wandb.init() at the top of your script to start a new run
 ---
 
-# Launch Runs with wandb.init
+# Launch Experiments with wandb.init
 
 Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W&B and launches a background process to sync data. 
 
