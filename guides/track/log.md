@@ -2,7 +2,7 @@
 description: 'Keep track of metrics, video, custom plots, and more'
 ---
 
-# Log Data & Media
+# Log Data & Media with wandb.log
 
 Call `wandb.log(dict)` to log a dictionary of metrics or custom objects to a step. Each time you log, we increment the step by default, letting you view metrics over time.
 
