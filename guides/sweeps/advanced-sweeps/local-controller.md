@@ -14,26 +14,28 @@ The local controller feature allows the user to run search and stopping algorith
 The local controller is currently limited to running a single agent.
 {% endhint %}
 
-## Local controller configuration
+## Running the local controller
 
-To enable the local controller, add the following to the sweep configuration file:
+The simplest method is to indicate you want to use the local controller when starting your sweep:
 
-```text
+```python
+wandb sweep --controller sweep-config.yaml
+```
+
+Alternatively, you can get more control by initializing a sweep separately from starting the controller.  You'll need to add the following to your sweep's configuration file:
+
+{% code title="sweep-config.yaml" %}
+```yaml
 controller:
   type: local
 ```
+{% endcode %}
 
-## Running the local controller
+Then, after initializing with `wandb sweep`, you can start a controller using `wandb controller`:
 
-The following command will launch a sweep controller:
-
-```text
-wandb controller SWEEP_ID
-```
-
-Alternatively you can launch a controller when you initialize the sweep:
-
-```text
-wandb sweep --controller sweep.yaml
+```python
+wandb sweep sweep-config.yaml
+# wandb sweep command will print a sweep_id
+wandb controller {user}/{entity}/{sweep_id}
 ```
 
