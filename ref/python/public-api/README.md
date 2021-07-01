@@ -1,6 +1,11 @@
-# Import & Export API
+# public-api
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.32/wandb/__init__.py)
+<!-- Insert buttons and diff -->
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.33/wandb/__init__.py)
+
+
 
 Use the Public API to export or update data that you have saved to W&B.
 
@@ -15,21 +20,21 @@ See the [Generated Reference Docs](https://docs.wandb.ai/ref) for details on ava
 
 ## Classes
 
-[`class Api`](api.md): Used for querying the wandb server.
+[`class Api`](./api.md): Used for querying the wandb server.
 
-[`class Artifact`](artifact.md): A wandb Artifact.
+[`class Artifact`](./artifact.md): A wandb Artifact.
 
-[`class File`](file.md): File is a class associated with a file saved by wandb.
+[`class File`](./file.md): File is a class associated with a file saved by wandb.
 
-[`class Files`](files.md): An iterable collection of `File` objects.
+[`class Files`](./files.md): An iterable collection of `File` objects.
 
-[`class Project`](project.md): A project is a namespace for runs.
+[`class Project`](./project.md): A project is a namespace for runs.
 
-[`class Projects`](projects.md): An iterable collection of `Project` objects.
+[`class Projects`](./projects.md): An iterable collection of `Project` objects.
 
-[`class Run`](run.md): A single run associated with an entity and project.
+[`class Run`](./run.md): A single run associated with an entity and project.
 
-[`class Runs`](runs.md): An iterable collection of runs associated with a project and optional filter.
+[`class Runs`](./runs.md): An iterable collection of runs associated with a project and optional filter.
 
-[`class Sweep`](sweep.md): A set of runs associated with a sweep.
+[`class Sweep`](./sweep.md): A set of runs associated with a sweep.
 
