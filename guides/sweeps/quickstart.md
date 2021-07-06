@@ -197,7 +197,7 @@ Open your project to see your live results in the sweep dashboard. With just a f
 
 [Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](../../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29.png)
+![](../../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%285%29.png)
 
 ## 6. Stop the agent
 

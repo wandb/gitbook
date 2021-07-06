@@ -141,9 +141,9 @@ You can run _wandb/local_ on any Compute Engine instance that also has Docker in
  docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-## Azure Kubernetes Service
+## Generic Kubernetes Service
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local.
+The following k8s yaml can be customized but should serve as a basic foundation for configuring local in kubernetes. It's important to note you must specify a BUCKET to avoid needing a persistent volume as above.
 
 ```yaml
 apiVersion: apps/v1
@@ -154,7 +154,7 @@ metadata:
     app: wandb
 spec:
   strategy:
-    type: Recreate
+    type: RollingUpdate
   replicas: 1
   selector:
     matchLabels:
@@ -164,13 +164,15 @@ spec:
       labels:
         app: wandb
     spec:
-      volumes:
-        - name: wandb-persistent-storage
-          persistentVolumeClaim:
-            claimName: wandb-pv-claim
-          name: wandb
       containers:
         - name: wandb
+          env:
+            - name: BUCKET
+              value: s3://YOUR_BUCKET_NAME
+            - name: BUCKET_QUEUE
+              value: sqs://YOUR_QUEUE_NAME
+            - name: AWS_REGION
+              value: us-west2
           imagePullPolicy: IfNotPresent
           image: wandb/local:latest
           ports:
@@ -219,17 +221,6 @@ spec:
   backend:
     serviceName: wandb-service
     servicePort: 80
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: wandb-pv-claim
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Gi
 ```
 
 ## OnPrem Kubernetes
