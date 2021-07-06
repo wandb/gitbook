@@ -167,6 +167,8 @@ spec:
       containers:
         - name: wandb
           env:
+            - name: LICENSE
+              value: XXXXXXXXXXXXXXX
             - name: BUCKET
               value: s3://YOUR_BUCKET_NAME
             - name: BUCKET_QUEUE
