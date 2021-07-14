@@ -86,7 +86,7 @@ Here's how you can delete all versions of an artifact that don't have any aliase
 ```python
 # When using artifact api methods that don't have an entity or project
 #  argument, you must provide that information when instantiating the wandb.Api
-api = wandb.Api(override={"project": "capsule-gpt", "entity": "geoff"})
+api = wandb.Api(overrides={"project": "capsule-gpt", "entity": "geoff"})
 
 artifact_type, artifact_name = ... # fill in the desired type + name
 for version in api.artifact_versions(artifact_type, artifact_name):
