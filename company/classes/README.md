@@ -44,7 +44,7 @@ Créez un projet dans votre équipe universitaire, et faites entrer vos étudian
 
  [Voir les tutoriels →](https://www.wandb.com/tutorials)
 
-![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%281%29%20%285%29.png)
+![](../../.gitbook/assets/image%20%2876%29%20%283%29%20%284%29%20%286%29%20%283%29%20%281%29%20%287%29.png)
 
 ###  Cours Gratuits
 
