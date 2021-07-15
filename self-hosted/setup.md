@@ -143,7 +143,7 @@ You can run _wandb/local_ on any Compute Engine instance that also has Docker in
 
 ## Generic Kubernetes Deployment
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local in kubernetes.  It's important to note you must specify a BUCKET to avoid needing a persistant volume as above.
+The following k8s yaml can be customized but should serve as a basic foundation for configuring local in kubernetes. It's important to note you must specify a BUCKET to avoid needing a persistant volume as above.
 
 ```text
 apiVersion: apps/v1
