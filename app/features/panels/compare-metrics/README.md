@@ -69,7 +69,7 @@ Haz click en “Grupo”, encima de la tabla de las ejecuciones, y selecciona �
 
 Aquí he agrupado las líneas para ver el valor promedio de todas de las ejecuciones.
 
-![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%284%29%20%285%29%20%285%29%20%284%29%20%284%29.png)
+![](../../../../.gitbook/assets/demo-average-precision-lines%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%284%29%20%285%29%20%285%29%20%284%29%20%285%29.png)
 
 ## Compara dos métricas en un gráfico
 
