@@ -14,11 +14,13 @@ Try our integration out in a [colab notebook](https://colab.research.google.com/
 
 ## Using `wandb.watch`
 
-W&B provides first class support for PyTorch. To automatically log gradients and store the network topology, you can call `watch` and pass in your PyTorch model.
+W&B provides first class support for PyTorch. To automatically log gradients, you can call `watch` and pass in your PyTorch model.
 
 ```python
 import wandb
 wandb.init(config=args)
+
+model = ... # set up your model
 
 # Magic
 wandb.watch(model, log_freq=100)
@@ -84,4 +86,35 @@ wandb.log({"examples" : [wandb.Image(i) for i in images]})
 ## Multiple Models
 
 If you need to track multiple models in the same script, you can call `wandb.watch` on each model separately.
+
+## Data Visualization with W&B Tables
+
+Use [W&B Tables](https://docs.wandb.ai/guides/data-vis) to log, query, and analyze your data. You can think of a W&B Table as a `DataFrame` that you can interact with inside W&B. Tables support rich media types, primitive and numeric types, as well as nested lists and dictionaries. 
+
+This pseudo-code shows you how to log images, along with their ground truth and predicted class, to W&B Tables:
+
+```python
+# Create a new W&B Run
+wandb.init(project="mnist")
+
+# Create a W&B Table
+my_table = wandb.Table(columns=["id", "image", "labels", "prediction"])
+
+# Get your image data and make predictions
+image_tensors, labels = get_mnist_data()
+predictions = model(image_tensors)
+
+# Add your image data and predictions to the W&B Table
+for idx, im in enumerate(image_tensors): 
+  my_table.add_data(idx, wandb.Image(im), labels[idx], predictions[id])
+
+# Log your Table to W&B
+wandb.log({"mnist_predictions": my_table})
+```
+
+This is will produce a Table like this:
+
+![](../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
+
+For more examples of data visualization with W&B Tables, please see [the documentation](https://docs.wandb.ai/guides/data-vis).
 
