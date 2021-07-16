@@ -38,23 +38,23 @@ os.environ["WANDB_RUN_ID"] = wandb.util.generate_id()
 wandb.init()
 ```
 
-If you set **WANDB\_RESUME** equal to "allow", you can always set **WANDB\_RUN\_ID** to a unique string and restarts of the process will be handled automatically. If you set **WANDB\_RESUME** equal to "must", wandb will throw an error if the run to be resumed does not exist yet instead of auto-creating a new run.
+If you set `WANDB_RESUME` equal to `"allow"`, you can always set `WANDB_RUN_ID` to a unique string and restarts of the process will be handled automatically. If you set `WANDB_RESUME` equal to `"must"`, wandb will throw an error if the run to be resumed does not exist yet instead of auto-creating a new run.
 
 | Method | Syntax | Never Resume \(default\) | Always Resume | Resume specifying run id | Resume from same directory |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| environment | WANDB\_RESUME= | "never" | "must" | "allow" \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
-| init | wandb.init\(resume=\) |  | \(not available\) | resume=RUN\_ID | resume=True |
+| Envrionment Variable | `WANDB_RESUME=value` | `"never"` | `"must"` | `"allow"` \(Requires WANDB\_RUN\_ID=RUN\_ID\) | \(not available\) |
+| In Python Script | `wandb.init(resume=value)` | `"never"` | \(not available\) | `resume=RUN_ID` | `resume=True` |
 
 {% hint style="warning" %}
-If multiple processes use the same run\_id concurrently unexpected results will be recorded and rate limiting will occur.
+If multiple processes use the same `run_id` concurrently unexpected results will be recorded and rate limiting will occur.
 {% endhint %}
 
 {% hint style="info" %}
-If you resume a run and you have **notes** specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
+If you resume a run and you have `notes` ****specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
 {% endhint %}
 
 {% hint style="info" %}
-Note that resuming a run which was executed as part of a [Sweep](../../sweeps/) is not supported.
+Note that resuming a run which was executed as part of a Sweep is not supported.
 {% endhint %}
 
 ### Preemptible Sweeps
