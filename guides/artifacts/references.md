@@ -77,7 +77,7 @@ When adding references to S3 or GCS buckets, W&B will attempt to use the corresp
       <td style="text-align:left">2 - Shared credentials file</td>
       <td style="text-align:left"><code>~/.aws/credentials</code>
       </td>
-      <td style="text-align:left"><code>application_defualt_credentials.json</code> in <code>~/.config/gcloud/</code>
+      <td style="text-align:left"><code>application_default_credentials.json</code> in <code>~/.config/gcloud/</code>
       </td>
     </tr>
     <tr>
