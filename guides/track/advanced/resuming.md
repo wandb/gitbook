@@ -7,7 +7,8 @@ import keras
 import numpy as np
 import wandb
 from wandb.keras import WandbCallback
-wandb.init(project="preemptable", resume=True)
+
+wandb.init(project="preemptible", resume=True)
 
 if wandb.run.resumed:
     # restore the best model
