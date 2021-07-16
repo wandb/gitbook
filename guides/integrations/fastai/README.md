@@ -2,12 +2,27 @@
 
 If you're using **fastai** to train your models, W&B has an easy integration using the `WandbCallback`. Explore the details in[ interactive docs with examples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
 
+## Start Logging with W&B
+
 First install Weights & Biases and log in:
 
-```text
+{% tabs %}
+{% tab title="Notebook" %}
+```python
+!pip install wandb
+
+import wandb
+wandb.login()
+```
+{% endtab %}
+
+{% tab title="Command Line" %}
+```python
 pip install wandb
 wandb login
 ```
+{% endtab %}
+{% endtabs %}
 
 Then add the callback to the `learner` or `fit` method:
 
