@@ -1,6 +1,10 @@
+---
+description: Log your SB3 experiments with Weights & Biases
+---
+
 # Stable Baselines 3
 
-W&B supports integration with [Stable Baselines 3](https://github.com/DLR-RM/stable-baselines3) via a callback, which help to
+[Stable Baselines 3](https://github.com/DLR-RM/stable-baselines3) \(SB3\) is a set of reliable implementations of reinforcement learning algorithms in PyTorch. W&B's SB3 integration will: 
 
 * Record metrics such as losses and episodic returns
 * Upload videos of agents playing the games
@@ -8,9 +12,30 @@ W&B supports integration with [Stable Baselines 3](https://github.com/DLR-RM/sta
 * Log model's hyperparameters
 * Log model gradient histograms
 
-See example run [https://wandb.ai/wandb/sb3/runs/1jyr6z10](https://wandb.ai/wandb/sb3/runs/1jyr6z10)
+[Here is an example](https://wandb.ai/wandb/sb3/runs/1jyr6z10) of a  SB3 training run with W&B
 
-### Basic Example
+## Log your SB3 Experiments in 2 lines of code
+
+```python
+from wandb.integration.sb3 import WandbCallback
+
+model.learn(..., callback=WandbCallback())
+```
+
+![](../../../.gitbook/assets/demo.gif)
+
+## WandbCallback Arguments
+
+| Argument | Usage |
+| :--- | :--- |
+| `verbose` | The verbosity of sb3 output |
+| `model_save_path` | Path to the folder where the model will be saved, The default value is \`None\` so the model is not logged |
+| `model_save_freq` | Frequency to save the model |
+| `gradient_save_freq` | Frequency to log gradient. The default value is 0 so the gradients are not logged |
+
+## Basic Example
+
+The W&B SB3 integration uses the logs output from TensorBoard to log your metrics 
 
 ```python
 import time
@@ -23,6 +48,8 @@ import wandb
 
 config = {"policy_type": "MlpPolicy", "total_timesteps": 25000}
 experiment_name = f"PPO_{int(time.time())}"
+
+# Initialise a W&B run
 wandb.init(
     name=experiment_name,
     project="sb3",
@@ -36,11 +63,16 @@ def make_env():
     env = gym.make("CartPole-v1")
     env = Monitor(env)  # record stats such as returns
     return env
+
 env = DummyVecEnv([make_env])
+
 env = VecVideoRecorder(env, "videos",
     record_video_trigger=lambda x: x % 2000 == 0, video_length=200)
+
 model = PPO(config["policy_type"], env, verbose=1,
     tensorboard_log=f"runs/{experiment_name}")
+
+# Add the WandbCallback 
 model.learn(
     total_timesteps=config["total_timesteps"],
     callback=WandbCallback(
@@ -50,8 +82,4 @@ model.learn(
     ),
 )
 ```
-
-After running the code above, you should see a dashboard similar to the following:
-
-![](../../../.gitbook/assets/demo.gif)
 
