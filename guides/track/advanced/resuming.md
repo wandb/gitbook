@@ -16,7 +16,7 @@ if wandb.run.resumed:
 else:
     a = keras.layers.Input(shape=(32,))
     b = keras.layers.Dense(10)(a)
-    model = keras.models.Model(input=a,output=b)
+    model = keras.models.Model(input=a, output=b)
 
 model.compile("adam", loss="mse")
 model.fit(np.random.rand(100, 32), np.random.rand(100, 10),
