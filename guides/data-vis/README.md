@@ -14,9 +14,7 @@ A W&B Table \(`wandb.Table`\) is a two dimensional grid of data where each colum
 
 Tables are great for storing, understanding, and sharing any form of data critical to your ML workflow—from datasets to model predictions and everything in between.
 
-{% page-ref page="log-tables.md" %}
-
-{% page-ref page="tables.md" %}
+{% page-ref page="tables-quickstart.md" %}
 
 ## Why use Tables?
 
@@ -78,9 +76,5 @@ An [interactive notebook](https://wandb.me/dsviz-cars-demo) and [live example](h
 
 ### Analyzing improvement over training time
 
-A detailed report on [visualizing predictions over time](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk) and the accompanying [interactive notebook → ](https://wandb.me/dsviz-mnist-colab)
-
-
-
-
+A detailed report on [visualizing predictions over time](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk) and the accompanying [interactive notebook →](https://wandb.me/dsviz-mnist-colab)
 
