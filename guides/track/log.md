@@ -745,6 +745,24 @@ wandb.log({"example": wandb.Video("myvideo.mp4")})
 
 Now you can view videos in the media browser. Go to your project workspace, run workspace, or report and click "Add visualization" to add a rich media panel.
 
+### How do I log a list of values?
+
+Logging lists directly is not supported. Instead, list-like collections of numerical data are converted to [histograms](../../ref/python/data-types/histogram.md). To log all of the entries in a list, give a name to each entry in the list and use those names as keys in a dictionary, as below.
+
+{% tabs %}
+{% tab title="Using a dictionary" %}
+```python
+wandb.log({f"losses/loss-{ii}": loss for ii, loss in enumerate(losses)})
+```
+{% endtab %}
+
+{% tab title="As a histogram" %}
+```python
+wandb.log({"losses": np.array(losses)})  # internally converts losses to a histogram
+```
+{% endtab %}
+{% endtabs %}
+
 ### How do I use custom x-axes?
 
 By default, we increment the global step every time you call `wandb.log`. If you'd like, you can log your own monotonically increasing step and then select it as a custom x-axis on your graphs.
