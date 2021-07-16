@@ -745,7 +745,7 @@ For example, if you have training and validation steps you'd like to align, pass
 
 ### Navigating and zooming in point clouds
 
-You can hold control and use the mouse to move around inside the space
+You can hold control and use the mouse to move around inside the space.
 
 ### Nothing shows up in the graphs
 
