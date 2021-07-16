@@ -20,7 +20,7 @@ See the [Generated Reference Docs](https://docs.wandb.ai/ref/python/public-api) 
 Authenticate your machine with your [API key](https://wandb.ai/authorize) in one of two ways:
 
 1. Run `wandb login`  on the command line and paste in your API key.
-2. Set the **WANDB\_API\_KEY** environment variable to your API key.
+2. Set the `WANDB_API_KEY` environment variable to your API key.
 
 ### Export Run Data
 
@@ -36,15 +36,15 @@ The most commonly used attributes of a run object are:
 
 | Attribute | Meaning |
 | :--- | :--- |
-| run.config | A dictionary for model inputs, such as hyperparameters |
-| run.history\(\) | A list of dictionaries meant to store values that change while the model is training such as loss.  The command wandb.log\(\) appends to this object. |
-| run.summary | A dictionary of outputs. This can be scalars like accuracy and loss, or large files. By default, wandb.log\(\) sets the summary to the final value of a logged timeseries. This can also be set directly. |
+| `run.config` | A dictionary of the run's configuration information, such as the hyperparameters for a training run or the preprocessing methods for a run that creates a dataset Artifact. Think of these as the run's "inputs". |
+| `run.history()` | A list of dictionaries meant to store values that change while the model is training such as loss.  The command `wandb.log()` appends to this object. |
+| `run.summary` | A dictionary of information that summarizes the run's results. This can be scalars like accuracy and loss, or large files. By default, `wandb.log()` sets the summary to the final value of a logged timeseries. The contents of the summary can also be set directly. Think of the summary as the run's "outputs". |
 
-You can also modify or update the data of past runs. By default a single instance of an api object will cache all network requests. If your use case requires real time information in a running script, call api.flush\(\) to get updated values.
+You can also modify or update the data of past runs. By default a single instance of an api object will cache all network requests. If your use case requires real time information in a running script, call `api.flush()` to get updated values.
 
 ### Sampling
 
-The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the run.scan\_history\(\) method. For more details see the [API Reference](https://docs.wandb.ai/ref/python/public-api).
+The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the `samples` __argument\). If you want to export all of the data on a large run, you can use the `run.scan_history()` method. For more details see the [API Reference](https://docs.wandb.ai/ref/python/public-api).
 
 ### Querying Multiple Runs
 
