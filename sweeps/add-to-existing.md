@@ -30,7 +30,7 @@ The auto-generated config guesses values to sweep over based on the runs you've 
 
 ## 3. Launch agents
 
-Next, launch an agent locally. You can launch dozens of agents on different machines in parallel if you want to distribute the work and finish the sweep more quickly. The agent will print out the set of parameters it’s trying next.
+Next, launch an agent locally. You can launch up to 20 agents on different machines in parallel if you want to distribute the work and finish the sweep more quickly. The agent will print out the set of parameters it’s trying next.
 
 ![](../.gitbook/assets/sweep3.png)
 
