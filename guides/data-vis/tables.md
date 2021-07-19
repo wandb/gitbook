@@ -120,7 +120,7 @@ To analyze model performance over training time, log a Table in an artifact cont
 
 ![For each label, the model makes fewer mistakes after 5 training epochs \(R\) than after 1 \(L\)](../../.gitbook/assets/screen-shot-2021-05-03-at-5.31.10-pm.png)
 
-For a more detailed walkthrough of visualizing predictions across training time, [see this report](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk) and this interactive [notebook example →  ](https://wandb.me/dsviz-mnist-colab)
+For a more detailed walkthrough of visualizing predictions across training time, [see this report](https://wandb.ai/stacey/mnist-viz/reports/Visualize-Predictions-over-Time--Vmlldzo1OTQxMTk) and this interactive [notebook example →  ](http://wandb.me/tables-quickstart)
 
 ### Compare across model variants
 

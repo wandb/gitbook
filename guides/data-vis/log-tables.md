@@ -116,7 +116,7 @@ Any table logged this way will show up in your Workspace on both the Run Page an
 
 ## Advanced: Artifact Tables
 
-Use `artifact.add()` to log tables to the Artifacts section of your run instead of the workspace. This could be useful if you have a dataset that you want to log once and then reference for future runs. Refer to this colab for a [detailed example of artifact.add\(\) ](https://wandb.me/dsviz-mnist-colab)→ 
+Use `artifact.add()` to log tables to the Artifacts section of your run instead of the workspace. This could be useful if you have a dataset that you want to log once and then reference for future runs. Refer to this colab for a [detailed example of artifact.add\(\) →  ](http://wandb.me/dsviz-nature-colab)
 
 ```python
 run = wandb.init(project="my_project")
