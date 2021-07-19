@@ -26,7 +26,7 @@ Log metrics and rich media during model training or evaluation, then visualize r
 
 ### **Interactively explore your data**
 
-View, sort, filter, group, join, and query Tables to understand your data and model performance—no need to browse static files or rerun analysis scripts. For example, see this project on [style-transfered audio →](https://wandb.ai/stacey/cshanty/reports/Visualize-Audio-Data-in-W-B--Vmlldzo1NDMxMDk)
+View, sort, filter, group, join, and query Tables to understand your data and model performance—no need to browse static files or rerun analysis scripts. For example, see this project on [style-transfered audio →](https://wandb.ai/stacey/cshanty/reports/Whale2Song-W-B-Tables-for-Audio--Vmlldzo4NDI3NzM)
 
 ![Listen to original songs and their synthesized versions \(with timbre transfer\)](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZVW5FKKkNnlhtrUDki%2F-MZVtzeY7yxIKqX1EWZZ%2FScreen%20Shot%202021-04-29%20at%208.52.10%20PM.png?alt=media&token=4ef6f175-cb0d-40e6-aaa5-a8dc30236fcb)
 
@@ -52,7 +52,7 @@ Read [this report](https://wandb.ai/stacey/mendeleev/reports/Visualize-Data-for-
 
 ### Audio
 
-Interact with audio Tables in [this report](https://wandb.ai/stacey/cshanty/reports/Visualize-Audio-Data-in-W-B--Vmlldzo1NDMxMDk) on timbre transfer. In [this live example](https://wandb.ai/stacey/cshanty/artifacts/analysis/synth_summary/0af204744b98ae0469cf/files/synth_explore.joined-table.json), you can compare a recorded whale song with a synthesized rendition of the same melody on an instrument like violin or trumpet.
+Interact with audio Tables in[ this report](https://wandb.ai/stacey/cshanty/reports/Whale2Song-W-B-Tables-for-Audio--Vmlldzo4NDI3NzM) on timbre transfer. You can compare a recorded whale song with a synthesized rendition of the same melody on an instrument like violin or trumpet. You can also record your own songs and explore their synthesized versions in W&B via [this colab → ](http://wandb.me/audio-transfer)
 
 ![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZZ4TzdR0JwQNM7nIKD%2F-MZZAmcG-4OfHGOxnA38%2FScreen%20Shot%202021-04-30%20at%2012.08.52%20PM.png?alt=media&token=bfea3626-a447-4f40-823b-e2072ef1ae89)
 

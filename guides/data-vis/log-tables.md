@@ -132,7 +132,7 @@ run.log_artifact(test_predictions)
 
 ### Join artifact tables
 
-To join two Tables you've logged previously in an artifact context, fetch them from the artifact and join the result into a new Table. For example, read one Table of original songs and another Table of synthesized versions of the same songs, join on "song\_id", and upload a new Table to explore \([live example → ](https://wandb.ai/stacey/cshanty/artifacts/analysis/synth_summary/0af204744b98ae0469cf/files/synth_explore.joined-table.json)\).
+To join two Tables you've logged previously in an artifact context, fetch them from the artifact and join the result into a new Table. For example, read one Table of original songs and another Table of synthesized versions of the same songs, join on "song\_id", and upload a new Table to explore \([live example → ](https://wandb.ai/stacey/cshanty/reports/Whale2Song-W-B-Tables-for-Audio--Vmlldzo4NDI3NzM)\).
 
 ```python
 run = wandb.init(project="my_project")
