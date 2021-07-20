@@ -42,6 +42,7 @@
       * [Ray Tune](guides/integrations/other/ray-tune.md)
       * [SageMaker](guides/integrations/other/sagemaker.md)
       * [Simple Transformers](guides/integrations/other/simpletransformers.md)
+      * [Stable Baselines 3](guides/integrations/other/stable-baselines-3.md)
       * [Skorch](guides/integrations/other/skorch.md)
   * [Collaborative Reports](guides/reports.md)
   * [Data + Model Versioning](guides/artifacts/README.md)

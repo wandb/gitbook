@@ -1,6 +1,10 @@
-# wandb.data\_types.Audio
+# Audio
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.33/wandb/data_types.py#L907-L1051)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.11.0/wandb/data_types.py#L911-L1055)
+
+
 
 Wandb class for audio clips.
 
@@ -10,17 +14,23 @@ Audio(
 )
 ```
 
+
+
+
+
 | Arguments |  |
 | :--- | :--- |
-| `data_or_path` | \(string or numpy array\) A path to an audio file or a numpy array of audio data. |
-| `sample_rate` | \(int\) Sample rate, required when passing in raw numpy array of audio data. |
-| `caption` | \(string\) Caption to display with audio. |
+|  `data_or_path` |  (string or numpy array) A path to an audio file or a numpy array of audio data. |
+|  `sample_rate` |  (int) Sample rate, required when passing in raw numpy array of audio data. |
+|  `caption` |  (string) Caption to display with audio. |
+
+
 
 ## Methods
 
-### `durations` <a id="durations"></a>
+<h3 id="durations"><code>durations</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.10.33/wandb/data_types.py#L1009-L1011)
+[View source](https://www.github.com/wandb/client/tree/v0.11.0/wandb/data_types.py#L1013-L1015)
 
 ```python
 @classmethod
@@ -29,9 +39,12 @@ durations(
 )
 ```
 
-### `path_is_reference` <a id="path_is_reference"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.10.33/wandb/data_types.py#L952-L954)
+
+
+<h3 id="path_is_reference"><code>path_is_reference</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.11.0/wandb/data_types.py#L956-L958)
 
 ```python
 @classmethod
@@ -40,17 +53,23 @@ path_is_reference(
 )
 ```
 
-### `resolve_ref` <a id="resolve_ref"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.10.33/wandb/data_types.py#L1025-L1037)
+
+
+<h3 id="resolve_ref"><code>resolve_ref</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.11.0/wandb/data_types.py#L1029-L1041)
 
 ```python
 resolve_ref()
 ```
 
-### `sample_rates` <a id="sample_rates"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.10.33/wandb/data_types.py#L1013-L1015)
+
+
+<h3 id="sample_rates"><code>sample_rates</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.11.0/wandb/data_types.py#L1017-L1019)
 
 ```python
 @classmethod
@@ -58,4 +77,9 @@ sample_rates(
     audio_list
 )
 ```
+
+
+
+
+
 

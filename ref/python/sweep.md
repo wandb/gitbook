@@ -1,6 +1,10 @@
-# wandb.sweep
+# sweep
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.10.33/wandb/wandb_controller.py#L744-L811)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.11.0/wandb/wandb_controller.py#L744-L811)
+
+
 
 Initialize a hyperparameter sweep.
 
@@ -10,22 +14,31 @@ sweep(
 )
 ```
 
-To generate hyperparameter suggestions from the sweep and use them to train a model, call `wandb.agent` with the sweep\_id returned by this command. For command line functionality, see the command line tool `wandb sweep` \([https://docs.wandb.ai/ref/cli/wandb-sweep](https://docs.wandb.ai/ref/cli/wandb-sweep)\).
+
+
+
+To generate hyperparameter suggestions from the sweep and use them
+to train a model, call `wandb.agent` with the sweep_id returned by
+this command. For command line functionality, see the command line
+tool `wandb sweep` (https://docs.wandb.ai/ref/cli/wandb-sweep).
 
 | Args |  |
 | :--- | :--- |
-| `sweep` | dict, SweepConfig, or callable. The sweep configuration \(or configuration generator\). If a dict or SweepConfig, should conform to the W&B sweep config specification \([https://docs.wandb.ai/guides/sweeps/configuration](https://docs.wandb.ai/guides/sweeps/configuration)\). If a callable, should take no arguments and return a dict that conforms to the W&B sweep config spec. |
-| `entity` | str \(optional\). An entity is a username or team name where you're sending runs. This entity must exist before you can send runs there, so make sure to create your account or team in the UI before starting to log runs. If you don't specify an entity, the run will be sent to your default entity, which is usually your username. Change your default entity in [Settings](https://github.com/wandb/gitbook/tree/f15c358a7d45d34f9f6dc6a9e0d09b33430a3c1d/ref/python/wandb.ai/settings/README.md) under "default location to create new projects". |
-| `project` | str \(optional\). The name of the project where you're sending the new run. If the project is not specified, the run is put in an "Uncategorized" project. |
+|  `sweep` |  dict, SweepConfig, or callable. The sweep configuration (or configuration generator). If a dict or SweepConfig, should conform to the W&B sweep config specification (https://docs.wandb.ai/guides/sweeps/configuration). If a callable, should take no arguments and return a dict that conforms to the W&B sweep config spec. |
+|  `entity` |  str (optional). An entity is a username or team name where you're sending runs. This entity must exist before you can send runs there, so make sure to create your account or team in the UI before starting to log runs. If you don't specify an entity, the run will be sent to your default entity, which is usually your username. Change your default entity in [Settings](wandb.ai/settings) under "default location to create new projects". |
+|  `project` |  str (optional). The name of the project where you're sending the new run. If the project is not specified, the run is put in an "Uncategorized" project. |
+
+
 
 | Returns |  |
 | :--- | :--- |
-| `sweep_id` | str. A unique identifier for the sweep. |
+|  `sweep_id` |  str. A unique identifier for the sweep. |
 
-## Examples:
+
+
+#### Examples:
 
 Basic usage
-
 ```python
 # this line initializes the sweep
 sweep_id = wandb.sweep({'name': 'my-awesome-sweep',
@@ -37,4 +50,3 @@ sweep_id = wandb.sweep({'name': 'my-awesome-sweep',
 # my_train_func via wandb.config
 wandb.agent(sweep_id, function=my_train_func)
 ```
-
