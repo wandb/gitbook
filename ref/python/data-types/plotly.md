@@ -1,10 +1,6 @@
-# Plotly
-
-
+# wandb.data\_types.Plotly
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.11.0/wandb/sdk/data_types.py#L2227-L2276)
-
-
 
 Wandb class for plotly plots.
 
@@ -14,19 +10,13 @@ Plotly(
 )
 ```
 
-
-
-
-
 | Arguments |  |
 | :--- | :--- |
-|  `val` |  matplotlib or plotly figure |
-
-
+| `val` | matplotlib or plotly figure |
 
 ## Methods
 
-<h3 id="make_plot_media"><code>make_plot_media</code></h3>
+### `make_plot_media` <a id="make_plot_media"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.0/wandb/sdk/data_types.py#L2237-L2245)
 
@@ -36,9 +26,4 @@ make_plot_media(
     val: Union['plotly.Figure', 'matplotlib.artist.Artist']
 ) -> Union[Image, 'Plotly']
 ```
-
-
-
-
-
 
