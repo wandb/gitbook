@@ -30,7 +30,7 @@ We've built up a set of working examples of deep learning projects in different 
 
 [View the GitHub repo →](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%285%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%283%29.png)
 
 We also created some hosted notebooks with models that your students can start training for free with the click of a button.
 
