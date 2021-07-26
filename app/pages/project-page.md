@@ -51,7 +51,7 @@ El proyecto Entorno de Trabajo te ofrece un entorno de pruebas personal para com
 
 [Ver un ejemplo en tiempo real →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%283%29%20%283%29%20%282%29%20%281%29%20%282%29.png)
+![](../../.gitbook/assets/image%20%2838%29%20%282%29%20%283%29%20%283%29%20%282%29%20%281%29%20%283%29.png)
 
 ###  Busca ejecuciones
 

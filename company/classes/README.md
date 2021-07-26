@@ -30,7 +30,7 @@ Hemos construido un conjunto de ejemplos funcionando de proyectos de aprendizaje
 
  [Ver el repositorio en GitHub →](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%283%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%284%29.png)
 
  También hemos creado algunas notebooks con modelos, que tus estudiantes pueden comenzar a entrenar de forma gratuita, con el click de un botón.
 
