@@ -30,7 +30,7 @@ W＆Bは、学習とコラボレーションのための優れたツールです
 
    [GitHubリポジトリを表示する→ ](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%283%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%284%29.png)
 
 We also created some hosted notebooks with models that your students can start training for free with the click of a button.
 
