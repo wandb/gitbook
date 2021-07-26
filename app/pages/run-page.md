@@ -58,7 +58,7 @@ description: 각 모델의 훈련 실행은 더 큰 프로젝트 내에서 구�
 
  [라이브 예시 보기 →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)​
 
-![](../../.gitbook/assets/image%20%2869%29%20%284%29%20%286%29%20%288%29.png)
+![](../../.gitbook/assets/image%20%2869%29%20%284%29%20%286%29%20%289%29.png)
 
 ##  **파일 탭\(Files Tab\)**
 
