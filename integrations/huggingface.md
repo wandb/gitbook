@@ -63,7 +63,7 @@ Nous serons ravis d’entendre vos retours et de pouvoir améliorer cette intég
 
 Une fois que vous avez enregistré les résultats de votre entraînement, vous pouvez les explorez de façon dynamique dans le tableau de bord de W&B. Celui-ci vous permet d’avoir une vue d’ensemble sur desdouzaines d’expériences, de zoomer sur des résultats intéressants, et de visualiser des données hautement dimensionnelles.
 
-![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29%20%281%29%20%281%29%20%284%29.gif)
+![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29%20%281%29%20%281%29%20%285%29.gif)
 
 Voici un exemple de comparaison pour [BERT vs DistilBERT](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-Comparing-BERT-and-DistilBERT-using-Sweeps--VmlldzoxMDUxNzU) – il est facile de voir comment des architectures différentes affectent la précision d’évaluation à travers l’entraînement, grâce aux visuels des graphiques linéaires automatiquement générés.
 

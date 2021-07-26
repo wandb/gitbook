@@ -30,7 +30,7 @@ Créez un projet dans votre équipe universitaire, et faites entrer vos étudian
 
  [Voir le répertoire GitHub →](https://github.com/wandb/examples)
 
-![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%283%29.png)
+![](../../.gitbook/assets/image%20%2848%29%20%282%29%20%283%29%20%284%29%20%282%29%20%284%29.png)
 
  Nous avons également créé certains notebooks hébergés avec des modèles pour que vos étudiants puissent commencer à s’entraîner gratuitement en un clic.
 

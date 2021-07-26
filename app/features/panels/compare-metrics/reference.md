@@ -62,9 +62,9 @@ Sélectionnez un style pour votre graphique linéaire.
 
 **Graphique en aires :**
 
-![](../../../../.gitbook/assets/image%20%2835%29%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%281%29%20%281%29.png)
+![](../../../../.gitbook/assets/image%20%2835%29%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%281%29%20%282%29.png)
 
 **Graphique en aires par pourcentage :**
 
-![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%286%29%20%283%29.png)
+![](../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%286%29%20%284%29.png)
 
