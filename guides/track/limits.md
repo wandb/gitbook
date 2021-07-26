@@ -27,6 +27,8 @@ We do not assert any limits beyond rate limiting. Our Python client will automat
 
 The W&B API is rate limited by IP and API key. New accounts are restricted to 200 requests per minute. This rate allows you to run approximately 15 processes in parallel and have them report without being throttled. If the **wandb** client detects it's being limited, it will backoff and retry sending the data in the future. If you need to run more than 15 processes in parallel send an email to [contact@wandb.com](mailto:contact@wandb.com).
 
+For sweeps, we support up to 20 parallel agents.
+
 ### Size Limits
 
 #### Files
