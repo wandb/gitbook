@@ -1,12 +1,38 @@
 # Artifacts FAQs
 
-## What happens if I log a new version of same artifact with only minor changes? Does the storage used double?
+## Questions about Artifacts 
+
+### What happens if I log a new version of same artifact with only minor changes? Does the storage used double?
 
 No need to worry! When logging a new version of an artifact, W&B only uploads the files that changed between the last version and the new version. For example, if your first version uploads 100 files and the second version adds 10 more files, the second artifact will only consume the space of the 10 new files.
 
 ![v1 of the artifact &quot;dataset&quot; only has 2/5 images that differ, so it only uses 40% of the space.](../../.gitbook/assets/artifacts-dedupe.png)
 
-## How do I programmatically update artifacts?
+### Where are artifact files stored?
+
+By default, W&B stores artifact files in a private Google Cloud Storage bucket located in the United States. All files are encrypted at rest and in transit.
+
+For sensitive files, we recommend a [private W&B installation](../self-hosted/) or the use of [reference artifacts](references.md).
+
+### When are artifact files deleted?
+
+W&B stores artifact files in a way that minimizes duplication across successive artifact versions, as described above.
+
+When deleting artifact versions, W&B checks which files are completely safe to delete. In other words, it guarantees that the file is not in use by a previous or subsequent artifact version. If it is safe to remove, the file is deleted immediately and no trace of it remains on our servers.
+
+### Who has access to my artifacts?
+
+Artifacts inherit the access of their parent project:
+
+* If the project is private, then only members of the project's team have access to its artifacts.
+* For public projects, all users have read access to artifacts but only members of the project's team can create or modify them.
+* For open projects, all uses have read and write access to artifacts.
+
+## Questions about Artifacts workflows
+
+This section describes workflows for managing, and editing Artifacts. Many of these workflows use [the W&B API](../track/public-api-guide.md), the component of [our client library](../../ref/python/) which provides access to data stored with W&B.
+
+### How do I programmatically update artifacts?
 
 You can update various artifact properties \(such as `description`, `metadata`, and `aliases`\) directly from your scripts simply by setting them to the desired values and then calling `.save()`:
 
@@ -35,9 +61,9 @@ artifact.aliases = ["replaced"]
 artifact.save()
 ```
 
-## How do I log an artifact to an existing run?
+### How do I log an artifact to an existing run?
 
-Occasionally, you may want to mark an artifact as the output of a previously logged run. In that scenario, you can reinitialize the old run and log new artifacts to it as follows:
+Occasionally, you may want to mark an artifact as the output of a previously logged run. In that scenario, you can [reinitialize the old run](../track/advanced/resuming.md) and log new artifacts to it as follows:
 
 ```python
 with wandb.init(id="existing_run_id", resume="allow") as run:
@@ -46,29 +72,21 @@ with wandb.init(id="existing_run_id", resume="allow") as run:
     run.log_artifact(artifact)
 ```
 
-## How do I log an artifact without launching a run?
+### How do I log an artifact without launching a run? How do I download an artifact outside of a run?
 
-You can use the handy `wandb artifact put` command to log artifacts without needing to write a script to handle the upload:
+From the command line, you can use the handy [`wandb artifact put`](../../ref/cli/wandb-artifact/wandb-artifact-put.md) command to log artifacts without needing to write a script to handle the upload:
 
 ```python
 $ wandb artifact put -n project/artifact -t dataset mnist/
 ```
 
-Similarly, you can then download artifacts to a directory with this command:
+Similarly, you can then download artifacts to a directory with the [`wandb artifact get`](../../ref/cli/wandb-artifact/wandb-artifact-get.md) command:
 
 ```python
 $ wandb artifact get project/artifact:alias --root mnist/
 ```
 
-## How do I download an artifact outside of a run?
-
-You can use the handy `wandb artifact get` command to download artifacts:
-
-```python
-$ wandb artifact get project/artifact:alias --root mnist/
-```
-
-Alternatively, you could write a script that uses the public API:
+Alternatively, you could write a script that uses [the public API](../track/public-api-guide.md):
 
 ```python
 api = wandb.Api()
@@ -77,9 +95,53 @@ artifact = api.artifact("project/artifact:alias")
 artifact_dir = artifact.checkout()
 ```
 
-## How do I clean up unused artifact versions?
+### How can I find the artifacts logged or consumed by a run? How can I find the runs that produced or consumed an artifact?
 
-As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged `latest`\) of your artifact is useful.
+W&B automatically tracks the artifacts a given run has logged as well as the artifacts a given run has used and uses the information to construct an artifact graph -- a bipartite, directed, acyclic graph whose nodes are runs and artifacts, like [this one](https://wandb.ai/shawn/detectron2-11/artifacts/dataset/furniture-small-val/06d5ddd4deeb2a6ebdd5/graph) \(click "Explode" to see the full graph\).
+
+You can walk this graph programmatically via [the API](../../ref/python/public-api/), starting from either a run or an artifact.
+
+{% tabs %}
+{% tab title="From an artifact" %}
+```python
+api = wandb.Api()
+
+artifact = api.artifact("project/artifact:alias")
+
+# Walk up the graph from an artifact:
+producer_run = artifact.logged_by()
+# Walk down the graph from an artifact:
+consumer_runs = artifact.used_by()
+
+# Walk down the graph from a run:
+next_artifacts = consumer_runs[0].logged_artifacts()
+# Walk up the graph from a run:
+previous_artifacts = logged_run.used_artifacts()
+```
+{% endtab %}
+
+{% tab title="From a run" %}
+```python
+api = wandb.Api()
+
+run = api.run("entity/project/run_id")
+
+# Walk down the graph from a run:
+produced_artifacts = run.logged_artifacts()
+# Walk up the graph from a run:
+consumed_artifacts = run.used_artifacts()
+
+# Walk up the graph from an artifact:
+earlier_run = consumed_artifacts[0].logged_by()
+# Walk down the graph from an artifact:
+consumer_runs = produced_artifacts[0].used_by()
+```
+{% endtab %}
+{% endtabs %}
+
+### How do I clean up unused artifact versions?
+
+As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where often only the most recent version \(the version tagged `latest`\) of your artifact is useful.
 
 Here's how you can delete all versions of an artifact that don't have any aliases:
 
@@ -91,31 +153,12 @@ api = wandb.Api(overrides={"project": "capsule-gpt", "entity": "geoff"})
 artifact_type, artifact_name = ... # fill in the desired type + name
 for version in api.artifact_versions(artifact_type, artifact_name):
   # Clean up all versions that don't have an alias such as 'latest'.
-	#
 	# NOTE: You can put whatever deletion logic you want here.
   if len(version.aliases) == 0:
       version.delete()
 ```
 
-## How do I traverse the artifact graph?
-
-W&B automatically tracks the artifacts a given run has logged as well as the artifacts a given run has used. You can walk this graph programmatically via the API:
-
-```python
-api = wandb.Api()
-
-artifact = api.artifact("project/artifact:alias")
-
-# Walk up and down the graph from an artifact:
-producer_run = artifact.logged_by()
-consumer_runs = artifact.used_by()
-
-# Walk up and down the graph from a run:
-logged_artifacts = run.logged_artifacts()
-used_artifacts = run.used_artifacts()
-```
-
-## How do I clean up my local artifact cache?
+### How do I clean up my local artifact cache?
 
 W&B caches artifact files to speed up downloads across versions that share many files in common. Over time, however, this cache directory can become large. You can run the following command to prune the cache, cleaning up any files that haven't been used recently:
 
@@ -125,7 +168,7 @@ $ wandb artifact cache cleanup 1GB
 
 Running the above command will limit the size of the cache to 1GB, prioritizing files to delete based on how long ago they were last accessed.
 
-## How do I log an artifact with distributed processes?
+### How do I log an artifact with distributed processes?
 
 For large datasets or distributed training, multiple parallel runs might need to contribute to a single artifact. You can use the following pattern to construct such parallel artifacts:
 
@@ -188,7 +231,7 @@ with wandb.init(group=group_name) as run:
   run.finish_artifact(artifact)
 ```
 
-## How do I find an artifact from the best run in a sweep?
+### How do I find an artifact from the best run in a sweep?
 
 Within a sweep, you may have the individual runs each emitting its own artifacts instead of having all the runs produce versions of the same artifact. With this pattern, you can use the following code to retrieve the artifacts associated with the best performing run in a sweep:
 
@@ -203,7 +246,7 @@ for artifact in best_run.logged_artifacts():
   print(artifact_path)
 ```
 
-## How do I best log models from runs in a sweep?
+### How do I best log models from runs in a sweep?
 
 One effective pattern for logging models in a sweep is to have a model artifact for the sweep, where the versions will correspond to different runs from the sweep. More concretely, you would have:
 
@@ -211,7 +254,7 @@ One effective pattern for logging models in a sweep is to have a model artifact 
 wandb.Artifact(name="sweep_name", type="model")
 ```
 
-## How do I save code?‌
+### How do I save code?‌
 
 Use `save_code=True` in `wandb.init` to save the main script or notebook where you’re launching the run. To save all your code to a run, version code with Artifacts. Here’s an example:
 
@@ -221,23 +264,5 @@ code_artifact.add_dir(".")
 wandb.log_artifact(code_artifact)
 ```
 
-## Where are artifact files stored?
 
-By default, W&B stores artifact files in a private Google Cloud Storage bucket located in the United States. All files are encrypted at rest and in transit.
-
-For sensitive files, we recommend a private W&B installation or the use of reference artifacts.
-
-## When are artifact files deleted?
-
-W&B stores artifact files in a way that minimizes duplication across successive artifact versions. This means that if you log a dataset with 1,000 images and then log a subsequent version that just adds 100 more images, the second version is only and exactly as big as the files that were introduced.
-
-When deleting artifact versions, W&B checks which files are completely safe to delete. In other words, it guarantees that the file is not in use by a previous or subsequent artifact version. If it is safe to remove, the file is deleted immediately and no trace of it remains on our servers.
-
-## Who has access to my artifacts?
-
-Artifacts inherit the access of their parent project:
-
-* If the project is private, then only members of the project's team have access to its artifacts.
-* For public projects, all users have read access to artifacts but only members of the project's team can create or modify them.
-* For open projects, all uses have read and write access to artifacts.
 
