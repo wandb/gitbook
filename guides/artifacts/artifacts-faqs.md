@@ -160,13 +160,46 @@ for version in api.artifact_versions(artifact_type, artifact_name):
 
 ### How do I clean up my local artifact cache?
 
-W&B caches artifact files to speed up downloads across versions that share many files in common. Over time, however, this cache directory can become large. You can run the following command to prune the cache, cleaning up any files that haven't been used recently:
+W&B caches artifact files to speed up downloads across versions that share many files in common. Over time, however, this cache directory can become large. You can run the [`wandb artifact cache cleanup`](../../ref/cli/wandb-artifact/wandb-artifact-cache/wandb-artifact-cache-cleanup.md) command to prune the cache, removing any files that haven't been used recently:
 
 ```python
 $ wandb artifact cache cleanup 1GB
 ```
 
 Running the above command will limit the size of the cache to 1GB, prioritizing files to delete based on how long ago they were last accessed.
+
+### How do I best log models from runs in a sweep?
+
+One effective pattern for logging models in a [sweep](../sweeps/) is to have a model artifact for the sweep, where the versions will correspond to different runs from the sweep. More concretely, you would have:
+
+```python
+wandb.Artifact(name="sweep_name", type="model")
+```
+
+### How do I find an artifact from the best run in a sweep?
+
+You can use the following code to retrieve the artifacts associated with the best performing run in a sweep:
+
+```python
+api = wandb.Api()
+sweep = api.sweep("entity/project/sweep_id")
+runs = sorted(sweep.runs,
+              key=lambda run: run.summary.get("val_acc", 0), reverse=True)
+best_run = runs[0]
+for artifact in best_run.logged_artifacts():
+  artifact_path = artifact.download()
+  print(artifact_path)
+```
+
+### How do I save code?‌
+
+Use `save_code=True` in `wandb.init` to save the main script or notebook where you’re launching the run. To save all your code to a run, version code with Artifacts. Here’s an example:
+
+```python
+code_artifact = wandb.Artifact(type="code")
+code_artifact.add_file("./train.py")
+wandb.log_artifact(code_artifact)
+```
 
 ### How do I log an artifact with distributed processes?
 
@@ -230,39 +263,4 @@ with wandb.init(group=group_name) as run:
   # to this version.
   run.finish_artifact(artifact)
 ```
-
-### How do I find an artifact from the best run in a sweep?
-
-Within a sweep, you may have the individual runs each emitting its own artifacts instead of having all the runs produce versions of the same artifact. With this pattern, you can use the following code to retrieve the artifacts associated with the best performing run in a sweep:
-
-```python
-import wandb
-api = wandb.Api()
-sweep = api.sweep("entity/project/sweep_id")
-runs = sorted(sweep.runs, key=lambda run: run.summary.get("val_acc", 0), reverse=True)
-best_run = runs[0]
-for artifact in best_run.logged_artifacts():
-  artifact_path = artifact.download()
-  print(artifact_path)
-```
-
-### How do I best log models from runs in a sweep?
-
-One effective pattern for logging models in a sweep is to have a model artifact for the sweep, where the versions will correspond to different runs from the sweep. More concretely, you would have:
-
-```python
-wandb.Artifact(name="sweep_name", type="model")
-```
-
-### How do I save code?‌
-
-Use `save_code=True` in `wandb.init` to save the main script or notebook where you’re launching the run. To save all your code to a run, version code with Artifacts. Here’s an example:
-
-```python
-code_artifact = wandb.Artifact(type='code')
-code_artifact.add_dir(".")
-wandb.log_artifact(code_artifact)
-```
-
-
 
