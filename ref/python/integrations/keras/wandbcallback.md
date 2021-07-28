@@ -50,7 +50,6 @@ model.fit(X_train,
 | `generator` | \(generator\) a generator that returns validation data for wandb to visualize. This generator should return tuples `(X,y)`. Either `validate_data` or generator should be set for wandb to visualize specific data examples. |
 | `validation_steps` | \(int\) if `validation_data` is a generator, how many steps to run the generator for the full validation set. |
 | `labels` | \(list\) If you are visualizing your data with wandb this list of labels will convert numeric output to understandable string if you are building a multiclass classifier. If you are making a binary classifier you can pass in a list of two labels \["label for false", "label for true"\]. If `validate_data` and generator are both false, this won't do anything. |
-| `data_type` | \(string\) type of the model output to help visualziation. can be one of: \(`image`, `images`, `segmentation_mask`\). |
 | `predictions` | \(int\) the number of predictions to make for visualization each epoch, max is 100. |
 | `input_type` | \(string\) type of the model input to help visualization. can be one of: \(`image`, `images`, `segmentation_mask`\). |
 | `output_type` | \(string\) type of the model output to help visualziation. can be one of: \(`image`, `images`, `segmentation_mask`\). |
