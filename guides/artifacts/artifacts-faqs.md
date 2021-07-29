@@ -116,7 +116,7 @@ consumer_runs = artifact.used_by()
 # Walk down the graph from a run:
 next_artifacts = consumer_runs[0].logged_artifacts()
 # Walk up the graph from a run:
-previous_artifacts = logged_run.used_artifacts()
+previous_artifacts = producer_run.used_artifacts()
 ```
 {% endtab %}
 
