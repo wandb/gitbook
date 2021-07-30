@@ -1,6 +1,10 @@
-# wandb.apis.public.Projects
+# Projects
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.11.0/wandb/apis/public.py#L661-L720)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L657-L716)
+
+
 
 An iterable collection of `Project` objects.
 
@@ -10,7 +14,13 @@ Projects(
 )
 ```
 
+
+
+
+
+
+
 | Class Variables |  |
 | :--- | :--- |
-| `QUERY` |  |
+|  `QUERY`<a id="QUERY"></a> |   |
 
