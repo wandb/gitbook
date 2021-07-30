@@ -117,10 +117,9 @@ If you want to specify your sweep entirely with code you can do something like t
 
 ```python
 import wandb
-from wandb.sweeps import GridSearch, RandomSearch, BayesianSearch
 
 sweep = wandb.controller()
-sweep.configure_search(GridSearch)
+sweep.configure_search("grid")
 sweep.configure_program("train-dummy.py")
 sweep.configure_controller(type="local")
 sweep.configure_parameter("param1", value=3)
