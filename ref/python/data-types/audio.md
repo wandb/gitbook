@@ -1,10 +1,6 @@
-# Audio
-
-
+# wandb.data\_types.Audio
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.11.1/wandb/data_types.py#L911-L1055)
-
-
 
 Wandb class for audio clips.
 
@@ -14,21 +10,15 @@ Audio(
 )
 ```
 
-
-
-
-
 | Arguments |  |
 | :--- | :--- |
-|  `data_or_path` |  (string or numpy array) A path to an audio file or a numpy array of audio data. |
-|  `sample_rate` |  (int) Sample rate, required when passing in raw numpy array of audio data. |
-|  `caption` |  (string) Caption to display with audio. |
-
-
+| `data_or_path` | \(string or numpy array\) A path to an audio file or a numpy array of audio data. |
+| `sample_rate` | \(int\) Sample rate, required when passing in raw numpy array of audio data. |
+| `caption` | \(string\) Caption to display with audio. |
 
 ## Methods
 
-<h3 id="durations"><code>durations</code></h3>
+### `durations` <a id="durations"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/data_types.py#L1013-L1015)
 
@@ -39,10 +29,7 @@ durations(
 )
 ```
 
-
-
-
-<h3 id="path_is_reference"><code>path_is_reference</code></h3>
+### `path_is_reference` <a id="path_is_reference"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/data_types.py#L956-L958)
 
@@ -53,10 +40,7 @@ path_is_reference(
 )
 ```
 
-
-
-
-<h3 id="resolve_ref"><code>resolve_ref</code></h3>
+### `resolve_ref` <a id="resolve_ref"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/data_types.py#L1029-L1041)
 
@@ -64,10 +48,7 @@ path_is_reference(
 resolve_ref()
 ```
 
-
-
-
-<h3 id="sample_rates"><code>sample_rates</code></h3>
+### `sample_rates` <a id="sample_rates"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/data_types.py#L1017-L1019)
 
@@ -77,9 +58,4 @@ sample_rates(
     audio_list
 )
 ```
-
-
-
-
-
 

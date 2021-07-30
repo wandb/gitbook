@@ -1,10 +1,6 @@
-# Run
-
-
+# wandb.apis.public.Run
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L842-L1399)
-
-
 
 A single run associated with an entity and project.
 
@@ -14,20 +10,13 @@ Run(
 )
 ```
 
-
-
-
-
-
-
 | Attributes |  |
 | :--- | :--- |
 
 
-
 ## Methods
 
-<h3 id="create"><code>create</code></h3>
+### `create` <a id="create"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L924-L964)
 
@@ -40,8 +29,7 @@ create(
 
 Create a run for the given project
 
-
-<h3 id="delete"><code>delete</code></h3>
+### `delete` <a id="delete"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1059-L1093)
 
@@ -53,8 +41,7 @@ delete(
 
 Deletes the given run from the wandb backend.
 
-
-<h3 id="file"><code>file</code></h3>
+### `file` <a id="file"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1155-L1164)
 
@@ -64,16 +51,13 @@ file(
 )
 ```
 
-Arguments:
-    name (str): name of requested file.
+Arguments: name \(str\): name of requested file.
 
 | Returns |  |
 | :--- | :--- |
-|  A `File` matching the name argument. |
+| A `File` matching the name argument. |  |
 
-
-
-<h3 id="files"><code>files</code></h3>
+### `files` <a id="files"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1143-L1153)
 
@@ -83,17 +67,13 @@ files(
 )
 ```
 
-Arguments:
-    names (list): names of the requested files, if empty returns all files
-    per_page (int): number of results per page
+Arguments: names \(list\): names of the requested files, if empty returns all files per\_page \(int\): number of results per page
 
 | Returns |  |
 | :--- | :--- |
-|  A `Files` object, which is an iterator over `File` obejcts. |
+| A `Files` object, which is an iterator over `File` obejcts. |  |
 
-
-
-<h3 id="history"><code>history</code></h3>
+### `history` <a id="history"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1189-L1228)
 
@@ -103,22 +83,17 @@ history(
 )
 ```
 
-Returns sampled history metrics for a run.  This is simpler and faster if you are ok with
-the history records being sampled.
+Returns sampled history metrics for a run. This is simpler and faster if you are ok with the history records being sampled.
 
 | Arguments |  |
 | :--- | :--- |
-|  samples (int, optional): The number of samples to return pandas (bool, optional): Return a pandas dataframe keys (list, optional): Only return metrics for specific keys x_axis (str, optional): Use this metric as the xAxis defaults to _step stream (str, optional): "default" for metrics, "system" for machine metrics |
-
-
+| samples \(int, optional\): The number of samples to return pandas \(bool, optional\): Return a pandas dataframe keys \(list, optional\): Only return metrics for specific keys x\_axis \(str, optional\): Use this metric as the xAxis defaults to \_step stream \(str, optional\): "default" for metrics, "system" for machine metrics |  |
 
 | Returns |  |
 | :--- | :--- |
-|  If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics. |
+| If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics. |  |
 
-
-
-<h3 id="load"><code>load</code></h3>
+### `load` <a id="load"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L966-L1027)
 
@@ -128,10 +103,7 @@ load(
 )
 ```
 
-
-
-
-<h3 id="log_artifact"><code>log_artifact</code></h3>
+### `log_artifact` <a id="log_artifact"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1321-L1353)
 
@@ -143,20 +115,15 @@ log_artifact(
 
 Declare an artifact as output of a run.
 
-
 | Arguments |  |
 | :--- | :--- |
-|  artifact (`Artifact`): An artifact returned from `wandb.Api().artifact(name)` aliases (list, optional): Aliases to apply to this artifact |
-
-
+| artifact \(`Artifact`\): An artifact returned from `wandb.Api().artifact(name)` aliases \(list, optional\): Aliases to apply to this artifact |  |
 
 | Returns |  |
 | :--- | :--- |
-|  A `Artifact` object. |
+| A `Artifact` object. |  |
 
-
-
-<h3 id="logged_artifacts"><code>logged_artifacts</code></h3>
+### `logged_artifacts` <a id="logged_artifacts"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1286-L1288)
 
@@ -166,10 +133,7 @@ logged_artifacts(
 )
 ```
 
-
-
-
-<h3 id="save"><code>save</code></h3>
+### `save` <a id="save"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1095-L1096)
 
@@ -177,10 +141,7 @@ logged_artifacts(
 save()
 ```
 
-
-
-
-<h3 id="scan_history"><code>scan_history</code></h3>
+### `scan_history` <a id="scan_history"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1230-L1284)
 
@@ -192,7 +153,6 @@ scan_history(
 
 Returns an iterable collection of all history records for a run.
 
-
 #### Example:
 
 Export all the loss values for an example run
@@ -203,22 +163,15 @@ history = run.scan_history(keys=["Loss"])
 losses = [row["Loss"] for row in history]
 ```
 
-
-
-
 | Arguments |  |
 | :--- | :--- |
-|  keys ([str], optional): only fetch these keys, and only fetch rows that have all of keys defined. page_size (int, optional): size of pages to fetch from the api |
-
-
+| keys \(\[str\], optional\): only fetch these keys, and only fetch rows that have all of keys defined. page\_size \(int, optional\): size of pages to fetch from the api |  |
 
 | Returns |  |
 | :--- | :--- |
-|  An iterable collection over history records (dict). |
+| An iterable collection over history records \(dict\). |  |
 
-
-
-<h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
+### `snake_to_camel` <a id="snake_to_camel"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L563-L565)
 
@@ -228,10 +181,7 @@ snake_to_camel(
 )
 ```
 
-
-
-
-<h3 id="update"><code>update</code></h3>
+### `update` <a id="update"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1029-L1057)
 
@@ -241,8 +191,7 @@ update()
 
 Persists changes to the run object to the wandb backend.
 
-
-<h3 id="upload_file"><code>upload_file</code></h3>
+### `upload_file` <a id="upload_file"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1166-L1187)
 
@@ -252,19 +201,13 @@ upload_file(
 )
 ```
 
-Arguments:
-    path (str): name of file to upload.
-    root (str): the root path to save the file relative to.  i.e.
-        If you want to have the file saved in the run as "my_dir/file.txt"
-        and you're currently in "my_dir" you would set root to "../"
+Arguments: path \(str\): name of file to upload. root \(str\): the root path to save the file relative to. i.e. If you want to have the file saved in the run as "my\_dir/file.txt" and you're currently in "my\_dir" you would set root to "../"
 
 | Returns |  |
 | :--- | :--- |
-|  A `File` matching the name argument. |
+| A `File` matching the name argument. |  |
 
-
-
-<h3 id="use_artifact"><code>use_artifact</code></h3>
+### `use_artifact` <a id="use_artifact"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1294-L1319)
 
@@ -276,20 +219,15 @@ use_artifact(
 
 Declare an artifact as an input to a run.
 
-
 | Arguments |  |
 | :--- | :--- |
-|  artifact (`Artifact`): An artifact returned from `wandb.Api().artifact(name)` |
-
-
+| artifact \(`Artifact`\): An artifact returned from `wandb.Api().artifact(name)` |  |
 
 | Returns |  |
 | :--- | :--- |
-|  A `Artifact` object. |
+| A `Artifact` object. |  |
 
-
-
-<h3 id="used_artifacts"><code>used_artifacts</code></h3>
+### `used_artifacts` <a id="used_artifacts"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.11.1/wandb/apis/public.py#L1290-L1292)
 
@@ -298,9 +236,4 @@ used_artifacts(
     per_page=100
 )
 ```
-
-
-
-
-
 

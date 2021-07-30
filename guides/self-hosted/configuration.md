@@ -117,7 +117,7 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/sy
 * **File Storage Region \(AWS only\)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](../../.gitbook/assets/file-store%20%282%29%20%281%29%20%281%29.png)
+![](../../.gitbook/assets/file-store%20%282%29%20%281%29%20%281%29%20%281%29.png)
 
 Press "Update settings" to apply the new settings.
 
@@ -190,7 +190,7 @@ Finally, navigate to the W&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/sy
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![](../../.gitbook/assets/file-store%20%282%29%20%281%29%20%281%29%20%281%29.png)
+![](../../.gitbook/assets/file-store%20%282%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 Press "update settings" to apply the new settings.
 

@@ -14,7 +14,7 @@ The local controller feature allows the user to run search and stopping algorith
 The local controller is currently limited to running a single agent.
 {% endhint %}
 
-## Running the local controller
+## Running the local controller from the command line
 
 The simplest method is to indicate you want to use the local controller when starting your sweep:
 
@@ -37,5 +37,54 @@ Then, after initializing with `wandb sweep`, you can start a controller using `w
 wandb sweep sweep-config.yaml
 # wandb sweep command will print a sweep_id
 wandb controller {user}/{entity}/{sweep_id}
+```
+
+## Run a local controller inside Python
+
+When developing and debugging your own parameter search algorithms, you might wish to run the sweep controller from Python.
+
+The simplest way to run a controller:
+
+```python
+sweep = wandb.controller(sweep_id)
+sweep.run()
+```
+
+If you want more control of the controller loop:
+
+```python
+import wandb
+
+sweep = wandb.controller(sweep_id)
+while not sweep.done():
+    sweep.print_status()
+    sweep.step()
+    time.sleep(5)
+```
+
+Or even more control over the parameters being served:
+
+```python
+import wandb
+
+sweep = wandb.controller(sweep_id)
+while not sweep.done():
+    params = sweep.search()
+    sweep.schedule(params)
+    sweep.print_status()
+```
+
+If you want to specify your sweep entirely with code you can do something like this:
+
+```python
+import wandb
+
+sweep = wandb.controller()
+sweep.configure_search("grid")
+sweep.configure_program("train-dummy.py")
+sweep.configure_controller(type="local")
+sweep.configure_parameter("param1", value=3)
+sweep.create()
+sweep.run()
 ```
 
