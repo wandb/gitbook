@@ -10,8 +10,8 @@ By default the hyper-parameter controller is hosted by W&B as a cloud service. W
 
 The local controller feature allows the user to run search and stopping algorithms locally. The local controller gives the user the ability to inspect and instrument the code in order to debug issues as well as develop new features which can be incorporated into the cloud service.
 
-{% hint style="info" %}
-The local controller is currently limited to running a single agent.
+{% hint style="warning" %}
+The local controller is currently limited to running a single agent. This limits its effectiveness for hyperparameter optimization workloads. This feature is offered to support development of new algorithms.
 {% endhint %}
 
 ## Running the local controller from the command line
