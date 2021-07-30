@@ -26,7 +26,7 @@ We also offer [Self-Hosted](../../../guides/self-hosted/) installs for on-prem o
 
 ## Team Trials
 
-We offer 30 day free trials for business teams, **no credit card required**. During the trial, you and your colleagues will have access to all the features in W&B. Once the trial is over, you can upgrade your plan to continue using a W&B Team to collaborate. Your personal W&B account will always remain free, and if you're a student or teacher you can enroll in an academic plan. 
+We offer free trials for business teams, **no credit card required**. During the trial, you and your colleagues will have access to all the features in W&B. Once the trial is over, you can upgrade your plan to continue using a W&B Team to collaborate. Your personal W&B account will always remain free, and if you're a student or teacher you can enroll in an academic plan. 
 
 See the [pricing page](https://wandb.ai/site/pricing) for more information on our plans. You can download all your data at any time, either using the dashboard UI or via our [Export API](../../python/public-api/).
 
