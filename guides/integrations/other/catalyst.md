@@ -1,6 +1,6 @@
 # Catalyst
 
- [Catalyst](https://github.com/catalyst-team/catalyst) is a PyTorch framework for Deep Learning R&D that focuses on reproducibility, rapid experimentation, and codebase reuse so you can create something new rather than write yet another train loop. Catalyst has an awesome W&B integration for logging parameters, metrics, images, and other artifacts.
+ [Catalyst](https://github.com/catalyst-team/catalyst) is a PyTorch framework for Deep Learning R&D that focuses on reproducibility, rapid experimentation, and codebase reuse so you can create something new. Catalyst has an awesome W&B integration for logging parameters, metrics, images, and other artifacts.
 
 You can set the following parameters in the `WandbLogger`
 
