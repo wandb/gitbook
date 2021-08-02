@@ -74,5 +74,5 @@ loggers:
 
 ## Interactive Example
 
-Run this [example colab](https://colab.research.google.com/drive/1PD0LnXiADCtt4mu7bzv7VfQkFXVrPxJq?usp=sharing) so see Catalyst and W&B integration in action
+Run this [example colab](https://colab.research.google.com/drive/1PD0LnXiADCtt4mu7bzv7VfQkFXVrPxJq?usp=sharing) to see Catalyst and W&B integration in action
 
