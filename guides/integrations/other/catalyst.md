@@ -1,88 +1,78 @@
 # Catalyst
 
-Sergey Kolesnikov, creator of [Catalyst](https://github.com/catalyst-team/catalyst), has built an awesome W&B integration. If you are using Catalyst, we have a runner that can automatically log all hyperparameters, metrics, TensorBoard, the best trained model, and all `stdout` during training.
+ [Catalyst](https://github.com/catalyst-team/catalyst) is a PyTorch framework for Deep Learning R&D that focuses on reproducibility, rapid experimentation, and codebase reuse so you can create something new rather than write yet another train loop. Catalyst has an awesome W&B integration for logging parameters, metrics, images, and other artifacts.
 
-```python
-import torch
-from catalyst.dl.supervised import SupervisedRunner
-from catalyst.contrib.dl.callbacks import WandbLogger
-# experiment setup
-logdir = "./logdir"
-num_epochs = 42
+You can set the following parameters in the `WandbLogger`
 
-# data
-loaders = {"train": ..., "valid": ...}
+| Parameter | Description |
+| :--- | :--- |
+|  **project**  | Name of the project in W&B to log to. |
+|  **name**  | Name of the run in W&B to log to |
+|  **config**  | Configuration Dictionary for the experiment |
+|  **entity**  | Name of W&B entity\(team\) to log to |
 
-# model, criterion, optimizer
-model = Net()
-criterion = torch.nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.parameters())
-scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer)
+## Python API Examples
 
-# model runner
-runner = SupervisedRunner()
-
-# model training
-runner.train(
-    model=model,
-    criterion=criterion,
-    optimizer=optimizer,
-    scheduler=scheduler,
-    loaders=loaders,
-    callbacks=[WandbLogger(project="Project Name",name= 'Run Name')],
-    logdir=logdir,
-    num_epochs=num_epochs,
-    verbose=True
-)
-```
-
-Custom parameters can also be given at that stage. Forward and backward passes alsong with the handling of data batches can also be customized by extending the `runner` class. Following is a custom runner used to train a MNIST classifier.
+### SupervisedRunner
 
 ```python
 from catalyst import dl
-from catalyst.utils import metrics
-model = torch.nn.Linear(28*28, 10)
 
-class CustomRunner(dl.Runner):
-    def _handle_batch(self, batch):
-        x, y = batch
-        y_hat = self.model(x.view(x.size(0), -1))
-        loss = F.cross_entropy(y_hat, y)
-        accuracy = metrics.accuracy(y_hat, y)
-
-        #Set custom metric to be logged
-        self.batch_metrics = {
-            "loss": loss,
-            "accuracy": accuracy[0],
-
-        }
-
-        if self.is_train_loader:
-            loss.backward()
-            self.optimizer.step()
-            self.optimizer.zero_grad()
-runner = CustomRunner()     
-
+runner = dl.SupervisedRunner()
 runner.train(
-    model=model,
-    criterion=criterion,
-    optimizer=optimizer,
-    scheduler=scheduler,
-    loaders=loaders,
-    num_epochs=num_epochs,
-    callbacks=[WandbLogger(project="catalyst",name= 'Example')],
-    verbose=True,
-    timeit=False)
+    ...,
+    loggers={
+    'wandb': dl.WandbLogger(
+         project='wandb_catalyst',
+         name='catalyst_supervised'
+             )
+        })
+
 ```
 
-## Options
-
-`logging_params`: any parameters of function `wandb.init` except `reinit` which is automatically set to `True` and `dir` which is set to `<logdir>`
+### CustomRunner
 
 ```python
-runner.train(...,
-             ...,
-             callbacks=[WandbLogger(project="catalyst",name= 'Example'),logging_params={params}],
-             ...)
+from catalyst import dl
+
+class CustomRunner(dl.IRunner):
+    # ...
+
+    def get_loggers(self):
+        return {
+            "console": dl.ConsoleLogger(),
+            "wandb": dl.WandbLogger(
+                    project="wandb_catalyst",
+                    name="catalyst_runner"
+                    )
+        }
+
+runner = CustomRunner().run()
 ```
+
+### Config API
+
+```python
+loggers:
+    wandb:
+        _target_: WandbLogger
+        project: test_exp
+        name: test_run
+...
+```
+
+### Hydra API
+
+```python
+loggers:
+    wandb:
+        _target_: catalyst.dl.WandbLogger
+        project: test_exp
+        name: test_run
+...
+```
+
+## Interactive Example
+
+Run this [example colab](https://colab.research.google.com/drive/1PD0LnXiADCtt4mu7bzv7VfQkFXVrPxJq?usp=sharing) so see Catalyst and W&B integration in action
 
