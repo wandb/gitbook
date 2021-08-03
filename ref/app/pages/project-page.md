@@ -109,33 +109,73 @@ See all the snapshots of results in one place, and share findings with your team
 
 ## Sweeps Tab
 
-Start a new sweep from your project.
+Start a new [sweep](../../../guides/sweeps/) from your project.
 
 ![](../../../.gitbook/assets/sweeps-tab.png)
 
-## Common Questions
+## Artifacts Tab
 
-### Reset workspace
+View all the [artifacts](../../../guides/artifacts/) associated with a project, from [training datasets](../../../guides/artifacts/dataset-versioning.md) and [fine-tuned models](../../../guides/artifacts/model-versioning.md) to [tables of metrics and media](../../../guides/data-vis/tables-quickstart.md). For more on getting started with Artifacts, check out [this walkthrough](../../../guides/artifacts/api.md).
 
-If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
+### Overview panel
 
-Add **?workspace=clear** to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
+![](../../../.gitbook/assets/image%20%28140%29.png)
 
-### Delete Projects
+On the overview panel, you'll find a variety of high-level information about the artifact, including its name and version, the hash digest used to detect changes and prevent duplication, the creation date, and any aliases. You can add or remove aliases here, take notes on
+
+This section also indicates and links to the run which output the artifact and any runs which use the artifact as an input.
+
+### API panel
+
+![](../../../.gitbook/assets/image%20%28139%29.png)
+
+The API panel provides a code snippet for downloading the artifact for use outside of the web app, for example on a local machine.
+
+### Metadata panel
+
+![](../../../.gitbook/assets/image%20%28141%29.png)
+
+The metadata panel provides access to the artifact's metadata, which is provided when the artifact is constructed. This metadata might include configuration arguments required to reconstruct the artifact, URLs where more information can be found, or metrics produced during the run which logged the artifact.
+
+### Files panel
+
+![](../../../.gitbook/assets/image%20%28134%29.png)
+
+The files panel lists the files and folders associated with the artifact. You can navigate through this file tree and view the contents directly in the W&B web app.
+
+[Tables](../../../guides/data-vis/tables-quickstart.md) associated with artifacts are particularly rich and interactive in this context. Learn more about using Tables with Artifacts [here](../../../guides/data-vis/tables.md).
+
+![](../../../.gitbook/assets/image%20%28135%29.png)
+
+### Graph View panel
+
+![](../../../.gitbook/assets/image%20%28137%29.png)
+
+The graph view panel provides a view of all of the artifacts associated with a project and the runs that connect them to each other. It shows run types as blocks and artifacts as circles, with arrows to indicate when a run of a given type consumes or produces an artifact of a given type. The type of the particular artifact selected in the left-hand column is highlighted.
+
+Click the Explode toggle to view all of the individual artifact versions and the specific runs that connect them.
+
+## Frequently Asked Questions
+
+### How can I delete projects?
 
 You can delete your project by clicking the three dots on the right of the overview tab.
 
 ![](../../../.gitbook/assets/howto-delete-project.gif)
 
-### Privacy settings
+If the project is empty \(i.e. it has no runs\), you can delete it by clicking the dropdown menu in the top-right and selecting "Delete project".
+
+![](../../../.gitbook/assets/image%20%2866%29.png)
+
+### Where are the privacy settings for projects? How can I make a project public or private?
 
 Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
 
-![](../../../.gitbook/assets/image%20%2879%29.png)
+![](../../../.gitbook/assets/image%20%28138%29.png)
 
-### Delete an empty project
+### How do I reset my workspace?
 
-Delete a project with no runs by clicking the dropdown menu and selecting "Delete project".
+If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
-![](../../../.gitbook/assets/image%20%2866%29.png)
+Add `?workspace=clear` to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
 
