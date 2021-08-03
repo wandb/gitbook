@@ -1,76 +1,10 @@
 # Catalyst
 
- [Catalyst](https://github.com/catalyst-team/catalyst) is a PyTorch framework for Deep Learning R&D that focuses on reproducibility, rapid experimentation, and codebase reuse so you can create something new. Catalyst has an awesome W&B integration for logging parameters, metrics, images, and other artifacts.
+> [Catalyst](https://github.com/catalyst-team/catalyst) is a PyTorch framework for deep learning R&D that focuses on reproducibility, rapid experimentation, and codebase reuse so you can create something new.
 
-You can set the following parameters in the `WandbLogger`
+Catalyst has an awesome W&B integration for logging parameters, metrics, images, and other artifacts.
 
-| Parameter | Description |
-| :--- | :--- |
-|  **project**  | Name of the project in W&B to log to. |
-|  **name**  | Name of the run in W&B to log to |
-|  **config**  | Configuration Dictionary for the experiment |
-|  **entity**  | Name of W&B entity\(team\) to log to |
-
-## Python API Examples
-
-### SupervisedRunner
-
-```python
-from catalyst import dl
-
-runner = dl.SupervisedRunner()
-runner.train(
-    ...,
-    loggers={
-    'wandb': dl.WandbLogger(
-         project='wandb_catalyst',
-         name='catalyst_supervised'
-             )
-        })
-
-```
-
-### CustomRunner
-
-```python
-from catalyst import dl
-
-class CustomRunner(dl.IRunner):
-    # ...
-
-    def get_loggers(self):
-        return {
-            "console": dl.ConsoleLogger(),
-            "wandb": dl.WandbLogger(
-                    project="wandb_catalyst",
-                    name="catalyst_runner"
-                    )
-        }
-
-runner = CustomRunner().run()
-```
-
-### Config API
-
-```python
-loggers:
-    wandb:
-        _target_: WandbLogger
-        project: test_exp
-        name: test_run
-...
-```
-
-### Hydra API
-
-```python
-loggers:
-    wandb:
-        _target_: catalyst.dl.WandbLogger
-        project: test_exp
-        name: test_run
-...
-```
+Check out their documentation of the integration [here](https://catalyst-team.github.io/catalyst/api/loggers.html#catalyst.loggers.wandb.WandbLogger), including examples using Python and Hydra.
 
 ## Interactive Example
 
