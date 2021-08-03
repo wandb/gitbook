@@ -30,7 +30,7 @@ wandb.init(project="my-test-project")
 ### 3. Track metrics
 
 Use `wandb.log()` to track metrics, or a framework [integration](guides/integrations/) for easy instrumentation.   
-[More about wandb.log\(\) →](guides/track/log.md)
+[More about wandb.log\(\) →](guides/track/log/)
 
 ```python
 wandb.log({'accuracy': train_acc, 'loss': train_loss})

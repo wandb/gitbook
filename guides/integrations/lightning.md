@@ -127,7 +127,7 @@ Lightning's `Metrics` are being transferred into a stand-alone library, `torchme
 
 ### How do I log media objects?
 
-Weights & Biases provides a wide variety of data types for rich media logging \(read [the guide](../track/log.md) or check [the reference docs](../../ref/python/data-types/) for more\).
+Weights & Biases provides a wide variety of data types for rich media logging \(read [the guide](../track/log/) or check [the reference docs](../../ref/python/data-types/) for more\).
 
 Unlike scalars, media objects are logged differently by each framework. To keep this more involved logging code separate from the core logic of your research code, use [Lightning `Callback`s](https://pytorch-lightning.readthedocs.io/en/stable/extensions/callbacks.html).
 

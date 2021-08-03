@@ -77,7 +77,7 @@ By default the hook only logs gradients.
 
 You can pass PyTorch tensors with image data into [`wandb.Image`](../../ref/python/data-types/image.md) and [`torchvision`](https://pytorch.org/vision/stable/index.html) utils will be used to log them automatically.
 
-To log images and view them in the [Media panel](../track/log.md#media), you can use the following syntax:
+To log images and view them in the [Media panel](../track/log/#media), you can use the following syntax:
 
 ```python
 wandb.log({"examples" : [wandb.Image(i) for i in images]})
