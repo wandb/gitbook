@@ -133,7 +133,7 @@ The API panel provides a code snippet for downloading the artifact for use outsi
 
 ### Metadata panel
 
-![](../../../.gitbook/assets/image%20%28141%29.png)
+![](../../../.gitbook/assets/image%20%28142%29.png)
 
 The metadata panel provides access to the artifact's metadata, which is provided when the artifact is constructed. This metadata might include configuration arguments required to reconstruct the artifact, URLs where more information can be found, or metrics produced during the run which logged the artifact.
 

@@ -69,13 +69,21 @@ The Python details are private, even if you make the page itself public. Here is
 
 ## Files Tab
 
-* Save files to sync with the run using [wandb.save\(\)](../../../guides/track/advanced/save-restore.md)
+* Save files to sync with the run using [`wandb.save()`](../../../guides/track/advanced/save-restore.md)
 * Keep model checkpoints, validation set examples, and more
-* Use the `diff.patch` to [restore](../../../guides/track/advanced/save-restore.md) the exact version of your code
+* Use the `diff.patch` to [restore](../../../guides/track/advanced/save-restore.md) the exact version of your code [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
 
-🌟New recommendation: Try [Artifacts](../../../guides/artifacts/) for tracking inputs and outputs
-
-[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
+{% hint style="info" %}
+The W&B [Artifacts](../../../guides/artifacts/) system adds extra features for handling, versioning, and deduplicating large files like datasets and models. We recommend you use Artifacts for tracking inputs and outputs of runs, rather than `wandb.save`. Check out the Artifacts quickstart [here](../../../guides/artifacts/).
+{% endhint %}
 
 ![](../../../.gitbook/assets/wandb-run-page-files-tab.png)
+
+## Artifacts Tab
+
+* Provides a searchable list of the input and output [Artifacts](../../../guides/artifacts/) for this run
+* Click a row to see information about a particular artifact used or produced by this run
+* See the reference for the [project](project-page.md)-level [Artifacts Tab](project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app
+
+![](../../../.gitbook/assets/image%20%28141%29.png)
 
