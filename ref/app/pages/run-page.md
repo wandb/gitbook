@@ -83,7 +83,7 @@ The W&B [Artifacts](../../../guides/artifacts/) system adds extra features for h
 
 * Provides a searchable list of the input and output [Artifacts](../../../guides/artifacts/) for this run
 * Click a row to see information about a particular artifact used or produced by this run
-* See the reference for the [project](project-page.md)-level [Artifacts Tab](project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app
+* See the reference for the [project](project-page.md)-level [Artifacts Tab](project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app [View a live example →](https://wandb.ai/stacey/artifact_july_demo/runs/2cslp2rt/artifacts)
 
 ![](../../../.gitbook/assets/image%20%28141%29.png)
 
