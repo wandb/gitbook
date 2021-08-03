@@ -4,129 +4,84 @@ description: Use a dictionary-like object to save your experiment configuration
 
 # Configure Experiments with wandb.config
 
-## Overview
+Use the run page to explore detailed information about a single version of your model.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/config-colab)
+## Overview Tab
 
-Set the `wandb.config` object in your script to save your training configuration: hyperparameters, input settings like dataset name or model type, and any other independent variables for your experiments. This is useful for analyzing your experiments and reproducing your work in the future. You'll be able to group by config values in the web interface, comparing the settings of different runs and seeing how these affect the output. Note that output metrics or dependent variables \(like loss and accuracy\) should be saved with `wandb.log`instead.
+* Run name, description, and tags
+* Run state
+  * **finished**: script ended and fully synced data, or called `wandb.finish()` 
+  * **failed**: script ended with a non-zero exit status
+  * **crashed**: script stopped sending heartbeats in the internal process, which can happen if the machine crashes
+  * **running**: script is still running and has recently sent a heartbeat
+* Host name, operating system, Python version, and command that launched the run
+* List of config parameters saved with [`wandb.config`](config.md)
+* List of summary parameters saved with [`wandb.log()`](log.md), by default set to the last value logged
 
-You can send us a nested dictionary in config, and we'll flatten the names using dots in our backend. We recommend that you avoid using dots in your config variable names, and use a dash or underscore instead. Once you've created your wandb config dictionary, if your script accesses wandb.config keys below the root, use `[ ]` syntax instead of `.` syntax.
+[View a live example →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
 
-## Simple Example
+![W&amp;B Dashboard run overview tab](../../.gitbook/assets/wandb-run-overview-page.png)
 
-```python
-wandb.config.epochs = 4
-wandb.config.batch_size = 32
-# you can also initialize your run with a config
-wandb.init(config={"epochs": 4})
-```
+The Python details are private, even if you make the page itself public. Here is an example of my run page in incognito on the left and my account on the right.
 
-## Efficient Initialization
+![](../../.gitbook/assets/screen-shot-2020-04-07-at-7.46.39-am.png)
 
-You can treat `wandb.config` as a dictionary, updating multiple values at a time.
+## Charts Tab
 
-```python
-wandb.init(config={"epochs": 4, "batch_size": 32})
-# later
-wandb.config.update({"lr": 0.1, "channels": 16})
-```
+* Search, group, and arrange visualizations
+* Click the pencil icon ✏️  on a graph to edit
+  * change x-axis, metrics, and ranges
+  * edit legends, titles, and colors of charts
+* View examples predictions from your validation set
+* To get these charts, log data with [`wandb.log()`](log.md)
 
-## `argparse.Namespace`
+[View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-You can pass in the arguments returned by [`argparse`](https://docs.python.org/3/library/argparse.html). This is convenient for quickly testing different hyperparameter values from the command line.
+![](../../.gitbook/assets/wandb-run-page-workspace-tab%20%281%29.png)
 
-```python
-wandb.init(config={"lr": 0.1})
-wandb.config.epochs = 4
+## System Tab
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-b', '--batch-size', type=int, default=8, metavar='N',
-                     help='input batch size for training (default: 8)')
-args = parser.parse_args()
-wandb.config.update(args) # adds all of the arguments as config variables
-```
+* Visualize CPU utilization, system memory, disk I/O, network traffic, GPU utilization, GPU temperature, GPU time spent accessing memory, GPU memory allocated, and GPU power usage
+* Lambda Labs highlighted how to use W&B system metrics in a[ blog post →](https://lambdalabs.com/blog/weights-and-bias-gpu-cpu-utilization/)
 
-## `absl.FLAGS`
+[View a live example →](https://wandb.ai/stacey/deep-drive/runs/ki2biuqy/system?workspace=user-carey)
 
-You can also pass in [`absl` flags](https://abseil.io/docs/python/guides/flags).
+![](../../.gitbook/assets/wandb-system-utilization.png)
 
-```python
-flags.DEFINE_string("model", None, "model to run") # name, default, help
-wandb.config.update(flags.FLAGS) # adds all absl flags to config
-```
+## Model Tab
 
-## File-Based Configs
+* See the layers of your model, the number of parameters, and the output shape of each layer
 
-If you create a file called `config-defaults.yaml`,  and it will automatically be loaded into `wandb.config`.
+[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
-{% code title="configs-default.yaml" %}
-```yaml
-# sample config defaults file
-epochs:
-  desc: Number of epochs to train over
-  value: 100
-batch_size:
-  desc: Size of each mini-batch
-  value: 32
-```
-{% endcode %}
+![](../../.gitbook/assets/wandb-run-page-model-tab.png)
 
-These values can then be over-written inside your script by passing values to the `config` argument of `wandb.init`.
+## Logs Tab
 
-You can also load different config files with the command line argument `--configs`.
+* Output printed on the command line, the stdout and stderr from the machine training the model
+* We show the last 1000 lines. After the run has finished, if you'd like to download the full log file, click the download button in the upper right corner.
 
-One example use case: you have a YAML file with some metadata for the run, and then a dictionary of hyperparameters in your Python script. You can save both in the nested `config` object:
+[View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
-```python
-hyperparameter_defaults = dict(
-    dropout=0.5,
-    batch_size=100,
-    learning_rate=0.001,
-    )
+![](../../.gitbook/assets/wandb-run-page-log-tab.png)
 
-config_dictionary = dict(
-    yaml=my_yaml_file,
-    params=hyperparameter_defaults,
-    )
+## Files Tab
 
-wandb.init(config=config_dictionary)
-```
+* Save files to sync with the run using [`wandb.save()`](advanced/save-restore.md)
+* Keep model checkpoints, validation set examples, and more
+* Use the `diff.patch` to [restore](advanced/save-restore.md) the exact version of your code [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
 
-## Dataset Identifier
+{% hint style="info" %}
+The W&B [Artifacts](../artifacts/) system adds extra features for handling, versioning, and deduplicating large files like datasets and models. We recommend you use Artifacts for tracking inputs and outputs of runs, rather than `wandb.save`. Check out the Artifacts quickstart [here](../artifacts/).
+{% endhint %}
 
-You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking it as input to your experiment using `wandb.config`
+![](../../.gitbook/assets/wandb-run-page-files-tab.png)
 
-```yaml
-wandb.config.update({"dataset": "ab131"})
-```
+## Artifacts Tab
 
-## Update Config Files
+* Provides a searchable list of the input and output [Artifacts](../artifacts/) for this run
+* Click a row to see information about a particular artifact used or produced by this run
+* See the reference for the [project](../../ref/app/pages/project-page.md)-level [Artifacts Tab](../../ref/app/pages/project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app [View a live example →](https://wandb.ai/stacey/artifact_july_demo/runs/2cslp2rt/artifacts)
 
-You can use the public API to add values your `config` file, even after the run has finished.
-
-```python
-import wandb
-api = wandb.Api()
-run = api.run("username/project/run_id")
-run.config["foo"] = 32
-run.update()
-```
-
-## Key Value Pairs
-
-You can log any key-value pairs into `wandb.config`. They can be different for every type of model you are training, e.g.`wandb.config.update({"my_param": 10, "learning_rate": 0.3, "model_architecture": "B"})`.
-
-## TensorFlow v1 Flags
-
-You can pass TensorFlow flags into the `wandb.config` object directly.
-
-```python
-wandb.init()
-wandb.config.epochs = 4
-
-flags = tf.app.flags
-flags.DEFINE_string("data_dir", "/tmp/data")
-flags.DEFINE_integer("batch_size", 128, "Batch size.")
-wandb.config.update(flags.FLAGS)  # adds all of the tensorflow flags as config
-```
+![](../../.gitbook/assets/image%20%28141%29.png)
 
