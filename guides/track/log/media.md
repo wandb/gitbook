@@ -324,13 +324,11 @@ wandb.log({"point_scene": point_scene})
 wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
 ```
 
-Log molecular data in any of 10 file types:
-
-`'pdb', 'pqr', 'mmcif', 'mcif', 'cif', 'sdf', 'sd', 'gro', 'mol2', 'mmtf'`
+Log molecular data in any of 10 file types:`pdb`, `pqr`, `mmcif`, `mcif`, `cif`, `sdf`, `sd`, `gro`, `mol2`, or `mmtf.`
 
 When your run finishes, you'll be able to interact with 3D visualizations of your molecules in the UI.
 
-[See a live example →](https://app.wandb.ai/nbaryd/Corona-Virus/reports/Visualizing-Molecular-Structure-with-Weights-%26-Biases--Vmlldzo2ODA0Mw)
+[See a live example using AlphaFold →](http://wandb.me/alphafold-workspace)
 
 ![](../../../.gitbook/assets/docs-molecule.png)
 {% endtab %}
