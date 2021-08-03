@@ -13,7 +13,7 @@ Looking for reference docs for our media types? You want [this page](../../../re
 {% embed url="https://www.youtube.com/watch?v=96MxRvx15Ts" %}
 
 {% hint style="info" %}
-You can see working code to log all of these media objects in [this Colab Notebook](http://wandb.me/media-colab), check out what the results look like on wandb.ai [here](https://wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA), and follow along with a video tutorial, linked **above**.
+You can see working code to log all of these media objects in [this Colab Notebook](http://wandb.me/media-colab), check out what the results look like on wandb.ai [here](https://wandb.ai/lavanyashukla/visualize-predictions/reports/Visualize-Model-Predictions--Vmlldzo1NjM4OA), and follow along with a video tutorial, linked above.
 {% endhint %}
 
 ## Images
