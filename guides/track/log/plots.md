@@ -248,6 +248,8 @@ Use `define_metric` to set custom x-axes or capture the min and max values of yo
 
 ### Custom X Axis
 
+By default, all metrics are logged against the same x-axis, which is the W&B internal `step`. Sometimes, you might want to log to a previous step, or use a different x-axis.
+
 Here's an example of setting a custom x-axis metric, instead of the default step:
 
 ```python
