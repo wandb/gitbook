@@ -32,9 +32,9 @@ You can control the legend of your chart to show for any run any config value th
 
 Example:
 
-${config:x} will insert the config value of x for a run or group.
+`${config:x}` will insert the config value of x for a run or group.
 
-You can set \[\[$x: $y\]\] to display point specific values in the crosshair
+You can set `[[$x: $y]]` to display point specific values in the crosshair. For example, `${run:runInfo.gpu[[${x}:${y}]}` will include gpu name in the legend of a panel.
 
 ## Grouping
 
