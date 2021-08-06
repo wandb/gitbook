@@ -243,7 +243,7 @@ If you’re getting an error “You attempted to log an empty plot” then you c
 
 Use `define_metric` to set custom x-axes or capture the min and max values of your metrics.
 
-* **Custom x-axes** are useful in contexts where you need to log to different time steps in the past during training, asynchronously. This happens with look-ahead algorithms or with deep RL using rollout workers.
+* **Custom x-axes** are useful in contexts where you need to log to different time steps in the past during training, asynchronously. For example, this can be useful in RL where you may track an episode loss and per step loss.
 * **Min and max metric values** are useful to summarize model performance at the best step, instead of the last step of training. For example, you might want to capture the maximum accuracy or the minimum loss value, instead of the final value.
 
 ### Custom X Axis
@@ -259,7 +259,7 @@ wandb.init()
 # define our custom x axis metric
 wandb.define_metric("custom_step")
 # define which metrics will be plotted against it
-wandb.define_metric("validation_loss", step_metric='custom_step')
+wandb.define_metric("validation_loss", step_metric="custom_step")
 for i in range(10):
   log_dict = {
       "train_loss": 1/(i+1),
@@ -269,9 +269,28 @@ for i in range(10):
   wandb.log(log_dict)
 ```
 
+The X Axis can be set using globs as well. Currently, only globs that have string prefixes are available. The following example will plot all logged metrics with the prefix "train" to the x-axis "train\_step":
+
+```python
+import wandb
+
+wandb.init()
+# define our custom x axis metric
+wandb.define_metric("train_step")
+wandb.define_metric("train*", step_metric="train_step")
+for i in range(10):
+  log_dict = {
+      "train_loss": 1/(i+1), # x-axis is train_step
+      "train_accuracy": 1 -  (1/(1+i)), # x-axis is train_step
+      "val_loss": 1/(1+i), # x-axis is internal wandb step
+      "train_step": i
+  }
+  wandb.log(log_dict)
+```
+
 ### Min/Max of Metrics
 
-Here's an example of capturing the min value of loss, and the max value of accuracy in the summary, instead of the default summary behavior, which uses the final value from history.
+Summary metrics can be controlled using the `summary` argument in `define_metric` which accepts values: `min`, `max`, `mean` ,`best`, `last` and `none`. The `best` parameter can only be used in conjunction with the optional `objective` argument which accepts values `minimize` and `maximize`. Here's an example of capturing the min value of loss, and the max value of accuracy in the summary, instead of the default summary behavior, which uses the final value from history.
 
 ```python
 import wandb
