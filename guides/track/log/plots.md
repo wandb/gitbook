@@ -239,3 +239,29 @@ Just pass a `matplotlib` plot or figure object to `wandb.log()`. By default we'l
 If you’re getting an error “You attempted to log an empty plot” then you can store the figure separately from the plot with `fig = plt.figure()` and then log `fig` in your call to `wandb.log`.
 {% endhint %}
 
+## Advanced Metric Logging
+
+Use `define_metric` to set custom x-axes or capture the min and max values of your metrics.
+
+* **Custom x-axes** are useful in contexts where you need to log to different time steps in the past during training, asynchronously. This happens with look-ahead algorithms or with deep RL using rollout workers.
+* **Min and max metric values** are useful to summarize model performance at the best step, instead of the last step of training. For example, you might want to capture the maximum accuracy or the minimum loss value, instead of the final value.
+
+Here's an example of setting a custom x-axis metric, instead of the default step:
+
+```python
+import wandb
+
+wandb.init()
+# define our custom x axis metric
+wandb.define_metric("custom_step")
+# define which metrics will be plotted against it
+wandb.define_metric("validation_loss", step_metric='custom_step')
+for i in range(10):
+  log_dict = {
+      "train_loss": 1/(i+1),
+      "custom_step": i**2,
+      "validation_loss": 1/(i+1)   
+  }
+  wandb.log(log_dict)
+```
+
