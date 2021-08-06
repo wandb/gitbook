@@ -246,6 +246,8 @@ Use `define_metric` to set custom x-axes or capture the min and max values of yo
 * **Custom x-axes** are useful in contexts where you need to log to different time steps in the past during training, asynchronously. This happens with look-ahead algorithms or with deep RL using rollout workers.
 * **Min and max metric values** are useful to summarize model performance at the best step, instead of the last step of training. For example, you might want to capture the maximum accuracy or the minimum loss value, instead of the final value.
 
+### Custom X Axis
+
 Here's an example of setting a custom x-axis metric, instead of the default step:
 
 ```python
@@ -261,6 +263,29 @@ for i in range(10):
       "train_loss": 1/(i+1),
       "custom_step": i**2,
       "validation_loss": 1/(i+1)   
+  }
+  wandb.log(log_dict)
+```
+
+### Min/Max of Metrics
+
+Here's an example of capturing the min value of loss, and the max value of accuracy in the summary, instead of the default summary behavior, which uses the final value from history.
+
+```python
+import wandb
+import random
+
+random.seed(1)
+wandb.init()
+# define a metric we are interested in the minimum of
+wandb.define_metric("loss", summary="min")
+# define a metric we are interested in the maximum of
+wandb.define_metric("acc", summary="max")
+for i in range(10):
+  log_dict = {
+      "loss": random.uniform(0,1/(i+1)),
+      "acc": random.uniform(1/(i+1),1),
+      "val_metric": 1/(i+1)   
   }
   wandb.log(log_dict)
 ```
