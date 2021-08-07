@@ -86,12 +86,12 @@ run.summary.update()
 
 ## Define Metric
 
-Use `define_metric` to set custom x-axes or capture the min and max values of your metrics.
+Use `define_metric` to set a **custom x axis** or capture the **min/max of metrics**.
 
 [Try Define Metric live in Google Colab →](https://colab.research.google.com/github/wandb/examples/blob/master/W%26B_Define_Metric.ipynb)
 
 * **Custom x-axes** are useful in contexts where you need to log to different time steps in the past during training, asynchronously. For example, this can be useful in RL where you may track an episode loss and per step loss.
-* **Min and max metric values** are useful to summarize model performance at the best step, instead of the last step of training. For example, you might want to capture the maximum accuracy or the minimum loss value, instead of the final value.
+* **Min/max of metrics** are useful to summarize model performance at the best step, instead of the last step of training. For example, you might want to capture the maximum accuracy or the minimum loss value, instead of the final value.
 
 ### Custom X Axis
 
