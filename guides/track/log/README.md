@@ -84,7 +84,7 @@ run.summary["tensor"] = np.random.random(1000)
 run.summary.update()
 ```
 
-## Advanced Metric Logging
+## Define Metric
 
 Use `define_metric` to set custom x-axes or capture the min and max values of your metrics.
 
