@@ -252,7 +252,9 @@ Use `define_metric` to set custom x-axes or capture the min and max values of yo
 
 By default, all metrics are logged against the same x-axis, which is the W&B internal `step`. Sometimes, you might want to log to a previous step, or use a different x-axis.
 
-Here's an example of setting a custom x-axis metric, instead of the default step:
+Here's an example of setting a custom x-axis metric, instead of the default step.
+
+[Try Define Metric live in Google Colab →](https://colab.research.google.com/github/wandb/examples/blob/master/W%26B_Define_Metric.ipynb)
 
 ```python
 import wandb
@@ -294,6 +296,8 @@ for i in range(10):
 
 Summary metrics can be controlled using the `summary` argument in `define_metric` which accepts values: `min`, `max`, `mean` ,`best`, `last` and `none`. The `best` parameter can only be used in conjunction with the optional `objective` argument which accepts values `minimize` and `maximize`. Here's an example of capturing the min value of loss, and the max value of accuracy in the summary, instead of the default summary behavior, which uses the final value from history.
 
+[Try Define Metric live in Google Colab →](https://colab.research.google.com/github/wandb/examples/blob/master/W%26B_Define_Metric.ipynb)
+
 ```python
 import wandb
 import random
@@ -308,8 +312,11 @@ for i in range(10):
   log_dict = {
       "loss": random.uniform(0,1/(i+1)),
       "acc": random.uniform(1/(i+1),1),
-      "val_metric": 1/(i+1)   
   }
   wandb.log(log_dict)
 ```
+
+Here's what the resulting min and max summary values look like, in pinned columns in the sidebar on the Project Page workspace:
+
+![](../../../.gitbook/assets/image%20%28144%29.png)
 
