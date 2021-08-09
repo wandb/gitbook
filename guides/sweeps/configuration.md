@@ -252,7 +252,7 @@ We support the following stopping algorithm\(s\):
 [Hyperband](https://arxiv.org/abs/1603.06560) stopping evaluates whether a program should be stopped or permitted to continue at one or more pre-set iteration counts, called "brackets". When a run reaches a bracket, its metric value is compared to all previous reported metric values and the run is terminated if its value is too high \(when the goal is minimization\) or low \(when the goal is maximization\).
 
 {% hint style="warning" %}
-Brackets are based on _logging_ iterations for the metric, which may be epochs, steps, or something in between.
+Brackets are based on the number of _logged_ iterations, i.e. elements in the run's history. Depending on where you are calling [`wandb.log`](../track/log/),  these iterations may correspond to steps, epochs, or something in between. The numerical value of the step counter is not used in bracket calculations.
 {% endhint %}
 
 In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
