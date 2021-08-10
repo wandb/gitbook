@@ -91,6 +91,24 @@ On a new line, press `/` to add rich content.
 
 ![](../.gitbook/assets/demo-type-slash-in-report.gif)
 
+### List of markdown shortcuts
+
+| Markdown | Shortcuts |
+| :--- | :--- |
+| Bold | `*<content>*` |
+| Italics | `_<content>_` |
+| List item | `*` , `-`  |
+| Ordered list item | `1.`  |
+| Checklist | `[]`  |
+| Blockquote | `>` , `|`  |
+| Heading 1 |  `#`  |
+| Heading 2 | `##`  |
+| Heading 3 | `###`  |
+| Code block | ```````````  |
+| Inline code | `````  |
+| Callout block | `>>>`  |
+| Horizontal rule | `---`, `___` |
+
 ### Add charts to a report
 
 Again press `/`, then add a panel grid, then add a panel \(like a line plot, scatter plot, or parallel coordinates chart\). Each panel grid has a set of run sets and a set of panels. The run sets at the bottom of the section control what data shows up on the panels in the grid. Create a new panel grid if you want to add charts that pull data from a different set of runs.
