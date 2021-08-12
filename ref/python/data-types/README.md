@@ -1,26 +1,35 @@
-# Data Types
+# data-types
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.11.1/wandb/__init__.py)
+<!-- Insert buttons and diff -->
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.0/wandb/__init__.py)
+
+
+
+
+
+
 
 ## Classes
 
-[`class Audio`](audio.md): Wandb class for audio clips.
+[`class Audio`](./audio.md): Wandb class for audio clips.
 
-[`class Graph`](graph.md): Wandb class for graphs
+[`class Graph`](./graph.md): Wandb class for graphs
 
-[`class Histogram`](histogram.md): wandb class for histograms.
+[`class Histogram`](./histogram.md): wandb class for histograms.
 
-[`class Html`](html.md): Wandb class for arbitrary html
+[`class Html`](./html.md): Wandb class for arbitrary html
 
-[`class Image`](image.md): Wandb class for images.
+[`class Image`](./image.md): Wandb class for images.
 
-[`class Molecule`](molecule.md): Wandb class for Molecular data
+[`class Molecule`](./molecule.md): Wandb class for Molecular data
 
-[`class Object3D`](object3d.md): Wandb class for 3D point clouds.
+[`class Object3D`](./object3d.md): Wandb class for 3D point clouds.
 
-[`class Plotly`](plotly.md): Wandb class for plotly plots.
+[`class Plotly`](./plotly.md): Wandb class for plotly plots.
 
-[`class Table`](table.md): The Table class is used to display and analyze tabular data.
+[`class Table`](./table.md): The Table class is used to display and analyze tabular data.
 
-[`class Video`](video.md): Wandb representation of video.
+[`class Video`](./video.md): Wandb representation of video.
 
