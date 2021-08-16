@@ -149,7 +149,7 @@ The files panel lists the files and folders associated with the artifact. You ca
 
 ### Graph View panel
 
-![](../../../.gitbook/assets/image%20%28137%29.png)
+![](../../../.gitbook/assets/image%20%28137%29%20%281%29.png)
 
 The graph view panel provides a view of all of the artifacts associated with a project and the runs that connect them to each other. It shows run types as blocks and artifacts as circles, with arrows to indicate when a run of a given type consumes or produces an artifact of a given type. The type of the particular artifact selected in the left-hand column is highlighted.
 

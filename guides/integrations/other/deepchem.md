@@ -18,7 +18,7 @@ To read a Report with charts generated using the W&B DeepChem integration, have 
 
 {% embed url="https://wandb.ai/kshen/deepchem\_graphconv/reports/Using-W-B-with-DeepChem-Molecular-Graph-Convolutional-Networks--Vmlldzo4MzU5MDc?galleryTag=" %}
 
-If you'd rather dive straight into working code, check out this [Google Colab](https://colab.research.google.com/drive/14FKoN4pOileKTvmdcTdhwzcSMzPzPtKj?usp=sharing#scrollTo=1_ZMHcO7Awcc).
+If you'd rather dive straight into working code, check out this ****[**Google Colab**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/deepchem/W%26B_x_DeepChem.ipynb).
 
 ## Getting started: track experiments
 
