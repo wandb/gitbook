@@ -4,17 +4,15 @@ description: How to integrate a PyTorch script to log metrics to W&B
 
 # PyTorch
 
-## Usage Examples
-
 {% hint style="info" %}
 Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) \(with video walkthrough below\) or see our [example repo](https://github.com/wandb/examples) for scripts, including one on hyperparameter optimization using [Hyperband](https://arxiv.org/abs/1603.06560) on [Fashion MNIST](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), plus the [W&B Dashboard](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs) it generates.
 {% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=G7GH0SeNBMA" caption="Follow along with a video tutorial!" %}
 
-## Using `wandb.watch`
+## Logging gradients with `wandb.watch`
 
-W&B provides first class support for PyTorch. To automatically log gradients, you can call `watch` and pass in your PyTorch model.
+W&B provides first class support for PyTorch. To automatically log gradients, you can call [`wandb.watch`](../../ref/python/watch.md) and pass in your PyTorch model.
 
 ```python
 import wandb
@@ -35,59 +33,53 @@ for batch_idx, (data, target) in enumerate(train_loader):
         wandb.log({"loss": loss})
 ```
 
+If you need to track multiple models in the same script, you can call `wandb.watch` on each model separately. Reference documentation for this function is [here](../../ref/python/watch.md).
+
 {% hint style="warning" %}
 Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward _and_ backward pass.
 {% endhint %}
 
-### Options
+## Logging images and media
 
-By default the hook only logs gradients.
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Arguments</th>
-      <th style="text-align:left">Options</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>log</code>
-      </td>
-      <td style="text-align:left">
-        <ul>
-          <li><code>all</code>: log histograms of both gradients and parameters</li>
-          <li><code>gradients </code>: log histograms of gradients (default)</li>
-          <li><code>parameters </code>: log histograms of parameters</li>
-          <li><code>None</code>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>log_freq</code>
-      </td>
-      <td style="text-align:left">integer (default <code>1000</code>): The number of steps between logging
-        gradients/parameters</td>
-    </tr>
-  </tbody>
-</table>
-
-## Images
-
-You can pass PyTorch tensors with image data into [`wandb.Image`](../../ref/python/data-types/image.md) and [`torchvision`](https://pytorch.org/vision/stable/index.html) utils will be used to log them automatically.
-
-To log images and view them in the [Media panel](../track/log/#media), you can use the following syntax:
+You can pass PyTorch `Tensors` with image data into [`wandb.Image`](../../ref/python/data-types/image.md) and utilities from [`torchvision`](https://pytorch.org/vision/stable/index.html) will be used to convert them to images automatically:
 
 ```python
-wandb.log({"examples" : [wandb.Image(i) for i in images]})
+images_t = ...  # generate or load images as PyTorch Tensors
+wandb.log({"examples" : [wandb.Image(im) for im in images_t]})
 ```
 
-## Multiple Models
+For more on logging rich media to W&B in PyTorch and other frameworks, check out our [media logging guide](../track/log/media.md).
 
-If you need to track multiple models in the same script, you can call `wandb.watch` on each model separately.
+## Profiling PyTorch code
 
-## Data Visualization with W&B Tables
+![View detailed traces of PyTorch code execution inside W&amp;B dashboards.](../../.gitbook/assets/image%20%28136%29.png)
+
+W&B integrates directly with [PyTorch Kineto](https://github.com/pytorch/kineto)'s [Tensorboard plugin](https://github.com/pytorch/kineto/blob/master/tb_plugin/README.md) to provide tools for profiling PyTorch code, inspecting the details of CPU and GPU communication, and identifying bottlenecks and optimizations.
+
+```python
+profiler = torch.profiler.profile(
+    schedule=schedule,  # see the profiler docs for details on scheduling
+    on_trace_ready=torch.profiler.tensorboard_trace_handler("path/to/run/tbprofile")
+    with_stack=True)
+
+with profiler:
+    ...  # run the code you want to profile here
+    # see the profiler docs for detailed usage information
+
+# create a wandb Artifact
+profile_art = wandb.Artifact("trace", type="profile")
+# 
+profile_art.add_file("path/to/run/tbprofile/*.pt.trace.json")
+run.log_artifact(profile_art) 
+```
+
+See and run working example code in [this Colab](http://wandb.me/trace-colab).
+
+{% hint style="warning" %}
+The interactive trace viewing tool is based on the Chrome Trace Viewer, which only works with the Chrome browser.
+{% endhint %}
+
+## Data visualization with W&B Tables
 
 Use [W&B Tables](https://docs.wandb.ai/guides/data-vis) to log, query, and analyze your data. You can think of a W&B Table as a `DataFrame` that you can interact with inside W&B. Tables support rich media types, primitive and numeric types, as well as nested lists and dictionaries. 
 
