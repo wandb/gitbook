@@ -50,6 +50,23 @@ wandb.log({"examples" : [wandb.Image(im) for im in images_t]})
 
 For more on logging rich media to W&B in PyTorch and other frameworks, check out our [media logging guide](../track/log/media.md).
 
+If you also want to include information alongside media, like your model's predictions or derived metrics, use a `wandb.Table`.
+
+```python
+my_table = wandb.Table()
+
+my_table.add_column("image", images_t)
+my_table.add_column("label", labels)
+my_table.add_column("class_prediction", predictions_t)
+
+# Log your Table to W&B
+wandb.log({"mnist_predictions": my_table})
+```
+
+![The code above generates a table like this one. This model&apos;s looking good!](../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
+
+For more on logging and visualizing datasets and models, check out our [guide to W&B Tables](../data-vis/).
+
 ## Profiling PyTorch code
 
 ![View detailed traces of PyTorch code execution inside W&amp;B dashboards.](../../.gitbook/assets/image%20%28136%29.png)
@@ -57,9 +74,10 @@ For more on logging rich media to W&B in PyTorch and other frameworks, check out
 W&B integrates directly with [PyTorch Kineto](https://github.com/pytorch/kineto)'s [Tensorboard plugin](https://github.com/pytorch/kineto/blob/master/tb_plugin/README.md) to provide tools for profiling PyTorch code, inspecting the details of CPU and GPU communication, and identifying bottlenecks and optimizations.
 
 ```python
+profile_dir = "path/to/run/tbprofile/"
 profiler = torch.profiler.profile(
     schedule=schedule,  # see the profiler docs for details on scheduling
-    on_trace_ready=torch.profiler.tensorboard_trace_handler("path/to/run/tbprofile")
+    on_trace_ready=torch.profiler.tensorboard_trace_handler(profile_dir)
     with_stack=True)
 
 with profiler:
@@ -68,45 +86,15 @@ with profiler:
 
 # create a wandb Artifact
 profile_art = wandb.Artifact("trace", type="profile")
-# 
-profile_art.add_file("path/to/run/tbprofile/*.pt.trace.json")
-run.log_artifact(profile_art) 
+# add the pt.trace.json files to the Artifact
+profile_art.add_file(glob.glob(profile_dir + ".pt.trace.json"))
+# log the artifact
+profile_art.save()
 ```
 
 See and run working example code in [this Colab](http://wandb.me/trace-colab).
 
 {% hint style="warning" %}
-The interactive trace viewing tool is based on the Chrome Trace Viewer, which only works with the Chrome browser.
+The interactive trace viewing tool is based on the Chrome Trace Viewer, which works best with the Chrome browser.
 {% endhint %}
-
-## Data visualization with W&B Tables
-
-Use [W&B Tables](https://docs.wandb.ai/guides/data-vis) to log, query, and analyze your data. You can think of a W&B Table as a `DataFrame` that you can interact with inside W&B. Tables support rich media types, primitive and numeric types, as well as nested lists and dictionaries. 
-
-This pseudo-code shows you how to log images, along with their ground truth and predicted class, to W&B Tables:
-
-```python
-# Create a new W&B Run
-wandb.init(project="mnist")
-
-# Create a W&B Table
-my_table = wandb.Table(columns=["id", "image", "labels", "prediction"])
-
-# Get your image data and make predictions
-image_tensors, labels = get_mnist_data()
-predictions = model(image_tensors)
-
-# Add your image data and predictions to the W&B Table
-for idx, im in enumerate(image_tensors): 
-  my_table.add_data(idx, wandb.Image(im), labels[idx], predictions[id])
-
-# Log your Table to W&B
-wandb.log({"mnist_predictions": my_table})
-```
-
-This is will produce a Table like this:
-
-![](../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
-
-For more examples of data visualization with W&B Tables, please see [the documentation](https://docs.wandb.ai/guides/data-vis).
 
