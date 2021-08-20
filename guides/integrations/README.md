@@ -23,7 +23,6 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 * [PyTorch Lightning](lightning.md)
 * [PyTorch Ignite](other/ignite.md)
 * [TensorFlow](tensorflow.md)
-* [TensorBoard](tensorboard.md)
 * [Fastai](fastai/)
 * [Scikit](scikit.md)
 {% endtab %}
@@ -38,6 +37,7 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 {% endtab %}
 
 {% tab title="Popular Tools" %}
+* [TensorBoard](tensorboard.md)
 * [SageMaker](other/sagemaker.md)
 * [Kubeflow](other/kubeflow.md)
 * [Docker](other/docker.md)
