@@ -22,6 +22,10 @@ Authenticate your machine with your [API key](https://wandb.ai/authorize) in one
 1. Run `wandb login`  on the command line and paste in your API key.
 2. Set the `WANDB_API_KEY` environment variable to your API key.
 
+### Find the run path
+
+To use the Public API, you'll often need the run path which is `<entity>/<project>/<run_id>`. In the app UI, open a run page and click the [Overview tab ](../../ref/app/pages/run-page.md#overview-tab)to get the run path.
+
 ### Export Run Data
 
 Download data from a finished or active run. Common usage includes downloading a dataframe for custom analysis in a Jupyter notebook, or using custom logic in an automated environment.
@@ -132,10 +136,6 @@ After calling `wandb.init()`  you can access the random run ID or the human read
 * **Run tags**: Track things dynamically in run tags, and use filters in the UI to filter your table down to just the runs you care about. You can set tags from your script and then edit them in the UI, both in the runs table and the overview tab of the run page. See the detailed instructions [here](../../ref/app/features/tags.md).
 
 ## Public API Examples
-
-### Find the run path
-
-To use the public API, you'll often need the run path which is `"<entity>/<project>/<run_id>"`  In the app, open a run and click on the [Overview tab ](../../ref/app/pages/run-page.md#overview-tab)to see the run path for any run.
 
 ### Read metrics from a run
 
