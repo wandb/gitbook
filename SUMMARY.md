@@ -35,6 +35,7 @@
     * [Scikit-Learn](guides/integrations/scikit.md)
     * [XGBoost & LightGBM](guides/integrations/boosting.md)
     * [Other Integrations](guides/integrations/other/README.md)
+      * [Metaflow](guides/integrations/other/metaflow.md)
       * [Catalyst](guides/integrations/other/catalyst.md)
       * [DeepChem](guides/integrations/other/deepchem.md)
       * [Databricks](guides/integrations/other/databricks.md)
