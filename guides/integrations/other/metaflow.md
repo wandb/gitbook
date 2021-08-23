@@ -4,7 +4,7 @@
 
 Metaflow is a framework created by Netflix for creating and running ML workflows.
 
-This integration lets users apply decorators to Metaflow `Flow` and `Step` to automatically log parameters and artifacts to W&B by typedispatch.
+This integration lets users apply decorators to Metaflow Steps and Flows to automatically log parameters and artifacts to W&B by typedispatch.
 
 * Decorating a Step will enable or disable logging for certain types within that Step.
 * Decorating the Flow is equivalent to decorating all Steps with a default
@@ -35,7 +35,7 @@ wandb login
 
 {% tabs %}
 {% tab title="Step" %}
-Decorating a **Step** will enable or disable logging for certain types within that Step.
+Decorating a Step will enable or disable logging for certain types within that Step.
 
 * In this case, all datasets and models in `start` will be logged
 
@@ -53,7 +53,7 @@ class WandbExampleFlow(FlowSpec):
 {% endtab %}
 
 {% tab title="Flow" %}
-Decorating the **Flow** is equivalent to decorating all Steps with a default.
+Decorating the Flow is equivalent to decorating all Steps with a default.
 
 * In this case, all steps in `WandbExampleFlow` will log datasets and models by default.
 * This is the same as decorating each step with `@wandb_log(datasets=True, models=True)`
@@ -72,9 +72,9 @@ class WandbExampleFlow(FlowSpec):
 {% endtab %}
 
 {% tab title="Both Flow and Steps" %}
-Decorating the **Flow** is equivalent to decorating all Steps with a default.
+Decorating the Flow is equivalent to decorating all Steps with a default.
 
-* If you later decorate a **Step** with another `@wandb_log`, you will override the Flow decoration
+* If you later decorate a Step with another `@wandb_log`, you will override the Flow decoration
 * In this case:
   * `start` and `mid` will log datasets and models by default, but
   * `end` will NOT log datasets OR models
