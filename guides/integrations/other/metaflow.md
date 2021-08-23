@@ -2,16 +2,16 @@
 
 ## Overview
 
-Metaflow is a framework created by Netflix for creating and running ML workflows.
+[Metaflow](https://docs.metaflow.org/) is a framework created by [Netflix](https://netflixtechblog.com/) for creating and running ML workflows.
 
-This integration lets users apply decorators to Metaflow Steps and Flows to automatically log parameters and artifacts to W&B by typedispatch.
+This integration lets users apply decorators to Metaflow [steps and flows](https://docs.metaflow.org/metaflow/basics) to automatically log parameters and artifacts to W&B.
 
-* Decorating a Step will enable or disable logging for certain types within that Step.
-* Decorating the Flow is equivalent to decorating all Steps with a default
+* Decorating a step will enable or disable logging for certain types within that step.
+* Decorating the flow will enable or disable logging for every step in the flow.
 
 ## Quickstart
 
-### Install W&B
+### Install W&B and login
 
 {% tabs %}
 {% tab title="Notebook" %}
@@ -31,13 +31,13 @@ wandb login
 {% endtab %}
 {% endtabs %}
 
-### Decorate your Flow and Steps
+### Decorate your flows and steps
 
 {% tabs %}
 {% tab title="Step" %}
-Decorating a Step will enable or disable logging for certain types within that Step.
+Decorating a step will enable or disable logging for certain types within that Step.
 
-* In this case, all datasets and models in `start` will be logged
+In this example, all datasets and models in `start` will be logged
 
 ```python
 from wandb.integration.metaflow import wandb_log
@@ -53,10 +53,9 @@ class WandbExampleFlow(FlowSpec):
 {% endtab %}
 
 {% tab title="Flow" %}
-Decorating the Flow is equivalent to decorating all Steps with a default.
+Decorating a flow is equivalent to decorating all the constituent steps with a default.
 
-* In this case, all steps in `WandbExampleFlow` will log datasets and models by default.
-* This is the same as decorating each step with `@wandb_log(datasets=True, models=True)`
+In this case, all steps in `WandbExampleFlow` will log datasets and models by default -- the same as decorating each step with `@wandb_log(datasets=True, models=True)`
 
 ```python
 from wandb.integration.metaflow import wandb_log
@@ -71,64 +70,128 @@ class WandbExampleFlow(FlowSpec):
 ```
 {% endtab %}
 
-{% tab title="Both Flow and Steps" %}
-Decorating the Flow is equivalent to decorating all Steps with a default.
+{% tab title="Both flow and steps" %}
+Decorating the flow is equivalent to decorating all steps with a default. That means if you later decorate a Step with another `@wandb_log`, you will override the flow-level decoration.
 
-* If you later decorate a Step with another `@wandb_log`, you will override the Flow decoration
-* In this case:
-  * `start` and `mid` will log datasets and models by default, but
-  * `end` will NOT log datasets OR models
+In the example below:
+
+* `start` and `mid` will log datasets and models, but
+* `end` will not log datasets or models.
 
 ```python
 from wandb.integration.metaflow import wandb_log
 
 @wandb_log(datasets=True, models=True)  # same as decorating start and mid
 class WandbExampleFlow(FlowSpec):
-    # This step will log datasets and models
-    @step
-    def start(self):
-        self.raw_df = pd.read_csv(...).    # pd.DataFrame -> upload as dataset
-        self.model_file = torch.load(...)  # nn.Module    -> upload as model
-        self.next(self.mid)
+  # this step will log datasets and models
+  @step
+  def start(self):
+    self.raw_df = pd.read_csv(...).    # pd.DataFrame -> upload as dataset
+    self.model_file = torch.load(...)  # nn.Module    -> upload as model
+    self.next(self.mid)
 
-    # This step will also log datasets and models
-    @step
-    def mid(self):
-        self.raw_df = pd.read_csv(...).    # pd.DataFrame -> upload as dataset
-        self.model_file = torch.load(...)  # nn.Module    -> upload as model
-        self.next(self.end)
+  # this step will also log datasets and models
+  @step
+  def mid(self):
+    self.raw_df = pd.read_csv(...).    # pd.DataFrame -> upload as dataset
+    self.model_file = torch.load(...)  # nn.Module    -> upload as model
+    self.next(self.end)
 
-    # This step is overwritten and will NOT log datasets OR models
-    @wandb_log(datasets=False, models=False)
-    @step
-    def end(self):
-        self.raw_df = pd.read_csv(...).    
-        self.model_file = torch.load(...)
+  # this step is overwritten and will NOT log datasets OR models
+  @wandb_log(datasets=False, models=False)
+  @step
+  def end(self):
+    self.raw_df = pd.read_csv(...).    
+    self.model_file = torch.load(...)
 ```
 {% endtab %}
 {% endtabs %}
 
-## Where is my data?
+## Where is my data? Can I access it programmatically?
 
-| Data | CLI | UI |
+You can access the information we've captured in three ways: inside the original Python process being logged using the [`wandb` client library](../../../ref/python/), via the [web app UI](../../../ref/app/), or programmatically using [our Public API](../../../ref/python/public-api/). `Parameter`s are saved to W&B's [`config`](../../track/config.md) and can be found in the [Overview tab](../../../ref/app/pages/run-page.md#overview-tab). `datasets`, `models`, and `others` are saved to [W&B Artifacts](../../artifacts/artifacts-core-concepts.md) and can be found in the [Artifacts tab](../../../ref/app/pages/run-page.md#artifacts-tab). Base python types are saved to W&B's [`summary`](../../track/log/) dict and can be found in the Overview tab. See our [guide to the Public API](../../track/public-api-guide.md) for details on using the API to get this information programmatically from outside .
+
+Here's a cheatsheet:
+
+| Data | Client library | UI |
 | :--- | :--- | :--- |
-| `Parameter(...)` | `wandb.config` | Overview tab &gt;&gt; Config  |
-| `datasets, models, others` | `wandb.use_artifact("{var_name}:latest")` | Artifacts tab |
-| Base python types \(dict, list, set, str, int, float, bool\) | `wandb.summary` | Overview tab &gt;&gt; Summary |
+| `Parameter(...)` | `wandb.config` | Overview tab, Config  |
+| `datasets`, `models`, `others` | `wandb.use_artifact("{var_name}:latest")` | Artifacts tab |
+| Base Python types \(`dict`, `list`, `str`, etc.\) | `wandb.summary` | Overview tab,  Summary |
 
-* `Parameter` are saved to W&B's config dict and can be found in the Overview tab
-* `datasets`, `models`, and `others` are saved to W&B Artifacts and can be found in the Artifacts tab
-* Base python types are saved to W&B's summary dict and can be found in the Overview tab.
+### `wandb_log` kwargs
 
-## Advanced
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">kwarg</th>
+      <th style="text-align:left">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>datasets</code>
+      </td>
+      <td style="text-align:left">
+        <ul>
+          <li><code>True</code>: Log instance variables that are a dataset</li>
+          <li><code>False</code>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>models</code>
+      </td>
+      <td style="text-align:left">
+        <ul>
+          <li><code>True</code>: Log instance variables that are a model</li>
+          <li><code>False</code>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>others</code>
+      </td>
+      <td style="text-align:left">
+        <ul>
+          <li><code>True</code>: Log anything else that is serializable as a pickle</li>
+          <li><code>False</code>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>settings</code>
+      </td>
+      <td style="text-align:left">
+        <ul>
+          <li><code>wandb.Settings(...)</code>: Specify your own <code>wandb</code> settings
+            for this step or flow</li>
+          <li><code>None</code>: Equivalent to passing <code>wandb.Settings()</code>
+          </li>
+        </ul>
+        <p>By default, if:</p>
+        <ul>
+          <li><code>settings.run_group</code> is <code>None</code>, it will be set to <code>{flow_name}/{run_id}</code>
+          </li>
+          <li><code>settings.run_job_type</code> is <code>None</code>, it will be set
+            to <code>{run_job_type}/{step_name}</code>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-### What gets logged?
+## Frequently Asked Questions
 
-#### Instance vs. Local variables
+### What exactly do you log? Do you log all instance and local variables?
 
 `wandb_log` only logs instance variables.  Local variables are NEVER logged.  This is useful to avoid logging unnecessary data.  
 
-#### Type-based logging
+### Which data types get logged?
 
 We currently support these types:
 
@@ -178,83 +241,21 @@ We currently support these types:
       </td>
       <td style="text-align:left">
         <ul>
-          <li>Anything that is pickle-able</li>
+          <li>Anything that is <a href="https://wiki.python.org/moin/UsingPickle">pickle-able</a>
+          </li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-#### Examples of logging behaviour
+### Examples of logging behaviour
 
 | Kind of Variable | Behaviour | Example | Data Type |
 | :--- | :--- | :--- | :--- |
-| Instance | Auto- logged | `self.accuracy` | `float` |
-| Instance | Auto-logged \(if `datasets=True`\) | `self.df` | `pd.DataFrame` |
-| Instance | Not logged \(if `datasets=False`\) | `self.df` | `pd.DataFrame` |
+| Instance | Auto-logged | `self.accuracy` | `float` |
+| Instance | Logged if `datasets=True` | `self.df` | `pd.DataFrame` |
+| Instance | Not logged if `datasets=False` | `self.df` | `pd.DataFrame` |
 | Local | Never logged | `accuracy` | `float` |
 | Local | Never logged | `df` | `pd.DataFrame` |
-
-### `wandb_log` kwargs
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">kwarg</th>
-      <th style="text-align:left">Options</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">datasets</td>
-      <td style="text-align:left">
-        <ul>
-          <li><code>True</code>: Log instance variables that are a dataset</li>
-          <li><code>False</code>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">models</td>
-      <td style="text-align:left">
-        <ul>
-          <li><code>True</code>: Log instance variables that are a model</li>
-          <li><code>False</code>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">others</td>
-      <td style="text-align:left">
-        <ul>
-          <li><code>True</code>: Log anything else that is serializable as a pickle</li>
-          <li><code>False</code>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">settings</td>
-      <td style="text-align:left">
-        <ul>
-          <li><code>wandb.Settings(...)</code>: Specify your own wandb settings for
-            this step(s)</li>
-          <li><code>None</code>: Equivalent to passing <code>wandb.Settings()</code>
-          </li>
-        </ul>
-        <p>By default, if:</p>
-        <ul>
-          <li><code>settings.run_group</code> is None, it will be set to <code>{flow_name}/{run_id}</code>
-          </li>
-          <li><code>settings.run_job_type</code> is None, it will be set to <code>{run_job_type}/{step_name}</code>
-          </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
 
