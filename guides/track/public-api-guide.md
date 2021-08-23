@@ -255,9 +255,9 @@ metrics_dataframe = run.history()
 metrics_dataframe.to_csv("metrics.csv")
 ```
 
-### Export metrics from a large single run without sampling
+### Get unsampled metric data
 
-The default history method samples the metrics to a fixed number of samples \(the default is 500, you can change this with the _samples_ argument\). If you want to export all of the data on a large run, you can use the `run.scan_history()` method. This script loads all of the loss metrics into a variable losses for a longer run.
+When you pull data from history, by default it's sampled to 500 points. Get all the logged data points using `run.scan_history()`. Here's an example downloading all the `loss` data points logged in history.
 
 ```python
 import wandb
@@ -265,7 +265,19 @@ api = wandb.Api()
 
 run = api.run("<entity>/<project>/<run_id>")
 history = run.scan_history()
-losses = [row["Loss"] for row in history]
+losses = [row["loss"] for row in history]
+```
+
+### Get paginated data from history
+
+If metrics are being fetched slowly on our backend or API requests are timing out, you can try lowering the page size in `scan_history` so that individual requests don't time out. The default page size is 500, so you can experiment with different sizes to see what works best:
+
+```python
+import wandb
+api = wandb.Api()
+
+run = api.run("<entity>/<project>/<run_id>")
+run.scan_history(keys=sorted(cols), page_size=100)
 ```
 
 ### Export metrics from all runs in a project to a CSV file
@@ -432,18 +444,5 @@ run = api.run("<entity>/<project>/<run_id>")
 
 meta = json.load(run.file("wandb-metadata.json").download())
 program = ["python"] + [meta["program"]] + meta["args"]
-```
-
-### Get paginated data from history
-
-If metrics are being fetched slowly on our backend or API requests are timing out, you can try lowering the page size in `scan_history` so that individual requests don't time out. The default page size is 500, so you can experiment with different sizes to see what works best:
-
-```python
-import wandb
-api = wandb.Api()
-
-run = api.run("<entity>/<project>/<run_id>")
-
-run.scan_history(keys=sorted(cols), page_size=100)
 ```
 
