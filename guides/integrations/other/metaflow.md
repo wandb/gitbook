@@ -25,7 +25,7 @@ wandb.login()
 
 {% tab title="Command Line" %}
 ```
-pip install wandb
+pip install -Uqq wandb
 wandb login
 ```
 {% endtab %}
