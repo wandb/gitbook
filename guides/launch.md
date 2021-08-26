@@ -19,6 +19,7 @@ These are the prerequisites for using W&B Launch to re-run an existing run with 
 * **W&B Authentication**: The machine used to launch the run must be logged into W&B
 * **Git Authentication**: The machine must have permissions for the associated git repo
 * **Enable Launch**: add "instant replay" to your profile bio to activate launch UI features.
+* **pip**: on the machine you're intending to launch the run, run `pip install --upgrade wandb[launch]`
 
 You do not need:
 
@@ -292,6 +293,20 @@ You can specify the name of the queue for an agent to use using the `wandb launc
 ### Can I connect agents to different queues?
 
 An agent can run jobs from a single queue or multiple queues at a time, specified as a list of comma-separated names, e.g. `--queues q1,q2,q3`. If you don't specify a queue with the `--queues` flag, the agent will run jobs from the default queue for the project.
+
+### How can I create a default run queue for my project through the CLI?
+
+Start by adding a run to the default run queue for your project \(`<project>`\) belonging to entity \(`<entity>`\) by using:
+
+`wandb launch --queue default https://wandb.ai/<entity>/<project>/runs/<run_id>`
+
+This will create a default run queue, and push the run at the URI to it.
+
+{% hint style="info" %}
+This strategy will only work for creating the default run queue. Other queue names will not work.
+{% endhint %}
+
+Alternatively, visit the Launch tab in the project workspace to automatically create a default run queue.
 
 ### How can I delete a run queue?
 
