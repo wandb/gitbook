@@ -75,9 +75,11 @@ You can specify user-created queues with `--queue <queuename>`. Without a specif
 
 As with launching an individual run, you can specify a config file, or JSON string as your launch config using the `-c, --config` flag.
 
-## Using the launch agent
+### 2. Set up the launch agent
 
-To run jobs scheduled on a run queue, start a launch agent on the machine where you intend on running your experiments. Use `wandb launch-agent <project>` to launch an agent. An agent can run jobs from a single queue or multiple queues at a time, specified as a list of comma-separated names, e.g. `--queues q1,q2,q3`. If you don't specify a queue with the `--queues` flag, the agent will run jobs from the default queue for the project.
+To run jobs scheduled on a run queue, start a launch agent on the machine where you intend on running your experiments. Use `wandb launch-agent <project>` to launch an agent. 
+
+An agent can run jobs from a single queue or multiple queues at a time, specified as a list of comma-separated names, e.g. `--queues q1,q2,q3`. If you don't specify a queue with the `--queues` flag, the agent will run jobs from the default queue for the project.
 
 The agent will pop items off of the queue\(s\) and run them one-at-a-time, on the local machine. This way you can queue up a sequence of jobs and have them run automatically.
 
