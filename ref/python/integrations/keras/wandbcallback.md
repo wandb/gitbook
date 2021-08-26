@@ -47,9 +47,9 @@ model.fit(X_train,
 | `log_gradients` | \(boolean\) if True log histograms of the training gradients |
 | `training_data` | \(tuple\) Same format `(X,y)` as passed to `model.fit`. This is needed for calculating gradients - this is mandatory if `log_gradients` is `True`. |
 | `validation_data` | \(tuple\) Same format `(X,y)` as passed to `model.fit`. A set of data for wandb to visualize. If this is set, every epoch, wandb will make a small number of predictions and save the results for later visualization. |
-| `generator` | \(generator\) a generator that returns validation data for wandb to visualize. This generator should return tuples `(X,y)`. Either `validate_data` or generator should be set for wandb to visualize specific data examples. |
+| `generator` | \(generator\) a generator that returns validation data for wandb to visualize. This generator should return tuples `(X,y)`. Either `validation_data` or generator should be set for wandb to visualize specific data examples. |
 | `validation_steps` | \(int\) if `validation_data` is a generator, how many steps to run the generator for the full validation set. |
-| `labels` | \(list\) If you are visualizing your data with wandb this list of labels will convert numeric output to understandable string if you are building a multiclass classifier. If you are making a binary classifier you can pass in a list of two labels \["label for false", "label for true"\]. If `validate_data` and generator are both false, this won't do anything. |
+| `labels` | \(list\) If you are visualizing your data with wandb this list of labels will convert numeric output to understandable string if you are building a multiclass classifier. If you are making a binary classifier you can pass in a list of two labels \["label for false", "label for true"\]. If `validation_data` and generator are both false, this won't do anything. |
 | `predictions` | \(int\) the number of predictions to make for visualization each epoch, max is 100. |
 | `input_type` | \(string\) type of the model input to help visualization. can be one of: \(`image`, `images`, `segmentation_mask`\). |
 | `output_type` | \(string\) type of the model output to help visualziation. can be one of: \(`image`, `images`, `segmentation_mask`\). |
