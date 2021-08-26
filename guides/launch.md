@@ -19,7 +19,7 @@ These are the prerequisites for using W&B Launch to re-run an existing run with 
 * **W&B Authentication**: The machine used to launch the run must be logged into W&B
 * **Git Authentication**: The machine must have permissions for the associated git repo
 * **Enable Launch**: add "instant replay" to your profile bio to activate launch UI features.
-* **pip**: on the machine you're intending to launch the run, run `pip install --upgrade wandb[launch]`
+* **pip**: on the machine you're intending to launch the run, run `pip install --upgrade "wandb[launch]"`
 
 You do not need:
 
