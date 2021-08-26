@@ -71,6 +71,7 @@
     * [Advanced Sweeps Features](guides/sweeps/advanced-sweeps/README.md)
       * [Local Controller](guides/sweeps/advanced-sweeps/local-controller.md)
       * [Ray Tune Sweeps](guides/sweeps/advanced-sweeps/ray-tune.md)
+  * [\[Beta\] W&B Launch](guides/launch.md)
   * [Self-Hosting](guides/self-hosted/README.md)
     * [Local](guides/self-hosted/local.md)
     * [Setup](guides/self-hosted/setup.md)
