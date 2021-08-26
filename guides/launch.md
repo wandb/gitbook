@@ -18,6 +18,7 @@ These are the prerequisites for using W&B Launch to re-run an existing run with 
 * **Docker**: The machine where you are launching the run must have a recent version of Docker
 * **W&B Authentication**: The machine used to launch the run must be logged into W&B
 * **Git Authentication**: The machine must have permissions for the associated git repo
+* **Enable Launch**: add "instant replay" to your profile bio to activate launch UI features.
 
 You do not need:
 
@@ -79,35 +80,17 @@ As with launching an individual run, you can specify a config file, or JSON stri
 
 To run jobs scheduled on a run queue, start a launch agent on the machine where you intend on running your experiments. Use `wandb launch-agent <project>` to launch an agent. 
 
-An agent can run jobs from a single queue or multiple queues at a time, specified as a list of comma-separated names, e.g. `--queues q1,q2,q3`. If you don't specify a queue with the `--queues` flag, the agent will run jobs from the default queue for the project.
-
 The agent will pop items off of the queue\(s\) and run them one-at-a-time, on the local machine. This way you can queue up a sequence of jobs and have them run automatically.
 
-## Managing Run Queues
-
-### Create a run queue
-
-Go to your [project page](https://docs.wandb.ai/ref/app/pages/project-page), and click on the Launch tab. Create, delete and view the runs in each queue within a [project workspace](../ref/app/pages/project-page.md#workspace-tab).
-
-Click the "Create Queue" button to create a new run queue. If your project is inside a team, you can create a private queue, or you can create a queue that is available to the entire team.
-
-![](../.gitbook/assets/image%20%28149%29.png)
-
-### See the Status of Queued Runs
+## See the Status of Queued Runs
 
 Queued runs can be seen in the Launch Tab. Runs can be deleted from the run queue using the triple dot menu for each run.
 
 ![](../.gitbook/assets/image%20%28150%29.png)
 
-### Delete a Run Queue
+## The Launch Config Specification
 
-Full run queues can be deleted as well. Select the queue or queues to be deleted, and click delete. This will delete queued runs that have not started, but not delete any runs that have been started.
-
-![](../.gitbook/assets/image%20%28148%29.png)
-
-### The Launch Config Specification
-
-All configurable options definable in the launch config are discussed here:
+All configurable options definable in the launch config and in `wandb launch` arguments are discussed here:
 
 <table>
   <thead>
@@ -292,4 +275,33 @@ When using `wandb launch <uri>` you can modify how the launched run behaves to b
 	}
 }
 ```
+
+### Does every agent have to work from the same queue?
+
+No, different agents can listen to different queues. You can manage your run queues in the Launch Tab within a project workspace. This way you can set up a run queue for different machines or different users.
+
+To create a new run queue:
+
+1. Go to your [project page](https://docs.wandb.ai/ref/app/pages/project-page), and click on the Launch tab. Create, delete and view the runs in each queue within a [project workspace](../ref/app/pages/project-page.md#workspace-tab).
+2. Click the "Create Queue" button to create a new run queue. If your project is inside a team, you can create a private queue, or you can create a queue that is available to the entire team.
+
+![](../.gitbook/assets/image%20%28149%29.png)
+
+You can specify the name of the queue for an agent to use using the `wandb launch-agent --queues <queue-name> <project>`
+
+### Can I connect agents to different queues?
+
+An agent can run jobs from a single queue or multiple queues at a time, specified as a list of comma-separated names, e.g. `--queues q1,q2,q3`. If you don't specify a queue with the `--queues` flag, the agent will run jobs from the default queue for the project.
+
+### How can I delete a run queue?
+
+Full run queues can be deleted as well. Select the queue or queues to be deleted, and click delete. This will delete queued runs that have not started, but not delete any runs that have been started. 
+
+![](../.gitbook/assets/image%20%28148%29.png)
+
+{% hint style="info" %}
+The project's default queue cannot be deleted.
+{% endhint %}
+
+
 
