@@ -76,7 +76,7 @@ Learn more about using artifacts for data and model versioning:
 4. [Model Versioning](model-versioning.md)
 5. [Artifacts FAQs](artifacts-faqs.md)
 6. [Artifacts Examples](examples.md)
-7. [Artifact](https://docs.wandb.ai/ref/python/artifact) reference docs
+7. [Artifact reference docs](https://docs.wandb.ai/ref/python/artifact)
 
 ## Video Tutorial for W&B Artifacts
 
