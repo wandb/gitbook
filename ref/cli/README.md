@@ -1,8 +1,9 @@
-# Command Line Interface
+# wandb
 
 **Usage**
 
 `wandb [OPTIONS] COMMAND [ARGS]...`
+
 
 **Options**
 
@@ -20,10 +21,12 @@
 | controller | Run the W&B local sweep controller |
 | disabled | Disable W&B. |
 | docker | W&B docker lets you run your code in a docker image ensuring... |
-| docker-run | Simple wrapper for `docker run` which adds WANDB\_API\_KEY and... |
+| docker-run | Simple wrapper for `docker run` which adds WANDB_API_KEY and... |
 | enabled | Enable W&B. |
 | init | Configure a directory with Weights & Biases |
-| local | Launch local W&B container \(Experimental\) |
+| launch | Launch or queue a job from a uri (Experimental). |
+| launch-agent | Run a W&B launch agent (Experimental) |
+| local | Launch local W&B container (Experimental) |
 | login | Login to Weights & Biases |
 | offline | Disable W&B sync |
 | online | Enable W&B sync |
@@ -33,4 +36,3 @@
 | sweep | Create a sweep |
 | sync | Upload an offline training directory to W&B |
 | verify | Verify your local instance |
-

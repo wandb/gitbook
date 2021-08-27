@@ -1,6 +1,10 @@
-# wandb.apis.public.Files
+# Files
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.0/wandb/apis/public.py#L1550-L1613)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.1/wandb/apis/public.py#L1659-L1722)
+
+
 
 An iterable collection of `File` objects.
 
@@ -10,7 +14,13 @@ Files(
 )
 ```
 
+
+
+
+
+
+
 | Class Variables |  |
 | :--- | :--- |
-| `QUERY` |  |
+|  `QUERY`<a id="QUERY"></a> |   |
 

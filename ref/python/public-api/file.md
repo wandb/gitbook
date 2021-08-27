@@ -1,6 +1,10 @@
-# wandb.apis.public.File
+# File
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.0/wandb/apis/public.py#L1616-L1719)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.1/wandb/apis/public.py#L1725-L1828)
+
+
 
 File is a class associated with a file saved by wandb.
 
@@ -10,23 +14,33 @@ File(
 )
 ```
 
+
+
+
+
+
+
 | Attributes |  |
 | :--- | :--- |
 
 
+
 ## Methods
 
-### `delete` <a id="delete"></a>
+<h3 id="delete"><code>delete</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.0/wandb/apis/public.py#L1699-L1712)
+[View source](https://www.github.com/wandb/client/tree/v0.12.1/wandb/apis/public.py#L1808-L1821)
 
 ```python
 delete()
 ```
 
-### `download` <a id="download"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.0/wandb/apis/public.py#L1676-L1697)
+
+
+<h3 id="download"><code>download</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.1/wandb/apis/public.py#L1785-L1806)
 
 ```python
 download(
@@ -36,11 +50,18 @@ download(
 
 Downloads a file previously saved by a run from the wandb server.
 
+
 | Arguments |  |
 | :--- | :--- |
-| replace \(boolean\): If `True`, download will overwrite a local file if it exists. Defaults to `False`. root \(str\): Local directory to save the file. Defaults to ".". |  |
+|  replace (boolean): If `True`, download will overwrite a local file if it exists. Defaults to `False`. root (str): Local directory to save the file. Defaults to ".". |
+
+
 
 | Raises |  |
 | :--- | :--- |
-| `ValueError` if file already exists and replace=False |  |
+|  `ValueError` if file already exists and replace=False |
+
+
+
+
 

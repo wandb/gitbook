@@ -1,6 +1,10 @@
-# wandb.data\_types.Html
+# Html
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.0/wandb/sdk/data_types.py#L947-L1037)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.1/wandb/sdk/data_types.py#L947-L1037)
+
+
 
 Wandb class for arbitrary html
 
@@ -11,18 +15,29 @@ Html(
 ) -> None
 ```
 
+
+
+
+
 | Arguments |  |
 | :--- | :--- |
-| `data` | \(string or io object\) HTML to display in wandb |
-| `inject` | \(boolean\) Add a stylesheet to the HTML object. If set to False the HTML will pass through unchanged. |
+|  `data` |  (string or io object) HTML to display in wandb |
+|  `inject` |  (boolean) Add a stylesheet to the HTML object. If set to False the HTML will pass through unchanged. |
+
+
 
 ## Methods
 
-### `inject_head` <a id="inject_head"></a>
+<h3 id="inject_head"><code>inject_head</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.0/wandb/sdk/data_types.py#L989-L1004)
+[View source](https://www.github.com/wandb/client/tree/v0.12.1/wandb/sdk/data_types.py#L989-L1004)
 
 ```python
 inject_head() -> None
 ```
+
+
+
+
+
 
