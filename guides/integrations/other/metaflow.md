@@ -16,7 +16,7 @@ This integration lets users apply decorators to Metaflow [steps and flows](https
 {% tabs %}
 {% tab title="Notebook" %}
 ```python
-!pip install -Uqq wandb
+!pip install -Uqqq metaflow fastcore wandb
 
 import wandb
 wandb.login()
@@ -25,7 +25,7 @@ wandb.login()
 
 {% tab title="Command Line" %}
 ```
-pip install -Uqq wandb
+pip install -Uqqq metaflow fastcore wandb
 wandb login
 ```
 {% endtab %}
