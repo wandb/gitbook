@@ -19,7 +19,7 @@ from wandb.integration.prodigy import upload_dataset
 upload_dataset("name_of_dataset_in_database")
 ```
 
-W&B will automatically try to convert certain images and named entity fields to [wandb.Image](https://docs.wandb.ai/ref/python/data-types/image) and [wandb.Html](https://docs.wandb.ai/ref/python/data-types/html) respectively. Extra columns may be added to the resulting table to include these visualizations.
+W&B will automatically try to convert images and named entity fields to [wandb.Image](https://docs.wandb.ai/ref/python/data-types/image) and [wandb.Html](https://docs.wandb.ai/ref/python/data-types/html) respectively. Extra columns may be added to the resulting table to include these visualizations.
 
 ## Requirements
 
