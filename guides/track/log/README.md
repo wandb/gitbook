@@ -84,22 +84,20 @@ run.summary["tensor"] = np.random.random(1000)
 run.summary.update()
 ```
 
-## Define Metric
+## Customize axes and summaries with `define_metric`
 
-Use `define_metric` to set a **custom x axis** or capture the **min/max of metrics**.
+[Try `define_metric` live in Google Colab →](http://wandb.me/define-metric-colab)
 
-[Try Define Metric live in Google Colab →](https://colab.research.google.com/github/wandb/examples/blob/master/W%26B_Define_Metric.ipynb)
+Use `define_metric` to set a **custom x axis** or capture a **custom summary of a metric**.
 
-* **Custom x-axes** are useful in contexts where you need to log to different time steps in the past during training, asynchronously. For example, this can be useful in RL where you may track an episode loss and per step loss.
-* **Min/max of metrics** are useful to summarize model performance at the best step, instead of the last step of training. For example, you might want to capture the maximum accuracy or the minimum loss value, instead of the final value.
+* **Custom x-axes** are useful in contexts where you need to log to different time steps in the past during training, asynchronously. For example, this can be useful in RL where you may track the per-episode reward and a per-step reward.
+* **Custom metric summaries** are useful to capture model performance at the best step, instead of the last step, of training in your `wandb.summary`. For example, you might want to capture the maximum accuracy or the minimum loss value, instead of the final value.
 
-### Custom X Axis
+### Customize axes
 
 By default, all metrics are logged against the same x-axis, which is the W&B internal `step`. Sometimes, you might want to log to a previous step, or use a different x-axis.
 
 Here's an example of setting a custom x-axis metric, instead of the default step.
-
-[Try Define Metric live in Google Colab →](https://colab.research.google.com/github/wandb/examples/blob/master/W%26B_Define_Metric.ipynb)
 
 ```python
 import wandb
@@ -109,6 +107,7 @@ wandb.init()
 wandb.define_metric("custom_step")
 # define which metrics will be plotted against it
 wandb.define_metric("validation_loss", step_metric="custom_step")
+
 for i in range(10):
   log_dict = {
       "train_loss": 1/(i+1),
@@ -118,30 +117,31 @@ for i in range(10):
   wandb.log(log_dict)
 ```
 
-The X Axis can be set using globs as well. Currently, only globs that have string prefixes are available. The following example will plot all logged metrics with the prefix "train" to the x-axis "train\_step":
+The x axis can be set using globs as well. Currently, only globs that have string prefixes are available. The following example will plot all logged metrics with the prefix `"train/"` to the x-axis `"train/step"`:
 
 ```python
 import wandb
 
 wandb.init()
 # define our custom x axis metric
-wandb.define_metric("train_step")
-wandb.define_metric("train*", step_metric="train_step")
+wandb.define_metric("train/step")
+# set all other train/ metrics to use this step
+wandb.define_metric("train/*", step_metric="train/step")
+
 for i in range(10):
   log_dict = {
-      "train_loss": 1/(i+1), # x-axis is train_step
-      "train_accuracy": 1 -  (1/(1+i)), # x-axis is train_step
-      "val_loss": 1/(1+i), # x-axis is internal wandb step
-      "train_step": i
+      "train/step": 2 ** i  # grows exponentially with internal wandb step
+      "train/loss": 1/(i+1), # x-axis is train/step
+      "train/accuracy": 1 -  (1/(1+i)), # x-axis is train/step
+      "val/loss": 1/(1+i), # x-axis is internal wandb step
+      
   }
   wandb.log(log_dict)
 ```
 
-### Min/Max of Metrics
+### Customize the summary
 
-Summary metrics can be controlled using the `summary` argument in `define_metric` which accepts values: `min`, `max`, `mean` ,`best`, `last` and `none`. The `best` parameter can only be used in conjunction with the optional `objective` argument which accepts values `minimize` and `maximize`. Here's an example of capturing the min value of loss, and the max value of accuracy in the summary, instead of the default summary behavior, which uses the final value from history.
-
-[Try Define Metric live in Google Colab →](https://colab.research.google.com/github/wandb/examples/blob/master/W%26B_Define_Metric.ipynb)
+Summary metrics can be controlled using the `summary` argument in `define_metric` which accepts the following values: `"min"`, `"max"`, `"mean"` ,`"best"`, `"last"` and `"none"`. The `"best"` parameter can only be used in conjunction with the optional `objective` argument which accepts values `"minimize"` and `"maximize"`. Here's an example of capturing the lowest value of loss and the maximum value of accuracy in the summary, instead of the default summary behavior, which uses the final value from history.
 
 ```python
 import wandb
