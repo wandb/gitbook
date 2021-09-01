@@ -371,7 +371,7 @@ Vous pouvez enregistrer ceci du moment que votre code a accès aux éléments su
 * les étiquettes vérité-terrain correspondantes \( `ground_truth` \) de ces exemples
 * une liste complète des noms d’étiquettes/de classe sous forme de chaînes de données \( `labels=["chat", "chien", "oiseau"...`\] si l’index d’étiquette 0 veut dire chat, 1 = chien, 2 = oiseau, etc.\)
 
-![](../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.png)
+![](../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%281%29.png)
 
 ​​ [Voir dans l’app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)
 
