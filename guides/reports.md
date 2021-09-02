@@ -173,9 +173,7 @@ Share a view-only link to a report that is in a private project or team project.
 
 View-only report links add a secret access token to the URL, so anyone who opens the link can view the page. For customers on [W&B Local](self-hosted/) private cloud installations, these links will still be behind your firewall, so only members of your team with access to your private instance _and_ access to the view-only link will be able to view the report.
 
-In view mode, someone who is not logged in can see the charts and mouse over to see tooltips of values, zoom in and out on charts, and scroll through columns in the table. When in view mode, they cannot create new charts or new table queries to explore the data.
-
-The view-only access token grants permissions to the project, so if a collaborator wants to click into a specific run from a report to learn more about the details of a certain model, that functionality will work properly with view-only report links.
+In view mode, someone who is not logged in can see the charts and mouse over to see tooltips of values, zoom in and out on charts, and scroll through columns in the table. When in view mode, they cannot create new charts or new table queries to explore the data. View-only visitors to the report link won't be able to click on a run to get to the run page.
 
 ### Send a graph to a report
 
