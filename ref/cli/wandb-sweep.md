@@ -4,9 +4,11 @@
 
 `wandb sweep [OPTIONS] CONFIG_YAML_OR_SWEEP_ID`
 
+`wandb sweep --update USERNAME/PROJECTNAME/SWEEPID param1=value1 ...`
+
 **Summary**
 
-Create a sweep
+Create or update a sweep
 
 **Options**
 
