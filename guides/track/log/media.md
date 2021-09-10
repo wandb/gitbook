@@ -228,7 +228,7 @@ If histograms are in your summary they will appear on the Overview tab of the [R
 
 {% tabs %}
 {% tab title="3D Object" %}
-Log files in the formats `obj`, `gltf`, or `glb`, and we will render them in the UI when your run finishes.
+Log files in the formats `'obj', 'gltf', 'glb', 'babylon', 'stl', 'pts.json'`, and we will render them in the UI when your run finishes.
 
 ```python
 wandb.log({"generated_samples":
