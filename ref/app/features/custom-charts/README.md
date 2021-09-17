@@ -139,11 +139,14 @@ You can log this whenever your code has access to:
 {% tab title="ROC curve" %}
 `wandb.plot.roc_curve()`
 
-Log an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
+Create an [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve) in one line:
 
-```text
-wandb.log({"roc" : wandb.plot.roc_curve( ground_truth, predictions, \
-                        labels=None, classes_to_plot=None)})
+```python
+plot = wandb.plot.roc_curve(
+    ground_truth, predictions,
+    labels=None, classes_to_plot=None)
+    
+wandb.log({"roc": plot})
 ```
 
 You can log this whenever your code has access to:
