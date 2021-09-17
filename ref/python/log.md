@@ -33,7 +33,7 @@ wandb keeps track of a global step, which by default increments with each call t
 
 | Arguments |  |
 | :--- | :--- |
-| `row` | \(dict, optional\) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or any of the `wandb.data_types`. |
+| `data` | \(dict, optional\) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or any of the `wandb.data_types`. |
 | `commit` | \(boolean, optional\) Save the metrics dict to the wandb server and increment the step. If false `wandb.log` just updates the current metrics dict with the row argument and metrics won't be saved until `wandb.log` is called with `commit=True`. |
 | `step` | \(integer, optional\) The global step in processing. This persists any non-committed earlier steps but defaults to not committing the specified step. |
 | `sync` | \(boolean, True\) This argument is deprecated and currently doesn't change the behaviour of `wandb.log`. |
