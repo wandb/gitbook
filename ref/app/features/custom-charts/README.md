@@ -115,11 +115,14 @@ You can use this to log arbitrary histograms. Note that `data` is a list of list
 {% tab title="PR curve" %}
 `wandb.plot.pr_curve()`
 
-Log a [Precision-Recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) in one line:
+Create a [Precision-Recall curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#sklearn.metrics.precision_recall_curve) in one line:
 
 ```python
-wandb.log({"pr" : wandb.plot.pr_curve(ground_truth, predictions,
-                     labels=None, classes_to_plot=None)})
+plot = wandb.plot.pr_curve(
+    ground_truth, predictions,
+    labels=None, classes_to_plot=None)
+    
+wandb.log({"pr":})
 ```
 
 You can log this whenever your code has access to:
