@@ -1,6 +1,10 @@
-# wandb.data\_types.Image
+# Image
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.1/wandb/sdk/data_types.py#L1755-L2248)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L1755-L2248)
+
+
 
 Wandb class for images.
 
@@ -16,21 +20,30 @@ Image(
 ) -> None
 ```
 
+
+
+
+
 | Arguments |  |
 | :--- | :--- |
-| `data_or_path` | \(numpy array, string, io\) Accepts numpy array of image data, or a PIL image. The class attempts to infer the data format and converts it. |
-| `mode` | \(string\) The PIL mode for an image. Most common are "L", "RGB", "RGBA". Full explanation at [https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html\#concept-modes](https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes). |
-| `caption` | \(string\) Label for display of image. |
+|  `data_or_path` |  (numpy array, string, io) Accepts numpy array of image data, or a PIL image. The class attempts to infer the data format and converts it. |
+|  `mode` |  (string) The PIL mode for an image. Most common are "L", "RGB", "RGBA". Full explanation at https://pillow.readthedocs.io/en/4.2.x/handbook/concepts.html#concept-modes. |
+|  `caption` |  (string) Label for display of image. |
+
+
+
+
 
 | Attributes |  |
 | :--- | :--- |
 
 
+
 ## Methods
 
-### `all_boxes` <a id="all_boxes"></a>
+<h3 id="all_boxes"><code>all_boxes</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.1/wandb/sdk/data_types.py#L2173-L2194)
+[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L2173-L2194)
 
 ```python
 @classmethod
@@ -42,9 +55,12 @@ all_boxes(
 ) -> Union[List[Optional[dict]], bool]
 ```
 
-### `all_captions` <a id="all_captions"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.1/wandb/sdk/data_types.py#L2196-L2200)
+
+
+<h3 id="all_captions"><code>all_captions</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L2196-L2200)
 
 ```python
 @classmethod
@@ -53,9 +69,12 @@ all_captions(
 ) -> Union[bool, Sequence[Optional[str]]]
 ```
 
-### `all_masks` <a id="all_masks"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.1/wandb/sdk/data_types.py#L2150-L2171)
+
+
+<h3 id="all_masks"><code>all_masks</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L2150-L2171)
 
 ```python
 @classmethod
@@ -67,9 +86,12 @@ all_masks(
 ) -> Union[List[Optional[dict]], bool]
 ```
 
-### `guess_mode` <a id="guess_mode"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.1/wandb/sdk/data_types.py#L2044-L2058)
+
+
+<h3 id="guess_mode"><code>guess_mode</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L2044-L2058)
 
 ```python
 guess_mode(
@@ -79,9 +101,10 @@ guess_mode(
 
 Guess what type of image the np.array is representing
 
-### `to_uint8` <a id="to_uint8"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.1/wandb/sdk/data_types.py#L2060-L2082)
+<h3 id="to_uint8"><code>to_uint8</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L2060-L2082)
 
 ```python
 @classmethod
@@ -90,10 +113,15 @@ to_uint8(
 ) -> "np.ndarray"
 ```
 
-Converts floating point image on the range \[0,1\] and integer images on the range \[0,255\] to uint8, clipping if necessary.
+Converts floating point image on the range [0,1] and integer images
+on the range [0,255] to uint8, clipping if necessary.
+
+
+
+
 
 | Class Variables |  |
 | :--- | :--- |
-| `MAX_DIMENSION` | `65500` |
-| `MAX_ITEMS` | `108` |
+|  `MAX_DIMENSION`<a id="MAX_DIMENSION"></a> |  `65500` |
+|  `MAX_ITEMS`<a id="MAX_ITEMS"></a> |  `108` |
 

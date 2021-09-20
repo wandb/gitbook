@@ -42,6 +42,7 @@
       * [Kubeflow](guides/integrations/other/kubeflow.md)
       * [Metaflow](guides/integrations/other/metaflow.md)
       * [OpenAI Gym](guides/integrations/other/openai-gym.md)
+      * [Prodigy](guides/integrations/other/prodigy.md)
       * [PyTorch Ignite](guides/integrations/other/ignite.md)
       * [Ray Tune](guides/integrations/other/ray-tune.md)
       * [SageMaker](guides/integrations/other/sagemaker.md)
