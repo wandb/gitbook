@@ -12,7 +12,7 @@ Call `wandb.log(dict)` to log a dictionary of metrics, media, or custom objects 
 wandb.log({"loss": 0.314, "epoch": 5,
            "inputs": wandb.Image(inputs),
            "logits": wandb.Histogram(ouputs),
-           "captions": wandb.HTML(captions)})
+           "captions": wandb.Html(captions)})
 ```
 
 ### **Common Workflows**
