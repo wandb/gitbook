@@ -4,7 +4,13 @@ description: How to set up a centralized W&B Local Server
 
 # Setup
 
-A W&B Local Server is a docker image running on your infrastructure. See the following for instructions for how to provision a new instance.
+A W&B Local Server is a Docker container running on your infrastructure. See the following for instructions for how to provision a new instance.
+
+{% hint style="info" %}
+Check out a [video tutorial](https://www.youtube.com/watch?v=bYmLY5fT2oA) for getting set up using [Terraform](https://www.terraform.io/)!
+{% endhint %}
+
+{% embed url="https://www.youtube.com/watch?v=bYmLY5fT2oA" %}
 
 ## Amazon Web Services
 
