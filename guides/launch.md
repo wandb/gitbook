@@ -18,7 +18,7 @@ W&B Launch is the new beta tool for reproducing runs and orchestrating experimen
 2. In the Launch modal — edit the run config to change a hyperparameter, then click **Push Run**
 3. On the command line run `wandb launch-agent <project-name>`
 
-Here's what that looks like in the W&B UI:
+Here's what Launch looks like in the W&B UI:
 
 ![](../.gitbook/assets/demo-quickstart-wandb-launch.gif)
 
