@@ -109,37 +109,6 @@ For custom workflows, you can manually log your datasets and models:
 
 _Note: any subfolder "models" will be ignored._
 
-## Data Visualization with W&B Tables
-
-Use [W&B Tables](https://docs.wandb.ai/guides/data-vis) to log, query, and analyze your data. You can think of a W&B Table as a `DataFrame` that you can interact with inside W&B. Tables support rich media types, primitive and numeric types, as well as nested lists and dictionaries. 
-
-This pseudo-code shows you how to log images, along with their ground truth and predicted class, to W&B Tables:
-
-```python
-# Create a new W&B Run
-wandb.init(project="mnist")
-
-# Create a W&B Table
-my_table = wandb.Table(columns=["id", "image", "labels", "prediction"])
-
-# Get your image data and make predictions
-image_tensors, labels = get_mnist_data()
-predictions = model(image_tensors)
-
-# Add your image data and predictions to the W&B Table
-for idx, im in enumerate(image_tensors): 
-  my_table.add_data(idx, wandb.Image(im), labels[idx], predictions[id])
-
-# Log your Table to W&B
-wandb.log({"mnist_predictions": my_table})
-```
-
-This is will produce a Table like this:
-
-![](../../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
-
-For more examples of data visualization with W&B Tables, please see [the documentation](https://docs.wandb.ai/guides/data-vis).
-
 ## Examples
 
 * [Visualize, track, and compare Fastai models](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): A thoroughly documented walkthrough

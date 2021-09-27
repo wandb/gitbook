@@ -64,37 +64,6 @@ With TensorFlow 2, the recommended way of training a model with a custom loop is
 
 A full example is available [here](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2).
 
-## Data Visualization with W&B Tables
-
-Use [W&B Tables](https://docs.wandb.ai/guides/data-vis) to log, query, and analyze your data. You can think of a W&B Table as a `DataFrame` that you can interact with inside W&B. Tables support rich media types, primitive and numeric types, as well as nested lists and dictionaries. 
-
-This pseudo-code shows you how to log images, along with their ground truth and predicted class, to W&B Tables:
-
-```python
-# Create a new W&B Run
-wandb.init(project="mnist")
-
-# Create a W&B Table
-my_table = wandb.Table(columns=["id", "image", "labels", "prediction"])
-
-# Get your image data and make predictions
-image_tensors, labels = get_mnist_data()
-predictions = model(image_tensors)
-
-# Add your image data and predictions to the W&B Table
-for idx, im in enumerate(image_tensors): 
-  my_table.add_data(idx, wandb.Image(im), labels[idx], predictions[id])
-
-# Log your Table to W&B
-wandb.log({"mnist_predictions": my_table})
-```
-
-This is will produce a Table like this:
-
-![](../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
-
-For more examples of data visualization with W&B Tables, please see [the documentation](https://docs.wandb.ai/guides/data-vis).
-
 ## How is W&B different from TensorBoard?
 
 When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we've focused on improving:
