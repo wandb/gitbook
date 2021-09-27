@@ -6,6 +6,12 @@ description: Hyperparameter search and model optimization with W&B Sweeps
 
 Use Weights & Biases Sweeps to automate hyperparameter optimization and explore the space of possible models.
 
+{% hint style="info" %}
+Get started with Sweeps quickly with our [video tutorial](http://wandb.me/sweeps-video) and [Colab notebook](http://wandb.me/sweeps-colab).
+{% endhint %}
+
+{% embed url="http://wandb.me/sweeps-video" %}
+
 ## Benefits of using W&B Sweeps
 
 1. **Quick setup**: Get going with just a few lines of code. You can launch a sweep across dozens of machines, and it's just as easy as starting a sweep on your laptop.
