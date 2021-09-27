@@ -6,11 +6,11 @@ description: Reproduce runs and orchestrate experiments
 
 _W&B Launch is very early in development, and we're actively working on support for queueing and reproducing runs. Please reach out to us at support@wandb.com with any questions or suggestions._
 
-W&B Launch is the new beta tool for reproducing runs and orchestrating experiments. Launch provides a streamlined way to
+W&B Launch is the new beta tool for reproducing runs and orchestrating experiments. Launch provides a streamlined way to:
 
-1. Reproduce runs, or re-run previous runs with new parameters or datasets
-2. Create and manage queues of experiments through the UI or CLI
-3. Launch the experiments automatically on your own infrastructure
+* Reproduce runs, or re-run previous runs with new parameters or datasets
+* Create and manage queues of experiments through the UI or CLI
+* Launch the experiments automatically on your own infrastructure
 
 ## Quickstart
 
@@ -18,7 +18,7 @@ W&B Launch is the new beta tool for reproducing runs and orchestrating experimen
 2. In the Launch modal — edit the run config to change a hyperparameter, then click **Push Run**
 3. On the command line run `wandb launch-agent <project-name>`
 
-Here's what Launch looks like in the W&B UI:
+Here's what that looks like in the W&B UI:
 
 ![](../.gitbook/assets/demo-quickstart-wandb-launch.gif)
 
