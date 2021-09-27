@@ -4,11 +4,25 @@ description: Reproduce runs and orchestrate experiments
 
 # \[Beta\] W&B Launch
 
-_W&B Launch is very early in development, and we're actively working on building out the set of features we support for queueing and reproducing runs. Please reach out to us at support@wandb.com with any questions or suggestions._
+_W&B Launch is very early in development, and we're actively working on support for queueing and reproducing runs. Please reach out to us at support@wandb.com with any questions or suggestions._
 
-W&B Launch is the new beta tool for reproducing runs and orchestrating experiments. Launch provides a streamlined way to reproduce runs, create and manage queues of experiments through the UI or CLI, and have the experiments run automatically on your own infrastructure.
+W&B Launch is the new beta tool for reproducing runs and orchestrating experiments. Launch provides a streamlined way to
 
-### What runs can be reproduced by W&B Launch?
+1. Reproduce runs, or re-run previous runs with new parameters or datasets
+2. Create and manage queues of experiments through the UI or CLI
+3. Launch the experiments automatically on your own infrastructure
+
+## Quickstart
+
+1. Open a project, pick a run in the sidebar, and click **Add to Launch queue**
+2. In the Launch modal — edit the run config to change a hyperparameter, then click **Push Run**
+3. On the command line run `wandb launch-agent <project-name>`
+
+Here's what Launch looks like in the W&B UI:
+
+![](../.gitbook/assets/demo-quickstart-wandb-launch.gif)
+
+## What runs can be reproduced by W&B Launch?
 
 These are the prerequisites for using W&B Launch to re-run an existing run with new settings:
 
@@ -55,7 +69,7 @@ You can add runs to the queue from the App UI or from the command line.
 
 1. Open your [project page workspace](../ref/app/pages/project-page.md#workspace-tab) and look in the left sidebar, where the list of runs is
 2. Hover over a run to see the dropdown menu button appear on the left, next to the eye
-3. Click the menu, and select the option to **Push to runqueue**
+3. Click the menu, and select the option to **Add to Launch queue**
 
 ![](../.gitbook/assets/image%20%28146%29.png)
 
