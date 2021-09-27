@@ -78,9 +78,11 @@ Learn more about using artifacts for data and model versioning:
 6. [Artifacts Examples](examples.md)
 7. [Artifact reference docs](https://docs.wandb.ai/ref/python/artifact)
 
-## Video Tutorial for W&B Artifacts
+## Video tutorial for W&B Artifacts
 
-Follow along with our interactive [tutorial](https://www.youtube.com/watch?v=Hd94gatGMic) and learn how to track your machine learning pipeline with W&B Artifacts.
+Follow along with our [tutorial video](http://wandb.me/artifacts-video) and [interactive colab](http://wandb.me/artifacts-colab) and learn how to track your machine learning pipeline with W&B Artifacts.
 
-![](../../.gitbook/assets/wandb-artifacts-video.png)
+{% embed url="http://wandb.me/artifacts-video" %}
+
+
 
