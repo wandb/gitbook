@@ -163,6 +163,7 @@
         * [Code Saving](ref/app/features/panels/code.md)
         * [Parameter Importance](ref/app/features/panels/parameter-importance.md)
         * [Run Comparer](ref/app/features/panels/run-comparer.md)
+        * [Weave](ref/app/features/panels/weave.md)
       * [Custom Charts](ref/app/features/custom-charts/README.md)
         * [Custom Charts Walkthrough](ref/app/features/custom-charts/walkthrough.md)
       * [Runs Table](ref/app/features/runs-table.md)
