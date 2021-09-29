@@ -8,6 +8,10 @@ When `wandb.init()` is called from your training script an API call is made to c
 
 It is extremely important to us that we never interfere with your training runs. We run wandb in a separate process to make sure that if wandb somehow crashes, your training will continue to run. If the internet goes out, wandb will continue to retry sending data to [wandb.ai](https://wandb.ai).
 
+### **Why is a run marked crashed in W&B when it’s training fine locally?**
+
+This is likely a connection problem — if your server loses internet access and data stops syncing to W&B, we mark the run as crashed after a short period of retrying.
+
 ### Will wandb slow down my training?
 
 Wandb should have negligible effect on your training performance if you use it normally. Normal use of wandb means logging less than once a second and logging less than a few megabytes of data at each step. Wandb runs in a separate process and the function calls don't block, so if the network goes down briefly or there are intermittent read write issues on disk it should not affect your performance. It is possible to log a huge amount of data quickly, and if you do that you might create disk I/O issues. If you have any questions, please don't hesitate to contact us.
