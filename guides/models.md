@@ -18,7 +18,7 @@ Use W&B for **Model Management** to track and report on the complete lifecycle o
 
 ## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
-![](../.gitbook/assets/image%20%28151%29.png)
+![](../.gitbook/assets/image%20%28152%29.png)
 
 Above you can see a sample table of models with:
 
@@ -27,16 +27,6 @@ Above you can see a sample table of models with:
 3. **Status**: A label to indicate key model versions, like `production` 
 4. **Loss @ 10k**: Metric calculated on an evaluation set of 10k
 5. **Loss @ 1k:** Model metric calculated on an evaluation set of 1k
-
-## Core features for model management
-
-There are a few key features you can use to achieve the above Model Registry:
-
-1. \*\*\*\*[**Runs**](track/): Track a job execution in your ML pipeline — ex. model training, model evaluation
-2. \*\*\*\*[**Artifacts**](artifacts/): Track job inputs and outputs — ex. datasets, trained models
-3. \*\*\*\*[**Tables**](data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
-4. \*\*\*\*[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models
-5. \*\*\*\*[**Reports**](reports.md): Organize and visualize results — ex. charts, tables, and notes
 
 ## Quickstart Walkthrough
 
@@ -86,7 +76,19 @@ python model_evaluator.py
 
 ### 5. Visualize results
 
-Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models.
+Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
+
+![](../.gitbook/assets/image%20%28151%29.png)
+
+## Core features for model management
+
+There are a few key features you can use to achieve the above Model Registry:
+
+1. \*\*\*\*[**Runs**](track/): Track a job execution in your ML pipeline — ex. model training, model evaluation
+2. \*\*\*\*[**Artifacts**](artifacts/): Track job inputs and outputs — ex. datasets, trained models
+3. \*\*\*\*[**Tables**](data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
+4. \*\*\*\*[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models
+5. \*\*\*\*[**Reports**](reports.md): Organize and visualize results — ex. charts, tables, and notes
 
 
 
