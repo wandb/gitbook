@@ -30,7 +30,7 @@ Above you can see a sample table of models with:
 
 ## Quickstart Walkthrough
 
-[Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation) ****and follow along with this code example.
+[Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation) ****and follow along with this `model-evaluation` code example.
 
 ### **1. Install requirements**
 
