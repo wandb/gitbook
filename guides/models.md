@@ -16,7 +16,7 @@ Use W&B for **Model Management** to track and report on the complete lifecycle o
 4. **Metrics**: The evaluation results of a model on different golden datasets
 5. **Statuses**: Where each model is in the pipeline \(ex. "staging" or "production"\)
 
-## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
+## [Model Evaluation Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
 ![](../.gitbook/assets/image%20%28152%29.png)
 
