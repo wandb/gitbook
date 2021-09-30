@@ -10,11 +10,11 @@ _We are actively building out the model registry and model evaluation use cases 
 
 Use W&B for **Model Management** to track and report on the complete lifecycle of a model. Weights & Biases can log and capture:
 
-1. **Dataset**: The exact version of the dataset a model trained on
+1. **Datasets**: The exact version of the dataset a model trained on
 2. **Code**: The code used in model training
-3. **Model**: The weights of the trained model itself
+3. **Models**: The weights of the trained model itself
 4. **Metrics**: The evaluation results of a model on different golden datasets
-5. **Status**: Where each model is in the pipeline \(ex. "staging" or "production"\)
+5. **Statuses**: Where each model is in the pipeline \(ex. "staging" or "production"\)
 
 ## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
