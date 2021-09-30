@@ -16,7 +16,7 @@ Use W&B for **Model Management** to track and report on the complete lifecycle o
 4. **Metrics**: The evaluation results of a model on different golden datasets
 5. **Status**: Where each model is in the pipeline \(ex. "staging" or "production"\)
 
-### [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
+## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
 ![](../.gitbook/assets/image%20%28151%29.png)
 
@@ -37,6 +37,56 @@ There are a few key features you can use to achieve the above Model Registry:
 3. \*\*\*\*[**Tables**](data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
 4. \*\*\*\*[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models
 5. \*\*\*\*[**Reports**](reports.md): Organize and visualize results — ex. charts, tables, and notes
+
+## Quickstart Walkthrough
+
+[Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation) ****and follow along with this code example.
+
+### **1. Install requirements**
+
+Install the Weights & Biases library `wandb` and other dependencies.
+
+```text
+pip install -r requirements.txt
+```
+
+### **2. Register a dataset**
+
+Generate and register a dataset for a particular model use case. In this example, we use the MNIST dataset for simplicity.
+
+```text
+python dataset_generator.py
+```
+
+### **3. Train some models**
+
+Train a model based on the latest available dataset for the given model use case. Tweak hyperparameters from the command line, like this:
+
+```text
+python model_trainer.py
+python model_trainer.py --validation_split 0.05
+python model_trainer.py --validation_split 0.2
+python model_trainer.py --batch_size 64
+python model_trainer.py --batch_size 160
+```
+
+You'll be able to compare training performance for different models in the W&B dashboard.
+
+### **4. Evaluate candidate models**
+
+This script represents a workload that:
+
+1. Finds all models that haven't yet been evaluated on the latest evaluation dataset
+2. Runs the evaluation job for each model
+3. Labels the best model "production" to feed into an inference system
+
+```text
+python model_evaluator.py
+```
+
+### 5. Visualize results
+
+Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models.
 
 
 
