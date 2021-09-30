@@ -8,7 +8,7 @@ description: >-
 
 _We are actively building out the model registry and model evaluation use cases for W&B. Please contact us with questions and suggestions at support@wandb.com._
 
-Use W&B for **Model Management** to track and report on the complete lifecycle of a model. Weights & Biases can log and capture:
+Use W&B for **Model Management** to track and report on the complete lifecycle of a model:
 
 1. **Datasets**: The exact version of the dataset a model trained on
 2. **Code**: The code used in model training
