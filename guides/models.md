@@ -18,13 +18,9 @@ Use W&B for **Model Management** to track and report on the complete lifecycle o
 
 ## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
-In this example, with:
+Use the interactive W&B UI to view all saved model versions, compare models on evaluation metrics, and track the status of models at different stages in the pipeline.
 
-1. **Model link**: A link to the registered model artifact in the app
-2. **Version**: A unique version number for each registered model
-3. **Status**: A label to indicate key model versions, like `production` 
-4. **Loss @ 10k**: Metric calculated on an evaluation set of 10k
-5. **Loss @ 1k:** Model metric calculated on an evaluation set of 1k
+![](../.gitbook/assets/image%20%28152%29.png)
 
 ## Quickstart Walkthrough
 
@@ -76,7 +72,7 @@ python model_evaluator.py
 
 Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
 
-![](../.gitbook/assets/image%20%28152%29.png)
+![](../.gitbook/assets/image%20%28153%29.png)
 
 In this example, this [**Weave**](../ref/app/features/panels/weave.md) table is visualizing logged model [**Artifacts**](artifacts/) with:
 
