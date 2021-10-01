@@ -6,7 +6,7 @@ description: >-
 
 # \[Beta\] Model Management
 
-_We are actively building out the model registry and model evaluation use cases for W&B. Please contact us with questions and suggestions at support@wandb.com._
+_We are actively building out the model registry and model evaluation use cases for W&B. Please contact us with questions and suggestions at support@wandb.com. To unlock Weave panels, add `weave-report` to your profile page bio._
 
 Use W&B for **Model Management** to track and report on the complete lifecycle of a model:
 
@@ -19,6 +19,8 @@ Use W&B for **Model Management** to track and report on the complete lifecycle o
 ## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
 Use the interactive W&B UI to view all saved model versions, compare models on evaluation metrics, and track the status of models at different stages in the pipeline.
+
+_To unlock Weave panels, add `weave-report` to your profile page bio._
 
 ![](../.gitbook/assets/image%20%28152%29.png)
 
@@ -89,8 +91,34 @@ There are a few key features you can use to build your own Model Registry:
 1. \*\*\*\*[**Runs**](track/): Track a job execution in your ML pipeline — ex. model training, model evaluation
 2. \*\*\*\*[**Artifacts**](artifacts/): Track job inputs and outputs — ex. datasets, trained models
 3. \*\*\*\*[**Tables**](data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
-4. \*\*\*\*[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models
+4. \*\*\*\*[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models.
 5. \*\*\*\*[**Reports**](reports.md): Organize and visualize results — ex. charts, tables, and notes
+
+## Model Registry Table
+
+Once you have logged model Artifacts, it's time to query those artifacts.
+
+### 1. Activate Weave
+
+Go to your profile page and add `weave-report` to your bio to activate this new beta query feature.
+
+![](../.gitbook/assets/weave-demo-1-bio.gif)
+
+### 2. Create a report
+
+In a project, go to the **Reports** tab and click **Create a report.**
+
+![](../.gitbook/assets/weave-demo-2-create-report.gif)
+
+### 3. Add a Weave panel
+
+Type `/weave` to create a new Weave panel in your report. If you want to remove the Weave panel later, you can click the handle on the left sidebar and click Delete.
+
+![](../.gitbook/assets/weave-demo-3-slash-weave.gif)
+
+### 4. Query your logged models
+
+_Coming soon_
 
 
 
