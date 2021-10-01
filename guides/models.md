@@ -84,7 +84,7 @@ In this example, this [**Weave**](../ref/app/features/panels/weave.md) table is 
 
 ## Core features for model management
 
-There are a few key features you can use to achieve the above Model Registry:
+There are a few key features you can use to build your own Model Registry:
 
 1. \*\*\*\*[**Runs**](track/): Track a job execution in your ML pipeline — ex. model training, model evaluation
 2. \*\*\*\*[**Artifacts**](artifacts/): Track job inputs and outputs — ex. datasets, trained models
