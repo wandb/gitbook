@@ -146,7 +146,7 @@ Add a column to pull all the links to different logged model artifacts.
 
 Create a new row in the table, and query for the loss. This was calculated in the evaluation step, which tested each model on a held-out dataset.
 
-`metadata["mnist_ds:v0-ce_loss"]`
+`row.metadata["mnist_ds:v0-ce_loss"]`
 
 ![](../.gitbook/assets/2021-10-01-18.19.59.gif)
 
@@ -155,6 +155,22 @@ Optionally, you can rename the loss column so it's more readable.
 ![](../.gitbook/assets/weave-demo-6-rename-column.gif)
 
 
+
+### 7. Add a date created column
+
+Sometimes it's nice to sort the table by the created time. Add a column:
+
+`row.createdBy.createdAt`
+
+![](../.gitbook/assets/wandb-demo-7-add-date-column.gif)
+
+### 8. Add a status column
+
+Use the artifacts `alias` field to keep track of the status of different artifacts in your model registry. Add a column with `row.aliases` 
+
+Then make the Panel visualize the results of the query as:  `List of: String`
+
+![](../.gitbook/assets/wandb-demo-8-add-a-status-column.gif)
 
 
 
