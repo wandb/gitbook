@@ -59,12 +59,16 @@ python model_trainer.py --batch_size 160
 Later you'll be able to compare training performance for different models in the W&B dashboard.
 
 {% hint style="info" %}
-Did you hit a weird **OSError: \[Errno 9\] Bad file descriptor** error? Try waiting a little longer for your dataset from Step \#2 to get registered before running Step \#3 to train on that dataset.
+Did you hit a weird error? Try waiting a little longer for your dataset from Step \#2 to get registered before running Step \#3 to train on that dataset.
 {% endhint %}
+
+Here is an [example dashboard](https://wandb.ai/carey/model_registry_example?workspace=user-carey) comparing the models we've trained so far.
+
+![](../.gitbook/assets/image%20%28156%29.png)
 
 ### **4. Evaluate candidate models**
 
-This script represents a workload that:
+Next, run the evaluator script to:
 
 1. Finds all models that haven't yet been evaluated on the latest evaluation dataset
 2. Runs the evaluation job for each model
@@ -118,11 +122,41 @@ In a project, go to the **Reports** tab and click **Create a report.**
 
 Type `/weave` to create a new Weave panel in your report. If you want to remove the Weave panel later, you can click the handle on the left sidebar and click Delete.
 
-![](../.gitbook/assets/weave-demo-3-slash-weave.gif)
+![](../.gitbook/assets/weave-demo-3-create-weave-panel.gif)
 
 ### 4. Query your logged models
 
-_Coming soon_
+Start typing a query in the weave panel. 
+
+![](../.gitbook/assets/weave-demo-4-make-a-query.gif)
+
+Here's what each piece of the query in my example means:
+
+* **projects\("carey", "a\_model\_registry\_example"\)**: This pulls data from the entity `carey` and the project called `a_model_registry_example`. 
+* **artifactType\("model"\)**: This pulls all the artifacts of type `model` in this project.
+* **artifactVersions**: This pulls all the artifact versions of type `model`.
+
+### 5. Get the links to all model artifacts
+
+Add a column to pull all the links to different logged model artifacts.
+
+![](../.gitbook/assets/weave-demo-5-get-model-links.gif)
+
+### 6. Get the evaluation metric for each model
+
+Create a new row in the table, and query for the loss. This was calculated in the evaluation step, which tested each model on a held-out dataset.
+
+`metadata["mnist_ds:v0-ce_loss"]`
+
+![](../.gitbook/assets/2021-10-01-18.19.59.gif)
+
+Optionally, you can rename the loss column so it's more readable. 
+
+![](../.gitbook/assets/weave-demo-6-rename-column.gif)
+
+
+
+
 
 
 
