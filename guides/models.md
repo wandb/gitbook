@@ -56,7 +56,11 @@ python model_trainer.py --batch_size 64
 python model_trainer.py --batch_size 160
 ```
 
-You'll be able to compare training performance for different models in the W&B dashboard.
+Later you'll be able to compare training performance for different models in the W&B dashboard.
+
+{% hint style="info" %}
+Did you hit a weird **OSError: \[Errno 9\] Bad file descriptor** error? Try waiting a little longer for your dataset from Step \#2 to get registered before running Step \#3 to train on that dataset.
+{% endhint %}
 
 ### **4. Evaluate candidate models**
 
