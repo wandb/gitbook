@@ -70,17 +70,7 @@ Once you're ready to move from test projects to real production work, it  is cru
 
 ### 3. Set up a new user account
 
-For the individual local instance, you can create a new user account when you first spin up a local instance. You can see and edit account settings at [http://localhost:8080/settings](http://localhost:8080/settings).
-
-For the shared local instance, the default user is `local` and the default password is `perceptron`. Follow the prompts to reset your password.
-
-To change your login, you can always run
-
-```text
-wandb login --relogin
-```
-
-
+The first time you start a `wandb/local` instance you will be prompted to create an account by visiting http://localhost:8080.  This account is only stored locally in your installation and it's what you will use to authenticate with the service. 
 
 ### 4. Control where to log: local or wandb cloud
 
@@ -103,7 +93,7 @@ In an automated environment, you can set the `WANDB_API_KEY` which is accessible
 To switch to logging to the public **cloud** instance of wandb, set the host to `api.wandb.ai`:
 
 ```text
-wandb login --host=https://api.wandb.ai
+wandb login --cloud
 ```
 
 or

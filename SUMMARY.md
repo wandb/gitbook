@@ -76,7 +76,7 @@
   * [\[Beta\] Model Management](guides/models.md)
   * [Self-Hosting](guides/self-hosted/README.md)
     * [Local](guides/self-hosted/local.md)
-    * [Setup](guides/self-hosted/setup.md)
+    * [Production Setup](guides/self-hosted/setup.md)
     * [Advanced Configuration](guides/self-hosted/configuration.md)
     * [Managed Cloud](guides/self-hosted/cloud.md)
     * [Local FAQ](guides/self-hosted/local-common-questions.md)
