@@ -16,7 +16,7 @@ Try this short Google Colab to see Weights & Biases in action, no code installat
 
 ### 1. Set up wandb
 
-[Sign up](https://app.wandb.ai/login?signup=true) for a free account, then from the command line install our library in a Python 3 environment.
+[Sign up](https://app.wandb.ai/login?signup=true) for a free account, then from the command line install our library in a [Python 3](https://realpython.com/installing-python/) environment.
 
 ```bash
 pip install wandb
