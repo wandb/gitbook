@@ -262,7 +262,7 @@ Apply any changes to a specific visualization panel with the button at the botto
 
 This can be enabled on the “Other settings” page of the custom chart editor. If you change your query to use a `historyTable` instead of the `summaryTable`, you'll get an option to “Show step selector” in the custom chart editor. This gives you a slider that lets you select the step.
 
-![Shoe step slider in a custom chart](../../../../.gitbook/assets/image%20%28159%29.png)
+![Show step slider in a custom chart](../../../../.gitbook/assets/image%20%28159%29.png)
 
 ### Common use cases
 
