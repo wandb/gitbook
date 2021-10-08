@@ -6,16 +6,26 @@ description: Start tracking machine learning experiments in 5 minutes
 
 Build better models more efficiently with Weights & Biases experiment tracking.
 
+### [Run a quick example project →](http://wandb.me/intro)
+
+Try this short Google Colab to see Weights & Biases in action, no code installation required!
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/intro)
+
 ![](.gitbook/assets/wandb-demo-experiments-gif.gif)
 
 ### 1. Set up wandb
 
-[Sign up](https://app.wandb.ai/login?signup=true) for a free account and install the library `wandb` in a Python 3 environment from the command line. In a notebook, call `wandb.login()` in Python istead.
+[Sign up](https://app.wandb.ai/login?signup=true) for a free account, then from the command line install our library in a Python 3 environment.
 
 ```bash
 pip install wandb
 wandb login
 ```
+
+{% hint style="info" %}
+Trouble installing the library locally? Try [this quick tutorial notebook](http://wandb.me/intro).
+{% endhint %}
 
 ### 2. Start a new run
 
