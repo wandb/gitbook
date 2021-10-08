@@ -199,7 +199,7 @@ Here are the data types you can log from your script and use in a custom chart:
 * **Summary**: Single values logged during training \(your results or dependent variables\), e.g. `wandb.log({"val_acc" : 0.8})`. If you write to this key multiple times during training via `wandb.log()`, the summary is set to the final value of that key.
 * **History**: The full timeseries of the logged scalar is available to the query via the `history` field
 * **summaryTable**: If you need to log a list of multiple values, use a `wandb.Table()` to save that data, then query it in your custom panel.
-* **historyTable**: If you need to see the history data, then query historyTable in your custom chart panel. Each time you call `wandb.Table()`  or log a custom chart, you're creating a new table in history for that step.
+* **historyTable**: If you need to see the history data, then query `historyTable` in your custom chart panel. Each time you call `wandb.Table()`  or log a custom chart, you're creating a new table in history for that step.
 
 ### **How to log a custom table**
 
