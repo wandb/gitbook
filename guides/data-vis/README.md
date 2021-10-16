@@ -12,6 +12,8 @@ Use **W\&B Tables** to log, query, and analyze tabular data. Understand your dat
 
 ## Quickly log your first table
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/tables-colab)
+
 The fastest way to try Tables is to log a dataframe and see the Table UI.
 
 ```python
