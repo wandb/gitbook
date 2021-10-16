@@ -20,13 +20,15 @@ The fastest way to try Tables is to log a dataframe and see the Table UI.
 wandb.log({"table": my_dataframe})
 ```
 
-![Directly log a dataframe to get a Table](<../../.gitbook/assets/wandb - iris table (1).png>)
+![](<../../.gitbook/assets/wandb - iris table (1).png>)
 
 ### Rich media
 
 Add rich media to your logged [Table](log-tables.md) (images, audio, point clouds, etc) with `wandb` [data types](../../ref/python/data-types/). 
 
 ![](<../../.gitbook/assets/wandb - demo table visualizer.png>)
+
+## What are W\&B Tables?
 
 A W\&B Table (`wandb.Table`) is a two dimensional grid of data where each column has a single type of data—think of this as a more powerful DataFrame. Tables support primitive and numeric types, as well as nested lists, dictionaries, and rich media types. Log a Table to W\&B, then query, compare, and analyze results in the UI.
 
