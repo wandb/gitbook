@@ -6,9 +6,9 @@ description: Appropriate limits and guidelines for logging data to Weights & Bia
 
 ### Best Practices for Fast Page Loading
 
-For fast page loading in the W&B UI, we recommend keeping logged data amounts within these bounds.
+For fast page loading in the W\&B UI, we recommend keeping logged data amounts within these bounds.
 
-* **Scalars**: ****you can have tens of thousands of steps and hundreds of metrics
+* **Scalars**:** **you can have tens of thousands of steps and hundreds of metrics
 * **Histograms**: we recommend limiting to thousands of steps
 
 If you send us more than that, your data will be saved and tracked, but pages may load more slowly.
@@ -25,7 +25,7 @@ We do not assert any limits beyond rate limiting. Our Python client will automat
 
 ### Rate Limits
 
-The W&B API is rate limited by IP and API key. New accounts are restricted to 200 requests per minute. This rate allows you to run approximately 15 processes in parallel and have them report without being throttled. If the **wandb** client detects it's being limited, it will backoff and retry sending the data in the future. If you need to run more than 15 processes in parallel send an email to [contact@wandb.com](mailto:contact@wandb.com).
+The W\&B API is rate limited by IP and API key. New accounts are restricted to 200 requests per minute. This rate allows you to run approximately 15 processes in parallel and have them report without being throttled. If the **wandb** client detects it's being limited, it will backoff and retry sending the data in the future. If you need to run more than 15 processes in parallel send an email to [contact@wandb.com](mailto:contact@wandb.com).
 
 For sweeps, we support up to 20 parallel agents.
 
@@ -49,7 +49,6 @@ We support up to 15MB of serialized config data per run.
 
 ### Logging Guidance
 
-Here are some additional guidelines for logging data to W&B.
+Here are some additional guidelines for logging data to W\&B.
 
 * **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
-

@@ -21,7 +21,7 @@ with wandb.init(config=config_default) as run:
 ```
 {% endtab %}
 
-{% tab title="config.set\_defaults" %}
+{% tab title="config.set_defaults" %}
 ```python
 # set default values for hyperparameters
 config_defaults = {"lr": 0.1, "batch_size": 256}
@@ -59,7 +59,7 @@ wandb.agent(sweep_id, count)
 
 ## How do I set the project and entity where the sweep is logged?
 
-Every sweep is associated with an `entity` \(a user or a team\) and a `project`.
+Every sweep is associated with an `entity` (a user or a team) and a `project`.
 
 These values can be set in four ways: as command-line arguments to [`wandb sweep`](../../ref/cli/wandb-sweep.md),  as part of the [sweep configuration](configuration.md) YAML file, as [environment variables](../track/advanced/environment-variables.md), or via the `wandb/settings` file.
 
@@ -70,7 +70,7 @@ wandb sweep --entity geoff --project capsules
 ```
 {% endtab %}
 
-{% tab title="sweep\_config.yaml" %}
+{% tab title="sweep_config.yaml" %}
 ```python
 # inside of sweep_config.yaml
 entity: geoff
@@ -114,7 +114,7 @@ then your `wandb.init` call includes the `project` argument. That's invalid, bec
 
 ## Why are my agents stopping after the first run finishes?
 
-If the error message is a `400` code from the W&B `anaconda` API, like this one:
+If the error message is a `400` code from the W\&B `anaconda` API, like this one:
 
 `wandb: ERROR Error while calling W&B API: anaconda 400 error: {"code": 400, "message": "TypeError: bad operand type for unary -: 'NoneType'"}`
 
@@ -126,13 +126,13 @@ When using sweeps with the [SLURM scheduling system](https://slurm.schedmd.com/d
 
 ## Can I rerun a grid search?
 
-Yes! If you exhaust a grid search but want to rerun some of the runs \(for example because some crashed\), you can delete the ones you want to rerun, then hit the resume button on the [sweep control page](../../ref/app/features/sweeps.md), then start new agents for that sweep ID. Parameter combinations with completed runs will not be retried.
+Yes! If you exhaust a grid search but want to rerun some of the runs (for example because some crashed), you can delete the ones you want to rerun, then hit the resume button on the [sweep control page](../../ref/app/features/sweeps.md), then start new agents for that sweep ID. Parameter combinations with completed runs will not be retried.
 
 ## What do I do if I get the error message `CommError, Run does not exist`?
 
 If you're seeing that error message, plus `ERROR Error uploading`, you might be setting an ID for your run, e.g. `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, the error above will be thrown. In the sweeps context, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
 
-If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name` instead of `id.` For example:
+If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name `instead of `id.` For example:
 
 ```python
 wandb.init(name="a helpful readable run name")
@@ -179,7 +179,7 @@ args, unknown = parser.parse_known_args()
 ```
 
 {% hint style="info" %}
-Depending on the environment, `python` might point to Python 2. To ensure Python 3 is invoked, just use `python3` instead of `python` when configuring the command:
+Depending on the environment, `python` might point to Python 2. To ensure Python 3 is invoked, just use `python3` instead of `python `when configuring the command:
 
 ```yaml
 program:
@@ -196,7 +196,7 @@ command:
 
 The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/blob/master/wandb/sweeps/bayes_search.py). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
 
-We use scikit-learn's [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) with the `nu` parameter set to `1.5` -- this corresponds to much a weaker smoothness assumption than for the radial basis function \(RBF\) kernel. For details on kernels in Gaussian processes, see [Chapter 4 of Rasmussen and Williams](http://www.gaussianprocess.org/gpml/chapters/RW4.pdf) or the scikit-learn docs linked above.
+We use scikit-learn's [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) with the `nu` parameter set to `1.5` -- this corresponds to much a weaker smoothness assumption than for the radial basis function (RBF) kernel. For details on kernels in Gaussian processes, see [Chapter 4 of Rasmussen and Williams](http://www.gaussianprocess.org/gpml/chapters/RW4.pdf) or the scikit-learn docs linked above.
 
 ## What's the difference between "stopping" and "pausing" a sweep? Why isn't the `wandb agent` command terminating when I pause the sweep?
 
@@ -207,4 +207,3 @@ If you stop the sweep instead of pausing it, then the agents will exit -- their 
 ## Is there a way to add a extra values to a sweep, or do I need to start a new one?
 
 Once a sweep has started you cannot change the sweep configuration, But you can go to any table view, and use the checkboxes to select runs, then use the "create sweep" menu option to a create a new sweep configuration using prior runs.
-

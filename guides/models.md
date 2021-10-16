@@ -4,35 +4,35 @@ description: >-
   models to production
 ---
 
-# \[Beta\] Model Management
+# \[Beta] Model Management
 
-_We are actively building out the model registry and model evaluation use cases for W&B. Please contact us with questions and suggestions at support@wandb.com. To unlock Weave panels, add `weave-report` to your profile page bio._
+_We are actively building out the model registry and model evaluation use cases for W\&B. Please contact us with questions and suggestions at support@wandb.com. To unlock Weave panels, add `weave-report` to your profile page bio._
 
-Use W&B for **Model Management** to track and report on the complete lifecycle of a model:
+Use W\&B for **Model Management** to track and report on the complete lifecycle of a model:
 
 1. **Datasets**: The exact version of the dataset a model trained on
 2. **Code**: The code used in model training
 3. **Models**: The weights of the trained model itself
 4. **Metrics**: The evaluation results of a model on different golden datasets
-5. **Statuses**: Where each model is in the pipeline \(ex. "staging" or "production"\)
+5. **Statuses**: Where each model is in the pipeline (ex. "staging" or "production")
 
 ## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
-Use the interactive W&B UI to view all saved model versions, compare models on evaluation metrics, and track the status of models at different stages in the pipeline.
+Use the interactive W\&B UI to view all saved model versions, compare models on evaluation metrics, and track the status of models at different stages in the pipeline.
 
 _To unlock Weave panels, add `weave-report` to your profile page bio._
 
-![](../.gitbook/assets/image%20%28152%29.png)
+![](<../.gitbook/assets/image (152).png>)
 
 ## Quickstart Walkthrough
 
-[Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation) ****and follow along with this `model-evaluation` code example.
+[Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation)** **and follow along with this `model-evaluation` code example.
 
 ### **1. Install requirements**
 
 Install the Weights & Biases library `wandb` and other dependencies.
 
-```text
+```
 pip install -r requirements.txt
 ```
 
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 Generate and register a dataset for a particular model use case. In this example, we use the MNIST dataset for simplicity.
 
-```text
+```
 python dataset_generator.py
 ```
 
@@ -48,7 +48,7 @@ python dataset_generator.py
 
 Train a model based on the latest available dataset for the given model use case. Tweak hyperparameters from the command line, like this:
 
-```text
+```
 python model_trainer.py
 python model_trainer.py --validation_split 0.05
 python model_trainer.py --validation_split 0.2
@@ -56,15 +56,15 @@ python model_trainer.py --batch_size 64
 python model_trainer.py --batch_size 160
 ```
 
-Later you'll be able to compare training performance for different models in the W&B dashboard.
+Later you'll be able to compare training performance for different models in the W\&B dashboard.
 
 {% hint style="info" %}
-Did you hit a weird error? Try waiting a little longer for your dataset from Step \#2 to get registered before running Step \#3 to train on that dataset.
+Did you hit a weird error? Try waiting a little longer for your dataset from Step #2 to get registered before running Step #3 to train on that dataset.
 {% endhint %}
 
 Here is an [example dashboard](https://wandb.ai/carey/model_registry_example?workspace=user-carey) comparing the models we've trained so far.
 
-![](../.gitbook/assets/image%20%28156%29.png)
+![](<../.gitbook/assets/image (156).png>)
 
 ### **4. Evaluate candidate models**
 
@@ -74,7 +74,7 @@ Next, run the evaluator script to:
 2. Runs the evaluation job for each model
 3. Labels the best model "production" to feed into an inference system
 
-```text
+```
 python model_evaluator.py
 ```
 
@@ -82,7 +82,7 @@ python model_evaluator.py
 
 Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
 
-![](../.gitbook/assets/image%20%28153%29.png)
+![](<../.gitbook/assets/image (153).png>)
 
 In this example, this [**Weave**](../ref/app/features/panels/weave.md) table is visualizing logged model [**Artifacts**](artifacts/) with:
 
@@ -96,11 +96,11 @@ In this example, this [**Weave**](../ref/app/features/panels/weave.md) table is 
 
 There are a few key features you can use to build your own Model Registry:
 
-1. \*\*\*\*[**Runs**](track/): Track a job execution in your ML pipeline — ex. model training, model evaluation
-2. \*\*\*\*[**Artifacts**](artifacts/): Track job inputs and outputs — ex. datasets, trained models
-3. \*\*\*\*[**Tables**](data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
-4. \*\*\*\*[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models.
-5. \*\*\*\*[**Reports**](reports.md): Organize and visualize results — ex. charts, tables, and notes
+1. ****[**Runs**](track/): Track a job execution in your ML pipeline — ex. model training, model evaluation
+2. ****[**Artifacts**](artifacts/): Track job inputs and outputs — ex. datasets, trained models
+3. ****[**Tables**](data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
+4. ****[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models.
+5. ****[**Reports**](reports.md): Organize and visualize results — ex. charts, tables, and notes
 
 ## Model Registry Table
 
@@ -132,8 +132,8 @@ Start typing a query in the weave panel.
 
 Here's what each piece of the query in my example means:
 
-* **projects\("carey", "a\_model\_registry\_example"\)**: This pulls data from the entity `carey` and the project called `a_model_registry_example`. 
-* **artifactType\("model"\)**: This pulls all the artifacts of type `model` in this project.
+* **projects("carey", "a_model_registry_example")**: This pulls data from the entity `carey` and the project called `a_model_registry_example`. 
+* **artifactType("model")**: This pulls all the artifacts of type `model` in this project.
 * **artifactVersions**: This pulls all the artifact versions of type `model`.
 
 ### 5. Get the links to all model artifacts
@@ -171,8 +171,6 @@ Use the artifacts `alias` field to keep track of the status of different artifac
 Then make the Panel visualize the results of the query as:  `List of: String`
 
 ![](../.gitbook/assets/wandb-demo-8-add-a-status-column.gif)
-
-
 
 
 

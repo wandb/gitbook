@@ -2,11 +2,11 @@
 
 Tags can be used to label runs with particular features that might not be obvious from the logged metrics or Artifact data -- this run's model is `in_production`, that run is `preemptible`, this run represents the `baseline`.
 
-## How to add tags <a id="how-to-add-tags"></a>
+## How to add tags <a href="how-to-add-tags" id="how-to-add-tags"></a>
 
 You can add tags to a run when it is created: `wandb.init(tags=["tag1", "tag2"])` .
 
-You can also update the tags of a run during training \(e.g. if a particular metrics crosses a pre-defined threshold\):
+You can also update the tags of a run during training (e.g. if a particular metrics crosses a pre-defined threshold):
 
 ```python
 run = wandb.init(entity="geoff", project="capsules", tags=["debug"])
@@ -39,7 +39,7 @@ In the [runs sidebar](../pages/project-page.md#search-for-runs) of the [Project 
 
 Hover over a run in the table to see a checkbox on the left or look in the header row for a checkbox that will allow you to select all runs.
 
-Click the checkbox to enable bulk actions. Select the runs to which you'd like to apply your tag\(s\).
+Click the checkbox to enable bulk actions. Select the runs to which you'd like to apply your tag(s).
 
 Click the Tag button above the rows of runs.
 
@@ -47,8 +47,8 @@ Type a tag you'd like to add and click "Add" below the text box to add a new tag
 {% endtab %}
 
 {% tab title="Run Page" %}
-This method is best suited to applying a tag or tags to a single run by hand.  
-  
+This method is best suited to applying a tag or tags to a single run by hand.\
+\
 In the left sidebar of the [Run Page](../pages/run-page.md), click the top [Overview tab](../pages/run-page.md#overview-tab).
 
 Next to "Tags" is a gray ➕button. Click on that plus to add a tag.
@@ -57,7 +57,7 @@ Type a tag you'd like to add and click "Add" below the text box to add a new tag
 {% endtab %}
 {% endtabs %}
 
-## How to remove tags <a id="how-to-remove-tags"></a>
+## How to remove tags <a href="how-to-remove-tags" id="how-to-remove-tags"></a>
 
 Tags can also be removed from runs via the UI.
 
@@ -69,7 +69,7 @@ In the [runs sidebar](../pages/project-page.md#search-for-runs) of the [Project 
 
 Hover over a run in the table to see a checkbox on the left or look in the header row for a checkbox that will allow you to select all runs.
 
-Click either checkbox to enable bulk actions. Select the runs to from which you'd like to remove your tag\(s\).
+Click either checkbox to enable bulk actions. Select the runs to from which you'd like to remove your tag(s).
 
 Click the Tag button above the rows of runs.
 
@@ -82,4 +82,3 @@ In the left sidebar of the [Run Page,](../pages/run-page.md) click the top [Over
 Hover over a tag and click the "x" to remove it from the run.
 {% endtab %}
 {% endtabs %}
-

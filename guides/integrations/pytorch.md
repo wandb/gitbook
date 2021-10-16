@@ -1,16 +1,14 @@
----
-description: How to integrate a PyTorch script to log metrics to W&B
----
-
 # PyTorch
 
-[PyTorch](https://pytorch.org/) is one of the most popular frameworks for deep learning in Python, especially among researchers. W&B provides first class support for PyTorch, from logging gradients to profiling your code on the CPU and GPU.
+[PyTorch](https://pytorch.org) is one of the most popular frameworks for deep learning in Python, especially among researchers. W\&B provides first class support for PyTorch, from logging gradients to profiling your code on the CPU and GPU.
 
 {% hint style="info" %}
-Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) \(with video walkthrough below\) or see our [example repo](https://github.com/wandb/examples) for scripts, including one on hyperparameter optimization using [Hyperband](https://arxiv.org/abs/1603.06560) on [Fashion MNIST](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), plus the [W&B Dashboard](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs) it generates.
+Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple_PyTorch_Integration.ipynb) (with video walkthrough below) or see our [example repo](https://github.com/wandb/examples) for scripts, including one on hyperparameter optimization using [Hyperband](https://arxiv.org/abs/1603.06560) on [Fashion MNIST](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), plus the [W\&B Dashboard](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs) it generates.
 {% endhint %}
 
-{% embed url="https://www.youtube.com/watch?v=G7GH0SeNBMA" caption="Follow along with a video tutorial!" %}
+{% embed url="https://www.youtube.com/watch?v=G7GH0SeNBMA" %}
+Follow along with a video tutorial!
+{% endembed %}
 
 ## Logging gradients with `wandb.watch`
 
@@ -38,7 +36,7 @@ for batch_idx, (data, target) in enumerate(train_loader):
 If you need to track multiple models in the same script, you can call `wandb.watch` on each model separately. Reference documentation for this function is [here](../../ref/python/watch.md).
 
 {% hint style="warning" %}
-Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward _and_ backward pass.
+Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward _and _backward pass.
 {% endhint %}
 
 ## Logging images and media
@@ -50,7 +48,7 @@ images_t = ...  # generate or load images as PyTorch Tensors
 wandb.log({"examples" : [wandb.Image(im) for im in images_t]})
 ```
 
-For more on logging rich media to W&B in PyTorch and other frameworks, check out our [media logging guide](../track/log/media.md).
+For more on logging rich media to W\&B in PyTorch and other frameworks, check out our [media logging guide](../track/log/media.md).
 
 If you also want to include information alongside media, like your model's predictions or derived metrics, use a `wandb.Table`.
 
@@ -65,15 +63,15 @@ my_table.add_column("class_prediction", predictions_t)
 wandb.log({"mnist_predictions": my_table})
 ```
 
-![The code above generates a table like this one. This model&apos;s looking good!](../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
+![The code above generates a table like this one. This model's looking good!](../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
 
-For more on logging and visualizing datasets and models, check out our [guide to W&B Tables](../data-vis/).
+For more on logging and visualizing datasets and models, check out our [guide to W\&B Tables](../data-vis/).
 
 ## Profiling PyTorch code
 
-![View detailed traces of PyTorch code execution inside W&amp;B dashboards.](../../.gitbook/assets/image%20%28136%29.png)
+![View detailed traces of PyTorch code execution inside W\&B dashboards.](<../../.gitbook/assets/image (136).png>)
 
-W&B integrates directly with [PyTorch Kineto](https://github.com/pytorch/kineto)'s [Tensorboard plugin](https://github.com/pytorch/kineto/blob/master/tb_plugin/README.md) to provide tools for profiling PyTorch code, inspecting the details of CPU and GPU communication, and identifying bottlenecks and optimizations.
+W\&B integrates directly with [PyTorch Kineto](https://github.com/pytorch/kineto)'s [Tensorboard plugin](https://github.com/pytorch/kineto/blob/master/tb_plugin/README.md) to provide tools for profiling PyTorch code, inspecting the details of CPU and GPU communication, and identifying bottlenecks and optimizations.
 
 ```python
 profile_dir = "path/to/run/tbprofile/"
@@ -99,4 +97,3 @@ See and run working example code in [this Colab](http://wandb.me/trace-colab).
 {% hint style="warning" %}
 The interactive trace viewing tool is based on the Chrome Trace Viewer, which works best with the Chrome browser.
 {% endhint %}
-

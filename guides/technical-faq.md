@@ -8,9 +8,9 @@ When `wandb.init()` is called from your training script an API call is made to c
 
 It is extremely important to us that we never interfere with your training runs. We run wandb in a separate process to make sure that if wandb somehow crashes, your training will continue to run. If the internet goes out, wandb will continue to retry sending data to [wandb.ai](https://wandb.ai).
 
-### **Why is a run marked crashed in W&B when it’s training fine locally?**
+### **Why is a run marked crashed in W\&B when it’s training fine locally?**
 
-This is likely a connection problem — if your server loses internet access and data stops syncing to W&B, we mark the run as crashed after a short period of retrying.
+This is likely a connection problem — if your server loses internet access and data stops syncing to W\&B, we mark the run as crashed after a short period of retrying.
 
 ### Will wandb slow down my training?
 
@@ -26,7 +26,7 @@ If you're training on an offline machine and want to upload your results to our 
 
 ### Does your tool track or store training data?
 
-You can pass a SHA or other unique identifier to `wandb.config.update(...)` to associate a dataset with a training run. W&B does not store any data unless `wandb.save` is called with the local file name.
+You can pass a SHA or other unique identifier to `wandb.config.update(...)` to associate a dataset with a training run. W\&B does not store any data unless `wandb.save` is called with the local file name.
 
 ### How often are system metrics collected?
 
@@ -59,18 +59,18 @@ Calling `wandb.log` writes a line to a local file; it does not block on any netw
 
 We use the same exponential moving average formula as TensorBoard. You can find an explanation here: [https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar](https://stackoverflow.com/questions/42281844/what-is-the-mathematics-behind-the-smoothing-parameter-in-tensorboards-scalar).
 
-### How is W&B different from TensorBoard?
+### How is W\&B different from TensorBoard?
 
-We love the TensorBoard folks, and we have a [TensorBoard integration](integrations/tensorboard.md)! We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
+We love the TensorBoard folks, and we have a [TensorBoard integration](integrations/tensorboard.md)! We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
 
 1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible. 
-2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
-3. **Fast, flexible integration**: Add W&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
+2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W\&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
+3. **Fast, flexible integration**: Add W\&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
 4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
 5. **Powerful table**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
-6. **Tools for collaboration**: Use W&B to organize complex machine learning projects. It's easy to share a link to W&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
+6. **Tools for collaboration**: Use W\&B to organize complex machine learning projects. It's easy to share a link to W\&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab.
 
-Get started with a [free personal account →](http://app.wandb.ai/)
+Get started with a [free personal account →](http://app.wandb.ai)
 
 ### How can I configure the name of the run in my training code?
 
@@ -82,7 +82,7 @@ Call `wandb.run.save()` and then get the name with `wandb.run.name` .
 
 ### Is there an anaconda package?
 
-Yes! You can either install with `pip` or with `conda`. For the latter, you'll need to get the package from the [conda-forge](https://conda-forge.org/) channel.
+Yes! You can either install with `pip` or with `conda`. For the latter, you'll need to get the package from the [conda-forge](https://conda-forge.org) channel.
 
 {% tabs %}
 {% tab title="pip" %}
@@ -136,7 +136,7 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 
 1. Upgrade your SSL certificate. If you're running the script on an Ubuntu server, run `update-ca-certificates`  We can't sync training logs without a valid SSL certificate because it's a security vulnerability.
 2. If your network is flaky, run training in [offline mode](https://docs.wandb.com/resources/technical-faq#can-i-run-wandb-offline) and sync the files to us from a machine that has Internet access.
-3. Try running [W&B Local](self-hosted/local.md), which operates on your machine and doesn't sync files to our cloud servers.
+3. Try running [W\&B Local](self-hosted/local.md), which operates on your machine and doesn't sync files to our cloud servers.
 
 `SSL CERTIFICATE_VERIFY_FAILED`: this error could be due to your company's firewall. You can set up local CAs and then use:
 
@@ -148,9 +148,9 @@ If our library is unable to connect to the internet it will enter a retry loop a
 
 If you need to run on a machine without internet, you can set `WANDB_MODE=offline` to only have metrics stored locally on your hard drive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
 
-### Can I log metrics on two different time scales?  \(For example I want to log training accuracy per batch and validation accuracy per epoch.\)
+### Can I log metrics on two different time scales?  (For example I want to log training accuracy per batch and validation accuracy per epoch.)
 
-Yes, you can do this by logging your indices \(e.g. `batch` and `epoch`\) whenever you log your other metrics.  So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`. Then, in the UI, you can set the appropriate value as the x-axis for each chart.
+Yes, you can do this by logging your indices (e.g. `batch` and `epoch`) whenever you log your other metrics.  So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`. Then, in the UI, you can set the appropriate value as the x-axis for each chart.
 
 ### How can I log a metric that doesn't change over time such as a final evaluation accuracy?
 
@@ -166,7 +166,7 @@ For simpler workflows, you can call `wandb.init` with `resume=True` and `id=UNIQ
 
 At any point you can always use the [API](https://docs.wandb.ai/library/public-api-guide#update-metrics-for-a-run-after-the-run-has-finished) to add additional evaluation metrics.
 
-### What is the difference between  `.log()` and `.summary`?  
+### What is the difference between ` .log()` and `.summary`?  
 
 The summary is the value that shows in the table while log will save all the values for plotting later.  
 
@@ -180,14 +180,14 @@ The reason we have both is that some people like to set the summary manually bec
 
 If you try to install `wandb` and see this error:
 
-```text
+```
 unable to execute 'gcc': No such file or directory
 error: command 'gcc' failed with exit status 1
 ```
 
 You can install `psutil` directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)  
 
-For example, to install `psutil` on Python 3.8 in Linux:
+For example, to install `psutil `on Python 3.8 in Linux:
 
 ```bash
 WHEEL_URL=https://github.com/pywharf/pywharf-pkg-repo/releases/download/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl#sha256=adc36dabdff0b9a4c84821ef5ce45848f30b8a01a1d5806316e068b5fd669c6d
@@ -198,7 +198,7 @@ After `psutil` has been installed, you can install wandb with `pip install wandb
 
 ### How does wandb stream logs and writes to disk?
 
-W&B queues in memory but also [write the events to disk](https://github.com/wandb/client/blob/7cc4dd311f3cdba8a740be0dc8903075250a914e/wandb/sdk/internal/datastore.py) asynchronously to handle failures and for the `WANDB_MODE=offline` case where you can sync the data after it's been logged.
+W\&B queues in memory but also [write the events to disk](https://github.com/wandb/client/blob/7cc4dd311f3cdba8a740be0dc8903075250a914e/wandb/sdk/internal/datastore.py) asynchronously to handle failures and for the `WANDB_MODE=offline` case where you can sync the data after it's been logged.
 
 In your terminal, you can see a path to the local run directory. This directory will contain a `.wandb` file that is the datastore above. If you're also logging images, we write them to `media/images` in that directory before uploading them to cloud storage.
 
@@ -212,7 +212,7 @@ With wandb reports the procedure is as follows:
 
 ### How is access to the API controlled?
 
-For simplicity W&B uses API keys for authorization when accessing the API. You can find your API keys in your [settings](https://app.wandb.ai/settings). Your API key should be stored securely and never checked into version control. In addition to personal API keys, you can add Service Account users to your team.
+For simplicity W\&B uses API keys for authorization when accessing the API. You can find your API keys in your [settings](https://app.wandb.ai/settings). Your API key should be stored securely and never checked into version control. In addition to personal API keys, you can add Service Account users to your team.
 
 ### What is a service account, and why is it useful?
 
@@ -224,18 +224,17 @@ Both personal and service account keys can be rotated or revoked. Simply create 
 
 ### How do I switch between accounts on the same machine?
 
-If you have two W&B accounts working from the same machine, you'll need a nice way to switch between your different API keys. You can store both API keys in a file on your machine then add code like the following to your repos. This is to avoid checking your secret key into a source control system, which is potentially dangerous.
+If you have two W\&B accounts working from the same machine, you'll need a nice way to switch between your different API keys. You can store both API keys in a file on your machine then add code like the following to your repos. This is to avoid checking your secret key into a source control system, which is potentially dangerous.
 
 ```python
 if os.path.exists("~/keys.json"):
    os.environ["WANDB_API_KEY"] = json.loads("~/keys.json")["work_account"]
 ```
 
-### Does the W&B client support Python 2? <a id="eol-python27"></a>
+### Does the W\&B client support Python 2? <a href="eol-python27" id="eol-python27"></a>
 
-The W&B client library supported both Python 2.7 and Python 3 through version 0.10. Due to the Python 2 end of life, support for Python 2.7 was discontinued as of version 0.11. Users who run`pip install --upgrade wandb` on a Python 2.7 system will get new releases of the 0.10.x series only. Support for the 0.10.x series will be limited to critical bugfixes and patches. Currently, version 0.10.33 is the last version of the 0.10.x series that supports Python 2.7.
+The W\&B client library supported both Python 2.7 and Python 3 through version 0.10. Due to the Python 2 end of life, support for Python 2.7 was discontinued as of version 0.11. Users who run`pip install --upgrade wandb` on a Python 2.7 system will get new releases of the 0.10.x series only. Support for the 0.10.x series will be limited to critical bugfixes and patches. Currently, version 0.10.33 is the last version of the 0.10.x series that supports Python 2.7.
 
-### Does the W&B client support Python 3.5? <a id="eol-python35"></a>
+### Does the W\&B client support Python 3.5? <a href="eol-python35" id="eol-python35"></a>
 
-The W&B client library supported both Python 3.5 through version 0.11. Due to the Python 3.5 end of life, support was discontinued as of version 0.12. 
-
+The W\&B client library supported both Python 3.5 through version 0.11. Due to the Python 3.5 end of life, support was discontinued as of version 0.12. 

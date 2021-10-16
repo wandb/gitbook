@@ -4,16 +4,18 @@ description: Call wandb.init() at the top of your script to start a new run
 
 # Launch Experiments with wandb.init
 
-Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W&B and launches a background process to sync data. 
+Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W\&B and launches a background process to sync data. 
 
-* **On Prem**: If you need a private cloud or local instance of W&B, see our [Self Hosted](../self-hosted/) offerings. 
+* **On Prem**: If you need a private cloud or local instance of W\&B, see our [Self Hosted](../self-hosted/) offerings. 
 * **Automated Environments**: Most of these settings can also be controlled via [Environment Variables](advanced/environment-variables.md). This is often useful when you're running jobs on a cluster.
 
 ### Reference Documentation
 
 View the reference docs for this function, generated from the `wandb` Python library.
 
-{% page-ref page="../../ref/python/init.md" %}
+{% content-ref url="../../ref/python/init.md" %}
+[init.md](../../ref/python/init.md)
+{% endcontent-ref %}
 
 ## Common Questions
 
@@ -44,7 +46,7 @@ for x in range(10):
             run.log({"metric": x+y})
 ```
 
-### `InitStartError: Error communicating with wandb process` <a id="init-start-error"></a>
+### `InitStartError: Error communicating with wandb process` <a href="init-start-error" id="init-start-error"></a>
 
 This error indicates that the library is having difficulty launching the process which synchronizes data to the server. 
 
@@ -64,10 +66,10 @@ wandb.init(settings=wandb.Settings(start_method="thread"))
 {% endtab %}
 {% endtabs %}
 
-### How can I use wandb with multiprocessing, e.g. distributed training? <a id="multiprocess"></a>
+### How can I use wandb with multiprocessing, e.g. distributed training? <a href="multiprocess" id="multiprocess"></a>
 
-If your training program uses multiple processes you will need to structure your program to avoid making wandb method calls from processes where you did not run `wandb.init()`.  
-  
+If your training program uses multiple processes you will need to structure your program to avoid making wandb method calls from processes where you did not run `wandb.init()`.\
+\
 There are several approaches to managing multiprocess training:
 
 1. Call `wandb.init` in all your processes, using the [group](advanced/grouping.md) keyword argument to define a shared group.  Each process will have its own wandb run and the UI will group the training processes together.
@@ -90,7 +92,7 @@ run_name = wandb.run.name
 
 ### Can I just set the run name to the run ID?
 
-If you'd like to overwrite the run name \(like snowy-owl-10\) with the run ID \(like qvlp96vk\) you can use this snippet:
+If you'd like to overwrite the run name (like snowy-owl-10) with the run ID (like qvlp96vk) you can use this snippet:
 
 ```python
 import wandb
@@ -105,7 +107,7 @@ When `wandb.init` is called in your script, we automatically look for git inform
 
 The git commit and command used to run the experiment are visible to you but are hidden to external users, so if you have a public project, these details will remain private.
 
-### Is it possible to save metrics offline and sync them to W&B later?
+### Is it possible to save metrics offline and sync them to W\&B later?
 
 By default, `wandb.init` starts a process that syncs metrics in real time to our cloud hosted app. If your machine is offline, you don't have internet access, or you just want to hold off on the upload, here's how to run `wandb` in offline mode and sync later.
 
@@ -139,7 +141,7 @@ for i in range(100):
 
 Here's a sample terminal output:
 
-![](../../.gitbook/assets/image%20%2881%29.png)
+![](<../../.gitbook/assets/image (81).png>)
 
 And once you're ready, just run a sync command to send that folder to the cloud.
 
@@ -147,7 +149,7 @@ And once you're ready, just run a sync command to send that folder to the cloud.
 wandb sync wandb/dryrun-folder-name
 ```
 
-![](../../.gitbook/assets/image%20%2836%29.png)
+![](<../../.gitbook/assets/image (36).png>)
 
 
 
@@ -158,4 +160,3 @@ If you're getting the error message `Launch Error: Permission denied`, you don't
 1. You aren't logged in on this machine. Run `wandb login` on the command line.
 2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
 3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
-

@@ -1,5 +1,5 @@
 ---
-description: 'Scriptable alerts triggered from Python, sent to you via Slack or email'
+description: Scriptable alerts triggered from Python, sent to you via Slack or email
 ---
 
 # Alerts
@@ -14,10 +14,10 @@ Send a Slack or email alert, triggered from your Python script.
 
 `wandb.alert(title="Low Acc", text="Accuracy is below the expected threshold")`
 
-* **title \(string\)**: A short description of the alert, for example "Low accuracy"
-* **text \(string\)**: A longer, more detailed description of what happened to trigger the alert
-* **level \(optional\):** How important the alert is — must be either `INFO`, `WARN`, or `ERROR`
-* **wait\_duration \(optional\):** How many seconds to wait before sending another alert with the same **title.** This helps reduce alert spam.
+* **title (string)**: A short description of the alert, for example "Low accuracy"
+* **text (string)**: A longer, more detailed description of what happened to trigger the alert
+* **level (optional): **How important the alert is — must be either `INFO`, `WARN`, or `ERROR`
+* **wait_duration (optional):** How many seconds to wait before sending another alert with the same **title. **This helps reduce alert spam.
 
 ### Example
 
@@ -38,4 +38,3 @@ if acc < threshold:
         wait_duration=timedelta(minutes=5)
     )
 ```
-

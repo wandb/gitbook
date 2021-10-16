@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](../../../.gitbook/assets/image%20%2829%29%20%281%29%20%282%29%20%284%29%20%281%29.png)
+![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1).png>)
 
 ![](../../../.gitbook/assets/undelete.png)
 
@@ -44,13 +44,13 @@ Project page tabs:
 * **Group**: select a config column to dynamically group your runs, for example by architecture. Grouping makes plots show up with a line along the mean value, and a shaded region for the variance of points on the graph.
 * **Sort**: pick a value to sort your runs by, for example runs with the lowest loss or highest accuracy. Sorting will affect which runs show up on the graphs.
 * **Expand button**: expand the sidebar into the full table
-* **Run count**: the number in parentheses at the top is the total number of runs in the project. The number \(N visualized\) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
+* **Run count**: the number in parentheses at the top is the total number of runs in the project. The number (N visualized) is the number of runs that have the eye turned on and are available to be visualized in each plot. In the example below, the graphs are only showing the first 10 of 183 runs. Edit a graph to increase the max number of runs visible.
 
 **Panels layout**: use this scratch space to explore results, add and remove charts, and compare versions of your models based on different metrics
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](../../../.gitbook/assets/image%20%2838%29%20%282%29%20%283%29%20%283%29%20%282%29%20%281%29%20%283%29.png)
+![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (3).png>)
 
 ### Search for runs
 
@@ -99,7 +99,7 @@ Use the table to filter, group, and sort your results.
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
 
-![](../../../.gitbook/assets/image%20%2886%29.png)
+![](<../../../.gitbook/assets/image (86).png>)
 
 ## Reports Tab
 
@@ -119,7 +119,7 @@ View all the [artifacts](../../../guides/artifacts/) associated with a project, 
 
 ### Overview panel
 
-![](../../../.gitbook/assets/image%20%28140%29.png)
+![](<../../../.gitbook/assets/image (140).png>)
 
 On the overview panel, you'll find a variety of high-level information about the artifact, including its name and version, the hash digest used to detect changes and prevent duplication, the creation date, and any aliases. You can add or remove aliases here, take notes on
 
@@ -127,29 +127,29 @@ This section also indicates and links to the run which output the artifact and a
 
 ### API panel
 
-![](../../../.gitbook/assets/image%20%28139%29.png)
+![](<../../../.gitbook/assets/image (139).png>)
 
 The API panel provides a code snippet for downloading the artifact for use outside of the web app, for example on a local machine.
 
 ### Metadata panel
 
-![](../../../.gitbook/assets/image%20%28142%29.png)
+![](<../../../.gitbook/assets/image (142).png>)
 
 The metadata panel provides access to the artifact's metadata, which is provided when the artifact is constructed. This metadata might include configuration arguments required to reconstruct the artifact, URLs where more information can be found, or metrics produced during the run which logged the artifact.
 
 ### Files panel
 
-![](../../../.gitbook/assets/image%20%28134%29.png)
+![](<../../../.gitbook/assets/image (134).png>)
 
-The files panel lists the files and folders associated with the artifact. You can navigate through this file tree and view the contents directly in the W&B web app.
+The files panel lists the files and folders associated with the artifact. You can navigate through this file tree and view the contents directly in the W\&B web app.
 
 [Tables](../../../guides/data-vis/tables-quickstart.md) associated with artifacts are particularly rich and interactive in this context. Learn more about using Tables with Artifacts [here](../../../guides/data-vis/tables.md).
 
-![](../../../.gitbook/assets/image%20%28135%29.png)
+![](<../../../.gitbook/assets/image (135).png>)
 
 ### Graph View panel
 
-![](../../../.gitbook/assets/image%20%28137%29%20%281%29.png)
+![](<../../../.gitbook/assets/image (137) (1).png>)
 
 The graph view panel provides a view of all of the artifacts associated with a project and the runs that connect them to each other. It shows run types as blocks and artifacts as circles, with arrows to indicate when a run of a given type consumes or produces an artifact of a given type. The type of the particular artifact selected in the left-hand column is highlighted.
 
@@ -163,19 +163,18 @@ You can delete your project by clicking the three dots on the right of the overv
 
 ![](../../../.gitbook/assets/howto-delete-project.gif)
 
-If the project is empty \(i.e. it has no runs\), you can delete it by clicking the dropdown menu in the top-right and selecting "Delete project".
+If the project is empty (i.e. it has no runs), you can delete it by clicking the dropdown menu in the top-right and selecting "Delete project".
 
-![](../../../.gitbook/assets/image%20%2866%29.png)
+![](<../../../.gitbook/assets/image (66).png>)
 
 ### Where are the privacy settings for projects? How can I make a project public or private?
 
 Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
 
-![](../../../.gitbook/assets/image%20%28138%29.png)
+![](<../../../.gitbook/assets/image (138).png>)
 
 ### How do I reset my workspace?
 
 If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
-Add `?workspace=clear` to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
-
+Add `?workspace=clear `to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.

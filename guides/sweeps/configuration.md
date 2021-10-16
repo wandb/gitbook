@@ -17,18 +17,18 @@ Both methods use the same keys and values, described below.
 
 Sweep configurations are nested: keys can have, as their values, further keys. The top-level keys are listed and briefly described below, and then detailed in the following section.
 
-| Top-Level Key | Description |
-| :--- | :--- |
-| `program` | \(required\) Training script to run. |
-| `method` | \(required\) Specify the [search strategy](configuration.md#search-strategy). |
-| `parameters` | \(required\) Specify [parameters](configuration.md#parameters) bounds to search. |
-| `name` | The name of the sweep, displayed in the W&B UI. |
-| `description` | Text description of the sweep. |
-| `metric` | Specify the metric to optimize \(only used by certain search strategies and stopping criteria\). |
-| `early_terminate` | Specify any [early stopping criteria](configuration.md#stopping-criteria). |
-| `command` | Specify [command structure ](configuration.md#command)for invoking and passing arguments to the training script. |
-| `project` | Specify the project for this sweep. |
-| `entity` | Specify the entity for this sweep. |
+| Top-Level Key     | Description                                                                                                      |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `program`         | (required) Training script to run.                                                                               |
+| `method`          | (required) Specify the [search strategy](configuration.md#search-strategy).                                      |
+| `parameters`      | (required) Specify [parameters](configuration.md#parameters) bounds to search.                                   |
+| `name`            | The name of the sweep, displayed in the W\&B UI.                                                                 |
+| `description`     | Text description of the sweep.                                                                                   |
+| `metric`          | Specify the metric to optimize (only used by certain search strategies and stopping criteria).                   |
+| `early_terminate` | Specify any [early stopping criteria](configuration.md#stopping-criteria).                                       |
+| `command`         | Specify [command structure ](configuration.md#command)for invoking and passing arguments to the training script. |
+| `project`         | Specify the project for this sweep.                                                                              |
+| `entity`          | Specify the entity for this sweep.                                                                               |
 
 ## Configuration Keys
 
@@ -36,11 +36,11 @@ Sweep configurations are nested: keys can have, as their values, further keys. T
 
 Specify the search strategy with the `method` key in the sweep configuration.
 
-| `method` | Description |
-| :--- | :--- |
-| `grid` | Grid search iterates over all possible combinations of parameter values. |
-| `random` | Random search chooses a random set of values on each iteration. |
-| `bayes` | Our Bayesian hyperparameter search method uses a Gaussian Process to model the relationship between the parameters and the model metric and chooses parameters to optimize the probability of improvement. This strategy requires the `metric` key to be specified. |
+| `method` | Description                                                                                                                                                                                                                                                         |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `grid`   | Grid search iterates over all possible combinations of parameter values.                                                                                                                                                                                            |
+| `random` | Random search chooses a random set of values on each iteration.                                                                                                                                                                                                     |
+| `bayes`  | Our Bayesian hyperparameter search method uses a Gaussian Process to model the relationship between the parameters and the model metric and chooses parameters to optimize the probability of improvement. This strategy requires the `metric` key to be specified. |
 
 #### **Examples**
 
@@ -69,17 +69,17 @@ metric:
 
 ### `parameters`
 
-Describe the hyperparameters to explore during the sweep. For each hyperparameter, specify the name and the possible values as a list of constants \(for any `method`\) or specify a `distribution` \(for `random` or `bayes` \).
+Describe the hyperparameters to explore during the sweep. For each hyperparameter, specify the name and the possible values as a list of constants (for any `method`) or specify a `distribution` (for `random` or `bayes` ).
 
-| Values | Description |
-| :--- | :--- |
-| `values` | Specifies all valid values for this hyperparameter. Compatible with `grid`. |
-| `value` | Specifies the single valid value for this hyperparameter. Compatible with `grid`. |
-| `distribution` | \(`str`\) Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set. |
-| `min`, `max` | \(`int`or `float`\) Maximum and minimum values. If `int`, for `int_uniform` -distributed hyperparameters. If `float`, for `uniform` -distributed hyperparameters. |
-| `mu` | \(`float`\) Mean parameter for `normal` - or `lognormal` -distributed hyperparameters. |
-| `sigma` | \(`float`\) Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters. |
-| `q` | \(`float`\) Quantization step size for quantized hyperparameters. |
+| Values         | Description                                                                                                                                                                                                                                                                          |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `values`       | Specifies all valid values for this hyperparameter. Compatible with `grid`.                                                                                                                                                                                                          |
+| `value`        | Specifies the single valid value for this hyperparameter. Compatible with `grid`.                                                                                                                                                                                                    |
+| `distribution` | (`str`) Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set. |
+| `min`, `max`   | (`int`or `float`) Maximum and minimum values. If `int`, for `int_uniform` -distributed hyperparameters. If `float`, for `uniform `-distributed hyperparameters.                                                                                                                      |
+| `mu`           | (`float`) Mean parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                                 |
+| `sigma`        | (`float`) Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                   |
+| `q`            | (`float`) Quantization step size for quantized hyperparameters.                                                                                                                                                                                                                      |
 
 #### **Examples**
 
@@ -119,19 +119,19 @@ parameter_name:
 
 Specify how values will be distributed, if they are selected randomly, e.g. with the `random` or `bayes` methods.
 
-| Value | Description |
-| :--- | :--- |
-| `constant` | Constant distribution. Must specify `value`. |
-| `categorical` | Categorical distribution. Must specify `values`. |
-| `int_uniform` | Discrete uniform distribution on integers. Must specify `max` and `min` as integers. |
-| `uniform` | Continuous uniform distribution. Must specify `max` and `min` as floats. |
-| `q_uniform` | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`. |
-| `log_uniform` | Log-uniform distribution. Returns a value between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`. |
-| `q_log_uniform` | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`. |
-| `normal` | Normal distribution. Return value is normally-distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
-| `q_normal` | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1. |
-| `log_normal` | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` \(default `0`\) and standard deviation `sigma` \(default `1`\). |
-| `q_log_normal` | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`. |
+| Value           | Description                                                                                                                                                                              |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `constant`      | Constant distribution. Must specify `value`.                                                                                                                                             |
+| `categorical`   | Categorical distribution. Must specify `values`.                                                                                                                                         |
+| `int_uniform`   | Discrete uniform distribution on integers. Must specify `max` and `min` as integers.                                                                                                     |
+| `uniform`       | Continuous uniform distribution. Must specify `max` and `min` as floats.                                                                                                                 |
+| `q_uniform`     | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`.                                                                                      |
+| `log_uniform`   | Log-uniform distribution. Returns a value between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`.                             |
+| `q_log_uniform` | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`.                                                                                       |
+| `normal`        | Normal distribution. Return value is normally-distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`).                                                     |
+| `q_normal`      | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1.                                                                                        |
+| `log_normal`    | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`). |
+| `q_log_normal`  | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`.                                                                            |
 
 #### **Examples**
 
@@ -170,7 +170,7 @@ parameter_name:
 ```
 {% endtab %}
 
-{% tab title="q\_uniform" %}
+{% tab title="q_uniform" %}
 ```yaml
 parameter_name:
   distribution: q_uniform
@@ -183,13 +183,13 @@ parameter_name:
 
 ### **`metric`**
 
-|  Key | Description |
-| :--- | :--- |
-| `name` | Name of the metric to optimize. |
-| `goal` | Either `minimize` or `maximize` \(Default is `minimize`\). |
+|  Key     | Description                                                                                                                                                                                                                                                   |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`   | Name of the metric to optimize.                                                                                                                                                                                                                               |
+| `goal`   | Either `minimize` or `maximize` (Default is `minimize`).                                                                                                                                                                                                      |
 | `target` | Goal value for the metric you're optimizing. When any run in the sweep achieves that target value, the sweep's state will be set to `finished`. This means all agents with active runs will finish those jobs, but no new runs will be launched in the sweep. |
 
-Describes the metric to optimize. This metric should be logged explicitly to W&B by your training script. For example, if you want to minimize the validation loss of your model:
+Describes the metric to optimize. This metric should be logged explicitly to W\&B by your training script. For example, if you want to minimize the validation loss of your model:
 
 ```python
 # model training code that returns validation loss as valid_loss
@@ -225,11 +225,11 @@ metric:
 {% endtabs %}
 
 {% hint style="warning" %}
-The metric you're optimizing has to be a top-level metric. That is, rather than logging the metric for your sweep inside of a sub-dictionary, like  
-`val_metrics = {"loss": val_loss, "acc": val_acc}  
-wandb.log({"val", val_metrics})`
+The metric you're optimizing has to be a top-level metric. That is, rather than logging the metric for your sweep inside of a sub-dictionary, like\
+`val_metrics = {"loss": val_loss, "acc": val_acc}`\
+`wandb.log({"val", val_metrics})`
 
-log the metric at the top level, like  
+log the metric at the top level, like\
 `wandb.log({"val_loss", val_metrics["loss"]})`
 {% endhint %}
 
@@ -237,19 +237,19 @@ log the metric at the top level, like
 
 Early termination is an optional feature that speeds up hyperparameter search by stopping poorly-performing runs. When the early stopping is triggered, the agent stops the current run and gets the next set of hyperparameters to try.
 
-| Key | Description |
-| :--- | :--- |
+| Key    | Description                    |
+| ------ | ------------------------------ |
 | `type` | Specify the stopping algorithm |
 
-We support the following stopping algorithm\(s\):
+We support the following stopping algorithm(s):
 
-| `type` | Description |
-| :--- | :--- |
+| `type`      | Description                                                   |
+| ----------- | ------------------------------------------------------------- |
 | `hyperband` | Use the [hyperband method](https://arxiv.org/abs/1603.06560). |
 
 #### **`hyperband`**
 
-[Hyperband](https://arxiv.org/abs/1603.06560) stopping evaluates whether a program should be stopped or permitted to continue at one or more pre-set iteration counts, called "brackets". When a run reaches a bracket, its metric value is compared to all previous reported metric values and the run is terminated if its value is too high \(when the goal is minimization\) or low \(when the goal is maximization\).
+[Hyperband](https://arxiv.org/abs/1603.06560) stopping evaluates whether a program should be stopped or permitted to continue at one or more pre-set iteration counts, called "brackets". When a run reaches a bracket, its metric value is compared to all previous reported metric values and the run is terminated if its value is too high (when the goal is minimization) or low (when the goal is maximization).
 
 {% hint style="warning" %}
 Brackets are based on the number of _logged_ iterations, i.e. elements in the run's history. Depending on where you are calling [`wandb.log`](../track/log/),  these iterations may correspond to steps, epochs, or something in between. The numerical value of the step counter is not used in bracket calculations.
@@ -257,12 +257,12 @@ Brackets are based on the number of _logged_ iterations, i.e. elements in the ru
 
 In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
 
-|  Key | Description |
-| :--- | :--- |
-| `min_iter` | Specify the iteration for the first bracket |
-| `max_iter` | Specify the maximum number of iterations. |
-| `s` | Specify the total number of brackets \(required for `max_iter`\) |
-| `eta` | Specify the bracket multiplier schedule \(default: `3`\). |
+|  Key       | Description                                                    |
+| ---------- | -------------------------------------------------------------- |
+| `min_iter` | Specify the iteration for the first bracket                    |
+| `max_iter` | Specify the maximum number of iterations.                      |
+| `s`        | Specify the total number of brackets (required for `max_iter`) |
+| `eta`      | Specify the bracket multiplier schedule (default: `3`).        |
 
 {% hint style="warning" %}
 The hyperband early terminator checks what runs to terminate once every few minutes. If your runs or iterations are very short, the times at which runs stop may be different from the specified brackets.
@@ -271,7 +271,7 @@ The hyperband early terminator checks what runs to terminate once every few minu
 #### **Examples**
 
 {% tabs %}
-{% tab title="Hyperband \(min\_iter\)" %}
+{% tab title="Hyperband (min_iter)" %}
 ```yaml
 early_terminate:
   type: hyperband
@@ -281,7 +281,7 @@ early_terminate:
 The brackets for this example are: `[3, 3*eta, 3*eta*eta, 3*eta*eta*eta]`, which equals `[3, 9, 27, 81]`.
 {% endtab %}
 
-{% tab title="Hyperband \(max\_iter\)" %}
+{% tab title="Hyperband (max_iter)" %}
 ```yaml
 early_terminate:
   type: hyperband
@@ -293,7 +293,7 @@ The brackets for this example are `[27/eta, 27/eta/eta]`, which equals `[9, 3]`.
 {% endtab %}
 {% endtabs %}
 
-### `command` <a id="command"></a>
+### `command` <a href="command" id="command"></a>
 
 Agents created with [`wandb agent`](../../ref/cli/wandb-agent.md) receive a command in the following format by default:
 
@@ -315,19 +315,19 @@ python train.py --param1=value1 --param2=value2
 On UNIX systems, `/usr/bin/env` ensures the right Python interpreter is chosen based on the environment.
 {% endhint %}
 
-The format and contents can be modified by specifying values under the `command` key. Fixed components of the command, e.g. filenames, can be included directly \(see examples below\).
+The format and contents can be modified by specifying values under the `command` key. Fixed components of the command, e.g. filenames, can be included directly (see examples below).
 
 We support the following macros for variable components of the command:
 
-| Command Macro | Description |
-| :--- | :--- |
-| `${env}` | `/usr/bin/env` on UNIX systems, omitted on Windows. |
-| `${interpreter}` | Expands to `python`. |
-| `${program}` | Training script filename specified by the sweep configuration `program` key. |
-| `${args}` | Hyperparameters and their values in the form `--param1=value1 --param2=value2`. |
-| `${args_no_hyphens}` | Hyperparameters and their values in the form `param1=value1 param2=value2`. |
-| `${args_json}` | Hyperparameters and their values encoded as JSON. |
-| `${args_json_file}` | The path to a file containing the hyperparameters and their values encoded as JSON. |
+| Command Macro        | Description                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| `${env}`             | `/usr/bin/env` on UNIX systems, omitted on Windows.                                 |
+| `${interpreter}`     | Expands to `python`.                                                                |
+| `${program}`         | Training script filename specified by the sweep configuration `program` key.        |
+| `${args}`            | Hyperparameters and their values in the form `--param1=value1 --param2=value2`.     |
+| `${args_no_hyphens}` | Hyperparameters and their values in the form `param1=value1 param2=value2`.         |
+| `${args_json}`       | Hyperparameters and their values encoded as JSON.                                   |
+| `${args_json_file}`  | The path to a file containing the hyperparameters and their values encoded as JSON. |
 
 Hence, the default command format is defined as:
 
@@ -380,7 +380,7 @@ command:
 {% endtab %}
 
 {% tab title="Use with Hydra" %}
-You can change the command to pass arguments the way tools like [Hydra](https://hydra.cc/) expect.
+You can change the command to pass arguments the way tools like [Hydra](https://hydra.cc) expect.
 
 ```yaml
 command:
@@ -391,4 +391,3 @@ command:
 ```
 {% endtab %}
 {% endtabs %}
-

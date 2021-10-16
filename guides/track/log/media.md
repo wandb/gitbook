@@ -1,5 +1,5 @@
 ---
-description: 'Log rich media, from 3D point clouds and molecules to HTML and histograms'
+description: Log rich media, from 3D point clouds and molecules to HTML and histograms
 ---
 
 # Log Media & Objects
@@ -20,7 +20,7 @@ You can see working code to log all of these media objects in [this Colab Notebo
 
 Log images to track inputs, outputs, filter weights, activations, and more!
 
-![Inputs and outputs of an autoencoder network performing in-painting.](../../../.gitbook/assets/image%20%2876%29.png)
+![Inputs and outputs of an autoencoder network performing in-painting.](<../../../.gitbook/assets/image (76).png>)
 
 Images can be logged directly from numpy arrays, as PIL images, or from the filesystem.
 
@@ -70,16 +70,16 @@ wandb.log({"example": wandb.Image("myimage.jpg")})
 
 {% tabs %}
 {% tab title="Segmentation Masks" %}
-Log semantic segmentation masks and interact with them \(altering opacity, viewing changes over time, and more\) via the W&B UI.
+Log semantic segmentation masks and interact with them (altering opacity, viewing changes over time, and more) via the W\&B UI.
 
-![Interactive mask viewing in the W&amp;B UI.](../../../.gitbook/assets/semantic-segmentation.gif)
+![Interactive mask viewing in the W\&B UI.](../../../.gitbook/assets/semantic-segmentation.gif)
 
 To log an overlay, you'll need to provide a dictionary with the following keys and values to the `masks` keyword argument of `wandb.Image`:
 
 * one of two keys representing the image mask:
   * `"mask_data"`: a 2D numpy array containing an integer class label for each pixel
-  * `"path"`: \(string\) a path to a saved image mask file
-* `"class_labels"`:  \(optional\) a dictionary mapping the integer class labels in the image mask to their readable class names
+  * `"path"`: (string) a path to a saved image mask file
+* `"class_labels"`:  (optional) a dictionary mapping the integer class labels in the image mask to their readable class names
 
 To log multiple masks, log a mask dictionary with multiple keys, as in the code snippet below.
 
@@ -121,12 +121,12 @@ To log a bounding box, you'll need to provide a dictionary with the following ke
 * `box_data`: a list of dictionaries, one for each box. The box dictionary format is described below.
   * `position`: a dictionary representing the position and size of the box in one of two formats, as described below. Boxes need not all use the same format.
     * _Option 1:_ `{"minX", "maxX", "minY", "maxY"}`. Provide a set of coordinates defining the upper and lower bounds of each box dimension.
-    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
+    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle `coordinates as `[x,y]`, and `width` and `height` as scalars.
   * `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
   * `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
-  * `domain`: specify the units/format of the box coordinates. **Set this to "pixel"** if the box coordinates are expressed in pixel space \(i.e. as integers within the bounds of the image dimensions\). By default, the domain is assumed to be a fraction/percentage of the image \(a floating point number between 0 and 1\).
-  * `box_caption`: \(optional\) a string to be displayed as the label text on this box 
-* `class_labels`: \(optional\) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
+  * `domain`: specify the units/format of the box coordinates. **Set this to "pixel" **if the box coordinates are expressed in pixel space (i.e. as integers within the bounds of the image dimensions). By default, the domain is assumed to be a fraction/percentage of the image (a floating point number between 0 and 1).
+  * `box_caption`: (optional) a string to be displayed as the label text on this box 
+* `class_labels`: (optional) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
 
 Check out this example:
 
@@ -190,7 +190,7 @@ wandb.log({"driving_scene": img})
 
 {% tabs %}
 {% tab title="Basic Histogram Logging" %}
-If a sequence of numbers \(e.g. list, array, tensor\) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened.  You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
+If a sequence of numbers (e.g. list, array, tensor) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened.  You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
 
 In the UI, histograms are plotted with the training step on the x-axis, the metric value on the y-axis, and the count represented by color, to ease comparison of histograms logged throughout training. See the "Histograms in Summary" tab of this panel for details on logging one-off histograms.
 
@@ -198,7 +198,7 @@ In the UI, histograms are plotted with the training step on the x-axis, the metr
 wandb.log({"gradients": wandb.Histogram(grads)})
 ```
 
-![Gradients for the discriminator in a GAN.](../../../.gitbook/assets/image%20%2874%29.png)
+![Gradients for the discriminator in a GAN.](<../../../.gitbook/assets/image (74).png>)
 {% endtab %}
 
 {% tab title="Flexible Histogram Logging" %}
@@ -239,7 +239,7 @@ wandb.log({"generated_samples":
 
 ![Ground truth and prediction of a headphones point cloud](../../../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
 
-[See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
+[See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples\_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
 
 {% tab title="Point Clouds" %}
@@ -254,7 +254,7 @@ wandb.log({"point_cloud": wandb.Object3D(point_cloud)})
 Three different shapes of numpy arrays are supported for flexible color schemes.
 
 * `[[x, y, z], ...]` `nx3`
-* `[[x, y, z, c], ...]` `nx4` `| c is a category` in the range `[1, 14]` \(Useful for segmentation\)
+* `[[x, y, z, c], ...]` `nx4` `| c is a category` in the range `[1, 14]` (Useful for segmentation)
 * `[[x, y, z, r, g, b], ...]` `nx6 | r,g,b` are values in the range `[0,255]`for red, green, and blue color channels.
 
 Here's an example of logging code below:
@@ -262,7 +262,7 @@ Here's an example of logging code below:
 * `points`is a numpy array with the same format as the simple point cloud renderer shown above.
 * `boxes` is a numpy array of python dictionaries with three attributes:
   * `corners`- a list of eight corners
-  * `label`- a string representing the label to be rendered on the box \(Optional\)
+  * `label`- a string representing the label to be rendered on the box (Optional)
   * `color`- rgb values representing the color of the box 
 * `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
 
@@ -354,9 +354,9 @@ wandb.log(
   {"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
 ```
 
-If a numpy array is supplied we assume the dimensions are, in order: time, channels, width, height. By default we create a 4 fps gif image \([`ffmpeg`](https://www.ffmpeg.org/) and the [`moviepy`](https://pypi.org/project/moviepy/) python library are required when passing numpy objects\). Supported formats are `"gif"`, `"mp4"`, `"webm"`, and `"ogg"`. If you pass a string to `wandb.Video` we assert the file exists and is a supported format before uploading to wandb. Passing a `BytesIO` object will create a tempfile with the specified format as the extension.
+If a numpy array is supplied we assume the dimensions are, in order: time, channels, width, height. By default we create a 4 fps gif image ([`ffmpeg`](https://www.ffmpeg.org) and the [`moviepy`](https://pypi.org/project/moviepy/) python library are required when passing numpy objects). Supported formats are `"gif"`, `"mp4"`, `"webm"`, and `"ogg"`. If you pass a string to `wandb.Video` we assert the file exists and is a supported format before uploading to wandb. Passing a `BytesIO` object will create a tempfile with the specified format as the extension.
 
-On the W&B [Run](../../../ref/app/pages/run-page.md) and [Project](../../../ref/app/pages/project-page.md) Pages, you will see your videos in the Media section.
+On the W\&B [Run](../../../ref/app/pages/run-page.md) and [Project](../../../ref/app/pages/project-page.md) Pages, you will see your videos in the Media section.
 {% endtab %}
 
 {% tab title="Text" %}
@@ -403,13 +403,13 @@ wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
 
 Each time you log images from a step, we save them to show in the UI. Expand the image panel, and use the step slider to look at images from different steps. This makes it easy to compare how a model's output changes during training.
 
-### What if I want to integrate W&B into my project, but I don't want to upload any images or media?
+### What if I want to integrate W\&B into my project, but I don't want to upload any images or media?
 
-W&B can be used even for projects that only log scalars — you specify any files or data you'd like to upload explicitly. Here's [a quick example in PyTorch](http://wandb.me/pytorch-colab) that does not log images.
+W\&B can be used even for projects that only log scalars — you specify any files or data you'd like to upload explicitly. Here's [a quick example in PyTorch](http://wandb.me/pytorch-colab) that does not log images.
 
 ### **How do I log a PNG?**
 
-\*\*\*\*[`wandb.Image`](../../../ref/python/data-types/audio.md) converts numpy arrays or instances of `PILImage` to PNGs by default.
+****[`wandb.Image`](../../../ref/python/data-types/audio.md) converts numpy arrays or instances of `PILImage` to PNGs by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
@@ -430,4 +430,3 @@ Now you can view videos in the media browser. Go to your project workspace, run 
 ### How do I navigate and zoom in point clouds?
 
 You can hold control and use the mouse to move around inside the space.
-

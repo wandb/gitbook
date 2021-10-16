@@ -1,8 +1,8 @@
 # Fastai
 
-If you're using **fastai** to train your models, W&B has an easy integration using the `WandbCallback`. Explore the details in[ interactive docs with examples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
+If you're using **fastai **to train your models, W\&B has an easy integration using the `WandbCallback`. Explore the details in[ interactive docs with examples →](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA)
 
-## Start Logging with W&B
+## Start Logging with W\&B
 
 First install Weights & Biases and log in:
 
@@ -48,59 +48,16 @@ If you use version 1 of Fastai, refer to the [Fastai v1 docs](v1.md).
 
 `WandbCallback` accepts the following arguments:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Args</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">log</td>
-      <td style="text-align:left">&quot;gradients&quot; (default), &quot;parameters&quot;, &quot;all&quot;
-        or None. Losses &amp; metrics are always logged.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">log_preds</td>
-      <td style="text-align:left">whether we want to log prediction samples (default to True).</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">log_model</td>
-      <td style="text-align:left">whether we want to log our model (default to True). This also requires
-        SaveModelCallback.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">log_dataset</td>
-      <td style="text-align:left">
-        <ul>
-          <li>False (default)</li>
-          <li>True will log folder referenced by learn.dls.path.</li>
-          <li>a path can be defined explicitly to reference which folder to log.</li>
-        </ul>
-        <p><em>Note: subfolder &quot;models&quot; is always ignored.</em>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">dataset_name</td>
-      <td style="text-align:left">name of logged dataset (default to folder name).</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">valid_dl</td>
-      <td style="text-align:left"><code>DataLoaders</code> containing items used for prediction samples (default
-        to random items from <code>learn.dls.valid</code>.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">n_preds</td>
-      <td style="text-align:left">number of logged predictions (default to 36).</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">seed</td>
-      <td style="text-align:left">used for defining random samples.</td>
-    </tr>
-  </tbody>
-</table>
+| Args         | Description                                                                                                                                                                                                                        |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| log          | "gradients" (default), "parameters", "all" or None. Losses & metrics are always logged.                                                                                                                                            |
+| log_preds    | whether we want to log prediction samples (default to True).                                                                                                                                                                       |
+| log_model    | whether we want to log our model (default to True). This also requires SaveModelCallback.                                                                                                                                          |
+| log_dataset  | <ul><li>False (default)</li><li>True will log folder referenced by learn.dls.path.</li><li>a path can be defined explicitly to reference which folder to log.</li></ul><p><em>Note: subfolder "models" is always ignored.</em></p> |
+| dataset_name | name of logged dataset (default to folder name).                                                                                                                                                                                   |
+| valid_dl     | `DataLoaders` containing items used for prediction samples (default to random items from `learn.dls.valid`.                                                                                                                        |
+| n_preds      | number of logged predictions (default to 36).                                                                                                                                                                                      |
+| seed         | used for defining random samples.                                                                                                                                                                                                  |
 
 For custom workflows, you can manually log your datasets and models:
 
@@ -113,4 +70,3 @@ _Note: any subfolder "models" will be ignored._
 
 * [Visualize, track, and compare Fastai models](https://app.wandb.ai/borisd13/demo_config/reports/Visualize-track-compare-Fastai-models--Vmlldzo4MzAyNA): A thoroughly documented walkthrough
 * [Image Segmentation on CamVid](http://bit.ly/fastai-wandb): A sample use case of the integration
-

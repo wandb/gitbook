@@ -6,7 +6,7 @@ description: A playground for exploring run data with interactive visualizations
 
 Your workspace is your personal sandbox to customize charts and explore model results.
 
-1. **Table**: All the runs in your project are listed in the table. ****Turn on and off runs, change colors, and expand the table to see notes, config, and summary metrics for each run. 
+1. **Table**: All the runs in your project are listed in the table.** **Turn on and off runs, change colors, and expand the table to see notes, config, and summary metrics for each run. 
 2. **Panels**: Panels are organized into sections. Create new panels, organize them, and export to reports to save snapshots of your workspace.
 
 ![](../../../.gitbook/assets/workspace-table-and-panels.png)
@@ -21,7 +21,7 @@ with run:
         run.log({"section-b/metric": idx*2})
 ```
 
-![](../../../.gitbook/assets/image%20%2841%29.png)
+![](<../../../.gitbook/assets/image (41).png>)
 
 At the bottom of the page is a workspace control bar:
 
@@ -35,6 +35,4 @@ At the bottom of the page is a workspace control bar:
 * **Default workspace**: This is the default layout for any newcomers who land on this project for the first time. This lets you set up a nice landing page for your public project, or help your team members get started.
 
 ![](../../../.gitbook/assets/workspace-bar2.png)
-
-
 
