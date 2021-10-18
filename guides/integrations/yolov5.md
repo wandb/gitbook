@@ -4,7 +4,7 @@ description: You'll Easily Log Everything if you combine W&B with YOLOv5.
 
 # YOLOv5
 
-[Ultralytics' YOLOv5](https://ultralytics.com/yolov5) \("You Only Look Once"\) model family enables real-time object detection with convolutional neural networks without all the agonizing pain.
+[Ultralytics' YOLOv5](https://ultralytics.com/yolov5) ("You Only Look Once") model family enables real-time object detection with convolutional neural networks without all the agonizing pain.
 
 [Weights & Biases](http://wandb.com) is directly integrated into YOLOv5, providing experiment metric tracking, model and dataset versioning, rich model prediction visualization, and more. **It's as easy as running a single `pip install` before you run your YOLO experiments!**
 
@@ -15,12 +15,12 @@ For a quick overview of the model and data-logging features of our YOLOv5 integr
 {% embed url="https://www.youtube.com/watch?v=yyecuhBmLxE" %}
 
 {% hint style="info" %}
-All W&B logging features are compatible with data-parallel multi-GPU training, e.g. with [PyTorch DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html).
+All W\&B logging features are compatible with data-parallel multi-GPU training, e.g. with [PyTorch DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html).
 {% endhint %}
 
 ## Core Experiment Tracking
 
-Simply by installing `wandb`, you'll activate the built-in W&B [logging features](../track/log/): system metrics, model metrics, and media logged to interactive [Dashboards](../track/app.md).
+Simply by installing `wandb`, you'll activate the built-in W\&B [logging features](../track/log/): system metrics, model metrics, and media logged to interactive [Dashboards](../track/app.md).
 
 ```python
 pip install wandb
@@ -30,15 +30,15 @@ python yolov5/train.py  # train a small network on a small dataset
 
 Just follow the links printed to the standard out by wandb.
 
-![All these charts and more!](../../.gitbook/assets/image%20%2847%29.png)
+![All these charts and more!](<../../.gitbook/assets/image (47).png>)
 
 ## Model Versioning and Data Visualization
 
-But that's not all! By passing a few simple command line arguments to YOLO, you can take advantage of even more W&B features.
+But that's not all! By passing a few simple command line arguments to YOLO, you can take advantage of even more W\&B features.
 
-* Passing a number to `--save_period` will turn on [model versioning](../artifacts/model-versioning.md). At the end of every `save_period` epochs, the model weights will be saved to W&B. The best-performing model on the validation set will be tagged automatically.
+* Passing a number to `--save_period` will turn on [model versioning](../artifacts/model-versioning.md). At the end of every `save_period` epochs, the model weights will be saved to W\&B. The best-performing model on the validation set will be tagged automatically.
 * Turning on the `--upload_dataset` flag will also upload the dataset for [data versioning](../artifacts/dataset-versioning.md).
-* Passing a number to `--bbox_interval` will turn on [data visualization](../data-vis/). At the end of every `bbox_interval` epochs, the outputs of the model on the validation set will be uploaded to W&B.
+* Passing a number to `--bbox_interval` will turn on [data visualization](../data-vis/). At the end of every `bbox_interval` epochs, the outputs of the model on the validation set will be uploaded to W\&B.
 
 {% tabs %}
 {% tab title="Model Versioning Only" %}
@@ -56,14 +56,14 @@ python yolov5/train.py --epochs 20 --save_period 1 \
 {% endtabs %}
 
 {% hint style="info" %}
-Every W&B account comes with 100 GB of free storage for datasets and models.
+Every W\&B account comes with 100 GB of free storage for datasets and models.
 {% endhint %}
 
 Here's what that looks like.
 
-![Model Versioning: the latest and the best versions of the model are identified.](../../.gitbook/assets/image%20%2862%29.png)
+![Model Versioning: the latest and the best versions of the model are identified.](<../../.gitbook/assets/image (62).png>)
 
-![Data Visualization: compare the input image to the model&apos;s outputs and example-wise metrics.](../../.gitbook/assets/image%20%2861%29.png)
+![Data Visualization: compare the input image to the model's outputs and example-wise metrics.](<../../.gitbook/assets/image (61).png>)
 
 {% hint style="info" %}
 With data and model versioning, you can resume paused or crashed experiments from any device, no setup necessary! Check out [the Colab ](https://wandb.me/yolo-colab)for details.
@@ -71,7 +71,10 @@ With data and model versioning, you can resume paused or crashed experiments fro
 
 ### Learn more about versioning and visualization:
 
-{% page-ref page="../artifacts/" %}
+{% content-ref url="../artifacts/" %}
+[artifacts](../artifacts/)
+{% endcontent-ref %}
 
-{% page-ref page="../data-vis/" %}
-
+{% content-ref url="../data-vis/" %}
+[data-vis](../data-vis/)
+{% endcontent-ref %}

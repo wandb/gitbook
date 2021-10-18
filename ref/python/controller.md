@@ -14,5 +14,4 @@ controller(
 
 ## Usage:
 
-import wandb tuner = wandb.controller\(...\) print\(tuner.sweep\_config\) print\(tuner.sweep\_id\) tuner.configure\_search\(...\) tuner.configure\_stopping\(...\)
-
+import wandb tuner = wandb.controller(...) print(tuner.sweep_config) print(tuner.sweep_id) tuner.configure_search(...) tuner.configure_stopping(...)

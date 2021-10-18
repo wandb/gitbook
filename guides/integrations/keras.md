@@ -1,3 +1,7 @@
+---
+description: How to integrate a Keras script to log metrics to W&B
+---
+
 # Keras
 
 Use our callback to automatically save all the metrics and the loss values tracked in `model.fit`.

@@ -10,13 +10,12 @@ Run(
 )
 ```
 
-| Attributes |  |
-| :--- | :--- |
-
+| Attributes |   |
+| ---------- | - |
 
 ## Methods
 
-### `create` <a id="create"></a>
+### `create` <a href="create" id="create"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L999-L1039)
 
@@ -29,7 +28,7 @@ create(
 
 Create a run for the given project
 
-### `delete` <a id="delete"></a>
+### `delete` <a href="delete" id="delete"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1154-L1188)
 
@@ -41,7 +40,7 @@ delete(
 
 Deletes the given run from the wandb backend.
 
-### `file` <a id="file"></a>
+### `file` <a href="file" id="file"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1250-L1259)
 
@@ -51,13 +50,13 @@ file(
 )
 ```
 
-Arguments: name \(str\): name of requested file.
+Arguments: name (str): name of requested file.
 
-| Returns |  |
-| :--- | :--- |
-| A `File` matching the name argument. |  |
+| Returns                              |   |
+| ------------------------------------ | - |
+| A `File` matching the name argument. |   |
 
-### `files` <a id="files"></a>
+### `files` <a href="files" id="files"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1238-L1248)
 
@@ -67,13 +66,13 @@ files(
 )
 ```
 
-Arguments: names \(list\): names of the requested files, if empty returns all files per\_page \(int\): number of results per page
+Arguments: names (list): names of the requested files, if empty returns all files per_page (int): number of results per page
 
-| Returns |  |
-| :--- | :--- |
-| A `Files` object, which is an iterator over `File` obejcts. |  |
+| Returns                                                     |   |
+| ----------------------------------------------------------- | - |
+| A `Files` object, which is an iterator over `File` obejcts. |   |
 
-### `history` <a id="history"></a>
+### `history` <a href="history" id="history"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1284-L1323)
 
@@ -85,15 +84,15 @@ history(
 
 Returns sampled history metrics for a run. This is simpler and faster if you are ok with the history records being sampled.
 
-| Arguments |  |
-| :--- | :--- |
-| samples \(int, optional\): The number of samples to return pandas \(bool, optional\): Return a pandas dataframe keys \(list, optional\): Only return metrics for specific keys x\_axis \(str, optional\): Use this metric as the xAxis defaults to \_step stream \(str, optional\): "default" for metrics, "system" for machine metrics |  |
+| Arguments                                                                                                                                                                                                                                                                                                                    |   |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| samples (int, optional): The number of samples to return pandas (bool, optional): Return a pandas dataframe keys (list, optional): Only return metrics for specific keys x_axis (str, optional): Use this metric as the xAxis defaults to \_step stream (str, optional): "default" for metrics, "system" for machine metrics |   |
 
-| Returns |  |
-| :--- | :--- |
-| If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics. |  |
+| Returns                                                                                                                     |   |
+| --------------------------------------------------------------------------------------------------------------------------- | - |
+| If pandas=True returns a `pandas.DataFrame` of history metrics. If pandas=False returns a list of dicts of history metrics. |   |
 
-### `load` <a id="load"></a>
+### `load` <a href="load" id="load"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1041-L1099)
 
@@ -103,7 +102,7 @@ load(
 )
 ```
 
-### `log_artifact` <a id="log_artifact"></a>
+### `log_artifact` <a href="log_artifact" id="log_artifact"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1416-L1448)
 
@@ -115,15 +114,15 @@ log_artifact(
 
 Declare an artifact as output of a run.
 
-| Arguments |  |
-| :--- | :--- |
-| artifact \(`Artifact`\): An artifact returned from `wandb.Api().artifact(name)` aliases \(list, optional\): Aliases to apply to this artifact |  |
+| Arguments                                                                                                                                 |   |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | - |
+| artifact (`Artifact`): An artifact returned from `wandb.Api().artifact(name)` aliases (list, optional): Aliases to apply to this artifact |   |
 
-| Returns |  |
-| :--- | :--- |
-| A `Artifact` object. |  |
+| Returns              |   |
+| -------------------- | - |
+| A `Artifact` object. |   |
 
-### `logged_artifacts` <a id="logged_artifacts"></a>
+### `logged_artifacts` <a href="logged_artifacts" id="logged_artifacts"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1381-L1383)
 
@@ -133,7 +132,7 @@ logged_artifacts(
 )
 ```
 
-### `save` <a id="save"></a>
+### `save` <a href="save" id="save"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1190-L1191)
 
@@ -141,7 +140,7 @@ logged_artifacts(
 save()
 ```
 
-### `scan_history` <a id="scan_history"></a>
+### `scan_history` <a href="scan_history" id="scan_history"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1325-L1379)
 
@@ -163,15 +162,15 @@ history = run.scan_history(keys=["Loss"])
 losses = [row["Loss"] for row in history]
 ```
 
-| Arguments |  |
-| :--- | :--- |
-| keys \(\[str\], optional\): only fetch these keys, and only fetch rows that have all of keys defined. page\_size \(int, optional\): size of pages to fetch from the api |  |
+| Arguments                                                                                                                                                         |   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
+| keys (\[str], optional): only fetch these keys, and only fetch rows that have all of keys defined. page_size (int, optional): size of pages to fetch from the api |   |
 
-| Returns |  |
-| :--- | :--- |
-| An iterable collection over history records \(dict\). |  |
+| Returns                                             |   |
+| --------------------------------------------------- | - |
+| An iterable collection over history records (dict). |   |
 
-### `snake_to_camel` <a id="snake_to_camel"></a>
+### `snake_to_camel` <a href="snake_to_camel" id="snake_to_camel"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L573-L575)
 
@@ -181,7 +180,7 @@ snake_to_camel(
 )
 ```
 
-### `update` <a id="update"></a>
+### `update` <a href="update" id="update"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1124-L1152)
 
@@ -191,7 +190,7 @@ update()
 
 Persists changes to the run object to the wandb backend.
 
-### `upload_file` <a id="upload_file"></a>
+### `upload_file` <a href="upload_file" id="upload_file"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1261-L1282)
 
@@ -201,13 +200,13 @@ upload_file(
 )
 ```
 
-Arguments: path \(str\): name of file to upload. root \(str\): the root path to save the file relative to. i.e. If you want to have the file saved in the run as "my\_dir/file.txt" and you're currently in "my\_dir" you would set root to "../"
+Arguments: path (str): name of file to upload. root (str): the root path to save the file relative to. i.e. If you want to have the file saved in the run as "my_dir/file.txt" and you're currently in "my_dir" you would set root to "../"
 
-| Returns |  |
-| :--- | :--- |
-| A `File` matching the name argument. |  |
+| Returns                              |   |
+| ------------------------------------ | - |
+| A `File` matching the name argument. |   |
 
-### `use_artifact` <a id="use_artifact"></a>
+### `use_artifact` <a href="use_artifact" id="use_artifact"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1389-L1414)
 
@@ -219,15 +218,15 @@ use_artifact(
 
 Declare an artifact as an input to a run.
 
-| Arguments |  |
-| :--- | :--- |
-| artifact \(`Artifact`\): An artifact returned from `wandb.Api().artifact(name)` |  |
+| Arguments                                                                     |   |
+| ----------------------------------------------------------------------------- | - |
+| artifact (`Artifact`): An artifact returned from `wandb.Api().artifact(name)` |   |
 
-| Returns |  |
-| :--- | :--- |
-| A `Artifact` object. |  |
+| Returns              |   |
+| -------------------- | - |
+| A `Artifact` object. |   |
 
-### `used_artifacts` <a id="used_artifacts"></a>
+### `used_artifacts` <a href="used_artifacts" id="used_artifacts"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1385-L1387)
 
@@ -237,11 +236,10 @@ used_artifacts(
 )
 ```
 
-### `wait_until_finished` <a id="wait_until_finished"></a>
+### `wait_until_finished` <a href="wait_until_finished" id="wait_until_finished"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1101-L1122)
 
 ```python
 wait_until_finished()
 ```
-

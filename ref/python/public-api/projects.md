@@ -10,7 +10,6 @@ Projects(
 )
 ```
 
-| Class Variables |  |
-| :--- | :--- |
-| `QUERY` |  |
-
+| Class Variables |   |
+| --------------- | - |
+| `QUERY`         |   |

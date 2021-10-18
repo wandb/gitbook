@@ -30,7 +30,7 @@ config_defaults = {"lr": 0.1, "batch_size": 256}
 with wandb.init() as run:
     # update any values not set by sweep
     run.config.setdefaults(config_defaults)
-    
+
     # add your training code here
 ```
 {% endtab %}
@@ -61,7 +61,7 @@ wandb.agent(sweep_id, count)
 
 Every sweep is associated with an `entity` (a user or a team) and a `project`.
 
-These values can be set in four ways: as command-line arguments to [`wandb sweep`](../../ref/cli/wandb-sweep.md),  as part of the [sweep configuration](configuration.md) YAML file, as [environment variables](../track/advanced/environment-variables.md), or via the `wandb/settings` file.
+These values can be set in four ways: as command-line arguments to [`wandb sweep`](../../ref/cli/wandb-sweep.md), as part of the [sweep configuration](configuration.md) YAML file, as [environment variables](../track/advanced/environment-variables.md), or via the `wandb/settings` file.
 
 {% tabs %}
 {% tab title="CLI" %}
@@ -132,7 +132,7 @@ Yes! If you exhaust a grid search but want to rerun some of the runs (for exampl
 
 If you're seeing that error message, plus `ERROR Error uploading`, you might be setting an ID for your run, e.g. `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, the error above will be thrown. In the sweeps context, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
 
-If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name `instead of `id.` For example:
+If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name` instead of `id.` For example:
 
 ```python
 wandb.init(name="a helpful readable run name")
@@ -179,7 +179,7 @@ args, unknown = parser.parse_known_args()
 ```
 
 {% hint style="info" %}
-Depending on the environment, `python` might point to Python 2. To ensure Python 3 is invoked, just use `python3` instead of `python `when configuring the command:
+Depending on the environment, `python` might point to Python 2. To ensure Python 3 is invoked, just use `python3` instead of `python` when configuring the command:
 
 ```yaml
 program:

@@ -10,8 +10,7 @@ Verify your local instance
 
 **Options**
 
-| **Option** | **Description** |
-| :--- | :--- |
-| --host | Test a specific instance of W&B |
-| --help | Show this message and exit. |
-
+| **Option** | **Description**                  |
+| ---------- | -------------------------------- |
+| --host     | Test a specific instance of W\&B |
+| --help     | Show this message and exit.      |

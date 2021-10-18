@@ -15,4 +15,3 @@ Colors are locally scoped. On the project page, custom colors only apply to your
 3. Select a color for the graphs of your run
 
 ![](https://downloads.intercomcdn.com/i/o/149202442/b430d9b1473e41644a91fae3/run+coloring.gif)
-

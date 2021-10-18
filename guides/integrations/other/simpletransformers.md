@@ -1,12 +1,12 @@
 # Simple Transformers
 
-This library is based on the Transformers library by HuggingFace. Simple Transformers lets you quickly train and evaluate Transformer models. Only 3 lines of code are needed to initialize a model, train the model, and evaluate a model. It supports Sequence Classification, Token Classification \(NER\),Question Answering,Language Model Fine-Tuning, Language Model Training, Language Generation, T5 Model, Seq2Seq Tasks , Multi-Modal Classification and Conversational AI.
+This library is based on the Transformers library by HuggingFace. Simple Transformers lets you quickly train and evaluate Transformer models. Only 3 lines of code are needed to initialize a model, train the model, and evaluate a model. It supports Sequence Classification, Token Classification (NER),Question Answering,Language Model Fine-Tuning, Language Model Training, Language Generation, T5 Model, Seq2Seq Tasks , Multi-Modal Classification and Conversational AI.
 
 ## The Weights & Biases framework
 
-Weights and Biases is supported for visualizing model training. To use this, simply set a project name for W&B in the `wandb_project` attribute of the `args` dictionary. This will log all hyperparameter values, training losses, and evaluation metrics to the given project.
+Weights and Biases is supported for visualizing model training. To use this, simply set a project name for W\&B in the `wandb_project` attribute of the `args` dictionary. This will log all hyperparameter values, training losses, and evaluation metrics to the given project.
 
-```text
+```
 model = ClassificationModel('roberta', 'roberta-base', args={'wandb_project': 'project-name'})
 ```
 
@@ -28,7 +28,7 @@ Here are some minimal examples
 
 ## MultiLabel Classification
 
-```text
+```
   model = MultiLabelClassificationModel("distilbert","distilbert-base-uncased",num_labels=6,
     args={"reprocess_input_data": True, "overwrite_output_dir": True, "num_train_epochs":epochs,'learning_rate':learning_rate,
                 'wandb_project': "simpletransformers"},
@@ -48,7 +48,7 @@ Here are some visualizations generated from the above training script after runn
 
 ## Question Answering
 
-```text
+```
   train_args = {
     'learning_rate': wandb.config.learning_rate,
     'num_train_epochs': 2,
@@ -73,7 +73,7 @@ Here are some visualizations generated from the above training script after runn
 
 SimpleTransformers provides classes as well as trainig scripts for all common natural language tasks. Here is the complete list of global arguments that are supported by the library, with their default arguments.
 
-```text
+```
 global_args = {
   "adam_epsilon": 1e-8,
   "best_model_dir": "outputs/best_model",
@@ -131,4 +131,3 @@ global_args = {
 Refer to [simpletransformers on github](https://github.com/ThilinaRajapakse/simpletransformers) for more detailed documentation.
 
 Checkout [this Weights and Baises report](https://app.wandb.ai/cayush/simpletransformers/reports/Using-simpleTransformer-on-common-NLP-applications---Vmlldzo4Njk2NA) that covers training transformers on some the most popular GLUE benchmark datasets. Try it out yourself on colab [![Open In Colab](https://camo.githubusercontent.com/52feade06f2fecbf006889a904d221e6a730c194/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667)](https://colab.research.google.com/drive/1oXROllqMqVvBFcPgTKJRboTq96uWuqSz?usp=sharing)
-

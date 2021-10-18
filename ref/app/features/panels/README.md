@@ -18,7 +18,6 @@ Turn on the "eye" icon next to the top run in each group to visualize the maximu
 
 ### Download charts
 
-You can download charts by clicking the down arrow and select a format \(.png, .svg, export API or export by CSV\)
+You can download charts by clicking the down arrow and select a format (.png, .svg, export API or export by CSV)
 
 ![](../../../../.gitbook/assets/screen-shot-2020-02-20-at-10.07.09-am.png)
-

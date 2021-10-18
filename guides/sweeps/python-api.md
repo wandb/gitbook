@@ -7,7 +7,7 @@ description: Run Sweeps using Jupyter notebooks
 Sweeps allow you to easily try out a large number of hyperparameters while tracking model performance and logging all the information you need to reproduce experiments. There are two major APIs for Sweeps: one using the command line ([guide here](quickstart.md)) and the other using pure Python. This guide describes how to use the second API to run a sweep inside a Jupyter notebook.
 
 {% hint style="info" %}
- You can try out running sweeps in Jupyter notebooks now, no install required, using Colab! We've got examples in [PyTorch](http://wandb.me/sweeps-colab) and [Keras](http://wandb.me/tf-sweeps-colab), plus a video walkthrough!
+You can try out running sweeps in Jupyter notebooks now, no install required, using Colab! We've got examples in [PyTorch](https://github.com/wandb/gitbook/tree/fa673bac0304afa7959c5e0116169cf62a893779/sweeps-colab/README.md) and [Keras](http://wandb.me/tf-sweeps-colab), plus a video walkthrough!
 {% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=9zrmUIlScdY" %}

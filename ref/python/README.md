@@ -1,6 +1,6 @@
 # Python Library
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/__init__.py)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/\__init\_\_.py)
 
 ## Classes
 
@@ -18,7 +18,7 @@
 
 [`finish(...)`](finish.md): Marks a run as finished, and finishes uploading all data.
 
-[`init(...)`](init.md): Starts a new run to track and log to W&B.
+[`init(...)`](init.md): Starts a new run to track and log to W\&B.
 
 [`log(...)`](log.md): Logs a dictonary of data to the current run's history.
 
@@ -30,7 +30,6 @@
 
 [`watch(...)`](watch.md): Hooks into the torch model to collect gradients and the topology.
 
-| Other Members |  |
-| :--- | :--- |
+| Other Members |            |
+| ------------- | ---------- |
 | `__version__` | `'0.12.2'` |
-

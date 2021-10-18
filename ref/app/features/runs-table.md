@@ -14,7 +14,7 @@ We support full [regex](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) sea
 
 We provide a column named `End Time` that logs that last heartbeat from the client process. The field is hidden by default.
 
-![](../../../.gitbook/assets/image%20%2862%29%20%281%29%20%281%29.png)
+![](<../../../.gitbook/assets/image (62) (1) (3).png>)
 
 ## Resize the sidebar
 
@@ -68,7 +68,7 @@ Do you want to hide crashed runs? Are short runs filling up your table? Do you w
 * **Hide crashed runs** filters out any runs marked crashed from the table
 * **Duration**: add a new filter and select "duration" to hide short runs
 
-![](../../../.gitbook/assets/image%20%2816%29.png)
+![](<../../../.gitbook/assets/image (16).png>)
 
 ## Filter runs with tags
 
@@ -93,4 +93,3 @@ Export the table of all your runs, hyperparameters, and summary metrics to a CSV
 Search for the columns in the table UI guide with the **Columns** button.
 
 ![](../../../.gitbook/assets/2021-03-18-07.15.19.gif)
-

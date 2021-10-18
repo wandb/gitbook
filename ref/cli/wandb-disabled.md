@@ -6,11 +6,10 @@
 
 **Summary**
 
-Disable W&B.
+Disable W\&B.
 
 **Options**
 
-| **Option** | **Description** |
-| :--- | :--- |
-| --help | Show this message and exit. |
-
+| **Option** | **Description**             |
+| ---------- | --------------------------- |
+| --help     | Show this message and exit. |

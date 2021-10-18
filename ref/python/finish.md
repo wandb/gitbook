@@ -11,4 +11,3 @@ finish(
 ```
 
 This is used when creating multiple runs in the same process. We automatically call this method when your script exits.
-

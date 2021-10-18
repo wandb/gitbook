@@ -8,7 +8,7 @@ description: Use a dictionary-like object to save your experiment configuration
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/config-colab)
 
-Set the `wandb.config` object in your script to save your training configuration: hyperparameters, input settings like dataset name or model type, and any other independent variables for your experiments. This is useful for analyzing your experiments and reproducing your work in the future. You'll be able to group by config values in the web interface, comparing the settings of different runs and seeing how these affect the output. Note that output metrics or dependent variables \(like loss and accuracy\) should be saved with `wandb.log`instead.
+Set the `wandb.config` object in your script to save your training configuration: hyperparameters, input settings like dataset name or model type, and any other independent variables for your experiments. This is useful for analyzing your experiments and reproducing your work in the future. You'll be able to group by config values in the web interface, comparing the settings of different runs and seeing how these affect the output. Note that output metrics or dependent variables (like loss and accuracy) should be saved with `wandb.log`instead.
 
 You can send us a nested dictionary in config, and we'll flatten the names using dots in our backend. We recommend that you avoid using dots in your config variable names, and use a dash or underscore instead. Once you've created your wandb config dictionary, if your script accesses wandb.config keys below the root, use `[ ]` syntax instead of `.` syntax.
 
@@ -57,7 +57,7 @@ wandb.config.update(flags.FLAGS) # adds all absl flags to config
 
 ## File-Based Configs
 
-If you create a file called `config-defaults.yaml`,  and it will automatically be loaded into `wandb.config`.
+If you create a file called `config-defaults.yaml`, and it will automatically be loaded into `wandb.config`.
 
 {% code title="configs-default.yaml" %}
 ```yaml
@@ -94,7 +94,7 @@ wandb.init(config=config_dictionary)
 
 ## Dataset Identifier
 
-You can add a unique identifier \(like a hash or other identifier\) in your run's configuration for your dataset by tracking it as input to your experiment using `wandb.config`
+You can add a unique identifier (like a hash or other identifier) in your run's configuration for your dataset by tracking it as input to your experiment using `wandb.config`
 
 ```yaml
 wandb.config.update({"dataset": "ab131"})
@@ -129,4 +129,3 @@ flags.DEFINE_string("data_dir", "/tmp/data")
 flags.DEFINE_integer("batch_size", 128, "Batch size.")
 wandb.config.update(flags.FLAGS)  # adds all of the tensorflow flags as config
 ```
-

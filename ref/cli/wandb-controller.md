@@ -6,12 +6,11 @@
 
 **Summary**
 
-Run the W&B local sweep controller
+Run the W\&B local sweep controller
 
 **Options**
 
-| **Option** | **Description** |
-| :--- | :--- |
-| --verbose | Display verbose output |
-| --help | Show this message and exit. |
-
+| **Option** | **Description**             |
+| ---------- | --------------------------- |
+| --verbose  | Display verbose output      |
+| --help     | Show this message and exit. |

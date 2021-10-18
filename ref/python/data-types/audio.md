@@ -1,4 +1,4 @@
-# wandb.data\_types.Audio
+# wandb.data_types.Audio
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L887-L1031)
 
@@ -10,15 +10,15 @@ Audio(
 )
 ```
 
-| Arguments |  |
-| :--- | :--- |
-| `data_or_path` | \(string or numpy array\) A path to an audio file or a numpy array of audio data. |
-| `sample_rate` | \(int\) Sample rate, required when passing in raw numpy array of audio data. |
-| `caption` | \(string\) Caption to display with audio. |
+| Arguments      |                                                                                 |
+| -------------- | ------------------------------------------------------------------------------- |
+| `data_or_path` | (string or numpy array) A path to an audio file or a numpy array of audio data. |
+| `sample_rate`  | (int) Sample rate, required when passing in raw numpy array of audio data.      |
+| `caption`      | (string) Caption to display with audio.                                         |
 
 ## Methods
 
-### `durations` <a id="durations"></a>
+### `durations` <a href="durations" id="durations"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L989-L991)
 
@@ -29,7 +29,7 @@ durations(
 )
 ```
 
-### `path_is_reference` <a id="path_is_reference"></a>
+### `path_is_reference` <a href="path_is_reference" id="path_is_reference"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L932-L934)
 
@@ -40,7 +40,7 @@ path_is_reference(
 )
 ```
 
-### `resolve_ref` <a id="resolve_ref"></a>
+### `resolve_ref` <a href="resolve_ref" id="resolve_ref"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L1005-L1017)
 
@@ -48,7 +48,7 @@ path_is_reference(
 resolve_ref()
 ```
 
-### `sample_rates` <a id="sample_rates"></a>
+### `sample_rates` <a href="sample_rates" id="sample_rates"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L993-L995)
 
@@ -58,4 +58,3 @@ sample_rates(
     audio_list
 )
 ```
-

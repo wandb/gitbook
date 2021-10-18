@@ -1,4 +1,4 @@
-# wandb.data\_types.ImageMask
+# wandb.data_types.ImageMask
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L1265-L1440)
 
@@ -11,10 +11,10 @@ ImageMask(
 ) -> None
 ```
 
-| Arguments |  |
-| :--- | :--- |
-| `val` | \(dictionary\) One of these two keys to represent the image: mask\_data : \(2D numpy array\) The mask containing an integer class label for each pixel in the image path : \(string\) The path to a saved image file of the mask class\_labels : \(dictionary of integers to strings, optional\) A mapping of the integer class labels in the mask to readable class names. These will default to class\_0, class\_1, class\_2, etc. |
-| `key` | \(string\) The readable name or id for this mask type \(e.g. predictions, ground\_truth\) |
+| Arguments |                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `val`     | (dictionary) One of these two keys to represent the image: mask_data : (2D numpy array) The mask containing an integer class label for each pixel in the image path : (string) The path to a saved image file of the mask class_labels : (dictionary of integers to strings, optional) A mapping of the integer class labels in the mask to readable class names. These will default to class\_0, class\_1, class\_2, etc. |
+| `key`     | (string) The readable name or id for this mask type (e.g. predictions, ground_truth)                                                                                                                                                                                                                                                                                                                                       |
 
 #### Examples:
 
@@ -61,7 +61,7 @@ masked_image = wandb.Image(raw_image_path, classes=class_set,
 
 ## Methods
 
-### `type_name` <a id="type_name"></a>
+### `type_name` <a href="type_name" id="type_name"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L1410-L1412)
 
@@ -70,7 +70,7 @@ masked_image = wandb.Image(raw_image_path, classes=class_set,
 type_name() -> str
 ```
 
-### `validate` <a id="validate"></a>
+### `validate` <a href="validate" id="validate"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L1414-L1440)
 
@@ -79,4 +79,3 @@ validate(
     val: dict
 ) -> bool
 ```
-

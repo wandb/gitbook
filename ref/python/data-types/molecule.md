@@ -1,4 +1,4 @@
-# wandb.data\_types.Molecule
+# wandb.data_types.Molecule
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/sdk/data_types.py#L851-L944)
 
@@ -11,11 +11,10 @@ Molecule(
 ) -> None
 ```
 
-| Arguments |  |
-| :--- | :--- |
-| `data_or_path` | \(string, io\) Molecule can be initialized from a file name or an io object. |
+| Arguments      |                                                                            |
+| -------------- | -------------------------------------------------------------------------- |
+| `data_or_path` | (string, io) Molecule can be initialized from a file name or an io object. |
 
-| Class Variables |  |
-| :--- | :--- |
-| `SUPPORTED_TYPES` |  |
-
+| Class Variables   |   |
+| ----------------- | - |
+| `SUPPORTED_TYPES` |   |

@@ -30,4 +30,3 @@ if (test_accuracy > best_accuracy):
     wandb.run.summary["best_accuracy"] = test_accuracy
     best_accuracy = test_accuracy
 ```
-

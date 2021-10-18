@@ -27,6 +27,3 @@ Visualize the metrics and dataset examples from a single run. Learn more [here](
 Compare results and describe your findings, then share links with colleagues. Learn more about Reports [here](../../../guides/reports.md).
 
 ![](../../../.gitbook/assets/example-report-for-molecules.png)
-
-
-
