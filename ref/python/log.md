@@ -19,24 +19,24 @@ See our [guides to logging](https://docs.wandb.ai/guides/track/log) for live exa
 
 The most basic usage is `wandb.log({"train-loss": 0.5, "accuracy": 0.9})`. This will save the loss and accuracy to the run's history and update the summary values for these metrics.
 
-Visualize logged data in the workspace at [wandb.ai](https://wandb.ai), or locally on a [self-hosted instance](https://docs.wandb.ai/self-hosted) of the W\&B app, or export data to visualize and explore locally, e.g. in Jupyter notebooks, with [our API](https://docs.wandb.ai/guides/track/public-api-guide).
+Visualize logged data in the workspace at [wandb.ai](https://wandb.ai), or locally on a [self-hosted instance](https://docs.wandb.ai/self-hosted) of the W&B app, or export data to visualize and explore locally, e.g. in Jupyter notebooks, with [our API](https://docs.wandb.ai/guides/track/public-api-guide).
 
 In the UI, summary values show up in the run table to compare single values across runs. Summary values can also be set directly with `wandb.run.summary["key"] = value`.
 
-Logged values don't have to be scalars. Logging any wandb object is supported. For example `wandb.log({"example": wandb.Image("myimage.jpg")})` will log an example image which will be displayed nicely in the W\&B UI. See the [reference documentation](https://docs.wandb.com/library/reference/data_types) for all of the different supported types or check out our [guides to logging](https://docs.wandb.ai/guides/track/log) for examples, from 3D molecular structures and segmentation masks to PR curves and histograms. `wandb.Table`s can be used to logged structured data. See our [guide to logging tables](https://docs.wandb.ai/guides/data-vis/log-tables) for details.
+Logged values don't have to be scalars. Logging any wandb object is supported. For example `wandb.log({"example": wandb.Image("myimage.jpg")})` will log an example image which will be displayed nicely in the W&B UI. See the [reference documentation](https://docs.wandb.com/library/reference/data_types) for all of the different supported types or check out our [guides to logging](https://docs.wandb.ai/guides/track/log) for examples, from 3D molecular structures and segmentation masks to PR curves and histograms. `wandb.Table`s can be used to logged structured data. See our [guide to logging tables](https://docs.wandb.ai/guides/data-vis/log-tables) for details.
 
-Logging nested metrics is encouraged and is supported in the W\&B UI. If you log with a nested dictionary like `wandb.log({"train": {"acc": 0.9}, "val": {"acc": 0.8}})`, the metrics will be organized into `train` and `val` sections in the W\&B UI.
+Logging nested metrics is encouraged and is supported in the W&B UI. If you log with a nested dictionary like `wandb.log({"train": {"acc": 0.9}, "val": {"acc": 0.8}})`, the metrics will be organized into `train` and `val` sections in the W&B UI.
 
 wandb keeps track of a global step, which by default increments with each call to `wandb.log`, so logging related metrics together is encouraged. If it's inconvenient to log related metrics together calling `wandb.log({"train-loss": 0.5, commit=False})` and then `wandb.log({"accuracy": 0.9})` is equivalent to calling `wandb.log({"train-loss": 0.5, "accuracy": 0.9})`.
 
 `wandb.log` is not intended to be called more than a few times per second. If you want to log more frequently than that it's better to aggregate the data on the client side or you may get degraded performance.
 
-| Arguments |                                                                                                                                                                                                                                                   |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `row`     | (dict, optional) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or any of the `wandb.data_types`.                                                                                                         |
-| `commit`  | (boolean, optional) Save the metrics dict to the wandb server and increment the step. If false `wandb.log` just updates the current metrics dict with the row argument and metrics won't be saved until `wandb.log` is called with `commit=True`. |
-| `step`    | (integer, optional) The global step in processing. This persists any non-committed earlier steps but defaults to not committing the specified step.                                                                                               |
-| `sync`    | (boolean, True) This argument is deprecated and currently doesn't change the behaviour of `wandb.log`.                                                                                                                                            |
+| Arguments |  |
+| :--- | :--- |
+| `row` | \(dict, optional\) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or any of the `wandb.data_types`. |
+| `commit` | \(boolean, optional\) Save the metrics dict to the wandb server and increment the step. If false `wandb.log` just updates the current metrics dict with the row argument and metrics won't be saved until `wandb.log` is called with `commit=True`. |
+| `step` | \(integer, optional\) The global step in processing. This persists any non-committed earlier steps but defaults to not committing the specified step. |
+| `sync` | \(boolean, True\) This argument is deprecated and currently doesn't change the behaviour of `wandb.log`. |
 
 ## Examples:
 
@@ -96,7 +96,8 @@ wandb.log({"generated_samples":
     wandb.Object3D(open("sample.glb"))]})
 ```
 
-| Raises        |                               |
-| ------------- | ----------------------------- |
+| Raises |  |
+| :--- | :--- |
 | `wandb.Error` | if called before `wandb.init` |
-| `ValueError`  | if invalid data is passed     |
+| `ValueError` | if invalid data is passed |
+

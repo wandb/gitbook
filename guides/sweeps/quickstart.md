@@ -1,12 +1,12 @@
 # Sweeps Quickstart
 
-Start from any machine learning model and get a parallel hyperparameter sweep running in minutes.
+Start from any machine learning model and get a parallel hyperparameter sweep running in minutes. 
 
 {% hint style="info" %}
 Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
 {% endhint %}
 
-![Draw insights from large hyperparameter tuning experiments with interactive dashboards.](<../../.gitbook/assets/image (72).png>)
+![Draw insights from large hyperparameter tuning experiments with interactive dashboards.](../../.gitbook/assets/image%20%2872%29.png)
 
 {% hint style="info" %}
 Trying to quickly generate a sweep based on runs you've already logged? Check out [this guide](existing-project.md).
@@ -16,9 +16,9 @@ Trying to quickly generate a sweep based on runs you've already logged? Check ou
 
 ### **Set up your account**
 
-1. Start with a W\&B account.  [Create one now →](http://app.wandb.ai)
+1. Start with a W&B account.  [Create one now →](http://app.wandb.ai/)
 2. Go to your project folder in your terminal and install our library: `pip install wandb`
-3. Inside your project folder, log in to W\&B: `wandb login`
+3. Inside your project folder, log in to W&B: `wandb login`
 
 ### **Set up your Python training script**
 
@@ -136,7 +136,7 @@ Here are some resources on configuring sweeps:
 1. [Example YAML files](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion) : an example script and several different YAML files
 2. [Configuration](configuration.md): full specs to set up your sweep config
 3. [Jupyter Notebook](python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
-4. [Generate config from UI](existing-project.md): take an existing W\&B project and generate a config file
+4. [Generate config from UI](existing-project.md): take an existing W&B project and generate a config file
 5. [Feed in prior runs](https://docs.wandb.com/sweeps/existing-project#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
 
 Here's an example sweep config file called `sweep.yaml`:
@@ -181,9 +181,9 @@ wandb sweep sweep.yaml
 
 This command will print out a _sweep ID_, which includes the entity name and project name. Copy that to use in the next step!
 
-## 4. Launch agent(s)
+## 4. Launch agent\(s\)
 
-On each machine or within each process that you'd like to contribute to the sweep, start an "agent". Each agent will poll the central W\&B sweep server you launched with `wandb sweep` for the next set of hyperparameters to run. You'll want to use the same sweep ID for all agents who are participating in the same sweep.
+On each machine or within each process that you'd like to contribute to the sweep, start an "agent". Each agent will poll the central W&B sweep server you launched with `wandb sweep` for the next set of hyperparameters to run. You'll want to use the same sweep ID for all agents who are participating in the same sweep.
 
 In a shell on your own machine, run the `wandb agent` command:
 
@@ -197,8 +197,9 @@ Open your project to see your live results in the sweep dashboard. With just a f
 
 [Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
 
-![](<../../.gitbook/assets/image (88) (2) (3) (3) (3) (3) (3) (24).png>)
+![](../../.gitbook/assets/image%20%2888%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29%20%285%29.png)
 
 ## 6. Stop the agent
 
 From the terminal, hit `Ctrl+c` to stop the run that the sweep agent is currently running. To kill the agent, hit `Ctrl+c` again after the run is stopped.
+

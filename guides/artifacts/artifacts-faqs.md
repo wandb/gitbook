@@ -1,24 +1,24 @@
 # Artifacts FAQs
 
-## Questions about Artifacts
+## Questions about Artifacts 
 
 ### What happens if I log a new version of same artifact with only minor changes? Does the storage used double?
 
-No need to worry! When logging a new version of an artifact, W\&B only uploads the files that changed between the last version and the new version. For example, if your first version uploads 100 files and the second version adds 10 more files, the second artifact will only consume the space of the 10 new files.
+No need to worry! When logging a new version of an artifact, W&B only uploads the files that changed between the last version and the new version. For example, if your first version uploads 100 files and the second version adds 10 more files, the second artifact will only consume the space of the 10 new files.
 
-![v1 of the artifact "dataset" only has 2/5 images that differ, so it only uses 40% of the space.](../../.gitbook/assets/artifacts-dedupe.png)
+![v1 of the artifact &quot;dataset&quot; only has 2/5 images that differ, so it only uses 40% of the space.](../../.gitbook/assets/artifacts-dedupe.png)
 
 ### Where are artifact files stored?
 
-By default, W\&B stores artifact files in a private Google Cloud Storage bucket located in the United States. All files are encrypted at rest and in transit.
+By default, W&B stores artifact files in a private Google Cloud Storage bucket located in the United States. All files are encrypted at rest and in transit.
 
-For sensitive files, we recommend a [private W\&B installation](../self-hosted/) or the use of [reference artifacts](references.md).
+For sensitive files, we recommend a [private W&B installation](../self-hosted/) or the use of [reference artifacts](references.md).
 
 ### When are artifact files deleted?
 
-W\&B stores artifact files in a way that minimizes duplication across successive artifact versions, as described above.
+W&B stores artifact files in a way that minimizes duplication across successive artifact versions, as described above.
 
-When deleting artifact versions, W\&B checks which files are completely safe to delete. In other words, it guarantees that the file is not in use by a previous or subsequent artifact version. If it is safe to remove, the file is deleted immediately and no trace of it remains on our servers.
+When deleting artifact versions, W&B checks which files are completely safe to delete. In other words, it guarantees that the file is not in use by a previous or subsequent artifact version. If it is safe to remove, the file is deleted immediately and no trace of it remains on our servers.
 
 ### Who has access to my artifacts?
 
@@ -30,11 +30,11 @@ Artifacts inherit the access of their parent project:
 
 ## Questions about Artifacts workflows
 
-This section describes workflows for managing, and editing Artifacts. Many of these workflows use [the W\&B API](../track/public-api-guide.md), the component of [our client library](../../ref/python/) which provides access to data stored with W\&B.
+This section describes workflows for managing, and editing Artifacts. Many of these workflows use [the W&B API](../track/public-api-guide.md), the component of [our client library](../../ref/python/) which provides access to data stored with W&B.
 
 ### How do I programmatically update artifacts?
 
-You can update various artifact properties (such as `description`, `metadata`, and `aliases`) directly from your scripts simply by setting them to the desired values and then calling `.save()`:
+You can update various artifact properties \(such as `description`, `metadata`, and `aliases`\) directly from your scripts simply by setting them to the desired values and then calling `.save()`:
 
 ```python
 api = wandb.Api()
@@ -97,7 +97,7 @@ artifact_dir = artifact.checkout()
 
 ### How can I find the artifacts logged or consumed by a run? How can I find the runs that produced or consumed an artifact?
 
-W\&B automatically tracks the artifacts a given run has logged as well as the artifacts a given run has used and uses the information to construct an artifact graph -- a bipartite, directed, acyclic graph whose nodes are runs and artifacts, like [this one](https://wandb.ai/shawn/detectron2-11/artifacts/dataset/furniture-small-val/06d5ddd4deeb2a6ebdd5/graph) (click "Explode" to see the full graph).
+W&B automatically tracks the artifacts a given run has logged as well as the artifacts a given run has used and uses the information to construct an artifact graph -- a bipartite, directed, acyclic graph whose nodes are runs and artifacts, like [this one](https://wandb.ai/shawn/detectron2-11/artifacts/dataset/furniture-small-val/06d5ddd4deeb2a6ebdd5/graph) \(click "Explode" to see the full graph\).
 
 You can walk this graph programmatically via [the API](../../ref/python/public-api/), starting from either a run or an artifact.
 
@@ -141,7 +141,7 @@ consumer_runs = produced_artifacts[0].used_by()
 
 ### How do I clean up unused artifact versions?
 
-As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where often only the most recent version (the version tagged `latest`) of your artifact is useful.
+As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where often only the most recent version \(the version tagged `latest`\) of your artifact is useful.
 
 Here's how you can delete all versions of an artifact that don't have any aliases:
 
@@ -153,14 +153,14 @@ api = wandb.Api(overrides={"project": "capsule-gpt", "entity": "geoff"})
 artifact_type, artifact_name = ... # fill in the desired type + name
 for version in api.artifact_versions(artifact_type, artifact_name):
   # Clean up all versions that don't have an alias such as 'latest'.
-    # NOTE: You can put whatever deletion logic you want here.
+	# NOTE: You can put whatever deletion logic you want here.
   if len(version.aliases) == 0:
       version.delete()
 ```
 
 ### How do I clean up my local artifact cache?
 
-W\&B caches artifact files to speed up downloads across versions that share many files in common. Over time, however, this cache directory can become large. You can run the [`wandb artifact cache cleanup`](../../ref/cli/wandb-artifact/wandb-artifact-cache/wandb-artifact-cache-cleanup.md) command to prune the cache, removing any files that haven't been used recently:
+W&B caches artifact files to speed up downloads across versions that share many files in common. Over time, however, this cache directory can become large. You can run the [`wandb artifact cache cleanup`](../../ref/cli/wandb-artifact/wandb-artifact-cache/wandb-artifact-cache-cleanup.md) command to prune the cache, removing any files that haven't been used recently:
 
 ```python
 $ wandb artifact cache cleanup 1GB
@@ -233,16 +233,16 @@ def train(i):
   """
   with wandb.init(group=group_name) as run:
     artifact = wandb.Artifact(name=artifact_name, type=artifact_type)
-
+    
     # Add data to a wandb table. In this case we use example data
     table = wandb.Table(columns=["a", "b", "c"], data=[[i, i*2, 2**i]])
-
+    
     # Add the table to folder in the artifact
     artifact.add(table, "{}/table_{}".format(parts_path, i))
-
+    
     # Upserting the artifact creates or appends data to the artifact
     run.upsert_artifact(artifact)
-
+  
 # Launch your runs in parallel
 result_ids = [train.remote(i) for i in range(num_parallel)]
 
@@ -254,12 +254,13 @@ ray.get(result_ids)
 # to mark it ready.
 with wandb.init(group=group_name) as run:
   artifact = wandb.Artifact(artifact_name, type=artifact_type)
-
+  
   # Create a "PartitionTable" pointing to the folder of tables
   # and add it to the artifact.
   artifact.add(wandb.data_types.PartitionedTable(parts_path), table_name)
-
+  
   # Finish artifact finalizes the artifact, disallowing future "upserts"
   # to this version.
   run.finish_artifact(artifact)
 ```
+

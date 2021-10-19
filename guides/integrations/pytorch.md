@@ -1,7 +1,3 @@
----
-description: How to integrate a PyTorch script to log metrics to W&B
----
-
 # PyTorch
 
 [PyTorch](https://pytorch.org) is one of the most popular frameworks for deep learning in Python, especially among researchers. W\&B provides first class support for PyTorch, from logging gradients to profiling your code on the CPU and GPU.
@@ -40,7 +36,7 @@ for batch_idx, (data, target) in enumerate(train_loader):
 If you need to track multiple models in the same script, you can call `wandb.watch` on each model separately. Reference documentation for this function is [here](../../ref/python/watch.md).
 
 {% hint style="warning" %}
-Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward _and_ backward pass.
+Gradients, metrics and the graph won't be logged until `wandb.log` is called after a forward _and _backward pass.
 {% endhint %}
 
 ## Logging images and media

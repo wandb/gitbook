@@ -68,7 +68,7 @@ If you're running batch jobs in AWS, it's easy to authenticate your machines wit
 
 ### Automated runs and service accounts
 
-If you have automated tests or internal tools that launch runs logging to W\&B, create a **Service Account** on your team settings page. This will allow you to use a service API key for your automated jobs. If you want to attribute service account jobs to a specific user, you can use the **WANDB_USERNAME** or **WANDB_USER_EMAIL** environment variables.
+If you have automated tests or internal tools that launch runs logging to W\&B, create a **Service Account** on your team settings page. This will allow you to use a service API key for your automated jobs. If you want to attribute service account jobs to a specific user, you can use the **WANDB_USERNAME** or **WANDB_USER_EMAIL **environment variables.
 
 ![Create a service account on your team settings page for automated jobs](<../../../.gitbook/assets/image (92).png>)
 

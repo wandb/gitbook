@@ -1,6 +1,6 @@
 # Data Types
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/\__init\_\_.py)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/__init__.py)
 
 ## Classes
 
@@ -27,3 +27,4 @@
 [`class Table`](table.md): The Table class is used to display and analyze tabular data.
 
 [`class Video`](video.md): Wandb representation of video.
+

@@ -19,6 +19,7 @@ Configure these features in the panel settings— click the edit button in the u
 * **Titles**: Edit the axis titles to be more readable
 * **Gradient**: Customize the gradient to be any color range you like
 * **Log scale**: Each axis can be set to view on a log scale independently
-*   **Flip axis**: Switch the axis direction— this is useful when you have both accuracy and loss as columns
+* **Flip axis**: Switch the axis direction— this is useful when you have both accuracy and loss as columns
 
-    [See it live →](https://app.wandb.ai/example-team/sweep-demo/reports/Zoom-in-on-Parallel-Coordinates-Charts--Vmlldzo5MTQ4Nw)
+  [See it live →](https://app.wandb.ai/example-team/sweep-demo/reports/Zoom-in-on-Parallel-Coordinates-Charts--Vmlldzo5MTQ4Nw)
+

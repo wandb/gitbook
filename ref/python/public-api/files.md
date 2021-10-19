@@ -10,6 +10,7 @@ Files(
 )
 ```
 
-| Class Variables |   |
-| --------------- | - |
-| `QUERY`         |   |
+| Class Variables |  |
+| :--- | :--- |
+| `QUERY` |  |
+

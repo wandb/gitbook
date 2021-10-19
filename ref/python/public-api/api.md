@@ -15,20 +15,21 @@ Api(
 
 Most common way to initialize
 
-```
+```text
 >>> wandb.Api()
 ```
 
-| Arguments   |                                                                                                                                                                                      |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `overrides` | (dict) You can set `base_url` if you are using a wandb server other than [https://api.wandb.ai](https://api.wandb.ai). You can also set defaults for `entity`, `project`, and `run`. |
+| Arguments |  |
+| :--- | :--- |
+| `overrides` | \(dict\) You can set `base_url` if you are using a wandb server other than [https://api.wandb.ai](https://api.wandb.ai). You can also set defaults for `entity`, `project`, and `run`. |
 
-| Attributes |   |
-| ---------- | - |
+| Attributes |  |
+| :--- | :--- |
+
 
 ## Methods
 
-### `artifact` <a href="artifact" id="artifact"></a>
+### `artifact` <a id="artifact"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L545-L566)
 
@@ -40,16 +41,16 @@ artifact(
 
 Returns a single artifact by parsing path in the form `entity/project/run_id`.
 
-| Arguments |                                                                                                                                        |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`    | (str) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: name:version name:alias digest |
-| `type`    | (str, optional) The type of artifact to fetch.                                                                                         |
+| Arguments |  |
+| :--- | :--- |
+| `name` | \(str\) An artifact name. May be prefixed with entity/project. Valid names can be in the following forms: name:version name:alias digest |
+| `type` | \(str, optional\) The type of artifact to fetch. |
 
-| Returns              |   |
-| -------------------- | - |
-| A `Artifact` object. |   |
+| Returns |  |
+| :--- | :--- |
+| A `Artifact` object. |  |
 
-### `artifact_type` <a href="artifact_type" id="artifact_type"></a>
+### `artifact_type` <a id="artifact_type"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L534-L537)
 
@@ -59,7 +60,7 @@ artifact_type(
 )
 ```
 
-### `artifact_types` <a href="artifact_types" id="artifact_types"></a>
+### `artifact_types` <a id="artifact_types"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L529-L532)
 
@@ -69,7 +70,7 @@ artifact_types(
 )
 ```
 
-### `artifact_versions` <a href="artifact_versions" id="artifact_versions"></a>
+### `artifact_versions` <a id="artifact_versions"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L539-L543)
 
@@ -79,7 +80,7 @@ artifact_versions(
 )
 ```
 
-### `create_run` <a href="create_run" id="create_run"></a>
+### `create_run` <a id="create_run"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L254-L258)
 
@@ -91,7 +92,7 @@ create_run(
 
 Create a new run
 
-### `flush` <a href="flush" id="flush"></a>
+### `flush` <a id="flush"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L309-L315)
 
@@ -101,7 +102,7 @@ flush()
 
 The api object keeps a local cache of runs, so if the state of the run may change while executing your script you must clear the local cache with `api.flush()` to get the latest values associated with the run.
 
-### `projects` <a href="projects" id="projects"></a>
+### `projects` <a id="projects"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L372-L394)
 
@@ -113,16 +114,16 @@ projects(
 
 Get projects for a given entity.
 
-| Arguments  |                                                                                                                                               |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity`   | (str) Name of the entity requested. If None will fallback to default entity passed to `Api`. If no default entity, will raise a `ValueError`. |
-| `per_page` | (int) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this.                     |
+| Arguments |  |
+| :--- | :--- |
+| `entity` | \(str\) Name of the entity requested. If None will fallback to default entity passed to `Api`. If no default entity, will raise a `ValueError`. |
+| `per_page` | \(int\) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
 
-| Returns                                                                   |   |
-| ------------------------------------------------------------------------- | - |
-| A `Projects` object which is an iterable collection of `Project` objects. |   |
+| Returns |  |
+| :--- | :--- |
+| A `Projects` object which is an iterable collection of `Project` objects. |  |
 
-### `queued_job` <a href="queued_job" id="queued_job"></a>
+### `queued_job` <a id="queued_job"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L504-L509)
 
@@ -132,9 +133,9 @@ queued_job(
 )
 ```
 
-Returns a single queued run by parsing the path in the form entity/project/queue_id/run_queue_item_id
+Returns a single queued run by parsing the path in the form entity/project/queue\_id/run\_queue\_item\_id
 
-### `reports` <a href="reports" id="reports"></a>
+### `reports` <a id="reports"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L396-L425)
 
@@ -148,17 +149,17 @@ Get reports for a given project path.
 
 WARNING: This api is in beta and will likely change in a future release
 
-| Arguments  |                                                                                                                           |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `path`     | (str) path to project the report resides in, should be in the form: "entity/project"                                      |
-| `name`     | (str) optional name of the report requested.                                                                              |
-| `per_page` | (int) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
+| Arguments |  |
+| :--- | :--- |
+| `path` | \(str\) path to project the report resides in, should be in the form: "entity/project" |
+| `name` | \(str\) optional name of the report requested. |
+| `per_page` | \(int\) Sets the page size for query pagination. None will use the default size. Usually there is no reason to change this. |
 
-| Returns                                                                     |   |
-| --------------------------------------------------------------------------- | - |
-| A `Reports` object which is an iterable collection of `BetaReport` objects. |   |
+| Returns |  |
+| :--- | :--- |
+| A `Reports` object which is an iterable collection of `BetaReport` objects. |  |
 
-### `run` <a href="run" id="run"></a>
+### `run` <a id="run"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L486-L502)
 
@@ -168,17 +169,17 @@ run(
 )
 ```
 
-Returns a single run by parsing path in the form entity/project/run_id.
+Returns a single run by parsing path in the form entity/project/run\_id.
 
-| Arguments |                                                                                                                                                                                |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `path`    | (str) path to run in the form `entity/project/run_id`. If api.entity is set, this can be in the form `project/run_id` and if `api.project` is set this can just be the run_id. |
+| Arguments |  |
+| :--- | :--- |
+| `path` | \(str\) path to run in the form `entity/project/run_id`. If api.entity is set, this can be in the form `project/run_id` and if `api.project` is set this can just be the run\_id. |
 
-| Returns         |   |
-| --------------- | - |
-| A `Run` object. |   |
+| Returns |  |
+| :--- | :--- |
+| A `Run` object. |  |
 
-### `runs` <a href="runs" id="runs"></a>
+### `runs` <a id="runs"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L427-L484)
 
@@ -194,43 +195,43 @@ You can filter by `config.*`, `summary.*`, `state`, `entity`, `createdAt`, etc.
 
 #### Examples:
 
-Find runs in my_project where config.experiment_name has been set to "foo"
+Find runs in my\_project where config.experiment\_name has been set to "foo"
 
-```
+```text
 api.runs(path="my_entity/my_project", filters={"config.experiment_name": "foo"})
 ```
 
-Find runs in my_project where config.experiment_name has been set to "foo" or "bar"
+Find runs in my\_project where config.experiment\_name has been set to "foo" or "bar"
 
-```
+```text
 api.runs(path="my_entity/my_project",
     filters={"$or": [{"config.experiment_name": "foo"}, {"config.experiment_name": "bar"}]})
 ```
 
-Find runs in my_project where config.experiment_name matches a regex (anchors are not supported)
+Find runs in my\_project where config.experiment\_name matches a regex \(anchors are not supported\)
 
-```
+```text
 api.runs(path="my_entity/my_project",
     filters={"config.experiment_name": {"$regex": "b.*"}})
 ```
 
-Find runs in my_project sorted by ascending loss
+Find runs in my\_project sorted by ascending loss
 
-```
+```text
 api.runs(path="my_entity/my_project", order="+summary_metrics.loss")
 ```
 
-| Arguments |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `path`    | (str) path to project, should be in the form: "entity/project"                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `filters` | (dict) queries for specific runs using the MongoDB query language. You can filter by run properties such as config.key, summary_metrics.key, state, entity, createdAt, etc. For example: {"config.experiment_name": "foo"} would find runs with a config entry of experiment name set to "foo" You can compose operations to make more complicated queries, see Reference for the language is at [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query) |
-| `order`   | (str) Order can be `created_at`, `heartbeat_at`, `config.*.value`, or `summary_metrics.*`. If you prepend order with a + order is ascending. If you prepend order with a - order is descending (default). The default order is run.created_at from newest to oldest.                                                                                                                                                                                                                                                  |
+| Arguments |  |
+| :--- | :--- |
+| `path` | \(str\) path to project, should be in the form: "entity/project" |
+| `filters` | \(dict\) queries for specific runs using the MongoDB query language. You can filter by run properties such as config.key, summary\_metrics.key, state, entity, createdAt, etc. For example: {"config.experiment\_name": "foo"} would find runs with a config entry of experiment name set to "foo" You can compose operations to make more complicated queries, see Reference for the language is at [https://docs.mongodb.com/manual/reference/operator/query](https://docs.mongodb.com/manual/reference/operator/query) |
+| `order` | \(str\) Order can be `created_at`, `heartbeat_at`, `config.*.value`, or `summary_metrics.*`. If you prepend order with a + order is ascending. If you prepend order with a - order is descending \(default\). The default order is run.created\_at from newest to oldest. |
 
-| Returns                                                            |   |
-| ------------------------------------------------------------------ | - |
-| A `Runs` object, which is an iterable collection of `Run` objects. |   |
+| Returns |  |
+| :--- | :--- |
+| A `Runs` object, which is an iterable collection of `Run` objects. |  |
 
-### `sweep` <a href="sweep" id="sweep"></a>
+### `sweep` <a id="sweep"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L511-L527)
 
@@ -242,15 +243,15 @@ sweep(
 
 Returns a sweep by parsing path in the form `entity/project/sweep_id`.
 
-| Arguments |                                                                                                                                                                                              |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `path`    | (str, optional) path to sweep in the form entity/project/sweep_id. If api.entity is set, this can be in the form project/sweep_id and if `api.project` is set this can just be the sweep_id. |
+| Arguments |  |
+| :--- | :--- |
+| `path` | \(str, optional\) path to sweep in the form entity/project/sweep\_id. If api.entity is set, this can be in the form project/sweep\_id and if `api.project` is set this can just be the sweep\_id. |
 
-| Returns           |   |
-| ----------------- | - |
-| A `Sweep` object. |   |
+| Returns |  |
+| :--- | :--- |
+| A `Sweep` object. |  |
 
-### `sync_tensorboard` <a href="sync_tensorboard" id="sync_tensorboard"></a>
+### `sync_tensorboard` <a id="sync_tensorboard"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L260-L281)
 
@@ -262,6 +263,7 @@ sync_tensorboard(
 
 Sync a local directory containing tfevent files to wandb
 
-| Class Variables |   |
-| --------------- | - |
-| `VIEWER_QUERY`  |   |
+| Class Variables |  |
+| :--- | :--- |
+| `VIEWER_QUERY` |  |
+

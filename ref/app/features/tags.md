@@ -35,7 +35,7 @@ You can read more about how to use the Public API in the [reference documentatio
 {% tab title="Project Page" %}
 This method is best suited to tagging large numbers of runs with the same tag or tags.
 
-In the [runs sidebar](../pages/project-page.md#search-for-runs) of the [Project Page](../pages/project-page.md), click the table icon in the upper-right. This will expand the sidebar into the full [runs table](runs-table.md).
+In the [runs sidebar](../pages/project-page.md#search-for-runs) of the [Project Page](../pages/project-page.md),  click the table icon in the upper-right.  This will expand the sidebar into the full [runs table](runs-table.md).
 
 Hover over a run in the table to see a checkbox on the left or look in the header row for a checkbox that will allow you to select all runs.
 
@@ -47,8 +47,8 @@ Type a tag you'd like to add and click "Add" below the text box to add a new tag
 {% endtab %}
 
 {% tab title="Run Page" %}
-This method is best suited to applying a tag or tags to a single run by hand.
-
+This method is best suited to applying a tag or tags to a single run by hand.\
+\
 In the left sidebar of the [Run Page](../pages/run-page.md), click the top [Overview tab](../pages/run-page.md#overview-tab).
 
 Next to "Tags" is a gray ➕button. Click on that plus to add a tag.
@@ -65,7 +65,7 @@ Tags can also be removed from runs via the UI.
 {% tab title="Project Page" %}
 This method is best suited to removing tags from a large numbers of runs.
 
-In the [runs sidebar](../pages/project-page.md#search-for-runs) of the [Project Page](../pages/project-page.md), click the table icon in the upper-right. This will expand the sidebar into the full [runs table](runs-table.md).
+In the [runs sidebar](../pages/project-page.md#search-for-runs) of the [Project Page](../pages/project-page.md),  click the table icon in the upper-right.  This will expand the sidebar into the full [runs table](runs-table.md).
 
 Hover over a run in the table to see a checkbox on the left or look in the header row for a checkbox that will allow you to select all runs.
 

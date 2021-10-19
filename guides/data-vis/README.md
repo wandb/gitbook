@@ -10,13 +10,29 @@ Use **W\&B Tables** to log, query, and analyze tabular data. Understand your dat
 * Understand higher-level patterns in your data
 * Capture and communicate your insights with visual samples
 
+## Quickly log your first table
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/tables-colab)
+
+The fastest way to try Tables is to log a dataframe and see the Table UI.
+
+```python
+wandb.log({"table": my_dataframe})
+```
+
+![](<../../.gitbook/assets/wandb - iris table (1).png>)
+
+### Rich media
+
+Add rich media to your logged [Table](log-tables.md) (images, audio, point clouds, etc) with `wandb` [data types](../../ref/python/data-types/). 
+
+![](<../../.gitbook/assets/wandb - demo table visualizer.png>)
+
+## What are W\&B Tables?
+
 A W\&B Table (`wandb.Table`) is a two dimensional grid of data where each column has a single type of data—think of this as a more powerful DataFrame. Tables support primitive and numeric types, as well as nested lists, dictionaries, and rich media types. Log a Table to W\&B, then query, compare, and analyze results in the UI.
 
 Tables are great for storing, understanding, and sharing any form of data critical to your ML workflow—from datasets to model predictions and everything in between.
-
-{% content-ref url="tables-quickstart.md" %}
-[tables-quickstart.md](tables-quickstart.md)
-{% endcontent-ref %}
 
 ## Why use Tables?
 

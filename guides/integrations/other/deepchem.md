@@ -1,6 +1,6 @@
 # DeepChem
 
-The [DeepChem library](https://github.com/deepchem/deepchem) provides open source tools that democratize the use of deep-learning in drug discovery, materials science, chemistry, and biology. This W\&B integration adds simple and easy-to-use experiment tracking and model checkpointing while training models using DeepChem.
+The [DeepChem library](https://github.com/deepchem/deepchem) provides open source tools that democratize the use of deep-learning in drug discovery, materials science, chemistry, and biology. This W\&B integration adds simple and easy-to-use experiment tracking and model checkpointing  while training models using DeepChem.
 
 ## 🧪 DeepChem logging in 3 lines of code
 
@@ -18,7 +18,7 @@ To read a Report with charts generated using the W\&B DeepChem integration, have
 
 {% embed url="https://wandb.ai/kshen/deepchem_graphconv/reports/Using-W-B-with-DeepChem-Molecular-Graph-Convolutional-Networks--Vmlldzo4MzU5MDc?galleryTag=" %}
 
-If you'd rather dive straight into working code, check out this **\*\*\[**Google Colab\*\*]\([https://colab.research.google.com/github/wandb/examples/blob/master/colabs/deepchem/W%26B_x_DeepChem.ipynb](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/deepchem/W%26B_x_DeepChem.ipynb)).
+If you'd rather dive straight into working code, check out this** **[**Google Colab**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/deepchem/W%26B_x_DeepChem.ipynb).
 
 ## Getting started: track experiments
 
@@ -79,3 +79,4 @@ logger.finish()
 ```
 {% endtab %}
 {% endtabs %}
+

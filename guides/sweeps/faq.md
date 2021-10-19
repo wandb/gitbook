@@ -30,7 +30,7 @@ config_defaults = {"lr": 0.1, "batch_size": 256}
 with wandb.init() as run:
     # update any values not set by sweep
     run.config.setdefaults(config_defaults)
-
+    
     # add your training code here
 ```
 {% endtab %}
@@ -61,7 +61,7 @@ wandb.agent(sweep_id, count)
 
 Every sweep is associated with an `entity` (a user or a team) and a `project`.
 
-These values can be set in four ways: as command-line arguments to [`wandb sweep`](../../ref/cli/wandb-sweep.md), as part of the [sweep configuration](configuration.md) YAML file, as [environment variables](../track/advanced/environment-variables.md), or via the `wandb/settings` file.
+These values can be set in four ways: as command-line arguments to [`wandb sweep`](../../ref/cli/wandb-sweep.md),  as part of the [sweep configuration](configuration.md) YAML file, as [environment variables](../track/advanced/environment-variables.md), or via the `wandb/settings` file.
 
 {% tabs %}
 {% tab title="CLI" %}
@@ -132,7 +132,7 @@ Yes! If you exhaust a grid search but want to rerun some of the runs (for exampl
 
 If you're seeing that error message, plus `ERROR Error uploading`, you might be setting an ID for your run, e.g. `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, the error above will be thrown. In the sweeps context, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
 
-If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name` instead of `id.` For example:
+If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name `instead of `id.` For example:
 
 ```python
 wandb.init(name="a helpful readable run name")
@@ -179,7 +179,7 @@ args, unknown = parser.parse_known_args()
 ```
 
 {% hint style="info" %}
-Depending on the environment, `python` might point to Python 2. To ensure Python 3 is invoked, just use `python3` instead of `python` when configuring the command:
+Depending on the environment, `python` might point to Python 2. To ensure Python 3 is invoked, just use `python3` instead of `python `when configuring the command:
 
 ```yaml
 program:
@@ -194,9 +194,9 @@ command:
 
 ## How does the Bayesian search work?
 
-The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/blob/master/wandb/sweeps/bayes_search.py). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
+The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/blob/master/wandb/sweeps/bayes\_search.py). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
 
-We use scikit-learn's [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.Matern.html) with the `nu` parameter set to `1.5` -- this corresponds to much a weaker smoothness assumption than for the radial basis function (RBF) kernel. For details on kernels in Gaussian processes, see [Chapter 4 of Rasmussen and Williams](http://www.gaussianprocess.org/gpml/chapters/RW4.pdf) or the scikit-learn docs linked above.
+We use scikit-learn's [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian\_process.kernels.Matern.html) with the `nu` parameter set to `1.5` -- this corresponds to much a weaker smoothness assumption than for the radial basis function (RBF) kernel. For details on kernels in Gaussian processes, see [Chapter 4 of Rasmussen and Williams](http://www.gaussianprocess.org/gpml/chapters/RW4.pdf) or the scikit-learn docs linked above.
 
 ## What's the difference between "stopping" and "pausing" a sweep? Why isn't the `wandb agent` command terminating when I pause the sweep?
 
@@ -206,4 +206,10 @@ If you stop the sweep instead of pausing it, then the agents will exit -- their 
 
 ## Is there a way to add a extra values to a sweep, or do I need to start a new one?
 
-Once a sweep has started you cannot change the sweep configuration, But you can go to any table view, and use the checkboxes to select runs, then use the "create sweep" menu option to a create a new sweep configuration using prior runs.
+Once a sweep has started you cannot change the sweep configuration. But you can go to any table view, and use the checkboxes to select runs, then use the "create sweep" menu option to a create a new sweep configuration using prior runs.
+
+## How to use sweeps with cloud infrastructures such as AWS Batch, ECS, etc.?
+
+In general, you would need a way to publish `sweep_id` to a place that any potential agent can read and a way for these agents to consume this `sweep_id` and start running.&#x20;
+
+In other words, you would need something that can invoke `wandb agent`. For instance, bring up an EC2 instance and then call `wandb agent` on it. In this case, you might use a SQS queue to broadcast `sweep_id` to a few EC2 instances and then have them consume the `sweep_id` from the queue and start running.

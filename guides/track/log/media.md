@@ -30,13 +30,13 @@ It's recommended to log fewer than 50 images per step to prevent logging from be
 
 {% tabs %}
 {% tab title="Logging Arrays as Images" %}
-Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make_grid).
+Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make_grid). 
 
 Arrays are converted to png using [Pillow](https://pillow.readthedocs.io/en/stable/index.html).
 
 ```python
 images = wandb.Image(image_array, caption="Top: Output, Bottom: Input")
-
+          
 wandb.log({"examples": images}
 ```
 
@@ -48,7 +48,7 @@ For full control over the conversion of arrays to images, construct the [`PIL.Im
 
 ```python
 images = [PIL.Image.fromarray(image) for image in image_array]
-
+          
 wandb.log({"examples": [wandb.Image(image) for image in images]}
 ```
 {% endtab %}
@@ -121,10 +121,10 @@ To log a bounding box, you'll need to provide a dictionary with the following ke
 * `box_data`: a list of dictionaries, one for each box. The box dictionary format is described below.
   * `position`: a dictionary representing the position and size of the box in one of two formats, as described below. Boxes need not all use the same format.
     * _Option 1:_ `{"minX", "maxX", "minY", "maxY"}`. Provide a set of coordinates defining the upper and lower bounds of each box dimension.
-    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
+    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle `coordinates as `[x,y]`, and `width` and `height` as scalars.
   * `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
   * `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
-  * `domain`: specify the units/format of the box coordinates. **Set this to "pixel"** if the box coordinates are expressed in pixel space (i.e. as integers within the bounds of the image dimensions). By default, the domain is assumed to be a fraction/percentage of the image (a floating point number between 0 and 1).
+  * `domain`: specify the units/format of the box coordinates. **Set this to "pixel" **if the box coordinates are expressed in pixel space (i.e. as integers within the bounds of the image dimensions). By default, the domain is assumed to be a fraction/percentage of the image (a floating point number between 0 and 1).
   * `box_caption`: (optional) a string to be displayed as the label text on this box 
 * `class_labels`: (optional) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
 
@@ -190,7 +190,7 @@ wandb.log({"driving_scene": img})
 
 {% tabs %}
 {% tab title="Basic Histogram Logging" %}
-If a sequence of numbers (e.g. list, array, tensor) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened. You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
+If a sequence of numbers (e.g. list, array, tensor) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened.  You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
 
 In the UI, histograms are plotted with the training step on the x-axis, the metric value on the y-axis, and the count represented by color, to ease comparison of histograms logged throughout training. See the "Histograms in Summary" tab of this panel for details on logging one-off histograms.
 
@@ -211,12 +211,16 @@ wandb.log({"gradients": wandb.Histogram(np_hist_grads)})
 {% endtab %}
 
 {% tab title="Histograms in Summary" %}
+
+
 ```python
 wandb.run.summary.update(  # if only in summary, only visible on overview tab
   {"final_logits": wandb.Histogram(logits)})
 ```
 {% endtab %}
 {% endtabs %}
+
+ 
 
 If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
 
@@ -405,7 +409,7 @@ W\&B can be used even for projects that only log scalars — you specify any fil
 
 ### **How do I log a PNG?**
 
-\*\*\*\*[`wandb.Image`](../../../ref/python/data-types/audio.md) converts numpy arrays or instances of `PILImage` to PNGs by default.
+****[`wandb.Image`](../../../ref/python/data-types/audio.md) converts numpy arrays or instances of `PILImage` to PNGs by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})

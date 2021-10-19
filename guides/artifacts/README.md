@@ -6,9 +6,9 @@ description: >-
 
 # Data + Model Versioning
 
-Use W\&B Artifacts for dataset versioning, model versioning, and tracking dependencies and results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems like S3, GCP, or your own system.
+Use W&B Artifacts for dataset versioning, model versioning, and tracking dependencies and results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems like S3, GCP, or your own system.
 
-[Try the Guide to W\&B Artifacts ](https://wandb.ai/wandb/arttest/reports/Artifacts-Quickstart--VmlldzozNTAzMDM)for an end-to-end example of using Artifacts for dataset and model versioning.
+[Try the Guide to W&B Artifacts ](https://wandb.ai/wandb/arttest/reports/Artifacts-Quickstart--VmlldzozNTAzMDM)for an end-to-end example of using Artifacts for dataset and model versioning.
 
 ![](../../.gitbook/assets/keras-example.png)
 
@@ -49,13 +49,14 @@ artifact.add_file('my-dataset.txt')
 # Log that artifact, and we identify the changed file
 run.log_artifact(artifact)
 # Now you have a new version of the artifact, tracked in W&B
+
 ```
 
-Looking for a longer example with real model training? Try our [Guide to W\&B Artifacts](https://wandb.ai/wandb/arttest/reports/Guide-to-W-B-Artifacts--VmlldzozNTAzMDM).
+Looking for a longer example with real model training? Try our [Guide to W&B Artifacts](https://wandb.ai/wandb/arttest/reports/Guide-to-W-B-Artifacts--VmlldzozNTAzMDM).
 
 ## How it works
 
-Using our Artifacts API, you can log artifacts as outputs of W\&B runs, or use artifacts as input to runs.
+Using our Artifacts API, you can log artifacts as outputs of W&B runs, or use artifacts as input to runs.
 
 ![](../../.gitbook/assets/simple-artifact-diagram-2.png)
 
@@ -77,8 +78,11 @@ Learn more about using artifacts for data and model versioning:
 6. [Artifacts Examples](examples.md)
 7. [Artifact reference docs](https://docs.wandb.ai/ref/python/artifact)
 
-## Video Tutorial for W\&B Artifacts
+## Video tutorial for W&B Artifacts
 
-Follow along with our interactive [tutorial](https://www.youtube.com/watch?v=Hd94gatGMic) and learn how to track your machine learning pipeline with W\&B Artifacts.
+Follow along with our [tutorial video](http://wandb.me/artifacts-video) and [interactive colab](http://wandb.me/artifacts-colab) and learn how to track your machine learning pipeline with W&B Artifacts.
 
-![](../../.gitbook/assets/wandb-artifacts-video.png)
+{% embed url="http://wandb.me/artifacts-video" %}
+
+
+

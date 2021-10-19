@@ -1,4 +1,4 @@
-# wandb.data_types.Table
+# wandb.data\_types.Table
 
 [![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L111-L782)
 
@@ -17,19 +17,19 @@ Tables can be constructed with initial data using the `data` or `dataframe` para
 
 Tables can be logged directly to runs using `run.log({"my_table": table})` or added to artifacts using `artifact.add(table, "my_table")`. Tables added directly to runs will produce a corresponding Table Visualizer in the Workspace which can be used for further analysis and exporting to reports. Tables added to artifacts can be viewed in the Artifact Tab and will render an equivalent Table Visualizer directly in the artifact browser.
 
-Note that Tables support numerous types of data: traditional scalar values, numpy arrays, and most subclasses of wandb.data_types.Media. This means you can embed Images, Video, Audio, and other sorts of rich, annotated media directly in Tables, alongside other traditional scalar values. Tables expect each value for a column to be of the same type. By default, a column supports optional values, but not mixed values. If you absolutely need to mix types, you can enable the `allow_mixed_types` flag which will disable type checking on the data. This will result in some table analytics features being disabled due to lack of consistent typing.
+Note that Tables support numerous types of data: traditional scalar values, numpy arrays, and most subclasses of wandb.data\_types.Media. This means you can embed Images, Video, Audio, and other sorts of rich, annotated media directly in Tables, alongside other traditional scalar values. Tables expect each value for a column to be of the same type. By default, a column supports optional values, but not mixed values. If you absolutely need to mix types, you can enable the `allow_mixed_types` flag which will disable type checking on the data. This will result in some table analytics features being disabled due to lack of consistent typing.
 
-| Arguments           |                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `columns`           | (List\[str]) Names of the columns in the table. Defaults to \["Input", "Output", "Expected"].                                                                                                                                                                                                                                                                                                        |
-| `data`              | (List\[List\[any]]) 2D row-oriented array of values.                                                                                                                                                                                                                                                                                                                                                 |
-| `dataframe`         | (pandas.DataFrame) DataFrame object used to create the table. When set, `data` and `columns` arguments are ignored.                                                                                                                                                                                                                                                                                  |
-| `optional`          | (Union\[bool,List\[bool]]) Determines if `None` values are allowed. Default to True - If a singular bool value, then the optionality is enforced for all columns specified at construction time - If a list of bool values, then the optionality is applied to each column - should be the same length as `columns` applies to all columns. A list of bool values applies to each respective column. |
-| `allow_mixed_types` | (bool) Determines if columns are allowed to have mixed types (disables type validation). Defaults to False                                                                                                                                                                                                                                                                                           |
+| Arguments |  |
+| :--- | :--- |
+| `columns` | \(List\[str\]\) Names of the columns in the table. Defaults to \["Input", "Output", "Expected"\]. |
+| `data` | \(List\[List\[any\]\]\) 2D row-oriented array of values. |
+| `dataframe` | \(pandas.DataFrame\) DataFrame object used to create the table. When set, `data` and `columns` arguments are ignored. |
+| `optional` | \(Union\[bool,List\[bool\]\]\) Determines if `None` values are allowed. Default to True - If a singular bool value, then the optionality is enforced for all columns specified at construction time - If a list of bool values, then the optionality is applied to each column - should be the same length as `columns` applies to all columns. A list of bool values applies to each respective column. |
+| `allow_mixed_types` | \(bool\) Determines if columns are allowed to have mixed types \(disables type validation\). Defaults to False |
 
 ## Methods
 
-### `add_column` <a href="add_column" id="add_column"></a>
+### `add_column` <a id="add_column"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L680-L719)
 
@@ -41,9 +41,9 @@ add_column(
 
 Add a column of data to the table.
 
-Arguments name: (str) - the unique name of the column data: (list | np.array) - a column of homogenous data optional: (bool) - if null-like values are permitted
+Arguments name: \(str\) - the unique name of the column data: \(list \| np.array\) - a column of homogenous data optional: \(bool\) - if null-like values are permitted
 
-### `add_computed_columns` <a href="add_computed_columns" id="add_computed_columns"></a>
+### `add_computed_columns` <a id="add_computed_columns"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L762-L782)
 
@@ -55,11 +55,11 @@ add_computed_columns(
 
 Adds one or more computed columns based on existing data
 
-| Args                                                                                                                                                                                                                                                                                                                                                     |   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
-| fn (function): A function which accepts one or two paramters: ndx (int) and row (dict) which is expected to return a dict representing new columns for that row, keyed by the new column names. - `ndx` is an integer representing the index of the row. Only included if `include_ndx` is set to true - `row` is a dictionary keyed by existing columns |   |
+| Args |  |
+| :--- | :--- |
+| fn \(function\): A function which accepts one or two paramters: ndx \(int\) and row \(dict\) which is expected to return a dict representing new columns for that row, keyed by the new column names. - `ndx` is an integer representing the index of the row. Only included if `include_ndx` is set to true - `row` is a dictionary keyed by existing columns |  |
 
-### `add_data` <a href="add_data" id="add_data"></a>
+### `add_data` <a id="add_data"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L361-L391)
 
@@ -71,7 +71,7 @@ add_data(
 
 Add a row of data to the table. Argument length should match column length
 
-### `add_row` <a href="add_row" id="add_row"></a>
+### `add_row` <a id="add_row"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L357-L359)
 
@@ -81,7 +81,7 @@ add_row(
 )
 ```
 
-### `cast` <a href="cast" id="cast"></a>
+### `cast` <a id="cast"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L256-L310)
 
@@ -93,13 +93,13 @@ cast(
 
 Casts a column to a specific type
 
-| Arguments  |                                                                                                                                                                                                       |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `col_name` | (str) - name of the column to cast                                                                                                                                                                    |
-| `dtype`    | (class, wandb.wandb_sdk.interface.\_dtypes.Type, any) - the target dtype. Can be one of normal python class, internal WB type, or an example object (eg. an instance of wandb.Image or wandb.Classes) |
-| `optional` | (bool) - if the column should allow Nones                                                                                                                                                             |
+| Arguments |  |
+| :--- | :--- |
+| `col_name` | \(str\) - name of the column to cast |
+| `dtype` | \(class, wandb.wandb\_sdk.interface.\_dtypes.Type, any\) - the target dtype. Can be one of normal python class, internal WB type, or an example object \(eg. an instance of wandb.Image or wandb.Classes\) |
+| `optional` | \(bool\) - if the column should allow Nones |
 
-### `get_column` <a href="get_column" id="get_column"></a>
+### `get_column` <a id="get_column"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L721-L744)
 
@@ -111,11 +111,11 @@ get_column(
 
 Retrieves a column of data from the table
 
-Arguments name: (str) - the name of the column convert_to: (str, optional)
+Arguments name: \(str\) - the name of the column convert\_to: \(str, optional\)
 
 * "numpy": will convert the underlying data to numpy object
 
-### `get_index` <a href="get_index" id="get_index"></a>
+### `get_index` <a id="get_index"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L746-L753)
 
@@ -125,7 +125,7 @@ get_index()
 
 Returns an array of row indexes which can be used in other tables to create links
 
-### `index_ref` <a href="index_ref" id="index_ref"></a>
+### `index_ref` <a id="index_ref"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L755-L760)
 
@@ -137,7 +137,7 @@ index_ref(
 
 Get a reference to a particular row index in the table
 
-### `iterrows` <a href="iterrows" id="iterrows"></a>
+### `iterrows` <a id="iterrows"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L559-L572)
 
@@ -145,13 +145,13 @@ Get a reference to a particular row index in the table
 iterrows()
 ```
 
-Iterate over rows as (ndx, row)
+Iterate over rows as \(ndx, row\)
 
 ## Yields
 
-index : int The index of the row. Using this value in other WandB tables will automatically build a relationship between the tables row : List\[any] The data of the row
+index : int The index of the row. Using this value in other WandB tables will automatically build a relationship between the tables row : List\[any\] The data of the row
 
-### `set_fk` <a href="set_fk" id="set_fk"></a>
+### `set_fk` <a id="set_fk"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L579-L583)
 
@@ -161,7 +161,7 @@ set_fk(
 )
 ```
 
-### `set_pk` <a href="set_pk" id="set_pk"></a>
+### `set_pk` <a id="set_pk"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/data_types.py#L574-L577)
 
@@ -171,7 +171,8 @@ set_pk(
 )
 ```
 
-| Class Variables     |          |
-| ------------------- | -------- |
+| Class Variables |  |
+| :--- | :--- |
 | `MAX_ARTIFACT_ROWS` | `200000` |
-| `MAX_ROWS`          | `10000`  |
+| `MAX_ROWS` | `10000` |
+

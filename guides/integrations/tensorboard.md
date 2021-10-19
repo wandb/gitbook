@@ -26,7 +26,7 @@ Get started with a [free personal account →](https://wandb.ai)
 
 ### How can I log metrics to W\&B that aren't logged to TensorBoard?
 
-If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code `wandb.log({"custom": 0.8})`
+If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code `wandb.log({"custom": 0.8}) `
 
 Setting the step argument in `wandb.log` is disabled when syncing Tensorboard. If you'd like to set a different step count, you can log the metrics with a step metric as:
 
@@ -34,7 +34,7 @@ Setting the step argument in `wandb.log` is disabled when syncing Tensorboard. I
 
 ### How do I configure Tensorboard when I'm using it with `wandb`?
 
-If you want more control over how TensorBoard is patched you can call `wandb.tensorboard.patch` instead of passing `sync_tensorboard=True` to `wandb.init`.
+If you want more control over how TensorBoard is patched you can call `wandb.tensorboard.patch` instead of passing `sync_tensorboard=True` to `wandb.init`. 
 
 ```python
 import wandb
@@ -53,8 +53,10 @@ wandb.tensorboard.patch(save=False, tensorboardX=True)
 ```
 
 {% hint style="warning" %}
-You must call either `wandb.init` or `wandb.tensorboard.patch` **before** calling `tf.summary.create_file_writer` or constructing a`SummaryWriter` via `torch.utils.tensorboard`.
+You must call either `wandb.init` or `wandb.tensorboard.patch` **before **calling `tf.summary.create_file_writer`  or constructing a`SummaryWriter` via `torch.utils.tensorboard`.
 {% endhint %}
+
+
 
 ### Syncing Previous TensorBoard Runs
 
@@ -62,8 +64,8 @@ If you have existing `tfevents` files stored locally and you would like to impor
 
 ### Google Colab and TensorBoard
 
-To run shell commands in a notebook environment, you must prepend a `!`, as in `!wandb sync directoryname` .
+To run shell commands in a notebook environment, you must prepend a `!`, as in `!wandb sync directoryname` . 
 
 {% hint style="warning" %}
-Currently, TensorBoard syncing does not work in a notebook environment for TensorFlow 2.1+. You can have your Colab use an earlier version of TensorBoard, or format your training as a script and execute it `!python your_script.py` .
+Currently, TensorBoard syncing does not work in a notebook environment for TensorFlow 2.1+. You can have your Colab use an earlier version of TensorBoard, or format your training as a script and execute it  `!python your_script.py` .
 {% endhint %}

@@ -6,6 +6,12 @@ description: Hyperparameter search and model optimization with W&B Sweeps
 
 Use Weights & Biases Sweeps to automate hyperparameter optimization and explore the space of possible models.
 
+{% hint style="info" %}
+Get started with Sweeps quickly with our [video tutorial](http://wandb.me/sweeps-video) and [Colab notebook](http://wandb.me/sweeps-colab).
+{% endhint %}
+
+{% embed url="http://wandb.me/sweeps-video" %}
+
 ## Benefits of using W\&B Sweeps
 
 1. **Quick setup**: Get going with just a few lines of code. You can launch a sweep across dozens of machines, and it's just as easy as starting a sweep on your laptop.
@@ -20,13 +26,13 @@ Use Weights & Biases Sweeps to automate hyperparameter optimization and explore 
 
 ## Approach
 
-1. **Add** `wandb`: In your Python script, add a couple lines of code to log hyperparameters and output metrics from your script. [Get started now →](quickstart.md)
+1. **Add **`wandb`: In your Python script, add a couple lines of code to log hyperparameters and output metrics from your script. [Get started now →](quickstart.md)
 2. **Write config**: Define the variables and ranges to sweep over. Pick a search strategy— we support grid, random, and Bayesian search, plus techniques for faster iterations like early stopping. Check out some example configs [here](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion).
 3. **Initialize sweep**: Launch the sweep server. We host this central controller and coordinate between the agents that execute the sweep.
 4. **Launch agent(s)**: Run a single-line command on each machine you'd like to use to train models in the sweep. The agents ask the central sweep server what hyperparameters to try next, and then they execute the runs.
 5. **Visualize results**: Open our live dashboard to see all your results in one central place.
 
-![](<../../.gitbook/assets/central-sweep-server-3 (2) (2) (3) (3) (2) (1) (2) (1).png>)
+![](<../../.gitbook/assets/central-sweep-server-3 (2) (2) (3) (3) (2) (1) (2).png>)
 
 {% content-ref url="quickstart.md" %}
 [quickstart.md](quickstart.md)

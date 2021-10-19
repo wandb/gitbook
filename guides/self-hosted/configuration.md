@@ -4,9 +4,9 @@ description: How to configure the W&B Local Server installation
 
 # Advanced Configuration
 
-Your W\&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
+Your W\&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.  
 
-The following are detailed information about manually configuring your local instance. When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance.
+The following are detailed information about manually configuring your local instance.  When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance. 
 
 ## Configuration as code
 
@@ -28,9 +28,9 @@ All configuration settings can be set via the UI however if you would like to ma
 
 ## Authentication
 
-By default, a W\&B Local Server run with manual user management enabling up to 4 users. Licensed versions of _wandb/local_ also unlock SSO. W\&B can configure a Auth0 for you with any Identity provider they support such as Okta, Gsuite, Active Directory, etc. Just reach out to your account executive to schedule a setup call with one of our engineers. If you already use Auth0 or want to manage your own tenant, you can follow the instructions below.
+By default, a W\&B Local Server run with manual user management enabling up to 4 users.  Licensed versions of _wandb/local_ also unlock SSO.  W\&B can configure a Auth0 for you with any Identity provider they support such as Okta, Gsuite, Active Directory, etc.  Just reach out to your account executive to schedule a setup call with one of our engineers.  If you already use Auth0 or want to manage your own tenant, you can follow the instructions below.
 
-Your server supports any authentication provider supported by [Auth0](https://auth0.com). After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W\&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
+Your server supports any authentication provider supported by [Auth0](https://auth0.com).  After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W\&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
 
 * Add the following Callback URLs to `http(s)://YOUR-W&B-SERVER-HOST/login, http(s)://YOUR-W&B-HOST/oidc/callback`
 * Set the Logout URL to `http(s)://YOUR-W&B-HOST`
@@ -42,9 +42,9 @@ Save the Client ID and domain from your Auth0 app.
 
 ![Auth0 Settings](../../.gitbook/assets/auth0-2.png)
 
-Then, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Choose "Enable SSO" option, and fill in the Client ID and domain from your Auth0 app.
+Then, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`.  Choose "Enable SSO" option, and fill in the Client ID and domain from your Auth0 app.
 
-![](<../../.gitbook/assets/sso (1) (4).png>)
+![](<../../.gitbook/assets/sso (1) (1).png>)
 
 Finally, press "Update settings".
 
@@ -53,7 +53,7 @@ Finally, press "Update settings".
 By default, a W\&B Enterprise Server saves files to a local data disk with a capacity that you set when you provision your instance. To support limitless file storage, you may configure your server to use an external cloud file storage bucket with an S3-compatible API.
 
 {% hint style="info" %}
-You should always specify the bucket you're using with the BUCKET environment variable. This removes the need for a persistent volume as all settings can then be persisted to your bucket.
+You should always specify the bucket you're using with the BUCKET environment variable.  This removes the need for a persistent volume as all settings can then be persisted to your bucket.
 {% endhint %}
 
 ### Amazon Web Services
@@ -117,7 +117,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (7).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -190,7 +190,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (8).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
 
 Press "update settings" to apply the new settings.
 
@@ -212,7 +212,7 @@ Click Review and Create, and then, on the summary screen, click Create:
 
 #### Creating the blob container
 
-Go to [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service > Containers in the menu:
+Go to  [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service > Containers in the menu:
 
 ![](<../../.gitbook/assets/image (102).png>)
 
@@ -273,19 +273,19 @@ You can name it whatever you like, but what's important is to select the same Sl
 
 #### Configuring the Slack application
 
-Now that we have a Slack application ready, we need to authorize for use as an OAuth bot. Select **OAuth & Permissions** in the sidebar to the left.
+Now that we have a Slack application ready, we need to authorize for use as an OAuth bot. Select **OAuth & Permissions **in the sidebar to the left.
 
 ![](<../../.gitbook/assets/image (125).png>)
 
 Under **Scopes**, supply the bot with the **incoming_webhook** scope.
 
-![](<../../.gitbook/assets/image (128) (1) (21).png>)
+![](<../../.gitbook/assets/image (128) (1) (1).png>)
 
-Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to _\*\*_in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
+Finally, configure the **Redirect URL **to point to your W\&B installation. You should use the same value as what you set **Frontend Host **to** **in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
 ![](<../../.gitbook/assets/image (127).png>)
 
-Hit **Save URLs** once finished.
+Hit **Save URLs **once finished.
 
 To further secure your Slack application and prevent abuse, you can specify an IP range under **Restrict API Token Usage**, whitelisting the IP or IP range of your W\&B instance(s).
 

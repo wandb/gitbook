@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](<../../../.gitbook/assets/image (29) (1) (2) (4) (22).png>)
+![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1).png>)
 
 ![](../../../.gitbook/assets/undelete.png)
 
@@ -50,7 +50,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (20).png>)
+![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (3).png>)
 
 ### Search for runs
 
@@ -177,4 +177,4 @@ Click the lock in the navigation bar at the top of the page to change project pr
 
 If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
-Add `?workspace=clear` to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
+Add `?workspace=clear `to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.

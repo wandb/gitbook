@@ -1,7 +1,3 @@
----
-description: How to integrate a TensorFlow script to log metrics to W&B
----
-
 # TensorFlow
 
 If you're already using TensorBoard, it's easy to integrate with wandb.
@@ -14,7 +10,7 @@ wandb.init(config=tf.flags.FLAGS, sync_tensorboard=True)
 
 ## Custom Metrics
 
-If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code `wandb.log({"custom": 0.8})`
+If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code `wandb.log({"custom": 0.8}) `
 
 Setting the step argument in `wandb.log` is disabled when syncing Tensorboard. If you'd like to set a different step count, you can log the metrics with a step metric as:
 
@@ -63,37 +59,6 @@ With TensorFlow 2, the recommended way of training a model with a custom loop is
 ```
 
 A full example is available [here](https://www.wandb.com/articles/wandb-customizing-training-loops-in-tensorflow-2).
-
-## Data Visualization with W\&B Tables
-
-Use [W\&B Tables](https://docs.wandb.ai/guides/data-vis) to log, query, and analyze your data. You can think of a W\&B Table as a `DataFrame` that you can interact with inside W\&B. Tables support rich media types, primitive and numeric types, as well as nested lists and dictionaries.
-
-This pseudo-code shows you how to log images, along with their ground truth and predicted class, to W\&B Tables:
-
-```python
-# Create a new W&B Run
-wandb.init(project="mnist")
-
-# Create a W&B Table
-my_table = wandb.Table(columns=["id", "image", "labels", "prediction"])
-
-# Get your image data and make predictions
-image_tensors, labels = get_mnist_data()
-predictions = model(image_tensors)
-
-# Add your image data and predictions to the W&B Table
-for idx, im in enumerate(image_tensors): 
-  my_table.add_data(idx, wandb.Image(im), labels[idx], predictions[id])
-
-# Log your Table to W&B
-wandb.log({"mnist_predictions": my_table})
-```
-
-This is will produce a Table like this:
-
-![](../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
-
-For more examples of data visualization with W\&B Tables, please see [the documentation](https://docs.wandb.ai/guides/data-vis).
 
 ## How is W\&B different from TensorBoard?
 

@@ -10,12 +10,13 @@ Project(
 )
 ```
 
-| Attributes |   |
-| ---------- | - |
+| Attributes |  |
+| :--- | :--- |
+
 
 ## Methods
 
-### `artifacts_types` <a href="artifacts_types" id="artifacts_types"></a>
+### `artifacts_types` <a id="artifacts_types"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L745-L747)
 
@@ -25,7 +26,7 @@ artifacts_types(
 )
 ```
 
-### `snake_to_camel` <a href="snake_to_camel" id="snake_to_camel"></a>
+### `snake_to_camel` <a id="snake_to_camel"></a>
 
 [View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L573-L575)
 
@@ -34,3 +35,4 @@ snake_to_camel(
     string
 )
 ```
+

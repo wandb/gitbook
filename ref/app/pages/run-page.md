@@ -39,7 +39,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](<../../../.gitbook/assets/wandb-run-page-workspace-tab (17).png>)
+![](<../../../.gitbook/assets/wandb-run-page-workspace-tab (1).png>)
 
 ## System Tab
 
@@ -71,7 +71,8 @@ The Python details are private, even if you make the page itself public. Here is
 
 * Save files to sync with the run using [`wandb.save()`](../../../guides/track/advanced/save-restore.md)
 * Keep model checkpoints, validation set examples, and more
-* Use the `diff.patch` to [restore](../../../guides/track/advanced/save-restore.md) the exact version of your code [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
+* Use the `diff.patch` to [restore](../../../guides/track/advanced/save-restore.md) the exact version of your code\
+  [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
 
 {% hint style="info" %}
 The W\&B [Artifacts](../../../guides/artifacts/) system adds extra features for handling, versioning, and deduplicating large files like datasets and models. We recommend you use Artifacts for tracking inputs and outputs of runs, rather than `wandb.save`. Check out the Artifacts quickstart [here](../../../guides/artifacts/).
@@ -83,6 +84,7 @@ The W\&B [Artifacts](../../../guides/artifacts/) system adds extra features for 
 
 * Provides a searchable list of the input and output [Artifacts](../../../guides/artifacts/) for this run
 * Click a row to see information about a particular artifact used or produced by this run
-* See the reference for the [project](project-page.md)-level [Artifacts Tab](project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app [View a live example →](https://wandb.ai/stacey/artifact_july_demo/runs/2cslp2rt/artifacts)
+* See the reference for the [project](project-page.md)-level [Artifacts Tab](project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app\
+  [View a live example →](https://wandb.ai/stacey/artifact_july_demo/runs/2cslp2rt/artifacts)
 
 ![](<../../../.gitbook/assets/image (141).png>)

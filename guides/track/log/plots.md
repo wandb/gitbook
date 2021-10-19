@@ -8,7 +8,7 @@ description: >-
 
 Using the methods in `wandb.plot`, you can track charts with `wandb.log`, including charts that change over time during training. To learn more about our custom charting framework, check out [this guide](../../../ref/app/features/custom-charts/walkthrough.md).
 
-## Basic Charts
+### Basic Charts
 
 These simple charts make it easy to construct basic visualizations of metrics and results.
 
@@ -25,7 +25,7 @@ wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y",
            title="Custom Y vs X Line Plot")})
 ```
 
-You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly (i.e. each point must have an x and a y).
+You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
 
 ![](../../../.gitbook/assets/line-plot.png)
 
@@ -37,7 +37,7 @@ You can use this to log curves on any two dimensions. Note that if you're plotti
 {% tab title="Scatter" %}
 `wandb.plot.scatter()`
 
-Log a custom scatter plot—a list of points (x, y) on a pair of arbitrary axes x and y.
+Log a custom scatter plot—a list of points \(x, y\) on a pair of arbitrary axes x and y.
 
 ```python
 data = [[x, y] for (x, y) in zip(class_x_scores, class_y_scores)]
@@ -46,7 +46,7 @@ wandb.log({"my_custom_id" : wandb.plot.scatter(table,
                             "class_x", "class_y")})
 ```
 
-You can use this to log scatter points on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly (i.e. each point must have an x and a y).
+You can use this to log scatter points on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly \(i.e. each point must have an x and a y\).
 
 ![](../../../.gitbook/assets/demo-scatter-plot.png)
 
@@ -67,9 +67,9 @@ wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label",
                                "value", title="Custom Bar Chart")
 ```
 
-You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly (i.e. each data point must have both).
+You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly \(i.e. each data point must have both\).
 
-![](<../../../.gitbook/assets/image (96).png>)
+![](../../../.gitbook/assets/image%20%2896%29.png)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Bar-Charts--VmlldzoyNzExNzk)
 
@@ -79,7 +79,7 @@ You can use this to log arbitrary bar charts. Note that the number of labels and
 {% tab title="Histogram" %}
 `wandb.plot.histogram()`
 
-Log a custom histogram—sort a list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores (`scores`) and want to visualize their distribution:
+Log a custom histogram—sort a list of values into bins by count/frequency of occurrence—natively in a few lines. Let's say I have a list of prediction confidence scores \(`scores`\) and want to visualize their distribution:
 
 ```python
 data = [[s] for s in scores]
@@ -119,7 +119,7 @@ Note that the number of x and y points must match exactly. You can supply one li
 {% endtab %}
 {% endtabs %}
 
-## Model Evaluation Charts
+### Model Evaluation Charts
 
 These preset charts have built-in `wandb.plot` methods that make it quick and easy to log charts directly from your script and see the exact information you're looking for in the UI.
 
@@ -135,10 +135,10 @@ wandb.log({"pr": wandb.plot.pr_curve(ground_truth, predictions)})
 
 You can log this whenever your code has access to:
 
-* a model's predicted scores (`predictions`) on a set of examples
-* the corresponding ground truth labels (`ground_truth`) for those examples
-* (optionally) a list of the labels/class names (`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.)
-* (optionally) a subset (still in list format) of the labels to visualize in the plot
+* a model's predicted scores \(`predictions`\) on a set of examples
+* the corresponding ground truth labels \(`ground_truth`\) for those examples
+* \(optionally\) a list of the labels/class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
+* \(optionally\) a subset \(still in list format\) of the labels to visualize in the plot
 
 ![](../../../.gitbook/assets/screen-shot-2021-02-19-at-11.17.52-am.png)
 
@@ -158,10 +158,10 @@ wandb.log({"roc": wandb.plot.roc_curve(ground_truth, predictions)})
 
 You can log this whenever your code has access to:
 
-* a model's predicted scores (`predictions`) on a set of examples
-* the corresponding ground truth labels (`ground_truth`) for those examples
-* (optionally) a list of the labels/ class names (`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.)
-* (optionally) a subset (still in list format) of these labels to visualize on the plot
+* a model's predicted scores \(`predictions`\) on a set of examples
+* the corresponding ground truth labels \(`ground_truth`\) for those examples
+* \(optionally\) a list of the labels/ class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
+* \(optionally\) a subset \(still in list format\) of these labels to visualize on the plot
 
 ![](../../../.gitbook/assets/demo-custom-chart-roc-curve.png)
 
@@ -180,17 +180,17 @@ cm = wandb.plot.confusion_matrix(
     y_true=ground_truth,
     preds=predictions,
     class_names=class_names)
-
+    
 wandb.log({"conf_mat": cm})
 ```
 
 You can log this wherever your code has access to:
 
-* a model's predicted labels on a set of examples (`preds`) or the normalized probability scores (`probs`). The probabilities must have the shape (number of examples, number of classes). You can supply either probabilities or predictions but not both.
-* the corresponding ground truth labels for those examples (`y_true`)
-* a full list of the labels/class names as strings (`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 is cat, 1=dog, 2=bird, etc)
+* a model's predicted labels on a set of examples \(`preds`\) or the normalized probability scores \(`probs`\). The probabilities must have the shape \(number of examples, number of classes\). You can supply either probabilities or predictions but not both.
+* the corresponding ground truth labels for those examples \(`y_true`\)
+* a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 is cat, 1=dog, 2=bird, etc\)
 
-![](<../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (2) (8).png>)
+![](../../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 ​[See in the app →](https://wandb.ai/wandb/plots/reports/Confusion-Matrix--VmlldzozMDg1NTM)​
 
@@ -198,7 +198,7 @@ You can log this wherever your code has access to:
 {% endtab %}
 {% endtabs %}
 
-## **Interactive Custom Charts**
+### **Interactive Custom Charts**
 
 For full customization, tweak a built-in [Custom Chart preset](../../../ref/app/features/custom-charts/walkthrough.md) or create a new preset, then save the chart. Use the chart ID to log data to that custom preset directly from your script.
 
@@ -221,9 +221,9 @@ my_custom_chart = wandb.plot_table(
 
 [Run the code →](https://tiny.cc/custom-charts)
 
-## Matplotlib and Plotly Plots
+### Matplotlib and Plotly Plots
 
-Instead of using W\&B [Custom Charts](../../../ref/app/features/custom-charts/walkthrough.md) with `wandb.plot`, you can log charts generated with [matplotlib](https://matplotlib.org) and [Plotly](https://plotly.com).
+Instead of using W&B [Custom Charts](../../../ref/app/features/custom-charts/walkthrough.md) with `wandb.plot`, you can log charts generated with [matplotlib](https://matplotlib.org/) and [Plotly](https://plotly.com/).
 
 ```python
 import matplotlib.pyplot as plt
@@ -233,8 +233,9 @@ plt.ylabel("some interesting numbers")
 wandb.log({"chart": plt})
 ```
 
-Just pass a `matplotlib` plot or figure object to `wandb.log()`. By default we'll convert the plot into a [Plotly](https://plot.ly) plot. If you'd rather log the plot as an image, you can pass the plot into `wandb.Image`. We also accept Plotly charts directly.
+Just pass a `matplotlib` plot or figure object to `wandb.log()`. By default we'll convert the plot into a [Plotly](https://plot.ly/) plot. If you'd rather log the plot as an image, you can pass the plot into `wandb.Image`. We also accept Plotly charts directly.
 
 {% hint style="info" %}
 If you’re getting an error “You attempted to log an empty plot” then you can store the figure separately from the plot with `fig = plt.figure()` and then log `fig` in your call to `wandb.log`.
 {% endhint %}
+

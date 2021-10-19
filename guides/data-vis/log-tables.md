@@ -1,6 +1,6 @@
 # Log Tables
 
-Use `wandb.Table` to log data to visualize and query with W\&B. In this guide, learn how to:
+Use `wandb.Table` to log data to visualize and query with W&B. In this guide, learn how to:
 
 1. [Create Tables](log-tables.md#create-tables)
 2. [Add Data](log-tables.md#add-data)
@@ -31,7 +31,7 @@ my_data = [
   [2, wandb.Image("img_2.jpg"), 7, 1],
   [3, wandb.Image("img_3.jpg"), 1, 1]
 ]
-
+          
 # create a wandb.Table() with corresponding columns
 columns=﻿[﻿"id"﻿, "image"﻿, "prediction"﻿, "truth"﻿]
 test_table = wandb.Table(data=my_data, columns=columns)
@@ -72,7 +72,7 @@ Once data is in a Table, access it by column or by row:
 
 ## Save Tables
 
-After you generate a table of data in your script, for example a table of model predictions, save it to W\&B to visualize the results live. If you'd like to save and version larger datasets check out [Artifact Tables](https://docs.wandb.ai/guides/data-vis/log-tables#advanced-artifact-tables).
+After you generate a table of data in your script, for example a table of model predictions, save it to W&B to visualize the results live. If you'd like to save and version larger datasets check out [Artifact Tables](https://docs.wandb.ai/guides/data-vis/log-tables#advanced-artifact-tables).
 
 ### Log a table to a run
 
@@ -88,34 +88,35 @@ Each time a table is logged to the same key, a new version of the table is creat
 
 ### Access tables programmatically
 
-Pull logged tables from the W\&B API in two ways:
+Pull logged tables from the W&B API in two ways:
 
-1.  **Run Summary**: Access the last table a run logged under a given key.
+1. **Run Summary**: Access the last table a run logged under a given key.
 
-    ```
-    # First fetch the Run using the public API:
-    run = wandb.Api().run("USER/PROJECT/RUN_ID")
-    # Next, retrieve the summary entry
-    my_table = run.summary["table_name"]
-    ```
-2.  **Artifact Access**: In the backend, Run Tables are persisted as Artifacts. If you are interested in accessing a specific version, you can do so via the artifact API:
+   ```text
+   # First fetch the Run using the public API:
+   run = wandb.Api().run("USER/PROJECT/RUN_ID")
+   # Next, retrieve the summary entry
+   my_table = run.summary["table_name"]
+   ```
 
-    ```
-    with wandb.init() as run:
-       my_table = run.use_artifact("run-RUN_ID-table_name:v3").get("table_name")
-    ```
+2. **Artifact Access**: In the backend, Run Tables are persisted as Artifacts. If you are interested in accessing a specific version, you can do so via the artifact API:
+
+   ```text
+   with wandb.init() as run:
+      my_table = run.use_artifact("run-RUN_ID-table_name:v3").get("table_name")
+   ```
 
 ## Visualize tables
 
 Any table logged this way will show up in your Workspace on both the Run Page and the Project Page.
 
-{% content-ref url="tables.md" %}
-[tables.md](tables.md)
-{% endcontent-ref %}
+{% page-ref page="tables.md" %}
+
+
 
 ## Advanced: Artifact Tables
 
-Use `artifact.add()` to log tables to the Artifacts section of your run instead of the workspace. This could be useful if you have a dataset that you want to log once and then reference for future runs. Refer to this colab for a [detailed example of artifact.add() → ](http://wandb.me/dsviz-nature-colab)
+Use `artifact.add()` to log tables to the Artifacts section of your run instead of the workspace. This could be useful if you have a dataset that you want to log once and then reference for future runs. Refer to this colab for a [detailed example of artifact.add\(\) →  ](http://wandb.me/dsviz-nature-colab)
 
 ```python
 run = wandb.init(project="my_project")
@@ -126,12 +127,12 @@ test_predictions = wandb.Artifact(﻿"mnist_test_preds",
 # [build up your predictions data as above]
 test_table = wandb.Table(data=data, columns=columns)
 test_predictions.add(test_table, "my_test_key"﻿)
-run.log_artifact(test_predictions)
+run.log_artifact(test_predictions)   
 ```
 
 ### Join artifact tables
 
-To join two Tables you've logged previously in an artifact context, fetch them from the artifact and join the result into a new Table. For example, read one Table of original songs and another Table of synthesized versions of the same songs, join on "song_id", and upload a new Table to explore ([live example → ](https://wandb.ai/stacey/cshanty/reports/Whale2Song-W-B-Tables-for-Audio--Vmlldzo4NDI3NzM)).
+To join two Tables you've logged previously in an artifact context, fetch them from the artifact and join the result into a new Table. For example, read one Table of original songs and another Table of synthesized versions of the same songs, join on "song\_id", and upload a new Table to explore \([live example → ](https://wandb.ai/stacey/cshanty/reports/Whale2Song-W-B-Tables-for-Audio--Vmlldzo4NDI3NzM)\).
 
 ```python
 run = wandb.init(project="my_project")
@@ -152,3 +153,4 @@ join_at = wandb.Artifact("synth_summary", "analysis")
 join_at.add(join_table, "synth_explore")
 run.log_artifact(join_at)
 ```
+

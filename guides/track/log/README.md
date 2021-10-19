@@ -1,5 +1,5 @@
 ---
-description: Keep track of metrics, videos, custom plots, and more
+description: 'Keep track of metrics, videos, custom plots, and more'
 ---
 
 # Log Data with wandb.log
@@ -12,39 +12,31 @@ Call `wandb.log(dict)` to log a dictionary of metrics, media, or custom objects 
 wandb.log({"loss": 0.314, "epoch": 5,
            "inputs": wandb.Image(inputs),
            "logits": wandb.Histogram(ouputs),
-           "captions": wandb.HTML(captions)})
+           "captions": wandb.Html(captions)})
 ```
 
 ### **Common Workflows**
 
 1. **Compare the best accuracy**: To compare the best value of a metric across runs, set the summary value for that metric. By default, summary is set to the last value you logged for each key. This is useful in the table in the UI, where you can sort and filter runs based on their summary metrics — so you could compare runs in a table or bar chart based on their _best_ accuracy, instead of final accuracy. For example, you could set summary like so: `wandb.run.summary["best_accuracy"] = best_accuracy`
 2. **Multiple metrics on one chart**: Log multiple metrics in the same call to `wandb.log`, like this: `wandb.log({"acc'": 0.9, "loss": 0.1})`  and they will both be available to plot against in the UI
-3. **Custom x-axis**: Add a custom x-axis to the same log call to visualize your metrics against a different axis in the W\&B dashboard. For example: `wandb.log({'acc': 0.9, 'epoch': 3, 'batch': 117})`
+3. **Custom x-axis**: Add a custom x-axis to the same log call to visualize your metrics against a different axis in the W&B dashboard. For example: `wandb.log({'acc': 0.9, 'epoch': 3, 'batch': 117})`
 4. **Log rich media and charts**: `wandb.log` supports the logging of a wide variety of data types, from [media like images and videos](media.md) to [tables](../../data-vis/log-tables.md) and [charts](plots.md).
 
 ### In-**D**epth Guides
 
 For in-depth information on how to log everything from histograms to 3d molecules, check out the guides below.
 
-{% content-ref url="media.md" %}
-[media.md](media.md)
-{% endcontent-ref %}
+{% page-ref page="media.md" %}
 
-{% content-ref url="plots.md" %}
-[plots.md](plots.md)
-{% endcontent-ref %}
+{% page-ref page="plots.md" %}
 
 ### **Reference Documentation**
 
 For precise details about the signatures and behavior of logging functions, review the reference docs, generated from the `wandb` Python library.
 
-{% content-ref url="../../../ref/python/log.md" %}
-[log.md](../../../ref/python/log.md)
-{% endcontent-ref %}
+{% page-ref page="../../../ref/python/log.md" %}
 
-{% content-ref url="../../../ref/python/data-types/" %}
-[data-types](../../../ref/python/data-types/)
-{% endcontent-ref %}
+{% page-ref page="../../../ref/python/data-types/" %}
 
 ## Stepwise and Incremental Logging
 
@@ -58,9 +50,9 @@ If you want to log to a single history step from lots of different places in you
 wandb.log({'loss': 0.2}, step=step)
 ```
 
-As long as you keep passing the same value for `step`, W\&B will collect the keys and values from each call in one unified dictionary. As soon you call `wandb.log()` with a different value for `step` than the previous one, W\&B will write all the collected keys and values to the history, and start collection over again. Note that this means you should only use this with consecutive values for `step`: 0, 1, 2, .... This feature doesn't let you write to absolutely any history step that you'd like, only the "current" one and the "next" one.
+As long as you keep passing the same value for `step`, W&B will collect the keys and values from each call in one unified dictionary. As soon you call `wandb.log()` with a different value for `step` than the previous one, W&B will write all the collected keys and values to the history, and start collection over again. Note that this means you should only use this with consecutive values for `step`: 0, 1, 2, .... This feature doesn't let you write to absolutely any history step that you'd like, only the "current" one and the "next" one.
 
-You can also set `commit=False` in `wandb.log` to accumulate metrics, just be sure to eventually call `wandb.log` with `commit=True` (the default) to persist the metrics.
+You can also set `commit=False` in `wandb.log` to accumulate metrics, just be sure to eventually call `wandb.log` with `commit=True` \(the default\) to persist the metrics.
 
 ```python
 wandb.log({'loss': 0.2}, commit=False)
@@ -103,7 +95,7 @@ Use `define_metric` to set a **custom x axis** or capture a **custom summary of 
 
 ### Customize axes
 
-By default, all metrics are logged against the same x-axis, which is the W\&B internal `step`. Sometimes, you might want to log to a previous step, or use a different x-axis.
+By default, all metrics are logged against the same x-axis, which is the W&B internal `step`. Sometimes, you might want to log to a previous step, or use a different x-axis.
 
 Here's an example of setting a custom x-axis metric, instead of the default step.
 
@@ -142,7 +134,7 @@ for i in range(10):
       "train/loss": 1/(i+1), # x-axis is train/step
       "train/accuracy": 1 -  (1/(1+i)), # x-axis is train/step
       "val/loss": 1/(1+i), # x-axis is internal wandb step
-
+      
   }
   wandb.log(log_dict)
 ```
@@ -171,13 +163,13 @@ for i in range(10):
 
 Here's what the resulting min and max summary values look like, in pinned columns in the sidebar on the Project Page workspace:
 
-![](<../../../.gitbook/assets/image (144).png>)
+![](../../../.gitbook/assets/image%20%28144%29.png)
 
 ## Frequently Asked Questions
 
-### How can I organize my logged charts and media in the W\&B UI?
+### How can I organize my logged charts and media in the W&B UI?
 
-We treat `/` as a separator for organizing logged panels in the W\&B UI. By default, the component of the logged item's name before a `/` is used to define a group of panel called a "Panel Section".
+We treat `/` as a separator for organizing logged panels in the W&B UI. By default, the component of the logged item's name before a `/` is used to define a group of panel called a "Panel Section".
 
 ```python
 wandb.log({'val/loss': 1.1, 'val/acc': 0.3})  # charts in val/ Panel Section
@@ -231,13 +223,13 @@ If you're seeing "No visualization data logged yet" that means that we haven't g
 
 ### **Why is the same metric appearing more than once?**
 
-If you're logging different types of data under the same key, we have to split them out in our database. This means you'll see multiple entries of the same metric name in a dropdown in the UI. The types we group by are `number`, `string`, `bool`, `other` (mostly arrays), and any `wandb` data type (`Histogram`, `Image`, etc). Send only one type to each key to avoid this behavior.
+If you're logging different types of data under the same key, we have to split them out in our database. This means you'll see multiple entries of the same metric name in a dropdown in the UI. The types we group by are `number`, `string`, `bool`, `other` \(mostly arrays\), and any `wandb` data type \(`Histogram`, `Image`, etc\). Send only one type to each key to avoid this behavior.
 
 We store metrics in a case-insensitive fashion, so make sure you don't have two metrics with the same name like `"My-Metric"` and `"my-metric"`.
 
 ### How can I access the data logged to my runs directly and programmatically?
 
-The history object is used to track metrics logged by `wandb.log`. Using [our API](../public-api-guide.md), you can access the history object via `run.history()`.
+The history object is used to track metrics logged by `wandb.log`. Using [our API](../public-api-guide.md), you can access the history object via `run.history()`. 
 
 ```python
 api = wandb.Api()
@@ -245,7 +237,7 @@ run = api.run("username/project/run_id")
 print(run.history())
 ```
 
-### What happens when I log millions of steps to W\&B? How is that rendered in the browser?
+### What happens when I log millions of steps to W&B? How is that rendered in the browser?
 
 The more points you send us, the longer it will take to load your graphs in the UI. If you have more than 1000 points on a line, we sample down to 1000 points on the backend before we send your browser the data. This sampling is nondeterministic, so if you refresh the page you'll see a different set of sampled points.
 
@@ -255,6 +247,7 @@ If you'd like all the original data, you can use our [data API](https://docs.wan
 
 We recommend that you try to log less than 10,000 points per metric. If you log more than 1 million points in a line, it will take us while to load the page. For more on strategies for reducing logging footprint without sacrificing accuracy, check out [this Colab](http://wandb.me/log-hf-colab). If you have more than 500 columns of config and summary metrics, we'll only show 500 in the table.
 
-### What if I want to integrate W\&B into my project, but I don't want to upload any images or media?
+### What if I want to integrate W&B into my project, but I don't want to upload any images or media?
 
-W\&B can be used even for projects that only log scalars — you specify any files or data you'd like to upload explicitly. Here's [a quick example in PyTorch](http://wandb.me/pytorch-colab) that does not log images.
+W&B can be used even for projects that only log scalars — you specify any files or data you'd like to upload explicitly. Here's [a quick example in PyTorch](http://wandb.me/pytorch-colab) that does not log images.
+
