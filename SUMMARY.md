@@ -71,7 +71,6 @@
     * [Common Questions](guides/sweeps/faq.md)
     * [Advanced Sweeps Features](guides/sweeps/advanced-sweeps/README.md)
       * [Local Controller](guides/sweeps/advanced-sweeps/local-controller.md)
-      * [Ray Tune Sweeps](guides/sweeps/advanced-sweeps/ray-tune.md)
   * [\[Beta\] W\&B Launch](guides/launch.md)
   * [\[Beta\] Model Management](guides/models.md)
   * [Self-Hosting](guides/self-hosted/README.md)
