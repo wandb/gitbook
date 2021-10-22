@@ -29,7 +29,12 @@ description: Frequently asked questions about setting up locally-hosted versions
 ****A single instance of _wandb/local_ without an external MySQL store will scale to up to 10's concurrent experiments being tracked at once. Instances connected to an external MySQL store will scale to 100's of concurrent runs. If you have a need for tracking more concurrent experiments send us a note at [contact@wandb.com](mailto:contact@wandb.com) to inquire about our multi instance high availability installation options.
 
 **How do I do a factory reset if I can't access my instance?**\
-****If you're unable to connect to your instance you can put it in restore mode by setting the LOCAL_RESTORE environment variable when you start local. If you're starting wandb local using our cli you can do so with `wandb local -e LOCAL_RESTORE=true` Look at the logs printed on startup for a temporary username / password to access the instance.
+****If you're unable to connect to your instance you can put it in restore mode by setting the LOCAL\_RESTORE environment variable when you start local. If you're starting wandb local using our cli you can do so with `wandb local -e LOCAL_RESTORE=true` Look at the logs printed on startup for a temporary username / password to access the instance.
 
 **Does a wandb server need read or write access to the S3 bucket?**\
 ****Yes to both. The wandb server needs to be able to read from the bucket in order to generate signed URLs for use by clients, and it needs to have write access in order to update file metadata. Because the server generates temporary signed URLs for use by clients, there’s no need to make the s3 bucket public or explicitly grant permissions to any end-users.
+
+**Can I use environment variables to store my token?**\
+****You can set `WANDB_API_KEY` and `WANDB_BASE_URL` environment variables.
+
+****
