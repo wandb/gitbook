@@ -6,9 +6,30 @@ description: >-
 
 # Examples
 
-Explore what's possible in the W&B app with the example projects below. Looking for code examples instead? Head to our [GitHub repo](https://github.com/wandb/examples).
+Explore what's possible in the W\&B app with the example projects below. Looking for code examples instead? Head to our [GitHub repo](https://github.com/wandb/examples).
+
+1. [Examples by application](examples.md#examples-by-application)
+   1. [Autonomous vehicles](examples.md#autonomous-vehicles)
+      1. [Visualize LIDAR point clouds of driving scenes](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg) \[Report, Project]
+      2. [Image Masks for Semantic Segmentation](https://wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw) \[Report, Project]
+      3. [Bounding Boxes for Object Detection](https://wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ) \[Report, Project]
+      4. [Self-Driving Cars learning depth perception](https://wandb.ai/stacey/sfmlearner/reports/Video-to-3D-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw) \[Report, Project]
+      5. [Deep Drive: Semantic segmentation for scene parsing](https://wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver-s-Seat--Vmlldzo1MTg5NQ) \[Report, Project]
+   2. [Biomedical](examples.md#biomedical)
+      1. [DeepChem: Molecular Solubility](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM) \[Report, Project]
+      2. [3D protein-ligand interactions](https://wandb.ai/stacey/deepchem\_interact/reports/DeepChem-Molecular-Interaction--VmlldzoxMzMxNDE) \[Report, Project]
+      3. [Exploring X-Ray data and long-tailed learning](https://wandb.ai/stacey/xray/reports/X-Ray-Illumination--Vmlldzo4MzA5MQ) \[Report, Project]
+2. [Examples by technique](examples.md#examples-by-technique)
+   1. [Computer Vision](examples.md#computer-vision)
+      1. [Train and fine-tune CNNs beyond ImageNet](https://wandb.ai/stacey/curr\_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng) \[Report, Project]
+      2. [Extracting text from visually structured forms](https://wandb.ai/stacey/deepform\_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg) \[Report, Project]
+   2. [Distributed Training](examples.md#distributed-training)
+      1. [Data Parallel distributed training in Keras](https://wandb.ai/stacey/estuary/reports/Distributed-Training--Vmlldzo1MjEw) \[Report, Project]
+      2. [Optimize Pytorch-Lightning models](https://www.pytorchlightning.ai/blog/use-pytorch-lightning-with-weights-biases) \[Blog, Notebook]
 
 ## Examples by application
+
+A list of examples by applications to guide you how W\&B is solving common problems.
 
 ### Autonomous vehicles
 
@@ -16,31 +37,33 @@ Explore what's possible in the W&B app with the example projects below. Looking 
 {% tab title="Point Clouds" %}
 See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg) from the Lyft dataset. These are interactive and have bounding box annotations. Click the full screen button in the corner of an image, then zoom, rotate, and pan around the 3D scene.
 
-![](.gitbook/assets/image%20%28130%29.png)
+![](<.gitbook/assets/image (130).png>)
 {% endtab %}
 
 {% tab title="Segmentation" %}
 [This report ](https://wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)describes how to log and interact with image masks for semantic segmentation.
 
-![](.gitbook/assets/image%20%28112%29.png)
+![](<.gitbook/assets/image (112).png>)
+
+
 {% endtab %}
 
 {% tab title="Bounding Boxes" %}
 [Examples & walkthrough](https://wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ) of how to annotate driving scenes for object detection
 
-![](.gitbook/assets/image%20%28131%29.png)
+![](<.gitbook/assets/image (131).png>)
 {% endtab %}
 
 {% tab title="3D from Video" %}
-[Infer depth perception](https://wandb.ai/stacey/sfmlearner/reports/Video-to-3D-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw) from dashboard camera videos. This example contains lots of sample images from road scenes, and shows how to use the media panel for visualizing data in W&B.
+[Infer depth perception](https://wandb.ai/stacey/sfmlearner/reports/Video-to-3D-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw) from dashboard camera videos. This example contains lots of sample images from road scenes, and shows how to use the media panel for visualizing data in W\&B.
 
-![](.gitbook/assets/image%20%28111%29.png)
+![](<.gitbook/assets/image (111).png>)
 {% endtab %}
 
 {% tab title="Deep Drive" %}
 [This report](https://wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver-s-Seat--Vmlldzo1MTg5NQ) compares models for detecting humans in scenes from roads, with lots of charts, images, and notes. [The project page](https://wandb.ai/demo-team/deep-drive?workspace=user-stacey) workspace is also available.
 
-![](.gitbook/assets/image%20%28129%29.png)
+![](<.gitbook/assets/image (129).png>)
 {% endtab %}
 {% endtabs %}
 
@@ -48,21 +71,21 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 
 {% tabs %}
 {% tab title="2D Molecules" %}
-[This report ](https://wandb.ai/stacey/deepchem_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM)explores training models to predict [how soluble a molecule](https://wandb.ai/stacey/deepchem_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM) is in water based on its chemical formula. This example features scikit learn and sweeps.
+[This report ](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM)explores training models to predict [how soluble a molecule](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM) is in water based on its chemical formula. This example features scikit learn and sweeps.
 
-![](.gitbook/assets/image%20%28121%29.png)
+![](<.gitbook/assets/image (121).png>)
 {% endtab %}
 
 {% tab title="3D Molecules" %}
-[This report](https://wandb.ai/stacey/deepchem_interact/reports/DeepChem-Molecular-Interaction--VmlldzoxMzMxNDE) explores molecular binding and shows interactive 3D protein visualizations.
+[This report](https://wandb.ai/stacey/deepchem\_interact/reports/DeepChem-Molecular-Interaction--VmlldzoxMzMxNDE) explores molecular binding and shows interactive 3D protein visualizations.
 
-![](.gitbook/assets/image%20%28122%29.png)
+![](<.gitbook/assets/image (122).png>)
 {% endtab %}
 
 {% tab title="X Rays" %}
 [This report ](https://wandb.ai/stacey/xray/reports/X-Ray-Illumination--Vmlldzo4MzA5MQ)explores chest x-ray data and strategies for handling real world long-tailed data.
 
-![](.gitbook/assets/image%20%28100%29.png)
+![](<.gitbook/assets/image (100).png>)
 {% endtab %}
 {% endtabs %}
 
@@ -72,17 +95,17 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 
 {% tabs %}
 {% tab title="Images of species" %}
-[This report](https://wandb.ai/stacey/curr_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng) explores per-class accuracy on an image dataset of plants and animals.
+[This report](https://wandb.ai/stacey/curr\_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng) explores per-class accuracy on an image dataset of plants and animals.
 
-![](.gitbook/assets/image%20%2880%29.png)
+![](<.gitbook/assets/image (80).png>)
 
-![](.gitbook/assets/image%20%2885%29.png)
+![](<.gitbook/assets/image (85).png>)
 {% endtab %}
 
 {% tab title="PDF scans" %}
-[Parse TV ad receipts for political campaigns](https://wandb.ai/stacey/deepform_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg) to extract amount paid, organization, dates of ad, and receipt id from 100s of different receipt formats.
+[Parse TV ad receipts for political campaigns](https://wandb.ai/stacey/deepform\_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg) to extract amount paid, organization, dates of ad, and receipt id from 100s of different receipt formats.
 
-![](.gitbook/assets/image%20%28133%29.png)
+![](<.gitbook/assets/image (133).png>)
 {% endtab %}
 {% endtabs %}
 
@@ -92,7 +115,8 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 {% tab title="Data Parallel" %}
 [This report ](https://wandb.ai/stacey/estuary/reports/Distributed-Training--Vmlldzo1MjEw)visualizes experiments with Keras data parallel across up to 8 GPUs. Features include run sets and grouping, and notes.
 
-![](.gitbook/assets/image%20%2888%29.png)
+![](<.gitbook/assets/image (88).png>)
+
+
 {% endtab %}
 {% endtabs %}
-
