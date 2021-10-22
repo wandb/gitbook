@@ -32,13 +32,58 @@ model.fit(np.random.rand(100, 32), np.random.rand(100, 10),
 {% endtab %}
 
 {% tab title="Pytorch" %}
-```
+```python
 import wandb
+import torch
+import torch.nn as nn
+import torch.optim as optim
 
-Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set the WANDB_RUN_ID: a globally unique string (per project) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
+PROJECT_NAME = 'pytorch-resume-run'
+CHECKPOINT_PATH = './checkpoint.tar'
+N_EPOCHS = 100
+
+# Dummy data
+X = torch.randn(64, 8, requires_grad=True)
+Y = torch.empty(64, 1).random_(2)
+model = nn.Sequential(
+    nn.Linear(8, 16), 
+    nn.ReLU(), 
+    nn.Linear(16, 1), 
+    nn.Sigmoid()
+)
+metric = nn.BCELoss()
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+epoch = 0
+run = wandb.init(project=PROJECT_NAME, resume=True)
+if wandb.run.resumed:
+    checkpoint = torch.load(wandb.restore(CHECKPOINT_PATH))
+    model.load_state_dict(checkpoint['model_state_dict'])
+    optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    epoch = checkpoint['epoch']
+    loss = checkpoint['loss']
+    
+model.train()
+while epoch < N_EPOCHS:
+    optimizer.zero_grad()
+    output = model(X)
+    loss = metric(output, Y)
+    wandb.log({'loss': loss.item()}, step=epoch)
+    loss.backward()
+    optimizer.step()
+    
+     torch.save({ # Save our checkpoint loc
+        'epoch': epoch,
+        'model_state_dict': model.state_dict(),
+        'optimizer_state_dict': optimizer.state_dict(),
+        'loss': loss,
+        }, CHECKPOINT_PATH)
+    wandb.save(CHECKPOINT_PATH) # saves checkpoint to wandb
+    epoch += 1
 ```
 {% endtab %}
 {% endtabs %}
+
+Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set the WANDB\_RUN\_ID: a globally unique string (per project) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
 
 ```python
 # store this id to use it later when resuming
@@ -74,7 +119,7 @@ When you learn your current run is about to be preempted, call&#x20;
 wandb.mark_preempting()
 ```
 
-to immediately signal to the W\&B backend that your run believes it is about to be preempted. If a run that is marked preeempting exits with status code 0, W\&B will consider the run to have terminated successfully and it will not be requeued. If a preempting run exits with a nonzero status, W\&B will consider the run to have been preempted, and it will automatically append the run to a run queue associated with the sweep. If a run exits with no status, W\&B will mark the run preempted 5 minutes after the run's final heartbeat, then add it to the sweep run queue. Sweep agents will consume runs off the run queue until the queue is exhausted, at which point they will resume generating new runs based on the standard sweep search algorithm.&#x20;
+to immediately signal to the W\&B backend that your run believes it is about to be preempted. If a run that is marked preempting exits with status code 0, W\&B will consider the run to have terminated successfully and it will not be requeued. If a preempting run exits with a nonzero status, W\&B will consider the run to have been preempted, and it will automatically append the run to a run queue associated with the sweep. If a run exits with no status, W\&B will mark the run preempted 5 minutes after the run's final heartbeat, then add it to the sweep run queue. Sweep agents will consume runs off the run queue until the queue is exhausted, at which point they will resume generating new runs based on the standard sweep search algorithm.&#x20;
 
 By default, requeued runs begin logging from their initial step. To instruct a run to resume logging at the step where it was interrupted, initialize the resumed run with `wandb.init(resume=True)`.
 
