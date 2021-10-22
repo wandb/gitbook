@@ -10,22 +10,22 @@ Explore what's possible in the W\&B app with the example projects below. Looking
 
 1. [Examples by application](examples.md#examples-by-application)
    1. [Autonomous vehicles](examples.md#autonomous-vehicles)
-      1. [Visualize LIDAR point clouds of driving scenes](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg) \[Report, Project]
-      2. [Image Masks for Semantic Segmentation](https://wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw) \[Report, Project]
-      3. [Bounding Boxes for Object Detection](https://wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ) \[Report, Project]
-      4. [Self-Driving Cars learning depth perception](https://wandb.ai/stacey/sfmlearner/reports/Video-to-3D-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw) \[Report, Project]
-      5. [Deep Drive: Semantic segmentation for scene parsing](https://wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver-s-Seat--Vmlldzo1MTg5NQ) \[Report, Project]
+      1. [Visualize LIDAR point clouds of driving scenes](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg)
+      2. [Image Masks for Semantic Segmentation](https://wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)&#x20;
+      3. [Bounding Boxes for Object Detection](https://wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ)
+      4. [Self-Driving Cars learning depth perception](https://wandb.ai/stacey/sfmlearner/reports/Video-to-3D-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw)&#x20;
+      5. [Deep Drive: Semantic segmentation for scene parsing](https://wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver-s-Seat--Vmlldzo1MTg5NQ)
    2. [Biomedical](examples.md#biomedical)
-      1. [DeepChem: Molecular Solubility](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM) \[Report, Project]
-      2. [3D protein-ligand interactions](https://wandb.ai/stacey/deepchem\_interact/reports/DeepChem-Molecular-Interaction--VmlldzoxMzMxNDE) \[Report, Project]
-      3. [Exploring X-Ray data and long-tailed learning](https://wandb.ai/stacey/xray/reports/X-Ray-Illumination--Vmlldzo4MzA5MQ) \[Report, Project]
+      1. [DeepChem: Molecular Solubility](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM)
+      2. [3D protein-ligand interactions](https://wandb.ai/stacey/deepchem\_interact/reports/DeepChem-Molecular-Interaction--VmlldzoxMzMxNDE)
+      3. [Exploring X-Ray data and long-tailed learning](https://wandb.ai/stacey/xray/reports/X-Ray-Illumination--Vmlldzo4MzA5MQ)
 2. [Examples by technique](examples.md#examples-by-technique)
    1. [Computer Vision](examples.md#computer-vision)
-      1. [Train and fine-tune CNNs beyond ImageNet](https://wandb.ai/stacey/curr\_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng) \[Report, Project]
-      2. [Extracting text from visually structured forms](https://wandb.ai/stacey/deepform\_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg) \[Report, Project]
+      1. [Train and fine-tune CNNs beyond ImageNet](https://wandb.ai/stacey/curr\_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng)
+      2. [Extracting text from visually structured forms](https://wandb.ai/stacey/deepform\_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg)
    2. [Distributed Training](examples.md#distributed-training)
-      1. [Data Parallel distributed training in Keras](https://wandb.ai/stacey/estuary/reports/Distributed-Training--Vmlldzo1MjEw) \[Report, Project]
-      2. [Optimize Pytorch-Lightning models](https://www.pytorchlightning.ai/blog/use-pytorch-lightning-with-weights-biases) \[Blog, Notebook]
+      1. [Data Parallel distributed training in Keras](https://wandb.ai/stacey/estuary/reports/Distributed-Training--Vmlldzo1MjEw)
+      2. [Optimize Pytorch-Lightning models](https://www.pytorchlightning.ai/blog/use-pytorch-lightning-with-weights-biases)
 
 ## Examples by application
 
