@@ -24,6 +24,10 @@ If you're training on an offline machine and want to upload your results to our 
 2. When you're ready, run `wandb init` in your directory to set the project name.
 3. Run `wandb sync YOUR_RUN_DIRECTORY` to push the metrics to our cloud service and see your results in our hosted web app.
 
+### Can I disable wandb when testing my code?
+
+By using `wandb.init(mode="disabled")` or by setting `WANDB_MODE=disabled` you will make wandb act like a NOOP which is perfect for testing your code.
+
 ### Does your tool track or store training data?
 
 You can pass a SHA or other unique identifier to `wandb.config.update(...)` to associate a dataset with a training run. W\&B does not store any data unless `wandb.save` is called with the local file name.
@@ -49,7 +53,7 @@ There's two ways to turn off code logging:
 1. Set `WANDB_DISABLE_CODE` to `true` to turn off all code tracking. We won't pick up the git SHA or the diff patch.
 2. Set `WANDB_IGNORE_GLOBS` to `*.patch` to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](track/advanced/save-restore.md) command.
 
-### Does logging block my training? 
+### Does logging block my training?&#x20;
 
 "Is the logging function lazy? I don't want to be dependent on the network to send the results to your servers and then carry on with my local operations."
 
@@ -63,7 +67,7 @@ We use the same exponential moving average formula as TensorBoard. You can find 
 
 We love the TensorBoard folks, and we have a [TensorBoard integration](integrations/tensorboard.md)! We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible. 
+1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.&#x20;
 2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W\&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
 3. **Fast, flexible integration**: Add W\&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
 4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
@@ -142,9 +146,9 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 
 `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
 
-### What happens if internet connection is lost while I'm training a model? 
+### What happens if internet connection is lost while I'm training a model?&#x20;
 
-If our library is unable to connect to the internet it will enter a retry loop and keep attempting to stream metrics until the network is restored.  During this time your program is able to continue running.  
+If our library is unable to connect to the internet it will enter a retry loop and keep attempting to stream metrics until the network is restored.  During this time your program is able to continue running. &#x20;
 
 If you need to run on a machine without internet, you can set `WANDB_MODE=offline` to only have metrics stored locally on your hard drive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
 
@@ -166,9 +170,9 @@ For simpler workflows, you can call `wandb.init` with `resume=True` and `id=UNIQ
 
 At any point you can always use the [API](https://docs.wandb.ai/library/public-api-guide#update-metrics-for-a-run-after-the-run-has-finished) to add additional evaluation metrics.
 
-### What is the difference between ` .log()` and `.summary`?  
+### What is the difference between ` .log()` and `.summary`? &#x20;
 
-The summary is the value that shows in the table while log will save all the values for plotting later.  
+The summary is the value that shows in the table while log will save all the values for plotting later. &#x20;
 
 For example you might want to call `wandb.log` every time the accuracy changes.   Usually you can just use .log.  `wandb.log()` will also update the summary value by default unless you have set summary manually for that metric
 
@@ -185,7 +189,7 @@ unable to execute 'gcc': No such file or directory
 error: command 'gcc' failed with exit status 1
 ```
 
-You can install `psutil` directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)  
+You can install `psutil` directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil) &#x20;
 
 For example, to install `psutil `on Python 3.8 in Linux:
 
@@ -237,4 +241,4 @@ The W\&B client library supported both Python 2.7 and Python 3 through version 0
 
 ### Does the W\&B client support Python 3.5? <a href="eol-python35" id="eol-python35"></a>
 
-The W\&B client library supported both Python 3.5 through version 0.11. Due to the Python 3.5 end of life, support was discontinued as of version 0.12. 
+The W\&B client library supported both Python 3.5 through version 0.11. Due to the Python 3.5 end of life, support was discontinued as of version 0.12.&#x20;
