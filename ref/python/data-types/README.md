@@ -15,6 +15,8 @@
 
 [`class Audio`](./audio.md): Wandb class for audio clips.
 
+[`class BoundingBoxes2D`](./boundingboxes2d.md): Wandb class for logging 2D bounding boxes on images, useful for tasks like object detection
+
 [`class Graph`](./graph.md): Wandb class for graphs
 
 [`class Histogram`](./histogram.md): wandb class for histograms.
@@ -22,6 +24,8 @@
 [`class Html`](./html.md): Wandb class for arbitrary html
 
 [`class Image`](./image.md): Wandb class for images.
+
+[`class ImageMask`](./imagemask.md): Wandb class for image masks or overlays, useful for tasks like semantic segmentation.
 
 [`class Molecule`](./molecule.md): Wandb class for Molecular data
 
