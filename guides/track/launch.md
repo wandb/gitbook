@@ -4,9 +4,9 @@ description: Call wandb.init() at the top of your script to start a new run
 
 # Launch Experiments with wandb.init
 
-Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W\&B and launches a background process to sync data. 
+Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W\&B and launches a background process to sync data.&#x20;
 
-* **On Prem**: If you need a private cloud or local instance of W\&B, see our [Self Hosted](../self-hosted/) offerings. 
+* **On Prem**: If you need a private cloud or local instance of W\&B, see our [Self Hosted](../self-hosted/) offerings.&#x20;
 * **Automated Environments**: Most of these settings can also be controlled via [Environment Variables](advanced/environment-variables.md). This is often useful when you're running jobs on a cluster.
 
 ### Reference Documentation
@@ -48,9 +48,9 @@ for x in range(10):
 
 ### `InitStartError: Error communicating with wandb process` <a href="init-start-error" id="init-start-error"></a>
 
-This error indicates that the library is having difficulty launching the process which synchronizes data to the server. 
+This error indicates that the library is having difficulty launching the process which synchronizes data to the server.&#x20;
 
-The following workarounds can help resolve the issue in certain environments: 
+The following workarounds can help resolve the issue in certain environments:&#x20;
 
 {% tabs %}
 {% tab title="Linux / OS X" %}
@@ -123,7 +123,7 @@ import wandb
 import os
 
 os.environ["WANDB_API_KEY"] = YOUR_KEY_HERE
-os.environ["WANDB_MODE"] = "dryrun"
+os.environ["WANDB_MODE"] = "offline"
 
 config = {
   "dataset": "CIFAR10",
