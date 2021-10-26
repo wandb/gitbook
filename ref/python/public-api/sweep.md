@@ -1,6 +1,10 @@
-# wandb.apis.public.Sweep
+# Sweep
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1497-L1654)
+
+
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L1973-L2143)
+
+
 
 A set of runs associated with a sweep.
 
@@ -10,28 +14,37 @@ Sweep(
 )
 ```
 
+
+
+
+
 #### Examples:
 
 Instantiate with:
-
-```text
+```
 api = wandb.Api()
 sweep = api.sweep(path/to/sweep)
 ```
 
+
+
+
+
 | Attributes |  |
 | :--- | :--- |
-| `runs` | \(`Runs`\) list of runs |
-| `id` | \(str\) sweep id |
-| `project` | \(str\) name of project |
-| `config` | \(str\) dictionary of sweep configuration |
-| `state` | \(str\) the state of the sweep |
+|  `runs` |  (`Runs`) list of runs |
+|  `id` |  (str) sweep id |
+|  `project` |  (str) name of project |
+|  `config` |  (str) dictionary of sweep configuration |
+|  `state` |  (str) the state of the sweep |
+
+
 
 ## Methods
 
-### `best_run` <a id="best_run"></a>
+<h3 id="best_run"><code>best_run</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1573-L1596)
+[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L2049-L2072)
 
 ```python
 best_run(
@@ -41,9 +54,23 @@ best_run(
 
 Returns the best run sorted by the metric defined in config or the order passed in
 
-### `get` <a id="get"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1612-L1651)
+<h3 id="display"><code>display</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L736-L747)
+
+```python
+display(
+    height=420, hidden=(False)
+) -> bool
+```
+
+Display this object in jupyter
+
+
+<h3 id="get"><code>get</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L2088-L2127)
 
 ```python
 @classmethod
@@ -54,9 +81,10 @@ get(
 
 Execute a query against the cloud backend
 
-### `load` <a id="load"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L1554-L1562)
+<h3 id="load"><code>load</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L2030-L2038)
 
 ```python
 load(
@@ -64,9 +92,12 @@ load(
 )
 ```
 
-### `snake_to_camel` <a id="snake_to_camel"></a>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.2/wandb/apis/public.py#L573-L575)
+
+
+<h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L732-L734)
 
 ```python
 snake_to_camel(
@@ -74,7 +105,27 @@ snake_to_camel(
 )
 ```
 
+
+
+
+<h3 id="to_html"><code>to_html</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L2129-L2137)
+
+```python
+to_html(
+    height=420, hidden=(False)
+)
+```
+
+Generate HTML containing an iframe displaying this sweep
+
+
+
+
+
+
 | Class Variables |  |
 | :--- | :--- |
-| `QUERY` |  |
+|  `QUERY`<a id="QUERY"></a> |   |
 

@@ -1,4 +1,4 @@
-# wandb launch agent
+# wandb launch-agent
 
 **Usage**
 
@@ -6,7 +6,7 @@
 
 **Summary**
 
-Run a W&B launch agent \(Experimental\)
+Run a W&B launch agent (Experimental)
 
 **Options**
 
