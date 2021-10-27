@@ -28,3 +28,4 @@ Set up W&B in 5 minutes, then quickly iterate on your machine learning pipeline 
 
 ![](.gitbook/assets/w-and-b-diagram-20210913.png)
 
+hello from inside the github action!
