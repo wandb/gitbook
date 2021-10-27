@@ -42,3 +42,4 @@ To undo a change in your workspace, click the "undo" button at the bottom of the
 
 ![](.gitbook/assets/demo-how-to-undo-deleting-a-panel.gif)
 
+hello from inside the github action!
