@@ -20,8 +20,8 @@
 | artifact | Commands for interacting with artifacts |
 | controller | Run the W&B local sweep controller |
 | disabled | Disable W&B. |
-| docker | W&B docker lets you run your code in a docker image ensuring... |
-| docker-run | Simple wrapper for `docker run` which adds WANDB_API_KEY and... |
+| docker | W&B docker lets you run your code in a docker image... |
+| docker-run | Simple wrapper for `docker run` which adds WANDB_API_KEY... |
 | enabled | Enable W&B. |
 | init | Configure a directory with Weights & Biases |
 | launch | Launch or queue a job from a uri (Experimental). |
