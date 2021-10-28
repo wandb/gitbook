@@ -160,7 +160,7 @@ for version in api.artifact_versions(artifact_type, artifact_name):
 
 ### How do I delete an artifact with associated aliases?
 
-If you're trying to delete artifacts that have aliases associated with them programmatically by calling `artifact.delete()`, then you might encounter a `400 Client Error`. You would need to remove the alias corresponding to the artifact in order to delete it. To do so, you can pass an additional flag `delete_aliases` that would auto-delete it if the flag is set to `True`.
+If you're trying to [delete](https://docs.wandb.ai/ref/python/public-api/artifact#delete) artifacts that have aliases associated with them programmatically by calling `artifact.delete()`, then you might encounter a `400 Client Error`. You would need to remove the alias corresponding to the artifact in order to delete it. To do so, you can pass an additional flag `delete_aliases` that would auto-delete it if the flag is set to `True`.
 
 Here's an example on how to delete artifacts having aliases associated with them:
 
