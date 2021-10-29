@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L2212-L2315)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/apis/public.py#L2212-L2315)
 
 
 
@@ -29,7 +29,7 @@ File(
 
 <h3 id="delete"><code>delete</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L2295-L2308)
+[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/apis/public.py#L2295-L2308)
 
 ```python
 delete()
@@ -40,7 +40,7 @@ delete()
 
 <h3 id="download"><code>download</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/apis/public.py#L2272-L2293)
+[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/apis/public.py#L2272-L2293)
 
 ```python
 download(

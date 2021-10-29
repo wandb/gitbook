@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L1450-L1709)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L1450-L1709)
 
 
 
@@ -103,7 +103,7 @@ image_with_boxes = wandb.Image(raw_image_path, classes=class_set,
 
 <h3 id="type_name"><code>type_name</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L1626-L1628)
+[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L1626-L1628)
 
 ```python
 @classmethod
@@ -115,7 +115,7 @@ type_name() -> str
 
 <h3 id="validate"><code>validate</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L1630-L1691)
+[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L1630-L1691)
 
 ```python
 validate(

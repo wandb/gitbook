@@ -41,3 +41,4 @@ Use W&B to organize complex machine learning projects. It's easy to share a link
 To undo a change in your workspace, click the "undo" button at the bottom of the page.
 
 ![](.gitbook/assets/demo-how-to-undo-deleting-a-panel.gif)
+hello from inside the github action!
