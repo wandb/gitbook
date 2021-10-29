@@ -30,7 +30,7 @@ It's recommended to log fewer than 50 images per step to prevent logging from be
 
 {% tabs %}
 {% tab title="Logging Arrays as Images" %}
-Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make_grid). 
+Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make\_grid).&#x20;
 
 Arrays are converted to png using [Pillow](https://pillow.readthedocs.io/en/stable/index.html).
 
@@ -53,7 +53,7 @@ wandb.log({"examples": [wandb.Image(image) for image in images]}
 ```
 {% endtab %}
 
-{% tab title="Logging Images from FIies" %}
+{% tab title="Logging Images from Files" %}
 For even more control, create images however you like, save them to disk, and provide a filepath.
 
 ```python
@@ -85,7 +85,7 @@ To log multiple masks, log a mask dictionary with multiple keys, as in the code 
 
 [See a live example →](https://app.wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)
 
-[Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix_P4J)
+[Sample code →](https://colab.research.google.com/drive/1SOVl3EvW82Q4QKJXX6JtHye4wFix\_P4J)
 
 ```python
 mask_data = np.array([[1, 2, 2, ... , 2, 2, 1], ...])
@@ -125,7 +125,7 @@ To log a bounding box, you'll need to provide a dictionary with the following ke
   * `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
   * `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
   * `domain`: specify the units/format of the box coordinates. **Set this to "pixel" **if the box coordinates are expressed in pixel space (i.e. as integers within the bounds of the image dimensions). By default, the domain is assumed to be a fraction/percentage of the image (a floating point number between 0 and 1).
-  * `box_caption`: (optional) a string to be displayed as the label text on this box 
+  * `box_caption`: (optional) a string to be displayed as the label text on this box&#x20;
 * `class_labels`: (optional) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
 
 Check out this example:
@@ -220,7 +220,7 @@ wandb.run.summary.update(  # if only in summary, only visible on overview tab
 {% endtab %}
 {% endtabs %}
 
- 
+&#x20;
 
 If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
 
@@ -239,7 +239,7 @@ wandb.log({"generated_samples":
 
 ![Ground truth and prediction of a headphones point cloud](../../../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
 
-[See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples\_3d_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
+[See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples\_3d\_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
 
 {% tab title="Point Clouds" %}
@@ -263,7 +263,7 @@ Here's an example of logging code below:
 * `boxes` is a numpy array of python dictionaries with three attributes:
   * `corners`- a list of eight corners
   * `label`- a string representing the label to be rendered on the box (Optional)
-  * `color`- rgb values representing the color of the box 
+  * `color`- rgb values representing the color of the box&#x20;
 * `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
 
 ```python
