@@ -19,8 +19,8 @@ Create a sweep
 | --name | Set sweep name |
 | --program | Set sweep program |
 | --update | Update pending sweep |
-| --stop | Finish a sweep to stop running new runs and let   currently running runs finish. |
-| --cancel | Cancel a sweep to kill all running runs and stop running   new runs. |
+| --stop | Finish a sweep to stop running new runs and let currently running runs finish. |
+| --cancel | Cancel a sweep to kill all running runs and stop running new runs. |
 | --pause | Pause a sweep to temporarily stop running new runs. |
 | --resume | Resume a sweep to continue running new runs. |
 | --help | Show this message and exit. |

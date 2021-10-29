@@ -24,7 +24,7 @@ Upload an offline training directory to W&B
 | --mark-synced / --no-mark-synced | Mark runs as synced |
 | --sync-all | Sync all runs |
 | --clean | Delete synced runs |
-| --clean-old-hours | Delete runs created before this many hours.   To be used alongside --clean flag. |
+| --clean-old-hours | Delete runs created before this many hours. To be used alongside --clean flag. |
 | --clean-force | Clean without confirmation prompt. |
 | --show | Number of runs to show |
 | --help | Show this message and exit. |

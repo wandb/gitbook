@@ -3,13 +3,16 @@
 <!-- Insert buttons and diff -->
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.5/wandb/__init__.py)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/__init__.py)
 
 
 
+Wandb has special data types for logging rich visualizations.
 
 
-
+All of the special data types are subclasses of WBValue. All of the data types
+serialize to JSON, since that is what wandb uses to save the objects locally
+and upload them to the W&B server.
 
 ## Classes
 

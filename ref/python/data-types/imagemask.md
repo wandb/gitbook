@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L1272-L1447)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L1272-L1447)
 
 
 
@@ -72,7 +72,7 @@ masked_image = wandb.Image(raw_image_path, classes=class_set,
 
 <h3 id="type_name"><code>type_name</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L1417-L1419)
+[View source](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L1417-L1419)
 
 ```python
 @classmethod
@@ -84,7 +84,7 @@ type_name() -> str
 
 <h3 id="validate"><code>validate</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L1421-L1447)
+[View source](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L1421-L1447)
 
 ```python
 validate(

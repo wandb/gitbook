@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L1762-L2255)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L1762-L2255)
 
 
 
@@ -43,7 +43,7 @@ Image(
 
 <h3 id="all_boxes"><code>all_boxes</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L2180-L2201)
+[View source](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L2180-L2201)
 
 ```python
 @classmethod
@@ -60,7 +60,7 @@ all_boxes(
 
 <h3 id="all_captions"><code>all_captions</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L2203-L2207)
+[View source](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L2203-L2207)
 
 ```python
 @classmethod
@@ -74,7 +74,7 @@ all_captions(
 
 <h3 id="all_masks"><code>all_masks</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L2157-L2178)
+[View source](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L2157-L2178)
 
 ```python
 @classmethod
@@ -91,7 +91,7 @@ all_masks(
 
 <h3 id="guess_mode"><code>guess_mode</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L2051-L2065)
+[View source](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L2051-L2065)
 
 ```python
 guess_mode(
@@ -104,7 +104,7 @@ Guess what type of image the np.array is representing
 
 <h3 id="to_uint8"><code>to_uint8</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/data_types.py#L2067-L2089)
+[View source](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/data_types.py#L2067-L2089)
 
 ```python
 @classmethod

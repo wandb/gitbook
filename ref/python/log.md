@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.5/wandb/sdk/wandb_run.py#L1061-L1231)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/sdk/wandb_run.py#L1102-L1318)
 
 
 
@@ -80,31 +80,77 @@ For more and more detailed examples, see
 [our guides to logging](https://docs.wandb.com/guides/track/log).
 
 Basic usage
+<!--yeadoc-test:init-and-log-basic-->
 ```python
+import wandb
+wandb.init()
 wandb.log({'accuracy': 0.9, 'epoch': 5})
 ```
 
 Incremental logging
+<!--yeadoc-test:init-and-log-incremental-->
 ```python
+import wandb
+wandb.init()
 wandb.log({'loss': 0.2}, commit=False)
 # Somewhere else when I'm ready to report this step:
 wandb.log({'accuracy': 0.8})
 ```
 
 Histogram
+<!--yeadoc-test:init-and-log-histogram-->
 ```python
-wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
+import numpy as np
+import wandb
+
+# sample gradients at random from normal distribution
+gradients = np.random.randn(100, 100)
+wandb.init()
+wandb.log({"gradients": wandb.Histogram(gradients)})
 ```
 
-Image
+Image from numpy
+<!--yeadoc-test:init-and-log-image-numpy-->
 ```python
-wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})
+import numpy as np
+import wandb
+
+wandb.init()
+examples = []
+for i in range(3):
+    pixels = np.random.randint(low=0, high=256, size=(100, 100, 3))
+    image = wandb.Image(pixels, caption=f"random field {i}")
+    examples.append(image)
+wandb.log({"examples": examples})
 ```
 
-Video
+Image from PIL
+<!--yeadoc-test:init-and-log-image-pillow-->
 ```python
-wandb.log({"video": wandb.Video(numpy_array_or_video_path, fps=4,
-    format="gif")})
+import numpy as np
+from PIL import Image as PILImage
+import wandb
+
+wandb.init()
+examples = []
+for i in range(3):
+    pixels = np.random.randint(low=0, high=256, size=(100, 100, 3), dtype=np.uint8)
+    pil_image = PILImage.fromarray(pixels, mode="RGB")
+    image = wandb.Image(pil_image, caption=f"random field {i}")
+    examples.append(image)
+wandb.log({"examples": examples})
+```
+
+Video from numpy
+<!--yeadoc-test:init-and-log-video-numpy-->
+```python
+import numpy as np
+import wandb
+
+wandb.init()
+# axes are (time, channel, height, width)
+frames = np.random.randint(low=0, high=256, size=(10, 3, 100, 100), dtype=np.uint8)
+wandb.log({"video": wandb.Video(frames, fps=4)})
 ```
 
 Matplotlib Plot

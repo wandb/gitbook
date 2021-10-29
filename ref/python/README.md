@@ -3,13 +3,23 @@
 <!-- Insert buttons and diff -->
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.5/wandb/__init__.py)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/a71719bdde474b8048d942c5b1be20afadaef59a/wandb/__init__.py)
 
 
 
+Wandb is a library to help track machine learning experiments.
 
 
+For more information on wandb see https://docs.wandb.com.
 
+The most commonly used functions/objects are:
+- wandb.init — initialize a new run at the top of your training script
+- wandb.config — track hyperparameters
+- wandb.log — log metrics over time within your training loop
+- wandb.save — save files in association with your run, like model weights
+- wandb.restore — restore the state of your code when you ran a given run
+
+For examples usage, see github.com/wandb/examples
 
 ## Classes
 
@@ -43,5 +53,5 @@
 
 | Other Members |  |
 | :--- | :--- |
-|  `__version__`<a id="__version__"></a> |  `'0.12.5'` |
+|  `__version__`<a id="__version__"></a> |  `'0.12.7.dev1'` |
 
