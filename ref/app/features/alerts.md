@@ -6,21 +6,25 @@ description: >-
 
 # Alerts
 
-W&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert\(\)](../../../guides/track/advanced/alert.md).
+W\&B can post notifications to email or Slack whenever your runs crash, complete, or call [wandb.alert()](../../../guides/track/advanced/alert.md).
 
 {% hint style="warning" %}
 Alerts for finished runs are disabled in Jupyter Notebook environments to prevent alert notifications on every cell execution. Use `wandb.alert()` in Jupyter Notebook environments instead.
 {% endhint %}
 
+{% hint style="warning" %}
+If you are self-hosting you will need to follow [these steps](../../../guides/self-hosted/configuration.md#slack) before enabling Slack alerts
+{% endhint %}
+
 ### User Alerts
 
-Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects. 
+Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects.&#x20;
 
 In your [User Settings](https://wandb.ai/settings):
 
 * Scroll down to the **Alerts** section
 * Click **Connect Slack** to pick a channel to post alerts. We recommend the **Slackbot** channel because it keeps the alerts private.
-* **Email** will go to the email address you used when you signed up for W&B. We recommend setting up a filter in your email so all these alerts go into a folder and don't fill up your inbox.
+* **Email** will go to the email address you used when you signed up for W\&B. We recommend setting up a filter in your email so all these alerts go into a folder and don't fill up your inbox.
 
 ![](../../../.gitbook/assets/demo-connect-slack.png)
 
@@ -31,4 +35,3 @@ Team admins can set up alerts for the team on the team settings page: wandb.ai/t
 ### Changing Slack Channels
 
 To change what channel you're posting to, click **Disconnect Slack** and then reconnect, picking a different destination channel.
-
