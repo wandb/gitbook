@@ -15,13 +15,17 @@ If you send us more than that, your data will be saved and tracked, but pages ma
 
 ### Python Script Performance
 
-Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance.
+There are few common ways the performance of your python script can be reduced:
+
+1. The size of your data is too large. The larger the size of the data the latency could be around 1ms in addition to the training loop.
+2. The speed of your network and the how the W\&B backend is configured
+3. Calling  `wandb.log` more than a few times per second. This is due to a small latency added to the training loop every time `wandb.log` is called.  &#x20;
 
 {% hint style="info" %}
 Is frequent logging slowing your training runs down? Check out [this Colab](http://wandb.me/log-hf-colab) for methods to get better performance by changing your logging strategy.
 {% endhint %}
 
-We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds. 
+We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds.&#x20;
 
 ### Rate Limits
 
@@ -37,7 +41,7 @@ The maximum file size for new accounts is 2GB. A single run is allowed to store 
 
 #### Metrics
 
-Metrics are sampled to 1500 data points by default before displaying in the UI. 
+Metrics are sampled to 1500 data points by default before displaying in the UI.&#x20;
 
 #### Logs
 
