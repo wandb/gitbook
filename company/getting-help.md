@@ -10,6 +10,6 @@
 
 We really appreciate hearing from people who are using our tools. If you have questions or suggestions, please reach out!
 
-1. Email - support@wandb.com goes directly to the team
-2. Intercom - click the yellow widget in the lower right corner of the page to chat with us
-3. [Issues](https://github.com/wandb/client) - if you'd prefer, you can file issues in our public issue tracker
+1. Email - support@wandb.com goes directly to the team.
+2. Zendesk - click the chat widget in the lower right corner of the page to chat with us.
+3. [Issues](https://github.com/wandb/client) - if you'd prefer, you can file issues in our public issue tracker.

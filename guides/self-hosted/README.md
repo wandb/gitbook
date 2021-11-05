@@ -56,7 +56,7 @@ for i in range(10):
 
 ****[**Open the Deploy Manager **](https://deploy.wandb.ai/deploy)to get a free license. We offer two options:
 
-1. ****[**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work:![](<../../.gitbook/assets/image (161).png>)
+1. ****[**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work:![](<../../.gitbook/assets/image (161) (1).png>)
 2.  ****[**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:
 
     ![](<../../.gitbook/assets/image (160).png>)

@@ -128,11 +128,11 @@ After calling `wandb.init()`  you can access the random run ID or the human read
 * Unique run ID (8 character hash): `wandb.run.id`
 * Random run name (human readable): `wandb.run.name`
 
- If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
+&#x20;If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
 
 * **Run ID**: leave it as the generated hash. This needs to be unique across runs in your project.
 * **Run name**: This should be something short, readable, and preferably unique so that you can tell the difference between different lines on your charts.
-* **Run notes**: This is a great place to put a quick description of what you're doing in your run. You can set this with `wandb.init(notes="your notes here")` 
+* **Run notes**: This is a great place to put a quick description of what you're doing in your run. You can set this with `wandb.init(notes="your notes here")`&#x20;
 * **Run tags**: Track things dynamically in run tags, and use filters in the UI to filter your table down to just the runs you care about. You can set tags from your script and then edit them in the UI, both in the runs table and the overview tab of the run page. See the detailed instructions [here](../../ref/app/features/tags.md).
 
 ## Public API Examples
@@ -239,20 +239,17 @@ run.config["key"] = updated_value
 run.update()
 ```
 
-### Export metrics from a single run to a CSV file
+### Export system resource consumptions to a CSV file
 
-This snippet finds all the metrics saved for a single run and saves them to a CSV.
+The snippet below would find the system resource consumptions and then, save them to a CSV.
 
 ```python
 import wandb
-api = wandb.Api()
 
-# run is specified by <entity>/<project>/<run id>
-run = api.run("<entity>/<project>/<run_id>")
+run = wandb.Api().run("<entity>/<project>/<run_id>")
 
-# save the metrics for the run to a csv file
-metrics_dataframe = run.history()
-metrics_dataframe.to_csv("metrics.csv")
+system_metrics = run.history(stream="events")
+system_metrics.to_csv("sys_metrics.csv")
 ```
 
 ### Get unsampled metric data
@@ -354,7 +351,7 @@ run.file("model-best.h5").download()
 
 ### Download all files from a run
 
-This finds all files associated with a run and saves them locally.  
+This finds all files associated with a run and saves them locally. &#x20;
 
 ```python
 import wandb
@@ -414,7 +411,7 @@ for file in files:
 
 ### Download system metrics data
 
-This snippet produces a dataframe with all the system metrics for a run.
+This snippet produces a dataframe with all the system resource consumption metrics for a run and then saves it to a CSV.
 
 ```python
 import wandb
@@ -422,6 +419,7 @@ api = wandb.Api()
 
 run = api.run("<entity>/<project>/<run_id>")
 system_metrics = run.history(stream="events")
+system_metrics.to_csv("sys_metrics.csv")
 ```
 
 ### Update summary metrics
