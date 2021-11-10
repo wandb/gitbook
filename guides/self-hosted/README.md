@@ -52,7 +52,11 @@ for i in range(10):
 	wandb.log({"loss" : 10-i, "acc" : float(i)/10.0})
 ```
 
-### 2. Get a free license
+### **2. Set up a new user account**
+
+The first time you start a `wandb/local` instance you will be prompted to create an account by visiting http://localhost:8080.  This account is only stored locally in your installation and it's what you will use to authenticate with the service.&#x20;
+
+### 3. Get a free license
 
 ****[**Open the Deploy Manager **](https://deploy.wandb.ai/deploy)to get a free license. We offer two options:
 
@@ -63,7 +67,7 @@ for i in range(10):
 
 ****[**Contact sales -**](https://wandb.ai/site/local-contact)**>** to learn more about Enterprise Self-Hosting options for W\&B.
 
-### 3. Create and scale a shared instance
+### 4. Create and scale a shared instance
 
 This private instance of W\&B is excellent for initial testing. To enjoy the powerful collaborative features of W\&B, you will need a shared instance on a central server, which you can [set up on AWS, GCP, Azure, Kubernetes, or Docker](https://docs.wandb.ai/self-hosted/setup).
 
@@ -74,10 +78,6 @@ In Trial Mode of W\&B Local, you're running the Docker container on a single mac
 
 Once you're ready to move from test projects to real production work, it  is crucial that you set up a scalable file system to avoid data loss: allocate extra space in advance, resize the file system proactively as you log more data, and configure external metadata and object stores for backup. If you run out of disk space, the instance will stop working, and additional data will be lost.
 {% endhint %}
-
-### 4. Set up a new user account
-
-The first time you start a `wandb/local` instance you will be prompted to create an account by visiting http://localhost:8080.  This account is only stored locally in your installation and it's what you will use to authenticate with the service.&#x20;
 
 ### 5. Control where to log: local or wandb cloud
 
