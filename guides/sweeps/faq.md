@@ -6,7 +6,7 @@ The hyperparameter names and values specified as part of the sweep configuration
 
 For runs that are not part of a sweep, the values of `wandb.config` are usually set by providing a dictionary to the `config` argument of `wandb.init`. During a sweep, however, any configuration information passed to `wandb.init` is instead treated as a default value, which might be over-ridden by the sweep.
 
-You can also be more explicit about the intended behavior by using `config.set_defaults`. Code snippets for both methods appear below:
+You can also be more explicit about the intended behavior by using `config.setdefaults`. Code snippets for both methods appear below:
 
 {% tabs %}
 {% tab title="wandb.init" %}
@@ -21,7 +21,7 @@ with wandb.init(config=config_default) as run:
 ```
 {% endtab %}
 
-{% tab title="config.set_defaults" %}
+{% tab title="config.setdefaults" %}
 ```python
 # set default values for hyperparameters
 config_defaults = {"lr": 0.1, "batch_size": 256}
