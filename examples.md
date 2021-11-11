@@ -19,6 +19,8 @@ Explore what's possible in the W\&B app with the example projects below. Looking
       1. [DeepChem: Molecular Solubility](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM)
       2. [3D protein-ligand interactions](https://wandb.ai/stacey/deepchem\_interact/reports/DeepChem-Molecular-Interaction--VmlldzoxMzMxNDE)
       3. [Exploring X-Ray data and long-tailed learning](https://wandb.ai/stacey/xray/reports/X-Ray-Illumination--Vmlldzo4MzA5MQ)
+   3. [Finance](examples.md#finance)
+      1. [Interpretable credit scorecards with XGBoost](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/boosting/Credit\_Scorecards\_with\_XGBoost\_and\_W%26B.ipynb\))
 2. [Examples by technique](examples.md#examples-by-technique)
    1. [Computer Vision](examples.md#computer-vision)
       1. [Train and fine-tune CNNs beyond ImageNet](https://wandb.ai/stacey/curr\_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng)
@@ -86,6 +88,16 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 [This report ](https://wandb.ai/stacey/xray/reports/X-Ray-Illumination--Vmlldzo4MzA5MQ)explores chest x-ray data and strategies for handling real world long-tailed data.
 
 ![](<.gitbook/assets/image (100).png>)
+{% endtab %}
+{% endtabs %}
+
+### Finance
+
+{% tabs %}
+{% tab title="Credit Scorecards" %}
+Track experiments, generate credit scorecard for loan defaults and run a hyperparameter sweep to find the best hyperparameters. [Click here](https://wandb.ai/morgan/credit\_scorecard) to view and interact with a live W\&B Dashboard built with [this](http://wandb.me/xgboost) notebook.
+
+![Log ROC curve and Inspect Credit Scorecard using W\&B](<.gitbook/assets/image (164).png>)
 {% endtab %}
 {% endtabs %}
 
