@@ -76,7 +76,7 @@ gsutil cors set cors.json gs://BUCKET_NAME
 
 ### Setup MySQL
 
-Provision a Cloud SQL instance with version 5.7 of MySQL in the same region as your other resources. Note the **Connection name** once the instance has been provisions and replace YOUR_MYSQL_CONNECTION_NAME in the templates below with it.
+Provision a Cloud SQL instance with version 5.7 of MySQL in the same region as your other resources. Note the **Connection name** once the instance has been provisions and replace YOUR\_MYSQL\_CONNECTION\_NAME in the templates below with it.
 
 Connect to your new database:
 
@@ -102,7 +102,7 @@ This assumes you've created a static IP and are using GKE to manage certificates
 gcloud compute addresses create wandb-local-static-ip --global
 ```
 
-You'll want to configure a DNS entry that points to this IP once it's been created, referred to as YOUR_DNS_NAME below.
+You'll want to configure a DNS entry that points to this IP once it's been created, referred to as YOUR\_DNS\_NAME below.
 
 #### Create k8s deployment with a Google managed certificate
 
@@ -185,6 +185,7 @@ spec:
             httpGet:
               path: /ready
               port: http
+              periodSeconds: 600
           resources:
             requests:
               cpu: "1500m"
@@ -235,11 +236,11 @@ spec:
 
 ### Configure your instance
 
-Go to https://YOUR_DNS_DOMAIN in your browser, and create your account. Choose "System Settings" from the menu in the upper right.
+Go to https://YOUR\_DNS\_DOMAIN in your browser, and create your account. Choose "System Settings" from the menu in the upper right.
 
 Input the LICENSE we've provided and click "Use and external file storage backend". Specify: `pubsub:/PROJECT/TOPIC/SUBSCRIPTION` in the **Notification Subscription** section.
 
-Input https://YOUR_DNS_DOMAIN in the **Frontend Host** section. Click update settings.
+Input https://YOUR\_DNS\_DOMAIN in the **Frontend Host** section. Click update settings.
 
 ### Verify your installation
 
@@ -273,7 +274,7 @@ The most important things to consider when running your own MySQL 5.7 database a
 3. **Monitoring.** The database should be monitored for load.  If CPU usage is sustained at > 40% of the system for more than 5 minutes it's likely a good indication the server is resource starved.
 4. **Availability.** Depending on your availability and durability requirements you may want to configure a hot standby on a separate machine that streams all updates in realtime from the primary server and can be used to failover to incase the primary server crashes or become corrupted.
 
-Once you've provisioned a MySQL 5.7 database you can create a database and user using the following SQL (replacing SOME_PASSWORD).
+Once you've provisioned a MySQL 5.7 database you can create a database and user using the following SQL (replacing SOME\_PASSWORD).
 
 ```sql
 CREATE USER 'wandb_local'@'%' IDENTIFIED BY 'SOME_PASSWORD';
@@ -283,7 +284,7 @@ GRANT ALL ON wandb_local.* TO 'wandb_local'@'%' WITH GRANT OPTION;
 
 ### Object Store
 
-The S3 compatible object store can be an externally hosted [Minio cluster](https://docs.min.io/minio/k8s/), or W\&B supports any S3 compatible object store that has support for signed urls.  To see if your object store supports signed urls, you can run the [following script](https://gist.github.com/vanpelt/2e018f7313dabf7cca15ad66c2dd9c5b).  When connecting to an s3 compatible object store you can specify your credentials in the connection string, i.e.  
+The S3 compatible object store can be an externally hosted [Minio cluster](https://docs.min.io/minio/k8s/), or W\&B supports any S3 compatible object store that has support for signed urls.  To see if your object store supports signed urls, you can run the [following script](https://gist.github.com/vanpelt/2e018f7313dabf7cca15ad66c2dd9c5b).  When connecting to an s3 compatible object store you can specify your credentials in the connection string, i.e. &#x20;
 
 ```yaml
 s3://$ACCESS_KEY:$SECRET_KEY@$HOST/$BUCKET_NAME
@@ -323,7 +324,7 @@ mc mb --region=us-east1 local/local-files
 
 ### Kubernetes Deployment
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local in kubernetes.  
+The following k8s yaml can be customized but should serve as a basic foundation for configuring local in kubernetes. &#x20;
 
 ```yaml
 apiVersion: apps/v1
@@ -450,7 +451,7 @@ The W\&B application server does not terminate SSL.  If your security policies r
 
 ## Verifying your installation
 
-Regardless of how your server was installed, it's a good idea everything is configured properly.  W\&B makes it easy to verify everything is properly configured by using our CLI. 
+Regardless of how your server was installed, it's a good idea everything is configured properly.  W\&B makes it easy to verify everything is properly configured by using our CLI.&#x20;
 
 ```bash
 pip install wandb
