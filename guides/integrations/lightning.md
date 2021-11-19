@@ -6,7 +6,7 @@ description: >-
 
 # PyTorch Lightning
 
-PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/advanced/multi_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/advanced/amp.html). W&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/stable/extensions/generated/pytorch_lightning.loggers.WandbLogger.html#pytorch_lightning.loggers.WandbLogger) for reference information on the API.
+PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/advanced/multi\_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/advanced/amp.html). W\&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/stable/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html#pytorch\_lightning.loggers.WandbLogger) for reference information on the API.
 
 ## ⚡ Get going lightning-fast with just two lines.
 
@@ -24,15 +24,15 @@ trainer = Trainer(logger=wandb_logger)
 
 {% tabs %}
 {% tab title="Colab + Video Tutorial" %}
-Run GPU-accelerated PyTorch Lighting plus W&B logging without installing anything using [this Colab](http://wandb.me/lit-colab). And follow along with a video tutorial!
+Run GPU-accelerated PyTorch Lighting plus W\&B logging without installing anything using [this Colab](http://wandb.me/lit-colab). And follow along with a video tutorial!
 
 {% embed url="https://www.youtube.com/watch?v=hUXQm46TAKc" %}
 {% endtab %}
 
 {% tab title="Kaggle Kernel" %}
-See how PyTorch Lighting and W&B can accelerate your model development and help you climb the leaderboard with [this Kaggle Kernel](https://www.kaggle.com/ayuraj/use-pytorch-lightning-with-weights-and-biases).
+See how PyTorch Lighting and W\&B can accelerate your model development and help you climb the leaderboard with [this Kaggle Kernel](https://www.kaggle.com/ayuraj/use-pytorch-lightning-with-weights-and-biases).
 
-![](../../.gitbook/assets/lgklnrt%20%281%29%20%281%29%20%281%29.gif)
+![](<../../.gitbook/assets/lgklnrt (1) (1) (1).gif>)
 {% endtab %}
 
 {% tab title="Blog Posts" %}
@@ -46,17 +46,17 @@ Read more on specific topics in these blog posts made with Weights & Biases' [Re
 
 ## Frequently Asked Questions
 
-### How does W&B integrate with Lightning?
+### How does W\&B integrate with Lightning?
 
 The core integration is based on the [Lightning `loggers` API](https://pytorch-lightning.readthedocs.io/en/stable/extensions/logging.html), which lets you write much of your logging code in a framework-agnostic way. `Logger`s are passed to the [Lightning `Trainer`](https://pytorch-lightning.readthedocs.io/en/stable/common/trainer.html) and are triggered based on that API's rich [hook-and-callback system](https://pytorch-lightning.readthedocs.io/en/stable/extensions/callbacks.html). This keeps your research code well-separated from engineering and logging code.
 
 ### What does the integration log without any additional code?
 
-We'll save your model checkpoints to W&B, where you can view them with the Netron model viewer or download them for use in future runs. We'll also capture [system metrics](../../ref/app/features/system-metrics.md), like GPU usage and network I/O, environment information, like hardware and OS information, [code state](../../ref/app/features/panels/code.md) \(including git commit and diff patch, notebook contents and session history\), and anything printed to the standard out.
+We'll save your model checkpoints to W\&B, where you can view them with the Netron model viewer or download them for use in future runs. We'll also capture [system metrics](../../ref/app/features/system-metrics.md), like GPU usage and network I/O, environment information, like hardware and OS information, [code state](../../ref/app/features/panels/code.md) (including git commit and diff patch, notebook contents and session history), and anything printed to the standard out.
 
 ### How do I log scalar metrics, like accuracy, mIoU, and SSIM?
 
-Because the `WandbLogger` is part of the broader [Lightning `loggers` API](https://pytorch-lightning.readthedocs.io/en/stable/extensions/logging.html), logging of scalar values to W&B can be done in a framework-agnostic way: just call `self.log`.
+Because the `WandbLogger` is part of the broader [Lightning `loggers` API](https://pytorch-lightning.readthedocs.io/en/stable/extensions/logging.html), logging of scalar values to W\&B can be done in a framework-agnostic way: just call `self.log`.
 
 You can calculate these scalar metrics with [Lightning's `Metric` API](https://pytorch-lightning.readthedocs.io/en/stable/extensions/metrics.html). In addition to providing robust and tested methods for calculating quantities like accuracy and signal-to-noise ratio, `Metric`s do lots of work under the hood, like maintaining state for efficient epoch-wise calculation and abstracting away device management. The code snippet below shows best practices for defining `LightningModule`s so that metric calculation and logging works regardless of device or parallelism strategies used. That way you can get the most out of PyTorch Lightning's advanced features for high-performance code without compromising on logging.
 
@@ -96,7 +96,7 @@ Lightning's `Metrics` are being transferred into a stand-alone library, `torchme
 
 ### How do I log media objects?
 
-Weights & Biases provides a wide variety of data types for rich media logging \(read [the guide](../track/log/) or check [the reference docs](../../ref/python/data-types/) for more\).
+Weights & Biases provides a wide variety of data types for rich media logging (read [the guide](../track/log/) or check [the reference docs](../../ref/python/data-types/) for more).
 
 Unlike scalars, media objects are logged differently by each framework. To keep this more involved logging code separate from the core logic of your research code, use [Lightning `Callback`s](https://pytorch-lightning.readthedocs.io/en/stable/extensions/callbacks.html).
 
@@ -110,7 +110,7 @@ When manually calling `wandb.log` or `trainer.logger.experiment.log`, make sure 
 {% tab title="Image Logging" %}
 Log the input and output images of an autoencoder or other image-to-image transformation network. Input-output pairs are combined into single images.
 
-![Outputs \(top\) for given inputs \(bottom\) of an auto-encoder trained on MNIST. ReLU troubles!](../../.gitbook/assets/lit-ae-example-images%20%281%29.png)
+![Outputs (top) for given inputs (bottom) of an auto-encoder trained on MNIST. ReLU troubles!](<../../.gitbook/assets/lit-ae-example-images (1).png>)
 
 ```python
 import pytorch_lightning as pl
@@ -155,7 +155,7 @@ trainer = pl.Trainer(
 {% tab title="Image Classification Logging" %}
 Logs the input image and the output label for a single-class classification network.
 
-![Images and labels for a classifier trained on MNIST. Look for the mistake!](../../.gitbook/assets/lit-wandb-example-images%20%281%29.png)
+![Images and labels for a classifier trained on MNIST. Look for the mistake!](<../../.gitbook/assets/lit-wandb-example-images (1).png>)
 
 ```python
 import pytorch_lightning as pl
@@ -199,3 +199,91 @@ trainer = pl.Trainer(
 {% endtab %}
 {% endtabs %}
 
+### How to use multiple GPUs with Lightning and W\&B?
+
+PyTorch Lightning has Multi-GPU support through their [DDP Interface](https://pytorch-lightning.readthedocs.io/en/stable/advanced/multi\_gpu.html). However, PyTorch Lightning's design requires us to be careful about how we instantiate our GPUs.
+
+Lightning assumes that each GPU (or Rank) in your training loop must be instantiated in exactly the same way - with the same initial conditions. However, only rank 0 process gets access to the `wandb.run` object, and for non-zero rank processes: `wandb.run = None`. This could cause your non-zero processes to fail. Such a situation can put you in a **deadlock** because rank 0 process will wait for the non-zero rank processes to join, which have already crashed.
+
+For this reason, we have to be careful about how we set up our training code. The recommended way to set it up would be to have your code be independent of the `wandb.run` object.
+
+```python
+class MNISTClassifier(pl.LightningModule):
+    def __init__(self):
+        super(MNISTClassifier, self).__init__()
+
+        self.model = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(28 * 28, 128),
+            nn.ReLU(),
+            nn.Linear(128, 10),
+        )
+        
+        self.loss = nn.CrossEntropyLoss()
+    
+    def forward(self, x):
+        return self.model(x)
+    
+    def training_step(self, batch, batch_idx):
+        x, y = batch
+        y_hat = self.forward(x)
+        loss = self.loss(y_hat, y)
+        
+        self.log("train/loss", loss)
+        return {"train_loss": loss}
+    
+    def validation_step(self, batch, batch_idx):
+        x, y = batch
+        y_hat = self.forward(x)
+        loss = self.loss(y_hat, y)
+        
+        self.log("val/loss", loss)
+        return {"val_loss": loss}
+    
+    def configure_optimizers(self):
+        return torch.optim.Adam(self.parameters(), lr=0.001)
+
+def main():
+    # Setting all the random seeds to the same value.
+    # This is important in a distributed training setting. 
+    # Each rank will get its own set of initial weights. 
+    # If they don't match up, the gradients will not match either,
+    # leading to training that may not converge.
+    pl.seed_everything(1)
+
+    train_loader = DataLoader(train_dataset,  batch_size = 64, 
+                              shuffle = True, 
+                              num_workers = 4)
+    val_loader = DataLoader(val_dataset, 
+                            batch_size = 64, 
+                            shuffle = False, 
+                            num_workers = 4)
+
+    model = MNISTClassifier()
+    pl_logger = WandbLogger(project = "<project_name>")
+    callbacks = [
+        ModelCheckpoint(
+            dirpath = "checkpoints",
+            every_n_train_steps=100,
+        ),
+    ]
+    trainer = pl.Trainer(
+        max_epochs = 3, 
+        gpus = 2, 
+        logger = pl_logger, 
+        strategy="ddp", 
+        callbacks=callbacks
+    ) 
+    trainer.fit(model, train_loader, val_loader)
+```
+
+#### But what if I really need to use `wandb.run` in my training setup?
+
+You will have to essentially expand the scope of the variable you need to access yourself. In other words, making sure that the inital conditions are the same on all processes.
+
+```python
+if os.environ.get("LOCAL_RANK", None) is None:
+    os.environ["WANDB_DIR"] = wandb.run.dir
+```
+
+Then, you can use `os.environ["WANDB_DIR"]` to set up the model checkpoints directory. This way, `wandb.run.dir` can be used by any non-zero rank processes as well.
