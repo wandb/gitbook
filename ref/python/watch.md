@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/wandb_watch.py#L17-L104)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/wandb_watch.py#L17-L104)
 
 
 
@@ -33,7 +33,7 @@ Should be extended to accept arbitrary ML models.
 
 | Returns |  |
 | :--- | :--- |
-|  `wandb.Graph` The graph object that will populate after the first backward pass |
+|  `wandb.Graph`: The graph object that will populate after the first backward pass |
 
 
 

@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L111-L782)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L117-L837)
 
 
 
@@ -18,27 +18,74 @@ Table(
 
 
 
+Unlike traditional spreadsheets, Tables support numerous types of data:
+scalar values, strings, numpy arrays, and most subclasses of `wandb.data_types.Media`.
+This means you can embed `Images`, `Video`, `Audio`, and other sorts of rich, annotated media
+directly in Tables, alongside other traditional scalar values.
+
 This class is the primary class used to generate the Table Visualizer
 in the UI: https://docs.wandb.ai/guides/data-vis/tables.
 
 Tables can be constructed with initial data using the `data` or
-`dataframe` parameters. Additionally, users can add data to Tables
-incrementally by using the `add_data`, `add_column`, and
-`add_computed_column` functions for adding rows, columns, and computed
-columns, respectively.
+`dataframe` parameters:
+<!--yeadoc-test:table-construct-dataframe-->
+```python
+import pandas as pd
+import wandb
+
+data = {"users": ["geoff", "juergen", "ada"],
+        "feature_01": [1, 117, 42]}
+df = pd.DataFrame(data)
+
+tbl = wandb.Table(data=df)
+assert all(tbl.get_column("users") == df["users"])
+assert all(tbl.get_column("feature_01") == df["feature_01"])
+```
+
+Additionally, users can add data to Tables incrementally by using the
+`add_data`, `add_column`, and `add_computed_column` functions for
+adding rows, columns, and columns computed from data in other columns, respectively:
+<!--yeadoc-test:table-construct-rowwise-->
+```python
+import wandb
+
+tbl = wandb.Table(columns=["user"])
+
+users = ["geoff", "juergen", "ada"]
+
+[tbl.add_data(user) for user in users]
+assert tbl.get_column("user") == users
+
+def get_user_name_length(index, row): return {"feature_01": len(row["user"])}
+tbl.add_computed_columns(get_user_name_length)
+assert tbl.get_column("feature_01") == [5, 7, 3]
+```
 
 Tables can be logged directly to runs using `run.log({"my_table": table})`
-or added to artifacts using `artifact.add(table, "my_table")`. Tables added
-directly to runs will produce a corresponding Table Visualizer in the
+or added to artifacts using `artifact.add(table, "my_table")`:
+<!--yeadoc-test:table-logging-direct-->
+```python
+import numpy as np
+import wandb
+
+wandb.init()
+
+tbl = wandb.Table(columns=["image", "label"])
+
+images = np.random.randint(0, 255, [2, 100, 100, 3], dtype=np.uint8)
+labels = ["panda", "gibbon"]
+[tbl.add_data(wandb.Image(image), label) for image, label in zip(images, labels)]
+
+wandb.log({"classifier_out": tbl})
+```
+
+Tables added directly to runs as above will produce a corresponding Table Visualizer in the
 Workspace which can be used for further analysis and exporting to reports.
+
 Tables added to artifacts can be viewed in the Artifact Tab and will render
 an equivalent Table Visualizer directly in the artifact browser.
 
-Note that Tables support numerous types of data: traditional scalar values,
-numpy arrays, and most subclasses of wandb.data_types.Media. This means you
-can embed Images, Video, Audio, and other sorts of rich, annotated media
-directly in Tables, alongside other traditional scalar values. Tables expect
-each value for a column to be of the same type. By default, a column supports
+Tables expect each value for a column to be of the same type. By default, a column supports
 optional values, but not mixed values. If you absolutely need to mix types,
 you can enable the `allow_mixed_types` flag which will disable type checking
 on the data. This will result in some table analytics features being disabled
@@ -58,7 +105,7 @@ due to lack of consistent typing.
 
 <h3 id="add_column"><code>add_column</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L680-L719)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L733-L772)
 
 ```python
 add_column(
@@ -75,7 +122,7 @@ Arguments
 
 <h3 id="add_computed_columns"><code>add_computed_columns</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L762-L782)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L815-L837)
 
 ```python
 add_computed_columns(
@@ -88,13 +135,13 @@ Adds one or more computed columns based on existing data
 
 | Args |  |
 | :--- | :--- |
-|  fn (function): A function which accepts one or two paramters: ndx (int) and row (dict) which is expected to return a dict representing new columns for that row, keyed by the new column names. - `ndx` is an integer representing the index of the row. Only included if `include_ndx` is set to true - `row` is a dictionary keyed by existing columns |
+|  `fn` |  A function which accepts one or two parameters, ndx (int) and row (dict), which is expected to return a dict representing new columns for that row, keyed by the new column names. `ndx` is an integer representing the index of the row. Only included if `include_ndx` is set to `True`. `row` is a dictionary keyed by existing columns |
 
 
 
 <h3 id="add_data"><code>add_data</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L361-L391)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L414-L444)
 
 ```python
 add_data(
@@ -107,7 +154,7 @@ Add a row of data to the table. Argument length should match column length
 
 <h3 id="add_row"><code>add_row</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L357-L359)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L410-L412)
 
 ```python
 add_row(
@@ -120,7 +167,7 @@ add_row(
 
 <h3 id="cast"><code>cast</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L256-L310)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L309-L363)
 
 ```python
 cast(
@@ -141,7 +188,7 @@ Casts a column to a specific type
 
 <h3 id="get_column"><code>get_column</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L721-L744)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L774-L797)
 
 ```python
 get_column(
@@ -158,7 +205,7 @@ Arguments
 
 <h3 id="get_index"><code>get_index</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L746-L753)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L799-L806)
 
 ```python
 get_index()
@@ -169,7 +216,7 @@ Returns an array of row indexes which can be used in other tables to create link
 
 <h3 id="index_ref"><code>index_ref</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L755-L760)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L808-L813)
 
 ```python
 index_ref(
@@ -182,7 +229,7 @@ Get a reference to a particular row index in the table
 
 <h3 id="iterrows"><code>iterrows</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L559-L572)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L612-L625)
 
 ```python
 iterrows()
@@ -199,7 +246,7 @@ row : List[any]
 
 <h3 id="set_fk"><code>set_fk</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L579-L583)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L632-L636)
 
 ```python
 set_fk(
@@ -212,7 +259,7 @@ set_fk(
 
 <h3 id="set_pk"><code>set_pk</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/data_types.py#L574-L577)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/data_types.py#L627-L630)
 
 ```python
 set_pk(

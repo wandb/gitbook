@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/wandb_run.py#L2703-L2714)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/wandb_run.py#L2841-L2852)
 
 
 
@@ -23,5 +23,6 @@ We automatically call this method when your script exits.
 
 | Arguments |  |
 | :--- | :--- |
-|  exit_code (int): set to something other than 0 to mark a run as failed quite (bool): set to true to minimize log output |
+|  `exit_code` |  Set to something other than 0 to mark a run as failed |
+|  `quiet` |  Set to true to minimize log output |
 

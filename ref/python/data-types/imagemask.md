@@ -2,11 +2,11 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L1272-L1447)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L1396-L1624)
 
 
 
-Wandb class for image masks or overlays, useful for tasks like semantic segmentation.
+Format image masks or overlays for logging to W&B.
 
 ```python
 ImageMask(
@@ -28,10 +28,26 @@ ImageMask(
 
 #### Examples:
 
-Log a mask overlay for a given image
+### Logging a single masked image
+<!--yeadoc-test:log-image-mask-->
 ```python
-predicted_mask = np.array([[1, 2, 2, ... , 3, 2, 1], ...])
-ground_truth_mask = np.array([[1, 1, 1, ... , 2, 3, 1], ...])
+import numpy as np
+import wandb
+
+wandb.init()
+image = np.random.randint(low=0, high=256, size=(100, 100, 3), dtype=np.uint8)
+predicted_mask = np.empty((100, 100), dtype=np.uint8)
+ground_truth_mask = np.empty((100, 100), dtype=np.uint8)
+
+predicted_mask[:50, :50] = 0
+predicted_mask[50:, :50] = 1
+predicted_mask[:50, 50:] = 2
+predicted_mask[50:, 50:] = 3
+
+ground_truth_mask[:25, :25] = 0
+ground_truth_mask[25:, :25] = 1
+ground_truth_mask[:25, 25:] = 2
+ground_truth_mask[25:, 25:] = 3
 
 class_labels = {
     0: "person",
@@ -49,22 +65,60 @@ masked_image = wandb.Image(image, masks={
         "mask_data": ground_truth_mask,
         "class_labels": class_labels
     }
-}
+})
 wandb.log({"img_with_masks" : masked_image})
 ```
 
-Prepare an image mask to be added to a wandb.Table
+### Log a masked image inside a Table
+<!--yeadoc-test:log-image-mask-table-->
 ```python
-raw_image_path = "sample_image.png"
-predicted_mask_path = "predicted_mask.png"
+
+import numpy as np
+import wandb
+
+wandb.init()
+image = np.random.randint(low=0, high=256, size=(100, 100, 3), dtype=np.uint8)
+predicted_mask = np.empty((100, 100), dtype=np.uint8)
+ground_truth_mask = np.empty((100, 100), dtype=np.uint8)
+
+predicted_mask[:50, :50] = 0
+predicted_mask[50:, :50] = 1
+predicted_mask[:50, 50:] = 2
+predicted_mask[50:, 50:] = 3
+
+ground_truth_mask[:25, :25] = 0
+ground_truth_mask[25:, :25] = 1
+ground_truth_mask[:25, 25:] = 2
+ground_truth_mask[25:, 25:] = 3
+
+class_labels = {
+    0: "person",
+    1: "tree",
+    2: "car",
+    3: "road"
+}
+
 class_set = wandb.Classes([
     {"name" : "person", "id" : 0},
     {"name" : "tree", "id" : 1},
     {"name" : "car", "id" : 2},
     {"name" : "road", "id" : 3}
 ])
-masked_image = wandb.Image(raw_image_path, classes=class_set,
-    masks={"prediction" : {"path" : predicted_mask_path}})
+
+masked_image = wandb.Image(image, masks={
+    "predictions": {
+        "mask_data": predicted_mask,
+        "class_labels": class_labels
+    },
+    "ground_truth": {
+        "mask_data": ground_truth_mask,
+        "class_labels": class_labels
+    }
+}, classes=class_set)
+
+table = wandb.Table(columns=["image"])
+table.add_data(masked_image)
+wandb.log({"random_field": table})
 ```
 
 
@@ -72,7 +126,7 @@ masked_image = wandb.Image(raw_image_path, classes=class_set,
 
 <h3 id="type_name"><code>type_name</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L1417-L1419)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L1594-L1596)
 
 ```python
 @classmethod
@@ -84,7 +138,7 @@ type_name() -> str
 
 <h3 id="validate"><code>validate</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L1421-L1447)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L1598-L1624)
 
 ```python
 validate(

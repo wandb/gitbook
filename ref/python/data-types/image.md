@@ -2,11 +2,11 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L1762-L2255)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L1994-L2519)
 
 
 
-Wandb class for images.
+Format images for logging to W&B.
 
 ```python
 Image(
@@ -32,6 +32,41 @@ Image(
 
 
 
+#### Examples:
+
+### Create a wandb.Image from a numpy array
+<!--yeadoc-test:log-image-numpy->
+```python
+import numpy as np
+import wandb
+
+wandb.init()
+examples = []
+for i in range(3):
+    pixels = np.random.randint(low=0, high=256, size=(100, 100, 3))
+    image = wandb.Image(pixels, caption=f"random field {i}")
+    examples.append(image)
+wandb.log({"examples": examples})
+```
+
+### Create a wandb.Image from a PILImage
+<!--yeadoc-test:log-image-pil->
+```python
+import numpy as np
+from PIL import Image as PILImage
+import wandb
+
+wandb.init()
+examples = []
+for i in range(3):
+    pixels = np.random.randint(low=0, high=256, size=(100, 100, 3), dtype=np.uint8)
+    pil_image = PILImage.fromarray(pixels, mode="RGB")
+    image = wandb.Image(pil_image, caption=f"random field {i}")
+    examples.append(image)
+wandb.log({"examples": examples})
+```
+
+
 
 
 | Attributes |  |
@@ -43,7 +78,7 @@ Image(
 
 <h3 id="all_boxes"><code>all_boxes</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L2180-L2201)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L2444-L2465)
 
 ```python
 @classmethod
@@ -60,7 +95,7 @@ all_boxes(
 
 <h3 id="all_captions"><code>all_captions</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L2203-L2207)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L2467-L2471)
 
 ```python
 @classmethod
@@ -74,7 +109,7 @@ all_captions(
 
 <h3 id="all_masks"><code>all_masks</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L2157-L2178)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L2421-L2442)
 
 ```python
 @classmethod
@@ -91,7 +126,7 @@ all_masks(
 
 <h3 id="guess_mode"><code>guess_mode</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L2051-L2065)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L2315-L2329)
 
 ```python
 guess_mode(
@@ -104,7 +139,7 @@ Guess what type of image the np.array is representing
 
 <h3 id="to_uint8"><code>to_uint8</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/data_types.py#L2067-L2089)
+[View source](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/data_types.py#L2331-L2353)
 
 ```python
 @classmethod

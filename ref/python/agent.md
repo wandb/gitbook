@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/wandb_agent.py#L526-L572)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/wandb_agent.py#L526-L587)
 
 
 
@@ -33,14 +33,29 @@ by server.
 #### Examples:
 
 Run a sample sweep over a function:
-```
-def train():
-    with wandb.init() as run:
-        print("config:", dict(run.config))
-        for epoch in range(35):
-            print("running", epoch)
-            wandb.log({"metric": run.config.param1, "epoch": epoch})
-            time.sleep(1)
+<!--yeadoc-test:one-parameter-sweep-agent-->
+```python
+import wandb
+sweep_configuration = {
+    "name": "my-awesome-sweep",
+    "metric": {"name": "accuracy", "goal": "maximize"},
+    "method": "grid",
+    "parameters": {
+        "a": {
+            "values": [1, 2, 3, 4]
+        }
+    }
+}
 
-wandb.agent(sweep_id, function=train)
+def my_train_func():
+    # read the current value of parameter "a" from wandb.config
+    wandb.init()
+    a = wandb.config.a
+
+    wandb.log({"a": a, "accuracy": a + 1})
+
+sweep_id = wandb.sweep(sweep_configuration)
+
+# run the sweep
+wandb.agent(sweep_id, function=my_train_func)
 ```

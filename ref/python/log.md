@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.6/wandb/sdk/wandb_run.py#L1061-L1231)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/wandb_run.py#L1121-L1347)
 
 
 
@@ -79,45 +79,101 @@ the data on the client side or you may get degraded performance.
 For more and more detailed examples, see
 [our guides to logging](https://docs.wandb.com/guides/track/log).
 
-Basic usage
+### Basic usage
+<!--yeadoc-test:init-and-log-basic-->
 ```python
+import wandb
+wandb.init()
 wandb.log({'accuracy': 0.9, 'epoch': 5})
 ```
 
-Incremental logging
+### Incremental logging
+<!--yeadoc-test:init-and-log-incremental-->
 ```python
+import wandb
+wandb.init()
 wandb.log({'loss': 0.2}, commit=False)
 # Somewhere else when I'm ready to report this step:
 wandb.log({'accuracy': 0.8})
 ```
 
-Histogram
+### Histogram
+<!--yeadoc-test:init-and-log-histogram-->
 ```python
-wandb.log({"gradients": wandb.Histogram(numpy_array_or_sequence)})
+import numpy as np
+import wandb
+
+# sample gradients at random from normal distribution
+gradients = np.random.randn(100, 100)
+wandb.init()
+wandb.log({"gradients": wandb.Histogram(gradients)})
 ```
 
-Image
+### Image from numpy
+<!--yeadoc-test:init-and-log-image-numpy-->
 ```python
-wandb.log({"examples": [wandb.Image(numpy_array_or_pil, caption="Label")]})
+import numpy as np
+import wandb
+
+wandb.init()
+examples = []
+for i in range(3):
+    pixels = np.random.randint(low=0, high=256, size=(100, 100, 3))
+    image = wandb.Image(pixels, caption=f"random field {i}")
+    examples.append(image)
+wandb.log({"examples": examples})
 ```
 
-Video
+### Image from PIL
+<!--yeadoc-test:init-and-log-image-pillow-->
 ```python
-wandb.log({"video": wandb.Video(numpy_array_or_video_path, fps=4,
-    format="gif")})
+import numpy as np
+from PIL import Image as PILImage
+import wandb
+
+wandb.init()
+examples = []
+for i in range(3):
+    pixels = np.random.randint(low=0, high=256, size=(100, 100, 3), dtype=np.uint8)
+    pil_image = PILImage.fromarray(pixels, mode="RGB")
+    image = wandb.Image(pil_image, caption=f"random field {i}")
+    examples.append(image)
+wandb.log({"examples": examples})
 ```
 
-Matplotlib Plot
+### Video from numpy
+<!--yeadoc-test:init-and-log-video-numpy-->
 ```python
-wandb.log({"chart": plt})
+import numpy as np
+import wandb
+
+wandb.init()
+# axes are (time, channel, height, width)
+frames = np.random.randint(low=0, high=256, size=(10, 3, 100, 100), dtype=np.uint8)
+wandb.log({"video": wandb.Video(frames, fps=4)})
 ```
 
-PR Curve
+### Matplotlib Plot
+<!--yeadoc-test:init-and-log-matplotlib-->
+```python
+from matplotlib import pyplot as plt
+import numpy as np
+import wandb
+
+wandb.init()
+fig, ax = plt.subplots()
+x = np.linspace(0, 10)
+y = x * x
+ax.plot(x, y)  # plot y = x^2
+wandb.log({"chart": fig})
+```
+
+### PR Curve
 ```python
 wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, labels)})
 ```
 
-3D Object
+### 3D Object
 ```python
 wandb.log({"generated_samples":
 [wandb.Object3D(open("sample.obj")),
