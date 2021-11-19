@@ -82,7 +82,7 @@ Log a custom bar chart—a list of labeled values as bars—natively in a few li
 ```python
 data = [[label, val] for (label, val) in zip(labels, values)]
 table = wandb.Table(data=data, columns = ["label", "value"])
-wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label", "value", title="Custom Bar Chart")
+wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label", "value", title="Custom Bar Chart")})
 ```
 
 You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly (i.e. each data point must have both).
