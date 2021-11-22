@@ -49,7 +49,8 @@
       * [Simple Transformers](guides/integrations/other/simpletransformers.md)
       * [Stable Baselines 3](guides/integrations/other/stable-baselines-3.md)
       * [Skorch](guides/integrations/other/skorch.md)
-  * [Collaborative Reports](guides/reports.md)
+  * [Collaborative Reports](guides/reports/README.md)
+    * [Reports FAQ](guides/reports/reports-faq.md)
   * [Data + Model Versioning](guides/artifacts/README.md)
     * [Artifacts Core Concepts](guides/artifacts/artifacts-core-concepts.md)
     * [Artifacts Walkthrough](guides/artifacts/api.md)
@@ -146,7 +147,6 @@
     * [wandb.summary](ref/python/summary.md)
     * [wandb.sweep](ref/python/sweep.md)
     * [wandb.watch](ref/python/watch.md)
-
   * [App UI](ref/app/README.md)
     * [Pages](ref/app/pages/README.md)
       * [Project Page](ref/app/pages/project-page.md)

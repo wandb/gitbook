@@ -646,7 +646,7 @@ NOTE: This will raise an error unless the artifact has been fetched using `use_a
 
 Basic usage
 
-```
+```python
 artifact = wandb.Artifact('my_table', 'dataset')
 table = wandb.Table(columns=["a", "b", "c"], data=[[i, i*2, 2**i]])
 artifact["my_table"] = table
@@ -656,7 +656,7 @@ wandb.log_artifact(artifact)
 
 Retrieving an object:
 
-```
+```python
 artifact = wandb.use_artifact('my_table:latest')
 table = artifact["my_table"]
 ```

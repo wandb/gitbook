@@ -15,7 +15,7 @@ Set up W\&B in 5 minutes, then quickly iterate on your machine learning pipeline
 3. [Hyperparameter Tuning](guides/sweeps/): Optimize models quickly
 4. [Data + Model Versioning](guides/artifacts/): Version datasets and models
 5. [Data Visualization](guides/data-vis/): Visualize predictions across model versions
-6. [Collaborative Reports](guides/reports.md): Describe and share findings
+6. [Collaborative Reports](guides/reports/): Describe and share findings
 7. [Self-Hosting](guides/self-hosted/): Private cloud and local hosting of the W\&B app
 
 ### Reference

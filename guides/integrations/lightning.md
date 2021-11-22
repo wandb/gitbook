@@ -36,7 +36,7 @@ See how PyTorch Lighting and W\&B can accelerate your model development and help
 {% endtab %}
 
 {% tab title="Blog Posts" %}
-Read more on specific topics in these blog posts made with Weights & Biases' [Reports](../reports.md):
+Read more on specific topics in these blog posts made with Weights & Biases' [Reports](../reports/):
 
 * [Multi-GPU Training](https://wandb.ai/wandb/wandb-lightning/reports/Multi-GPU-Training-Using-PyTorch-Lightning--VmlldzozMTk3NTk)
 * [Image Classification](https://wandb.ai/wandb/wandb-lightning/reports/Image-Classification-using-PyTorch-Lightning--VmlldzoyODk1NzY) and [Semantic Segmentation](https://wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw)

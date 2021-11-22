@@ -7,7 +7,7 @@ description: Project management and collaboration tools for machine learning pro
 Reports let you organize and embed visualizations, describe your findings, share updates with collaborators, and more.
 
 {% hint style="info" %}
-Check out our [video demo](https://www.youtube.com/watch?v=2xeJIv_K_eI) of Reports, or read curated Reports in [W\&B Fully Connected](http://wandb.me/fc).
+Check out our [video demo](https://www.youtube.com/watch?v=2xeJIv\_K\_eI) of Reports, or read curated Reports in [W\&B Fully Connected](http://wandb.me/fc).
 {% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=2xeJIv_K_eI" %}
@@ -24,11 +24,11 @@ Capture an important observation, an idea for future work, or a milestone reache
 
 Jot down some text and pull in relevant charts to illustrate your insight ([comparing networks in distributed training →](https://wandb.ai/stacey/estuary/reports/When-Inception-ResNet-V2-is-too-slow--Vmlldzo3MDcxMA) )
 
-![](<../.gitbook/assets/screen-shot-2021-04-19-at-2.21.25-pm (1).png>)
+![](<../../.gitbook/assets/screen-shot-2021-04-19-at-2.21.25-pm (1).png>)
 
-Save the best examples from a complex code base for easy reference and future interaction (example: [LIDAR point clouds → ](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg)) 
+Save the best examples from a complex code base for easy reference and future interaction (example: [LIDAR point clouds → ](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg))&#x20;
 
-![](../.gitbook/assets/screen-shot-2021-04-19-at-2.18.56-pm.png)
+![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.18.56-pm.png)
 
 ### **Collaboration: Share findings with your colleagues**
 
@@ -36,29 +36,29 @@ Explain how to get started with a project, share what you've observed so far, an
 
 Include dynamic settings so that your colleagues can explore for themselves, get additional insights, and better plan their next steps. In this example, three types of experiments can be visualized independently, compared, or averaged ([SafeLife benchmark experiments →](https://wandb.ai/stacey/saferlife/reports/SafeLife-Benchmark-Experiments--Vmlldzo0NjE4MzM)).
 
-![](../.gitbook/assets/screen-shot-2021-04-19-at-2.32.11-pm.png)
+![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.32.11-pm.png)
 
-![](../.gitbook/assets/screen-shot-2021-04-19-at-2.32.58-pm.png)
+![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.32.58-pm.png)
 
-Use sliders and configurable media panels to showcase a model's results or training progress (example → [StarGANv2](https://wandb.ai/stacey/stargan/reports/Cute-Animals-and-Post-Modern-Style-Transfer-StarGAN-v2-for-Multi-Domain-Image-Synthesis---VmlldzoxNzcwODQ)) 
+Use sliders and configurable media panels to showcase a model's results or training progress (example → [StarGANv2](https://wandb.ai/stacey/stargan/reports/Cute-Animals-and-Post-Modern-Style-Transfer-StarGAN-v2-for-Multi-Domain-Image-Synthesis---VmlldzoxNzcwODQ))&#x20;
 
-![](../.gitbook/assets/screen-shot-2021-04-23-at-8.44.32-am.png)
+![](../../.gitbook/assets/screen-shot-2021-04-23-at-8.44.32-am.png)
 
-![](../.gitbook/assets/screen-shot-2021-04-23-at-8.45.36-am.png)
+![](../../.gitbook/assets/screen-shot-2021-04-23-at-8.45.36-am.png)
 
 ### **Work log: Track what you've tried and plan next steps**
 
 Write down your thoughts on experiments, your findings, and any gotchas and next steps as you work through a project, keeping everything organized in one place. This lets you "document" all the important pieces beyond your scripts (example: [tuning transformers →](https://wandb.ai/stacey/winograd/reports/Who-is-Them-Text-Disambiguation-with-Transformers--VmlldzoxMDU1NTc)).
 
-![](../.gitbook/assets/screen-shot-2021-04-19-at-2.44.02-pm.png)
+![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.44.02-pm.png)
 
 Tell the story of a project, which you and others can reference later to understand how and why a model was developed (example → [The View from the Driver's Seat](https://wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver-s-Seat--Vmlldzo1MTg5NQ))
 
-![](../.gitbook/assets/screen-shot-2021-04-19-at-2.47.02-pm.png)
+![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.47.02-pm.png)
 
 ### ****[See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
 
-Once you have [experiments in W\&B](../quickstart.md), easily visualize results in reports. Here's a quick overview video.
+Once you have [experiments in W\&B](../../quickstart.md), easily visualize results in reports. Here's a quick overview video.
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" %}
 
@@ -70,11 +70,11 @@ You can create a new report from a workspace, or directly from the report tab in
 
 Click **Create report** in the upper right corner of your workspace. This gives you a way to pull in some charts from the page to use in your new custom page.
 
-![](<../.gitbook/assets/image (44).png>)
+![](<../../.gitbook/assets/image (44).png>)
 
 We provide a few quick templates to guide you or you can create a blank report and start there.‌
 
-![](<../.gitbook/assets/image (47) (1) (2) (2) (2) (2) (1) (2) (2) (2) (2) (2).png>)
+![](<../../.gitbook/assets/image (47) (1) (2) (2) (2) (2) (1) (2) (2) (2) (2) (2).png>)
 
 * **Snapshot** adds the current date/time to the title, and adds a filter to the run set, which means only runs created before the current time are included in the snapshot.
 * **Dashboard** titles the report “Project Dashboard” and adds a filter to match exactly the current set of selected runs.
@@ -85,41 +85,15 @@ We provide a few quick templates to guide you or you can create a blank report a
 
 Go to the Reports tab in your project, and click **Create Report** button on the report page. This creates a new blank report. Save that report to get a shareable link, or send charts to the report from different workspaces, and even different projects!
 
-![](<../.gitbook/assets/image (48).png>)
+![](<../../.gitbook/assets/image (48).png>)
 
 ## How to edit a report
-
-Create a new report, and start typing. The whole page is a rich text area where you can write notes and save custom visualizations and tables.
-
-### Add new charts, headings, lists, or LaTex equations
-
-On a new line, press `/` to add rich content.
-
-![](../.gitbook/assets/demo-type-slash-in-report.gif)
-
-### List of markdown shortcuts
-
-| Markdown          | Shortcuts     |
-| ----------------- | ------------- |
-| Bold              | `*<content>*` |
-| Italics           | `_<content>_` |
-| List item         | `* `, `- `    |
-| Ordered list item | `1. `         |
-| Checklist         | `[] `         |
-| Blockquote        | `> `, `\| `   |
-| Heading 1         |  `# `         |
-| Heading 2         | `## `         |
-| Heading 3         | `### `        |
-| Code block        | ` ```  `      |
-| Inline code       | `` `  ``      |
-| Callout block     | `>>> `        |
-| Horizontal rule   | `---`, `___`  |
 
 ### Add charts to a report
 
 Again press `/`, then add a panel grid, then add a panel (like a line plot, scatter plot, or parallel coordinates chart). Each panel grid has a set of run sets and a set of panels. The run sets at the bottom of the section control what data shows up on the panels in the grid. Create a new panel grid if you want to add charts that pull data from a different set of runs.
 
-![](../.gitbook/assets/demo-report-add-panel-grid.gif)
+![](../../.gitbook/assets/demo-report-add-panel-grid.gif)
 
 ### Duplicate and delete panel grids
 
@@ -129,7 +103,7 @@ As you can see in the gif below, you can highlight a whole panel grid section by
 
 To delete a panel grid, simply select it and press `delete` on your keyboard.
 
-![](../.gitbook/assets/demo-copy-and-paste-a-panel-grid-section.gif)
+![](../../.gitbook/assets/demo-copy-and-paste-a-panel-grid-section.gif)
 
 ## Collaborate on reports
 
@@ -139,13 +113,13 @@ When you press edit, you'll be editing a draft copy of the report. This draft au
 
 If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
 
-![](../.gitbook/assets/collaborative-reports.gif)
+![](../../.gitbook/assets/collaborative-reports.gif)
 
 ### Comment on reports
 
 Click the comment button on a panel in a report to add a comment directly to that panel.
 
-![](../.gitbook/assets/demo-comment-on-panels-in-reports.gif)
+![](../../.gitbook/assets/demo-comment-on-panels-in-reports.gif)
 
 ## Panel grids
 
@@ -165,7 +139,7 @@ Click the download button to export your report as a LaTeX zip file. Check the R
 
 Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
 
-![](../.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
+![](../../.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
 
 The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
 
@@ -175,9 +149,9 @@ If you really need to compare runs from two projects and the columns aren't work
 
 Share a view-only link to a report that is in a private project or team project.
 
-![](../.gitbook/assets/share-view-only-link.gif)
+![](../../.gitbook/assets/share-view-only-link.gif)
 
-View-only report links add a secret access token to the URL, so anyone who opens the link can view the page. For customers on [W\&B Local](self-hosted/) private cloud installations, these links will still be behind your firewall, so only members of your team with access to your private instance _and_ access to the view-only link will be able to view the report.
+View-only report links add a secret access token to the URL, so anyone who opens the link can view the page. For customers on [W\&B Local](../self-hosted/) private cloud installations, these links will still be behind your firewall, so only members of your team with access to your private instance _and_ access to the view-only link will be able to view the report.
 
 In view mode, someone who is not logged in can see the charts and mouse over to see tooltips of values, zoom in and out on charts, and scroll through columns in the table. When in view mode, they cannot create new charts or new table queries to explore the data. View-only visitors to the report link won't be able to click on a run to get to the run page.
 
@@ -185,66 +159,6 @@ In view mode, someone who is not logged in can see the charts and mouse over to 
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](<../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1).gif>)
+![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1).gif>)
 
-## Reports FAQ
-
-### Upload a CSV to a report
-
-If you currently want to upload a CSV to a report you can do it via the `wandb.Table` format. Loading the CSV in your Python script and logging it as a `wandb.Table` object will allow you to render the data as a table in a report.
-
-### Refreshing data
-
-Reload the page to refresh data in a report and get the latest results from your active runs. Workspaces automatically load fresh data if you have the **Auto-refresh** option active (available in the dropdown menu in the upper right corner of your page). Auto-refresh does not apply to reports, so this data will not refresh until you reload the page.
-
-## WYSIWYG Reports FAQ
-
-**What's changed in the new reports release?**
-
-Reports look the same in view mode, and can have all the same content as they did before, but report editing is now WYSIWYG.
-
-**What is WYSIWYG?**
-
-WYSIWYG is an acronym for What You See Is What You Get. It refers to a type of editor where the content always looks the same, whether you're editing or presenting. In contrast, W\&B reports used to have Markdown editors, where you edit in [Markdown](https://www.markdownguide.org) and have to switch to preview mode to see what it'll end up looking like. W\&B reports are now fully WYSIWYG.
-
-**Why change to WYSIWYG?**
-
-Users have told us that context switching between Markdown mode and preview mode slows them down. We want to minimize the friction between you and sharing your research with the world, so Markdown-dependent editing had to go. With arbitrary reordering, cut+paste, and undo history for everything (even panel grids!), making reports should feel much more natural now. Furthermore, WYSIWYG makes it easier for us to add new advanced features in the future, like video embeds, commenting on specific text selections, and real-time collaboration.
-
-**My report looks different after converting from Markdown.**
-
-We try to keep your report looking the same after converting to WYSIWYG, but the process isn't perfect. If the changes are drastic or unexpected, let us know and we'll look into the issue. Until your editing session ends, you'll have the option of reverting the report back to its pre-conversion state.
-
-**I prefer Markdown. Can I still use it?**
-
-Absolutely! Type "/mark" anywhere in the document and hit enter to insert a Markdown block. You can edit these blocks with Markdown the way you used to.
-
-**My report is running slowly now.**
-
-Sorry! We're constantly working on performance improvements, but WYSIWYG reports may run slowly on older hardware or exceptionally large reports. You can assuage the problem for now by collapsing sections of the report that you're not currently working on, like so:
-
-![](../.gitbook/assets/wandb-reports-editor-1.gif)
-
-**How do I delete a panel grid?**
-
-Select the panel grid, and hit delete/backspace. The easiest way to select a panel grid is by clicking its drag handle on the top-right, like so:
-
-![](../.gitbook/assets/wandb-reports-editor-3.gif)
-
-**How do I insert a table?**
-
-Tables are the only feature from Markdown that we haven't added a WYSIWYG equivalent for yet. But because we still support Markdown, you can add a table by adding a Markdown block and creating a table inside of it.
-
-**I converted my report to WYSIWYG but I'd like to revert back to Markdown.**
-
-If you converted your report using the message at the top of the report, simply hit the red "Revert" button to return to your pre-converted state. Note that any changes you've made after converting will be lost.
-
-![](../.gitbook/assets/image.png)
-
-If you converted a single Markdown block, try hitting cmd+z to undo.
-
-If neither of these options work because you've closed your session after converting, consider discarding your draft and editing your report from its last saved state. If this isn't an option either, let us know through the Intercom bubble at the bottom right and our team can try to restore your last working state. 
-
-**I have a problem that isn't addressed by this FAQ.**
-
-Please send us a message through the Intercom bubble on the bottom-right of the page in the app, with a link to your report and the keyword "WYSIWYG". If you're not seeing an Intercom chat widget, it's likely blocked by your Ad Block browser extensions, and you can contact us at contact@wandb.com instead.
+##

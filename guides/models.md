@@ -16,7 +16,7 @@ Use W\&B for **Model Management** to track and report on the complete lifecycle 
 4. **Metrics**: The evaluation results of a model on different golden datasets
 5. **Statuses**: Where each model is in the pipeline (ex. "staging" or "production")
 
-## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
+## [Model Registry Demo](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
 Use the interactive W\&B UI to view all saved model versions, compare models on evaluation metrics, and track the status of models at different stages in the pipeline.
 
@@ -62,7 +62,7 @@ Later you'll be able to compare training performance for different models in the
 Did you hit a weird error? Try waiting a little longer for your dataset from Step #2 to get registered before running Step #3 to train on that dataset.
 {% endhint %}
 
-Here is an [example dashboard](https://wandb.ai/carey/model_registry_example?workspace=user-carey) comparing the models we've trained so far.
+Here is an [example dashboard](https://wandb.ai/carey/model\_registry\_example?workspace=user-carey) comparing the models we've trained so far.
 
 ![](<../.gitbook/assets/image (156).png>)
 
@@ -80,7 +80,7 @@ python model_evaluator.py
 
 ### 5. Visualize results
 
-Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
+Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
 
 ![](<../.gitbook/assets/image (153).png>)
 
@@ -88,7 +88,7 @@ In this example, this [**Weave**](../ref/app/features/panels/weave.md) table is 
 
 1. **Model link**: A link to the registered model artifact in the app
 2. **Version**: A unique version number for each registered model
-3. **Status**: A label to indicate key model versions, like `production` 
+3. **Status**: A label to indicate key model versions, like `production`&#x20;
 4. **Loss @ 10k**: Metric calculated on an evaluation set of 10k
 5. **Loss @ 1k:** Model metric calculated on an evaluation set of 1k
 
@@ -100,7 +100,7 @@ There are a few key features you can use to build your own Model Registry:
 2. ****[**Artifacts**](artifacts/): Track job inputs and outputs — ex. datasets, trained models
 3. ****[**Tables**](data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
 4. ****[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models.
-5. ****[**Reports**](reports.md): Organize and visualize results — ex. charts, tables, and notes
+5. ****[**Reports**](reports/): Organize and visualize results — ex. charts, tables, and notes
 
 ## Model Registry Table
 
@@ -126,13 +126,13 @@ Type `/weave` to create a new Weave panel in your report. If you want to remove 
 
 ### 4. Query your logged models
 
-Start typing a query in the weave panel. 
+Start typing a query in the weave panel.&#x20;
 
 ![](../.gitbook/assets/weave-demo-4-make-a-query.gif)
 
 Here's what each piece of the query in my example means:
 
-* **projects("carey", "a_model_registry_example")**: This pulls data from the entity `carey` and the project called `a_model_registry_example`. 
+* **projects("carey", "a\_model\_registry\_example")**: This pulls data from the entity `carey` and the project called `a_model_registry_example`.&#x20;
 * **artifactType("model")**: This pulls all the artifacts of type `model` in this project.
 * **artifactVersions**: This pulls all the artifact versions of type `model`.
 
@@ -150,7 +150,7 @@ Create a new row in the table, and query for the loss. This was calculated in th
 
 ![](../.gitbook/assets/2021-10-01-18.19.59.gif)
 
-Optionally, you can rename the loss column so it's more readable. 
+Optionally, you can rename the loss column so it's more readable.&#x20;
 
 ![](../.gitbook/assets/weave-demo-6-rename-column.gif)
 
@@ -166,7 +166,7 @@ Sometimes it's nice to sort the table by the created time. Add a column:
 
 ### 8. Add a status column
 
-Use the artifacts `alias` field to keep track of the status of different artifacts in your model registry. Add a column with `row.aliases` 
+Use the artifacts `alias` field to keep track of the status of different artifacts in your model registry. Add a column with `row.aliases`&#x20;
 
 Then make the Panel visualize the results of the query as:  `List of: String`
 

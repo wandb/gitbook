@@ -15,12 +15,11 @@ Getting started with experiment tracking? Try the [Quickstart →](../quickstart
 3. [Hyperparameter Tuning](sweeps/): Optimize models quickly
 4. [Data + Model Versioning](artifacts/): Version datasets and models
 5. [Data Visualization](data-vis/): Visualize predictions across model versions
-6. [Collaborative Reports](reports.md): Describe and share findings
-7. [Self-Hosting](self-hosted/): Private cloud and local hosting of the W&B app
+6. [Collaborative Reports](reports/): Describe and share findings
+7. [Self-Hosting](self-hosted/): Private cloud and local hosting of the W\&B app
 
 ### Reference
 
 1. [Python Library](../ref/python/)
 2. [Command Line Interface](../ref/cli/)
 3. [App UI](../ref/app/)
-

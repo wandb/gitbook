@@ -48,7 +48,7 @@ wandb.log({'accuracy': train_acc, 'loss': train_loss})
 
 ![](.gitbook/assets/wandb-demo-logging-metrics.png)
 
-###  4. Track hyperparameters
+### &#x20;4. Track hyperparameters
 
 Save hyperparameters so you can quickly compare experiments. \
 [More about wandb.config →](guides/track/config.md)
@@ -61,7 +61,7 @@ wandb.config.dropout = 0.2
 
 ## What next?
 
-1. ****[**Collaborative Reports**](guides/reports.md): Snapshot results, take notes, and share findings
+1. ****[**Collaborative Reports**](guides/reports/): Snapshot results, take notes, and share findings
 2. ****[**Data + Model Versioning**](guides/artifacts/): Track dependencies and results in your ML pipeline
 3. ****[**Data Visualization**](guides/data-vis/)**: **Visualize and query datasets and model evaluations
 4. ****[**Hyperparameter Tuning**](guides/sweeps/): Quickly automate optimizing hyperparameters
