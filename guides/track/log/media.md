@@ -321,10 +321,24 @@ wandb.log({"point_scene": point_scene})
 
 {% tab title="Molecules" %}
 ```python
-wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
+wandb.log({"protein": wandb.Molecule("6lu7.pdb")}
 ```
 
-Log molecular data in any of 10 file types:`pdb`, `pqr`, `mmcif`, `mcif`, `cif`, `sdf`, `sd`, `gro`, `mol2`, or `mmtf.`
+&#x20;Log molecular data in any of 10 file types:`pdb`, `pqr`, `mmcif`, `mcif`, `cif`, `sdf`, `sd`, `gro`, `mol2`, or `mmtf.`
+
+Weights & Biases also supports logging molecular data from SMILES strings, [`rdkit`](https://www.rdkit.org/docs/index.html) `mol` files, and `rdkit.Chem.rdchem.Mol` objects.
+
+```python
+resveratrol = rdkit.Chem.MolFromSmiles("Oc1ccc(cc1)C=Cc1cc(O)cc(c1)O")
+
+wandb.log(
+  {
+    "resveratrol": wandb.Molecule.from_rdkit(resveratrol),
+    "green fluorescent protein": wandb.Molecule.from_rdkit("2b3p.mol"),
+    "acetaminophen": wandb.Molecule.from_smiles("CC(=O)Nc1ccc(O)cc1"),
+  }
+)
+```
 
 When your run finishes, you'll be able to interact with 3D visualizations of your molecules in the UI.
 
