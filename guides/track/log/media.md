@@ -423,7 +423,7 @@ W\&B can be used even for projects that only log scalars — you specify any fil
 
 ### **How do I log a PNG?**
 
-****[`wandb.Image`](../../../ref/python/data-types/audio.md) converts numpy arrays or instances of `PILImage` to PNGs by default.
+``[`wandb.Image`](../../../ref/python/data-types/image.md) converts `numpy` arrays or instances of `PILImage` to PNGs by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
@@ -444,3 +444,16 @@ Now you can view videos in the media browser. Go to your project workspace, run 
 ### How do I navigate and zoom in point clouds?
 
 You can hold control and use the mouse to move around inside the space.
+
+### How do I log a 2D view of a molecule?
+
+You can log a 2D view of a molecule using the [`wandb.Image`](../../../ref/python/data-types/image.md) data type and [`rdkit`](https://www.rdkit.org/docs/index.html):
+
+```python
+molecule = rdkit.Chem.MolFromSmiles("CC(=O)O")
+rdkit.Chem.AllChem.Compute2DCoords(molecule)
+rdkit.Chem.AllChem.GenerateDepictionMatching2DStructure(molecule, molecule)
+pil_image = rdkit.Chem.Draw.MolToImage(molecule, size=(300, 300))
+
+wandb.log({"acetic_acid": wandb.Image(pil_image)})
+```
