@@ -30,7 +30,10 @@ If you set `anonymous="allow"` in your script, we will check to make sure there'
 
 ### What are features that aren't available to anonymous users?
 
-*   **No Artifact logging**: Runs will print a warning on the command line that you can't log an artifact to an anonymous run.
+*   **No persistent data**: Runs are only saved for 7 days in an anonymous account. Users can claim anonymous run data by saving it to a real account.
+
+    ![](<../../../.gitbook/assets/image (165).png>)&#x20;
+*   **No artifact logging**: Runs will print a warning on the command line that you can't log an artifact to an anonymous run.
 
     ![](<../../../.gitbook/assets/example warning.png>)
 * **No profile or settings pages**: Certain pages aren't available in the UI, because they're only useful for real accounts.
