@@ -91,7 +91,11 @@ Yes! You can either install with `pip` or with `conda`. For the latter, you'll n
 {% tabs %}
 {% tab title="pip" %}
 ```bash
-conda activate myenv
+# Create a conda env
+conda create -n wandb-env python=3.8 anaconda
+# Activate created env
+conda activate wandb-env
+# install wandb with pip in this conda env
 pip install wandb
 ```
 {% endtab %}
