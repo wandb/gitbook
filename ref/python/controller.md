@@ -19,7 +19,6 @@ import wandb
 
 tuner = wandb.controller(sweep_config)
 print(tuner.sweep_config)
-print(tuner.sweep_id)
 
 tuner.configure_search("grid")
 tuner.configure_parameter("param", value=3)
