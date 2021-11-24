@@ -41,6 +41,7 @@
       * [Docker](guides/integrations/other/docker.md)
       * [Kubeflow](guides/integrations/other/kubeflow.md)
       * [Metaflow](guides/integrations/other/metaflow.md)
+      * [MMF](guides/integrations/other/mmf.md)
       * [OpenAI Gym](guides/integrations/other/openai-gym.md)
       * [Prodigy](guides/integrations/other/prodigy.md)
       * [PyTorch Ignite](guides/integrations/other/ignite.md)
