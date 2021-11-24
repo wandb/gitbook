@@ -1,10 +1,6 @@
-# controller
+# wandb.controller
 
-
-
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/wandb_sweep.py#L112-L133)
-
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/wandb\_sweep.py#L112-L133)
 
 Public sweep controller constructor.
 
@@ -16,15 +12,18 @@ controller(
 )
 ```
 
-
-
-
-
 #### Usage:
 
+```python
 import wandb
-tuner = wandb.controller(...)
+
+tuner = wandb.controller(sweep_config)
 print(tuner.sweep_config)
 print(tuner.sweep_id)
-tuner.configure_search(...)
-tuner.configure_stopping(...)
+
+tuner.configure_search("grid")
+tuner.configure_parameter("param", value=3)
+
+tuner.create()
+tuner.run()
+```
