@@ -1,6 +1,6 @@
 # MMF
 
-The `WandbLogger` class in [MMF](https://github.com/facebookresearch/mmf) will enable Weights & Biases to log the training/validation metrics, system (GPU and CPU) metrics, model checkpoints and configuration parameters.
+The `WandbLogger` class in [Meta AI's MMF](https://github.com/facebookresearch/mmf) library will enable Weights & Biases to log the training/validation metrics, system (GPU and CPU) metrics, model checkpoints and configuration parameters.
 
 ### Current features
 
@@ -14,7 +14,7 @@ The following features are currently supported by the `WandbLogger` in MMF:
 
 ### Config parameters
 
-The following options are available in config to enable and customize the wandb logging:
+The following options are available in MMF config to enable and customize the wandb logging:
 
 ```
 training:
