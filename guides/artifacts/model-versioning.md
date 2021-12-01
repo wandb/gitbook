@@ -50,27 +50,27 @@ On any model version, you can take notes, add descriptive tags and arbitrary met
 
 ![](<../../.gitbook/assets/image (24).png>)
 
-A partial view of an artifact tree showing two versions of an Inception-based CNN, iv3. A model checkpoint is saved before starting training (with pre-existing ImageNet weights) and after finishing training (suffix \_trained). The rightmost nodes show various inference runs which loaded the iv3\_trained:v2 model checkpoint and the test data in inat_test_data\_10:v0 (bottom right).
+A partial view of an artifact tree showing two versions of an Inception-based CNN, iv3. A model checkpoint is saved before starting training (with pre-existing ImageNet weights) and after finishing training (suffix \_trained). The rightmost nodes show various inference runs which loaded the iv3\_trained:v2 model checkpoint and the test data in inat\_test\_data\_10:v0 (bottom right).
 
 ![](<../../.gitbook/assets/image (30).png>)
 
-A partial view of a complex artifact tree focusing on two training runs (prefixed train), named beyond roads iou 0.48 (top left square node) and fastai baseline (bottom left square node). Each experiment produces many artifacts: sample predictions of the model on training and validation images after every epoch. In the right half of the image, you can see some test runs (prefixed test) which load in the model checkpoints of training runs (out of visible frame) and store predictions on the test data as artifacts (prefixed test_preds).
+A partial view of a complex artifact tree focusing on two training runs (prefixed train), named beyond roads iou 0.48 (top left square node) and fastai baseline (bottom left square node). Each experiment produces many artifacts: sample predictions of the model on training and validation images after every epoch. In the right half of the image, you can see some test runs (prefixed test) which load in the model checkpoints of training runs (out of visible frame) and store predictions on the test data as artifacts (prefixed test\_preds).
 
 ![](<../../.gitbook/assets/image (26) (1).png>)
 
 ## Compare models precisely
 
-Compare your models by logged or derived metrics (e.g. loss, accuracy, mean intersection over union) or by their predictions on the same set of data (e.g. test or validation). You can visualize different model variants, trace their lineage, and ascertain they're using identical dataset versions via the Artifacts compute graph (first image below). You can select versions of an artifact to see notes you or a colleague left, dive deep into the details, chase the connections to compute runs and other artifacts (second image) or enter a visual side-by-side diff mode of model predictions with [Datasets & Predictions (in beta)](https://docs.wandb.ai/datasets-and-predictions). You can also use the W\&B workspace as a dashboard to organize and query the runs in your project, then locate the model artifacts associated with a particular run for download, fine-tuning, or further analysis (last image).
+Compare your models by logged or derived metrics (e.g. loss, accuracy, mean intersection over union) or by their predictions on the same set of data (e.g. test or validation). You can visualize different model variants, trace their lineage, and ascertain they're using identical dataset versions via the Artifacts compute graph (first image below). You can select versions of an artifact to see notes you or a colleague left, dive deep into the details, chase the connections to compute runs and other artifacts (second image) or enter a visual side-by-side diff mode of model predictions with [Tables](../data-vis/). You can also use the W\&B workspace as a dashboard to organize and query the runs in your project, then locate the model artifacts associated with a particular run for download, fine-tuning, or further analysis (last image).
 
-This artifact tree shows 12 model variants (bottom left), creating two sets of predictions from the test_dataset: 14 entry_predictions and 2 predictions. These are all evaluated to produce 19 result artifacts (computed metrics and ground truth annotations on images).
+This artifact tree shows 12 model variants (bottom left), creating two sets of predictions from the test\_dataset: 14 entry\_predictions and 2 predictions. These are all evaluated to produce 19 result artifacts (computed metrics and ground truth annotations on images).
 
 ![](<../../.gitbook/assets/image (23).png>)
 
-Select versions across names (here, model entries to a competitive benchmark from different teams) to browse details and connected experiment runs. You can compare contents side-by-side when you select two versions (check out our [Datasets & Predictions Beta](https://docs.wandb.ai/datasets-and-predictions) for visual comparison).
+Select versions across names (here, model entries to a competitive benchmark from different teams) to browse details and connected experiment runs. You can compare contents side-by-side when you select two versions (check out [Tables](../data-vis/) for visual comparison).
 
 ![](<../../.gitbook/assets/image (31).png>)
 
-Each experiment run visible in the workspace links to its associated artifacts. Find a particular run—here the top mean_class_iou by team name "Daenerys"—and download the corresponding model.
+Each experiment run visible in the workspace links to its associated artifacts. Find a particular run—here the top mean\_class\_iou by team name "Daenerys"—and download the corresponding model.
 
 ![](<../../.gitbook/assets/image (42).png>)
 
@@ -80,11 +80,11 @@ The artifacts graph records and makes traceable the evolution of your models acr
 
 * **use aliases to designate particular models** as `"baseline"`, `"production"`, `"ablation"`, or any other custom tag, from the W\&B UI or [from your code](https://docs.wandb.ai/artifacts/api#updating-artifacts). You can also add longer notes or dictionary-style metadata elsewhere.
 * leverage the [artifacts API](https://docs.wandb.ai/artifacts/api#updating-artifacts) to **traverse the artifacts graph** and script pipelines, e.g. to automatically evaluate new models once they're finished training
-* **create dynamically-updating **[**reports**](https://docs.wandb.ai/reports)** and dashboards** to show the top-performing models for your target metrics and **deep-link to the relevant model** artifacts for downstream use
+* **create dynamically-updating** [**reports**](https://docs.wandb.ai/reports) **and dashboards** to show the top-performing models for your target metrics and **deep-link to the relevant model** artifacts for downstream use
 * **maintain lineages of models** via fixed artifact types and only save models which improve on the best performance, such that the `"latest"` alias always points to the best model version of that type
 * refer to fixed model artifacts by name and alias (or version) when running experiments, such that across individuals and teams **all projects** **use an identical copy of the model**
 
-From the project dashboard, see which runs are prod_ready and find the corresponding model artifacts for download by clicking on the run name.
+From the project dashboard, see which runs are prod\_ready and find the corresponding model artifacts for download by clicking on the run name.
 
 ![](<../../.gitbook/assets/image (43).png>)
 
@@ -102,13 +102,13 @@ Below is a walkthrough of a combination of these features for visualizing a work
 
 ## Longer example: Compute graph exploration
 
-[Follow along here →](https://wandb.ai/stacey/evalserver_answers\_2/workspace?workspace=user-stacey)
+[Follow along here →](https://wandb.ai/stacey/evalserver\_answers\_2/workspace?workspace=user-stacey)
 
 Let's find the best results across experiments: here, evaluations of candidate models entered into a comparison benchmark. Swept-water-5 (boxed in green) has the highest mean class IOU. Click on the run name to see the input and output artifacts.
 
 ![](<../../.gitbook/assets/image (39).png>)
 
-This view shows the input and output artifacts of the experiment run "swept-water-5". This run read in a labeled test dataset and a model entry's predictions on that data, evaluated the correctness of the predictions based on the ground truth labels, and saved the results as an artifact. Click on "entry_predictions" to see how they were generated.
+This view shows the input and output artifacts of the experiment run "swept-water-5". This run read in a labeled test dataset and a model entry's predictions on that data, evaluated the correctness of the predictions based on the ground truth labels, and saved the results as an artifact. Click on "entry\_predictions" to see how they were generated.
 
 ![](<../../.gitbook/assets/image (32).png>)
 
