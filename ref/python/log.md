@@ -1,10 +1,6 @@
-# log
+# wandb.log
 
-
-
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/wandb_run.py#L1121-L1347)
-
-
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.7/wandb/sdk/wandb\_run.py#L1121-L1347)
 
 Logs a dictonary of data to the current run's history.
 
@@ -17,70 +13,37 @@ log(
 ) -> None
 ```
 
+Use `wandb.log` to log data from runs, such as scalars, images, video, histograms, plots, and tables.
 
+See our [guides to logging](https://docs.wandb.ai/guides/track/log) for live examples, code snippets, best practices, and more.
 
+The most basic usage is `wandb.log({"train-loss": 0.5, "accuracy": 0.9})`. This will save the loss and accuracy to the run's history and update the summary values for these metrics.
 
-Use `wandb.log` to log data from runs, such as scalars, images, video,
-histograms, plots, and tables.
+Visualize logged data in the workspace at [wandb.ai](https://wandb.ai), or locally on a [self-hosted instance](https://docs.wandb.ai/self-hosted) of the W\&B app, or export data to visualize and explore locally, e.g. in Jupyter notebooks, with [our API](https://docs.wandb.ai/guides/track/public-api-guide).
 
-See our [guides to logging](https://docs.wandb.ai/guides/track/log) for
-live examples, code snippets, best practices, and more.
+In the UI, summary values show up in the run table to compare single values across runs. Summary values can also be set directly with `wandb.run.summary["key"] = value`.
 
-The most basic usage is `wandb.log({"train-loss": 0.5, "accuracy": 0.9})`.
-This will save the loss and accuracy to the run's history and update
-the summary values for these metrics.
+Logged values don't have to be scalars. Logging any wandb object is supported. For example `wandb.log({"example": wandb.Image("myimage.jpg")})` will log an example image which will be displayed nicely in the W\&B UI. See the [reference documentation](https://docs.wandb.com/library/reference/data\_types) for all of the different supported types or check out our [guides to logging](https://docs.wandb.ai/guides/track/log) for examples, from 3D molecular structures and segmentation masks to PR curves and histograms. `wandb.Table`s can be used to logged structured data. See our [guide to logging tables](https://docs.wandb.ai/guides/data-vis/log-tables) for details.
 
-Visualize logged data in the workspace at [wandb.ai](https://wandb.ai),
-or locally on a [self-hosted instance](https://docs.wandb.ai/self-hosted)
-of the W&B app, or export data to visualize and explore locally, e.g. in
-Jupyter notebooks, with [our API](https://docs.wandb.ai/guides/track/public-api-guide).
+Logging nested metrics is encouraged and is supported in the W\&B UI. If you log with a nested dictionary like `wandb.log({"train": {"acc": 0.9}, "val": {"acc": 0.8}})`, the metrics will be organized into `train` and `val` sections in the W\&B UI.
 
-In the UI, summary values show up in the run table to compare single values across runs.
-Summary values can also be set directly with `wandb.run.summary["key"] = value`.
+wandb keeps track of a global step, which by default increments with each call to `wandb.log`, so logging related metrics together is encouraged. If it's inconvenient to log related metrics together calling `wandb.log({"train-loss": 0.5}, commit=False)` and then `wandb.log({"accuracy": 0.9})` is equivalent to calling `wandb.log({"train-loss": 0.5, "accuracy": 0.9})`.
 
-Logged values don't have to be scalars. Logging any wandb object is supported.
-For example `wandb.log({"example": wandb.Image("myimage.jpg")})` will log an
-example image which will be displayed nicely in the W&B UI.
-See the [reference documentation](https://docs.wandb.com/library/reference/data_types)
-for all of the different supported types or check out our
-[guides to logging](https://docs.wandb.ai/guides/track/log) for examples,
-from 3D molecular structures and segmentation masks to PR curves and histograms.
-`wandb.Table`s can be used to logged structured data. See our
-[guide to logging tables](https://docs.wandb.ai/guides/data-vis/log-tables)
-for details.
+`wandb.log` is not intended to be called more than a few times per second. If you want to log more frequently than that it's better to aggregate the data on the client side or you may get degraded performance. You can use `wandb.log({"key": value}, commit=False)` alongside `wandb.log({"key": value}, commit=True)` to control how often you save your data. _Note:_ All identical  `keys` for uncommitted `{"key": value}` pairs will be overwritten when `wandb.log({"key": value})` is called again
 
-Logging nested metrics is encouraged and is supported in the W&B UI.
-If you log with a nested dictionary like `wandb.log({"train":
-{"acc": 0.9}, "val": {"acc": 0.8}})`, the metrics will be organized into
-`train` and `val` sections in the W&B UI.
-
-wandb keeps track of a global step, which by default increments with each
-call to `wandb.log`, so logging related metrics together is encouraged.
-If it's inconvenient to log related metrics together
-calling `wandb.log({"train-loss": 0.5, commit=False})` and then
-`wandb.log({"accuracy": 0.9})` is equivalent to calling
-`wandb.log({"train-loss": 0.5, "accuracy": 0.9})`.
-
-`wandb.log` is not intended to be called more than a few times per second.
-If you want to log more frequently than that it's better to aggregate
-the data on the client side or you may get degraded performance.
-
-| Arguments |  |
-| :--- | :--- |
-|  `row` |  (dict, optional) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or any of the `wandb.data_types`. |
-|  `commit` |  (boolean, optional) Save the metrics dict to the wandb server and increment the step. If false `wandb.log` just updates the current metrics dict with the row argument and metrics won't be saved until `wandb.log` is called with `commit=True`. |
-|  `step` |  (integer, optional) The global step in processing. This persists any non-committed earlier steps but defaults to not committing the specified step. |
-|  `sync` |  (boolean, True) This argument is deprecated and currently doesn't change the behaviour of `wandb.log`. |
-
-
+| Arguments |                                                                                                                                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `row`     | (dict, optional) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or any of the `wandb.data_types`.                                                                                                         |
+| `commit`  | (boolean, optional) Save the metrics dict to the wandb server and increment the step. If false `wandb.log` just updates the current metrics dict with the row argument and metrics won't be saved until `wandb.log` is called with `commit=True`. |
+| `step`    | (integer, optional) The global step in processing. This persists any non-committed earlier steps but defaults to not committing the specified step.                                                                                               |
+| `sync`    | (boolean, True) This argument is deprecated and currently doesn't change the behaviour of `wandb.log`.                                                                                                                                            |
 
 #### Examples:
 
-For more and more detailed examples, see
-[our guides to logging](https://docs.wandb.com/guides/track/log).
+For more and more detailed examples, see [our guides to logging](https://docs.wandb.com/guides/track/log).
 
 ### Basic usage
-<!--yeadoc-test:init-and-log-basic-->
+
 ```python
 import wandb
 wandb.init()
@@ -88,7 +51,7 @@ wandb.log({'accuracy': 0.9, 'epoch': 5})
 ```
 
 ### Incremental logging
-<!--yeadoc-test:init-and-log-incremental-->
+
 ```python
 import wandb
 wandb.init()
@@ -98,7 +61,7 @@ wandb.log({'accuracy': 0.8})
 ```
 
 ### Histogram
-<!--yeadoc-test:init-and-log-histogram-->
+
 ```python
 import numpy as np
 import wandb
@@ -110,7 +73,7 @@ wandb.log({"gradients": wandb.Histogram(gradients)})
 ```
 
 ### Image from numpy
-<!--yeadoc-test:init-and-log-image-numpy-->
+
 ```python
 import numpy as np
 import wandb
@@ -125,7 +88,7 @@ wandb.log({"examples": examples})
 ```
 
 ### Image from PIL
-<!--yeadoc-test:init-and-log-image-pillow-->
+
 ```python
 import numpy as np
 from PIL import Image as PILImage
@@ -142,7 +105,7 @@ wandb.log({"examples": examples})
 ```
 
 ### Video from numpy
-<!--yeadoc-test:init-and-log-video-numpy-->
+
 ```python
 import numpy as np
 import wandb
@@ -154,7 +117,7 @@ wandb.log({"video": wandb.Video(frames, fps=4)})
 ```
 
 ### Matplotlib Plot
-<!--yeadoc-test:init-and-log-matplotlib-->
+
 ```python
 from matplotlib import pyplot as plt
 import numpy as np
@@ -169,11 +132,13 @@ wandb.log({"chart": fig})
 ```
 
 ### PR Curve
+
 ```python
 wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, labels)})
 ```
 
 ### 3D Object
+
 ```python
 wandb.log({"generated_samples":
 [wandb.Object3D(open("sample.obj")),
@@ -181,10 +146,7 @@ wandb.log({"generated_samples":
     wandb.Object3D(open("sample.glb"))]})
 ```
 
-
-
-| Raises |  |
-| :--- | :--- |
-|  `wandb.Error` |  if called before `wandb.init` |
-|  `ValueError` |  if invalid data is passed |
-
+| Raises        |                               |
+| ------------- | ----------------------------- |
+| `wandb.Error` | if called before `wandb.init` |
+| `ValueError`  | if invalid data is passed     |

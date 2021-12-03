@@ -12,7 +12,7 @@ You can then review the results in an [interactive dashboard](app.md) or export 
 
 ## Integrating W\&B in your script
 
-Below are the simple building blocks to track an experiment with W\&B. We also have a whole host of special integrations for [PyTorch](../integrations/pytorch.md), [Keras](../integrations/keras.md), [Scikit](../integrations/scikit.md), etc. See **** our [Integration guides](../integrations/).
+Below are the simple building blocks to track an experiment with W\&B. We also have a whole host of special integrations for [PyTorch](../integrations/pytorch.md), [Keras](../integrations/keras.md), [Scikit](../integrations/scikit.md), etc. See** **our [Integration guides](../integrations/).
 
 1. [**`wandb.init()`**](launch.md): Initialize a new run at the top of your script. This returns a `Run` object and creates a local directory where all logs and files are saved, then streamed asynchronously to a W\&B server. If you want to use a private server instead of our hosted cloud server, we offer [Self-Hosting](../self-hosted/).
 2. [**`wandb.config`**](config.md): Save a dictionary of hyperparameters such as learning rate or model type. The model settings you capture in config are useful later to organize and query your results.
@@ -61,7 +61,7 @@ All the data logged from your script is saved locally to your machine in a direc
 Turn on [Code Saving](http://wandb.me/code-save-colab) in your account's [Settings page](https://wandb.ai/settings) to get:
 
 * **Git commit**: Pick up the latest git commit and see it on the overview tab of the run page, as well as a `diff.patch` file if there are any uncommitted changes.
-* **Dependencies**: The `requirements.txt` file will be uploaded and shown on the files tab of the run page, along with any files you save to the `wandb` **** directory for the run.
+* **Dependencies**: The `requirements.txt` file will be uploaded and shown on the files tab of the run page, along with any files you save to the `wandb`** **directory for the run.
 
 ### Logged with Specific Calls
 

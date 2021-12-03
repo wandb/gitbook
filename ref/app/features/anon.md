@@ -17,7 +17,7 @@ Allow results to be logged in Anonymous Mode with `wandb.init(`**`anonymous="all
 If someone runs your script and you have to set `anonymous="allow"`:
 
 1. **Auto-create temporary account:** W\&B checks for an account that's already signed in. If there's no account, we automatically create a new anonymous account and save that API key for the session.
-2. **Log results quickly:** The user can run and re-run the script, and automatically see results show up in the W\&B dashboard UI. These unclaimed anonymous runs will be available for 7 days.
+2. **Log results quickly: **The user can run and re-run the script, and automatically see results show up in the W\&B dashboard UI. These unclaimed anonymous runs will be available for 7 days.
 3. **Claim data when it's useful**: Once the user finds valuable results in W\&B, they can easily click a button in the banner at the top of the page to save their run data to a real account. If they don't claim a run, it will be deleted after 7 days.
 
 {% hint style="warning" %}

@@ -63,7 +63,7 @@ wandb.config.dropout = 0.2
 
 1. ****[**Collaborative Reports**](guides/reports/): Snapshot results, take notes, and share findings
 2. ****[**Data + Model Versioning**](guides/artifacts/): Track dependencies and results in your ML pipeline
-3. ****[**Data Visualization**](guides/data-vis/)**:** Visualize and query datasets and model evaluations
+3. ****[**Data Visualization**](guides/data-vis/)**: **Visualize and query datasets and model evaluations
 4. ****[**Hyperparameter Tuning**](guides/sweeps/): Quickly automate optimizing hyperparameters
 
 ## Common Questions

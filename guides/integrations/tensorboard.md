@@ -13,7 +13,7 @@ We support TensorBoard with all versions of TensorFlow. W\&B also supports Tenso
 
 When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we've focused on improving:
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your version-control status and model checkpoints for you so your project is reproducible.&#x20;
+1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your version-control status and model checkpoints for you so your project is reproducible. 
 2. **Automatic organization**: Whether you're picking up a project from a collaborator, coming back from a vacation, or dusting off an old project, W\&B makes it easy to see all the models that have been tried so no one wastes hours, GPU cycles, or carbon re-running experiments.
 3. **Fast, flexible integration**: Add W\&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
 4. **Persistent, centralized dashboard**: No matter where you train your models, whether on your local machine, in a shared lab cluster, or on spot instances in the cloud, your results are shared to the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
@@ -26,7 +26,7 @@ Get started with a [free personal account →](https://wandb.ai)
 
 ### How can I log metrics to W\&B that aren't logged to TensorBoard?
 
-If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code `wandb.log({"custom": 0.8})`&#x20;
+If you need to log additional custom metrics that aren't being logged to TensorBoard, you can call `wandb.log` in your code `wandb.log({"custom": 0.8}) `
 
 Setting the step argument in `wandb.log` is disabled when syncing Tensorboard. If you'd like to set a different step count, you can log the metrics with a step metric as:
 
@@ -34,7 +34,7 @@ Setting the step argument in `wandb.log` is disabled when syncing Tensorboard. I
 
 ### How do I configure Tensorboard when I'm using it with `wandb`?
 
-If you want more control over how TensorBoard is patched you can call `wandb.tensorboard.patch` instead of passing `sync_tensorboard=True` to `wandb.init`.&#x20;
+If you want more control over how TensorBoard is patched you can call `wandb.tensorboard.patch` instead of passing `sync_tensorboard=True` to `wandb.init`. 
 
 ```python
 import wandb
@@ -53,7 +53,7 @@ wandb.tensorboard.patch(save=False, tensorboardX=True)
 ```
 
 {% hint style="warning" %}
-You must call either `wandb.init` or `wandb.tensorboard.patch` **before** calling `tf.summary.create_file_writer`  or constructing a`SummaryWriter` via `torch.utils.tensorboard`.
+You must call either `wandb.init` or `wandb.tensorboard.patch` **before **calling `tf.summary.create_file_writer`  or constructing a`SummaryWriter` via `torch.utils.tensorboard`.
 {% endhint %}
 
 
@@ -64,7 +64,7 @@ If you have existing `tfevents` files stored locally and you would like to impor
 
 ### Google Colab and TensorBoard
 
-To run shell commands in a notebook environment, you must prepend a `!`, as in `!wandb sync directoryname` .&#x20;
+To run shell commands in a notebook environment, you must prepend a `!`, as in `!wandb sync directoryname` . 
 
 {% hint style="warning" %}
 Currently, TensorBoard syncing does not work in a notebook environment for TensorFlow 2.1+. You can have your Colab use an earlier version of TensorBoard, or format your training as a script and execute it  `!python your_script.py` .

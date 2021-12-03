@@ -6,7 +6,7 @@ description: A playground for exploring run data with interactive visualizations
 
 Your workspace is your personal sandbox to customize charts and explore model results.
 
-1. **Table**: All the runs in your project are listed in the table. **** Turn on and off runs, change colors, and expand the table to see notes, config, and summary metrics for each run.&#x20;
+1. **Table**: All the runs in your project are listed in the table.** **Turn on and off runs, change colors, and expand the table to see notes, config, and summary metrics for each run. 
 2. **Panels**: Panels are organized into sections. Create new panels, organize them, and export to reports to save snapshots of your workspace.
 
 ![](../../../.gitbook/assets/workspace-table-and-panels.png)
@@ -27,7 +27,7 @@ At the bottom of the page is a workspace control bar:
 
 * **Workspace**: Each user has one workspace. Only you can edit your own workspace.
 * **Undo/redo**: Quickly undo changes you made to your workspace.
-* **Sharing**: Create a report to share results with colleagues. Click **Create report** in the upper right and select what charts you'd like to save a snapshot of.&#x20;
+* **Sharing**: Create a report to share results with colleagues. Click **Create report** in the upper right and select what charts you'd like to save a snapshot of. 
   * Reports can be **static snapshots** or **dynamic dashboards** of your project progress.
   * You can create multiple different saved views of your project with reports.
   * Reports let you add text annotations, create multiple different panel sections with different visible runs in each, and even share view-only links from inside private projects.

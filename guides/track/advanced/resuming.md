@@ -102,7 +102,7 @@ If multiple processes use the same `run_id` concurrently unexpected results will
 {% endhint %}
 
 {% hint style="info" %}
-If you resume a run and you have `notes` **** specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
+If you resume a run and you have `notes`** **specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
 {% endhint %}
 
 {% hint style="info" %}
