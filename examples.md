@@ -94,7 +94,7 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 {% tab title="RDKit" %}
 [This report](https://wandb.ai/anmolmann/rdkit\_molecules/reports/Logging-RDKit-Molecular-Data--VmlldzoxMjk1MjQ1) explores `rdkit` feature for logging molecular data.
 
-[Click here](https://wandb.ai/anmolmann/rdkit\_molecules) to view and interact with a live W\&B Dashboard built with this [notebook](https://colab.research.google.com/drive/1lHaw7eLN9FiQ37XMIEzZcK3y8YkPuKpN?usp=sharing).
+[Click here](https://wandb.ai/anmolmann/rdkit\_molecules) to view and interact with a live W\&B Dashboard built with this [notebook](http://wandb.me/rdkit).
 
 {% embed url="https://user-images.githubusercontent.com/7557205/144367246-cc052e58-ede4-4374-9307-4f185328c361.gif" %}
 {% endtab %}
