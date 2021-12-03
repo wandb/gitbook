@@ -174,7 +174,7 @@ For simpler workflows, you can call `wandb.init` with `resume=True` and `id=UNIQ
 
 At any point you can always use the [API](https://docs.wandb.ai/library/public-api-guide#update-metrics-for-a-run-after-the-run-has-finished) to add additional evaluation metrics.
 
-### What is the difference between ` .log()` and `.summary`? &#x20;
+### What is the difference between `.log()` and `.summary`? &#x20;
 
 The summary is the value that shows in the table while log will save all the values for plotting later. &#x20;
 
@@ -195,7 +195,7 @@ error: command 'gcc' failed with exit status 1
 
 You can install `psutil` directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil) &#x20;
 
-For example, to install `psutil `on Python 3.8 in Linux:
+For example, to install `psutil` on Python 3.8 in Linux:
 
 ```bash
 WHEEL_URL=https://github.com/pywharf/pywharf-pkg-repo/releases/download/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl/psutil-5.7.0-cp38-cp38-manylinux2010_x86_64.whl#sha256=adc36dabdff0b9a4c84821ef5ce45848f30b8a01a1d5806316e068b5fd669c6d
@@ -226,6 +226,10 @@ For simplicity W\&B uses API keys for authorization when accessing the API. You 
 
 A service account is an API key that has permissions to write to your team, but is not associated with a particular user. Among other things, service accounts are useful for tracking automated jobs logged to wandb, like periodic retraining, nightly builds, and so on. If you'd like, you can associate a username with one of these machine-launched runs with the [environment variable](track/advanced/environment-variables.md) `WANDB_USERNAME`.
 
+You can get the API key in your Team Settings page `/teams/<your-team-name>` where you invite new team members. Select service and click create to add a service account.
+
+![](<../.gitbook/assets/image (164).png>)
+
 ### How can I rotate or revoke access?
 
 Both personal and service account keys can be rotated or revoked. Simply create a new API Key or Service Account user and reconfigure your scripts to use the new key. Once all processes are reconfigured, you can remove the old API key from your profile or team.
@@ -239,10 +243,10 @@ if os.path.exists("~/keys.json"):
    os.environ["WANDB_API_KEY"] = json.loads("~/keys.json")["work_account"]
 ```
 
-### Does the W\&B client support Python 2? <a href="eol-python27" id="eol-python27"></a>
+### Does the W\&B client support Python 2? <a href="#eol-python27" id="eol-python27"></a>
 
 The W\&B client library supported both Python 2.7 and Python 3 through version 0.10. Due to the Python 2 end of life, support for Python 2.7 was discontinued as of version 0.11. Users who run`pip install --upgrade wandb` on a Python 2.7 system will get new releases of the 0.10.x series only. Support for the 0.10.x series will be limited to critical bugfixes and patches. Currently, version 0.10.33 is the last version of the 0.10.x series that supports Python 2.7.
 
-### Does the W\&B client support Python 3.5? <a href="eol-python35" id="eol-python35"></a>
+### Does the W\&B client support Python 3.5? <a href="#eol-python35" id="eol-python35"></a>
 
 The W\&B client library supported both Python 3.5 through version 0.11. Due to the Python 3.5 end of life, support was discontinued as of version 0.12.&#x20;

@@ -26,7 +26,7 @@ _To unlock Weave panels, add `weave-report` to your profile page bio._
 
 ## Quickstart Walkthrough
 
-[Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation)** **and follow along with this `model-evaluation` code example.
+[Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation) **** and follow along with this `model-evaluation` code example.
 
 ### **1. Install requirements**
 

@@ -18,11 +18,11 @@ To read a Report with charts generated using the W\&B DeepChem integration, have
 
 {% embed url="https://wandb.ai/kshen/deepchem_graphconv/reports/Using-W-B-with-DeepChem-Molecular-Graph-Convolutional-Networks--Vmlldzo4MzU5MDc?galleryTag=" %}
 
-If you'd rather dive straight into working code, check out this** **[**Google Colab**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/deepchem/W%26B_x_DeepChem.ipynb).
+If you'd rather dive straight into working code, check out this **** [**Google Colab**](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/deepchem/W%26B\_x\_DeepChem.ipynb).
 
 ## Getting started: track experiments
 
-Setup Weights & Biases for DeepChem models of type [KerasModel](https://deepchem.readthedocs.io/en/latest/api_reference/models.html#keras-models) or [TorchModel](https://deepchem.readthedocs.io/en/latest/api_reference/models.html#pytorch-models).
+Setup Weights & Biases for DeepChem models of type [KerasModel](https://deepchem.readthedocs.io/en/latest/api\_reference/models.html#keras-models) or [TorchModel](https://deepchem.readthedocs.io/en/latest/api\_reference/models.html#pytorch-models).
 
 ### **1) Install the `wandb` library and log in**
 
