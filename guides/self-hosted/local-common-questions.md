@@ -23,7 +23,7 @@ description: Frequently asked questions about setting up locally-hosted versions
 ****Experiments that are in progress will enter a backoff retry loop and continue attempting to connect to your local instance for 24 hours to sync the data.
 
 **What happens if I run out of storage?**\
-****Make sure you configure **external metadata and object stores **to avoid risking permanent data loss. There are no backups of the database if the disk runs out of space. The instance will stop working.
+****Make sure you configure **external metadata and object stores** to avoid risking permanent data loss. There are no backups of the database if the disk runs out of space. The instance will stop working.
 
 **What are the scaling characteristics of this service?**\
 ****A single instance of _wandb/local_ without an external MySQL store will scale to up to 10's concurrent experiments being tracked at once. Instances connected to an external MySQL store will scale to 100's of concurrent runs. If you have a need for tracking more concurrent experiments send us a note at [contact@wandb.com](mailto:contact@wandb.com) to inquire about our multi instance high availability installation options.

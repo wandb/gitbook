@@ -4,9 +4,9 @@ description: How to configure the W&B Local Server installation
 
 # Advanced Configuration
 
-Your W\&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.  
+Your W\&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams. &#x20;
 
-The following are detailed information about manually configuring your local instance.  When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance. 
+The following are detailed information about manually configuring your local instance.  When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance.&#x20;
 
 ## Configuration as code
 
@@ -17,14 +17,14 @@ All configuration settings can be set via the UI however if you would like to ma
 | LICENSE              | Your wandb/local license                                                      |
 | MYSQL                | The MySQL connection string                                                   |
 | BUCKET               | The S3 / GCS bucket for storing data                                          |
-| BUCKET_QUEUE         | The SQS / Google PubSub queue for object creation events                      |
-| NOTIFICATIONS_QUEUE  | The SQS queue on which to publish run events                                  |
-| AWS_REGION           | The AWS Region where your bucket lives                                        |
+| BUCKET\_QUEUE        | The SQS / Google PubSub queue for object creation events                      |
+| NOTIFICATIONS\_QUEUE | The SQS queue on which to publish run events                                  |
+| AWS\_REGION          | The AWS Region where your bucket lives                                        |
 | HOST                 | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net) |
 | AUTH0\_DOMAIN        | The Auth0 domain of your tenant                                               |
-| AUTH0\_CLIENT_ID     | The Auth0 Client ID of application                                            |
-| SLACK_CLIENT_ID      | The client ID of the Slack application you want to use for alerts             |
-| SLACK_SECRET         | The secret of the Slack application you want to use for alerts                |
+| AUTH0\_CLIENT\_ID    | The Auth0 Client ID of application                                            |
+| SLACK\_CLIENT\_ID    | The client ID of the Slack application you want to use for alerts             |
+| SLACK\_SECRET        | The secret of the Slack application you want to use for alerts                |
 
 ## Authentication
 
@@ -273,19 +273,19 @@ You can name it whatever you like, but what's important is to select the same Sl
 
 #### Configuring the Slack application
 
-Now that we have a Slack application ready, we need to authorize for use as an OAuth bot. Select **OAuth & Permissions **in the sidebar to the left.
+Now that we have a Slack application ready, we need to authorize for use as an OAuth bot. Select **OAuth & Permissions** in the sidebar to the left.
 
 ![](<../../.gitbook/assets/image (125).png>)
 
-Under **Scopes**, supply the bot with the **incoming_webhook** scope.
+Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
 ![](<../../.gitbook/assets/image (128) (1) (1).png>)
 
-Finally, configure the **Redirect URL **to point to your W\&B installation. You should use the same value as what you set **Frontend Host **to** **in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
+Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to **** in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
 ![](<../../.gitbook/assets/image (127).png>)
 
-Hit **Save URLs **once finished.
+Hit **Save URLs** once finished.
 
 To further secure your Slack application and prevent abuse, you can specify an IP range under **Restrict API Token Usage**, whitelisting the IP or IP range of your W\&B instance(s).
 

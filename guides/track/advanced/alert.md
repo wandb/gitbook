@@ -16,8 +16,8 @@ Send a Slack or email alert, triggered from your Python script.
 
 * **title (string)**: A short description of the alert, for example "Low accuracy"
 * **text (string)**: A longer, more detailed description of what happened to trigger the alert
-* **level (optional): **How important the alert is — must be either `INFO`, `WARN`, or `ERROR`
-* **wait_duration (optional):** How many seconds to wait before sending another alert with the same **title. **This helps reduce alert spam.
+* **level (optional):** How important the alert is — must be either `INFO`, `WARN`, or `ERROR`
+* **wait\_duration (optional):** How many seconds to wait before sending another alert with the same **title.** This helps reduce alert spam.
 
 ### Example
 

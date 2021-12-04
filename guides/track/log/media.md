@@ -121,10 +121,10 @@ To log a bounding box, you'll need to provide a dictionary with the following ke
 * `box_data`: a list of dictionaries, one for each box. The box dictionary format is described below.
   * `position`: a dictionary representing the position and size of the box in one of two formats, as described below. Boxes need not all use the same format.
     * _Option 1:_ `{"minX", "maxX", "minY", "maxY"}`. Provide a set of coordinates defining the upper and lower bounds of each box dimension.
-    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle `coordinates as `[x,y]`, and `width` and `height` as scalars.
+    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
   * `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
   * `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
-  * `domain`: specify the units/format of the box coordinates. **Set this to "pixel" **if the box coordinates are expressed in pixel space (i.e. as integers within the bounds of the image dimensions). By default, the domain is assumed to be a fraction/percentage of the image (a floating point number between 0 and 1).
+  * `domain`: specify the units/format of the box coordinates. **Set this to "pixel"** if the box coordinates are expressed in pixel space (i.e. as integers within the bounds of the image dimensions). By default, the domain is assumed to be a fraction/percentage of the image (a floating point number between 0 and 1).
   * `box_caption`: (optional) a string to be displayed as the label text on this box&#x20;
 * `class_labels`: (optional) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
 

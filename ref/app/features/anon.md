@@ -17,7 +17,7 @@ Allow results to be logged in Anonymous Mode with `wandb.init(`**`anonymous="all
 If someone runs your script and you have to set `anonymous="allow"`:
 
 1. **Auto-create temporary account:** W\&B checks for an account that's already signed in. If there's no account, we automatically create a new anonymous account and save that API key for the session.
-2. **Log results quickly: **The user can run and re-run the script, and automatically see results show up in the W\&B dashboard UI. These unclaimed anonymous runs will be available for 7 days.
+2. **Log results quickly:** The user can run and re-run the script, and automatically see results show up in the W\&B dashboard UI. These unclaimed anonymous runs will be available for 7 days.
 3. **Claim data when it's useful**: Once the user finds valuable results in W\&B, they can easily click a button in the banner at the top of the page to save their run data to a real account. If they don't claim a run, it will be deleted after 7 days.
 
 {% hint style="warning" %}
@@ -32,7 +32,7 @@ If you set `anonymous="allow"` in your script, we will check to make sure there'
 
 *   **No persistent data**: Runs are only saved for 7 days in an anonymous account. Users can claim anonymous run data by saving it to a real account.
 
-    ![](<../../../.gitbook/assets/image (165).png>)&#x20;
+    ![](<../../../.gitbook/assets/image (165) (1).png>)&#x20;
 *   **No artifact logging**: Runs will print a warning on the command line that you can't log an artifact to an anonymous run.
 
     ![](<../../../.gitbook/assets/example warning.png>)

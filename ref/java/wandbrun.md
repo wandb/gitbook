@@ -6,11 +6,11 @@ description: WandbRun object represents an instance of a run in Java.
 
 ### Overview
 
-A run can be created by using the [WandbRun Builder](wandbrun-builder.md). This object is used to track runs  
+A run can be created by using the [WandbRun Builder](wandbrun-builder.md). This object is used to track runs &#x20;
 
-* **run.log(JSONObject data) **— logs data for a run, equivalent to [wand.log()](../../guides/track/log/)
-* **run.log(int step, JSONObject data) **— logs data for a run, equivalent to [wand.log()](../../guides/track/log/) at a specific step
-* **run.finish(int exitCode) **— finishes a run with an exit code (_default: 0_)
+* **run.log(JSONObject data)** — logs data for a run, equivalent to [wand.log()](../../guides/track/log/)
+* **run.log(int step, JSONObject data)** — logs data for a run, equivalent to [wand.log()](../../guides/track/log/) at a specific step
+* **run.finish(int exitCode)** — finishes a run with an exit code (_default: 0_)
 
 ### Examples
 
