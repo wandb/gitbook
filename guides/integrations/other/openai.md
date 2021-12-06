@@ -1,6 +1,6 @@
 ---
 description: >-
-  Fine-tune OpenAI GPT-3 and other models on your own data and track your runs
+  Fine-tune OpenAI GPT-3 and other models on your own data and track results
   with W&B.
 ---
 
@@ -10,9 +10,7 @@ description: >-
 **Beta Integration**: This is a new feature, and we're actively working on making this better. Please reach out if you have any feedback — contact@wandb.com
 {% endhint %}
 
-OpenAI provides an [API to fine-tune GPT-3](https://beta.openai.com/docs/guides/fine-tuning) and obtain better inference results than with prompt engineering.
-
-The W\&B integration adds rich & flexible experiment tracking as well as model & dataset versioning through interactive centralized dashboards.
+If you use OpenAI's [API to fine-tune GPT-3](https://beta.openai.com/docs/guides/fine-tuning), you can now use the W\&B integration to track experiments, models, and datasets in your central dashboard.
 
 ## :sparkles: Check out interactive examples
 
@@ -21,13 +19,13 @@ The W\&B integration adds rich & flexible experiment tracking as well as model &
 
 ## :tada: Sync your fine-tune runs with one line!
 
-You currently need to install a custom branch:
+:warning: **Beta:** You currently need to install a custom version of the `wandb` library to unlock this feature:
 
 ```shell-session
 $ pip install --upgrade git+https://github.com/borisdayma/openai-python.git@feat-wandb
 ```
 
-One line is all it takes to sync your runs to W\&B!
+Then sync your results from the command line or from your script.
 
 {% tabs %}
 {% tab title="Command Line" %}
@@ -60,13 +58,11 @@ Logger.sync(
 {% endtab %}
 {% endtabs %}
 
-We scan for new completed runs and automatically add them to your workspace!
+We scan for new completed runs and automatically add them to your dashboard.
 
 ![](<../../../.gitbook/assets/image (168).png>)
 
-In addition your training & validation files are logged and versioned, as well as details of your fine-tune results.
-
-This let you interactively explore your training/validation data.
+In addition your training and validation files are logged and versioned, as well as details of your fine-tune results. This let you interactively explore your training and validation data.
 
 ![](<../../../.gitbook/assets/image (167).png>)
 
