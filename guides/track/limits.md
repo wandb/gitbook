@@ -56,3 +56,4 @@ We support up to 15MB of serialized config data per run.
 Here are some additional guidelines for logging data to W\&B.
 
 * **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
+* **Batch calls to avoid rate limits**: If you want to log more frequently, you might want to batch calls and log with `commit=False` instead. This will update a metrics dict until `commit=True` is called (as noted from [wandb.log](../../ref/python/log.md)).
