@@ -6,57 +6,52 @@ description: >-
 
 # Data + Model Versioning
 
-Use W&B Artifacts for dataset versioning, model versioning, and tracking dependencies and results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems like S3, GCP, or your own system.
+Use W\&B Artifacts for dataset versioning, model versioning, and tracking dependencies and results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems like S3, GCP, or your own system.
 
-[Try the Guide to W&B Artifacts ](https://wandb.ai/wandb/arttest/reports/Artifacts-Quickstart--VmlldzozNTAzMDM)for an end-to-end example of using Artifacts for dataset and model versioning.
+## Quickly log your first Artifact
 
-![](../../.gitbook/assets/keras-example.png)
+The easiest way to log an artifact is passing a path to your data files. Remember to also specify a name and an artifact type.
 
-## Quickstart
+```
+wandb.log_artifact(file_path, name='new_artifact', type='my_dataset') 
+```
 
-[![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/artifacts-quickstart)
+This will create a new artifact in your project's workspace:
 
-### 1. Log an artifact
+![](<../../.gitbook/assets/Screen Shot 2021-11-05 at 1.23.04 PM.png>)
 
-Initialize a run and log an artifact, for example a dataset version that you're using to train a model.
+### Log a new version
 
-```python
-run = wandb.init(job_type="dataset-creation")
-artifact = wandb.Artifact('my-dataset', type='dataset')
-artifact.add_file('my-dataset.txt')
+If you log again, we'll checksum the artifact, identify that something changed, and track the new version. If nothing changes, we don't re-upload any data or create a new version.
+
+```
+artifact = wandb.Artifact('new_artifact', type='my_dataset')
+artifact.add_dir('nature_100/')
 run.log_artifact(artifact)
 ```
 
-### 2. Use the artifact
+![In your Artifact page, click on the Compare button to see a new folder appears in the new version ](<../../.gitbook/assets/Screen Shot 2021-11-05 at 1.34.26 PM.png>)
 
-Start a new run and pull down that saved artifact, for example to use the dataset to train a model.
+### Use your artifact
 
-```python
-run = wandb.init(job_type="model-training")
-artifact = run.use_artifact('my-dataset:latest')
+In a separate run, you can retrieve and download a specific version of an artifact to a local path:
+
+```
+artifact = run.use_artifact('user_name/project_name/new_artifact:v1', type='my_dataset')
 artifact_dir = artifact.download()
 ```
 
-### 3. Log a new version
 
-If an artifact changes, re-run the same artifact creation script. In this case, imagine the data in the my-dataset.txt file changes. This same script will capture the new version neatly — we'll checksum the artifact, identify that something changed, and track the new version. If nothing changes, we don't reupload any data or create a new version.
 
-```python
-run = wandb.init(job_type="dataset-creation")
-artifact = wandb.Artifact('my-dataset', type='dataset')
-# Imagine more lines of text were added to this text file:
-artifact.add_file('my-dataset.txt')
-# Log that artifact, and we identify the changed file
-run.log_artifact(artifact)
-# Now you have a new version of the artifact, tracked in W&B
+### [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/artifacts-quickstart)
 
-```
+Looking for a longer example with real model training? Try our [Guide to W\&B Artifacts](https://wandb.ai/wandb/arttest/reports/Guide-to-W-B-Artifacts--VmlldzozNTAzMDM).
 
-Looking for a longer example with real model training? Try our [Guide to W&B Artifacts](https://wandb.ai/wandb/arttest/reports/Guide-to-W-B-Artifacts--VmlldzozNTAzMDM).
+![](../../.gitbook/assets/keras-example.png)
 
 ## How it works
 
-Using our Artifacts API, you can log artifacts as outputs of W&B runs, or use artifacts as input to runs.
+Using our Artifacts API, you can log artifacts as outputs of W\&B runs, or use artifacts as input to runs.
 
 ![](../../.gitbook/assets/simple-artifact-diagram-2.png)
 
@@ -78,11 +73,9 @@ Learn more about using artifacts for data and model versioning:
 6. [Artifacts Examples](examples.md)
 7. [Artifact reference docs](https://docs.wandb.ai/ref/python/artifact)
 
-## Video tutorial for W&B Artifacts
+## Video tutorial for W\&B Artifacts
 
-Follow along with our [tutorial video](http://wandb.me/artifacts-video) and [interactive colab](http://wandb.me/artifacts-colab) and learn how to track your machine learning pipeline with W&B Artifacts.
+Follow along with our [tutorial video](http://wandb.me/artifacts-video) and [interactive colab](http://wandb.me/artifacts-colab) and learn how to track your machine learning pipeline with W\&B Artifacts.
 
 {% embed url="http://wandb.me/artifacts-video" %}
-
-
 
