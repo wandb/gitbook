@@ -1,6 +1,6 @@
 # Artifacts Walkthrough
 
-Use W&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. You can use artifacts to track and save files, or track external URIs.
+Use W\&B Artifacts for dataset tracking and model versioning. Initialize a run, create an artifact, and then use it in another part of your workflow. You can use artifacts to track and save files, or track external URIs.
 
 This feature is available in the client starting from `wandb` version 0.9.0.
 
@@ -12,7 +12,7 @@ Check out [our video tutorial](http://wandb.me/artifacts-video) on artifacts! It
 
 ## 1. Initialize a run
 
-To track a step of your pipeline, initialize a run in your script. Specify a string for **job\_type** to differentiate different pipeline steps— preprocessing, training, evaluation, etc. If you've never instrumented a run with W&B, we have more detailed guidance for experiment tracking in our [Python Library](../) docs.
+To track a step of your pipeline, initialize a run in your script. Specify a string for **job\_type** to differentiate different pipeline steps— preprocessing, training, evaluation, etc. If you've never instrumented a run with W\&B, we have more detailed guidance for experiment tracking in our [Python Library](../) docs.
 
 ```python
 run = wandb.init(job_type='train')
@@ -24,12 +24,12 @@ An artifact is like a folder of data, with contents that are actual files stored
 
 When you call **log\_artifact**, we check to see if the contents of the artifact has changed, and if so we automatically create a new version of the artifact: v0, v1, v2 etc.
 
-**wandb.Artifact\(\)**
+**wandb.Artifact()**
 
-* **type \(str\)**: Differentiate kinds of artifacts, used for organizational purposes. We recommend things like "dataset", "model" and "result".
-* **name \(str\)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, hyphens, and dots in the name.
-* **description \(str, optional\)**: Free text displayed next to the artifact version in the UI
-* **metadata \(dict, optional\)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
+* **type (str)**: Differentiate kinds of artifacts, used for organizational purposes. We recommend things like "dataset", "model" and "result".
+* **name (str)**: Give your artifact a unique name, used when you reference the artifact elsewhere. You can use numbers, letters, underscores, hyphens, and dots in the name.
+* **description (str, optional)**: Free text displayed next to the artifact version in the UI
+* **metadata (dict, optional)**: Structured data associated with the artifact, for example class distribution of a dataset. As we build out the web interface, you'll be able to use this data to query and make plots.
 
 ```python
 artifact = wandb.Artifact('bike-dataset', type='dataset')
@@ -44,7 +44,7 @@ run.log_artifact(artifact)
 {% hint style="warning" %}
 **NOTE:** Calls to `log_artifact` are performed asynchronously for performant uploads. This can cause surprising behavior when logging artifacts in a loop. For example:
 
-```text
+```
 for i in range(10):
     a = wandb.Artifact('race', type='dataset', metadata={
         "index": i,
@@ -58,7 +58,7 @@ The artifact version **v0** is NOT guaranteed to have an index of 0 in its metad
 
 ## 3. Use an artifact
 
-You can use an artifact as input to a run. For example, we could take `bike-dataset:v0` , the first version of `bike-dataset`, and use it in the next script in our pipeline. When you call **use\_artifact**, your script queries W&B to find that named artifact and marks it as input to the run.
+You can use an artifact as input to a run. For example, we could take `bike-dataset:v0` , the first version of `bike-dataset`, and use it in the next script in our pipeline. When you call **use\_artifact**, your script queries W\&B to find that named artifact and marks it as input to the run.
 
 ```python
 # Query W&B for an artifact and mark it as input to this run
@@ -68,7 +68,7 @@ artifact = run.use_artifact('bike-dataset:v0')
 artifact_dir = artifact.download()
 ```
 
-**Using an artifact from a different project**  
+**Using an artifact from a different project**\
 You can freely reference artifacts from any project to which you have access by qualifying the name of the artifact with its project name. You can also reference artifacts across entities by further qualifying the name of the artifact with its entity name.
 
 ```python
@@ -81,8 +81,8 @@ artifact = run.use_artifact('my-project/bike-model:v0')
 artifact = run.use_artifact('my-entity/my-project/bike-model:v0')
 ```
 
-**Using an artifact that has not been logged**  
-You can also construct an artifact object and pass it to **use\_artifact**. We check if the artifact already exists in W&B, and if not we creates a new artifact. This is idempotent— you can pass an artifact to use\_artifact as many times as you like, and we'll deduplicate it as long as the contents stay the same.
+**Using an artifact that has not been logged**\
+You can also construct an artifact object and pass it to **use\_artifact**. We check if the artifact already exists in W\&B, and if not we create a new artifact. This is idempotent— you can pass an artifact to use\_artifact as many times as you like, and we'll deduplicate it as long as the contents stay the same.
 
 ```python
 artifact = wandb.Artifact('bike-model', type='model')
@@ -145,7 +145,7 @@ artifact.add_reference(uri, name='optional-name')
 
 For the following examples, assume we have a project directory with these files:
 
-```text
+```
 project-directory
 |-- images
 |   |-- cat.png
@@ -155,60 +155,14 @@ project-directory
 +-- model.h5
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">API call</th>
-      <th style="text-align:left">Resulting artifact contents</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_file(&apos;model.h5&apos;)</code>
-      </td>
-      <td style="text-align:left"><code>model.h5</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_file(&apos;checkpoints/model.h5&apos;)</code>
-      </td>
-      <td style="text-align:left"><code>model.h5</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_file(&apos;model.h5&apos;, name=&apos;models/mymodel.h5&apos;)</code>
-      </td>
-      <td style="text-align:left"><code>models/mymodel.h5</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_dir(&apos;images&apos;)</code>
-      </td>
-      <td style="text-align:left">
-        <p><code>cat.png</code>
-        </p>
-        <p><code>dog.png</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_dir(&apos;images&apos;, name=&apos;images&apos;)</code>
-      </td>
-      <td style="text-align:left">
-        <p><code>images/cat.png</code>
-        </p>
-        <p><code>images/dog.png</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.new_file(&apos;hello.txt&apos;)</code>
-      </td>
-      <td style="text-align:left"><code>hello.txt</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| API call                                                  | Resulting artifact contents                                          |
+| --------------------------------------------------------- | -------------------------------------------------------------------- |
+| `artifact.add_file('model.h5')`                           | `model.h5`                                                           |
+| `artifact.add_file('checkpoints/model.h5')`               | `model.h5`                                                           |
+| `artifact.add_file('model.h5', name='models/mymodel.h5')` | `models/mymodel.h5`                                                  |
+| `artifact.add_dir('images')`                              | <p><code>cat.png</code></p><p><code>dog.png</code></p>               |
+| `artifact.add_dir('images', name='images')`               | <p><code>images/cat.png</code></p><p><code>images/dog.png</code></p> |
+| `artifact.new_file('hello.txt')`                          | `hello.txt`                                                          |
 
 ### Adding references
 
@@ -216,19 +170,19 @@ project-directory
 artifact.add_reference(uri, name=None, checksum=True)
 ```
 
-* **uri \(string\):** The reference URI to track.
-* **name \(string\):** An optional name override. If not provided, a name is inferred from **uri**.
-* **checksum \(bool\):** If true, the reference collects checksum information and metadata from **uri** for validation purposes.
+* **uri (string):** The reference URI to track.
+* **name (string):** An optional name override. If not provided, a name is inferred from **uri**.
+* **checksum (bool):** If true, the reference collects checksum information and metadata from **uri** for validation purposes.
 
 You can add references to external URIs to artifacts, instead of actual files. If a URI has a scheme that wandb knows how to handle, the artifact will track checksums and other information for reproducibility. Artifacts currently support the following URI schemes:
 
 * `http(s)://`: A path to a file accessible over HTTP. The artifact will track checksums in the form of etags and size metadata if the HTTP server supports the `ETag` and `Content-Length` response headers.
-* `s3://`: A path to an object or object prefix in S3. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
-* `gs://`: A path to an object or object prefix in GCS. The artifact will track checksums and versioning information \(if the bucket has object versioning enabled\) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
+* `s3://`: A path to an object or object prefix in S3. The artifact will track checksums and versioning information (if the bucket has object versioning enabled) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
+* `gs://`: A path to an object or object prefix in GCS. The artifact will track checksums and versioning information (if the bucket has object versioning enabled) for the referenced objects. Object prefixes are expanded to include the objects under the prefix, up to a maximum of 10,000 objects.
 
 For the following examples, assume we have an S3 bucket with these files:
 
-```text
+```
 s3://my-bucket
 |-- images
 |   |-- cat.png
@@ -238,54 +192,13 @@ s3://my-bucket
 +-- model.h5
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">API call</th>
-      <th style="text-align:left">Resulting artifact contents</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/model.h5&apos;)</code>
-      </td>
-      <td style="text-align:left"><code>model.h5</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/checkpoints/model.h5&apos;)</code>
-      </td>
-      <td style="text-align:left"><code>model.h5</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/model.h5&apos;, name=&apos;models/mymodel.h5&apos;)</code>
-      </td>
-      <td style="text-align:left"><code>models/mymodel.h5</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/images&apos;)</code>
-      </td>
-      <td style="text-align:left">
-        <p><code>cat.png</code>
-        </p>
-        <p><code>dog.png</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>artifact.add_reference(&apos;s3://my-bucket/images&apos;, name=&apos;images&apos;)</code>
-      </td>
-      <td style="text-align:left">
-        <p><code>images/cat.png</code>
-        </p>
-        <p><code>images/dog.png</code>
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| API call                                                                      | Resulting artifact contents                                          |
+| ----------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `artifact.add_reference('s3://my-bucket/model.h5')`                           | `model.h5`                                                           |
+| `artifact.add_reference('s3://my-bucket/checkpoints/model.h5')`               | `model.h5`                                                           |
+| `artifact.add_reference('s3://my-bucket/model.h5', name='models/mymodel.h5')` | `models/mymodel.h5`                                                  |
+| `artifact.add_reference('s3://my-bucket/images')`                             | <p><code>cat.png</code></p><p><code>dog.png</code></p>               |
+| `artifact.add_reference('s3://my-bucket/images', name='images')`              | <p><code>images/cat.png</code></p><p><code>images/dog.png</code></p> |
 
 ### Adding files from parallel runs
 
@@ -352,9 +265,9 @@ with wandb.init(group=group_name) as run:
 
 ## Using and downloading artifacts
 
-There are two patterns for using artifacts. You can use an artifact name that is explicitly stored in W&B, or you can construct an artifact object and pass it in to be deduplicated as necessary.
+There are two patterns for using artifacts. You can use an artifact name that is explicitly stored in W\&B, or you can construct an artifact object and pass it in to be deduplicated as necessary.
 
-### Use an artifact stored in W&B
+### Use an artifact stored in W\&B
 
 To get started, first indicate which artifact you'd like to use with `use_artifact`.
 
@@ -381,11 +294,11 @@ This fetches only the file at the path `name`. It returns an `Entry` object with
 * `Entry.download`: Downloads file from the artifact at path `name`
 * `Entry.ref`: If the entry was stored as a reference using `add_reference`, returns the URI
 
-References that have schemes that W&B knows how to handle can be downloaded just like artifact files. The consumer API is the same.
+References that have schemes that W\&B knows how to handle can be downloaded just like artifact files. The consumer API is the same.
 
 ### Construct and use an artifact
 
-You can also construct an artifact object and pass it to `use_artifact`. This will create the artifact in W&B if it doesn’t exist yet. This is idempotent, so you can do it as many times as you like. The artifact will only be created once, as long as the contents of `model.h5` remain the same.
+You can also construct an artifact object and pass it to `use_artifact`. This will create the artifact in W\&B if it doesn’t exist yet. This is idempotent, so you can do it as many times as you like. The artifact will only be created once, as long as the contents of `model.h5` remain the same.
 
 ```python
 artifact = wandb.Artifact('reference model')
@@ -433,7 +346,7 @@ artifact.save()
 
 ## Traversing the artifact graph
 
-W&B automatically tracks the artifacts a given run has logged as well as the artifacts a given run has used. You can walk this graph by using the following APIs:
+W\&B automatically tracks the artifacts a given run has logged as well as the artifacts a given run has used. You can walk this graph by using the following APIs:
 
 ```python
 api = wandb.Api()
@@ -451,7 +364,7 @@ used_artifacts = run.used_artifacts()
 
 ## Cleaning up unused versions
 
-As an artifact evolves over time, you might end up with a large number of versions that clutter the UI. This is especially true if you are using artifacts for model checkpoints, where only the most recent version \(the version tagged `latest`\) of your artifact is useful. W&B makes it easy to clean up these unneeded versions:
+As an artifact evolves over time, you might end up with a large number of versions that clutter the UI. This is especially true if you are using artifacts for model checkpoints, where only the most recent version (the version tagged `latest`) of your artifact is useful. W\&B makes it easy to clean up these unneeded versions:
 
 ```python
 api = wandb.Api()
@@ -465,11 +378,10 @@ for version in api.artifact_versions(artifact_type, artifact_name):
 
 ## Data privacy
 
-Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
+Artifacts use secure API-level access control. Files are encrypted at rest and in transit. Artifacts can also track references to private buckets without sending file contents to W\&B. For alternatives, contact us at contact@wandb.com to talk about private cloud and on-prem installations.
 
 ## Explore the Graph
 
 To navigate from the graph tab on an artifact, click "Explode" to see all the individual instances of each job type and artifact type. Then click a node to open that run or artifact in a new tab. Try it yourself on this [example Graph page](https://wandb.ai/shawn/detectron2-11/artifacts/dataset/furniture-small-val/06d5ddd4deeb2a6ebdd5/graph).
 
 ![](../../.gitbook/assets/2021-02-08-08.40.34.gif)
-
