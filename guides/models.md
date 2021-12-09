@@ -84,7 +84,7 @@ Create tables to visualize your results. Here's [an example report](https://wand
 
 ![](<../.gitbook/assets/image (153).png>)
 
-In this example, this [**Weave**](../ref/app/features/panels/weave.md) table is visualizing logged model [**Artifacts**](artifacts/) with:
+In this example, this [**Weave**](../ref/app/features/panels/weave/) table is visualizing logged model [**Artifacts**](artifacts/) with:
 
 1. **Model link**: A link to the registered model artifact in the app
 2. **Version**: A unique version number for each registered model
@@ -99,7 +99,7 @@ There are a few key features you can use to build your own Model Registry:
 1. ****[**Runs**](track/): Track a job execution in your ML pipeline — ex. model training, model evaluation
 2. ****[**Artifacts**](artifacts/): Track job inputs and outputs — ex. datasets, trained models
 3. ****[**Tables**](data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
-4. ****[**Weave**](../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models.
+4. ****[**Weave**](../ref/app/features/panels/weave/): Query and visualize logged data — ex. a list of trained models.
 5. ****[**Reports**](reports/): Organize and visualize results — ex. charts, tables, and notes
 
 ## Model Registry Table
