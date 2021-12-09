@@ -212,7 +212,7 @@ wandb.log({f"losses/loss-{ii}": loss for ii, loss in enumerate(losses)})
 
 {% tab title="As a histogram" %}
 ```python
-wandb.log({"losses": np.array(losses)})  # internally converts losses to a histogram
+wandb.log({"losses": wandb.Histogram(losses)})  # converts losses to a histogram
 ```
 {% endtab %}
 {% endtabs %}
