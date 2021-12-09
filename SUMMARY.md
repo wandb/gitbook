@@ -83,7 +83,6 @@
     * [Managed Cloud](guides/self-hosted/cloud.md)
     * [Local FAQ](guides/self-hosted/local-common-questions.md)
   * [Technical FAQ](guides/technical-faq.md)
-* [Page 1](page-1.md)
 * [Reference](ref/README.md)
   * [Command Line Interface](ref/cli/README.md)
     * [wandb artifact](ref/cli/wandb-artifact/README.md)
