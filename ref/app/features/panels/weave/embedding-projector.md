@@ -69,7 +69,7 @@ wandb.log({"digits": df})
 wandb.finish()
 ```
 
-After running the above code, again we are presented with a Table in the UI. By selecting `2D Projection` we can configure the definition of the embedding, coloring, algorithm (PCA, UMAP, t-SNE), algorithm parameters, and even overlay (in this case we show the image when hovering over a point). In this particular case, these are all "smart defaults" and you should see something very similar with a single click on `2D Projection`. ([Click here to interact](https://app.wandb.test/timssweeney/embedding\_tutorial/runs/k6guxhum?workspace=user-timssweeney) with this example).
+After running the above code, again we are presented with a Table in the UI. By selecting `2D Projection` we can configure the definition of the embedding, coloring, algorithm (PCA, UMAP, t-SNE), algorithm parameters, and even overlay (in this case we show the image when hovering over a point). In this particular case, these are all "smart defaults" and you should see something very similar with a single click on `2D Projection`. ([Click here to interact](https://wandb.ai/timssweeney/embedding\_tutorial/runs/k6guxhum?workspace=user-timssweeney) with this example).
 
 ![](<../../../../../.gitbook/assets/Screen Shot 2021-12-06 at 4.59.13 PM (1).png>)
 
