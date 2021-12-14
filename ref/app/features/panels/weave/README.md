@@ -76,7 +76,11 @@ In the above example, we see 3 section in the expanded Weave Configuration:
 
 ### Weave Result Panel
 
-Finally, the Weave Result Panel renders the result of the Weave Expression, using the selected Weave Panel, configured by the configuration to display the data in an interactive form. Here we can see a Table and a Plot of the same data
+Finally, the Weave Result Panel renders the result of the Weave Expression, using the selected Weave Panel, configured by the configuration to display the data in an interactive form. Here we can see a Table and a Plot of the same data.
+
+{% hint style="info" %}
+To resize all columns to the same size at once, you can `shift` + resize mouse drag.&#x20;
+{% endhint %}
 
 ![](../../../../../.gitbook/assets/screen-shot-2021-09-28-at-3.12.36-pm.png)
 
