@@ -217,7 +217,7 @@ spec:
       port: 80
       targetPort: 8080
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: wandb-ingress
@@ -409,16 +409,18 @@ spec:
       port: 80
       targetPort: 8080
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: wandb-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
-  backend:
-    serviceName: wandb-service
-    servicePort: 80
+  defaultBackend:
+    service:
+      name: wandb-service
+      port:
+        number: 80
 ```
 
 The k8s YAML above should work in most on-premise installations.  However the details of your Ingress and optional SSL termination will vary.  See [networking](setup.md#networking) below.
