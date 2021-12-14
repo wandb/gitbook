@@ -129,7 +129,7 @@ spec:
         - name: cloud-sql-proxy
           # It is recommended to use the latest version of the Cloud SQL proxy
           # Make sure to update on a regular schedule!
-          image: gcr.io/cloudsql-docker/gce-proxy:1.20.2
+          image: gcr.io/cloudsql-docker/gce-proxy:1.27.1
           command:
             - "/cloud_sql_proxy"
             # If connecting from a VPC-native GKE cluster, you can use the
@@ -154,6 +154,8 @@ spec:
               memory: 512Mi
         - name: wandb
           env:
+            - name: HOST
+              value: https://YOUR_DNS_NAME
             - name: BUCKET
               value: gs://YOUR_BUCKET_NAME
             - name: BUCKET_QUEUE
@@ -185,7 +187,11 @@ spec:
             httpGet:
               path: /ready
               port: http
-              periodSeconds: 600
+          startupProbe:
+            httpGet:
+              path: /ready
+              port: http
+            failureThreshold: 60 # allow 10 minutes for migrations
           resources:
             requests:
               cpu: "1500m"
@@ -348,6 +354,8 @@ spec:
       containers:
         - name: wandb
           env:
+            - name: HOST
+              value: https://YOUR_DNS_NAME
             - name: LICENSE
               value: XXXXXXXXXXXXXXX
             - name: BUCKET
@@ -375,6 +383,11 @@ spec:
             httpGet:
               path: /ready
               port: http
+          startupProbe:
+            httpGet:
+              path: /ready
+              port: http
+            failureThreshold: 60 # allow 10 minutes for migrations
           resources:
             requests:
               cpu: "2000m"
@@ -420,6 +433,7 @@ You can run _wandb/local_ on any instance that also has Docker installed. We sug
 
 ```bash
  docker run --rm -d \
+   -e HOST=https://YOUR_DNS_NAME \
    -e LICENSE=XXXXX \
    -e BUCKET=s3://$ACCESS_KEY:$SECRET_KEY@$HOST/$BUCKET_NAME \
    -e BUCKET_QUEUE=internal:// \
