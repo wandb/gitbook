@@ -132,7 +132,7 @@ Yes! If you exhaust a grid search but want to rerun some of the runs (for exampl
 
 If you're seeing that error message, plus `ERROR Error uploading`, you might be setting an ID for your run, e.g. `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, the error above will be thrown. In the sweeps context, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
 
-If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name `instead of `id.` For example:
+If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name` instead of `id.` For example:
 
 ```python
 wandb.init(name="a helpful readable run name")
@@ -179,7 +179,7 @@ args, unknown = parser.parse_known_args()
 ```
 
 {% hint style="info" %}
-Depending on the environment, `python` might point to Python 2. To ensure Python 3 is invoked, just use `python3` instead of `python `when configuring the command:
+Depending on the environment, `python` might point to Python 2. To ensure Python 3 is invoked, just use `python3` instead of `python` when configuring the command:
 
 ```yaml
 program:
@@ -213,3 +213,11 @@ Once a sweep has started you cannot change the sweep configuration. But you can 
 In general, you would need a way to publish `sweep_id` to a place that any potential agent can read and a way for these agents to consume this `sweep_id` and start running.&#x20;
 
 In other words, you would need something that can invoke `wandb agent`. For instance, bring up an EC2 instance and then call `wandb agent` on it. In this case, you might use a SQS queue to broadcast `sweep_id` to a few EC2 instances and then have them consume the `sweep_id` from the queue and start running.
+
+## How can I change the directory my sweep logs to locally?
+
+You can change the path of the directory where `wandb` will log your run data by changing the environment variable `WANDB_DIR`, like so:
+
+```python
+os.environ["WANDB_DIR"] = os.path.abspath("your/directory")
+```
