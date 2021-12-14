@@ -62,11 +62,11 @@ Once you have [experiments in W\&B](../../quickstart.md), easily visualize resul
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" %}
 
-## How to create a report <a href="how-to-create-a-report" id="how-to-create-a-report"></a>
+## How to create a report <a href="#how-to-create-a-report" id="how-to-create-a-report"></a>
 
 You can create a new report from a workspace, or directly from the report tab in a project.‌‌
 
-### 1. Create a report from a workspace <a href="1.-create-a-report-from-a-workspace" id="1.-create-a-report-from-a-workspace"></a>
+### 1. Create a report from a workspace <a href="#1.-create-a-report-from-a-workspace" id="1.-create-a-report-from-a-workspace"></a>
 
 Click **Create report** in the upper right corner of your workspace. This gives you a way to pull in some charts from the page to use in your new custom page.
 
@@ -81,7 +81,7 @@ We provide a few quick templates to guide you or you can create a blank report a
 * **Update** titles the report “\<today’s date> Project Update” and filters to the exact set of runs that were selected in the workspace.
 * **Blank** gives you the space to add a fresh panel grid and visualizations, or just write some notes to yourself.
 
-### 2. From the report tab‌ <a href="2.-from-the-report-page" id="2.-from-the-report-page"></a>
+### 2. From the report tab‌ <a href="#2.-from-the-report-page" id="2.-from-the-report-page"></a>
 
 Go to the Reports tab in your project, and click **Create Report** button on the report page. This creates a new blank report. Save that report to get a shareable link, or send charts to the report from different workspaces, and even different projects!
 
@@ -134,6 +134,24 @@ If you'd like to compare a different set of runs, create a new panel grid. Each 
 ## Exporting reports
 
 Click the download button to export your report as a LaTeX zip file. Check the README.md in your downloaded folder to find instructions on how to convert this file to PDF. It's easy to upload the zip file to [Overleaf](https://www.overleaf.com) to edit the LaTeX.
+
+## Embedding reports
+
+By clicking the share icon within your report you will be able to get the direct link for your report or an embeddable piece of code which can render an iframe for your tool of choice.
+
+![](../../.gitbook/assets/get\_embed\_url.gif)
+
+### Confluence
+
+Insert the direct link to the report within the iframe cell
+
+![](../../.gitbook/assets/embed\_iframe\_confluence.gif)
+
+### Notion
+
+Insert the direct link to the report within the embed cell
+
+![](../../.gitbook/assets/embed\_iframe\_notion.gif)
 
 ## Cross-project reports
 
