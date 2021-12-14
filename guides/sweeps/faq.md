@@ -216,7 +216,7 @@ In other words, you would need something that can invoke `wandb agent`. For inst
 
 ## How can I change the directory my sweep logs to locally?
 
-You can change the path of the directory where `wandb` will log your run data by changing the environment variable `WANDB_DIR`, like so:
+You can change the path of the directory where W\&B will log your run data by setting an environment variable `WANDB_DIR`. For example:
 
 ```python
 os.environ["WANDB_DIR"] = os.path.abspath("your/directory")
