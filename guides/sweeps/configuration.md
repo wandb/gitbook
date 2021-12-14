@@ -76,7 +76,7 @@ Describe the hyperparameters to explore during the sweep. For each hyperparamete
 | `values`       | Specifies all valid values for this hyperparameter. Compatible with `grid`.                                                                                                                                                                                                          |
 | `value`        | Specifies the single valid value for this hyperparameter. Compatible with `grid`.                                                                                                                                                                                                    |
 | `distribution` | (`str`) Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set. |
-| `min`, `max`   | (`int`or `float`) Maximum and minimum values. If `int`, for `int_uniform` -distributed hyperparameters. If `float`, for `uniform `-distributed hyperparameters.                                                                                                                      |
+| `min`, `max`   | (`int`or `float`) Maximum and minimum values. If `int`, for `int_uniform` -distributed hyperparameters. If `float`, for `uniform` -distributed hyperparameters.                                                                                                                      |
 | `mu`           | (`float`) Mean parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                                 |
 | `sigma`        | (`float`) Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                   |
 | `q`            | (`float`) Quantization step size for quantized hyperparameters.                                                                                                                                                                                                                      |
@@ -252,7 +252,7 @@ We support the following stopping algorithm(s):
 [Hyperband](https://arxiv.org/abs/1603.06560) stopping evaluates whether a program should be stopped or permitted to continue at one or more pre-set iteration counts, called "brackets". When a run reaches a bracket, its metric value is compared to all previous reported metric values and the run is terminated if its value is too high (when the goal is minimization) or low (when the goal is maximization).
 
 {% hint style="warning" %}
-Brackets are based on the number of _logged_ iterations, i.e. elements in the run's history. Depending on where you are calling [`wandb.log`](../track/log/),  these iterations may correspond to steps, epochs, or something in between. The numerical value of the step counter is not used in bracket calculations.
+Brackets are based on the number of _logged_ iterations, i.e. how many times you logged the metric you are trying to optimize. Depending on where you are calling [`wandb.log`](../track/log/),  these iterations may correspond to steps, epochs, or something in between. The numerical value of the step counter is not used in bracket calculations.
 {% endhint %}
 
 In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
@@ -293,7 +293,7 @@ The brackets for this example are `[27/eta, 27/eta/eta]`, which equals `[9, 3]`.
 {% endtab %}
 {% endtabs %}
 
-### `command` <a href="command" id="command"></a>
+### `command` <a href="#command" id="command"></a>
 
 Agents created with [`wandb agent`](../../ref/cli/wandb-agent.md) receive a command in the following format by default:
 
