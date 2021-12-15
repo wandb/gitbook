@@ -191,4 +191,4 @@
   * [Academics](company/academics.md)
   * [Classes](company/classes/README.md)
     * [Talks](company/classes/talks.md)
-* [Homepage](http://wandb.com)
+* [Homepage](https://wandb.ai)
