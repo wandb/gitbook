@@ -41,5 +41,9 @@ uri pointing to a remote repository, or path to a local directory.
 | -q, --queue | Name of run queue to push to. If none,   launches single run directly. If supplied |
 | without an argument (`--queue`), defaults to | queue 'default'. Else, if name supplied, |
 | specified run queue must exist under the | project and entity supplied. |
+| --async | Flag to run the job asynchronously. Defaults   to false, i.e. unless --async is set, wandb |
+| launch will wait for the job to finish. This | option is incompatible with --queue; |
+| asynchronous options when running with an | agent should be set on wandb launch-agent. |
+| --resource-args | A resource argument for launching runs with   cloud providers, of the form -R name=value. |
 | --help | Show this message and exit. |
 
