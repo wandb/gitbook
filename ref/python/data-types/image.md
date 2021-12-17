@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L1994-L2527)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L1994-L2527)
 
 
 
@@ -78,7 +78,7 @@ wandb.log({"examples": examples})
 
 <h3 id="all_boxes"><code>all_boxes</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L2452-L2473)
+[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L2452-L2473)
 
 ```python
 @classmethod
@@ -95,7 +95,7 @@ all_boxes(
 
 <h3 id="all_captions"><code>all_captions</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L2475-L2479)
+[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L2475-L2479)
 
 ```python
 @classmethod
@@ -109,7 +109,7 @@ all_captions(
 
 <h3 id="all_masks"><code>all_masks</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L2429-L2450)
+[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L2429-L2450)
 
 ```python
 @classmethod
@@ -126,7 +126,7 @@ all_masks(
 
 <h3 id="guess_mode"><code>guess_mode</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L2323-L2337)
+[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L2323-L2337)
 
 ```python
 guess_mode(
@@ -139,7 +139,7 @@ Guess what type of image the np.array is representing
 
 <h3 id="to_uint8"><code>to_uint8</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L2339-L2361)
+[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L2339-L2361)
 
 ```python
 @classmethod

@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L1627-L1941)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L1627-L1941)
 
 
 
@@ -159,7 +159,7 @@ wandb.log({"driving_scene": table})
 
 <h3 id="type_name"><code>type_name</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L1858-L1860)
+[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L1858-L1860)
 
 ```python
 @classmethod
@@ -171,7 +171,7 @@ type_name() -> str
 
 <h3 id="validate"><code>validate</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.8/wandb/sdk/data_types.py#L1862-L1923)
+[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/sdk/data_types.py#L1862-L1923)
 
 ```python
 validate(
