@@ -40,3 +40,13 @@ You can download data saved with Weights & Biases using our [export API](broken-
 ## Linked accounts
 
 If you use Google or GitHub OAuth to create and log in to a Weights & Biases account, we don't read or sync data from your repositories or folders. These connections are purely for authentication purposes. You can log files and code to associate with your runs using W\&B [Artifacts](../guides/artifacts/).
+
+## Security
+
+On December 9, 2021, the Log4j vulnerability, tracked as CVE-2021-44228, was publicly revealed via the project’s GitHub. This vulnerability, which was discovered by Chen Zhaojun of Alibaba Cloud Security Team, impacts Apache Log4j versions 2.0 to 2.14.1.
+
+Weights & Biases does not use Java or log4j in the code or secondary software used to deliver our MLOps platform or our Self-Hosted offering. Our security team has performed a thorough analysis of all other internal systems and potentially impacted vendors. Where needed, we have upgraded these internal systems to patched versions.
+
+At this time, we have not detected any successful Log4Shell exploit attempts on any internal systems. We continue to monitor our environment and evaluate any further risk to our systems and infrastructure.
+
+If you have any questions or concerns, please contact the Weights & Biases’ security team at [security@wandb.com](mailto:security@wandb.com).
