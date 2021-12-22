@@ -8,6 +8,12 @@ If you currently want to upload a CSV to a report you can do it via the `wandb.T
 
 Reload the page to refresh data in a report and get the latest results from your active runs. Workspaces automatically load fresh data if you have the **Auto-refresh** option active (available in the dropdown menu in the upper right corner of your page). Auto-refresh does not apply to reports, so this data will not refresh until you reload the page.
 
+### Filter and delete unwanted reports&#x20;
+
+Using the search bar, you can search and filter down the reports list. You can then delete an unwanted report from the list or select all and press 'Delete Reports' to remove them from your project.
+
+![Delete unwanted reports and drafts](../../.gitbook/assets/delete\_runs.gif)
+
 ### Incorporating LaTeX
 
 LaTeX can be added into reports easily. In order to do so, create a new report, and start typing. The whole page is a rich text area where you can write notes and save custom visualizations and tables.&#x20;
@@ -22,21 +28,19 @@ On a new line, press `/` and scroll to the inline equations tab to add rich cont
 | ----------------- | ------------- |
 | Bold              | `*<content>*` |
 | Italics           | `_<content>_` |
-| List item         | `* `, `- `    |
-| Ordered list item | `1. `         |
-| Checklist         | `[] `         |
-| Blockquote        | `> `, `\| `   |
-| Heading 1         |  `# `         |
-| Heading 2         | `## `         |
-| Heading 3         | `### `        |
-| Code block        | ` ```  `      |
-| Inline code       | `` `  ``      |
-| Callout block     | `>>> `        |
+| List item         | `*` , `-`     |
+| Ordered list item | `1.`          |
+| Checklist         | `[]`          |
+| Blockquote        | `>` , `\|`    |
+| Heading 1         |  `#`          |
+| Heading 2         | `##`          |
+| Heading 3         | `###`         |
+| Code block        | ` ``` `       |
+| Inline code       | `` ` ``       |
+| Callout block     | `>>>`         |
 | Horizontal rule   | `---`, `___`  |
 
 A comprehensive list of LaTeX can be found [here](https://en.wikibooks.org/wiki/LaTeX/Mathematics).&#x20;
-
-
 
 ### **WYSIWYG FAQ**
 
