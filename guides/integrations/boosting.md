@@ -21,21 +21,20 @@ bst = xgb.train(param, train_data, num_round, watchlist,
 
 {% tab title="LightGBM" %}
 ```python
-from wandb.lightgbm import wandb_callback
+from wandb.lightgbm import wandb_callback, log_summary
 import lightgbm as lgb
 
-...
+# Log metrics to W&B
+gbm = lgb.train(..., callbacks=[wandb_callback()])
 
-gbm = lgb.train(params, train_data,
-                num_boost_round=20, valid_sets=valid_data,
-                valid_names=('validation'),
-                callbacks=[wandb_callback()])
+# Log feature importance plot and upload model checkpoint to W&B 
+log_summary(gbm, save_model_checkpoint=True)
 ```
 {% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
-Looking for working code examples? Check out [our repository of examples on GitHub](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms) or try out a Colab notebook \([XGBoost](http://wandb.me/xgb-colab), [LightGBM](http://wandb.me/lightgbm-colab)\).
+Looking for working code examples? Check out [our repository of examples on GitHub](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms) or try out a Colab notebook ([XGBoost](http://wandb.me/xgb-colab), [LightGBM](http://wandb.me/lightgbm-colab)).
 {% endhint %}
 
 ## Tuning your hyperparameters with Sweeps
@@ -46,5 +45,4 @@ Attaining the maximum performance out of models requires tuning hyperparameters,
 To learn more about these tools and see an example of how to use Sweeps with XGBoost, check out [this interactive Colab notebook.](http://wandb.me/xgb-sweeps-colab)
 {% endhint %}
 
-![tl;dr: trees outperform linear learners on this classification dataset.](../../.gitbook/assets/image%20%2870%29.png)
-
+![tl;dr: trees outperform linear learners on this classification dataset.](<../../.gitbook/assets/image (70).png>)
