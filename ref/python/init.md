@@ -110,9 +110,9 @@ Pass a dictionary-style object as the `config` keyword argument to add metadata,
 import wandb
 
 config = {
-    "lr": 3e-4, 
-    "batch_size": 32
-    }
+  "lr": 3e-4, 
+  "batch_size": 32
+}
     
 config.update({"architecture": "resnet", "depth": 34})
 wandb.init(config=config) 
