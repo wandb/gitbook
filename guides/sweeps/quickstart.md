@@ -3,7 +3,7 @@
 Start from any machine learning model and get a parallel hyperparameter sweep running in minutes.&#x20;
 
 {% hint style="info" %}
-Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion/sweeps/v8dil26q).
+Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3).
 {% endhint %}
 
 ![Draw insights from large hyperparameter tuning experiments with interactive dashboards.](<../../.gitbook/assets/image (72).png>)
@@ -195,7 +195,7 @@ wandb agent <USERNAME/PROJECTNAME/SWEEPID>
 
 Open your project to see your live results in the sweep dashboard. With just a few clicks, construct rich, interactive charts like [parallel coordinates plots](../../ref/app/features/panels/parallel-coordinates.md),[ parameter importance analyses](../../ref/app/features/panels/parameter-importance.md), and [more](../../ref/app/features/panels/).
 
-[Example dashboard →](https://app.wandb.ai/carey/pytorch-cnn-fashion)
+[Example dashboard →](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3)
 
 ![](<../../.gitbook/assets/image (88) (2) (3) (3) (3) (3) (3) (5).png>)
 
