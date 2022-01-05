@@ -54,6 +54,8 @@ Your **default entity** is updated when you join a team. This means that on your
 
 ![](../../../.gitbook/assets/screen-shot-2020-08-17-at-12.48.57-am.png)
 
+## Team Management FAQs
+
 ### Invite team members
 
 You can invite new members to your team on your team settings page:\
