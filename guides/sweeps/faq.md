@@ -221,3 +221,16 @@ You can change the path of the directory where W\&B will log your run data by se
 ```python
 os.environ["WANDB_DIR"] = os.path.abspath("your/directory")
 ```
+
+## How to launch agents on multiple GPUs?
+
+You can launch sweep agents on multiple GPUs.
+
+* First specify the hyperparameters you’re sweeping over in a YAML file, as detailed further in the [sweep docs](https://docs.wandb.com/sweeps).
+* Get the sweep id by running the wandb sweep command and passing the yaml file as an argument
+*   Run the wandb agent with the sweep id you just got. You will also need the to specify the GPU like this:
+
+    ```
+     CUDA_VISIBLE_DEVICES=0 wandb agent sweep_id
+     CUDA_VISIBLE_DEVICES=1 wandb agent sweep_id
+    ```
