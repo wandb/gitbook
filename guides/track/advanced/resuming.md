@@ -83,7 +83,7 @@ while epoch < N_EPOCHS:
 {% endtab %}
 {% endtabs %}
 
-There are different ways in which W\&B can be used to resume runs
+There are different ways in which W\&B can be used to resume runs as detailed below:
 
 1.  [`resume`](https://docs.wandb.ai/guides/track/advanced/resuming)``
 
