@@ -83,7 +83,23 @@ while epoch < N_EPOCHS:
 {% endtab %}
 {% endtabs %}
 
-Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set the WANDB\_RUN\_ID: a globally unique string (per project) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
+There are different ways in which W\&B can be used to resume runs
+
+1.  [`resume`](https://docs.wandb.ai/guides/track/advanced/resuming)``
+
+    1. This is our recommended method to resume runs with W\&B. As described above, runs can be resumed by passing`resume=True` to `wandb.init()`. This can be thought of as auto-resuming, where we “automatically” pick up from where an aborted run left off. If your process doesn't exit successfully, the next time you run it wandb will start logging from the last step.&#x20;
+       * Note: This only works if you are running your script in the same directory as the one that failed as the file is stored at: `wandb/wandb-resume.json`.
+    2. The other form of resume requires you to provide the actual run id: `wandb.init(id=run_id)` and then when you resume (if you want to be sure that it is resuming, you do `wandb.init(id=run_id, resume="must")`.
+       * You can also have full control over resuming if you manage the `run_id`. We provide a utility to generate `run_id`: `wandb.util.generate_id()`. As long as you set the id to one of these unique ids for each unique run, you can say `resume="allow"` and wandb will automatically resume the run with that id.
+
+    More context regarding automatic and controlled resuming can be found in [this section](resuming.md#undefined).
+2. ``[`wandb.restore`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.restore)&#x20;
+   1. This will allow you to log new historical values for your metrics to a run starting from where you left off but does not take care of re-establishing the state of your code, you will need to make sure you have written checkpoints that you can load!
+   2. You can use [`wandb.save`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.save) to record the state of your run via checkpoint files. Create a checkpoint file through `wandb.save()`, which can then be used through `wandb.init(resume=<run-id>)`. [This report](https://wandb.ai/lavanyashukla/save\_and\_restore/reports/Saving-and-Restoring-Models-with-W-B--Vmlldzo3MDQ3Mw) illustrates how to save and restore models with W\&B.
+
+#### Automatic and controlled resuming
+
+Automatic resuming only works if the process is restarted on top of the same filesystem as the failed process. If you can't share a filesystem, we allow you to set the `WANDB_RUN_ID`: a globally unique string (per project) corresponding to a single run of your script. It must be no longer than 64 characters. All non-word characters will be converted to dashes.
 
 ```python
 # store this id to use it later when resuming
