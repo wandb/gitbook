@@ -96,8 +96,8 @@ There are different ways in which W\&B can be used to resume runs as detailed be
 
     More context regarding automatic and controlled resuming can be found in [this section](resuming.md#undefined).
 2. ``[`wandb.restore`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.restore)&#x20;
-   1. This will allow you to log new historical values for your metrics to a run starting from where you left off but does not take care of re-establishing the state of your code, you will need to make sure you have written checkpoints that you can load!
-   2. You can use [`wandb.save`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.save) to record the state of your run via checkpoint files. Create a checkpoint file through `wandb.save()`, which can then be used through `wandb.init(resume=<run-id>)`. [This report](https://wandb.ai/lavanyashukla/save\_and\_restore/reports/Saving-and-Restoring-Models-with-W-B--Vmlldzo3MDQ3Mw) illustrates how to save and restore models with W\&B.
+   * This will allow you to log new historical values for your metrics to a run starting from where you left off but does not take care of re-establishing the state of your code, you will need to make sure you have written checkpoints that you can load!
+   * You can use [`wandb.save`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.save) to record the state of your run via checkpoint files. Create a checkpoint file through `wandb.save()`, which can then be used through `wandb.init(resume=<run-id>)`. [This report](https://wandb.ai/lavanyashukla/save\_and\_restore/reports/Saving-and-Restoring-Models-with-W-B--Vmlldzo3MDQ3Mw) illustrates how to save and restore models with W\&B.
 
 #### Automatic and controlled resuming
 
