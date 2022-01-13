@@ -14,8 +14,8 @@ If you use OpenAI's [API to fine-tune GPT-3](https://beta.openai.com/docs/guides
 
 ## :sparkles: Check out interactive examples
 
-* [Demo Colab](https://colab.research.google.com/drive/1Tr9dYlwBKk6-LgLKGO8KYZULnguVA992?usp=sharing)
-* [Report - GPT-3 Exploration and Fine-Tuning Tips](https://wandb.ai/borisd13/gpt-3-backup/reports/GPT-3-exploration-fine-tuning-tips--VmlldzoxMTAxNDE2)
+* [Demo Colab](http://wandb.me/openai-colab)
+* [Report - GPT-3 Exploration and Fine-Tuning Tips](http://wandb.me/openai-report)
 
 ## :tada: Sync your fine-tune runs with one line!
 
@@ -178,5 +178,5 @@ This will allow complete traceability of your models.
 ## :books: Resources
 
 * [OpenAI Fine-tuning Documentation](https://beta.openai.com/docs/guides/fine-tuning) is very thorough and contains many useful tips
-* [Demo Colab](https://colab.research.google.com/drive/1xu2CDJdIybC\_65PRNeGP5ZmBbnY3PYDB?usp=sharing)
-* [Report - GPT-3 Exploration & Fine-tuning Tips](https://wandb.ai/borisd13/gpt-3-backup/reports/GPT-3-exploration-fine-tuning-tips--VmlldzoxMTAxNDE2)
+* [Demo Colab](http://wandb.me/openai-colab)
+* [Report - GPT-3 Exploration & Fine-tuning Tips](http://wandb.me/openai-report)
