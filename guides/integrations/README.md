@@ -10,7 +10,7 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 
 * [Examples](https://github.com/wandb/examples): GitHub repo with working, end-to-end code examples for all of our integrations
 * [Colabs](https://github.com/wandb/examples/tree/master/colabs): Try out W\&B inside different frameworks, such as [PyTorch Lightning](http://wandb.me/lit-colab), in an interactive notebook -- no installation required
-* [Video Tutorials](https://www.youtube.com/playlist?list=PLD80i8An1OEGajeVo15ohAQYF1Ttle0lk): Learn to use W\&B with YouTube videos for PyTorch, Keras, and more. Here's an example:
+* [Video Tutorials](https://www.youtube.com/playlist?list=PLD80i8An1OEGajeVo15ohAQYF1Ttle0lk): Learn to use W\&B with YouTube videos for PyTorch, Keras, and more.
 
 ## Guides for Specific Integrations
 
