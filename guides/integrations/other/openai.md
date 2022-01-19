@@ -24,7 +24,7 @@ All it takes is one line: `wandb openai sync`
 :warning: **Beta:** You currently need to install a custom version of the `wandb` library to unlock this feature:
 
 ```shell-session
-$ pip install --upgrade git+https://github.com/borisdayma/openai-python.git@feat-wandb
+$ pip install --upgrade pip install git+https://github.com/openai/openai-python.git@refs/pull/64/merge
 ```
 
 Then sync your results from the command line or from your script.
