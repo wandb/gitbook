@@ -19,7 +19,7 @@ All it takes is one line: `wandb openai sync`
 * [Demo Colab](http://wandb.me/openai-colab)
 * [Report - GPT-3 Exploration and Fine-Tuning Tips](http://wandb.me/openai-report)
 
-## :tada: Sync your fine-tune runs with one line!
+## :tada: Sync your fine-tunes with one line!
 
 :warning: **Beta:** You currently need to install a custom version of the `wandb` library to unlock this feature:
 
@@ -50,7 +50,7 @@ Logger.sync()
 # passing optional parameters
 Logger.sync(
     id=None,
-    n_jobs=None,
+    n_fine_tunes=None,
     project="GPT-3",
     entity=None,
     force=False,
@@ -60,7 +60,7 @@ Logger.sync(
 {% endtab %}
 {% endtabs %}
 
-We scan for new completed runs and automatically add them to your dashboard.
+We scan for new completed fine-tunes and automatically add them to your dashboard.
 
 ![](<../../../.gitbook/assets/image (168).png>)
 
@@ -70,14 +70,14 @@ In addition your training and validation files are logged and versioned, as well
 
 ## :gear: Optional arguments
 
-| Argument                      | Description                                                                                                               |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| -i ID, --id ID                | The id of the fine-tune job (optional)                                                                                    |
-| -n N\_JOBS, --n\_jobs N\_JOBS | Number of most recent fine-tune jobs to log when an id is not provided. By default, every fine-tune is synced.            |
-| --project PROJECT             | Name of the project where you're sending runs. By default, it is "GPT-3".                                                 |
-| --entity ENTITY               | Username or team name where you're sending runs. By default, your default entity is used, which is usually your username. |
-| --force                       | Forces logging and overwrite existing wandb run of the same finetune job.                                                 |
-| \*\*kwargs\_wandb\_init       | In python, any additional argument is directly passed to [`wandb.init()`](../../../ref/python/init.md)``                  |
+| Argument                 | Description                                                                                                               |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| -i ID, --id ID           | The id of the fine-tune (optional)                                                                                        |
+| -n N, --n\_fine\_tunes N | Number of most recent fine-tunes to log when an id is not provided. By default, every fine-tune is synced.                |
+| --project PROJECT        | Name of the project where you're sending runs. By default, it is "GPT-3".                                                 |
+| --entity ENTITY          | Username or team name where you're sending runs. By default, your default entity is used, which is usually your username. |
+| --force                  | Forces logging and overwrite existing wandb run of the same fine-tune.                                                    |
+| \*\*kwargs\_wandb\_init  | In python, any additional argument is directly passed to [`wandb.init()`](../../../ref/python/init.md)``                  |
 
 ## 🔍 Inspect sample predictions
 
@@ -145,9 +145,9 @@ In addition, you can rename your runs, add notes or create tags to group them.
 
 Once you’re satisfied, you can save your workspace and use it to create report, importing data from your runs and saved artifacts (training/validation files).
 
-### How can I access my fine-tune job details?
+### How can I access my fine-tune details?
 
-Job files are logged to W\&B as artifacts and can be accessed with:
+Fine-tune details are logged to W\&B as artifacts and can be accessed with:
 
 ```python
 import wandb
@@ -161,13 +161,13 @@ artifact_job = wandb.run.use_artifact('USERNAME/PROJECT/job_details:VERSION')
 * the fine-tune id such as `ft-xxxxxxxxx`
 * an alias added automatically such as `latest` or manually
 
-You can then access job details through `artifact_job.metadata`. For example, the fine-tuned model can be retrieved with `artifact_job.metadata[`"`fine_tuned_model"]`.
+You can then access fine-tune details through `artifact_job.metadata`. For example, the fine-tuned model can be retrieved with `artifact_job.metadata[`"`fine_tuned_model"]`.
 
-### What if a fine-tune run was not synced successfully?
+### What if a fine-tune was not synced successfully?
 
-You can always call again `openai wandb sync` and we will resync any run that was not synced successfully.
+You can always call again `openai wandb sync` and we will re-sync any run that was not synced successfully.
 
-If needed, you can call `openai wandb sync --id fine_tune_id --force` to force resyncing a specific fine-tune run.
+If needed, you can call `openai wandb sync --id fine_tune_id --force` to force re-syncing a specific fine-tune.
 
 ### Can I track my datasets with W\&B?
 
