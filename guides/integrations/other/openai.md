@@ -1,7 +1,5 @@
 ---
-description: >-
-  Fine-tune OpenAI GPT-3 and other models on your own data and track results
-  with W&B.
+description: Fine-tune OpenAI GPT-3 on your own data and track results with W&B
 ---
 
 # \[Beta] OpenAI API
@@ -10,7 +8,9 @@ description: >-
 **Beta Integration**: This is a new feature, and we're actively working on making this better. Please reach out if you have any feedback — contact@wandb.com
 {% endhint %}
 
-If you use OpenAI's [API to fine-tune GPT-3](https://beta.openai.com/docs/guides/fine-tuning), you can now use the W\&B integration to track experiments, models, and datasets in your central dashboard.
+OpenAI’s API gives practitioners access to GPT-3, an incredibly powerful natural language model that can be applied to virtually any task that involves understanding or generating natural language.
+
+If you use OpenAI's API to [fine-tune GPT-3](https://beta.openai.com/docs/guides/fine-tuning), you can now use the W\&B integration to track experiments, models, and datasets in your central dashboard.
 
 ## :sparkles: Check out interactive examples
 
