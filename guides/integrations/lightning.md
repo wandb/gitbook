@@ -6,7 +6,9 @@ description: >-
 
 # PyTorch Lightning
 
-PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/advanced/multi\_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/advanced/amp.html). W\&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/stable/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html#pytorch\_lightning.loggers.WandbLogger) for reference information on the API.
+PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/advanced/multi\_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/advanced/amp.html). W\&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/stable/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html#pytorch\_lightning.loggers.WandbLogger) for reference information on the API.&#x20;
+
+Check out [**our Google colab**](https://www.wandb.me/lightning) to get started
 
 ## ⚡ Get going lightning-fast with just two lines.
 
@@ -24,7 +26,7 @@ trainer = Trainer(logger=wandb_logger)
 
 {% tabs %}
 {% tab title="Colab + Video Tutorial" %}
-Run GPU-accelerated PyTorch Lighting plus W\&B logging without installing anything using [this Colab](http://wandb.me/lit-colab). And follow along with a video tutorial!
+Run GPU-accelerated PyTorch Lighting plus W\&B logging without installing anything using [this Colab](https://www.wandb.me/lightning). And follow along with a video tutorial!
 
 {% embed url="https://www.youtube.com/watch?v=hUXQm46TAKc" %}
 {% endtab %}
