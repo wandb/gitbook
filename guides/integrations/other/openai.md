@@ -12,6 +12,8 @@ OpenAI’s API gives practitioners access to GPT-3, an incredibly powerful natur
 
 If you use OpenAI's API to [fine-tune GPT-3](https://beta.openai.com/docs/guides/fine-tuning), you can now use the W\&B integration to track experiments, models, and datasets in your central dashboard.
 
+All it takes is one line: `wandb openai sync`
+
 ## :sparkles: Check out interactive examples
 
 * [Demo Colab](http://wandb.me/openai-colab)
