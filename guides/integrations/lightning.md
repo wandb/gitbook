@@ -102,6 +102,8 @@ Unlike scalars, media objects are logged differently by each framework. To keep 
 
 Inside your `Callback`, you can either call `wandb.log`, as when using `wandb` with other libraries, or `trainer.logger.experiment.log`. In either case, you can do anything you could do with [wandb.log](../../ref/python/log.md).
 
+When logging images you can also use `trainer.logger.log_image`  and when logging text you can also use `trainer.logger.log_text`
+
 {% hint style="info" %}
 When manually calling `wandb.log` or `trainer.logger.experiment.log`, make sure to include the key/value pair `"global_step": trainer.global_step`. That way, you can line up the information you're currently logging with information logged via other methods.
 {% endhint %}
