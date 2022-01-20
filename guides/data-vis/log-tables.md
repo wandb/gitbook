@@ -89,7 +89,7 @@ Each time a table is logged to the same key, a new version of the table is creat
 {% hint style="info" %}
 To log more than 200,000 rows, you can override the limit with:
 
-`wandb.Table.MAX_ROWS = X `
+`wandb.Table.MAX_ROWS = X`&#x20;
 
 However, this would likely cause performance issues, such as slower queries, in the UI.
 {% endhint %}
@@ -123,7 +123,7 @@ Any table logged this way will show up in your Workspace on both the Run Page an
 
 ## Advanced: Artifact Tables
 
-Use `artifact.add()` to log tables to the Artifacts section of your run instead of the workspace. This could be useful if you have a dataset that you want to log once and then reference for future runs. Refer to this colab for a [detailed example of artifact.add() →  ](http://wandb.me/dsviz-nature-colab)
+Use `artifact.add()` to log tables to the Artifacts section of your run instead of the workspace. This could be useful if you have a dataset that you want to log once and then reference for future runs. Refer to this Colab for a [detailed example of artifact.add() with image data →](http://wandb.me/dsviz-nature-colab) and this Report for an example of how to use Artifacts and Tables to [version control and deduplicate tabular data →](http://wandb.me/TBV-Dedup).
 
 ```python
 run = wandb.init(project="my_project")
