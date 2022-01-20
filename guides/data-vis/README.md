@@ -24,7 +24,7 @@ wandb.log({"table": my_dataframe})
 
 ### Rich media
 
-Add rich media to your logged [Table](log-tables.md) (images, audio, point clouds, etc) with `wandb` [data types](../../ref/python/data-types/). 
+Add rich media to your logged [Table](log-tables.md) (images, audio, point clouds, etc) with `wandb` [data types](../../ref/python/data-types/).&#x20;
 
 ![](<../../.gitbook/assets/wandb - demo table visualizer.png>)
 
@@ -38,7 +38,7 @@ Tables are great for storing, understanding, and sharing any form of data critic
 
 ### **Actually see your data**
 
-Log metrics and rich media during model training or evaluation, then visualize results in a persistent database synced to the cloud, or to your [self-hosted instance](https://docs.wandb.ai/guides/self-hosted). For example, check out this [balanced split of a photos dataset →](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat\_80-10-10\_5K/ab79f01e007113280018/files/data_split.table.json)
+Log metrics and rich media during model training or evaluation, then visualize results in a persistent database synced to the cloud, or to your [self-hosted instance](https://docs.wandb.ai/guides/self-hosted). For example, check out this [balanced split of a photos dataset →](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018/files/data\_split.table.json)
 
 ![Browse actual examples and verify the counts & distribution of your data](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZVv0k-vSjItkYUQiex%2F-MZYHUyVTRhOR1SSW-Qb%2FScreen%20Shot%202021-04-30%20at%207.57.22%20AM.png?alt=media\&token=9634825b-4b3b-42cf-a19b-7d2338384a06)
 
@@ -50,7 +50,7 @@ View, sort, filter, group, join, and query Tables to understand your data and mo
 
 ### **Compare model versions**
 
-Quickly compare results across different training epochs, datasets, hyperparameter choices, model architectures etc. For example, take a look at this comparison of [two models on the same test images →](https://wandb.ai/stacey/evalserver_answers\_2/artifacts/results/eval_Daenerys/c2290abd3d7274f00ad8/files/eval_results.table.json#b6dae62d4f00d31eeebf$eval_Bob)
+Quickly compare results across different training epochs, datasets, hyperparameter choices, model architectures etc. For example, take a look at this comparison of [two models on the same test images →](https://wandb.ai/stacey/evalserver\_answers\_2/artifacts/results/eval\_Daenerys/c2290abd3d7274f00ad8/files/eval\_results.table.json#b6dae62d4f00d31eeebf$eval\_Bob)
 
 ![See granular differences: the left model detects some red sidewalk, the right does not.](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZVW5FKKkNnlhtrUDki%2F-MZVuqE2fGRN2W40xpVh%2FScreen%20Shot%202021-04-29%20at%208.55.25%20PM.png?alt=media\&token=e83f6492-a6f2-49a4-9e08-9de9a1612567)
 
@@ -64,7 +64,7 @@ Zoom in to visualize a specific prediction at a specific step. Zoom out to see t
 
 ### Image classification
 
-Read [this report](https://wandb.ai/stacey/mendeleev/reports/Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA), follow [this colab](https://wandb.me/dsviz-nature-colab), or explore this [artifacts context](https://wandb.ai/stacey/mendeleev/artifacts/val_epoch_preds/val_pred_gawf9z8j/2dcee8fa22863317472b/files/val_epoch_res.table.json) for a CNN identifying 10 types of living things (plants, bird, insects, etc) from [iNaturalist](https://www.inaturalist.org/pages/developers) photos.
+Read [this report](https://wandb.ai/stacey/mendeleev/reports/Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA), follow [this colab](https://wandb.me/dsviz-nature-colab), or explore this [artifacts context](https://wandb.ai/stacey/mendeleev/artifacts/val\_epoch\_preds/val\_pred\_gawf9z8j/2dcee8fa22863317472b/files/val\_epoch\_res.table.json) for a CNN identifying 10 types of living things (plants, bird, insects, etc) from [iNaturalist](https://www.inaturalist.org/pages/developers) photos.
 
 ![Compare the distribution of true labels across two different models' predictions.](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZZ-rHMOwjfrB1rXLg9%2F-MZZ404GQuSIDUt0ilCG%2FScreen%20Shot%202021-04-30%20at%2011.37.23%20AM.png?alt=media\&token=8290d47a-4de2-4441-a389-0a8c39135102)
 
@@ -78,17 +78,23 @@ Interact with audio Tables in[ this report](https://wandb.ai/stacey/cshanty/repo
 
 Browse text samples from training data or generated output, dynamically group by relevant fields, and align your evaluation across model variants or experiment settings. Explore a simple character-based RNN for generating Shakespeare in [this report →](https://wandb.ai/stacey/nlg/reports/Visualize-Text-Data-Predictions--Vmlldzo1NzcwNzY)
 
-![Doubling the size of the hidden layer yields some more creative prompt completions.](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZovIldq3JZifxZ9pSh%2F-MZoyefoDx_TwzrWxIv7%2Fshakesamples.png?alt=media\&token=7323f9e4-f565-43f2-8a3e-43c9b3d38550)
+![Doubling the size of the hidden layer yields some more creative prompt completions.](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZovIldq3JZifxZ9pSh%2F-MZoyefoDx\_TwzrWxIv7%2Fshakesamples.png?alt=media\&token=7323f9e4-f565-43f2-8a3e-43c9b3d38550)
 
 ### Video
 
-Browse and aggregate over videos logged during training to understand your models. Here is an early example using the [SafeLife benchmark](https://wandb.ai/safelife/v1dot2/benchmark) for RL agents seeking to [minimize side effects →](https://wandb.ai/stacey/saferlife/artifacts/video/videos_append-spawn/c1f92c6e27fa0725c154/files/video_examples.table.json)
+Browse and aggregate over videos logged during training to understand your models. Here is an early example using the [SafeLife benchmark](https://wandb.ai/safelife/v1dot2/benchmark) for RL agents seeking to [minimize side effects →](https://wandb.ai/stacey/saferlife/artifacts/video/videos\_append-spawn/c1f92c6e27fa0725c154/files/video\_examples.table.json)
 
 ![Browse easily through the few successful agents](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZovIldq3JZifxZ9pSh%2F-MZp-5h62yXSoqrCOJYC%2FScreen%20Shot%202021-04-22%20at%209.41.27%20PM.png?alt=media\&token=56439234-ab05-47fa-8c2c-38b22de8339f)
 
+### Tabular data&#x20;
+
+A report on [splitting and preprocessing tabular data](https://wandb.ai/dpaiton/splitting-tabular-data/reports/Tabular-Data-Versioning-and-Deduplication-with-Weights-Biases--VmlldzoxNDIzOTA1) with version control and deduplication.
+
+![Tables and Artifacts work together to version control, label, and deduplicate your dataset iterations](../../.gitbook/assets/tabs.png)
+
 ### Comparing model variants (semantic segmentation)
 
-An [interactive notebook](https://wandb.me/dsviz-cars-demo) and [live example](https://wandb.ai/stacey/evalserver_answers\_2/artifacts/results/eval_Daenerys/c2290abd3d7274f00ad8/files/eval_results.table.json#a57f8e412329727038c2$eval_Ada) of logging Tables for semantic segmentation and comparing different models. Try your own queries [in this Table →](https://wandb.ai/stacey/evalserver_answers\_2/artifacts/results/eval_Daenerys/c2290abd3d7274f00ad8/files/eval_results.table.json)
+An [interactive notebook](https://wandb.me/dsviz-cars-demo) and [live example](https://wandb.ai/stacey/evalserver\_answers\_2/artifacts/results/eval\_Daenerys/c2290abd3d7274f00ad8/files/eval\_results.table.json#a57f8e412329727038c2$eval\_Ada) of logging Tables for semantic segmentation and comparing different models. Try your own queries [in this Table →](https://wandb.ai/stacey/evalserver\_answers\_2/artifacts/results/eval\_Daenerys/c2290abd3d7274f00ad8/files/eval\_results.table.json)
 
 ![Find the best predictions across two models on the same test set](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZovIldq3JZifxZ9pSh%2F-MZp1p-1yi0JtkF5VAtu%2FScreen%20Shot%202021-05-03%20at%206.41.36%20PM.png?alt=media\&token=6261dee5-7bb7-412b-befd-a9ae27856401)
 
