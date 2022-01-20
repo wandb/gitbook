@@ -431,7 +431,7 @@ W\&B supports operating from within an [Openshift kubernetes cluster](https://ww
 
 ### Docker
 
-You can run _wandb/local_ on any instance that also has Docker installed. We suggest at least 8GB of RAM and 4vCPU's. Simply run the following command to launch the container:
+You can run _wandb/local_ on any instance that also has Docker installed. We suggest **at least 8GB of RAM and 4vCPU's**. Simply run the following command to launch the container:
 
 ```bash
  docker run --rm -d \

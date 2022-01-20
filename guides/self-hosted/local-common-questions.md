@@ -37,4 +37,6 @@ description: Frequently asked questions about setting up locally-hosted versions
 **Can I use environment variables to store my token?**\
 ****You can set `WANDB_API_KEY` and `WANDB_BASE_URL` environment variables.
 
-****
+**How to fix MySQL 5.7 `max_prepared_stmt_count` error?**
+
+Usually the `max_prepared_stmt_count` values range from `0-1048576`  with the default being `16382`. If you're running into this error, contact your DB admin to update the `max_prepared_stmt_count` to `1048576` and the error should be resolved.
