@@ -32,7 +32,7 @@ description: Frequently asked questions about setting up locally-hosted versions
 ****If you're unable to connect to your instance you can put it in restore mode by setting the LOCAL\_RESTORE environment variable when you start local. If you're starting wandb local using our cli you can do so with `wandb local -e LOCAL_RESTORE=true` Look at the logs printed on startup for a temporary username / password to access the instance.
 
 **Does a wandb server need read or write access to the S3 bucket?**\
-****Yes to both. The wandb server needs to be able to read from the bucket in order to generate signed URLs for use by clients, and it needs to have write access in order to update file metadata. Because the server generates temporary signed URLs for use by clients, there’s no need to make the s3 bucket public or explicitly grant permissions to any end-users.
+****Yes to both. The wandb server needs to be able to read from the bucket in order to generate signed URLs for use by clients, and it needs to have write access in order to update file metadata (see section '[Grant Permissions to Node Running W\&B](https://docs.wandb.ai/guides/self-hosted/configuration#amazon-web-services)'). Because the server generates temporary signed URLs for use by clients, there’s no need to make the s3 bucket public or explicitly grant permissions to any end-users.
 
 **Can I use environment variables to store my token?**\
 ****You can set `WANDB_API_KEY` and `WANDB_BASE_URL` environment variables.
