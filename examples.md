@@ -23,10 +23,13 @@ Explore what's possible in the W\&B app with the example projects below. Looking
    3. [Finance](examples.md#finance)
       1. [Interpretable credit scorecards with XGBoost](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/boosting/Credit\_Scorecards\_with\_XGBoost\_and\_W%26B.ipynb)
 2. [Examples by technique](examples.md#examples-by-technique)
-   1. [Computer Vision](examples.md#computer-vision)
+   1. [Classification](examples.md#undefined)
+      1. [Sentiment Classification using JAX/FLAX ](https://www.kaggle.com/heyytanay/sentiment-clf-jax-flax-on-tpus-w-b/notebook)
+      2. [Tables tutorial: Visualize Data for Image Classification](https://wandb.ai/stacey/mendeleev/reports/Tables-Tutorial-Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA)
+   2. [Computer Vision](examples.md#computer-vision)
       1. [Train and fine-tune CNNs beyond ImageNet](https://wandb.ai/stacey/curr\_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng)
       2. [Extracting text from visually structured forms](https://wandb.ai/stacey/deepform\_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg)
-   2. [Distributed Training](examples.md#distributed-training)
+   3. [Distributed Training](examples.md#distributed-training)
       1. [Data Parallel distributed training in Keras](https://wandb.ai/stacey/estuary/reports/Distributed-Training--Vmlldzo1MjEw)
       2. [Optimize Pytorch-Lightning models](https://www.pytorchlightning.ai/blog/use-pytorch-lightning-with-weights-biases)
 
@@ -111,6 +114,22 @@ Track experiments, generate credit scorecard for loan defaults and run a hyperpa
 {% endtabs %}
 
 ## Examples by technique
+
+### **Classification**
+
+{% tabs %}
+{% tab title="Sentiment Classification" %}
+[Sentiment Classification](https://www.kaggle.com/heyytanay/sentiment-clf-jax-flax-on-tpus-w-b/notebook) on 1.6 Million tweets using Jax/Flax with TPUs using HuggingFace BERT and W\&B Tracking!
+
+![Sentiment Classifcation using JAX/FLAX](<.gitbook/assets/image (163).png>)
+{% endtab %}
+
+{% tab title="Image Classification" %}
+Read [this report](https://wandb.ai/stacey/mendeleev/reports/Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA), follow [this colab](https://wandb.me/dsviz-nature-colab), or explore this [artifacts context](https://wandb.ai/stacey/mendeleev/artifacts/val\_epoch\_preds/val\_pred\_gawf9z8j/2dcee8fa22863317472b/files/val\_epoch\_res.table.json) for a CNN identifying 10 types of living things (plants, bird, insects, etc) from [iNaturalist](https://www.inaturalist.org/pages/developers) photos.
+
+![Compare the distribution of true labels across two different models' predictions.](<.gitbook/assets/image (161).png>)
+{% endtab %}
+{% endtabs %}
 
 ### **Computer Vision**
 
