@@ -96,7 +96,7 @@ Retrieve a model id for inference.
 You can use automatically logged artifacts to retrieve your latest model:
 
 ```python
-artifact_job = run.use_artifact("ENTITY/PROJECT/job_details:latest")
+artifact_job = run.use_artifact("ENTITY/PROJECT/fine_tune_details:latest")
 fine_tuned_model = artifact_job.metadata["fine_tuned_model"]
 ```
 
@@ -124,7 +124,7 @@ Log your results with a Table:
 
 ```python
 table = wandb.Table(columns=['prompt', 'completion'],
-                    data=list(zip(prompts, completions)))
+                    data=list(zip(my_prompts, results)))
 ```
 
 ## :question:Frequently Asked Questions
