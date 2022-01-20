@@ -23,7 +23,7 @@ Explore what's possible in the W\&B app with the example projects below. Looking
    3. [Finance](examples.md#finance)
       1. [Interpretable credit scorecards with XGBoost](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/boosting/Credit\_Scorecards\_with\_XGBoost\_and\_W%26B.ipynb)
 2. [Examples by technique](examples.md#examples-by-technique)
-   1. [Classification](examples.md#undefined)
+   1. Classification
       1. [Sentiment Classification using JAX/FLAX ](https://www.kaggle.com/heyytanay/sentiment-clf-jax-flax-on-tpus-w-b/notebook)
       2. [Tables tutorial: Visualize Data for Image Classification](https://wandb.ai/stacey/mendeleev/reports/Tables-Tutorial-Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA)
    2. [Computer Vision](examples.md#computer-vision)
@@ -115,7 +115,7 @@ Track experiments, generate credit scorecard for loan defaults and run a hyperpa
 
 ## Examples by technique
 
-### **Classification** <a href="#classification" id="classification"></a>
+### Classification
 
 {% tabs %}
 {% tab title="Sentiment Classification" %}
