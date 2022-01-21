@@ -30,7 +30,7 @@ All configuration settings can be set via the UI however if you would like to ma
 
 ## SSO & Authentication
 
-By default, a W\&B Local Server runs with manual user management.  Licensed versions of _wandb/local_ also unlock SSO.  W\&B can configure an Auth0 tenant for you with any Identity provider they support such as SAML, Ping Federate, Active Directory, etc.  Just reach out to your account executive to schedule a setup call with one of our engineers.  If you already use Auth0 or have an Open ID Connect compatible server, you can follow the instructions below.
+By default, a W\&B Local Server runs with manual user management.  Licensed versions of _wandb/local_ also unlock SSO.  W\&B can configure an [Auth0](https://auth0.com) tenant for you with any Identity provider they support such as SAML, Ping Federate, Active Directory, etc.  Just reach out to your account executive to schedule a setup call with one of our engineers.  If you already use Auth0 or have an Open ID Connect compatible server, you can follow the instructions below.
 
 ### Open ID Connect
 
@@ -43,11 +43,11 @@ To configure an application client in your identity provider you'll need to prov
 * Add the following allowed Callback URL `http(s)://YOUR-W&B-HOST/oidc/callback`
 * If your IDP supports universal logout, set Logout URL to `http(s)://YOUR-W&B-HOST`
 
-For example, in AWS Cognito if your application was running at `https://wandb.mycompany.com`:
+For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your application was running at `https://wandb.mycompany.com`:
 
 ![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (162).png>)
 
-_wandb/local_ will use the "implicit" grant with the "form\_post" response type by default.  You can also configure _wandb/local_ to perform an "authorization\_code" grant using the[ PKCE Code Exchange](https://oauth.net/2/pkce/) flow.  We request the following scopes for the grant: "openid", "profile", and "email".  Your identity provider will need to allow these scopes.  For example in AWS Cognito the application should look like:
+_wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default.  You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow.  We request the following scopes for the grant: "openid", "profile", and "email".  Your identity provider will need to allow these scopes.  For example in AWS Cognito the application should look like:
 
 ![openid, profile, and email are required ](<../../.gitbook/assets/image (165).png>)
 
