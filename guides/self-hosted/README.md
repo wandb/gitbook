@@ -64,7 +64,7 @@ The first time you start a `wandb/local` instance you will be prompted to create
    ![](<../../.gitbook/assets/image (161) (1) (1) (1).png>)
 2.  ****[**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:
 
-    ![](<../../.gitbook/assets/image (160).png>)
+    ![](<../../.gitbook/assets/image (160) (1).png>)
 
 ****[**Contact sales -**](https://wandb.ai/site/local-contact)**>** to learn more about Enterprise Self-Hosting options for W\&B.
 

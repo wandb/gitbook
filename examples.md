@@ -109,7 +109,7 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 {% tab title="Credit Scorecards" %}
 Track experiments, generate credit scorecard for loan defaults and run a hyperparameter sweep to find the best hyperparameters. [Click here](https://wandb.ai/morgan/credit\_scorecard) to view and interact with a live W\&B Dashboard built with [this](http://wandb.me/xgboost) notebook.
 
-![](<.gitbook/assets/image (165) (1) (1).png>)
+![](<.gitbook/assets/image (165) (1) (1) (1).png>)
 {% endtab %}
 {% endtabs %}
 
@@ -121,7 +121,7 @@ Track experiments, generate credit scorecard for loan defaults and run a hyperpa
 {% tab title="Sentiment Classification" %}
 [Sentiment Classification](https://www.kaggle.com/heyytanay/sentiment-clf-jax-flax-on-tpus-w-b/notebook) on 1.6 Million tweets using Jax/Flax with TPUs using HuggingFace BERT and W\&B Tracking!
 
-![Sentiment Classifcation using JAX/FLAX](<.gitbook/assets/image (163).png>)
+![Sentiment Classifcation using JAX/FLAX](<.gitbook/assets/image (163) (1).png>)
 {% endtab %}
 
 {% tab title="Image Classification" %}

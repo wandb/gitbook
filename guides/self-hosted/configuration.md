@@ -12,41 +12,66 @@ The following are detailed information about manually configuring your local ins
 
 All configuration settings can be set via the UI however if you would like to manage these configuration options via code you can set the following environment variables:
 
-| Environment Variable | Description                                                                   |
-| -------------------- | ----------------------------------------------------------------------------- |
-| LICENSE              | Your wandb/local license                                                      |
-| MYSQL                | The MySQL connection string                                                   |
-| BUCKET               | The S3 / GCS bucket for storing data                                          |
-| BUCKET\_QUEUE        | The SQS / Google PubSub queue for object creation events                      |
-| NOTIFICATIONS\_QUEUE | The SQS queue on which to publish run events                                  |
-| AWS\_REGION          | The AWS Region where your bucket lives                                        |
-| HOST                 | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net) |
-| AUTH0\_DOMAIN        | The Auth0 domain of your tenant                                               |
-| AUTH0\_CLIENT\_ID    | The Auth0 Client ID of application                                            |
-| SLACK\_CLIENT\_ID    | The client ID of the Slack application you want to use for alerts             |
-| SLACK\_SECRET        | The secret of the Slack application you want to use for alerts                |
+| Environment Variable | Description                                                                                                                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| LICENSE              | Your wandb/local license                                                                                                                                                                   |
+| MYSQL                | The MySQL connection string                                                                                                                                                                |
+| BUCKET               | The S3 / GCS bucket for storing data                                                                                                                                                       |
+| BUCKET\_QUEUE        | The SQS / Google PubSub queue for object creation events                                                                                                                                   |
+| NOTIFICATIONS\_QUEUE | The SQS queue on which to publish run events                                                                                                                                               |
+| AWS\_REGION          | The AWS Region where your bucket lives                                                                                                                                                     |
+| HOST                 | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net)                                                                                                              |
+| OIDC\_ISSUER         | A url to your Open ID Connect identity provider, i.e. [https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd) |
+| OIDC\_CLIENT\_ID     | The Client ID of application in your identity provider                                                                                                                                     |
+| OIDC\_AUTH\_METHOD   | implicit (default) or pkce, see below for more context.                                                                                                                                    |
+| SLACK\_CLIENT\_ID    | The client ID of the Slack application you want to use for alerts                                                                                                                          |
+| SLACK\_SECRET        | The secret of the Slack application you want to use for alerts                                                                                                                             |
+| LOCAL\_RESTORE       | You can temporarily set this to true if you're unable to access your instance.  Check the logs from the container for temporary credentials.                                               |
 
-## Authentication
+## SSO & Authentication
 
-By default, a W\&B Local Server run with manual user management enabling up to 4 users.  Licensed versions of _wandb/local_ also unlock SSO.  W\&B can configure a Auth0 for you with any Identity provider they support such as Okta, Gsuite, Active Directory, etc.  Just reach out to your account executive to schedule a setup call with one of our engineers.  If you already use Auth0 or want to manage your own tenant, you can follow the instructions below.
+By default, a W\&B Local Server runs with manual user management.  Licensed versions of _wandb/local_ also unlock SSO.  W\&B can configure an Auth0 tenant for you with any Identity provider they support such as SAML, Ping Federate, Active Directory, etc.  Just reach out to your account executive to schedule a setup call with one of our engineers.  If you already use Auth0 or have an Open ID Connect compatible server, you can follow the instructions below.
 
-Your server supports any authentication provider supported by [Auth0](https://auth0.com).  After creating an Auth0 app, you'll need to configure your Auth0 callbacks to the host of your W\&B Server. By default, the server supports http from the public or private IP address provided by the host. You can also configure a DNS hostname and SSL certificate if you choose.
+### Open ID Connect
 
-* Add the following Callback URLs to `http(s)://YOUR-W&B-SERVER-HOST/login, http(s)://YOUR-W&B-HOST/oidc/callback`
-* Set the Logout URL to `http(s)://YOUR-W&B-HOST`
-* Set the Allowed Web Origin to `http(s)://YOUR-W&B-HOST`
+_wandb/local_ uses Open ID Connect for authentication.  When creating an application client in your IPD you should choose Web Application or Public Client.  For example, if your using AWS Cognito as an identity provider you would choose Public Client:
 
-![Auth0 Settings](../../.gitbook/assets/auth0-1.png)
+![Because we're only using OIDC for authentication and not authorization, public clients simplify setup](<../../.gitbook/assets/image (163).png>)
 
-Save the Client ID and domain from your Auth0 app.
+To configure an application client in your identity provider you'll need to provide an allowed callback url:
 
-![Auth0 Settings](../../.gitbook/assets/auth0-2.png)
+* Add the following allowed Callback URL `http(s)://YOUR-W&B-HOST/oidc/callback`
+* If your IDP supports universal logout, set Logout URL to `http(s)://YOUR-W&B-HOST`
 
-Then, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`.  Choose "Enable SSO" option, and fill in the Client ID and domain from your Auth0 app.
+For example, in AWS Cognito if your application was running at `https://wandb.mycompany.com`:
 
-![](<../../.gitbook/assets/sso (1) (1).png>)
+![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (162).png>)
 
-Finally, press "Update settings".
+_wandb/local_ will use the "implicit" grant with the "form\_post" response type by default.  You can also configure _wandb/local_ to perform an "authorization\_code" grant using the[ PKCE Code Exchange](https://oauth.net/2/pkce/) flow.  We request the following scopes for the grant: "openid", "profile", and "email".  Your identity provider will need to allow these scopes.  For example in AWS Cognito the application should look like:
+
+![openid, profile, and email are required ](<../../.gitbook/assets/image (165).png>)
+
+To tell _wandb/local_ which grant to use you can select the Auth Method in the settings page or set the OIDC\_AUTH\_METHOD environment variable.
+
+{% hint style="info" %}
+For AWS Cognito providers you must set the Auth Method to "pkce"
+{% endhint %}
+
+You'll need a Client ID and the url of your OIDC issuer.  The OpenID discovery document must be available at `$OIDC_ISSUER/.well-known/openid-configuration` For example when using AWS Cognito you can generate your issuer url by appending your User Pool ID to the Cognito IDP url from the _User Pools > App Integration_ tab:
+
+![The issuer URL would be https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](<../../.gitbook/assets/image (160).png>)
+
+{% hint style="info" %}
+Do not use the "Cognito domain" for the IDP url.  Cognito provides it's discovery document at `https://cognito-idp.$REGION.amazonaws.com/$USER_POOL_ID`
+{% endhint %}
+
+Once you have everything configured you can provide the Issuer, Client ID, and Auth method to _wandb/local_ via `/system-admin` or the environment variables and SSO will be configured.
+
+![](<../../.gitbook/assets/image (170).png>)
+
+{% hint style="info" %}
+If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set.  This will output a temporary password to the containers logs and disable SSO.  Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.
+{% endhint %}
 
 ## File Storage
 

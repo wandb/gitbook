@@ -175,7 +175,7 @@ Yes, you can integrate your entire pipeline to W\&B through Artifacts, including
 
 This will allow complete traceability of your models.
 
-![](<../../../.gitbook/assets/image (165).png>)
+![](<../../../.gitbook/assets/image (165) (1).png>)
 
 ## :books: Resources
 
