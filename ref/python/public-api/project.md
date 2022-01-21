@@ -54,8 +54,10 @@ sweeps()
 
 **Example**:
 
+Find sweeps in `my_project` to get a list of all sweeps from this project:
+
 ```python
-sweeps = wandb.Api().project('project_name').sweeps()
+sweeps = wandb.Api().project('my_project').sweeps()
 ```
 
 ### `to_html` <a href="#to_html" id="to_html"></a>
