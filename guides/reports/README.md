@@ -139,6 +139,8 @@ Click the download button to export your report as a LaTeX zip file. Check the R
 
 By clicking the share icon within your report you will be able to get the direct link for your report or an embeddable piece of code which can render an iframe for your tool of choice.
 
+_Note: Only **public** reports are viewable when embedded currently_
+
 ![](../../.gitbook/assets/get\_embed\_url.gif)
 
 ### Confluence
