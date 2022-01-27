@@ -465,6 +465,71 @@ You'll want to run a load balancer that terminates network requests at the appro
 
 The W\&B application server does not terminate SSL.  If your security policies require SSL communication within your trusted networks consider using a tool like Istio and [side car containers](https://istio.io/latest/docs/reference/config/networking/sidecar/).  The load balancer itself should terminate SSL with a valid certificate.  Using self-signed certificates is not supported and will cause a number of challenges for users.  If possible using a service like [Let's Encrypt](https://letsencrypt.org) is a great way to provided trusted certificates to your load balancer.  Services like Caddy and Cloudflare manage SSL for you.
 
+### Example Nginx Configuration
+
+The following is an example configuration using nginx as a reverse proxy.
+
+```nginx
+events {}
+http {
+    # If we receive X-Forwarded-Proto, pass it through; otherwise, pass along the
+    # scheme used to connect to this server
+    map $http_x_forwarded_proto $proxy_x_forwarded_proto {
+        default $http_x_forwarded_proto;
+        ''      $scheme;
+    }
+
+    # Also, in the above case, force HTTPS
+    map $http_x_forwarded_proto $sts {
+        default '';
+        "https" "max-age=31536000; includeSubDomains";
+    }
+
+    # If we receive X-Forwarded-Host, pass it though; otherwise, pass along $http_host
+    map $http_x_forwarded_host $proxy_x_forwarded_host {
+        default $http_x_forwarded_host;
+        ''      $http_host;
+    }
+
+    # If we receive X-Forwarded-Port, pass it through; otherwise, pass along the
+    # server port the client connected to
+    map $http_x_forwarded_port $proxy_x_forwarded_port {
+        default $http_x_forwarded_port;
+        ''      $server_port;
+    }
+
+    # If we receive Upgrade, set Connection to "upgrade"; otherwise, delete any
+    # Connection header that may have been passed to this server
+    map $http_upgrade $proxy_connection {
+        default upgrade;
+        '' close;
+    }
+
+    server {
+        listen 443 ssl;
+        server_name         www.example.com;
+        ssl_certificate     www.example.com.crt;
+        ssl_certificate_key www.example.com.key;
+        
+        proxy_http_version 1.1;
+        proxy_buffering off;
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $proxy_connection;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $proxy_x_forwarded_proto;
+        proxy_set_header X-Forwarded-Host $proxy_x_forwarded_host;
+
+        location / {
+            proxy_pass  http://$YOUR_UPSTREAM_SERVER_IP:8080/;
+        }
+
+        keepalive_timeout 10;
+    }
+}
+```
+
 ## Verifying your installation
 
 Regardless of how your server was installed, it's a good idea everything is configured properly.  W\&B makes it easy to verify everything is properly configured by using our CLI.&#x20;
