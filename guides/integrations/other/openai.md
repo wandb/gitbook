@@ -44,13 +44,13 @@ $ openai wandb sync --help
 
 {% tab title="Python" %}
 ```python
-from openai.logger import Logger
+from openai.wandb_logger import WandbLogger
 
 # one line command
-Logger.sync()
+WandbLogger.sync()
 
 # passing optional parameters
-Logger.sync(
+WandbLogger.sync(
     id=None,
     n_fine_tunes=None,
     project="GPT-3",
@@ -79,7 +79,7 @@ In addition your training and validation files are logged and versioned, as well
 | --project PROJECT        | Name of the project where you're sending runs. By default, it is "GPT-3".                                                 |
 | --entity ENTITY          | Username or team name where you're sending runs. By default, your default entity is used, which is usually your username. |
 | --force                  | Forces logging and overwrite existing wandb run of the same fine-tune.                                                    |
-| \*\*kwargs\_wandb\_init  | In python, any additional argument is directly passed to [`wandb.init()`](../../../ref/python/init.md)``                  |
+| \*\*kwargs\_wandb\_init  | In python, any additional argument is directly passed to [`wandb.init()`](../../../ref/python/init.md)\`\`                |
 
 ## 🔍 Inspect sample predictions
 
@@ -157,7 +157,7 @@ import wandb
 artifact_job = wandb.run.use_artifact('USERNAME/PROJECT/job_details:VERSION')
 ```
 
-&#x20;where `VERSION` is either:
+where `VERSION` is either:
 
 * a version number such as `v2`
 * the fine-tune id such as `ft-xxxxxxxxx`
