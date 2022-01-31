@@ -6,9 +6,9 @@ description: >-
 
 # PyTorch Lightning
 
-PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/advanced/multi\_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/advanced/amp.html). W\&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/stable/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html#pytorch\_lightning.loggers.WandbLogger) for reference information on the API.&#x20;
+PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/advanced/multi\_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/advanced/amp.html). W\&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/stable/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html#pytorch\_lightning.loggers.WandbLogger) for reference information on the API.
 
-Check out [**our Google colab**](https://www.wandb.me/lightning) to get started
+Check out [**our Google colab**](https://wandb.me/lightning) to get started
 
 ## ⚡ Get going lightning-fast with just two lines.
 
@@ -24,27 +24,19 @@ trainer = Trainer(logger=wandb_logger)
 
 ## Check out interactive examples!
 
-{% tabs %}
-{% tab title="Colab + Video Tutorial" %}
 Run GPU-accelerated PyTorch Lighting plus W\&B logging without installing anything using [this Colab](https://www.wandb.me/lightning). And follow along with a video tutorial!
 
 {% embed url="https://www.youtube.com/watch?v=hUXQm46TAKc" %}
-{% endtab %}
 
-{% tab title="Kaggle Kernel" %}
 See how PyTorch Lighting and W\&B can accelerate your model development and help you climb the leaderboard with [this Kaggle Kernel](https://www.kaggle.com/ayuraj/use-pytorch-lightning-with-weights-and-biases).
 
 ![](<../../.gitbook/assets/lgklnrt (1) (1) (1).gif>)
-{% endtab %}
 
-{% tab title="Blog Posts" %}
 Read more on specific topics in these blog posts made with Weights & Biases' [Reports](../reports/):
 
 * [Multi-GPU Training](https://wandb.ai/wandb/wandb-lightning/reports/Multi-GPU-Training-Using-PyTorch-Lightning--VmlldzozMTk3NTk)
 * [Image Classification](https://wandb.ai/wandb/wandb-lightning/reports/Image-Classification-using-PyTorch-Lightning--VmlldzoyODk1NzY) and [Semantic Segmentation](https://wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw)
 * [Transfer Learning](https://wandb.ai/wandb/wandb-lightning/reports/Transfer-Learning-Using-PyTorch-Lightning--VmlldzoyODk2MjA)
-{% endtab %}
-{% endtabs %}
 
 ## Frequently Asked Questions
 
@@ -104,7 +96,7 @@ Unlike scalars, media objects are logged differently by each framework. To keep 
 
 Inside your `Callback`, you can either call `wandb.log`, as when using `wandb` with other libraries, or `trainer.logger.experiment.log`. In either case, you can do anything you could do with [wandb.log](../../ref/python/log.md).
 
-When logging images you can also use `trainer.logger.log_image`  and when logging text you can also use `trainer.logger.log_text`
+When logging images you can also use `trainer.logger.log_image` and when logging text you can also use `trainer.logger.log_text`
 
 {% hint style="info" %}
 When manually calling `wandb.log` or `trainer.logger.experiment.log`, make sure to include the key/value pair `"global_step": trainer.global_step`. That way, you can line up the information you're currently logging with information logged via other methods.
