@@ -30,7 +30,7 @@ It's recommended to log fewer than 50 images per step to prevent logging from be
 
 {% tabs %}
 {% tab title="Logging Arrays as Images" %}
-Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make\_grid).&#x20;
+Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make\_grid).
 
 Arrays are converted to png using [Pillow](https://pillow.readthedocs.io/en/stable/index.html).
 
@@ -79,7 +79,7 @@ To log an overlay, you'll need to provide a dictionary with the following keys a
 * one of two keys representing the image mask:
   * `"mask_data"`: a 2D numpy array containing an integer class label for each pixel
   * `"path"`: (string) a path to a saved image mask file
-* `"class_labels"`:  (optional) a dictionary mapping the integer class labels in the image mask to their readable class names
+* `"class_labels"`: (optional) a dictionary mapping the integer class labels in the image mask to their readable class names
 
 To log multiple masks, log a mask dictionary with multiple keys, as in the code snippet below.
 
@@ -121,11 +121,11 @@ To log a bounding box, you'll need to provide a dictionary with the following ke
 * `box_data`: a list of dictionaries, one for each box. The box dictionary format is described below.
   * `position`: a dictionary representing the position and size of the box in one of two formats, as described below. Boxes need not all use the same format.
     * _Option 1:_ `{"minX", "maxX", "minY", "maxY"}`. Provide a set of coordinates defining the upper and lower bounds of each box dimension.
-    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
+    * _Option 2:_ `{"middle", "width", "height"}`. Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
   * `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
   * `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
   * `domain`: specify the units/format of the box coordinates. **Set this to "pixel"** if the box coordinates are expressed in pixel space (i.e. as integers within the bounds of the image dimensions). By default, the domain is assumed to be a fraction/percentage of the image (a floating point number between 0 and 1).
-  * `box_caption`: (optional) a string to be displayed as the label text on this box&#x20;
+  * `box_caption`: (optional) a string to be displayed as the label text on this box
 * `class_labels`: (optional) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
 
 Check out this example:
@@ -186,11 +186,71 @@ wandb.log({"driving_scene": img})
 {% endtab %}
 {% endtabs %}
 
+## Image Overlays in Tables
+
+{% tabs %}
+{% tab title="Segmentation Masks" %}
+![Interactive Segmentation Masks in Tables](<../../../.gitbook/assets/Segmentation Masks (1).gif>)
+
+To log Segmentation Masks in tables, you will need to provide a `wandb.Image` object for each row in the table.\
+\
+An example is provided in the Code snippet below:
+
+```python
+table = wandb.Table(columns=['ID', 'Image'])
+
+for id, img, label in zip(ids, images, labels):
+    mask_img = wandb.Image(img, masks = {
+        "prediction" : {
+            "mask_data" : label,
+            "class_labels" : class_labels
+        },
+        ...
+    })
+    
+    table.add_data(id, img)
+
+wandb.log({"Table" : table})
+```
+{% endtab %}
+
+{% tab title="Bounding Boxes" %}
+![Interactive Bounding Boxes in Tables](<../../../.gitbook/assets/Bounding Boxes.gif>)
+
+To log Images with Bounding Boxes in tables, you will need to provide a `wandb.Image` object for each row in the table.\
+\
+An example is provided in the code snippet below:
+
+```python
+table = wandb.Table(columns=['ID', 'Image'])
+
+for id, img, boxes in zip(ids, images, boxes_set):
+    box_img = wandb.Image(img, boxes = {
+        "prediction" : {
+            "box_data" : [{
+                "position" :{
+                    "minX" : box["minX"],
+                    "minY" : box["minY"],
+                    "maxX" : box["maxX"],
+                    "maxY" : box["maxY"]
+                },
+                "class_id" : box["class_id"],
+                "box_caption" : box["caption"],
+                "domain" : "pixel"
+            } 
+            for box in boxes
+        ],
+        "class_labels" : class_labels
+    })
+```
+{% endtab %}
+{% endtabs %}
+
 ## Histograms
 
 {% tabs %}
 {% tab title="Basic Histogram Logging" %}
-If a sequence of numbers (e.g. list, array, tensor) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened.  You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
+If a sequence of numbers (e.g. list, array, tensor) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened. You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
 
 In the UI, histograms are plotted with the training step on the x-axis, the metric value on the y-axis, and the count represented by color, to ease comparison of histograms logged throughout training. See the "Histograms in Summary" tab of this panel for details on logging one-off histograms.
 
@@ -211,16 +271,12 @@ wandb.log({"gradients": wandb.Histogram(np_hist_grads)})
 {% endtab %}
 
 {% tab title="Histograms in Summary" %}
-
-
 ```python
 wandb.run.summary.update(  # if only in summary, only visible on overview tab
   {"final_logits": wandb.Histogram(logits)})
 ```
 {% endtab %}
 {% endtabs %}
-
-&#x20;
 
 If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
 
@@ -263,7 +319,7 @@ Here's an example of logging code below:
 * `boxes` is a numpy array of python dictionaries with three attributes:
   * `corners`- a list of eight corners
   * `label`- a string representing the label to be rendered on the box (Optional)
-  * `color`- rgb values representing the color of the box&#x20;
+  * `color`- rgb values representing the color of the box
 * `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
 
 ```python
@@ -324,7 +380,7 @@ wandb.log({"point_scene": point_scene})
 wandb.log({"protein": wandb.Molecule("6lu7.pdb")}
 ```
 
-&#x20;Log molecular data in any of 10 file types:`pdb`, `pqr`, `mmcif`, `mcif`, `cif`, `sdf`, `sd`, `gro`, `mol2`, or `mmtf.`
+Log molecular data in any of 10 file types:`pdb`, `pqr`, `mmcif`, `mcif`, `cif`, `sdf`, `sd`, `gro`, `mol2`, or `mmtf.`
 
 Weights & Biases also supports logging molecular data from SMILES strings, [`rdkit`](https://www.rdkit.org/docs/index.html) `mol` files, and `rdkit.Chem.rdchem.Mol` objects.
 
@@ -423,7 +479,7 @@ W\&B can be used even for projects that only log scalars — you specify any fil
 
 ### **How do I log a PNG?**
 
-``[`wandb.Image`](../../../ref/python/data-types/image.md) converts `numpy` arrays or instances of `PILImage` to PNGs by default.
+\`\`[`wandb.Image`](../../../ref/python/data-types/image.md) converts `numpy` arrays or instances of `PILImage` to PNGs by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
