@@ -4,9 +4,9 @@ description: Call wandb.init() at the top of your script to start a new run
 
 # Launch Experiments with wandb.init
 
-Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W\&B and launches a background process to sync data.&#x20;
+Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W\&B and launches a background process to sync data.
 
-* **On Prem**: If you need a private cloud or local instance of W\&B, see our [Self Hosted](../self-hosted/) offerings.&#x20;
+* **On Prem**: If you need a private cloud or local instance of W\&B, see our [Self Hosted](../self-hosted/) offerings.
 * **Automated Environments**: Most of these settings can also be controlled via [Environment Variables](advanced/environment-variables.md). This is often useful when you're running jobs on a cluster.
 
 ### Reference Documentation
@@ -46,11 +46,11 @@ for x in range(10):
             run.log({"metric": x+y})
 ```
 
-### `InitStartError: Error communicating with wandb process` <a href="init-start-error" id="init-start-error"></a>
+### `InitStartError: Error communicating with wandb process` <a href="#init-start-error" id="init-start-error"></a>
 
-This error indicates that the library is having difficulty launching the process which synchronizes data to the server.&#x20;
+This error indicates that the library is having difficulty launching the process which synchronizes data to the server.
 
-The following workarounds can help resolve the issue in certain environments:&#x20;
+The following workarounds can help resolve the issue in certain environments:
 
 {% tabs %}
 {% tab title="Linux / OS X" %}
@@ -66,13 +66,13 @@ wandb.init(settings=wandb.Settings(start_method="thread"))
 {% endtab %}
 {% endtabs %}
 
-### How can I use wandb with multiprocessing, e.g. distributed training? <a href="multiprocess" id="multiprocess"></a>
+### How can I use wandb with multiprocessing, e.g. distributed training? <a href="#multiprocess" id="multiprocess"></a>
 
 If your training program uses multiple processes you will need to structure your program to avoid making wandb method calls from processes where you did not run `wandb.init()`.\
 \
 There are several approaches to managing multiprocess training:
 
-1. Call `wandb.init` in all your processes, using the [group](advanced/grouping.md) keyword argument to define a shared group.  Each process will have its own wandb run and the UI will group the training processes together.
+1. Call `wandb.init` in all your processes, using the [group](advanced/grouping.md) keyword argument to define a shared group. Each process will have its own wandb run and the UI will group the training processes together.
 2. Call `wandb.init` from just one process and pass data to be logged over [multiprocessing queues](https://docs.python.org/3/library/multiprocessing.html#exchanging-objects-between-processes).
 
 {% hint style="info" %}
@@ -151,12 +151,10 @@ wandb sync wandb/dryrun-folder-name
 
 ![](<../../.gitbook/assets/image (36).png>)
 
-
-
 ### `LaunchError: Permission denied`
 
 If you're getting the error message `Launch Error: Permission denied`, you don't have permissions to log to the project you're trying to send runs to. This might be for a few different reasons.
 
-1. You aren't logged in on this machine. Run `wandb login` on the command line.
+1. You aren't logged in on this machine. [Run](https://docs.wandb.ai/ref/cli/wandb-login) `wandb login` on the command line.
 2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
 3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.

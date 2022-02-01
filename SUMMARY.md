@@ -10,6 +10,7 @@
     * [Log Data with wandb.log](guides/track/log/README.md)
       * [Log Media & Objects](guides/track/log/media.md)
       * [Log Plots](guides/track/log/plots.md)
+      * [Logging FAQs](guides/track/log/logging-faqs.md)
     * [Dashboards](guides/track/app.md)
     * [Limits & Performance](guides/track/limits.md)
     * [Import & Export Data](guides/track/public-api-guide.md)
