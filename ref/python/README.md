@@ -3,7 +3,7 @@
 <!-- Insert buttons and diff -->
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.9/wandb/__init__.py)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.10/wandb/__init__.py)
 
 
 
@@ -53,5 +53,5 @@ For reference documentation, see https://docs.wandb.com/ref/python.
 
 | Other Members |  |
 | :--- | :--- |
-|  `__version__`<a id="__version__"></a> |  `'0.12.9'` |
+|  `__version__`<a id="__version__"></a> |  `'0.12.10'` |
 

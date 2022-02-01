@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.9/wandb/integration/keras/keras.py#L271-L959)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.10/wandb/integration/keras/keras.py#L272-L969)
 
 
 
@@ -12,13 +12,12 @@
 WandbCallback(
     monitor="val_loss", verbose=0, mode="auto", save_weights_only=(False),
     log_weights=(False), log_gradients=(False), save_model=(True),
-    training_data=None, validation_data=None, labels=[], data_type=None,
-    predictions=36, generator=None, input_type=None, output_type=None,
-    log_evaluation=(False), validation_steps=None, class_colors=None,
-    log_batch_frequency=None, log_best_prefix="best_", save_graph=(True),
-    validation_indexes=None, validation_row_processor=None,
-    prediction_row_processor=None, infer_missing_processors=(True),
-    log_evaluation_frequency=0
+    training_data=None, validation_data=None, labels=[], predictions=36,
+    generator=None, input_type=None, output_type=None, log_evaluation=(False),
+    validation_steps=None, class_colors=None, log_batch_frequency=None,
+    log_best_prefix="best_", save_graph=(True), validation_indexes=None,
+    validation_row_processor=None, prediction_row_processor=None,
+    infer_missing_processors=(True), log_evaluation_frequency=0, **kwargs
 )
 ```
 
@@ -82,7 +81,7 @@ associated with the best `epoch`.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/integration/keras/keras.py#L507-L516)
+[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/integration/keras/keras.py#L517-L526)
 
 ```python
 set_model(
@@ -95,7 +94,7 @@ set_model(
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/integration/keras/keras.py#L504-L505)
+[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/integration/keras/keras.py#L514-L515)
 
 ```python
 set_params(
