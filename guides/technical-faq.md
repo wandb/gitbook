@@ -53,7 +53,7 @@ There's two ways to turn off code logging:
 1. Set `WANDB_DISABLE_CODE` to `true` to turn off all code tracking. We won't pick up the git SHA or the diff patch.
 2. Set `WANDB_IGNORE_GLOBS` to `*.patch` to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](track/advanced/save-restore.md) command.
 
-### Does logging block my training?&#x20;
+### Does logging block my training?
 
 "Is the logging function lazy? I don't want to be dependent on the network to send the results to your servers and then carry on with my local operations."
 
@@ -67,7 +67,7 @@ We use the same exponential moving average formula as TensorBoard. You can find 
 
 We love the TensorBoard folks, and we have a [TensorBoard integration](integrations/tensorboard.md)! We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.&#x20;
+1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.
 2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W\&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
 3. **Fast, flexible integration**: Add W\&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
 4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
@@ -142,7 +142,7 @@ Press ctrl+D on your keyboard to stop a script that is instrumented with wandb.
 
 If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), entering retry loop.` you can try a couple of different approaches to solving this issue:
 
-1. Upgrade your SSL certificate. If you're running the script on an Ubuntu server, run `update-ca-certificates`  We can't sync training logs without a valid SSL certificate because it's a security vulnerability.
+1. Upgrade your SSL certificate. If you're running the script on an Ubuntu server, run `update-ca-certificates` We can't sync training logs without a valid SSL certificate because it's a security vulnerability.
 2. If your network is flaky, run training in [offline mode](https://docs.wandb.ai/guides/track/launch#is-it-possible-to-save-metrics-offline-and-sync-them-to-w-and-b-later) and sync the files to us from a machine that has Internet access.
 3. Try running [W\&B Local](self-hosted/local.md), which operates on your machine and doesn't sync files to our cloud servers.
 
@@ -150,15 +150,15 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 
 `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`
 
-### What happens if internet connection is lost while I'm training a model?&#x20;
+### What happens if internet connection is lost while I'm training a model?
 
-If our library is unable to connect to the internet it will enter a retry loop and keep attempting to stream metrics until the network is restored.  During this time your program is able to continue running. &#x20;
+If our library is unable to connect to the internet it will enter a retry loop and keep attempting to stream metrics until the network is restored. During this time your program is able to continue running.
 
-If you need to run on a machine without internet, you can set `WANDB_MODE=offline` to only have metrics stored locally on your hard drive.  Later you can call `wandb sync DIRECTORY`  to have the data streamed to our server.
+If you need to run on a machine without internet, you can set `WANDB_MODE=offline` to only have metrics stored locally on your hard drive. Later you can call `wandb sync DIRECTORY` to have the data streamed to our server.
 
-### Can I log metrics on two different time scales?  (For example I want to log training accuracy per batch and validation accuracy per epoch.)
+### Can I log metrics on two different time scales? (For example I want to log training accuracy per batch and validation accuracy per epoch.)
 
-Yes, you can do this by logging your indices (e.g. `batch` and `epoch`) whenever you log your other metrics.  So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`. Then, in the UI, you can set the appropriate value as the x-axis for each chart. If you want to set the default x-axis of particular index you can do so using by using [Run.define\_metric()](https://docs.wandb.ai/ref/python/run#define\_metric). In our above example we could do the following:
+Yes, you can do this by logging your indices (e.g. `batch` and `epoch`) whenever you log your other metrics. So in one step you could call `wandb.log({'train_accuracy': 0.9, 'batch': 200})` and in another step call `wandb.log({'val_acuracy': 0.8, 'epoch': 4})`. Then, in the UI, you can set the appropriate value as the x-axis for each chart. If you want to set the default x-axis of particular index you can do so using by using [Run.define\_metric()](https://docs.wandb.ai/ref/python/run#define\_metric). In our above example we could do the following:
 
 ```python
 wandb.init()
@@ -172,7 +172,7 @@ wandb.define_metric("val_accuracy", step_metric="epoch")
 
 ### How can I log a metric that doesn't change over time such as a final evaluation accuracy?
 
-Using `wandb.log({'final_accuracy': 0.9}` will work fine for this.  By default `wandb.log({'final_accuracy'})` will update `wandb.settings['final_accuracy']`, which is the value shown in the runs table.
+Using `wandb.log({'final_accuracy': 0.9}` will work fine for this. By default `wandb.log({'final_accuracy'})` will update `wandb.settings['final_accuracy']`, which is the value shown in the runs table.
 
 ### How can I log additional metrics after a run completes?
 
@@ -184,11 +184,11 @@ For simpler workflows, you can call `wandb.init` with `resume=True` and `id=UNIQ
 
 At any point you can always use the [API](https://docs.wandb.ai/library/public-api-guide#update-metrics-for-a-run-after-the-run-has-finished) to add additional evaluation metrics.
 
-### What is the difference between `.log()` and `.summary`? &#x20;
+### What is the difference between `.log()` and `.summary`?
 
-The summary is the value that shows in the table while log will save all the values for plotting later. &#x20;
+The summary is the value that shows in the table while log will save all the values for plotting later.
 
-For example you might want to call `wandb.log` every time the accuracy changes.   Usually you can just use .log.  `wandb.log()` will also update the summary value by default unless you have set summary manually for that metric
+For example you might want to call `wandb.log` every time the accuracy changes. Usually you can just use .log. `wandb.log()` will also update the summary value by default unless you have set summary manually for that metric
 
 The scatterplot and parallel coordinate plots will also use the summary value while the line plot plots all of the values set by .log
 
@@ -203,7 +203,7 @@ unable to execute 'gcc': No such file or directory
 error: command 'gcc' failed with exit status 1
 ```
 
-You can install `psutil` directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil) &#x20;
+You can install `psutil` directly from a pre-built wheel. Find your Python version and OS here: [https://pywharf.github.io/pywharf-pkg-repo/psutil](https://pywharf.github.io/pywharf-pkg-repo/psutil)
 
 For example, to install `psutil` on Python 3.8 in Linux:
 
@@ -238,7 +238,7 @@ A service account is an API key that has permissions to write to your team, but 
 
 You can get the API key in your Team Settings page `/teams/<your-team-name>` where you invite new team members. Select service and click create to add a service account.
 
-![Create a service account on your team settings page for automated jobs](<../.gitbook/assets/image (164).png>)
+![Create a service account on your team settings page for automated jobs](<../.gitbook/assets/image (167).png>)
 
 ### How can I rotate or revoke access?
 
@@ -259,4 +259,4 @@ The W\&B client library supported both Python 2.7 and Python 3 through version 0
 
 ### Does the W\&B client support Python 3.5? <a href="#eol-python35" id="eol-python35"></a>
 
-The W\&B client library supported both Python 3.5 through version 0.11. Due to the Python 3.5 end of life, support was discontinued as of version 0.12.&#x20;
+The W\&B client library supported both Python 3.5 through version 0.11. Due to the Python 3.5 end of life, support was discontinued as of version 0.12.

@@ -15,7 +15,7 @@ Weave Panels allow users to directly query W\&B for data, visualize the results,
 3. The **Weave Configuration**: enables the user to configure the parameters of the Weave Expression and/or Weave Panel
 4. The **Weave Result Panel**: the primary area of the Weave Panel, displaying the result of the Weave Expression query, using the Weave Panel and Configuration specified.
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-1.19.37-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 1.19.37 PM.png>)
 
 To try out Weave, Tables, and Plots right away, please checkout this [interactive Report](https://wandb.ai/timssweeney/keras\_learning\_rate/reports/Announcing-W-B-Weave-Plot--VmlldzoxMDIyODM1).
 
@@ -25,7 +25,7 @@ To try out Weave, Tables, and Plots right away, please checkout this [interactiv
 
 Weave Expressions allow the user to query the data stored in W\&B - from runs, to artifacts, to models, to tables, and more! The most common Weave Expression is generated from logging a Table,`wandb.log({"predictions":<MY_TABLE>})`, and will look like this:
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-1.42.56-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 1.42.56 PM.png>)
 
 Let's break this down:
 
@@ -44,29 +44,29 @@ Weave expressions are extremely powerful, for example, the following expression 
 
 Note that the Merge, Query, and Plot configuration is specified in the Weave Configuration (discussed below). Please refer to the Weave Expression Docs for a full discussion of Ops, Types, and other characteristics of this query language.
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-1.55.33-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 1.55.33 PM.png>)
 
 ### Weave Panel Selector
 
 After constructing a Weave Expression, the Weave Panel will automatically select a panel to use to display the results. The most common Panel for the resulting datatype is automatically selected. However, if you wish to change the panel, simply click the dropdown and select a different panel.
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.48.19-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.48.19 PM.png>)
 
 There are a few special case to be aware of:
 
 1. If you are currently viewing a Table, then a `Plot table query` option will be available in addition to all the other normal options. Selecting this option means that you want to plot the results of the _current table query_. So, if you have perhaps added a custom field, grouped, sorted, filtered, or otherwise manipulated the table, you can select `Plot table query` to use the current results as the input to the plot.
 2.  `Merge Tables: <Panel>` is a special case where the incoming datatype is a List of Tables. In such cases, the "Merge Tables" portion of the panel allows users to either concatenate all the rows, or join the tables on a particular column. This setting is configured in the Weave Configuration (discussed below) and shown in the following screen shots
 
-    ![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.53.43-pm.png)![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.53.53-pm.png)
+    ![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.53.43 PM.png>)![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.53.53 PM.png>)
 3. `List of: <Panel>` is a special case where the incoming datatype is a List - and you wish to display a paginated view of panels. The following example shows `List of: Plot` , where each plot is from a different run
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.59.53-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.59.53 PM.png>)
 
 ### Weave Configuration
 
-Clicking the Gear icon ![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-3.00.58-pm.png) in the upper right corner will expand the Weave Configuration. This allows the user to configure the parameters for certain expression ops as well as the result panel. For example:
+Clicking the Gear icon ![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 3.00.58 PM.png>) in the upper right corner will expand the Weave Configuration. This allows the user to configure the parameters for certain expression ops as well as the result panel. For example:
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-3.03.59-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 3.03.59 PM.png>)
 
 In the above example, we see 3 sections in the expanded Weave Configuration:
 
@@ -82,12 +82,12 @@ Finally, the Weave Result Panel renders the result of the Weave Expression, usin
 To resize all columns to the same size at once, you can `shift` + resize mouse drag.
 {% endhint %}
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-3.12.36-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 3.12.36 PM.png>)
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-3.12.42-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 3.12.42 PM.png>)
 
 ## Creating Weave Panels
 
 Weave Panels are automatically created whenever a user [logs a Table ](../../../../guides/data-vis/log-tables.md)or [logs a Custom Chart](../custom-charts/). In such cases, will automatically set the Weave Expression to `run.summary["<TABLE_NAME>"]` and render the Table Panel. Furthermore, you can directly add a Weave Panel to a workspace by selecting the `Weave` Panel from the "add panel" button.
 
-![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-1.22.14-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 1.22.14 PM.png>)

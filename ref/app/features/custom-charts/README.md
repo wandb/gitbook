@@ -13,7 +13,7 @@ Use **Custom Charts** to create charts that aren't possible right now in the def
 
 Contact Carey (c@wandb.com) with questions or suggestions
 
-![Supported charts from vega.github.io/vega](../../../../.gitbook/assets/screen-shot-2020-09-09-at-2.18.17-pm.png)
+![Supported charts from vega.github.io/vega](<../../../../.gitbook/assets/Screen Shot 2020-09-09 at 2.18.17 PM.png>)
 
 ### How it works
 
@@ -25,7 +25,7 @@ Contact Carey (c@wandb.com) with questions or suggestions
 [walkthrough.md](walkthrough.md)
 {% endcontent-ref %}
 
-![](../../../../.gitbook/assets/pr-roc.png)
+![](<../../../../.gitbook/assets/pr roc.png>)
 
 ## Log charts from a script
 
@@ -47,7 +47,7 @@ wandb.log({"my_custom_plot_id" : wandb.plot.line(table, "x", "y", title="Custom 
 
 You can use this to log curves on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly (i.e. each point must have an x and a y).
 
-![](../../../../.gitbook/assets/line-plot.png)
+![](<../../../../.gitbook/assets/line plot.png>)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Line-Plots--VmlldzoyNjk5NTA)
 
@@ -67,7 +67,7 @@ wandb.log({"my_custom_id" : wandb.plot.scatter(table, "class_x", "class_y")})
 
 You can use this to log scatter points on any two dimensions. Note that if you're plotting two lists of values against each other, the number of values in the lists must match exactly (i.e. each point must have an x and a y).
 
-![](../../../../.gitbook/assets/demo-scatter-plot.png)
+![](<../../../../.gitbook/assets/demo - scatter plot.png>)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Scatter-Plots--VmlldzoyNjk5NDQ)
 
@@ -87,7 +87,7 @@ wandb.log({"my_bar_chart_id" : wandb.plot.bar(table, "label", "value", title="Cu
 
 You can use this to log arbitrary bar charts. Note that the number of labels and values in the lists must match exactly (i.e. each data point must have both).
 
-![](<../../../../.gitbook/assets/image (96).png>)
+![](<../../../../.gitbook/assets/image (36).png>)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Bar-Charts--VmlldzoyNzExNzk)
 
@@ -107,7 +107,7 @@ wandb.log({'my_histogram': wandb.plot.histogram(table, "scores", title=None)})
 
 You can use this to log arbitrary histograms. Note that `data` is a list of lists, intended to support a 2D array of rows and columns.
 
-![](../../../../.gitbook/assets/demo-custom-chart-histogram.png)
+![](<../../../../.gitbook/assets/demo - custom chart histogram.png>)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Custom-Histograms--VmlldzoyNzE0NzM)
 
@@ -134,7 +134,7 @@ You can log this whenever your code has access to:
 * (optionally) a list of the labels/class names (`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.)
 * (optionally) a subset (still in list format) of the labels to visualize in the plot
 
-![](../../../../.gitbook/assets/demo-precision-recall.png)
+![](<../../../../.gitbook/assets/demo - precision recall.png>)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Plot-Precision-Recall-Curves--VmlldzoyNjk1ODY)
 
@@ -161,7 +161,7 @@ You can log this whenever your code has access to:
 * (optionally) a list of the labels/ class names (`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.)
 * (optionally) a subset (still in list format) of these labels to visualize on the plot
 
-![](../../../../.gitbook/assets/demo-custom-chart-roc-curve.png)
+![](<../../../../.gitbook/assets/demo - custom chart roc curve.png>)
 
 [See in the app →](https://wandb.ai/wandb/plots/reports/Plot-ROC-Curves--VmlldzoyNjk3MDE)
 
@@ -191,7 +191,7 @@ my_custom_chart = wandb.plot_table(vega_spec_name="carey/new_chart",
 
 [Run the code →](https://tiny.cc/custom-charts)
 
-![](<../../../../.gitbook/assets/image (97).png>)
+![](<../../../../.gitbook/assets/image (37).png>)
 
 ## Log data
 
@@ -201,7 +201,7 @@ Here are the data types you can log from your script and use in a custom chart:
 * **Summary**: Single values logged during training (your results or dependent variables), e.g. `wandb.log({"val_acc" : 0.8})`. If you write to this key multiple times during training via `wandb.log()`, the summary is set to the final value of that key.
 * **History**: The full timeseries of the logged scalar is available to the query via the `history` field
 * **summaryTable**: If you need to log a list of multiple values, use a `wandb.Table()` to save that data, then query it in your custom panel.
-* **historyTable**: If you need to see the history data, then query `historyTable` in your custom chart panel. Each time you call `wandb.Table()`  or log a custom chart, you're creating a new table in history for that step.
+* **historyTable**: If you need to see the history data, then query `historyTable` in your custom chart panel. Each time you call `wandb.Table()` or log a custom chart, you're creating a new table in history for that step.
 
 ### **How to log a custom table**
 
@@ -220,13 +220,13 @@ wandb.log({"custom_data_table": wandb.Table(data=my_custom_data,
 
 Add a new custom chart to get started, then edit the query to select data from your visible runs. The query uses [GraphQL](https://graphql.org) to fetch data from the config, summary, and history fields in your runs.
 
-![Add a new custom chart, then edit the query](../../../../.gitbook/assets/2020-08-28-06.42.40.gif)
+![Add a new custom chart, then edit the query](<../../../../.gitbook/assets/2020-08-28 06.42.40.gif>)
 
 ### Custom visualizations
 
 Select a **Chart** in the upper right corner to start with a default preset. Next, pick **Chart fields** to map the data you're pulling in from the query to the corresponding fields in your chart. Here's an example of selecting a metric to get from the query, then mapping that into the bar chart fields below.
 
-![Creating a custom bar chart showing accuracy across runs in a project](../../../../.gitbook/assets/demo-make-a-custom-chart-bar-chart.gif)
+![Creating a custom bar chart showing accuracy across runs in a project](<../../../../.gitbook/assets/demo - make a custom chart bar chart.gif>)
 
 ### How to edit Vega
 
@@ -272,4 +272,4 @@ This can be enabled on the “Other settings” page of the custom chart editor.
 * Show model validation metrics which require custom x-y coordinates (like precision-recall curves)
 * Overlay data distributions from two different models/experiments as histograms
 * Show changes in a metric via snapshots at multiple points during training
-* Create a unique visualization not yet available in W\&B (and hopefully share it with the world)&#x20;
+* Create a unique visualization not yet available in W\&B (and hopefully share it with the world)

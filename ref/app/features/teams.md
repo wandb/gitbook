@@ -16,17 +16,17 @@ Use W\&B Teams as a central workspace for your ML team to build better models fa
 
 ## Create a collaborative team
 
-1. ****[**Sign up or log in**](https://app.wandb.ai/login?signup=true) to your free W\&B account.
+1. \*\*\*\*[**Sign up or log in**](https://app.wandb.ai/login?signup=true) to your free W\&B account.
 2. Click **Invite Team** in the navigation bar.
 3. Create your team and invite collaborators.
 
 We also offer [Self-Hosted](../../../guides/self-hosted/) installs for on-prem or private cloud customers.
 
-![](../../../.gitbook/assets/wandb-demo-create-a-team.gif)
+![](<../../../.gitbook/assets/wandb demo - create a team.gif>)
 
 ## Team Trials
 
-We offer free trials for business teams, **no credit card required**. During the trial, you and your colleagues will have access to all the features in W\&B. Once the trial is over, you can upgrade your plan to continue using a W\&B Team to collaborate. Your personal W\&B account will always remain free, and if you're a student or teacher you can enroll in an academic plan.&#x20;
+We offer free trials for business teams, **no credit card required**. During the trial, you and your colleagues will have access to all the features in W\&B. Once the trial is over, you can upgrade your plan to continue using a W\&B Team to collaborate. Your personal W\&B account will always remain free, and if you're a student or teacher you can enroll in an academic plan.
 
 See the [pricing page](https://wandb.ai/site/pricing) for more information on our plans. You can download all your data at any time, either using the dashboard UI or via our [Export API](../../python/public-api/).
 
@@ -40,7 +40,7 @@ On the project page:
 2. Click the checkbox to select all runs
 3. Click **Move**: the destination project can be in your personal account or any team that you're a member of.
 
-![](../../../.gitbook/assets/demo-move-runs.gif)
+![](<../../../.gitbook/assets/demo - move runs.gif>)
 
 ### Send new runs to a team
 
@@ -52,7 +52,7 @@ wandb.init(entity="example-team")
 
 Your **default entity** is updated when you join a team. This means that on your [settings page](https://app.wandb.ai/settings), you'll see that the default location to create a new project is now the team you've just joined. Here's an example of what that [settings page](https://app.wandb.ai/settings) section looks like:
 
-![](../../../.gitbook/assets/screen-shot-2020-08-17-at-12.48.57-am.png)
+![](<../../../.gitbook/assets/Screen Shot 2020-08-17 at 12.48.57 AM.png>)
 
 ## Team Management FAQs
 

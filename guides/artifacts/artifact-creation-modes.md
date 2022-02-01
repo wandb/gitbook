@@ -10,9 +10,9 @@ New versions of an Artifact can be created in one of three ways:
 
 * **Simple**: A single run provides all the data for a new version. This is the most common case and is best suited for when the run fully recreates the needed data. For example: outputting saved models or model predictions in a table for analysis.
 * **Collaborative**: A set of runs collectively provides all the data for a new version. This is best suited for distributed jobs which have multiple runs generating data, often in parallel. For example: evaluating a model in a distributed manner, and outputting the predictions.
-* **Patch:** \(coming soon\) A single run provides a patch of the differences to be applied. This is best suited when a run wants to add data to an artifact without needing to recreate all the already existing data. For example: you have a golden dataset which is created by running a daily web scraper - in this case, you want the run to append new data to the dataset.
+* **Patch:** (coming soon) A single run provides a patch of the differences to be applied. This is best suited when a run wants to add data to an artifact without needing to recreate all the already existing data. For example: you have a golden dataset which is created by running a daily web scraper - in this case, you want the run to append new data to the dataset.
 
-![](../../.gitbook/assets/artifact-version-types-2-.png)
+![](<../../.gitbook/assets/Artifact Version Types (2).png>)
 
 ### Simple Mode
 
@@ -41,7 +41,7 @@ artifact.save()
 
 To allow a collection of runs to collaborate on a version before committing it, use the Collaborative Mode. There are two key ideas to keep in mind when using Collaborative Mode:
 
-1. Each Run in the collection needs to be aware of the same, unique ID \(called `distributed_id`\) in order to collaborate on the same version. As a default, if present, we will use the run's `group` as set by `wandb.init(group=GROUP)` as the `distributed_id`.
+1. Each Run in the collection needs to be aware of the same, unique ID (called `distributed_id`) in order to collaborate on the same version. As a default, if present, we will use the run's `group` as set by `wandb.init(group=GROUP)` as the `distributed_id`.
 2. There must be a final run which "commits" the version, permanently locking its state.
 
 Consider the following example. Take note that rather than using `log_artifact` we use `upsert_artifact` to add the the collaborative artifact and `finish_artifact` to finalize the commit.:
@@ -79,7 +79,7 @@ with wandb.init() as run:
 	run.finish_artifact(artifact, distributed_id="my_dist_artifact")
 ```
 
-### Patch Mode \(Coming Soon\)
+### Patch Mode (Coming Soon)
 
 To create a new version of an Artifact by modifying a previous version, use Patch Mode. A code snippet for Patch Mode will be provided once available for use.
 
@@ -147,4 +147,3 @@ with wandb.init(group=group_name) as run:
   # to this version.
   run.finish_artifact(artifact)
 ```
-

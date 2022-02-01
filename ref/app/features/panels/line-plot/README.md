@@ -6,7 +6,7 @@ description: Visualize metrics, customize axes, and compare multiple lines on th
 
 Line plots show up by default when you plot metrics over time with **wandb.log()**. Customize with chart settings to compare multiple lines on the same plot, calculate custom axes, and rename labels.
 
-![](../../../../../.gitbook/assets/line-plot-example.png)
+![](<../../../../../.gitbook/assets/line plot example.png>)
 
 ## Settings
 
@@ -26,7 +26,7 @@ Line plots show up by default when you plot metrics over time with **wandb.log()
 **X Axis Settings**\
 The x-axis can be set at the graph level, as well as globally for the project page or report page. Here's what the global settings look like:
 
-![](../../../../../.gitbook/assets/x-axis-global-settings.png)
+![](<../../../../../.gitbook/assets/x axis global settings.png>)
 
 {% hint style="info" %}
 Pick **multiple y-axes** in the line plot settings to compare different metrics on the same chart, like accuracy and validation accuracy for example.
@@ -45,15 +45,15 @@ Pick **multiple y-axes** in the line plot settings to compare different metrics 
 * **Title**: Add a custom title for line plot, which shows up at the top of the chart
 * **X-Axis title**: Add a custom title for the x-axis of the line plot, which shows up in the lower right corner of the chart.
 * **Y-Axis title**: Add a custom title for the y-axis of the line plot, which shows up in the upper left corner of the chart.
-* **Legend**: Select field that you want to see in the legend of the plot for each line. You could, for example, show the name of the run and the learning rate.&#x20;
+* **Legend**: Select field that you want to see in the legend of the plot for each line. You could, for example, show the name of the run and the learning rate.
 * **Legend template**: Fully customizable, this powerful template allows you to specify exactly what text and variables you want to show up in the template at the top of the line plot as well as the legend that appears when you hover your mouse over the plot.
 
-![Editing the line plot legend to show hyperparameters](../../../../../.gitbook/assets/screen-shot-2021-01-08-at-11.33.04-am.png)
+![Editing the line plot legend to show hyperparameters](<../../../../../.gitbook/assets/Screen Shot 2021-01-08 at 11.33.04 AM.png>)
 
 **Expressions**
 
 * **Y Axis Expressions**: Add calculated metrics to your graph. You can use any of the logged metrics as well as configuration values like hyperparameters to calculate custom lines.
-* **X Axis Expressions**: Rescale the x-axis to use calculated values using custom expressions. Useful variables include**\_step** for the default x-axis, and the syntax for referencing summary values is `${summary:value}`
+* **X Axis Expressions**: Rescale the x-axis to use calculated values using custom expressions. Useful variables include\*\*\_step\*\* for the default x-axis, and the syntax for referencing summary values is `${summary:value}`
 
 ## Visualize average values on a plot
 
@@ -61,11 +61,11 @@ If you have several different experiments and you'd like to see the average of t
 
 Here is what the graph looks like before averaging:
 
-![](../../../../../.gitbook/assets/demo-precision-lines.png)
+![](<../../../../../.gitbook/assets/demo - precision lines.png>)
 
 Here I have grouped the lines to see the average value across runs.
 
-![](<../../../../../.gitbook/assets/demo-average-precision-lines (2) (2) (3) (3) (3) (3) (4) (4) (5) (5) (4) (2).png>)
+![](<../../../../../.gitbook/assets/demo-average-precision-lines (2) (2) (3) (3) (3) (3) (4) (4) (5) (5) (4) (5).png>)
 
 ## Compare two metrics on one chart
 
@@ -89,38 +89,38 @@ Sometimes the default colour of runs is not helpful for comparison. To help over
 
 Each run is given a random color by default upon initialization.
 
-![Random colors given to runs](<../../../../../.gitbook/assets/image (52).png>)
+![Random colors given to runs](<../../../../../.gitbook/assets/image (95).png>)
 
 Upon clicking any of the colors, a color palette appears from which we can manually choose the color we want.
 
-![The color palette](<../../../../../.gitbook/assets/image (57).png>)
+![The color palette](<../../../../../.gitbook/assets/image (96).png>)
 
 ### **From the chart legend settings**
 
 One can also change the color of the runs from the chart legend settings.
 
-![](<../../../../../.gitbook/assets/image (54).png>)
+![](<../../../../../.gitbook/assets/image (98).png>)
 
 ## Visualize on different x axes
 
 If you'd like to see the absolute time that an experiment has taken, or see what day an experiment ran, you can switch the x axis. Here's an example of switching from steps to relative time and then to wall time.
 
-![](../../../../../.gitbook/assets/howto-use-relative-time-or-wall-time.gif)
+![](<../../../../../.gitbook/assets/howto - use relative time or wall time.gif>)
 
 ## Area plots
 
 In the line plot settings, in the advanced tab, click on different plot styles to get an area plot or a percentage area plot.
 
-![](../../../../../.gitbook/assets/2020-02-27-10.49.10.gif)
+![](<../../../../../.gitbook/assets/2020-02-27 10.49.10.gif>)
 
 ## Zoom
 
 Click and drag a rectangle to zoom vertically and horizontally at the same time. This changes the x-axis and y-axis zoom.
 
-![](../../../../../.gitbook/assets/2020-02-24-08.46.53.gif)
+![](<../../../../../.gitbook/assets/2020-02-24 08.46.53.gif>)
 
 ## Hide chart legend
 
 Turn off the legend in the line plot with this simple toggle:
 
-![](../../../../../.gitbook/assets/demo-hide-legend.gif)
+![](<../../../../../.gitbook/assets/demo - hide legend.gif>)

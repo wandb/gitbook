@@ -7,7 +7,7 @@ description: Run Sweeps using Jupyter notebooks
 Sweeps allow you to easily try out a large number of hyperparameters while tracking model performance and logging all the information you need to reproduce experiments. There are two major APIs for Sweeps: one using the command line ([guide here](quickstart.md)) and the other using pure Python. This guide describes how to use the second API to run a sweep inside a Jupyter notebook.
 
 {% hint style="info" %}
- You can try out running sweeps in Jupyter notebooks now, no install required, using Colab! We've got examples in [PyTorch](http://wandb.me/sweeps-colab) and [Keras](http://wandb.me/tf-sweeps-colab), plus a video walkthrough!
+You can try out running sweeps in Jupyter notebooks now, no install required, using Colab! We've got examples in [PyTorch](http://wandb.me/sweeps-colab) and [Keras](http://wandb.me/tf-sweeps-colab), plus a video walkthrough!
 {% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=9zrmUIlScdY" %}
@@ -18,7 +18,7 @@ Two components work together in a sweep: a _controller_ on the central sweep ser
 
 The benefit of this setup is in parallelization: we handle tricky aspects like tracking state over time and communicating between machines, so you can focus on the machine learning. That means it's as easy as, say, opening two copies of the same Google Colab notebook in two tabs to get a 2x speed-up in your hyperparameter search!
 
-![](<../../.gitbook/assets/image (73).png>)
+![](<../../.gitbook/assets/image (115).png>)
 
 ## 1. Initialize the sweep
 
@@ -59,7 +59,7 @@ For more details, check out the reference docs for `wandb.sweep` here:
 Now, in any process on any machine (including the one we just used to initialize the sweep), we just
 
 1. define a function to run training based on those hyperparameters, and
-2. pass that function, plus the `sweep_id`, to `wandb.agent`. 
+2. pass that function, plus the `sweep_id`, to `wandb.agent`.
 
 That's all we need to do! If we want to search more quickly, we can repeat this procedure on more machines.
 

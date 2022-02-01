@@ -42,13 +42,13 @@ W\&B's local run directories are by default inside the `./wandb` directory relat
 
 ### Save Policies and relative paths
 
-`wandb.save` accepts a **policy** argument which is set to "**live**" by default.  Available policies are:
+`wandb.save` accepts a **policy** argument which is set to "**live**" by default. Available policies are:
 
 * **live (default)** - sync this file to a wandb server immediately and re-sync it if it changes
 * **now** - sync this file to a wandb server immediately, don't continue syncing if it changes
 * **end** - only sync the file when the run finishes
 
-You can also specify the **base\_path** argument to `wandb.save`.  This would allow you to maintain a directory hierarchy, for example:
+You can also specify the **base\_path** argument to `wandb.save`. This would allow you to maintain a directory hierarchy, for example:
 
 ```python
 wandb.save("./results/eval/*", base_path="./results", policy="now")
@@ -57,7 +57,7 @@ wandb.save("./results/eval/*", base_path="./results", policy="now")
 Would result in all files matching the pattern being saved in an `eval` folder instead of at the root.
 
 {% hint style="info" %}
-When `wandb.save` is called it will list all files that exist at the provided path and create symlinks for them into the run directory (`wandb.run.dir`).  If you create new files in the same path after calling `wandb.save` we will not sync them.  You should either write files directly to `wandb.run.dir` or be sure to call `wandb.save` anytime new files are created.&#x20;
+When `wandb.save` is called it will list all files that exist at the provided path and create symlinks for them into the run directory (`wandb.run.dir`). If you create new files in the same path after calling `wandb.save` we will not sync them. You should either write files directly to `wandb.run.dir` or be sure to call `wandb.save` anytime new files are created.
 {% endhint %}
 
 ### Example of saving a file to the wandb run directory
@@ -77,7 +77,7 @@ Here's a public example page. You can see on the files tab, there's a `model-bes
 
 [See the live example →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
 
-![](<../../../.gitbook/assets/image (39) (6) (1) (9).png>)
+![](<../../../.gitbook/assets/image (39) (6) (1) (10).png>)
 
 ## Restoring Files
 

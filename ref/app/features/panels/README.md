@@ -14,11 +14,10 @@ This is likely because you have dots in your config parameter names. We flatten 
 
 Turn on the "eye" icon next to the top run in each group to visualize the maximum accuracy on the charts
 
-![](../../../../.gitbook/assets/screen-shot-2020-02-12-at-3.45.09-pm.png)
+![](<../../../../.gitbook/assets/Screen Shot 2020-02-12 at 3.45.09 PM.png>)
 
 ### Download charts
 
-You can download charts by clicking the down arrow and select a format \(.png, .svg, export API or export by CSV\)
+You can download charts by clicking the down arrow and select a format (.png, .svg, export API or export by CSV)
 
-![](../../../../.gitbook/assets/screen-shot-2020-02-20-at-10.07.09-am.png)
-
+![](<../../../../.gitbook/assets/Screen Shot 2020-02-20 at 10.07.09 AM.png>)

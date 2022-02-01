@@ -54,19 +54,19 @@ for i in range(10):
 
 ### **2. Set up a new user account**
 
-The first time you start a `wandb/local` instance you will be prompted to create an account by visiting http://localhost:8080.  This account is only stored locally in your installation and it's what you will use to authenticate with the service.&#x20;
+The first time you start a `wandb/local` instance you will be prompted to create an account by visiting http://localhost:8080. This account is only stored locally in your installation and it's what you will use to authenticate with the service.
 
 ### 3. Get a free license
 
-****[**Open the Deploy Manager** ](https://deploy.wandb.ai/deploy)to get a free license. We offer two options:
+\*\*\*\*[**Open the Deploy Manager** ](https://deploy.wandb.ai/deploy)to get a free license. We offer two options:
 
-1. ****[**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work:\
-   ![](<../../.gitbook/assets/image (161) (1) (1) (1).png>)
-2.  ****[**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:
+1. \*\*\*\*[**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work:\
+   ![](<../../.gitbook/assets/image (174).png>)
+2.  \*\*\*\*[**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:
 
-    ![](<../../.gitbook/assets/image (160) (1).png>)
+    ![](<../../.gitbook/assets/image (161).png>)
 
-****[**Contact sales -**](https://wandb.ai/site/local-contact)**>** to learn more about Enterprise Self-Hosting options for W\&B.
+\*\*\*\*[**Contact sales -**](https://wandb.ai/site/local-contact)**>** to learn more about Enterprise Self-Hosting options for W\&B.
 
 ### 4. Create and scale a shared instance
 
@@ -75,9 +75,9 @@ This private instance of W\&B is excellent for initial testing. To enjoy the pow
 {% hint style="warning" %}
 **Trial Mode vs. Production Setup**
 
-In Trial Mode of W\&B Local, you're running the Docker container on a single machine. This setup is quick and painless, and it's great for testing the product, but it isn't scalable in the long term.&#x20;
+In Trial Mode of W\&B Local, you're running the Docker container on a single machine. This setup is quick and painless, and it's great for testing the product, but it isn't scalable in the long term.
 
-Once you're ready to move from test projects to real production work, it  is crucial that you set up a scalable file system to avoid data loss: allocate extra space in advance, resize the file system proactively as you log more data, and configure external metadata and object stores for backup. If you run out of disk space, the instance will stop working, and additional data will be lost.
+Once you're ready to move from test projects to real production work, it is crucial that you set up a scalable file system to avoid data loss: allocate extra space in advance, resize the file system proactively as you log more data, and configure external metadata and object stores for backup. If you run out of disk space, the instance will stop working, and additional data will be lost.
 {% endhint %}
 
 ### 5. Control where to log: local or wandb cloud

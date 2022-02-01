@@ -18,7 +18,7 @@ If you are self-hosting you will need to follow [these steps](../../../guides/se
 
 ### User Alerts
 
-Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects.&#x20;
+Set up notifications when a run finishes, crashes, or you call `wandb.alert()`. These apply to all projects where you launch runs, including both personal and team projects.
 
 In your [User Settings](https://wandb.ai/settings):
 
@@ -26,7 +26,7 @@ In your [User Settings](https://wandb.ai/settings):
 * Click **Connect Slack** to pick a channel to post alerts. We recommend the **Slackbot** channel because it keeps the alerts private.
 * **Email** will go to the email address you used when you signed up for W\&B. We recommend setting up a filter in your email so all these alerts go into a folder and don't fill up your inbox.
 
-![](../../../.gitbook/assets/demo-connect-slack.png)
+![](<../../../.gitbook/assets/demo - connect slack.png>)
 
 ### Team Alerts
 

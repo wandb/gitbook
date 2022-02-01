@@ -43,7 +43,7 @@ After running `wandb.init()` , start a new cell with `%%wandb` to see live graph
 
 Try it for yourself in this [quick example notebook →](http://wandb.me/jupyter-interact-colab)
 
-![](../../.gitbook/assets/jupyter-widget.png)
+![](<../../.gitbook/assets/jupyter widget.png>)
 
 ### Rendering live W\&B interfaces directly in your notebooks
 
@@ -79,7 +79,7 @@ Want to know more about what you can do with W\&B? Check out our [guide to loggi
 ## Additional Jupyter features in W\&B
 
 1. **Easy authentication in Colab**: When you call `wandb.init` for the first time in a Colab, we automatically authenticate your runtime if you're currently logged in to W\&B in your browser. On the overview tab of your run page, you'll see a link to the Colab.
-2. **Jupyter Magic:** Display dashboards, sweeps and reports directly in your notebooks.  The `%wandb` magic accepts a path to your project, sweeps or reports and will render the W\&B interface directly in the notebook.
+2. **Jupyter Magic:** Display dashboards, sweeps and reports directly in your notebooks. The `%wandb` magic accepts a path to your project, sweeps or reports and will render the W\&B interface directly in the notebook.
 3. **Launch dockerized Jupyter**: Call `wandb docker --jupyter` to launch a docker container, mount your code in it, ensure Jupyter is installed, and launch on port 8888.
 4. **Run cells in arbitrary order without fear**: By default, we wait until the next time `wandb.init` is called to mark a run as "finished". That allows you to run multiple cells (say, one to set up data, one to train, one to test) in whatever order you like and have them all log to the same run. If you turn on code saving in [settings](https://app.wandb.ai/settings), you'll also log the cells that were executed, in order and in the state in which they were run, enabling you to reproduce even the most non-linear of pipelines. To mark a run as complete manually in a Jupyter notebook, call `run.finish`.
 
@@ -115,7 +115,7 @@ os.environ["WANDB_SILENT"] = "True"
 {% endtab %}
 {% endtabs %}
 
-If you see log messages like `INFO    SenderThread:11484 [sender.py:finish():979]`  in your notebook, you can disable those with the following:
+If you see log messages like `INFO SenderThread:11484 [sender.py:finish():979]` in your notebook, you can disable those with the following:
 
 ```python
 import logging

@@ -20,15 +20,15 @@ Check out our [video demo](https://www.youtube.com/watch?v=2xeJIv\_K\_eI) of Rep
 
 ### **Notes: Add a visualization with a quick summary**
 
-Capture an important observation, an idea for future work, or a milestone reached in the development of a project. All experiment runs in your report will link to their parameters, metrics, logs, and code, so  you can save the full context of your work.
+Capture an important observation, an idea for future work, or a milestone reached in the development of a project. All experiment runs in your report will link to their parameters, metrics, logs, and code, so you can save the full context of your work.
 
 Jot down some text and pull in relevant charts to illustrate your insight ([comparing networks in distributed training →](https://wandb.ai/stacey/estuary/reports/When-Inception-ResNet-V2-is-too-slow--Vmlldzo3MDcxMA) )
 
-![](<../../.gitbook/assets/screen-shot-2021-04-19-at-2.21.25-pm (1).png>)
+![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.21.25-pm.png)
 
-Save the best examples from a complex code base for easy reference and future interaction (example: [LIDAR point clouds → ](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg))&#x20;
+Save the best examples from a complex code base for easy reference and future interaction (example: [LIDAR point clouds → ](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg))
 
-![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.18.56-pm.png)
+![](<../../.gitbook/assets/Screen Shot 2021-04-19 at 2.18.56 PM.png>)
 
 ### **Collaboration: Share findings with your colleagues**
 
@@ -36,27 +36,27 @@ Explain how to get started with a project, share what you've observed so far, an
 
 Include dynamic settings so that your colleagues can explore for themselves, get additional insights, and better plan their next steps. In this example, three types of experiments can be visualized independently, compared, or averaged ([SafeLife benchmark experiments →](https://wandb.ai/stacey/saferlife/reports/SafeLife-Benchmark-Experiments--Vmlldzo0NjE4MzM)).
 
-![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.32.11-pm.png)
+![](<../../.gitbook/assets/Screen Shot 2021-04-19 at 2.32.11 PM.png>)
 
-![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.32.58-pm.png)
+![](<../../.gitbook/assets/Screen Shot 2021-04-19 at 2.32.58 PM.png>)
 
-Use sliders and configurable media panels to showcase a model's results or training progress (example → [StarGANv2](https://wandb.ai/stacey/stargan/reports/Cute-Animals-and-Post-Modern-Style-Transfer-StarGAN-v2-for-Multi-Domain-Image-Synthesis---VmlldzoxNzcwODQ))&#x20;
+Use sliders and configurable media panels to showcase a model's results or training progress (example → [StarGANv2](https://wandb.ai/stacey/stargan/reports/Cute-Animals-and-Post-Modern-Style-Transfer-StarGAN-v2-for-Multi-Domain-Image-Synthesis---VmlldzoxNzcwODQ))
 
-![](../../.gitbook/assets/screen-shot-2021-04-23-at-8.44.32-am.png)
+![](<../../.gitbook/assets/Screen Shot 2021-04-23 at 8.44.32 AM.png>)
 
-![](../../.gitbook/assets/screen-shot-2021-04-23-at-8.45.36-am.png)
+![](<../../.gitbook/assets/Screen Shot 2021-04-23 at 8.45.36 AM.png>)
 
 ### **Work log: Track what you've tried and plan next steps**
 
 Write down your thoughts on experiments, your findings, and any gotchas and next steps as you work through a project, keeping everything organized in one place. This lets you "document" all the important pieces beyond your scripts (example: [tuning transformers →](https://wandb.ai/stacey/winograd/reports/Who-is-Them-Text-Disambiguation-with-Transformers--VmlldzoxMDU1NTc)).
 
-![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.44.02-pm.png)
+![](<../../.gitbook/assets/Screen Shot 2021-04-19 at 2.44.02 PM.png>)
 
 Tell the story of a project, which you and others can reference later to understand how and why a model was developed (example → [The View from the Driver's Seat](https://wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver-s-Seat--Vmlldzo1MTg5NQ))
 
-![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.47.02-pm.png)
+![](<../../.gitbook/assets/Screen Shot 2021-04-19 at 2.47.02 PM.png>)
 
-### ****[See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
+### \*\*\*\*[See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
 
 Once you have [experiments in W\&B](../../quickstart.md), easily visualize results in reports. Here's a quick overview video.
 
@@ -70,7 +70,7 @@ You can create a new report from a workspace, or directly from the report tab in
 
 Click **Create report** in the upper right corner of your workspace. This gives you a way to pull in some charts from the page to use in your new custom page.
 
-![](<../../.gitbook/assets/image (44).png>)
+![](<../../.gitbook/assets/image (90).png>)
 
 We provide a few quick templates to guide you or you can create a blank report and start there.‌
 
@@ -85,7 +85,7 @@ We provide a few quick templates to guide you or you can create a blank report a
 
 Go to the Reports tab in your project, and click **Create Report** button on the report page. This creates a new blank report. Save that report to get a shareable link, or send charts to the report from different workspaces, and even different projects!
 
-![](<../../.gitbook/assets/image (48).png>)
+![](<../../.gitbook/assets/image (91).png>)
 
 ## How to edit a report
 
@@ -93,7 +93,7 @@ Go to the Reports tab in your project, and click **Create Report** button on the
 
 Again press `/`, then add a panel grid, then add a panel (like a line plot, scatter plot, or parallel coordinates chart). Each panel grid has a set of run sets and a set of panels. The run sets at the bottom of the section control what data shows up on the panels in the grid. Create a new panel grid if you want to add charts that pull data from a different set of runs.
 
-![](../../.gitbook/assets/demo-report-add-panel-grid.gif)
+![](<../../.gitbook/assets/demo - report add panel grid.gif>)
 
 ### Duplicate and delete panel grids
 
@@ -103,7 +103,7 @@ As you can see in the gif below, you can highlight a whole panel grid section by
 
 To delete a panel grid, simply select it and press `delete` on your keyboard.
 
-![](../../.gitbook/assets/demo-copy-and-paste-a-panel-grid-section.gif)
+![](<../../.gitbook/assets/demo - copy and paste a panel grid section.gif>)
 
 ## Collaborate on reports
 
@@ -113,13 +113,13 @@ When you press edit, you'll be editing a draft copy of the report. This draft au
 
 If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
 
-![](../../.gitbook/assets/collaborative-reports.gif)
+![](<../../.gitbook/assets/collaborative reports.gif>)
 
 ### Comment on reports
 
 Click the comment button on a panel in a report to add a comment directly to that panel.
 
-![](../../.gitbook/assets/demo-comment-on-panels-in-reports.gif)
+![](<../../.gitbook/assets/demo - comment on panels in reports.gif>)
 
 ## Panel grids
 
@@ -159,7 +159,7 @@ Insert the direct link to the report within the embed cell
 
 Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
 
-![](../../.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
+![](<../../.gitbook/assets/how to - pick a different project to draw runs from.gif>)
 
 The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
 
@@ -169,7 +169,7 @@ If you really need to compare runs from two projects and the columns aren't work
 
 Share a view-only link to a report that is in a private project or team project.
 
-![](../../.gitbook/assets/share-view-only-link.gif)
+![](<../../.gitbook/assets/share view only link.gif>)
 
 View-only report links add a secret access token to the URL, so anyone who opens the link can view the page. For customers on [W\&B Local](../self-hosted/) private cloud installations, these links will still be behind your firewall, so only members of your team with access to your private instance _and_ access to the view-only link will be able to view the report.
 
@@ -179,6 +179,6 @@ In view mode, someone who is not logged in can see the charts and mouse over to 
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1).gif>)
+![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (5).gif>)
 
 ##

@@ -4,7 +4,7 @@ description: Track your trees with W&B.
 
 # XGBoost & LightGBM
 
-The `wandb` library includes special callbacks for both of the most popular libraries for training gradient-boosted machines: [XGBoost ](https://xgboost.readthedocs.io/en/latest/index.html)and [LightGBM](https://lightgbm.readthedocs.io/en/latest/). It's also easy to use the generic logging features of Weights & Biases to track large experiments,  like hyperparameter sweeps.
+The `wandb` library includes special callbacks for both of the most popular libraries for training gradient-boosted machines: [XGBoost ](https://xgboost.readthedocs.io/en/latest/index.html)and [LightGBM](https://lightgbm.readthedocs.io/en/latest/). It's also easy to use the generic logging features of Weights & Biases to track large experiments, like hyperparameter sweeps.
 
 {% tabs %}
 {% tab title="XGBoost" %}
@@ -45,4 +45,4 @@ Attaining the maximum performance out of models requires tuning hyperparameters,
 To learn more about these tools and see an example of how to use Sweeps with XGBoost, check out [this interactive Colab notebook.](http://wandb.me/xgb-sweeps-colab)
 {% endhint %}
 
-![tl;dr: trees outperform linear learners on this classification dataset.](<../../.gitbook/assets/image (70).png>)
+![tl;dr: trees outperform linear learners on this classification dataset.](<../../.gitbook/assets/image (112).png>)

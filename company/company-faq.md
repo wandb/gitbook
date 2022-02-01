@@ -2,19 +2,19 @@
 
 ## Pricing and Account Plans
 
-W\&B is free for individuals and academic teams. We are committed to staying free to support the advancement of machine learning, and we make it easy to export data with our [Export API](broken-reference).
+W\&B is free for individuals and academic teams. We are committed to staying free to support the advancement of machine learning, and we make it easy to export data with our [Export API](broken-reference/).
 
 * [Pricing Page](https://www.wandb.com/pricing): Accounts for individuals, startups, teams, and enterprises
 * [Academics](https://www.wandb.com/academic): Apply for access to academic teams to share results with collaborators
 * [On-prem](../guides/self-hosted/): We have options for on-prem and private cloud installations
 * [Contact](getting-help.md): Reach out with any questions
-* [Request a demo](https://www.wandb.com/contact): We're happy to get on a call and talk about custom enterprise plans 
+* [Request a demo](https://www.wandb.com/contact): We're happy to get on a call and talk about custom enterprise plans
 
 ## How is Weights & Biases different from TensorBoard?
 
 We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
 
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible. 
+1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.
 2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W\&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
 3. **Fast, flexible integration**: Add W\&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
 4. **Persistent, centralized dashboard**: Anywhere you train your models, whether on your local machine, your lab cluster, or spot instances in the cloud, we give you the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
@@ -33,7 +33,7 @@ We hope to discover and share high level patterns to move the field of machine l
 
 At Weights & Biases our mission is to build the best tools for machine learning. Our experienced technical cofounders built Figure Eight, and our tools are being used by cutting-edge machine learning teams including OpenAI and Toyota. We enjoy making useful tools, and the best part of our day is interacting with people who are building real models using our product.
 
-![](<../.gitbook/assets/image (56).png>)
+![](../.gitbook/assets/image.png)
 
 ## How do I pronounce "wandb"?
 

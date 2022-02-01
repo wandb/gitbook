@@ -20,7 +20,7 @@ wandb_logger = WandbLogger()  # newline 2
 trainer = Trainer(logger=wandb_logger)
 ```
 
-![Interactive dashboards accessible anywhere, and more!](../../.gitbook/assets/n6p7k4m.gif)
+![Interactive dashboards accessible anywhere, and more!](../../.gitbook/assets/n6P7K4M.gif)
 
 ## Check out interactive examples!
 
@@ -30,7 +30,7 @@ Run GPU-accelerated PyTorch Lighting plus W\&B logging without installing anythi
 
 See how PyTorch Lighting and W\&B can accelerate your model development and help you climb the leaderboard with [this Kaggle Kernel](https://www.kaggle.com/ayuraj/use-pytorch-lightning-with-weights-and-biases).
 
-![](<../../.gitbook/assets/lgklnrt (1) (1) (1).gif>)
+![](<../../.gitbook/assets/lgklnrt (1) (1) (1) (1).gif>)
 
 Read more on specific topics in these blog posts made with Weights & Biases' [Reports](../reports/):
 
