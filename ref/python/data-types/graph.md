@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.9/wandb/data_types.py#L1304-L1464)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1304-L1464)
 
 
 
@@ -34,7 +34,7 @@ Import a keras model:
 
 <h3 id="add_edge"><code>add_edge</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/data_types.py#L1390-L1394)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1390-L1394)
 
 ```python
 add_edge(
@@ -47,7 +47,7 @@ add_edge(
 
 <h3 id="add_node"><code>add_node</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/data_types.py#L1376-L1388)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1376-L1388)
 
 ```python
 add_node(
@@ -60,7 +60,7 @@ add_node(
 
 <h3 id="from_keras"><code>from_keras</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/data_types.py#L1396-L1425)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1396-L1425)
 
 ```python
 @classmethod
@@ -74,7 +74,7 @@ from_keras(
 
 <h3 id="pprint"><code>pprint</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/data_types.py#L1370-L1374)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1370-L1374)
 
 ```python
 pprint()
@@ -85,7 +85,7 @@ pprint()
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.9/wandb/data_types.py#L1367-L1368)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1367-L1368)
 
 ```python
 __getitem__(

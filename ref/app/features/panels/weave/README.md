@@ -57,7 +57,7 @@ There are a few special case to be aware of:
 1. If you are currently viewing a Table, then a `Plot table query` option will be available in addition to all the other normal options. Selecting this option means that you want to plot the results of the _current table query_. So, if you have perhaps added a custom field, grouped, sorted, filtered, or otherwise manipulated the table, you can select `Plot table query` to use the current results as the input to the plot.
 2.  `Merge Tables: <Panel>` is a special case where the incoming datatype is a List of Tables. In such cases, the "Merge Tables" portion of the panel allows users to either concatenate all the rows, or join the tables on a particular column. This setting is configured in the Weave Configuration (discussed below) and shown in the following screen shots
 
-    &#x20;![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.53.43-pm.png) ![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.53.53-pm.png)&#x20;
+    ![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.53.43-pm.png)![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.53.53-pm.png)
 3. `List of: <Panel>` is a special case where the incoming datatype is a List - and you wish to display a paginated view of panels. The following example shows `List of: Plot` , where each plot is from a different run
 
 ![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-2.59.53-pm.png)
@@ -79,7 +79,7 @@ In the above example, we see 3 sections in the expanded Weave Configuration:
 Finally, the Weave Result Panel renders the result of the Weave Expression, using the selected Weave Panel, configured by the configuration to display the data in an interactive form. Here we can see a Table and a Plot of the same data.
 
 {% hint style="info" %}
-To resize all columns to the same size at once, you can `shift` + resize mouse drag.&#x20;
+To resize all columns to the same size at once, you can `shift` + resize mouse drag.
 {% endhint %}
 
 ![](../../../../.gitbook/assets/screen-shot-2021-09-28-at-3.12.36-pm.png)
