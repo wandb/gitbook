@@ -23,11 +23,10 @@ All it takes is one line: `openai wandb sync`
 
 ## :tada: Sync your fine-tunes with one line!
 
-:warning: **Beta:** You currently need to install latest openai-python branch:
+Make sure you are using latest version of openai and wandb.
 
 ```shell-session
-$ pip install wandb
-$ pip install --upgrade pip install git+https://github.com/openai/openai-python.git
+$ pip install --upgrade openai wandb
 ```
 
 Then sync your results from the command line or from your script.
