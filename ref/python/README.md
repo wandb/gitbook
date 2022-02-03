@@ -53,5 +53,5 @@ For reference documentation, see https://docs.wandb.com/ref/python.
 
 | Other Members |  |
 | :--- | :--- |
-|  `__version__`<a id="__version__"></a> |  `'0.12.9'` |
+|  `__version__`<a id="__version__"></a> |  `'0.12.10'` |
 

@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1396-L1624)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1389-L1617)
 
 
 
@@ -126,7 +126,7 @@ wandb.log({"random_field": table})
 
 <h3 id="type_name"><code>type_name</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1594-L1596)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1587-L1589)
 
 ```python
 @classmethod
@@ -138,7 +138,7 @@ type_name() -> str
 
 <h3 id="validate"><code>validate</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1598-L1624)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1591-L1617)
 
 ```python
 validate(
