@@ -54,6 +54,7 @@
       * [Skorch](guides/integrations/other/skorch.md)
       * [W\&B for Julia](guides/integrations/other/w-and-b-for-julia.md)
   * [Collaborative Reports](guides/reports/README.md)
+    * [Reports Walkthrough](guides/reports/reports-walkthrough.md)
     * [Reports FAQ](guides/reports/reports-faq.md)
   * [Data + Model Versioning](guides/artifacts/README.md)
     * [Artifacts Core Concepts](guides/artifacts/artifacts-core-concepts.md)
