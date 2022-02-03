@@ -61,5 +61,3 @@ Tell the story of a project, which you and others can reference later to underst
 Once you have [experiments in W\&B](../../quickstart.md), easily visualize results in reports. Here's a quick overview video.
 
 {% embed url="https://www.youtube.com/watch?v=o2dOSIDDr1w" %}
-
-##
