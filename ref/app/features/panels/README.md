@@ -8,8 +8,6 @@ Use visualizations to explore your logged data, the relationships between hyperp
 
 This is likely because you have dots in your config parameter names. We flatten nested parameters using dots, and we only handle 3 levels of dots in the backend. I recommend using a different character as a separator.
 
-\*\*\*\*
-
 ### Visualize max accuracy in groups
 
 Turn on the "eye" icon next to the top run in each group to visualize the maximum accuracy on the charts
