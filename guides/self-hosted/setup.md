@@ -431,7 +431,15 @@ W\&B supports operating from within an [Openshift kubernetes cluster](https://ww
 
 #### Running the container as an un-privileged user
 
-By default the container will run with a $UID of 999.  If you're orchestrator requires the container be run with a random UID you can specify a $UID >= 100000 and a $GID of 0.  We must be started as the root group ($GID=0) for file system permissions to function properly.  This is the default behavior when running containers in Openshift.
+By default the container will run with a `$UID` of 999.  If you're orchestrator requires the container be run with a non-root user you can specify a `$UID` >= 100000 and a `$GID` of 0.  We must be started as the root group (`$GID=0`) for file system permissions to function properly.  This is the default behavior when running containers in Openshift.  An example security context for kubernetes would looks like:\
+
+
+```
+spec:
+  securityContext:
+    runAsUser: 100000
+    runAsGroup: 0
+```
 
 ### Docker
 
