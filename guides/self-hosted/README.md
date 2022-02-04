@@ -10,12 +10,6 @@ Use Local to host the W\&B App on your own servers, either private cloud or on-p
 
 We also offer [W\&B Enterprise Cloud](cloud.md), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system is a good choice for massively scalable experiment tracking.
 
-### Features
-
-* Keep your data safe on your own company's network
-* Integrate with your company's authentication system
-* Premier support by the W\&B engineering team
-
 ## Setup Guide
 
 ### 1. Install W\&B locally with Docker
