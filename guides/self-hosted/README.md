@@ -16,13 +16,14 @@ We also offer [W\&B Enterprise Cloud](cloud.md), which runs a completely scalabl
 * Integrate with your company's authentication system
 * Premier support by the W\&B engineering team
 
-## Quickstart Guide
+## Setup Guide
 
 ### 1. Install W\&B locally with Docker
 
 On any machine with [Docker](https://www.docker.com) and [Python](https://www.python.org) installed, run
 
 ```
+pip install wandb
 wandb local
 ```
 
@@ -58,15 +59,15 @@ The first time you start a `wandb/local` instance you will be prompted to create
 
 ### 3. Get a free license
 
-\*\*\*\*[**Open the Deploy Manager** ](https://deploy.wandb.ai/deploy)to get a free license. We offer two options:
+[**Open the Deploy Manager** ](https://deploy.wandb.ai/deploy)to get a free license. We offer two options:
 
-1. \*\*\*\*[**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work:\
+1. [**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work:\
    ![](<../../.gitbook/assets/image (174).png>)
-2.  \*\*\*\*[**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:
+2.  [**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:
 
     ![](<../../.gitbook/assets/image (161).png>)
 
-\*\*\*\*[**Contact sales -**](https://wandb.ai/site/local-contact)**>** to learn more about Enterprise Self-Hosting options for W\&B.
+[**Contact sales -**](https://wandb.ai/site/local-contact)**>** to learn more about Enterprise Self-Hosting options for W\&B.
 
 ### 4. Create and scale a shared instance
 
@@ -80,7 +81,7 @@ In Trial Mode of W\&B Local, you're running the Docker container on a single mac
 Once you're ready to move from test projects to real production work, it is crucial that you set up a scalable file system to avoid data loss: allocate extra space in advance, resize the file system proactively as you log more data, and configure external metadata and object stores for backup. If you run out of disk space, the instance will stop working, and additional data will be lost.
 {% endhint %}
 
-### 5. Control where to log: local or wandb cloud
+### 5. Set training code to log to local server
 
 If you're running wandb on multiple machines or switching between a local instance and the wandb cloud, there are several ways to control where your runs are logged. If you want to send metrics to the shared **local** instance and you've configured DNS, you can
 

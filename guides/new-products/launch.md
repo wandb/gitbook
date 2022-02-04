@@ -20,7 +20,7 @@ W\&B Launch is the new beta tool for reproducing runs and orchestrating experime
 
 Here's what that looks like in the W\&B UI:
 
-![](<../.gitbook/assets/demo - quickstart wandb launch.gif>)
+![](<../../.gitbook/assets/demo - quickstart wandb launch.gif>)
 
 ## What runs can be reproduced by W\&B Launch?
 
@@ -67,15 +67,15 @@ You can add runs to the queue from the App UI or from the command line.
 
 #### Add runs to Launch from the App UI
 
-1. Open your [project page workspace](../ref/app/pages/project-page.md#workspace-tab) and look in the left sidebar, where the list of runs is
+1. Open your [project page workspace](../../ref/app/pages/project-page.md#workspace-tab) and look in the left sidebar, where the list of runs is
 2. Hover over a run to see the dropdown menu button appear on the left, next to the eye
 3. Click the menu, and select the option to **Add to Launch queue**
 
-![](<../.gitbook/assets/image (147).png>)
+![](<../../.gitbook/assets/image (147).png>)
 
 This will open a modal where you can edit the launch config that defines how a run is launched:
 
-![](<../.gitbook/assets/image (148).png>)
+![](<../../.gitbook/assets/image (148).png>)
 
 In this modal, you can select the target entity, project and queue you'd like to add the queued run to. You can also set the overrides, as well as other information such as the name or git version.
 
@@ -101,7 +101,7 @@ The agent will pop items off of the queue(s) and run them one-at-a-time, on the 
 
 Queued runs can be seen in the Launch Tab. Runs can be deleted from the run queue using the triple dot menu for each run.
 
-![](<../.gitbook/assets/image (150).png>)
+![](<../../.gitbook/assets/image (150).png>)
 
 ## The Launch Config Specification
 
@@ -177,10 +177,10 @@ No, different agents can listen to different queues. You can manage your run que
 
 To create a new run queue:
 
-1. Go to your [project page](https://docs.wandb.ai/ref/app/pages/project-page), and click on the Launch tab. Create, delete and view the runs in each queue within a [project workspace](../ref/app/pages/project-page.md#workspace-tab).
+1. Go to your [project page](https://docs.wandb.ai/ref/app/pages/project-page), and click on the Launch tab. Create, delete and view the runs in each queue within a [project workspace](../../ref/app/pages/project-page.md#workspace-tab).
 2. Click the "Create Queue" button to create a new run queue. If your project is inside a team, you can create a private queue, or you can create a queue that is available to the entire team.
 
-![](<../.gitbook/assets/image (149).png>)
+![](<../../.gitbook/assets/image (149).png>)
 
 You can specify the name of the queue for an agent to use using the `wandb launch-agent --queues <queue-name> <project>`
 
@@ -206,7 +206,7 @@ Alternatively, visit the Launch tab in the project workspace to automatically cr
 
 Full run queues can be deleted as well. Select the queue or queues to be deleted, and click delete. This will delete queued runs that have not started, but not delete any runs that have been started.
 
-![](<../.gitbook/assets/image (151).png>)
+![](<../../.gitbook/assets/image (151).png>)
 
 {% hint style="info" %}
 The project's default queue cannot be deleted.
