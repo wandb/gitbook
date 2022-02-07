@@ -12,21 +12,21 @@ The following are detailed information about manually configuring your local ins
 
 All configuration settings can be set via the UI however if you would like to manage these configuration options via code you can set the following environment variables:
 
-| Environment Variable | Description                                                                                                                                                                                |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| LICENSE              | Your wandb/local license                                                                                                                                                                   |
-| MYSQL                | The MySQL connection string                                                                                                                                                                |
-| BUCKET               | The S3 / GCS bucket for storing data                                                                                                                                                       |
-| BUCKET\_QUEUE        | The SQS / Google PubSub queue for object creation events                                                                                                                                   |
-| NOTIFICATIONS\_QUEUE | The SQS queue on which to publish run events                                                                                                                                               |
-| AWS\_REGION          | The AWS Region where your bucket lives                                                                                                                                                     |
-| HOST                 | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net)                                                                                                              |
-| OIDC\_ISSUER         | A url to your Open ID Connect identity provider, i.e. [https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd) |
-| OIDC\_CLIENT\_ID     | The Client ID of application in your identity provider                                                                                                                                     |
-| OIDC\_AUTH\_METHOD   | implicit (default) or pkce, see below for more context.                                                                                                                                    |
-| SLACK\_CLIENT\_ID    | The client ID of the Slack application you want to use for alerts                                                                                                                          |
-| SLACK\_SECRET        | The secret of the Slack application you want to use for alerts                                                                                                                             |
-| LOCAL\_RESTORE       | You can temporarily set this to true if you're unable to access your instance. Check the logs from the container for temporary credentials.                                                |
+| Environment Variable | Description                                                                                                                                                                              |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| LICENSE              | Your wandb/local license                                                                                                                                                                 |
+| MYSQL                | The MySQL connection string                                                                                                                                                              |
+| BUCKET               | The S3 / GCS bucket for storing data                                                                                                                                                     |
+| BUCKET_QUEUE         | The SQS / Google PubSub queue for object creation events                                                                                                                                 |
+| NOTIFICATIONS_QUEUE  | The SQS queue on which to publish run events                                                                                                                                             |
+| AWS_REGION           | The AWS Region where your bucket lives                                                                                                                                                   |
+| HOST                 | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net)                                                                                                            |
+| OIDC_ISSUER          | A url to your Open ID Connect identity provider, i.e. [https://cognito-idp.us-east-1.amazonaws.com/us-east-1_uiIFNdacd](https://cognito-idp.us-east-1.amazonaws.com/us-east-1_uiIFNdacd) |
+| OIDC_CLIENT_ID       | The Client ID of application in your identity provider                                                                                                                                   |
+| OIDC_AUTH_METHOD     | implicit (default) or pkce, see below for more context.                                                                                                                                  |
+| SLACK_CLIENT_ID      | The client ID of the Slack application you want to use for alerts                                                                                                                        |
+| SLACK_SECRET         | The secret of the Slack application you want to use for alerts                                                                                                                           |
+| LOCAL_RESTORE        | You can temporarily set this to true if you're unable to access your instance. Check the logs from the container for temporary credentials.                                              |
 
 ## SSO & Authentication
 
@@ -40,18 +40,18 @@ _wandb/local_ uses Open ID Connect for authentication. When creating an applicat
 
 To configure an application client in your identity provider you'll need to provide an allowed callback url:
 
-* Add the following allowed Callback URL `http(s)://YOUR-W&B-HOST/oidc/callback`
-* If your IDP supports universal logout, set Logout URL to `http(s)://YOUR-W&B-HOST`
+- Add the following allowed Callback URL `http(s)://YOUR-W&B-HOST/oidc/callback`
+- If your IDP supports universal logout, set Logout URL to `http(s)://YOUR-W&B-HOST`
 
 For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your application was running at `https://wandb.mycompany.com`:
 
 ![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (162) (1).png>)
 
-_wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
+_wandb/local_ will use the ["implicit" grant with the "form_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
 
 ![openid, profile, and email are required](<../../.gitbook/assets/image (165) (1).png>)
 
-To tell _wandb/local_ which grant to use you can select the Auth Method in the settings page or set the OIDC\_AUTH\_METHOD environment variable.
+To tell _wandb/local_ which grant to use you can select the Auth Method in the settings page or set the OIDC_AUTH_METHOD environment variable.
 
 {% hint style="info" %}
 For AWS Cognito providers you must set the Auth Method to "pkce"
@@ -59,7 +59,7 @@ For AWS Cognito providers you must set the Auth Method to "pkce"
 
 You'll need a Client ID and the url of your OIDC issuer. The OpenID discovery document must be available at `$OIDC_ISSUER/.well-known/openid-configuration` For example when using AWS Cognito you can generate your issuer url by appending your User Pool ID to the Cognito IDP url from the _User Pools > App Integration_ tab:
 
-![The issuer URL would be https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](<../../.gitbook/assets/image (160) (1).png>)
+![The issuer URL would be https://cognito-idp.us-east-1.amazonaws.com/us-east-1_uiIFNdacd](<../../.gitbook/assets/image (160) (1).png>)
 
 {% hint style="info" %}
 Do not use the "Cognito domain" for the IDP url. Cognito provides it's discovery document at `https://cognito-idp.$REGION.amazonaws.com/$USER_POOL_ID`
@@ -138,9 +138,9 @@ The node on which W\&B Local is running must be configured to permit access to s
 
 Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
-* **File Storage Bucket**: `s3://<bucket-name>`
-* **File Storage Region (AWS only)**: `<region>`
-* **Notification Subscription**: `sqs://<queue-name>`
+- **File Storage Bucket**: `s3://<bucket-name>`
+- **File Storage Region (AWS only)**: `<region>`
+- **Notification Subscription**: `sqs://<queue-name>`
 
 ![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
 
@@ -211,9 +211,9 @@ The node on which W\&B Local is running must be configured to permit access to s
 
 Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
-* **File Storage Bucket**: `gs://<bucket-name>`
-* **File Storage Region**: blank
-* **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
+- **File Storage Bucket**: `gs://<bucket-name>`
+- **File Storage Region**: blank
+- **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
 ![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
 
@@ -275,8 +275,8 @@ Go to Settings > Access keys in your storage account, click "Show keys", and the
 
 Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
-* **File Storage Bucket**: `az://<storage-account-name>/<blob-container-name>`
-* **Notification Subscription**: `az://<storage-account-name>/<queue-name>`
+- **File Storage Bucket**: `az://<storage-account-name>/<blob-container-name>`
+- **Notification Subscription**: `az://<storage-account-name>/<queue-name>`
 
 ![](<../../.gitbook/assets/image (55).png>)
 
@@ -302,11 +302,11 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 ![](<../../.gitbook/assets/image (57).png>)
 
-Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
+Under **Scopes**, supply the bot with the **incoming_webhook** scope.
 
 ![](<../../.gitbook/assets/image (128) (1).png>)
 
-Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to \*\*\*\* in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
+Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
 ![](<../../.gitbook/assets/image (58).png>)
 

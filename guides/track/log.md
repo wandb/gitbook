@@ -1,5 +1,5 @@
 ---
-description: 'Keep track of metrics, video, custom plots, and more'
+description: "Keep track of metrics, video, custom plots, and more"
 ---
 
 # Log Data & Media with wandb.log
@@ -19,7 +19,7 @@ wandb.log({"loss": 0.314, "epoch": 5,
 ### **Common Workflows**
 
 1. **Compare the best accuracy**: To compare the best value of a metric across runs, set the summary value for that metric. By default, summary is set to the last value you logged for each key. This is useful in the table in the UI, where you can sort and filter runs based on their summary metrics — so you could compare runs in a table or bar chart based on their _best_ accuracy, instead of final accuracy. For example, you could set summary like so: `wandb.run.summary["best_accuracy"] = best_accuracy`
-2. **Multiple metrics on one chart**: Log multiple metrics in the same call to wandb.log\(\), like this: `wandb.log({'acc': 0.9, 'loss': 0.1})`  and they will both be available to plot against in the UI
+2. **Multiple metrics on one chart**: Log multiple metrics in the same call to wandb.log\(\), like this: `wandb.log({'acc': 0.9, 'loss': 0.1})` and they will both be available to plot against in the UI
 3. **Custom x-axis**: Add a custom x-axis to the same log call to visualize your metrics against a different axis in the W&B dashboard. For example: `wandb.log({'acc': 0.9, 'epoch': 3, 'batch': 117})`
 
 ### **Reference Documentation**
@@ -58,13 +58,13 @@ It's recommended to log fewer than 50 images per step to prevent logging from be
 
 {% tabs %}
 {% tab title="Logging Arrays as Images" %}
-Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make_grid). 
+Provide arrays directly when constructing images manually, e.g. using [`make_grid` from `torchvision`](https://pytorch.org/vision/stable/utils.html#torchvision.utils.make_grid).
 
 Arrays are converted to png using [Pillow](https://pillow.readthedocs.io/en/stable/index.html).
 
 ```python
 images = wandb.Image(image_array, caption="Top: Output, Bottom: Input")
-          
+
 wandb.log({"examples": images}
 ```
 
@@ -76,9 +76,10 @@ For full control over the conversion of arrays to images, construct the [`PIL.Im
 
 ```python
 images = [PIL.Image.fromarray(image) for image in image_array]
-          
+
 wandb.log({"examples": [wandb.Image(image) for image in images]}
 ```
+
 {% endtab %}
 
 {% tab title="Logging Images from Paths" %}
@@ -91,6 +92,7 @@ rgb_im.save('myimage.jpg')
 
 wandb.log({"example": wandb.Image("myimage.jpg")})
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -100,14 +102,14 @@ wandb.log({"example": wandb.Image("myimage.jpg")})
 {% tab title="Segmentation Masks" %}
 Log semantic segmentation masks and interact with them \(altering opacity, viewing changes over time, and more\) via the W&B UI.
 
-![Interactive mask viewing in the W&amp;B UI.](../../.gitbook/assets/semantic-segmentation.gif)
+![Interactive mask viewing in the W&B UI.](../../.gitbook/assets/semantic-segmentation.gif)
 
 To log an overlay, you'll need to provide a dictionary with the following keys and values to the `masks` keyword argument of `wandb.Image`:
 
-* one of two keys representing the image mask:
-  * `"mask_data"`: a 2D numpy array containing an integer class label for each pixel
-  * `"path"`: \(string\) a path to a saved image mask file
-* `"class_labels"`:  \(optional\) a dictionary mapping the integer class labels in the image mask to their readable class names
+- one of two keys representing the image mask:
+  - `"mask_data"`: a 2D numpy array containing an integer class label for each pixel
+  - `"path"`: \(string\) a path to a saved image mask file
+- `"class_labels"`: \(optional\) a dictionary mapping the integer class labels in the image mask to their readable class names
 
 To log multiple masks, log a mask dictionary with multiple keys, as in the code snippet below.
 
@@ -135,6 +137,7 @@ mask_img = wandb.Image(image, masks={
   ...
 })
 ```
+
 {% endtab %}
 
 {% tab title="Bounding Boxes" %}
@@ -146,15 +149,15 @@ Log bounding boxes with images, and use filters and toggles to dynamically visua
 
 To log a bounding box, you'll need to provide a dictionary with the following keys and values to the boxes keyword argument of `wandb.Image`:
 
-* `box_data`: a list of dictionaries, one for each box. The box dictionary format is described below.
-  * `position`: a dictionary representing the position and size of the box in one of two formats, as described below. Boxes need not all use the same format.
-    * _Option 1:_ `{"minX", "maxX", "minY", "maxY"}`. Provide a set of coordinates defining the upper and lower bounds of each box dimension.
-    * _Option 2:_ `{"middle", "width", "height"}`.  Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
-  * `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
-  * `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
-  * `domain`: specify the units/format of the box coordinates. **Set this to "pixel"** if the box coordinates are expressed in pixel space \(i.e. as integers within the bounds of the image dimensions\). By default, the domain is assumed to be a fraction/percentage of the image \(a floating point number between 0 and 1\).
-  * `box_caption`: \(optional\) a string to be displayed as the label text on this box 
-* `class_labels`: \(optional\) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
+- `box_data`: a list of dictionaries, one for each box. The box dictionary format is described below.
+  - `position`: a dictionary representing the position and size of the box in one of two formats, as described below. Boxes need not all use the same format.
+    - _Option 1:_ `{"minX", "maxX", "minY", "maxY"}`. Provide a set of coordinates defining the upper and lower bounds of each box dimension.
+    - _Option 2:_ `{"middle", "width", "height"}`. Provide a set of coordinates specifying the `middle` coordinates as `[x,y]`, and `width` and `height` as scalars.
+  - `class_id`: an integer representing the class identity of the box. See `class_labels` key below.
+  - `scores`: a dictionary of string labels and numeric values for scores. Can be used for filtering boxes in the UI.
+  - `domain`: specify the units/format of the box coordinates. **Set this to "pixel"** if the box coordinates are expressed in pixel space \(i.e. as integers within the bounds of the image dimensions\). By default, the domain is assumed to be a fraction/percentage of the image \(a floating point number between 0 and 1\).
+  - `box_caption`: \(optional\) a string to be displayed as the label text on this box
+- `class_labels`: \(optional\) A dictionary mapping `class_id`s to strings. By default we will generate class labels `class_0`, `class_1`, etc.
 
 Check out this example:
 
@@ -211,6 +214,7 @@ img = wandb.Image(image, boxes={
 
 wandb.log({"driving_scene": img})
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -218,6 +222,7 @@ wandb.log({"driving_scene": img})
 
 {% tabs %}
 {% tab title="Audio" %}
+
 ```python
 wandb.log(
   {"whale songs": wandb.Audio(np_array, caption="OooOoo", sample_rate=32)})
@@ -227,6 +232,7 @@ The maximum number of audio clips that can be logged per step is 100.
 {% endtab %}
 
 {% tab title="Video" %}
+
 ```python
 wandb.log(
   {"video": wandb.Video(numpy_array_or_path_to_video, fps=4, format="gif")})
@@ -257,9 +263,11 @@ You can also pass a pandas `DataFrame` object.
 ```python
 table = wandb.Table(dataframe=my_dataframe)
 ```
+
 {% endtab %}
 
 {% tab title="HTML" %}
+
 ```python
 wandb.log({"custom_file": wandb.Html(open("some.html"))})
 wandb.log({"custom_string": wandb.Html('<a href="https://mysite">Link</a>')})
@@ -270,9 +278,11 @@ Custom html can be logged at any key, and this exposes an HTML panel on the run 
 ```python
 wandb.log({"custom_file": wandb.Html(open("some.html"), inject=False)})
 ```
+
 {% endtab %}
 
 {% tab title="Molecule" %}
+
 ```python
 wandb.log({"protein": wandb.Molecule(open("6lu7.pdb"))}
 ```
@@ -293,7 +303,7 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 
 {% tabs %}
 {% tab title="Basic Histogram Logging" %}
-If a sequence of numbers \(e.g. list, array, tensor\) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened.  You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
+If a sequence of numbers \(e.g. list, array, tensor\) is provided as the first argument, we will construct the histogram automatically by calling `np.histogram`. Note that all arrays/tensors are flattened. You can use the optional `num_bins` keyword argument to override the default of `64` bins. The maximum number of bins supported is `512`.
 
 In the UI, histograms are plotted with the training step on the x-axis, the metric value on the y-axis, and the count represented by color, to ease comparison of histograms logged throughout training. See the "Histograms in Summary" tab of this panel for details on logging one-off histograms.
 
@@ -311,19 +321,18 @@ If you want more control, call `np.histogram` and pass the returned tuple to the
 np_hist_grads = np.histogram(grads, density=True, range=(0., 1.))
 wandb.log({"gradients": wandb.Histogram(np_hist_grads)})
 ```
+
 {% endtab %}
 
 {% tab title="Histograms in Summary" %}
-
 
 ```python
 wandb.run.summary.update(  # if only in summary, only visible on overview tab
   {"final_logits": wandb.Histogram(logits)})
 ```
+
 {% endtab %}
 {% endtabs %}
-
- 
 
 If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
 
@@ -428,10 +437,10 @@ wandb.log({"pr" : wandb.plot.pr_curve(ground_truth, predictions,
 
 You can log this whenever your code has access to:
 
-* a model's predicted scores \(`predictions`\) on a set of examples
-* the corresponding ground truth labels \(`ground_truth`\) for those examples
-* \(optionally\) a list of the labels/class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
-* \(optionally\) a subset \(still in list format\) of the labels to visualize in the plot
+- a model's predicted scores \(`predictions`\) on a set of examples
+- the corresponding ground truth labels \(`ground_truth`\) for those examples
+- \(optionally\) a list of the labels/class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
+- \(optionally\) a subset \(still in list format\) of the labels to visualize in the plot
 
 ![](../../.gitbook/assets/screen-shot-2021-02-19-at-11.17.52-am.png)
 
@@ -452,10 +461,10 @@ wandb.log({"roc" : wandb.plot.roc_curve(ground_truth,
 
 You can log this whenever your code has access to:
 
-* a model's predicted scores \(`predictions`\) on a set of examples
-* the corresponding ground truth labels \(`ground_truth`\) for those examples
-* \(optionally\) a list of the labels/ class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
-* \(optionally\) a subset \(still in list format\) of these labels to visualize on the plot
+- a model's predicted scores \(`predictions`\) on a set of examples
+- the corresponding ground truth labels \(`ground_truth`\) for those examples
+- \(optionally\) a list of the labels/ class names \(`labels=["cat", "dog", "bird"...]` if label index 0 means cat, 1 = dog, 2 = bird, etc.\)
+- \(optionally\) a subset \(still in list format\) of these labels to visualize on the plot
 
 ![](../../.gitbook/assets/demo-custom-chart-roc-curve.png)
 
@@ -479,9 +488,9 @@ wandb.log({"conf_mat" : wandb.plot.confusion_matrix(
 
 You can log this wherever your code has access to:
 
-* a model's predicted labels on a set of examples \(`preds`\) or the normalized probability scores \(`probs`\). The probabilities must have the shape \(number of examples, number of classes\). You can supply either probabilities or predictions but not both.
-* the corresponding ground truth labels for those examples \(`y_true`\)
-* a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 is cat, 1=dog, 2=bird, etc\)
+- a model's predicted labels on a set of examples \(`preds`\) or the normalized probability scores \(`probs`\). The probabilities must have the shape \(number of examples, number of classes\). You can supply either probabilities or predictions but not both.
+- the corresponding ground truth labels for those examples \(`y_true`\)
+- a full list of the labels/class names as strings \(`class_names`, e.g. `class_names=["cat", "dog", "bird"]` if index 0 is cat, 1=dog, 2=bird, etc\)
 
 ![](../../.gitbook/assets/image%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
@@ -578,18 +587,18 @@ wandb.log({"point_cloud": wandb.Object3D(point_cloud)})
 
 Three different shapes of numpy arrays are supported for flexible color schemes.
 
-* `[[x, y, z], ...]` `nx3`
-* `[[x, y, z, c], ...]` `nx4` `| c is a category` in the range `[1, 14]` \(Useful for segmentation\)
-* `[[x, y, z, r, g, b], ...]` `nx6 | r,g,b` are values in the range `[0,255]`for red, green, and blue color channels.
+- `[[x, y, z], ...]` `nx3`
+- `[[x, y, z, c], ...]` `nx4` `| c is a category` in the range `[1, 14]` \(Useful for segmentation\)
+- `[[x, y, z, r, g, b], ...]` `nx6 | r,g,b` are values in the range `[0,255]`for red, green, and blue color channels.
 
 Here's an example of logging code below:
 
-* `points`is a numpy array with the same format as the simple point cloud renderer shown above.
-* `boxes` is a numpy array of python dictionaries with three attributes:
-  * `corners`- a list of eight corners
-  * `label`- a string representing the label to be rendered on the box \(Optional\)
-  * `color`- rgb values representing the color of the box 
-* `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
+- `points`is a numpy array with the same format as the simple point cloud renderer shown above.
+- `boxes` is a numpy array of python dictionaries with three attributes:
+  - `corners`- a list of eight corners
+  - `label`- a string representing the label to be rendered on the box \(Optional\)
+  - `color`- rgb values representing the color of the box
+- `type` is a string representing the scene type to render. Currently the only supported value is `lidar/beta`
 
 ```python
 # Log points and boxes in W&B
@@ -597,8 +606,8 @@ point_scene = wandb.Object3D({
     "type": "lidar/beta",
     "points": np.array(  # add points, as in a point cloud
         [
-            [0.4, 1, 1.3], 
-            [1, 1, 1], 
+            [0.4, 1, 1.3],
+            [1, 1, 1],
             [1.2, 1, 1.2]
         ]
     ),
@@ -642,6 +651,7 @@ point_scene = wandb.Object3D({
 })
 wandb.log({"point_scene": point_scene})
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -691,7 +701,7 @@ run.summary.update()
 
 ### Accessing Logs Directly
 
-The history object is used to track metrics logged by `wandb.log`. You can access the history object via `run.history()`. 
+The history object is used to track metrics logged by `wandb.log`. You can access the history object via `run.history()`.
 
 ```python
 api = wandb.Api()
@@ -727,7 +737,7 @@ wandb.log({'epoch': epoch, 'val_acc': 0.94})
 
 ### **How do I log a PNG?**
 
-\*\*\*\*[`wandb.Image`](../../ref/python/data-types/audio.md) converts numpy arrays or instances of `PILImage` to PNGs by default.
+[`wandb.Image`](../../ref/python/data-types/audio.md) converts numpy arrays or instances of `PILImage` to PNGs by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
@@ -751,15 +761,19 @@ Logging lists directly is not supported. Instead, list-like collections of numer
 
 {% tabs %}
 {% tab title="Using a dictionary" %}
+
 ```python
 wandb.log({f"losses/loss-{ii}": loss for ii, loss in enumerate(losses)})
 ```
+
 {% endtab %}
 
 {% tab title="As a histogram" %}
+
 ```python
 wandb.log({"losses": np.array(losses)})  # internally converts losses to a histogram
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -798,4 +812,3 @@ We recommend that you try to log less than 10,000 points per metric. If you log 
 ### What if I want to integrate W&B into my project, but I don't want to upload any images or media?
 
 W&B can be used even for projects that only log scalars — you specify any files or data you'd like to upload explicitly. Here's [a quick example in PyTorch](http://wandb.me/pytorch-colab) that does not log images.
-

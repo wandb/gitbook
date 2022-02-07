@@ -14,7 +14,7 @@ A Weights & Biases integration for Hugging Face's [Transformers library](https:/
 
 ## Just show me the code!
 
-- Sure, here you go: [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)\*\*\*\*
+- Sure, here you go: [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)
 
 ### Quick and Easy Hugging Face Model Tracking with Weights & Biases
 
@@ -38,7 +38,7 @@ This section covers:
 
 We've created a few examples for you to see how the W&B integration works:
 
-- \*\*\*\*[**W&B and Hugging Face demo**](http://wandb.me/hf) in Google Colab with model logging
+- [**W&B and Hugging Face demo**](http://wandb.me/hf) in Google Colab with model logging
 - [**Huggingtweets** ](https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI)- Train a GPT-2 Hugging Face model to generate tweets
 - [**Does model size matter?**](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) - A comparison of BERT and DistilBERT
 
@@ -285,7 +285,7 @@ wandb.init(project="amazon_sentiment_analysis",
 
 ## Issues, Questions, Feature Requests
 
-For any issues, question or feature request with this Hugging Face W&B integration, feel free to post [**in this thread**](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) on the Hugging Face forums or open an issue on the Hugging Face [**Transformers github repo**](%20https://github.com/huggingface/transformers%20%20%20)\*\*\*\*
+For any issues, question or feature request with this Hugging Face W&B integration, feel free to post [**in this thread**](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) on the Hugging Face forums or open an issue on the Hugging Face [**Transformers github repo**](%20https://github.com/huggingface/transformers%20%20%20)
 
 ## Visualize Results
 

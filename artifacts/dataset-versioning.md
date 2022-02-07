@@ -8,11 +8,11 @@ W&B Artifacts help you save and organize machine learning datasets throughout a 
 
 ### Common use cases
 
-1. \*\*\*\*[**Version data seamlessly**](dataset-versioning.md#25c79f05-174e-4d35-abda-e5c238b8d6d6), without interrupting your workflow
-2. \*\*\*\*[**Prepackage data splits**](dataset-versioning.md#7ccfb650-1f87-458c-a4e2-538138660292), like training, validation, and test sets
-3. \*\*\*\*[**Iteratively refine datasets**](dataset-versioning.md#cee1428d-3b7a-4e1b-956b-e83170e7038f), without desynchronizing the team
-4. \*\*\*\*[**Juggle multiple datasets**](dataset-versioning.md#4ba93c33-dd39-468b-8b3e-96c938bbd024), as in fine-tuning and domain adaptation
-5. \*\*\*\*[**Visualize & share your data workflow**](dataset-versioning.md#57023a52-2c00-4b24-8e17-b193b40e216b), keeping all your work in one place
+1. [**Version data seamlessly**](dataset-versioning.md#25c79f05-174e-4d35-abda-e5c238b8d6d6), without interrupting your workflow
+2. [**Prepackage data splits**](dataset-versioning.md#7ccfb650-1f87-458c-a4e2-538138660292), like training, validation, and test sets
+3. [**Iteratively refine datasets**](dataset-versioning.md#cee1428d-3b7a-4e1b-956b-e83170e7038f), without desynchronizing the team
+4. [**Juggle multiple datasets**](dataset-versioning.md#4ba93c33-dd39-468b-8b3e-96c938bbd024), as in fine-tuning and domain adaptation
+5. [**Visualize & share your data workflow**](dataset-versioning.md#57023a52-2c00-4b24-8e17-b193b40e216b), keeping all your work in one place
 
 ### Flexible tracking and hosting
 
@@ -51,9 +51,9 @@ In [this example](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat
 
 As you iterate on your models and training schemes, you may want different slices of your data, varying the
 
-* **number of items**: a smaller dataset to start as proof of concept/to iterate quickly, or several datasets of increasing size to see how much the model benefits from more data
-* **train/val/test assignment and proportion**: a train/test split or a train/val/test split, with different proportions of items
-* **per-class balance**: equalize label representation \(N images for each of K classes\) or follow the existing, unbalanced distribution of the data
+- **number of items**: a smaller dataset to start as proof of concept/to iterate quickly, or several datasets of increasing size to see how much the model benefits from more data
+- **train/val/test assignment and proportion**: a train/test split or a train/val/test split, with different proportions of items
+- **per-class balance**: equalize label representation \(N images for each of K classes\) or follow the existing, unbalanced distribution of the data
 
 or other factors specific to your task.
 
@@ -81,9 +81,9 @@ View the [file contents →](https://wandb.ai/stacey/mendeleev/artifacts/balance
 
 As you browse through your training data or add new batches of examples, you may notice issues like
 
-* incorrect ground truth labels
-* hard negatives or commonly misclassified examples
-* problematic class imbalances
+- incorrect ground truth labels
+- hard negatives or commonly misclassified examples
+- problematic class imbalances
 
 To clean up and refine your data, you might modify incorrect labels, add or remove files to address imbalances, or group hard negatives into a special test split. With Artifacts, once you've finished a batch of changes, you can then call `run.log_artifact()` to push the new version to the cloud. This will automatically update the artifact with a new version to reflect your changes, while preserving the lineage and history of previous changes.
 
@@ -125,16 +125,16 @@ Multiple versions of balanced datasets of different sizes: 1K, 5K, and 10K and t
 
 ![](../.gitbook/assets/image%20%287%29.png)
 
-Several versions of raw data with 50 and 500 items total, from which a data\_split job creates two separate artifacts for "train" and "val" data.
+Several versions of raw data with 50 and 500 items total, from which a data_split job creates two separate artifacts for "train" and "val" data.
 
 ## Visualize & easily share your data workflow <a id="57023a52-2c00-4b24-8e17-b193b40e216b"></a>
 
 Artifacts let you see and formalize the flow of data through your model development scripts, whether for preprocessing, training, testing, analysis, or any other job type:
 
-* choose **meaningful organizational types** for your artifacts and jobs: for data, this could be `train`, `val`, or `test`; for scripts this could be `preprocess`, `train`, `evaluate`, etc. You may also want to log other data as artifacts: a model's predictions on fixed validation data, samples of generated output, evaluation metrics, etc.
-* **explore the artifact graph**: interact with all the connections between your code and data \(input artifact\(s\) → script or job → output artifact\(s\)\). Click "explode" on the compute graph to see all the versions for each artifact or all the runs of each script by job type. Click on individual nodes to see further details \(file contents or code, annotations/metadata, config, timestamp, parent/child nodes, etc\).
-* **iterate confidently**: all your experimental script runs and data will be saved and versioned automatically, so you can focus on the core modeling task and not worry about where and when you saved which version of your dataset or code
-* **share & replicate easily**: once you've integrated artifacts, you and your teammates can smoothly rerun the same workflow and pull from identical datasets \(defaulting to the latest/best version\), even to train in a different context/on different hardware
+- choose **meaningful organizational types** for your artifacts and jobs: for data, this could be `train`, `val`, or `test`; for scripts this could be `preprocess`, `train`, `evaluate`, etc. You may also want to log other data as artifacts: a model's predictions on fixed validation data, samples of generated output, evaluation metrics, etc.
+- **explore the artifact graph**: interact with all the connections between your code and data \(input artifact\(s\) → script or job → output artifact\(s\)\). Click "explode" on the compute graph to see all the versions for each artifact or all the runs of each script by job type. Click on individual nodes to see further details \(file contents or code, annotations/metadata, config, timestamp, parent/child nodes, etc\).
+- **iterate confidently**: all your experimental script runs and data will be saved and versioned automatically, so you can focus on the core modeling task and not worry about where and when you saved which version of your dataset or code
+- **share & replicate easily**: once you've integrated artifacts, you and your teammates can smoothly rerun the same workflow and pull from identical datasets \(defaulting to the latest/best version\), even to train in a different context/on different hardware
 
 [Interactive example →](https://wandb.ai/wandb/arttest/artifacts/model/iv3_trained/5334ab69740f9dda4fed/graph)
 
@@ -157,6 +157,3 @@ Full details of each node: versions by artifact type and scripts runs by job typ
 Details for a particular version of resnet18: which training run produced it and which further runs loaded it for inference. These are deeply linked in each project so you can navigate the full graph.
 
 ![](../.gitbook/assets/image%20%285%29.png)
-
-
-
