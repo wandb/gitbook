@@ -4,6 +4,7 @@ You can have wandb automatically resume runs by passing `resume=True` to `wandb.
 
 {% tabs %}
 {% tab title="Keras" %}
+
 ```python
 import keras
 import numpy as np
@@ -28,10 +29,10 @@ model.fit(np.random.rand(100, 32), np.random.rand(100, 10),
     callbacks=[WandbCallback(save_model=True, monitor="loss")])
 ```
 
-
 {% endtab %}
 
 {% tab title="Pytorch" %}
+
 ```python
 import wandb
 import torch
@@ -46,9 +47,9 @@ N_EPOCHS = 100
 X = torch.randn(64, 8, requires_grad=True)
 Y = torch.empty(64, 1).random_(2)
 model = nn.Sequential(
-    nn.Linear(8, 16), 
-    nn.ReLU(), 
-    nn.Linear(16, 1), 
+    nn.Linear(8, 16),
+    nn.ReLU(),
+    nn.Linear(16, 1),
     nn.Sigmoid()
 )
 metric = nn.BCELoss()
@@ -61,7 +62,7 @@ if wandb.run.resumed:
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     epoch = checkpoint['epoch']
     loss = checkpoint['loss']
-    
+
 model.train()
 while epoch < N_EPOCHS:
     optimizer.zero_grad()
@@ -70,7 +71,7 @@ while epoch < N_EPOCHS:
     wandb.log({'loss': loss.item()}, step=epoch)
     loss.backward()
     optimizer.step()
-    
+
      torch.save({ # Save our checkpoint loc
         'epoch': epoch,
         'model_state_dict': model.state_dict(),
@@ -80,6 +81,7 @@ while epoch < N_EPOCHS:
     wandb.save(CHECKPOINT_PATH) # saves checkpoint to wandb
     epoch += 1
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -92,14 +94,15 @@ There are different ways in which W\&B can be used to resume runs as detailed be
     This is our recommended method for resuming runs with W\&B.&#x20;
 
     1. As described above, runs can be resumed by passing`resume=True` to `wandb.init()`. This can be thought of as auto-resuming, where we “automatically” pick up from where an aborted run left off. If your process doesn't exit successfully, the next time you run it wandb will start logging from the last step.&#x20;
-       * Note: This only works if you are running your script in the same directory as the one that failed as the file is stored at: `wandb/wandb-resume.json`.
+       - Note: This only works if you are running your script in the same directory as the one that failed as the file is stored at: `wandb/wandb-resume.json`.
     2. The other form of resume requires you to provide the actual run id: `wandb.init(id=run_id)` and then when you resume (if you want to be sure that it is resuming, you do `wandb.init(id=run_id, resume="must")`.
-       * You can also have full control over resuming if you manage the `run_id`. We provide a utility to generate `run_id`: `wandb.util.generate_id()`. As long as you set the id to one of these unique ids for each unique run, you can say `resume="allow"` and wandb will automatically resume the run with that id.
+       - You can also have full control over resuming if you manage the `run_id`. We provide a utility to generate `run_id`: `wandb.util.generate_id()`. As long as you set the id to one of these unique ids for each unique run, you can say `resume="allow"` and wandb will automatically resume the run with that id.
 
     More context regarding automatic and controlled resuming can be found in [this section](resuming.md#undefined).
-2. ``[`wandb.restore`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.restore)&#x20;
-   * This will allow you to log new historical values for your metrics to a run starting from where you left off but does not take care of re-establishing the state of your code, you will need to make sure you have written checkpoints that you can load!
-   * You can use [`wandb.save`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.save) to record the state of your run via checkpoint files. Create a checkpoint file through `wandb.save()`, which can then be used through `wandb.init(resume=<run-id>)`. [This report](https://wandb.ai/lavanyashukla/save\_and\_restore/reports/Saving-and-Restoring-Models-with-W-B--Vmlldzo3MDQ3Mw) illustrates how to save and restore models with W\&B.
+
+2.  ``[`wandb.restore`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.restore)&#x20;
+    - This will allow you to log new historical values for your metrics to a run starting from where you left off but does not take care of re-establishing the state of your code, you will need to make sure you have written checkpoints that you can load!
+    - You can use [`wandb.save`](https://docs.wandb.ai/guides/track/advanced/save-restore#examples-of-wandb.save) to record the state of your run via checkpoint files. Create a checkpoint file through `wandb.save()`, which can then be used through `wandb.init(resume=<run-id>)`. [This report](https://wandb.ai/lavanyashukla/save_and_restore/reports/Saving-and-Restoring-Models-with-W-B--Vmlldzo3MDQ3Mw) illustrates how to save and restore models with W\&B.
 
 #### Automatic and controlled resuming
 
@@ -122,7 +125,7 @@ If multiple processes use the same `run_id` concurrently unexpected results will
 {% endhint %}
 
 {% hint style="info" %}
-If you resume a run and you have `notes` **** specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
+If you resume a run and you have `notes` specified in `wandb.init()`, those notes will overwrite any notes that you have added in the UI.
 {% endhint %}
 
 {% hint style="info" %}
@@ -131,7 +134,7 @@ Note that resuming a run which was executed as part of a Sweep is not supported.
 
 ### Preemptible Sweeps
 
-If you are running a sweep agent in a compute environment that is subject to preemption  (e.g., a SLURM job in a preemptible queue, an EC2 spot instance, or a Google Cloud preemptible VM), you can automatically requeue your interrupted sweep runs, ensuring they will be retried until they run to completion.
+If you are running a sweep agent in a compute environment that is subject to preemption (e.g., a SLURM job in a preemptible queue, an EC2 spot instance, or a Google Cloud preemptible VM), you can automatically requeue your interrupted sweep runs, ensuring they will be retried until they run to completion.
 
 When you learn your current run is about to be preempted, call&#x20;
 
@@ -142,4 +145,3 @@ wandb.mark_preempting()
 to immediately signal to the W\&B backend that your run believes it is about to be preempted. If a run that is marked preempting exits with status code 0, W\&B will consider the run to have terminated successfully and it will not be requeued. If a preempting run exits with a nonzero status, W\&B will consider the run to have been preempted, and it will automatically append the run to a run queue associated with the sweep. If a run exits with no status, W\&B will mark the run preempted 5 minutes after the run's final heartbeat, then add it to the sweep run queue. Sweep agents will consume runs off the run queue until the queue is exhausted, at which point they will resume generating new runs based on the standard sweep search algorithm.&#x20;
 
 By default, requeued runs begin logging from their initial step. To instruct a run to resume logging at the step where it was interrupted, initialize the resumed run with `wandb.init(resume=True)`.
-

@@ -8,14 +8,14 @@ description: Appropriate limits and guidelines for logging data to Weights & Bia
 
 For fast page loading in the W&B UI, we recommend keeping logged data amounts within these bounds.
 
-* **Scalars**: ****you can have tens of thousands of steps and hundreds of metrics
-* **Histograms**: we recommend limiting to thousands of steps
+- **Scalars**: you can have tens of thousands of steps and hundreds of metrics
+- **Histograms**: we recommend limiting to thousands of steps
 
 If you send us more than that, your data will be saved and tracked, but pages may load more slowly.
 
 ### Python Script Performance
 
-Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds. 
+Generally you shouldn't be calling `wandb.log` more than a few times per second or wandb may start to interfere with your training run's performance. We do not assert any limits beyond rate limiting. Our Python client will automatically do an exponential backoff and retry requests that exceed limits, so this should be transparent to you. It will say “Network failure” on the command line. For unpaid accounts, we may reach out in extreme cases where usage exceeds reasonable thresholds.
 
 ### Rate Limits
 
@@ -29,7 +29,7 @@ The maximum file size for new accounts is 2GB. A single run is allowed to store 
 
 #### Metrics
 
-Metrics are sampled to 1500 data points by default before displaying in the UI. 
+Metrics are sampled to 1500 data points by default before displaying in the UI.
 
 #### Logs
 
@@ -39,5 +39,4 @@ While a run is in progress we tail the last 5000 lines of your log for you in th
 
 Here are some additional guidelines for logging data to W&B.
 
-* **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
-
+- **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.

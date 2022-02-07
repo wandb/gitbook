@@ -8,8 +8,8 @@ description: Appropriate limits and guidelines for logging data to Weights & Bia
 
 For fast page loading in the W\&B UI, we recommend keeping logged data amounts within these bounds.
 
-* **Scalars**: **** you can have tens of thousands of steps and hundreds of metrics
-* **Histograms**: we recommend limiting to thousands of steps
+- **Scalars**: you can have tens of thousands of steps and hundreds of metrics
+- **Histograms**: we recommend limiting to thousands of steps
 
 If you send us more than that, your data will be saved and tracked, but pages may load more slowly.
 
@@ -19,7 +19,7 @@ There are few common ways the performance of your python script can be reduced:
 
 1. The size of your data is too large. The larger the size of the data the latency could be around 1ms in addition to the training loop.
 2. The speed of your network and the how the W\&B backend is configured
-3. Calling  `wandb.log` more than a few times per second. This is due to a small latency added to the training loop every time `wandb.log` is called.  &#x20;
+3. Calling `wandb.log` more than a few times per second. This is due to a small latency added to the training loop every time `wandb.log` is called. &#x20;
 
 {% hint style="info" %}
 Is frequent logging slowing your training runs down? Check out [this Colab](http://wandb.me/log-hf-colab) for methods to get better performance by changing your logging strategy.
@@ -55,5 +55,5 @@ We support up to 15MB of serialized config data per run.
 
 Here are some additional guidelines for logging data to W\&B.
 
-* **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
-* **Batch calls to avoid rate limits**: If you want to log more frequently, you might want to batch calls and log with `commit=False` instead. This will update a metrics dict until `commit=True` is called (as noted from [wandb.log](../../ref/python/log.md)).
+- **Nested parameters**: We automatically flatten nested parameters, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
+- **Batch calls to avoid rate limits**: If you want to log more frequently, you might want to batch calls and log with `commit=False` instead. This will update a metrics dict until `commit=True` is called (as noted from [wandb.log](../../ref/python/log.md)).

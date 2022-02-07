@@ -14,7 +14,7 @@ A Weights & Biases integration for Hugging Face's [Transformers library](https:/
 
 ## Just show me the code!
 
-* Sure, here you go:  [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)\*\*\*\*
+- Sure, here you go: [**W&B and Hugging Face Google Colab Demo**](http://wandb.me/hf)\*\*\*\*
 
 ### Quick and Easy Hugging Face Model Tracking with Weights & Biases
 
@@ -28,25 +28,25 @@ Above is an example comparing [BERT vs DistilBERT](https://app.wandb.ai/jack-mor
 
 This section covers:
 
-* **Example notebooks** using W&B and Hugging Face Transformers
-* **Getting Started**: Track and Save your Models with  W&B and Transformers 
-* **Advanced W&B settings**
-  * Additional Settings 
-  * Customising wandb.init
+- **Example notebooks** using W&B and Hugging Face Transformers
+- **Getting Started**: Track and Save your Models with W&B and Transformers
+- **Advanced W&B settings**
+  - Additional Settings
+  - Customising wandb.init
 
 ## Example Notebooks
 
 We've created a few examples for you to see how the W&B integration works:
 
-* \*\*\*\*[**W&B and Hugging Face demo**](http://wandb.me/hf) ****in Google Colab with model logging
-* [**Huggingtweets** ](https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI)- Train a GPT-2 Hugging Face model to generate tweets
-* [**Does model size matter?**](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) - A comparison of BERT and DistilBERT
+- \*\*\*\*[**W&B and Hugging Face demo**](http://wandb.me/hf) in Google Colab with model logging
+- [**Huggingtweets** ](https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI)- Train a GPT-2 Hugging Face model to generate tweets
+- [**Does model size matter?**](https://app.wandb.ai/jack-morris/david-vs-goliath/reports/Does-model-size-matter%3F-A-comparison-of-BERT-and-DistilBERT--VmlldzoxMDUxNzU) - A comparison of BERT and DistilBERT
 
-## Getting Started: Track and Save your Models 
+## Getting Started: Track and Save your Models
 
 ### Under the Hood
 
-W&B logging can be set up by passing just a few arguments to the Transformers `Trainer` class. Under the hood, `Trainer` uses `WandbCallback` , which will take care of all our logging, but `WandbCallback` won't need to be modified at all for most use cases.  Note that the steps below work for both for Hugging Face Transformers' pytorch `Trainer` and tensorflow `TFTrainer`
+W&B logging can be set up by passing just a few arguments to the Transformers `Trainer` class. Under the hood, `Trainer` uses `WandbCallback` , which will take care of all our logging, but `WandbCallback` won't need to be modified at all for most use cases. Note that the steps below work for both for Hugging Face Transformers' pytorch `Trainer` and tensorflow `TFTrainer`
 
 ### **1\)** **Install the `wandb`Library and Log-In**
 
@@ -68,18 +68,18 @@ wandb.login()
 
 ### **2\) Name Your Project**
 
-A project is where all of the charts, data and models logged from your runs is stored. Naming your project helps you organise your work and keep all your runs related to a single project in one place. 
+A project is where all of the charts, data and models logged from your runs is stored. Naming your project helps you organise your work and keep all your runs related to a single project in one place.
 
 To add a run to a project simply set the `WANDB_PROJECT` environment variable to the name of your project. The `WandbCallback` will pick up this project name environment variable and use it when setting up your run.
 
-_If using a python script, set the following before initialising_  `Trainer`_:_
+_If using a python script, set the following before initialising_ `Trainer`_:_
 
 ```python
 import os
 os.environ['WANDB_PROJECT'] = 'amazon_sentiment_analysis'
 ```
 
-_If you are using a Jupyter or Google Colab notebook, set the following before initialising_  `Trainer`_:_
+_If you are using a Jupyter or Google Colab notebook, set the following before initialising_ `Trainer`_:_
 
 ```text
 %env WANDB_PROJECT = amazon_sentiment_analysis
@@ -91,21 +91,21 @@ If a project name is not specified the project name defaults to "huggingface"
 
 Using [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) you can use up to 100GB of storage for free to store your Models or Datasets. Logging your Hugging Face model to W&B Artifacts can be done by setting a W&B environment variable which will then be picked up by the `WandbCallback` that `Trainer` uses. You can later easily reload this model if you wanted to do additional inference or do additional training.
 
-**NOTE**: Your model will be saved to W&B Artifacts as "run-run\_name". `run_name`  will be specified in the training arguments section next.
+**NOTE**: Your model will be saved to W&B Artifacts as "run-run_name". `run_name` will be specified in the training arguments section next.
 
-_If using a python script, set the following before initialising_  `Trainer`_:_
+_If using a python script, set the following before initialising_ `Trainer`_:_
 
 ```python
 os.environ['WANDB_LOG_MODEL'] = 'true'
 ```
 
-_If using a Notebook, set the following before initialising_  `Trainer`_:_
+_If using a Notebook, set the following before initialising_ `Trainer`_:_
 
 ```python
-%env WANDB_LOG_MODEL = true 
+%env WANDB_LOG_MODEL = true
 ```
 
-Now when training using `Trainer` your trained model will be uploaded to your W&B project. Your model file will be viewable through the W&B Artifacts UI.  See the [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) documentation for more about how to use Artifacts for model and dataset versioning.
+Now when training using `Trainer` your trained model will be uploaded to your W&B project. Your model file will be viewable through the W&B Artifacts UI. See the [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) documentation for more about how to use Artifacts for model and dataset versioning.
 
 #### **Save Best Model**
 
@@ -156,7 +156,7 @@ You're models will now train while logging losses, evaluation metrics, model top
 If you are using a Jupyter or Google Colab notebook, your training run is finished and you do not want to log any more to your run it is a good idea to "finish" the W&B run. Calling `wandb.finish()` will close the W&B python process. This should also be done if you would like to start another, new run \(after modifying some hyperparameters for example\).
 
 ```python
-wandb.finish() 
+wandb.finish()
 ```
 
 ### 7 \[Optional\] Loading a Saved Model
@@ -168,7 +168,7 @@ If your original model was first created using Hugging Face's `AutoModelForSeque
 ```python
 # Example: Loading a Hugging Face model, before training
 model = AutoModelForSequenceClassification.from_pretrained(
-                'distilbert-base-uncased', 
+                'distilbert-base-uncased',
                 num_labels=num_labels)
 
 # Do Training + save model to Artifacts
@@ -192,23 +192,23 @@ model_dir = my_model_artifact.download()
 
 # Load your Hugging Face model from that folder, e.g. SequenceClassification model
 model = AutoModelForSequenceClassification.from_pretrained(
-                model_dir, 
+                model_dir,
                 num_labels=num_labels)
 
-# Do additional training, or run inference 
+# Do additional training, or run inference
 ...
 
 # When you are finished with your run (notebook only)
 run.finish()
 ```
 
-See the  [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) documentation for more details on using and versioning models and datasets with Artifacts
+See the [Weights & Biases' Artifacts](https://docs.wandb.ai/artifacts) documentation for more details on using and versioning models and datasets with Artifacts
 
 ## Advanced
 
 ### Additional W&B Settings
 
-Advanced configuration of what is logged with `Trainer` is possible by setting environment variables, see code example below for how to do this. 
+Advanced configuration of what is logged with `Trainer` is possible by setting environment variables, see code example below for how to do this.
 
 <table>
   <thead>
@@ -250,7 +250,7 @@ Advanced configuration of what is logged with `Trainer` is possible by setting e
   </tbody>
 </table>
 
-A full list of W&B environment variables [**can be found here**](https://docs.wandb.ai/library/environment-variables). 
+A full list of W&B environment variables [**can be found here**](https://docs.wandb.ai/library/environment-variables).
 
 #### Examples: Setting Environment Variables
 
@@ -271,27 +271,24 @@ _If using a Notebook, set the following before initialising your_ `Trainer`_:_
 
 ### Custom wandb Init
 
-The `WandbCallback` that `Trainer` uses will call `wandb.init` under the hood when `Trainer` is initialised. You can alternatively set up your runs manually by calling `wandb.init(**optional_args)` before `Trainer` is initialised. 
+The `WandbCallback` that `Trainer` uses will call `wandb.init` under the hood when `Trainer` is initialised. You can alternatively set up your runs manually by calling `wandb.init(**optional_args)` before `Trainer` is initialised.
 
-An example of arguments you might want to pass to init is below.  The full list of arguments for `wandb.init` [can be found here](https://docs.wandb.ai/ref/run/init).
+An example of arguments you might want to pass to init is below. The full list of arguments for `wandb.init` [can be found here](https://docs.wandb.ai/ref/run/init).
 
 ```python
-wandb.init(project="amazon_sentiment_analysis", 
+wandb.init(project="amazon_sentiment_analysis",
                 name = "bert-base-high-lr",
                 tags = ['baseline','high-lr'],
                 group = "bert")
-                
+
 ```
 
 ## Issues, Questions, Feature Requests
 
-For any issues, question or feature request with this Hugging Face W&B integration, feel free to post  ****[**in this thread**](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) on the Hugging Face forums or open an issue on the Hugging Face [**Transformers github repo**](%20https://github.com/huggingface/transformers%20%20%20)\*\*\*\*
+For any issues, question or feature request with this Hugging Face W&B integration, feel free to post [**in this thread**](https://discuss.huggingface.co/t/logging-experiment-tracking-with-w-b/498) on the Hugging Face forums or open an issue on the Hugging Face [**Transformers github repo**](%20https://github.com/huggingface/transformers%20%20%20)\*\*\*\*
 
 ## Visualize Results
 
 Once you have logged your training results you can explore your results dynamically in the W&B Dashboard. It's easy to look across dozens of experiments, zoom in on interesting findings, and visualize highly dimensional data.
 
 ![](../.gitbook/assets/hf-gif-15%20%282%29%20%282%29%20%283%29%20%283%29%20%283%29%20%281%29%20%283%29.gif)
-
-
-
