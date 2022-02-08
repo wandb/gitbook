@@ -44,7 +44,7 @@
       * [Metaflow](guides/integrations/other/metaflow.md)
       * [MMF](guides/integrations/other/mmf.md)
       * [OpenAI Gym](guides/integrations/other/openai-gym.md)
-      * [\[Beta\] OpenAI API](guides/integrations/other/openai.md)
+      * [OpenAI API](guides/integrations/other/openai.md)
       * [Prodigy](guides/integrations/other/prodigy.md)
       * [PyTorch Ignite](guides/integrations/other/ignite.md)
       * [Ray Tune](guides/integrations/other/ray-tune.md)
