@@ -26,6 +26,8 @@ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 
 Running wandb on localhost is great for initial testing, but to leverage the collaborative features of _wandb/local_ you should host the service on a central server. Instructions for setting up a centralized server on various platforms can be found in the [Production Setup](setup.md) section.
 
+![](../../.gitbook/assets/image-2022-02-07-16-22-31-421.png)
+
 {% hint style="danger" %}
 **Danger of Data Loss**
 
@@ -44,7 +46,7 @@ While W\&B can be used by leveraging the persistent volume mounted to /vol as st
 
 ### Authentication
 
-The base install of _wandb/local_  will automatically prompt you to create an initial user, the first time you start it up.  Contact us at support@wandb.com to request a free upgrade to your license, from 1 user to 3 users.
+The base install of _wandb/local_ will automatically prompt you to create an initial user, the first time you start it up. Contact us at support@wandb.com to request a free upgrade to your license, from 1 user to 3 users.
 
 ### Persistence and Scalability
 
