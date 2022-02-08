@@ -79,7 +79,7 @@ In addition your training and validation files are logged and versioned, as well
 | --project PROJECT        | Name of the project where you're sending runs. By default, it is "GPT-3".                                                 |
 | --entity ENTITY          | Username or team name where you're sending runs. By default, your default entity is used, which is usually your username. |
 | --force                  | Forces logging and overwrite existing wandb run of the same fine-tune.                                                    |
-| \*\*kwargs\_wandb\_init  | In python, any additional argument is directly passed to [`wandb.init()`](../../../ref/python/init.md)\`\`                |
+| \*\*kwargs\_wandb\_init  | In python, any additional argument is directly passed to [`wandb.init()`](../../../ref/python/init.md)                    |
 
 ## 🔍 Inspect sample predictions
 
