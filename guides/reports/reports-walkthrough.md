@@ -18,7 +18,7 @@ We provide a few quick templates to guide you or you can create a blank report a
 
 ![Quick templates](<../../.gitbook/assets/image (47) (1) (2) (2) (2) (2) (1) (2) (2) (2) (2) (2).png>)
 
-* **Snapshot** adds the current date/time to the title, and adds a filter to the run set, which means only runs created before the current time are included in the snapshot.
+* **Snapshot** adds the current date/time to the title and adds a filter to the run set, which means only runs created before the current time are included in the snapshot.
 * **Dashboard** titles the report “Project Dashboard” and adds a filter to match exactly the current set of selected runs.
 * **Update** titles the report “\<today’s date> Project Update” and filters to the exact set of runs that were selected in the workspace.
 * **Blank** gives you the space to add a fresh panel grid and visualizations, or just write some notes to yourself.
@@ -39,7 +39,7 @@ Again press `/`, then add a panel grid, then add a panel (like a line plot, scat
 
 ### Duplicate and delete panel grids
 
-If you have a good layout that you'd like to reuse, you can select a panel grid and copy-paste it to duplicate it in the same report, or even paste it into a different report.
+If you have a good layout that you'd like to reuse, you can select a panel grid and copy-paste it to duplicate it in the same report or even paste it into a different report.
 
 As you can see in the gif below, you can highlight a whole panel grid section by clicking the drag handle in the upper right corner. You can also click and drag to highlight and select a region in a report, which can include panel grids, text, and headings.
 
@@ -77,9 +77,17 @@ If you'd like to compare a different set of runs, create a new panel grid. Each 
 
 Click the download button to export your report as a LaTeX zip file. Check the README.md in your downloaded folder to find instructions on how to convert this file to PDF. It's easy to upload the zip file to [Overleaf](https://www.overleaf.com) to edit the LaTeX.
 
+## Cloning reports
+
+Click the 'Clone this report' button to clone your reports.&#x20;
+
+![](../../.gitbook/assets/clone\_reports.gif)
+
+_Use-case_: let's assume you have a specific report template that would act as a baseline for each version of the model trained so far. Further, the difference between the reports created for each one of these model versions would be the output metrics. In such a scenario, you can clone your template report from the report edit dropdown and make any changes needed.
+
 ## Embedding reports
 
-By clicking the share icon within your report you will be able to get the direct link for your report or an embeddable piece of code which can render an iframe for your tool of choice.
+By clicking the share icon within your report you will be able to get the direct link for your report or an embeddable piece of code that can render an iframe for your tool of choice.
 
 _Note: Only **public** reports are viewable when embedded currently._
 
@@ -105,7 +113,7 @@ Compare runs from two different projects with cross-project reports. Use the pro
 
 The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
 
-If you really need to compare runs from two projects and the columns aren't working, add a tag to the runs in one project and then move those runs to the other project. You'll still be able to filter to just the runs from each project, but you'll have all the columns for both sets of runs available in the report.
+If you need to compare runs from two projects and the columns aren't working, add a tag to the runs in one project and then move those runs to the other project. You'll still be able to filter to just the runs from each project, but you'll have all the columns for both sets of runs available in the report.
 
 ### View-only report links
 
