@@ -21,10 +21,16 @@ The first time you start a `wandb/local` instance you will be prompted to create
 
 ### 4. Modify training code to log to wandb local server
 
-On your machine where the training code runs, set the host flag to the address of the local instance whenever you login:
+On your machine where the training code runs, set the host flag to the address of the local instance whenever you log in:
 
 ```
  wandb login --host=http://wandb.your-shared-local-host.com
+```
+
+In case, you can't run `wandb login` in the command line, then in your script, you can pass in the host argument to `wandb.login()`:
+
+```python
+wandb.login(host = 'http://wandb.your-shared-local-host.com')
 ```
 
 This private instance of W\&B is excellent for initial testing. To enjoy the powerful collaborative features of W\&B, you will need a shared instance on a central server, which you can [set up on AWS, GCP, Azure, Kubernetes, or Docker](https://docs.wandb.ai/self-hosted/setup).

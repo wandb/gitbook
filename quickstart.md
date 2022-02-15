@@ -25,6 +25,8 @@ wandb login
 
 {% hint style="info" %}
 Trouble installing the library locally? Try [this quick tutorial notebook](http://wandb.me/intro).
+
+Note, to login to wandb local server you can [set the host flag](https://docs.wandb.ai/guides/self-hosted/quickstart#4.-modify-training-code-to-log-to-wandb-local-server) to the address of the local instance.
 {% endhint %}
 
 ### 2. Start a new run
@@ -39,7 +41,7 @@ wandb.init(project="my-test-project")
 
 ### 3. Track metrics
 
-Use `wandb.log()` to track metrics, or a framework [integration](guides/integrations/) for easy instrumentation.\
+Use `wandb.log()` to track metrics or a framework [integration](guides/integrations/) for easy instrumentation.\
 [More about wandb.log() →](guides/track/log/)
 
 ```python

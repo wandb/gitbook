@@ -119,20 +119,19 @@ parameter_name:
 
 Specify how values will be distributed, if they are selected randomly, e.g. with the `random` or `bayes` methods.
 
-| Value             | Description                                                                                                                                                                              |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `constant`        | Constant distribution. Must specify `value`.                                                                                                                                             |
-| `categorical`     | Categorical distribution. Must specify `values`.                                                                                                                                         |
-| `int_uniform`     | Discrete uniform distribution on integers. Must specify `max` and `min` as integers.                                                                                                     |
-| `uniform`         | Continuous uniform distribution. Must specify `max` and `min` as floats.                                                                                                                 |
-| `q_uniform`       | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`.                                                                                      |
-| `log_uniform`     | Log-uniform distribution. Returns a value between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`.                             |
-| `q_log_uniform`   | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`.                                                                                       |
-| `inv_log_uniform` | Inverse log uniform distribution. Returns `X`, where  `log(1/X)` is uniformly distributed between `min` and `max`.                                                                       |
-| `normal`          | Normal distribution. Return value is normally-distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`).                                                     |
-| `q_normal`        | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1.                                                                                        |
-| `log_normal`      | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`). |
-| `q_log_normal`    | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`.                                                                            |
+| Value           | Description                                                                                                                                                                              |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `constant`      | Constant distribution. Must specify `value`.                                                                                                                                             |
+| `categorical`   | Categorical distribution. Must specify `values`.                                                                                                                                         |
+| `int_uniform`   | Discrete uniform distribution on integers. Must specify `max` and `min` as integers.                                                                                                     |
+| `uniform`       | Continuous uniform distribution. Must specify `max` and `min` as floats.                                                                                                                 |
+| `q_uniform`     | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`.                                                                                      |
+| `log_uniform`   | Log-uniform distribution. Returns a value between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`.                             |
+| `q_log_uniform` | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`.                                                                                       |
+| `normal`        | Normal distribution. Return value is normally-distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`).                                                     |
+| `q_normal`      | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1.                                                                                        |
+| `log_normal`    | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`). |
+| `q_log_normal`  | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`.                                                                            |
 
 #### **Examples**
 
@@ -184,7 +183,7 @@ parameter_name:
 
 ### **`metric`**
 
-| Key      | Description                                                                                                                                                                                                                                                   |
+|  Key     | Description                                                                                                                                                                                                                                                   |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`   | Name of the metric to optimize.                                                                                                                                                                                                                               |
 | `goal`   | Either `minimize` or `maximize` (Default is `minimize`).                                                                                                                                                                                                      |
@@ -253,12 +252,12 @@ We support the following stopping algorithm(s):
 [Hyperband](https://arxiv.org/abs/1603.06560) stopping evaluates whether a program should be stopped or permitted to continue at one or more pre-set iteration counts, called "brackets". When a run reaches a bracket, its metric value is compared to all previous reported metric values and the run is terminated if its value is too high (when the goal is minimization) or low (when the goal is maximization).
 
 {% hint style="warning" %}
-Brackets are based on the number of _logged_ iterations, i.e. how many times you logged the metric you are trying to optimize. Depending on where you are calling [`wandb.log`](../track/log/), these iterations may correspond to steps, epochs, or something in between. The numerical value of the step counter is not used in bracket calculations.
+Brackets are based on the number of _logged_ iterations, i.e. how many times you logged the metric you are trying to optimize. Depending on where you are calling [`wandb.log`](../track/log/),  these iterations may correspond to steps, epochs, or something in between. The numerical value of the step counter is not used in bracket calculations.
 {% endhint %}
 
 In order to specify the bracket schedule, either`min_iter` or `max_iter` needs to be defined.
 
-| Key        | Description                                                    |
+|  Key       | Description                                                    |
 | ---------- | -------------------------------------------------------------- |
 | `min_iter` | Specify the iteration for the first bracket                    |
 | `max_iter` | Specify the maximum number of iterations.                      |
@@ -356,7 +355,7 @@ command:
 {% endtab %}
 
 {% tab title="Add extra parameters" %}
-To add extra command line arguments not specified by sweep configuration parameters:
+&#x20;To add extra command line arguments not specified by sweep configuration parameters:
 
 ```yaml
 command:
