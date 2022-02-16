@@ -381,7 +381,7 @@ command:
 {% endtab %}
 
 {% tab title="Use with Hydra" %}
-You can change the command to pass arguments the way tools like [Hydra](https://hydra.cc) expect.
+You can change the command to pass arguments the way tools like [Hydra](https://hydra.cc) expect. See [Hydra with W\&B](../integrations/other/hydra.md) for more information.&#x20;
 
 ```yaml
 command:
