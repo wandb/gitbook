@@ -40,6 +40,7 @@
       * [DeepChem](guides/integrations/other/deepchem.md)
       * [Databricks](guides/integrations/other/databricks.md)
       * [Docker](guides/integrations/other/docker.md)
+      * [Hydra](guides/integrations/other/hydra.md)
       * [Kubeflow](guides/integrations/other/kubeflow.md)
       * [Metaflow](guides/integrations/other/metaflow.md)
       * [MMF](guides/integrations/other/mmf.md)
