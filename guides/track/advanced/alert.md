@@ -56,7 +56,7 @@ wandb.alert(
 
 Check your Slack or emails for the alert message. If you didn't receive any, make sure you've got emails or Slack turned on for **Scriptable Alerts** in your **** [User Settings](https://wandb.ai/settings)
 
-## \`wandb.alert()\` Usage
+## Using \`wandb.alert()\`
 
 ### Arguments
 
