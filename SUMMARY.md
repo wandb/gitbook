@@ -11,7 +11,7 @@
       * [Log Media & Objects](guides/track/log/media.md)
       * [Log Plots](guides/track/log/plots.md)
       * [Logging FAQs](guides/track/log/logging-faqs.md)
-    * [Send Alerts with wandb.alert](guides/track/alert.md)
+    * [Send Alerts with wandb.alert](guides/track/advanced/alert.md)
     * [Dashboards](guides/track/app.md)
     * [Limits & Performance](guides/track/limits.md)
     * [Import & Export Data](guides/track/public-api-guide.md)

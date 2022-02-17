@@ -19,7 +19,7 @@ wandb.alert(
 
 And then see W\&B Alerts messages in Slack (or your email):
 
-![](<../../.gitbook/assets/Screenshot 2022-02-17 at 16.26.15 (1).png>)
+![](<../../../.gitbook/assets/Screenshot 2022-02-17 at 16.26.15 (1).png>)
 
 ## Getting Started
 
@@ -39,7 +39,7 @@ In your [User Settings](https://wandb.ai/settings):
 
 You will only have to do this the first time you set up W\&B Alerts, or when you'd like to modify how you receive alerts.
 
-![Alerts settings in W\&B User Settings](<../../.gitbook/assets/demo - connect slack.png>)
+![Alerts settings in W\&B User Settings](<../../../.gitbook/assets/demo - connect slack.png>)
 
 ### 2. Add \`wandb.alert()\` to Your Code
 
@@ -108,5 +108,5 @@ Note that "**Run Finished"** alerts (turned on via the "**Run Finished"** settin
 **Alerts with W\&B Local**
 
 {% hint style="warning" %}
-Note that if you are self-hosting using W\&B Local you will need to follow [these steps](../self-hosted/configuration.md#slack) before enabling Slack alerts
+Note that if you are self-hosting using W\&B Local you will need to follow [these steps](../../self-hosted/configuration.md#slack) before enabling Slack alerts
 {% endhint %}
