@@ -58,7 +58,7 @@ Check your Slack or emails for the alert message. If you didn't receive any, mak
 
 ## Using \`wandb.alert()\`
 
-### Arguments
+
 
 | Argument                   | Description                                                                                                                                           |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |

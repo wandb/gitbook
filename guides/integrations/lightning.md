@@ -6,9 +6,9 @@ description: >-
 
 # PyTorch Lightning
 
-PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as [distributed training](https://pytorch-lightning.readthedocs.io/en/latest/advanced/multi\_gpu.html) and [16-bit precision](https://pytorch-lightning.readthedocs.io/en/latest/advanced/amp.html). W\&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: we're incorporated directly into the PyTorch Lightning library, so you can always check out [their documentation](https://pytorch-lightning.readthedocs.io/en/stable/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html#pytorch\_lightning.loggers.WandbLogger) for reference information on the API.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://wandb.me/lightning)
 
-Check out [**our Google colab**](https://wandb.me/lightning) to get started
+PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch code and easily adding advanced features such as distributed training and 16-bit precision. W\&B provides a lightweight wrapper for logging your ML experiments. But you don't need to combine the two yourself: Weights & Biases is incorporated directly into the PyTorch Lightning library via the [**`WandbLogger`**](https://pytorch-lightning.readthedocs.io/en/stable/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html#pytorch\_lightning.loggers.WandbLogger).&#x20;
 
 ## ⚡ Get going lightning-fast with just two lines.
 
@@ -22,174 +22,227 @@ trainer = Trainer(logger=wandb_logger)
 
 ![Interactive dashboards accessible anywhere, and more!](../../.gitbook/assets/n6P7K4M.gif)
 
-## Check out interactive examples!
+## Using PyTorch Lightning's `WandbLogger`
 
-Run GPU-accelerated PyTorch Lighting plus W\&B logging without installing anything using [this Colab](https://www.wandb.me/lightning). And follow along with a video tutorial!
+PyTorch Lightning has a [**`WandbLogger`**](https://pytorch-lightning.readthedocs.io/en/latest/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html?highlight=wandblogger) class that can be used to seamlessly log metrics, model weights, media and more
 
-{% embed url="https://www.youtube.com/watch?v=hUXQm46TAKc" %}
+### Logger Arguments
 
-See how PyTorch Lighting and W\&B can accelerate your model development and help you climb the leaderboard with [this Kaggle Kernel](https://www.kaggle.com/ayuraj/use-pytorch-lightning-with-weights-and-biases).
+Below are some of the most used parameters in WandbLogger, see the PyTorch Lightning [**`WandbLogger` documentation**](https://pytorch-lightning.readthedocs.io/en/latest/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html?highlight=wandblogger) for a full list and description
 
-![](<../../.gitbook/assets/lgklnrt (1) (1) (1) (1).gif>)
+| Parameter   | Description                                                                   |
+| ----------- | ----------------------------------------------------------------------------- |
+| `project`   | Define what wandb Project to log to                                           |
+| `name`      | Give a name to your wandb run                                                 |
+| `log_model` | Log all models if `log_model="all"` or at end of training if `log_model=True` |
+| `save_dir`  | Path where data is saved                                                      |
 
-Read more on specific topics in these blog posts made with Weights & Biases' [Reports](../reports/):
-
-* [Multi-GPU Training](https://wandb.ai/wandb/wandb-lightning/reports/Multi-GPU-Training-Using-PyTorch-Lightning--VmlldzozMTk3NTk)
-* [Image Classification](https://wandb.ai/wandb/wandb-lightning/reports/Image-Classification-using-PyTorch-Lightning--VmlldzoyODk1NzY) and [Semantic Segmentation](https://wandb.ai/borisd13/lightning-kitti/reports/Lightning-Kitti--Vmlldzo3MTcyMw)
-* [Transfer Learning](https://wandb.ai/wandb/wandb-lightning/reports/Transfer-Learning-Using-PyTorch-Lightning--VmlldzoyODk2MjA)
-
-## Frequently Asked Questions
-
-### How does W\&B integrate with Lightning?
-
-The core integration is based on the [Lightning `loggers` API](https://pytorch-lightning.readthedocs.io/en/stable/extensions/logging.html), which lets you write much of your logging code in a framework-agnostic way. `Logger`s are passed to the [Lightning `Trainer`](https://pytorch-lightning.readthedocs.io/en/stable/common/trainer.html) and are triggered based on that API's rich [hook-and-callback system](https://pytorch-lightning.readthedocs.io/en/stable/extensions/callbacks.html). This keeps your research code well-separated from engineering and logging code.
-
-### What does the integration log without any additional code?
-
-We'll save your model checkpoints to W\&B, where you can view them with the Netron model viewer or download them for use in future runs. We'll also capture [system metrics](../../ref/app/features/system-metrics.md), like GPU usage and network I/O, environment information, like hardware and OS information, [code state](../../ref/app/features/panels/code.md) (including git commit and diff patch, notebook contents and session history), and anything printed to the standard out.
-
-### How do I log scalar metrics, like accuracy, mIoU, and SSIM?
-
-Because the `WandbLogger` is part of the broader [Lightning `loggers` API](https://pytorch-lightning.readthedocs.io/en/stable/extensions/logging.html), logging of scalar values to W\&B can be done in a framework-agnostic way: just call `self.log`.
-
-You can calculate these scalar metrics with [Lightning's `Metric` API](https://pytorch-lightning.readthedocs.io/en/stable/extensions/metrics.html). In addition to providing robust and tested methods for calculating quantities like accuracy and signal-to-noise ratio, `Metric`s do lots of work under the hood, like maintaining state for efficient epoch-wise calculation and abstracting away device management. The code snippet below shows best practices for defining `LightningModule`s so that metric calculation and logging works regardless of device or parallelism strategies used. That way you can get the most out of PyTorch Lightning's advanced features for high-performance code without compromising on logging.
+### **Log `LightningModule` hyperparameters**
 
 ```python
-import pytorch_lightning as pl
-
-
-class MyLitModule(pl.LightningModule):
-
-  def __init__(self, *args, **kwargs):
-    # initialize module here    
-    acc = pl.metrics.Accuracy()
-    # use .clone so that each metric can maintain its own state
-    self.train_acc = acc.clone()
-    # assign all metrics as attributes of module so they are detected as children
-    self.valid_acc = acc.clone()
-    
-  def training_step(self, batch, batch_idx):
-    inputs, targets  = batch
-    preds = self(inputs)
-    # return a dictionary
-    return {"loss": loss, "preds": preds, "targets": targets}
-    
-  def training_step_end(self, outs):
-    # log accuracy on each step_end, for compatibility with data-parallel
-    self.train_acc(outs["preds"], outs["targets"])
-    self.log({"train/acc_step": self.train_acc})
-    
-  def training_epoch_end(self, outs):
-    # additional log mean accuracy at the end of the epoch
-    self.log("train/acc_epoch", self.train_acc.compute())
+class LitModule(LightningModule):
+    def __init__(self, *args, **kwarg):
+        self.save_hyperparameters()
 ```
 
-{% hint style="warning" %}
-Lightning's `Metrics` are being transferred into a stand-alone library, `torchmetrics`, and will be unavailable in the base package starting with version 1.5. Read more [here](https://devblog.pytorchlightning.ai/torchmetrics-pytorch-metrics-built-to-scale-7091b1bec919).
-{% endhint %}
+### Log additional config parameters
 
-### How do I log media objects?
+```python
+# add one parameter
+wandb_logger.experiment.config["key"] = value
 
-Weights & Biases provides a wide variety of data types for rich media logging (read [the guide](../track/log/) or check [the reference docs](../../ref/python/data-types/) for more).
+# add multiple parameters
+wandb_logger.experiment.config.update({key1: val1, key2: val2})
 
-Unlike scalars, media objects are logged differently by each framework. To keep this more involved logging code separate from the core logic of your research code, use [Lightning `Callback`s](https://pytorch-lightning.readthedocs.io/en/stable/extensions/callbacks.html).
+# use directly wandb module
+wandb.config["key"] = value
+wandb.config.update()
+```
 
-Inside your `Callback`, you can either call `wandb.log`, as when using `wandb` with other libraries, or `trainer.logger.experiment.log`. In either case, you can do anything you could do with [wandb.log](../../ref/python/log.md).
+### Log Gradients, Parameter Histogram and Model Topology
 
-When logging images you can also use `trainer.logger.log_image` and when logging text you can also use `trainer.logger.log_text`
+You can pass your model object to `wandblogger.watch()` to monitor your models's gradients and parameters as you train. See the PyTorch Lightning [**`WandbLogger` documentation**](https://pytorch-lightning.readthedocs.io/en/latest/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html?highlight=wandblogger) for a full description
+
+### Log Metrics
+
+The code snippet below shows how to define your `LightningModule` to log your metrics and `LightningModule` hyperparameters. In this example we will use the [`torchmetrics`](https://github.com/PyTorchLightning/metrics) library to calculate our metrics
+
+```python
+import torch
+from torch.nn import Linear, CrossEntropyLoss, functional as F
+from torch.optim import Adam
+from torchmetrics.functional import accuracy
+from pytorch_lightning import LightningModule
+
+class My_LitModule(LightningModule):
+
+    def __init__(self, n_classes=10, n_layer_1=128, n_layer_2=256, lr=1e-3):
+        '''method used to define our model parameters'''
+        super().__init__()
+
+        # mnist images are (1, 28, 28) (channels, width, height)
+        self.layer_1 = Linear(28 * 28, n_layer_1)
+        self.layer_2 = Linear(n_layer_1, n_layer_2)
+        self.layer_3 = Linear(n_layer_2, n_classes)
+
+        self.loss = CrossEntropyLoss()
+        self.lr = lr
+
+        # save hyper-parameters to self.hparams (auto-logged by W&B)
+        self.save_hyperparameters()
+
+    def forward(self, x):
+        '''method used for inference input -> output'''
+        
+        # (b, 1, 28, 28) -> (b, 1*28*28)
+        batch_size, channels, width, height = x.size()
+        x = x.view(batch_size, -1)
+
+        # let's do 3 x (linear + relu)
+        x = F.relu(self.layer_1(x))
+        x = F.relu(self.layer_2(x))
+        x = self.layer_3(x)
+        return x
+
+    def training_step(self, batch, batch_idx):
+        '''needs to return a loss from a single batch'''
+        _, loss, acc = self._get_preds_loss_accuracy(batch)
+
+        # Log loss and metric
+        self.log('train_loss', loss)
+        self.log('train_accuracy', acc)
+        return loss
+
+    def validation_step(self, batch, batch_idx):
+        '''used for logging metrics'''
+        preds, loss, acc = self._get_preds_loss_accuracy(batch)
+
+        # Log loss and metric
+        self.log('val_loss', loss)
+        self.log('val_accuracy', acc)
+        return preds
+    
+    def configure_optimizers(self):
+        '''defines model optimizer'''
+        return Adam(self.parameters(), lr=self.lr)
+    
+    def _get_preds_loss_accuracy(self, batch):
+        '''convenience function since train/valid/test steps are similar'''
+        x, y = batch
+        logits = self(x)
+        preds = torch.argmax(logits, dim=1)
+        loss = self.loss(logits, y)
+        acc = accuracy(preds, y)
+        return preds, loss, acc
+```
+
+### Log Images, Text and More
+
+The `WandbLogger` has `log_image`, `log_text` and `log_table` methods for logging media.&#x20;
+
+You can also directly call `wandb.log` or `trainer.logger.experiment.log` to log other media types such as Audio, Molecules, Point Clouds, 3D Objects and more.&#x20;
 
 {% hint style="info" %}
-When manually calling `wandb.log` or `trainer.logger.experiment.log`, make sure to include the key/value pair `"global_step": trainer.global_step`. That way, you can line up the information you're currently logging with information logged via other methods.
+When using `wandb.log` or `trainer.logger.experiment.log` within your `trainer` make sure to also include`"global_step": trainer.global_step` in the dictionary being passed. That way, you can line up the information you're currently logging with information logged via other methods.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Image Logging" %}
-Log the input and output images of an autoencoder or other image-to-image transformation network. Input-output pairs are combined into single images.
-
-![Outputs (top) for given inputs (bottom) of an auto-encoder trained on MNIST. ReLU troubles!](<../../.gitbook/assets/lit-ae-example-images (1).png>)
-
+{% tab title="Log Images" %}
 ```python
-import pytorch_lightning as pl
-from pytorch_lightning.loggers import WandbLogger
-import torch
-import wandb
+# using tensors, numpy arrays or PIL images
+wandb_logger.log_image(key="samples", images=[img1, img2])
 
+# adding captions
+wandb_logger.log_image(key="samples", images=[img1, img2], caption=["tree", "person"])
 
-class WandbImageCallback(pl.Callback):
-    """Logs the input and output images of a module.
-    
-    Images are stacked into a mosaic, with output on the top
-    and input on the bottom."""
-    
-    def __init__(self, val_samples, max_samples=32):
-        super().__init__()
-        self.val_imgs, _ = val_samples
-        self.val_imgs = self.val_imgs[:max_samples]
-          
-    def on_validation_end(self, trainer, pl_module):
-        val_imgs = self.val_imgs.to(device=pl_module.device)
-    
-        outs = pl_module(val_imgs)
-    
-        mosaics = torch.cat([outs, val_imgs], dim=-2)
-        caption = "Top: Output, Bottom: Input"
-        trainer.logger.experiment.log({
-            "val/examples": [wandb.Image(mosaic, caption=caption) 
-                              for mosaic in mosaics],
-            "global_step": trainer.global_step
-            })
-            
-...
+# using file path
+wandb_logger.log_image(key="samples", images=["img_1.jpg", "img_2.jpg"])
 
-trainer = pl.Trainer(
-    ...
-    callbacks=[WandbImageCallback(val_samples)]
-)
+# using .log in the trainer
+trainer.logger.experiment.log({
+    "samples": [wandb.Image(img, caption=caption) 
+    for (img, caption) in my_images]
+})
 ```
 {% endtab %}
 
-{% tab title="Image Classification Logging" %}
-Logs the input image and the output label for a single-class classification network.
-
-![Images and labels for a classifier trained on MNIST. Look for the mistake!](<../../.gitbook/assets/lit-wandb-example-images (1).png>)
-
+{% tab title="Log Text" %}
 ```python
-import pytorch_lightning as pl
-from pytorch_lightning.loggers import WandbLogger
+# data should be a list of lists
+columns = ["input", "label", "prediction"]
+my_data = [["cheese", "english", "english"], ["fromage", "french", "spanish"]]
+
+# using columns and data
+wandb_logger.log_text(key="my_samples", columns=columns, data=my_data)
+
+# using a pandas DataFrame
+wandb_logger.log_text(key="my_samples", dataframe=my_dataframe)
+```
+{% endtab %}
+
+{% tab title="Log Tables" %}
+```python
+# log a W&B Table that has a text caption, an image and audio
+columns = ["caption", "image", "sound"]
+
+# data should be a list of lists
+my_data = [["cheese", wandb.Image(img_1), wandb.Audio(snd_1)], 
+        ["wine", wandb.Image(img_2), wandb.Audio(snd_2)]]
+
+# log the Table
+wandb_logger.log_table(key="my_samples", columns=columns, data=data)
+```
+{% endtab %}
+{% endtabs %}
+
+You can use Lightning's Callbacks system to control when you log to Weights & Biases via the WandbLogger, in this example we log a sample of our validation images and predictions:
+
+{% tabs %}
+{% tab title="Log Image Predictions" %}
+```python
 import torch
 import wandb
+import pytorch_lightning as pl
+from pytorch_lightning.loggers import WandbLogger
 
-
-class WandbImagePredCallback(pl.Callback):
-    """Logs the input images and output predictions of a module.
+class LogPredictionSamplesCallback(Callback):
     
-    Predictions and labels are logged as class indices."""
-    
-    def __init__(self, val_samples, num_samples=32):
-        super().__init__()
-        self.val_imgs, self.val_labels = val_samples
-        self.val_imgs = self.val_imgs[:num_samples]
-        self.val_labels = self.val_labels[:num_samples]
-          
-    def on_validation_epoch_end(self, trainer, pl_module):
-        val_imgs = self.val_imgs.to(device=pl_module.device)
-
-        logits = pl_module(val_imgs)
-        preds = torch.argmax(logits, 1)
-
-        trainer.logger.experiment.log({
-            "val/examples": [
-                wandb.Image(x, caption=f"Pred:{pred}, Label:{y}") 
-                    for x, pred, y in zip(val_imgs, preds, self.val_labels)
-                ],
-            "global_step": trainer.global_step
-            })
+    def on_validation_batch_end(
+        self, trainer, pl_module, outputs, batch, batch_idx, dataloader_idx):
+        """Called when the validation batch ends."""
+ 
+        # `outputs` comes from `LightningModule.validation_step`
+        # which corresponds to our model predictions in this case
+        
+        # Let's log 20 sample image predictions from the first batch
+        if batch_idx == 0:
+            n = 20
+            x, y = batch
+            images = [img for img in x[:n]]
+            captions = [f'Ground Truth: {y_i} - Prediction: {y_pred}' 
+                for y_i, y_pred in zip(y[:n], outputs[:n])]
             
+            
+            # Option 1: log images with `WandbLogger.log_image`
+            wandb_logger.log_image(
+                key='sample_images', 
+                images=images, 
+                caption=captions)
+
+
+            # Option 2: log images and predictions as a W&B Table
+            columns = ['image', 'ground truth', 'prediction']
+            data = [[wandb.Image(x_i), y_i, y_pred] f
+                or x_i, y_i, y_pred in list(zip(x[:n], y[:n], outputs[:n]))]
+            wandb_logger.log_table(
+                key='sample_table',
+                columns=columns,
+                data=data)            
 ...
 
 trainer = pl.Trainer(
     ...
-    callbacks=[WandbImagePredCallback(val_samples)]
+    callbacks=[LogPredictionSamplesCallback()]
 )
 ```
 {% endtab %}
@@ -197,7 +250,7 @@ trainer = pl.Trainer(
 
 ### How to use multiple GPUs with Lightning and W\&B?
 
-PyTorch Lightning has Multi-GPU support through their [DDP Interface](https://pytorch-lightning.readthedocs.io/en/stable/advanced/multi\_gpu.html). However, PyTorch Lightning's design requires us to be careful about how we instantiate our GPUs.
+PyTorch Lightning has Multi-GPU support through their DDP Interface. However, PyTorch Lightning's design requires us to be careful about how we instantiate our GPUs.
 
 Lightning assumes that each GPU (or Rank) in your training loop must be instantiated in exactly the same way - with the same initial conditions. However, only rank 0 process gets access to the `wandb.run` object, and for non-zero rank processes: `wandb.run = None`. This could cause your non-zero processes to fail. Such a situation can put you in a **deadlock** because rank 0 process will wait for the non-zero rank processes to join, which have already crashed.
 
@@ -256,7 +309,7 @@ def main():
                             num_workers = 4)
 
     model = MNISTClassifier()
-    pl_logger = WandbLogger(project = "<project_name>")
+    wandblogger = WandbLogger(project = "<project_name>")
     callbacks = [
         ModelCheckpoint(
             dirpath = "checkpoints",
@@ -266,16 +319,34 @@ def main():
     trainer = pl.Trainer(
         max_epochs = 3, 
         gpus = 2, 
-        logger = pl_logger, 
+        logger = wandblogger, 
         strategy="ddp", 
         callbacks=callbacks
     ) 
     trainer.fit(model, train_loader, val_loader)
 ```
 
-#### But what if I really need to use `wandb.run` in my training setup?
 
-You will have to essentially expand the scope of the variable you need to access yourself. In other words, making sure that the inital conditions are the same on all processes.
+
+## Check out interactive examples!
+
+You can follow along in our video tutorial with our tutorial colab [here](https://wandb.me/lit-colab)
+
+{% embed url="https://www.youtube.com/watch?v=hUXQm46TAKc" %}
+
+## Frequently Asked Questions
+
+### How does W\&B integrate with Lightning?
+
+The core integration is based on the [Lightning `loggers` API](https://pytorch-lightning.readthedocs.io/en/stable/extensions/logging.html), which lets you write much of your logging code in a framework-agnostic way. `Logger`s are passed to the [Lightning `Trainer`](https://pytorch-lightning.readthedocs.io/en/stable/common/trainer.html) and are triggered based on that API's rich [hook-and-callback system](https://pytorch-lightning.readthedocs.io/en/stable/extensions/callbacks.html). This keeps your research code well-separated from engineering and logging code.
+
+### What does the integration log without any additional code?
+
+We'll save your model checkpoints to W\&B, where you can view them or download them for use in future runs. We'll also capture [system metrics](../../ref/app/features/system-metrics.md), like GPU usage and network I/O, environment information, like hardware and OS information, [code state](../../ref/app/features/panels/code.md) (including git commit and diff patch, notebook contents and session history), and anything printed to the standard out.
+
+### What if I really need to use `wandb.run` in my training setup?
+
+You will have to essentially expand the scope of the variable you need to access yourself. In other words, making sure that the initial conditions are the same on all processes.
 
 ```python
 if os.environ.get("LOCAL_RANK", None) is None:
