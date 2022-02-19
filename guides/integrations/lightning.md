@@ -13,10 +13,10 @@ PyTorch Lightning provides a lightweight wrapper for organizing your PyTorch cod
 ## ⚡ Get going lightning-fast with just two lines.
 
 ```python
-from pytorch_lightning.loggers import WandbLogger  # newline 1
+from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning import Trainer
 
-wandb_logger = WandbLogger()  # newline 2
+wandb_logger = WandbLogger()
 trainer = Trainer(logger=wandb_logger)
 ```
 
@@ -24,9 +24,14 @@ trainer = Trainer(logger=wandb_logger)
 
 ## Using PyTorch Lightning's `WandbLogger`
 
-PyTorch Lightning has a [**`WandbLogger`**](https://pytorch-lightning.readthedocs.io/en/latest/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html?highlight=wandblogger) class that can be used to seamlessly log metrics, model weights, media and more
+PyTorch Lightning has a [**`WandbLogger`**](https://pytorch-lightning.readthedocs.io/en/latest/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html?highlight=wandblogger) class that can be used to seamlessly log metrics, model weights, media and more. Just instantiate the WandbLogger and pass it to Lightning's `Trainer`.
 
-### Logger Arguments
+```
+wandb_logger = WandbLogger()
+trainer = Trainer(logger=wandb_logger)
+```
+
+### Logger arguments
 
 Below are some of the most used parameters in WandbLogger, see the PyTorch Lightning [**`WandbLogger` documentation**](https://pytorch-lightning.readthedocs.io/en/latest/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html?highlight=wandblogger) for a full list and description
 
@@ -37,7 +42,7 @@ Below are some of the most used parameters in WandbLogger, see the PyTorch Light
 | `log_model` | Log all models if `log_model="all"` or at end of training if `log_model=True` |
 | `save_dir`  | Path where data is saved                                                      |
 
-### **Log `LightningModule` hyperparameters**
+### **Log your LightningModule hyperparameters**
 
 ```python
 class LitModule(LightningModule):
@@ -59,13 +64,15 @@ wandb.config["key"] = value
 wandb.config.update()
 ```
 
-### Log Gradients, Parameter Histogram and Model Topology
+### Log gradients, parameter histogram and model topology
 
 You can pass your model object to `wandblogger.watch()` to monitor your models's gradients and parameters as you train. See the PyTorch Lightning [**`WandbLogger` documentation**](https://pytorch-lightning.readthedocs.io/en/latest/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html?highlight=wandblogger) for a full description
 
-### Log Metrics
+### Log metrics
 
-The code snippet below shows how to define your `LightningModule` to log your metrics and `LightningModule` hyperparameters. In this example we will use the [`torchmetrics`](https://github.com/PyTorchLightning/metrics) library to calculate our metrics
+You can log your metrics to W\&B when using the `WandbLogger` by calling `self.log('my_metric_name', metric_vale)` within your `LightningModule`, such as in your `training_step` or __ `validation_step methods.`
+
+The code snippet below shows how to define your `LightningModule` to log your metrics and your `LightningModule` hyperparameters. In this example we will use the [`torchmetrics`](https://github.com/PyTorchLightning/metrics) library to calculate our metrics
 
 ```python
 import torch
@@ -136,7 +143,7 @@ class My_LitModule(LightningModule):
         return preds, loss, acc
 ```
 
-### Log Images, Text and More
+### Log images, text and more
 
 The `WandbLogger` has `log_image`, `log_text` and `log_table` methods for logging media.&#x20;
 
@@ -309,7 +316,7 @@ def main():
                             num_workers = 4)
 
     model = MNISTClassifier()
-    wandblogger = WandbLogger(project = "<project_name>")
+    wandb_logger = WandbLogger(project = "<project_name>")
     callbacks = [
         ModelCheckpoint(
             dirpath = "checkpoints",
@@ -319,7 +326,7 @@ def main():
     trainer = pl.Trainer(
         max_epochs = 3, 
         gpus = 2, 
-        logger = wandblogger, 
+        logger = wandb_logger, 
         strategy="ddp", 
         callbacks=callbacks
     ) 
