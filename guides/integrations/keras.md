@@ -1,5 +1,7 @@
 # Keras
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/intro-keras)
+
 Use our callback to automatically save all the metrics and the loss values tracked in `model.fit`.
 
 ```python
@@ -41,5 +43,5 @@ Error('You must call wandb.init() before wandb.config.batch_size')
 
 then try this:
 
-1. In the `Sequence` class construction, add: `wandb.init(group='...')` 
+1. In the `Sequence` class construction, add: `wandb.init(group='...')`
 2. In your main program, make sure you're using `if __name__ == "__main__":` and then put the rest of your script logic inside that.

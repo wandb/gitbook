@@ -1,6 +1,8 @@
 # PyTorch
 
-[PyTorch](https://pytorch.org) is one of the most popular frameworks for deep learning in Python, especially among researchers. W\&B provides first class support for PyTorch, from logging gradients to profiling your code on the CPU and GPU.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/intro)
+
+PyTorch is one of the most popular frameworks for deep learning in Python, especially among researchers. W\&B provides first class support for PyTorch, from logging gradients to profiling your code on the CPU and GPU.
 
 {% hint style="info" %}
 Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple\_PyTorch\_Integration.ipynb) (with video walkthrough below) or see our [example repo](https://github.com/wandb/examples) for scripts, including one on hyperparameter optimization using [Hyperband](https://arxiv.org/abs/1603.06560) on [Fashion MNIST](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), plus the [W\&B Dashboard](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs) it generates.

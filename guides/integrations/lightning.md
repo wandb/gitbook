@@ -143,6 +143,28 @@ class My_LitModule(LightningModule):
         return preds, loss, acc
 ```
 
+### Log the min/max of your metric
+
+Using wandb's [`define_metric`](https://docs.wandb.ai/ref/python/run#define\_metric) function you can define whether you'd like your W\&B summary metric to display the min, max, mean or best value for that metric. If `define`_`metric` _ isn't used, then the last value logged with appear in your summary metrics. See the `define_metric` [reference docs here](https://docs.wandb.ai/ref/python/run#define\_metric) and the [guide here](https://docs.wandb.ai/guides/track/log#customize-axes-and-summaries-with-define\_metric) for more.
+
+To tell W\&B to keep track of the max validation accuracy in the W\&B summary metric, you just need to call `wandb.define_metric` once, e.g. you can call it at the beginning of training like so:&#x20;
+
+```python
+class My_LitModule(LightningModule):
+    ...
+    
+    def validation_step(self, batch, batch_idx):
+        if trainer.global_step == 0: 
+            wandb.define_metric('val_accuracy', summary='max')
+        
+        preds, loss, acc = self._get_preds_loss_accuracy(batch)
+
+        # Log loss and metric
+        self.log('val_loss', loss)
+        self.log('val_accuracy', acc)
+        return preds
+```
+
 ### Log images, text and more
 
 The `WandbLogger` has `log_image`, `log_text` and `log_table` methods for logging media.&#x20;
