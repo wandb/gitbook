@@ -43,17 +43,17 @@ my_data.add_dir("path/to/my/data")
 run.log_artifact(my_data)
 ```
 
-In [this example](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat_80-10-10_5K/ab79f01e007113280018), I have three datasets of 1K, 5K, and 10K items, and I can see and compare across the file names in subfolders (by data split or by class label).
+In [this example](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018), I have three datasets of 1K, 5K, and 10K items, and I can see and compare across the file names in subfolders (by data split or by class label).
 
-![](<../../.gitbook/assets/screen_shot_2021-02-23_at_3.18.03_pm (1) (1).png>)
+![](<../../.gitbook/assets/screen\_shot\_2021-02-23\_at\_3.18.03\_pm (1) (1).png>)
 
 ## Prepackage data splits <a href="#7ccfb650-1f87-458c-a4e2-538138660292" id="7ccfb650-1f87-458c-a4e2-538138660292"></a>
 
 As you iterate on your models and training schemes, you may want different slices of your data, varying the
 
-- **number of items**: a smaller dataset to start as proof of concept/to iterate quickly, or several datasets of increasing size to see how much the model benefits from more data
-- **train/val/test assignment and proportion**: a train/test split or a train/val/test split, with different proportions of items
-- **per-class balance**: equalize label representation (N images for each of K classes) or follow the existing, unbalanced distribution of the data
+* **number of items**: a smaller dataset to start as proof of concept/to iterate quickly, or several datasets of increasing size to see how much the model benefits from more data
+* **train/val/test assignment and proportion**: a train/test split or a train/val/test split, with different proportions of items
+* **per-class balance**: equalize label representation (N images for each of K classes) or follow the existing, unbalanced distribution of the data
 
 or other factors specific to your task.
 
@@ -73,17 +73,17 @@ for dir in ["train", "val", "test"]:
 run.log_artifact(my_data)
 ```
 
-View the [file contents →](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat_80-10-10_5K/ab79f01e007113280018/files)
+View the [file contents →](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018/files)
 
-![](<../../.gitbook/assets/Screen Shot 2021-03-03 at 12.55.55 PM.png>)
+![](../../.gitbook/assets/screen-shot-2021-03-03-at-12.55.55-pm.png)
 
 ## Iteratively refine your data <a href="#cee1428d-3b7a-4e1b-956b-e83170e7038f" id="cee1428d-3b7a-4e1b-956b-e83170e7038f"></a>
 
 As you browse through your training data or add new batches of examples, you may notice issues like
 
-- incorrect ground truth labels
-- hard negatives or commonly misclassified examples
-- problematic class imbalances
+* incorrect ground truth labels
+* hard negatives or commonly misclassified examples
+* problematic class imbalances
 
 To clean up and refine your data, you might modify incorrect labels, add or remove files to address imbalances, or group hard negatives into a special test split. With Artifacts, once you've finished a batch of changes, you can then call `run.log_artifact()` to push the new version to the cloud. This will automatically update the artifact with a new version to reflect your changes, while preserving the lineage and history of previous changes.
 
@@ -111,49 +111,49 @@ run.log_artifact(artifact)
 
 Give your datasets custom names and annotate them with notes or key-value pair metadata
 
-![](<../../.gitbook/assets/image (64).png>)
+![](<../../.gitbook/assets/image (21).png>)
 
 ## Juggle multiple datasets <a href="#4ba93c33-dd39-468b-8b3e-96c938bbd024" id="4ba93c33-dd39-468b-8b3e-96c938bbd024"></a>
 
-Your task may require a more complex curriculum: perhaps pretraining on a subset of classes from [ImageNet](http://www.image-net.org) and fine-tuning on a custom dataset, say [iNaturalist](https://github.com/visipedia/inat_comp/tree/master/2021) or your own photo collection. In domain adaptation, transfer learning, metalearning, and related tasks, you can save a different artifact for each data type or source to keep your experiments organized and more easily reproducible.
+Your task may require a more complex curriculum: perhaps pretraining on a subset of classes from [ImageNet](http://www.image-net.org) and fine-tuning on a custom dataset, say [iNaturalist](https://github.com/visipedia/inat\_comp/tree/master/2021) or your own photo collection. In domain adaptation, transfer learning, metalearning, and related tasks, you can save a different artifact for each data type or source to keep your experiments organized and more easily reproducible.
 
-[Explore the graph interactively →](https://wandb.ai/stacey/mendeleev/artifacts/balanced_data/inat_80-10-10_5K/ab79f01e007113280018/graph)
+[Explore the graph interactively →](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018/graph)
 
-![](<../../.gitbook/assets/image (65).png>)
+![](<../../.gitbook/assets/image (18).png>)
 
 Multiple versions of balanced datasets of different sizes: 1K, 5K, and 10K and the corresponding artifact graph, showing training and inference runs on that data.
 
-![](<../../.gitbook/assets/image (66).png>)
+![](<../../.gitbook/assets/image (7).png>)
 
-Several versions of raw data with 50 and 500 items total, from which a data_split job creates two separate artifacts for "train" and "val" data.
+Several versions of raw data with 50 and 500 items total, from which a data\_split job creates two separate artifacts for "train" and "val" data.
 
 ## Visualize & easily share your data workflow <a href="#57023a52-2c00-4b24-8e17-b193b40e216b" id="57023a52-2c00-4b24-8e17-b193b40e216b"></a>
 
 Artifacts let you see and formalize the flow of data through your model development scripts, whether for preprocessing, training, testing, analysis, or any other job type:
 
-- choose **meaningful organizational types** for your artifacts and jobs: for data, this could be `train`, `val`, or `test`; for scripts this could be `preprocess`, `train`, `evaluate`, etc. You may also want to log other data as artifacts: a model's predictions on fixed validation data, samples of generated output, evaluation metrics, etc.
-- **explore the artifact graph**: interact with all the connections between your code and data (input artifact(s) → script or job → output artifact(s)). Click "explode" on the compute graph to see all the versions for each artifact or all the runs of each script by job type. Click on individual nodes to see further details (file contents or code, annotations/metadata, config, timestamp, parent/child nodes, etc).
-- **iterate confidently**: all your experimental script runs and data will be saved and versioned automatically, so you can focus on the core modeling task and not worry about where and when you saved which version of your dataset or code
-- **share & replicate easily**: once you've integrated artifacts, you and your teammates can smoothly rerun the same workflow and pull from identical datasets (defaulting to the latest/best version), even to train in a different context/on different hardware
+* choose **meaningful organizational types** for your artifacts and jobs: for data, this could be `train`, `val`, or `test`; for scripts this could be `preprocess`, `train`, `evaluate`, etc. You may also want to log other data as artifacts: a model's predictions on fixed validation data, samples of generated output, evaluation metrics, etc.
+* **explore the artifact graph**: interact with all the connections between your code and data (input artifact(s) → script or job → output artifact(s)). Click "explode" on the compute graph to see all the versions for each artifact or all the runs of each script by job type. Click on individual nodes to see further details (file contents or code, annotations/metadata, config, timestamp, parent/child nodes, etc).
+* **iterate confidently**: all your experimental script runs and data will be saved and versioned automatically, so you can focus on the core modeling task and not worry about where and when you saved which version of your dataset or code
+* **share & replicate easily**: once you've integrated artifacts, you and your teammates can smoothly rerun the same workflow and pull from identical datasets (defaulting to the latest/best version), even to train in a different context/on different hardware
 
-[Interactive example →](https://wandb.ai/wandb/arttest/artifacts/model/iv3_trained/5334ab69740f9dda4fed/graph)
+[Interactive example →](https://wandb.ai/wandb/arttest/artifacts/model/iv3\_trained/5334ab69740f9dda4fed/graph)
 
 Simple compute graph example
 
-![](<../../.gitbook/assets/image (67).png>)
+![](<../../.gitbook/assets/image (13).png>)
 
 More complex compute graph with predictions and evaluation results logged as artifacts
 
-![](<../../.gitbook/assets/image (68).png>)
+![](<../../.gitbook/assets/image (14).png>)
 
 Simplified version of the compute graph, node grouped by artifact/job type ("Explode" off)
 
-![](<../../.gitbook/assets/image (69).png>)
+![](<../../.gitbook/assets/image (6).png>)
 
 Full details of each node: versions by artifact type and scripts runs by job type ("Explode" on)
 
-![](<../../.gitbook/assets/image (70).png>)
+![](<../../.gitbook/assets/image (8).png>)
 
 Details for a particular version of resnet18: which training run produced it and which further runs loaded it for inference. These are deeply linked in each project so you can navigate the full graph.
 
-![](<../../.gitbook/assets/image (71).png>)
+![](<../../.gitbook/assets/image (5).png>)

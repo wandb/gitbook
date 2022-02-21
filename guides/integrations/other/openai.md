@@ -2,7 +2,7 @@
 description: Fine-tune OpenAI GPT-3 on your own data and track results with W&B
 ---
 
-# \[Beta] OpenAI API
+# OpenAI API
 
 {% hint style="info" %}
 **Beta Integration**: This is a new feature, and we're actively working on making this better. Please reach out if you have any feedback — contact@wandb.com
@@ -64,11 +64,11 @@ WandbLogger.sync(
 
 We scan for new completed fine-tunes and automatically add them to your dashboard.
 
-![](<../../../.gitbook/assets/image (173).png>)
+![](<../../../.gitbook/assets/image (168).png>)
 
 In addition your training and validation files are logged and versioned, as well as details of your fine-tune results. This let you interactively explore your training and validation data.
 
-![](<../../../.gitbook/assets/image (172).png>)
+![](<../../../.gitbook/assets/image (167).png>)
 
 ## :gear: Optional arguments
 
@@ -85,7 +85,7 @@ In addition your training and validation files are logged and versioned, as well
 
 Use [Tables](../../data-vis/) to better visualize sample predictions and compare models.
 
-![](<../../../.gitbook/assets/image (162).png>)
+![](<../../../.gitbook/assets/image (161) (1).png>)
 
 Create a new run:
 
@@ -177,7 +177,7 @@ Yes, you can integrate your entire pipeline to W\&B through Artifacts, including
 
 This will allow complete traceability of your models.
 
-![](<../../../.gitbook/assets/image (169).png>)
+![](<../../../.gitbook/assets/image (165) (1).png>)
 
 ## :books: Resources
 

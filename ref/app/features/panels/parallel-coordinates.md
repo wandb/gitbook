@@ -6,7 +6,7 @@ description: Compare results across machine learning experiments
 
 Parallel coordinates charts summarize the relationship between large numbers of hyperparameters and model metrics at a glance.
 
-![](<../../../../.gitbook/assets/2020-04-27 16.11.43.gif>)
+![](../../../../.gitbook/assets/2020-04-27-16.11.43.gif)
 
 * **Axes**: Different hyperparameters from [`wandb.config`](../../../../guides/track/config.md) and metrics from [`wandb.log`](../../../../guides/track/log/).
 * **Lines**: Each line represents a single run. Mouse over a line to see a tooltip with details about the run. All lines that match the current filters will be shown, but if you turn off the eye, lines will be grayed out.

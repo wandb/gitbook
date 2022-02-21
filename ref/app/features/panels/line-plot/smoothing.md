@@ -12,7 +12,7 @@ In Weights & Biases line plots, we support three types of smoothing:
 
 See these live in an [interactive W\&B report](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc).
 
-![](<../../../../../.gitbook/assets/beamer - smoothing.gif>)
+![](../../../../../.gitbook/assets/beamer-smoothing.gif)
 
 ## Exponential Moving Average (Default)
 
@@ -31,7 +31,7 @@ Here is sample code for how this works under the hood:
 
 Here's what this looks like [in the app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc):
 
-![](<../../../../../.gitbook/assets/Screen Shot 2021-03-16 at 12.43.45 PM.png>)
+![](../../../../../.gitbook/assets/screen-shot-2021-03-16-at-12.43.45-pm.png)
 
 ## Gaussian Smoothing
 
@@ -41,7 +41,7 @@ Gaussian smoothing is a good standard choice for smoothing if you are not concer
 
 Here's what this looks like [in the app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc#3.-gaussian-smoothing):
 
-![](<../../../../../.gitbook/assets/image (100).png>)
+![](<../../../../../.gitbook/assets/image (60).png>)
 
 ## Running Average
 
@@ -51,7 +51,7 @@ Running average is a simple, trivial to replicate smoothing algorithm. If your p
 
 Here's what this looks like [in the app](https://wandb.ai/carey/smoothing-example/reports/W-B-Smoothing-Features--Vmlldzo1MzY3OTc#4.-running-average):
 
-![](<../../../../../.gitbook/assets/image (101).png>)
+![](<../../../../../.gitbook/assets/image (58).png>)
 
 ## Implementation Details
 
@@ -61,4 +61,4 @@ All of the smoothing algorithms run on the sampled data, meaning that if you log
 
 By default we show the original, unsmoothed data as a faint line in the background. Click the **Show Original** toggle to turn this off.
 
-![](<../../../../../.gitbook/assets/demo - wandb smoothing turn on and off original data.gif>)
+![](../../../../../.gitbook/assets/demo-wandb-smoothing-turn-on-and-off-original-data.gif)

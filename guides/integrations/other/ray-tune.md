@@ -108,5 +108,5 @@ tune.run(
 
 We've created a few examples for you to see how the integration works:
 
-* [Colab](https://colab.research.google.com/drive/1WOCOcOsSzHAriUqSZCBTDFELDwUBYYjD?usp=sharing): A simple demo to try the integration.
+* [Colab](http://wandb.me/raytune-colab): A simple demo to try the integration.
 * [Dashboard](https://wandb.ai/anmolmann/ray\_tune): View dashboard generated from the example.

@@ -65,13 +65,13 @@ my_table.add_column("class_prediction", predictions_t)
 wandb.log({"mnist_predictions": my_table})
 ```
 
-![The code above generates a table like this one. This model's looking good!](<../../.gitbook/assets/Screenshot 2021-07-14 at 20.18.39.png>)
+![The code above generates a table like this one. This model's looking good!](../../.gitbook/assets/screenshot-2021-07-14-at-20.18.39.png)
 
 For more on logging and visualizing datasets and models, check out our [guide to W\&B Tables](../data-vis/).
 
 ## Profiling PyTorch code
 
-![View detailed traces of PyTorch code execution inside W\&B dashboards.](<../../.gitbook/assets/image (145).png>)
+![View detailed traces of PyTorch code execution inside W\&B dashboards.](<../../.gitbook/assets/image (136).png>)
 
 W\&B integrates directly with [PyTorch Kineto](https://github.com/pytorch/kineto)'s [Tensorboard plugin](https://github.com/pytorch/kineto/blob/master/tb\_plugin/README.md) to provide tools for profiling PyTorch code, inspecting the details of CPU and GPU communication, and identifying bottlenecks and optimizations.
 

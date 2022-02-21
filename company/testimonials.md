@@ -22,7 +22,7 @@ Since machine learning is a very experimental process, meaning you try something
 
 [Watch the video here →](https://www.youtube.com/watch?v=83s-OEFMgVY)
 
-![Every model I build has to answer 1 simple question | Airbnb Machine Learning Project Part 5](<../.gitbook/assets/fan video.png>)
+![Every model I build has to answer 1 simple question | Airbnb Machine Learning Project Part 5](../.gitbook/assets/fan-video.png)
 
 ## Ken Tsui, VP of Machine Learning at [Apoidea AI](https://apoidea.ai)
 

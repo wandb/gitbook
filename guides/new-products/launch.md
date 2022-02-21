@@ -20,7 +20,7 @@ W\&B Launch is the new beta tool for reproducing runs and orchestrating experime
 
 Here's what that looks like in the W\&B UI:
 
-![](<../../.gitbook/assets/demo - quickstart wandb launch.gif>)
+![](../../.gitbook/assets/demo-quickstart-wandb-launch.gif)
 
 ## What runs can be reproduced by W\&B Launch?
 
@@ -71,11 +71,11 @@ You can add runs to the queue from the App UI or from the command line.
 2. Hover over a run to see the dropdown menu button appear on the left, next to the eye
 3. Click the menu, and select the option to **Add to Launch queue**
 
-![](<../../.gitbook/assets/image (147).png>)
+![](<../../.gitbook/assets/image (146).png>)
 
 This will open a modal where you can edit the launch config that defines how a run is launched:
 
-![](<../../.gitbook/assets/image (148).png>)
+![](<../../.gitbook/assets/image (147).png>)
 
 In this modal, you can select the target entity, project and queue you'd like to add the queued run to. You can also set the overrides, as well as other information such as the name or git version.
 
@@ -206,7 +206,7 @@ Alternatively, visit the Launch tab in the project workspace to automatically cr
 
 Full run queues can be deleted as well. Select the queue or queues to be deleted, and click delete. This will delete queued runs that have not started, but not delete any runs that have been started.
 
-![](<../../.gitbook/assets/image (151).png>)
+![](<../../.gitbook/assets/image (148).png>)
 
 {% hint style="info" %}
 The project's default queue cannot be deleted.

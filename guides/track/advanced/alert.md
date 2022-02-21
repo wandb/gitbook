@@ -39,7 +39,7 @@ In your [User Settings](https://wandb.ai/settings):
 
 You will only have to do this the first time you set up W\&B Alerts, or when you'd like to modify how you receive alerts.
 
-![Alerts settings in W\&B User Settings](<../../../.gitbook/assets/demo - connect slack.png>)
+![Alerts settings in W\&B User Settings](../../../.gitbook/assets/demo-connect-slack.png)
 
 ### 2. Add \`wandb.alert()\` to Your Code
 
