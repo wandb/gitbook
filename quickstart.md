@@ -61,7 +61,7 @@ wandb.config.dropout = 0.2
 
 ![](.gitbook/assets/wandb-demo-logging-config.png)
 
-### 5. Set alerts
+### 5. Get alerts
 
 Get notified via Slack or email if your W\&B Run has crashed or whether a custom trigger, such as your loss going to NaN or a step in your ML pipeline has completed, has been reached. See the [Alerts docs](https://docs.wandb.ai/guides/track/alert) for a full setup.
 
