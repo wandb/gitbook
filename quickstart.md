@@ -63,9 +63,12 @@ wandb.config.dropout = 0.2
 
 ### 5. Set alerts
 
-With Alerts you can be notified via Slack or email if your W\&B Run has crashed or whether a custom trigger, such as your loss going to NaN or a step in your ML pipeline has completed, has been reached. See the [Alerts docs](https://docs.wandb.ai/guides/track/alert) for a full setup guide.
+Get notified via Slack or email if your W\&B Run has crashed or whether a custom trigger, such as your loss going to NaN or a step in your ML pipeline has completed, has been reached. See the [Alerts docs](https://docs.wandb.ai/guides/track/alert) for a full setup.
 
 [More about wandb.alert() →](https://docs.wandb.ai/guides/track/alert)
+
+1. Turn on Alerts in your W\&B [User Settings](https://wandb.ai/settings)
+2. Add `wandb.alert()` to your code
 
 ```python
 wandb.alert(
@@ -74,16 +77,9 @@ wandb.alert(
 )
 ```
 
-And then see W\&B Alerts messages in Slack (or your email):
+Then see W\&B Alerts messages in Slack (or your email):
 
-![](<.gitbook/assets/Screenshot 2022-02-17 at 16.26.15 (1).png>)
-
-## Getting Started
-
-There are 2 steps to follow the first time you'd like to send a Slack or email alert, triggered from your code:
-
-1. Turn on Alerts in your W\&B [User Settings](https://wandb.ai/settings)
-2. Add `wandb.alert()` to your code
+![W\&B Alerts in a Slack channel](<.gitbook/assets/Screenshot 2022-02-17 at 16.26.15 (1).png>)
 
 ## What next?
 
