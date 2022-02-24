@@ -89,6 +89,17 @@ if acc < threshold:
 
 ## More Info
 
+### Tagging / Mentioning Users
+
+When sending Alerts on Slack you can @ yourself or your colleagues by adding their Slack user id as `<@USER_ID>` in either the title or the text of the Alert. You can find a Slack user id from their Slack profile page.
+
+```python
+wandb.alert(
+    title="Loss is NaN", 
+    text=f"Hey <@U1234ABCD> loss has gone to NaN"
+)
+```
+
 ### W\&B Team Alerts
 
 Team admins can set up alerts for the team on the team settings page: wandb.ai/teams/`your-team`. These alerts apply to everyone on your team. We recommend using the **Slackbot** channel because it keeps the alerts private.
