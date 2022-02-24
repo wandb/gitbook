@@ -84,7 +84,7 @@ Tables are the only feature from Markdown that we haven't added a WYSIWYG equiva
 
 If you converted your report using the message at the top of the report, simply hit the red "Revert" button to return to your pre-converted state. Note that any changes you've made after converting will be lost.
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (62).png>)
 
 If you converted a single Markdown block, try hitting cmd+z to undo.
 

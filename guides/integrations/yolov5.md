@@ -30,7 +30,7 @@ python yolov5/train.py  # train a small network on a small dataset
 
 Just follow the links printed to the standard out by wandb.
 
-![All these charts and more!](<../../.gitbook/assets/image (47).png>)
+![All these charts and more!](<../../.gitbook/assets/image (105).png>)
 
 ## Model Versioning and Data Visualization
 
@@ -61,9 +61,9 @@ Every W\&B account comes with 100 GB of free storage for datasets and models.
 
 Here's what that looks like.
 
-![Model Versioning: the latest and the best versions of the model are identified.](<../../.gitbook/assets/image (62).png>)
+![Model Versioning: the latest and the best versions of the model are identified.](<../../.gitbook/assets/image (109).png>)
 
-![Data Visualization: compare the input image to the model's outputs and example-wise metrics.](<../../.gitbook/assets/image (61).png>)
+![Data Visualization: compare the input image to the model's outputs and example-wise metrics.](<../../.gitbook/assets/image (110).png>)
 
 {% hint style="info" %}
 With data and model versioning, you can resume paused or crashed experiments from any device, no setup necessary! Check out [the Colab ](https://wandb.me/yolo-colab)for details.

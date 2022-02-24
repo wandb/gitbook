@@ -64,11 +64,11 @@ WandbLogger.sync(
 
 We scan for new completed fine-tunes and automatically add them to your dashboard.
 
-![](<../../../.gitbook/assets/image (168).png>)
+![](<../../../.gitbook/assets/image (173).png>)
 
 In addition your training and validation files are logged and versioned, as well as details of your fine-tune results. This let you interactively explore your training and validation data.
 
-![](<../../../.gitbook/assets/image (167).png>)
+![](<../../../.gitbook/assets/image (172).png>)
 
 ## :gear: Optional arguments
 
@@ -85,7 +85,7 @@ In addition your training and validation files are logged and versioned, as well
 
 Use [Tables](../../data-vis/) to better visualize sample predictions and compare models.
 
-![](<../../../.gitbook/assets/image (161) (1).png>)
+![](<../../../.gitbook/assets/image (162) (1).png>)
 
 Create a new run:
 
@@ -177,7 +177,7 @@ Yes, you can integrate your entire pipeline to W\&B through Artifacts, including
 
 This will allow complete traceability of your models.
 
-![](<../../../.gitbook/assets/image (165) (1).png>)
+![](<../../../.gitbook/assets/image (169).png>)
 
 ## :books: Resources
 

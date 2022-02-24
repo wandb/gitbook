@@ -25,7 +25,7 @@ If you'd like to log certain metrics in every batch and standardize plots, you c
 
 ```python
 wandb.log({'batch': batch_idx, 'loss': 0.3})
-wandb.log({'epoch': epoch, 'val_acc': 0.94})
+wandb.log({'epoch': epoch, 'val_acc': 0.94}) 
 ```
 
 ### How do I log a list of values?
@@ -45,6 +45,19 @@ wandb.log({"losses": wandb.Histogram(losses)})  # converts losses to a histogram
 ```
 {% endtab %}
 {% endtabs %}
+
+### How do I plot multiple lines on a plot with a legend?
+
+Multi-line custom chart can be created by using `wandb.plot.lineseries()`. You'll need to navigate to the [project page](https://docs.wandb.ai/ref/app/pages/project-page) to see the line chart. To add a legend to the plot, pass the keys argument within `wandb.plot.lineseries()`. For example:
+
+```python
+wandb.log({"my_plot" : wandb.plot.lineseries(
+                         xs = x_data, 
+                         ys = y_data, 
+                         keys = ["metric_A", "metric_B"])}] 
+```
+
+You can find more information about Multi-line plots [here](https://docs.wandb.ai/guides/track/log/plots#basic-charts) under the Multi-line tab.
 
 ### How do I use custom x-axes?
 

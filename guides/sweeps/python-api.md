@@ -18,7 +18,7 @@ Two components work together in a sweep: a _controller_ on the central sweep ser
 
 The benefit of this setup is in parallelization: we handle tricky aspects like tracking state over time and communicating between machines, so you can focus on the machine learning. That means it's as easy as, say, opening two copies of the same Google Colab notebook in two tabs to get a 2x speed-up in your hyperparameter search!
 
-![](<../../.gitbook/assets/image (73).png>)
+![](<../../.gitbook/assets/image (115).png>)
 
 ## 1. Initialize the sweep
 
