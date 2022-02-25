@@ -8,7 +8,12 @@ description: >-
 
 ### Quickstart W\&B private-hosting
 
-1. Run `wandb local`
+1.  On any machine with [Docker](https://www.docker.com) and [Python](https://www.python.org) installed, run:
+
+    ```
+    pip install wandb
+    wandb local 
+    ```
 2. Generate a free license from the [Deployer](https://deploy.wandb.ai).
 3. Add it to your local settings
 
