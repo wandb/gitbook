@@ -18,8 +18,8 @@ description: >-
 2. Generate a free license from the [Deployer](https://deploy.wandb.ai).
 3. Add it to your local settings.
 
-#### Paste the license in the ** `/system-admin`** page on your local host
+#### Paste the license in the ** `/system-admin`** page on your localhost
 
-![Copy your license from Deployer and paste it into your Local settings](<../../.gitbook/assets/2022-02-24 22.13.59 (6).gif>)
+![Copy your license from Deployer and paste it into your Local settings](../../.gitbook/assets/License.gif)
 
 We also offer [Managed W\&B Private Cloud](cloud.md), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system is a good choice for massively scalable experiment tracking.

@@ -88,8 +88,9 @@ You need a license to complete your configuration of your Local host. [**Open th
 
 ### Add a license to your Local host
 
-1. Copy your license from your Deployment and navigate back to your Local host:  ![](<../../.gitbook/assets/image (178).png>)
-2. Add it to your local settings by pasting it into the `/system-admin` page of your Local host: ![](<../../.gitbook/assets/2022-02-24 22.13.59 (3).gif>)
+1. Copy your license from your Deployment and navigate back to your Local host:  ![](<../../.gitbook/assets/image (178) (1).png>)
+2. Add it to your local settings by pasting it into the `/system-admin` page of your Localhost: \
+   ![](../../.gitbook/assets/License.gif)
 
 ### Persistence and Scalability
 
