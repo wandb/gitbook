@@ -6,38 +6,398 @@ description: >-
 
 # Examples
 
-Explore what's possible in the W\&B app with the example projects below. Looking for code examples instead? Head to our [GitHub repo](https://github.com/wandb/examples).
+Get an overview of what's possible with Weights & Biases via the three sections below:
 
-1. [Examples by application](examples.md#examples-by-application)
-   1. [Autonomous vehicles](examples.md#autonomous-vehicles)
-      1. [Visualize LIDAR point clouds of driving scenes](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg)
-      2. [Image Masks for Semantic Segmentation](https://wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)
-      3. [Bounding Boxes for Object Detection](https://wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ)
-      4. [Self-Driving Cars learning depth perception](https://wandb.ai/stacey/sfmlearner/reports/Video-to-3D-Depth-Perception-for-Self-Driving-Cars--Vmlldzo2Nzg2Nw)
-      5. [Deep Drive: Semantic segmentation for scene parsing](https://wandb.ai/stacey/deep-drive/reports/The-View-from-the-Driver-s-Seat--Vmlldzo1MTg5NQ)
-   2. [Biomedical](examples.md#biomedical)
-      1. [DeepChem: Molecular Solubility](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM)
-      2. [3D protein-ligand interactions](https://wandb.ai/stacey/deepchem\_interact/reports/DeepChem-Molecular-Interaction--VmlldzoxMzMxNDE)
-      3. [Exploring X-Ray data and long-tailed learning](https://wandb.ai/stacey/xray/reports/X-Ray-Illumination--Vmlldzo4MzA5MQ)
-      4. [Logging RDKit Molecular data](https://wandb.ai/anmolmann/rdkit\_molecules/reports/Logging-RDKit-Molecular-Data--VmlldzoxMjk1MjQ1)
-   3. [Finance](examples.md#finance)
-      1. [Interpretable credit scorecards with XGBoost](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/boosting/Credit\_Scorecards\_with\_XGBoost\_and\_W%26B.ipynb)
-2. [Examples by technique](examples.md#examples-by-technique)
-   1. [Classification](examples.md#classification)
-      1. [Sentiment Classification using JAX/FLAX](https://www.kaggle.com/heyytanay/sentiment-clf-jax-flax-on-tpus-w-b/notebook)
-      2. [Tables tutorial: Visualize Data for Image Classification](https://wandb.ai/stacey/mendeleev/reports/Tables-Tutorial-Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA)
-   2. [Computer Vision](examples.md#computer-vision)
-      1. [Train and fine-tune CNNs beyond ImageNet](https://wandb.ai/stacey/curr\_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng)
-      2. [Extracting text from visually structured forms](https://wandb.ai/stacey/deepform\_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg)
-   3. [Distributed Training](examples.md#distributed-training)
-      1. [Data Parallel distributed training in Keras](https://wandb.ai/stacey/estuary/reports/Distributed-Training--Vmlldzo1MjEw)
-      2. [Optimize Pytorch-Lightning models](https://www.pytorchlightning.ai/blog/use-pytorch-lightning-with-weights-biases)
+1. ****[**Examples by Data Type**](examples.md#examples-by-data-domain)****
+2. ****[**Examples by ML Library**](examples.md#examples-by-library)****
+3. ****[**Examples by Application**](examples.md#examples-by-application)****
 
-## Examples by application
+## Examples by Data Type
 
-A list of examples by applications to guide you how W\&B is solving common problems.
+{% tabs %}
+{% tab title=" CV 🕶" %}
+### Computer Vision ❤️ W\&B &#x20;
 
-### Autonomous vehicles
+Track your experiments, log your Images or Video, analyze your models predictions and optimize your hyperparameters.&#x20;
+
+
+
+#### Easily track hyperparameters and log metrics
+
+Everytime you run your code, it's captured and visualized in W\&B.
+
+```python
+wandb.init(project='my-resnet', config={'lr': 0.01, ...})
+wandb.log({'loss': loss, ...})
+```
+
+
+
+#### Log Images
+
+Look at individual images and predictions to better understand your models.
+
+```python
+image = wandb.Image(array_or_path, caption="Input image")
+wandb.log({"examples": image})
+```
+
+
+
+#### Log Videos
+
+```python
+# axes are (time, channel, height, width)
+frames = np.random.randint(low=0, high=256, size=(10, 3, 100, 100), dtype=np.uint8)
+wandb.log({"video": wandb.Video(frames, fps=4)})
+```
+
+
+
+#### Log Segmentation Masks
+
+```python
+mask_data = np.array([[1, 2, 2, ... , 2, 2, 1], ...])
+class_labels = {
+  1: "tree",
+  2: "car",
+  3: "road"
+}
+mask_img = wandb.Image(image, masks={
+  "predictions": {
+    "mask_data": mask_data,
+    "class_labels": class_labels
+  }
+})
+```
+
+![Interactive mask viewing](<.gitbook/assets/semantic segmentation.gif>)
+
+#### Log Bounding Boxes
+
+```python
+class_id_to_label = {
+    1: "car",
+    2: "road",
+    3: "building"
+}
+img = wandb.Image(image, boxes={
+    "predictions": {
+        "box_data": [{
+            "position": {
+                "minX": 0.1,
+                "maxX": 0.2,
+                "minY": 0.3,
+                "maxY": 0.4
+            },
+            "class_id" : 2,
+            "box_caption": class_id_to_label[2],
+            "scores" : {
+                "acc": 0.1,
+                "loss": 1.2
+            },
+        }
+        ],
+        "class_labels": class_id_to_label
+    }
+})
+wandb.log({"driving_scene": img})
+```
+
+![Interactive bounding box viewing. ](https://2807047907-files.gitbook.io/\~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-Lqya5RvLedGEWPhtkjU%2F-M61xdWuQbgg6aVeX07a%2F-M624tPYtZkMLfl436U2%2Fbb-docs.jpeg?alt=media\&token=652a1d57-9bc5-412d-8a52-4a743748256a)
+
+Read more: [Log Media & Objects](guides/track/log/media.md)
+
+
+
+#### Log Tables of predictions
+
+Use [W\&B Tables](guides/data-vis/tables-quickstart.md) to interact with your model predictions. Dynamically show your models incorrect predictions, most confusing classes or difficult corner cases.
+
+![Grouped predictions using W\&B Tables](<.gitbook/assets/wandb - demo table visualizer.png>)
+
+```python
+my_data = [
+  [0, wandb.Image("img_0.jpg"), 0, 0],
+  [1, wandb.Image("img_1.jpg"), 8, 0],
+  [2, wandb.Image("img_2.jpg"), 7, 1],
+  [3, wandb.Image("img_3.jpg"), 1, 1]
+]
+columns=﻿[﻿"id"﻿, "image"﻿, "prediction"﻿, "truth"﻿]
+test_table = wandb.Table(data=my_data, columns=columns)
+wandb.log({'my_test_table': test_table})
+```
+
+Read more: [Data Visualization using Tables](guides/data-vis/)
+
+####
+
+#### Integrations
+
+* [**YOLOv5**](https://docs.wandb.ai/guides/integrations/yolov5)****
+* [**PyTorch Lightning**](https://docs.wandb.ai/guides/integrations/lightning)****
+
+****
+
+#### Whats Next?
+
+* Try HyperParameter Optimization with [W\&B Sweeps](https://docs.wandb.ai/guides/sweeps)
+* Save and version your models and datasets with [W\&B Artifacts](https://docs.wandb.ai/guides/artifacts)
+{% endtab %}
+
+{% tab title="NLP 📚" %}
+### NLP ❤️ W\&B&#x20;
+
+It's easy to integrate W\&B into your NLP projects. Make your work more reproducible, visible and debuggable.
+
+
+
+#### Track your experiments metrics and hyperparameters
+
+Everytime you run your code, it's captured and visualized in W\&B.
+
+```python
+wandb.init(project='my-transformer', config={'lr': 0.01, ...})
+wandb.log({'accuracy': accuracy, ...})
+```
+
+####
+
+#### Log text, custom HTML and displacy visualizations
+
+Log text, custom HTML or even [displacy visualizations](https://wandb.ai/wandb/wandb\_spacy\_integration/reports/Reproducible-spaCy-NLP-Experiments-with-Weights-Biases--Vmlldzo4NjM2MDk?galleryTag=NLP) within [W\&B Tables](guides/data-vis/tables-quickstart.md) . Combine your text data with prediction outputs of your model for model evaluation. You can then dynamically filter, sort or group using the UI to **drill down into your model performance**.
+
+```python
+# Your data
+headlines = ['Square(SQ) Surpasses Q4...', ...]
+
+# 1️⃣ Create the W&B Table
+text_table = wandb.Table(columns=["Headline", "Positive", "Negative", "Neutral"])
+for headline in headlines:
+       pos_score, neg_score, neutral_score = model(headline)
+       # 2️⃣ Add the data
+       text_table.add_data(headline, pos_score, neg_score, neutral_score) 
+
+# 3️⃣ Log the Table to wandb
+wandb.log({"validation_samples" : text_table})
+```
+
+![Read more: Log Media & Objects](broken-reference)
+
+
+
+#### Integrations
+
+* [**Hugging Face**](https://docs.wandb.ai/guides/integrations/huggingface)
+* [**SpaCy**](https://docs.wandb.ai/guides/integrations/spacy)****
+* ****[**SimpleTranformers**](https://docs.wandb.ai/guides/integrations/other/simpletransformers)****
+
+****
+
+#### Whats Next?
+
+* Try HyperParameter Optimization with [W\&B Sweeps](https://docs.wandb.ai/guides/sweeps)
+* Save and version your models and datasets with [W\&B Artifacts](https://docs.wandb.ai/guides/artifacts)
+{% endtab %}
+
+{% tab title="Tabular 🔢" %}
+### Tabular ❤️ W\&B&#x20;
+
+Weights & Biases supports logging pandas dataframes, iterative modelling with traditional ML and has integrations with Scikit-Learn, XGBoost, LightGBM, CatBoost and PyCaret.
+
+
+
+#### Track your experiments
+
+Everytime you run your code, it's captured and visualized in W\&B.
+
+```python
+wandb.init(project='my-xgb', config={'lr': 0.01, ...})
+wandb.log({'loss': loss, ...})
+```
+
+
+
+#### Log and explore your data
+
+Log a Pandas Dataframe to associate it with a particular experiment, or to interactively explore it in W\&B Tables in the workspace.
+
+```python
+# Create a W&B Table with your pandas dataframe
+table = wandb.Table(my_df)
+
+# Log the Table to your W&B workspace
+wandb.log({'dataframe_in_table': table})
+```
+
+![](<.gitbook/assets/wandb - iris table (1).png>)
+
+#### Integrations
+
+* [**Scikit-learn**](https://docs.wandb.ai/guides/integrations/scikit)&#x20;
+* ****[**XGBoost and LIghtGBM**](https://docs.wandb.ai/guides/integrations/boosting)&#x20;
+* Catboost (docs coming soon)
+* PyCaret (docs coming soon)
+
+
+
+#### Whats Next?
+
+* Try HyperParameter Optimization with [W\&B Sweeps](https://docs.wandb.ai/guides/sweeps)
+* Save and version your models and datasets with [W\&B Artifacts](https://docs.wandb.ai/guides/artifacts)
+{% endtab %}
+
+{% tab title="Audio 🔊" %}
+### Audio ❤️ W\&B&#x20;
+
+Weights & Biases supports logging audio data arrays or file that can be played back in W\&B
+
+
+
+#### Track your experiments
+
+Everytime you run your code, it's captured and visualized in W\&B.
+
+```python
+wandb.init(project='my-bird-calls', config={'lr': 0.01, ...})
+wandb.log({'loss': loss, ...})
+```
+
+
+
+#### Log a audio files or arrays
+
+You can log audio files and data arrays with [wandb.Audio()](https://docs.wandb.ai/ref/python/data-types/audio)
+
+```python
+# Log an audio array or file
+wandb.log({"my whale song": wandb.Audio(
+    array_or_path, caption="montery whale 0034", sample_rate=32)})
+
+# OR  
+
+# Log your audio as part of a W&B Table
+my_table = wandb.Table(columns=["audio", "spectrogram", "bird_class", "prediction"])
+for (audio_arr, spec, label) in my_data:
+       pred = model(audio)
+       
+       # Add the data to a W&B Table
+       audio = wandb.Audio(audio_arr, sample_rate=32)
+       img = wandb.Image(spec)
+       my_table.add_data(audio, img, label, pred) 
+
+# Log the Table to wandb
+ wandb.log({"validation_samples" : my_table})
+```
+
+![Audio and spectrogram data in a W\&B Table](broken-reference)
+
+#### Integrations
+
+* Try the [`WandbLogger`](https://tts.readthedocs.io/en/latest/\_modules/TTS/trainer.html?highlight=WandbLogger) in Coqui TTS library.
+* Try the [`WandBLogger`](https://app.gitbook.com/u/UsTCPn2iWpPlVbsDQln2chIGk0r2) in the SpeechBrain library.
+
+
+
+#### Whats Next?
+
+* See this [whale song Report](https://wandb.ai/stacey/cshanty/reports/Tables-Tutorial-Recreating-Whale-Melodies-on-Orchestral-Instruments--Vmlldzo4NDI3NzM) for more inspiration on how to log audio with W\&B.
+* Try HyperParameter Optimization with [W\&B Sweeps](https://docs.wandb.ai/guides/sweeps)
+* Save and version your models and datasets with [W\&B Artifacts](https://docs.wandb.ai/guides/artifacts)
+{% endtab %}
+{% endtabs %}
+
+## Examples by ML Library
+
+Weights & Biases works natively with PyTorch, Tensorflow and Jax and also has logging integrations in all of the popular open source machine learning libraries, including the ones below as well as SpaCy, XGBoost, LightGBM, SciKit-Learn, YOLOv5, Fastai and more.&#x20;
+
+[**You can find all of our integrations guides here ->**](https://docs.wandb.ai/guides/integrations) ****&#x20;
+
+{% tabs %}
+{% tab title="📉 TensorBoard" %}
+W\&B supports TensorBoard to automatically log all the metrics from your script into our dashboards with just 2 lines:
+
+
+
+```python
+import wandb
+# Add `sync_tensorboard=True` when you start a W&B run
+wandb.init(project='my-project', sync_tensorboard=True)
+
+# Your Keras, TensorFlow or PyTorch code using TensorBoard
+...
+
+# Call wandb.finish() to upload your TensorBoard logs to W&B
+wandb.finish()
+```
+
+
+
+[**Full Tensorboard and W\&B integration guide ->**](https://docs.wandb.ai/guides/integrations/tensorboard)&#x20;
+{% endtab %}
+
+{% tab title="⚡ PyTorch Lightning" %}
+With the `WandbLogger` in PyTorch Lightning you can log your metrics, model checkpoints, media and more!
+
+
+
+```python
+from pytorch_lightning.loggers import WandbLogger
+from pytorch_lightning import Trainer
+
+# Add the WandbLogger to your PyTorch Lightning Trainer
+trainer = Trainer(logger=WandbLogger())
+```
+
+
+
+[**Full PyTorch Lightning and W\&B integration guide ->**](https://docs.wandb.ai/guides/integrations/lightning)&#x20;
+{% endtab %}
+
+{% tab title="🟥 Keras" %}
+With our Keras `WandbCallback` you can log your metrics, model checkpoints, media and more!
+
+
+
+```python
+import wandb
+from wandb.keras import WandbCallback
+
+# Initialise a W&B run
+wandb.init(config={"hyper": "parameter"})
+
+...
+
+# Add the WandbCallback to your Keras callbacks
+model.fit(X_train, y_train,  validation_data=(X_test, y_test),
+          callbacks=[WandbCallback()])
+```
+
+
+
+[**Full Keras and W\&B integration guide ->**](https://docs.wandb.ai/guides/integrations/keras)&#x20;
+{% endtab %}
+
+{% tab title="🤗 Transformers" %}
+With the W\&B integration in Hugging Face Transformers' `Trainer` you can log your metrics, model checkpoints, run sweeps and more!
+
+
+
+```python
+from transformers import TrainingArguments, Trainer
+
+# Add `report_to="wandb"` in your TrainingArguments to start logging to W&B
+args = TrainingArguments(... , report_to="wandb")
+trainer = Trainer(... , args=args)
+```
+
+
+
+[**Full Hugging Face Transformers and W\&B integration guide ->**](https://docs.wandb.ai/guides/integrations/huggingface)
+{% endtab %}
+{% endtabs %}
+
+## Examples by Application
 
 {% tabs %}
 {% tab title="Point Clouds" %}
@@ -50,6 +410,8 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 [This report ](https://wandb.ai/stacey/deep-drive/reports/Image-Masks-for-Semantic-Segmentation--Vmlldzo4MTUwMw)describes how to log and interact with image masks for semantic segmentation.
 
 ![](<.gitbook/assets/image (127).png>)
+
+
 {% endtab %}
 
 {% tab title="Bounding Boxes" %}
@@ -73,23 +435,33 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 
 ### Biomedical
 
+{% tabs %}
+{% tab title="2D Molecules" %}
 [This report ](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM)explores training models to predict [how soluble a molecule](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM) is in water based on its chemical formula. This example features scikit learn and sweeps.
 
 ![](<.gitbook/assets/image (125).png>)
+{% endtab %}
 
+{% tab title="3D Molecules" %}
 [This report](https://wandb.ai/stacey/deepchem\_interact/reports/DeepChem-Molecular-Interaction--VmlldzoxMzMxNDE) explores molecular binding and shows interactive 3D protein visualizations.
 
 ![](<.gitbook/assets/image (129).png>)
+{% endtab %}
 
+{% tab title="X Rays" %}
 [This report ](https://wandb.ai/stacey/xray/reports/X-Ray-Illumination--Vmlldzo4MzA5MQ)explores chest x-ray data and strategies for handling real world long-tailed data.
 
 ![](<.gitbook/assets/image (130).png>)
+{% endtab %}
 
+{% tab title="RDKit" %}
 [This report](https://wandb.ai/anmolmann/rdkit\_molecules/reports/Logging-RDKit-Molecular-Data--VmlldzoxMjk1MjQ1) explores `rdkit` feature for logging molecular data.
 
 [Click here](https://wandb.ai/anmolmann/rdkit\_molecules) to view and interact with a live W\&B Dashboard built with this [notebook](http://wandb.me/rdkit).
 
 {% embed url="https://user-images.githubusercontent.com/7557205/144367246-cc052e58-ede4-4374-9307-4f185328c361.gif" %}
+{% endtab %}
+{% endtabs %}
 
 ### Finance
 
@@ -101,48 +473,5 @@ Track experiments, generate credit scorecard for loan defaults and run a hyperpa
 {% endtab %}
 {% endtabs %}
 
-## Examples by technique
 
-### Classification
 
-{% tabs %}
-{% tab title="Sentiment Classification" %}
-[Sentiment Classification](https://www.kaggle.com/heyytanay/sentiment-clf-jax-flax-on-tpus-w-b/notebook) on 1.6 Million tweets using Jax/Flax with TPUs using HuggingFace BERT and W\&B Tracking!
-
-![Sentiment Classifcation using JAX/FLAX](<.gitbook/assets/image (166).png>)
-{% endtab %}
-
-{% tab title="Image Classification" %}
-Read [this report](https://wandb.ai/stacey/mendeleev/reports/Visualize-Data-for-Image-Classification--VmlldzozNjE3NjA), follow [this colab](https://wandb.me/dsviz-nature-colab), or explore this [artifacts context](https://wandb.ai/stacey/mendeleev/artifacts/val\_epoch\_preds/val\_pred\_gawf9z8j/2dcee8fa22863317472b/files/val\_epoch\_res.table.json) for a CNN identifying 10 types of living things (plants, bird, insects, etc) from [iNaturalist](https://www.inaturalist.org/pages/developers) photos.
-
-![Compare the distribution of true labels across two different models' predictions.](<.gitbook/assets/image (162).png>)
-{% endtab %}
-{% endtabs %}
-
-### **Computer Vision**
-
-{% tabs %}
-{% tab title="Images of species" %}
-[This report](https://wandb.ai/stacey/curr\_learn/reports/Classify-the-Natural-World--Vmlldzo1MjY4Ng) explores per-class accuracy on an image dataset of plants and animals.
-
-![](<.gitbook/assets/image (132).png>)
-
-![](<.gitbook/assets/image (131).png>)
-{% endtab %}
-
-{% tab title="PDF scans" %}
-[Parse TV ad receipts for political campaigns](https://wandb.ai/stacey/deepform\_v1/reports/DeepForm-Understand-Structured-Documents-at-Scale--VmlldzoyODQ3Njg) to extract amount paid, organization, dates of ad, and receipt id from 100s of different receipt formats.
-
-![](<.gitbook/assets/image (133).png>)
-{% endtab %}
-{% endtabs %}
-
-### Distributed Training
-
-{% tabs %}
-{% tab title="Data Parallel" %}
-[This report ](https://wandb.ai/stacey/estuary/reports/Distributed-Training--Vmlldzo1MjEw)visualizes experiments with Keras data parallel across up to 8 GPUs. Features include run sets and grouping, and notes.
-
-![](<.gitbook/assets/image (134).png>)
-{% endtab %}
-{% endtabs %}

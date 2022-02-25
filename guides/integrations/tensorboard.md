@@ -4,7 +4,11 @@ W\&B supports patching TensorBoard to automatically log all the metrics from you
 
 ```python
 import wandb
-wandb.init(sync_tensorboard=True)
+# Just start a W&B run, passing `sync_tensorboard=True)`, to plot your Tensorboard files
+wandb.init(project='my-project', sync_tensorboard=True)
+
+# Your Keras, Tensorflow or PyTorch training code using TensorBoard
+...
 
 # If running in a notebook, finish the wandb run to upload the tensorboard logs to W&B
 wandb.finish()
