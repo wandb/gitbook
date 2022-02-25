@@ -311,7 +311,7 @@ When using 3rd party object stores, you'll want to set `BUCKET_QUEUE` to `intern
 The most important things to consider when running your own Object store are:
 
 1. **Storage capacity and performance**. It's fine to use magnetic disks, but you should be monitoring the capacity of these disks. Average W\&B usage results in 10's to 100's of Gigabytes. Heavy usage could result in Petabytes of storage consumption.
-2. **Fault tolerance.** At a minimum the physical disk storing the objects should be on a RAID array. Consider running Minio in [distributed mode](https://docs.min.io/minio/baremetal/installation/deploy-minio-distributed.html#deploy-minio-distributed).
+2. **Fault tolerance.** At a minimum, the physical disk storing the objects should be on a RAID array. Consider running Minio in [distributed mode](https://docs.min.io/minio/baremetal/installation/deploy-minio-distributed.html#deploy-minio-distributed).
 3. **Availability.** Monitoring should be configured to ensure the storage is available.
 
 There are many enterprise alternatives to running your own object storage service such as:

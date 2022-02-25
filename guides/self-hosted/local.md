@@ -2,31 +2,15 @@
 description: Run Weights and Biases on your own machines using Docker
 ---
 
-# Local
+# Basic Setup
 
-Use W\&B Local to self-host the Weights & Biases app. You can run the app locally or host in a private cloud. For serious work, we encourage you to set up and manage a scalable file system. For enterprise customers, we provide extensive technical support and frequent installation updates for self-hosted instances.
+You can run the W\&B app locally on your machine or host it in a private cloud. For serious work, we encourage you to set up and manage a scalable file system. For enterprise customers, we provide extensive technical support and frequent installation updates for privately hosted instances.
 
-The self hosted server is a single Docker image that is simple to deploy. Your W\&B data is saved on a persistent volume or an external database so data can be preserved across container versions. The server requires an instance with **at least 4 cores and 8GB memory**.
+The locally-hosted server is a single Docker image that is simple to deploy. Your W\&B data is saved on a persistent volume or an external database so data can be preserved across container versions. The server requires an instance with **at least 4 cores and 8GB memory**.
 
-## Starting the server
-
-To run the W\&B server locally you'll need to have [Docker](https://www.docker.com/products/docker-desktop) installed. Then simply run:
-
-```
-wandb local
-```
-
-Behind the scenes the wandb client library is running the [_wandb/local_](https://hub.docker.com/repository/docker/wandb/local) docker image, forwarding port 8080 to the host, and configuring your machine to send metrics to your local instance instead of our hosted cloud. If you want to run our local container manually, you can run the following docker command:
-
-```
-docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
-```
-
-## Centralized Hosting
+## Private Hosting
 
 Running wandb on localhost is great for initial testing, but to leverage the collaborative features of _wandb/local_ you should host the service on a central server. Instructions for setting up a centralized server on various platforms can be found in the [Production Setup](setup.md) section.
-
-![](../../.gitbook/assets/image-2022-02-07-16-22-31-421.png)
 
 {% hint style="danger" %}
 **Danger of Data Loss**
@@ -36,44 +20,97 @@ Running wandb on localhost is great for initial testing, but to leverage the col
 
 ## Basic Configuration
 
-**Quick test configuration**
+### Installation
 
-Running `wandb local` configures your local machine to push metrics to [http://localhost:8080](http://localhost:8080). If you want to host local on a different port you can pass the `--port` argument to wandb local. If you've configure DNS with your local instance you can run: `wandb login --host=http://wandb.myhost.com` on any machines that you want to report metrics from. You can also set the `WANDB_BASE_URL` environment variable to a host or IP on any machines you wish to report to your local instance. In automated environment you'll also want to set the `WANDB_API_KEY` environment variable within an api key from your settings page. To restore a machine to reporting metrics to our cloud hosted solution, run `wandb login --host=https://api.wandb.ai`.
+* On any machine with [Docker](https://www.docker.com) and [Python](https://www.python.org) installed, run:
 
-**Scalable configuration**
+```
+pip install wandb
+wandb local 
+```
 
-While W\&B can be used by leveraging the persistent volume mounted to /vol as stated above, this solution is not meant for production workloads. If you decide to use W\&B in this way, it is recommended that enough space be allocated ahead of time to store current and future needs of metrics and strongly suggested that the underlying file store can be resized as needed. In addition, alerts should be put in place to let you know once minimum storage thresholds are crossed to resize the underlying file system.
+### Login
 
-### Authentication
+If this is your first time logging in then you will need to create your Local account and authorize your API key.&#x20;
 
-The base install of _wandb/local_ will automatically prompt you to create an initial user, the first time you start it up. Contact us at support@wandb.com to request a free upgrade to your license, from 1 user to 3 users.
+If you're running `wandb` on multiple machines or switching between a private instance and the wandb cloud, there are several ways to control where your runs are logged. If you want to send metrics to the shared private instance and you've configured DNS, you can
 
-### Persistence and Scalability
+* set the host flag to the address of the private instance whenever you login:
 
-All metadata and files sent to W\&B are stored in the `/vol` directory. If you do not mount a persistent volume at this location all data will be lost when the docker process dies.
+```
+ wandb login --host=http://wandb.your-shared-local-host.com
+```
 
-If you purchase a license for _wandb/local_, you can store metadata in an external MySQL database and files in an external storage bucket removing the need for a stateful container as well as giving you the necessary resilience and scalability features typically necessary for production workloads.
+* set the environment variable `WANDB_BASE_URL` to the address of the local instance:
 
-While W\&B can be used by leveraging the persistent volume mounted to `/vol` as stated above, this solution is not meant for production workloads. If you decide to use W\&B in this way, it is recommended that enough space be allocated ahead of time to store current and future needs of metrics and strongly suggested that the underlying file store can be resized as needed. In addition, alerts should be put in place to let you know once minimum storage thresholds are crossed to resize the underlying file system.
+```python
+export WANDB_BASE_URL = "http://wandb.your-shared-local-host.com"
+```
 
-For trial purposes, we recommend at least 100GB free space in the underlying volume for non image/video/audio heavy workloads. If testing W\&B with large files, the underlying store needs to have enough space to accommodate those needs. In all cases, the space allocated needs to reflect the metrics and outputs of your workflows.
+In an automated environment, you can set the `WANDB_API_KEY` which is accessible at [wandb.your-shared-local-host.com/authorize](http://wandb.your-shared-local-host.com/authorize).
+
+To switch to logging to the public **cloud** instance of wandb, set the host to `api.wandb.ai`:
+
+```
+wandb login --cloud
+```
+
+or
+
+```python
+export WANDB_BASE_URL = "https://api.wandb.ai"
+```
+
+You can also switch to your cloud API key, available at [https://wandb.ai/settings](https://wandb.ai/settings) when you're logged in to your cloud-hosted wandb account in your browser.
 
 ### Upgrades
 
-We are pushing new versions of _wandb/local_ to dockerhub regularly. To upgrade you can run:
+We are pushing new versions of _wandb/local_ to DockerHub regularly. To upgrade you can run:
 
-```
+```shell
 $ wandb local --upgrade
 ```
 
 To upgrade your instance manually you can run the following
 
-```
+```shell
 $ docker pull wandb/local
 $ docker stop wandb-local
 $ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 ```
 
-### Getting a license
+### Generate a free license
 
-If you're interested in configuring teams, using external storage, or deploying wandb/local to a Kubernetes cluster send us an email at [contact@wandb.com](mailto:contact@wandb.com)
+You need a license to complete your configuration of your Local host. [**Open the Deploy Manager** ](https://deploy.wandb.ai/deploy)to generate a free license. If you do not already have a cloud account then you will need to create one to generate your free license.&#x20;
+
+We offer two options:
+
+1. [**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work: ![](<../../.gitbook/assets/image (174).png>)
+2. &#x20; [**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:                                                               ![](<../../.gitbook/assets/image (163).png>)
+
+### Add a license to your Local host
+
+1. Copy your license from your Deployment and navigate back to your Local host:  ![](<../../.gitbook/assets/image (178).png>)
+2. Add it to your local settings by pasting it into the `/system-admin` page of your Local host: ![](<../../.gitbook/assets/2022-02-24 22.13.59 (3).gif>)
+
+### Persistence and Scalability
+
+* All metadata and files sent to W\&B are stored in the `/vol` directory. If you do not mount a persistent volume at this location all data will be lost when the docker process dies.
+* This solution is not meant for [production](setup.md) workloads.
+* You can store metadata in an external MySQL database and files in an external storage bucket.
+* The underlying file store should be resizable. Alerts should be put in place to let you know once minimum storage thresholds are crossed to resize the underlying file system.
+* For trial purposes, we recommend at least 100GB free space in the underlying volume for non-image/video/audio heavy workloads.
+
+#### Create and scale a shared instance
+
+This private instance of W\&B is excellent for initial testing. To enjoy the powerful collaborative features of W\&B, you will need a shared instance on a central server, which you can [set up on AWS, GCP, Azure, Kubernetes, or Docker](https://docs.wandb.ai/self-hosted/setup).
+
+{% hint style="warning" %}
+**Trial Mode vs. Production Setup**
+
+In Trial Mode of W\&B Local, you're running the Docker container on a single machine. This setup is quick and painless, and it's great for testing the product, but it isn't scalable in the long term.
+
+Once you're ready to move from test projects to real production work, it is crucial that you set up a scalable file system to avoid data loss: allocate extra space in advance, resize the file system proactively as you log more data, and configure external metadata and object stores for backup. If you run out of disk space, the instance will stop working, and additional data will be lost.
+{% endhint %}
+
+[**Contact sales -**](https://wandb.ai/site/local-contact)**>** to learn more about Enterprise Private-Hosting options for W\&B.

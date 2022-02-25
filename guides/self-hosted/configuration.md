@@ -6,7 +6,7 @@ description: How to configure the W&B Local Server installation
 
 Your W\&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
 
-The following are detailed information about manually configuring your local instance. When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance.
+The following is detailed information about manually configuring your local instance. When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance.
 
 ## Configuration as code
 
@@ -45,7 +45,7 @@ To configure an application client in your identity provider you'll need to prov
 
 For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your application was running at `https://wandb.mycompany.com`:
 
-![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (163).png>)
+![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (163) (1).png>)
 
 _wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
 
@@ -67,7 +67,7 @@ Do not use the "Cognito domain" for the IDP url. Cognito provides it's discovery
 
 Once you have everything configured you can provide the Issuer, Client ID, and Auth method to _wandb/local_ via `/system-admin` or the environment variables and SSO will be configured.
 
-![](<../../.gitbook/assets/image (177).png>)
+![](<../../.gitbook/assets/image (177) (1).png>)
 
 {% hint style="info" %}
 If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.

@@ -64,7 +64,7 @@ WandbLogger.sync(
 
 We scan for new completed fine-tunes and automatically add them to your dashboard.
 
-![](<../../../.gitbook/assets/image (173).png>)
+![](<../../../.gitbook/assets/image (173) (1).png>)
 
 In addition your training and validation files are logged and versioned, as well as details of your fine-tune results. This let you interactively explore your training and validation data.
 

@@ -4,7 +4,7 @@ description: Send alerts, triggered from your Python code, to your Slack or emai
 
 # Send Alerts with wandb.alert
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://wandb.me/alerts)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/alerts-colab)
 
 With W\&B Alerts you can be notified via Slack or email if your W\&B Run has crashed or whether a custom trigger, such as your loss going to NaN or a step in your ML pipeline has completed, has been reached. W\&B Alerts apply all projects where you launch runs, including both personal and Team projects.
 
@@ -88,6 +88,17 @@ if acc < threshold:
 ```
 
 ## More Info
+
+### Tagging / Mentioning Users
+
+When sending Alerts on Slack you can @ yourself or your colleagues by adding their Slack user id as `<@USER_ID>` in either the title or the text of the Alert. You can find a Slack user id from their Slack profile page.
+
+```python
+wandb.alert(
+    title="Loss is NaN", 
+    text=f"Hey <@U1234ABCD> loss has gone to NaN"
+)
+```
 
 ### W\&B Team Alerts
 
