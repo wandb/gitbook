@@ -182,9 +182,7 @@ for headline in headlines:
 wandb.log({"validation_samples" : text_table})
 ```
 
-![Read more: Log Media & Objects](broken-reference)
-
-
+![Text and model scores in a W\&B Table](.gitbook/assets/text.png)
 
 #### Integrations
 
@@ -290,7 +288,7 @@ for (audio_arr, spec, label) in my_data:
  wandb.log({"validation_samples" : my_table})
 ```
 
-![Audio and spectrogram data in a W\&B Table](broken-reference)
+![](<.gitbook/assets/audio (1).png>)
 
 #### Integrations
 
