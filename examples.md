@@ -8,8 +8,8 @@ description: >-
 
 Get an overview of what's possible with Weights & Biases via the three sections below:
 
-1. ****[**Examples by Data Type**](https://docs.wandb.ai/examples#examples-by-data-type)****
-2. ****[**Examples by ML Library**](https://docs.wandb.ai/examples#examples-by-ml-library)****
+1. ****[**Examples by Data Type**](examples.md#examples-by-data-domain)****
+2. ****[**Examples by ML Library**](examples.md#examples-by-library)****
 3. ****[**Examples by Application**](examples.md#examples-by-application)****
 
 ## Examples by Data Type
