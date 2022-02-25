@@ -82,7 +82,7 @@
     * [Basic Setup](guides/self-hosted/local.md)
     * [Production Setup](guides/self-hosted/setup.md)
     * [Advanced Configuration](guides/self-hosted/configuration.md)
-    * [Enterprise Cloud](guides/self-hosted/cloud.md)
+    * [Managed W\&B Private Cloud](guides/self-hosted/cloud.md)
     * [FAQ](guides/self-hosted/local-common-questions.md)
   * [Technical FAQ](guides/technical-faq.md)
   * [\[Beta\] Model Management](guides/new-products/models.md)
