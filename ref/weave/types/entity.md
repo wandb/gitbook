@@ -1,6 +1,17 @@
 # entity
 
 ## Chainable Ops
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
+
 <h3 id="entity-link"><code>entity-link</code></h3>
 
 Returns the link of the [entity](https://docs.wandb.ai/ref/weave/types/entity)
@@ -58,6 +69,17 @@ Filters the _list_.
 
 #### Return Value
 The filtered _list_.
+
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
 
 <h3 id="joinToStr"><code>joinToStr</code></h3>
 

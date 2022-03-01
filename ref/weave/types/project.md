@@ -48,6 +48,17 @@ Returns the creation time of the [project](https://docs.wandb.ai/ref/weave/types
 #### Return Value
 The creation time of the [project](https://docs.wandb.ai/ref/weave/types/project)
 
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
+
 <h3 id="project-name"><code>project-name</code></h3>
 
 Returns the name of the [project](https://docs.wandb.ai/ref/weave/types/project)
@@ -152,6 +163,17 @@ Filters the _list_.
 
 #### Return Value
 The filtered _list_.
+
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
 
 <h3 id="joinToStr"><code>joinToStr</code></h3>
 

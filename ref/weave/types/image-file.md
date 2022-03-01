@@ -14,6 +14,17 @@ Returns the [file](https://docs.wandb.ai/ref/weave/types/file) of the asset
 #### Return Value
 The [file](https://docs.wandb.ai/ref/weave/types/file) of the asset
 
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
+
 
 ## List Ops
 <h3 id="count"><code>count</code></h3>
@@ -60,6 +71,17 @@ Filters the _list_.
 
 #### Return Value
 The filtered _list_.
+
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
 
 <h3 id="joinToStr"><code>joinToStr</code></h3>
 

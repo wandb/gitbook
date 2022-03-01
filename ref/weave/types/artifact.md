@@ -1,6 +1,28 @@
 # artifact
 
 ## Chainable Ops
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
+
+<h3 id="artifact-link"><code>artifact-link</code></h3>
+
+Returns the url for a [artifact](https://docs.wandb.ai/ref/weave/types/artifact)
+
+| Argument |  | 
+| :--- | :--- |
+| `artifact` | A [artifact](https://docs.wandb.ai/ref/weave/types/artifact) |
+
+#### Return Value
+The url for a [artifact](https://docs.wandb.ai/ref/weave/types/artifact)
+
 <h3 id="artifact-name"><code>artifact-name</code></h3>
 
 Returns the name of the [artifact](https://docs.wandb.ai/ref/weave/types/artifact)
@@ -59,6 +81,17 @@ Filters the _list_.
 #### Return Value
 The filtered _list_.
 
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
+
 <h3 id="joinToStr"><code>joinToStr</code></h3>
 
 Joins the elements of the _list_ into a _string_.
@@ -70,6 +103,17 @@ Joins the elements of the _list_ into a _string_.
 
 #### Return Value
 The joined _string_.
+
+<h3 id="artifact-link"><code>artifact-link</code></h3>
+
+Returns the url for a [artifact](https://docs.wandb.ai/ref/weave/types/artifact)
+
+| Argument |  | 
+| :--- | :--- |
+| `artifact` | A [artifact](https://docs.wandb.ai/ref/weave/types/artifact) |
+
+#### Return Value
+The url for a [artifact](https://docs.wandb.ai/ref/weave/types/artifact)
 
 <h3 id="map"><code>map</code></h3>
 

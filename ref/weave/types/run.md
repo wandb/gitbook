@@ -45,6 +45,17 @@ Returns the log history of the [run](https://docs.wandb.ai/ref/weave/types/run)
 #### Return Value
 The log history of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
+
 <h3 id="run-jobType"><code>run-jobType</code></h3>
 
 Returns the job type of the [run](https://docs.wandb.ai/ref/weave/types/run)
@@ -213,6 +224,17 @@ Returns the log history of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 #### Return Value
 The log history of the [run](https://docs.wandb.ai/ref/weave/types/run)
+
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
 
 <h3 id="run-jobType"><code>run-jobType</code></h3>
 

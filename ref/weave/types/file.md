@@ -23,6 +23,17 @@ Returns the digest of the [file](https://docs.wandb.ai/ref/weave/types/file)
 #### Return Value
 The digest of the [file](https://docs.wandb.ai/ref/weave/types/file)
 
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
+
 <h3 id="file-size"><code>file-size</code></h3>
 
 Returns the size of the [file](https://docs.wandb.ai/ref/weave/types/file)
@@ -102,6 +113,17 @@ Filters the _list_.
 
 #### Return Value
 The filtered _list_.
+
+<h3 id="isNone"><code>isNone</code></h3>
+
+Determines if the value is None.
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Possibly None value. |
+
+#### Return Value
+True if the value is None.
 
 <h3 id="joinToStr"><code>joinToStr</code></h3>
 
