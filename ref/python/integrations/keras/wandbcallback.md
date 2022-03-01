@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.10/wandb/integration/keras/keras.py#L272-L969)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.11/wandb/integration/keras/keras.py#L272-L969)
 
 
 
@@ -81,7 +81,7 @@ associated with the best `epoch`.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/integration/keras/keras.py#L517-L526)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/integration/keras/keras.py#L517-L526)
 
 ```python
 set_model(
@@ -94,7 +94,7 @@ set_model(
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/integration/keras/keras.py#L514-L515)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/integration/keras/keras.py#L514-L515)
 
 ```python
 set_params(

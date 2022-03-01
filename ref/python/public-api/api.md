@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L217-L766)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L217-L766)
 
 
 
@@ -45,7 +45,7 @@ Most common way to initialize
 
 <h3 id="artifact"><code>artifact</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L743-L766)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L743-L766)
 
 ```python
 artifact(
@@ -71,7 +71,7 @@ Returns a single artifact by parsing path in the form `entity/project/run_id`.
 
 <h3 id="artifact_type"><code>artifact_type</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L732-L735)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L732-L735)
 
 ```python
 artifact_type(
@@ -84,7 +84,7 @@ artifact_type(
 
 <h3 id="artifact_types"><code>artifact_types</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L727-L730)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L727-L730)
 
 ```python
 artifact_types(
@@ -97,7 +97,7 @@ artifact_types(
 
 <h3 id="artifact_versions"><code>artifact_versions</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L737-L741)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L737-L741)
 
 ```python
 artifact_versions(
@@ -110,7 +110,7 @@ artifact_versions(
 
 <h3 id="create_run"><code>create_run</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L321-L325)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L321-L325)
 
 ```python
 create_run(
@@ -123,7 +123,7 @@ Create a new run
 
 <h3 id="create_team"><code>create_team</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L566-L576)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L566-L576)
 
 ```python
 create_team(
@@ -149,7 +149,7 @@ Creates a new team
 
 <h3 id="flush"><code>flush</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L385-L391)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L385-L391)
 
 ```python
 flush()
@@ -161,7 +161,7 @@ to get the latest values associated with the run.
 
 <h3 id="from_path"><code>from_path</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L393-L447)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L393-L447)
 
 ```python
 from_path(
@@ -204,7 +204,7 @@ report = api.from_path("my_team/my_project/reports/My-Report-Vm11dsdf")
 
 <h3 id="project"><code>project</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L530-L533)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L530-L533)
 
 ```python
 project(
@@ -217,7 +217,7 @@ project(
 
 <h3 id="projects"><code>projects</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L506-L528)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L506-L528)
 
 ```python
 projects(
@@ -243,7 +243,7 @@ Get projects for a given entity.
 
 <h3 id="queued_job"><code>queued_job</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L702-L707)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L702-L707)
 
 ```python
 queued_job(
@@ -256,7 +256,7 @@ Returns a single queued run by parsing the path in the form entity/project/queue
 
 <h3 id="reports"><code>reports</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L535-L564)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L535-L564)
 
 ```python
 reports(
@@ -284,7 +284,7 @@ WARNING: This api is in beta and will likely change in a future release
 
 <h3 id="run"><code>run</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L684-L700)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L684-L700)
 
 ```python
 run(
@@ -309,7 +309,7 @@ Returns a single run by parsing path in the form entity/project/run_id.
 
 <h3 id="runs"><code>runs</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L613-L682)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L613-L682)
 
 ```python
 runs(
@@ -375,7 +375,7 @@ api.runs(path="my_entity/my_project", order="+summary_metrics.loss")
 
 <h3 id="sweep"><code>sweep</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L709-L725)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L709-L725)
 
 ```python
 sweep(
@@ -400,7 +400,7 @@ Returns a sweep by parsing path in the form `entity/project/sweep_id`.
 
 <h3 id="sync_tensorboard"><code>sync_tensorboard</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L327-L348)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L327-L348)
 
 ```python
 sync_tensorboard(
@@ -413,7 +413,7 @@ Sync a local directory containing tfevent files to wandb
 
 <h3 id="team"><code>team</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L578-L579)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L578-L579)
 
 ```python
 team(
@@ -426,7 +426,7 @@ team(
 
 <h3 id="user"><code>user</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L581-L599)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L581-L599)
 
 ```python
 user(
@@ -451,7 +451,7 @@ Return a user from a username or email address
 
 <h3 id="users"><code>users</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.10/wandb/apis/public.py#L601-L611)
+[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/apis/public.py#L601-L611)
 
 ```python
 users(
