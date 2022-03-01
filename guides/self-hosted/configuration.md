@@ -36,7 +36,7 @@ By default, a W\&B Local Server runs with manual user management. Licensed versi
 
 _wandb/local_ uses Open ID Connect for authentication. When creating an application client in your IPD you should choose Web Application or Public Client. For example, if your using AWS Cognito as an identity provider you would choose Public Client:
 
-![Because we're only using OIDC for authentication and not authorization, public clients simplify setup](<../../.gitbook/assets/image (165).png>)
+![Because we're only using OIDC for authentication and not authorization, public clients simplify setup](<../../.gitbook/assets/image (163).png>)
 
 To configure an application client in your identity provider you'll need to provide an allowed callback url:
 
@@ -45,11 +45,11 @@ To configure an application client in your identity provider you'll need to prov
 
 For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your application was running at `https://wandb.mycompany.com`:
 
-![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (163) (1).png>)
+![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (162) (1).png>)
 
 _wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
 
-![openid, profile, and email are required](<../../.gitbook/assets/image (168).png>)
+![openid, profile, and email are required](<../../.gitbook/assets/image (165) (1).png>)
 
 To tell _wandb/local_ which grant to use you can select the Auth Method in the settings page or set the OIDC\_AUTH\_METHOD environment variable.
 
@@ -59,7 +59,7 @@ For AWS Cognito providers you must set the Auth Method to "pkce"
 
 You'll need a Client ID and the url of your OIDC issuer. The OpenID discovery document must be available at `$OIDC_ISSUER/.well-known/openid-configuration` For example when using AWS Cognito you can generate your issuer url by appending your User Pool ID to the Cognito IDP url from the _User Pools > App Integration_ tab:
 
-![The issuer URL would be https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](<../../.gitbook/assets/image (161).png>)
+![The issuer URL would be https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](<../../.gitbook/assets/image (160) (1).png>)
 
 {% hint style="info" %}
 Do not use the "Cognito domain" for the IDP url. Cognito provides it's discovery document at `https://cognito-idp.$REGION.amazonaws.com/$USER_POOL_ID`
@@ -67,7 +67,7 @@ Do not use the "Cognito domain" for the IDP url. Cognito provides it's discovery
 
 Once you have everything configured you can provide the Issuer, Client ID, and Auth method to _wandb/local_ via `/system-admin` or the environment variables and SSO will be configured.
 
-![](<../../.gitbook/assets/image (177) (1).png>)
+![](<../../.gitbook/assets/image (170) (1).png>)
 
 {% hint style="info" %}
 If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.

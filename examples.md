@@ -288,7 +288,7 @@ for (audio_arr, spec, label) in my_data:
  wandb.log({"validation_samples" : my_table})
 ```
 
-![](<.gitbook/assets/audio (1).png>)
+![](.gitbook/assets/audio.png)
 
 #### Integrations
 

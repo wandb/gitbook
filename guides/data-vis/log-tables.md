@@ -89,7 +89,7 @@ Each time a table is logged to the same key, a new version of the table is creat
 {% hint style="info" %}
 To log more than 200,000 rows, you can override the limit with:
 
-`wandb.Table.MAX_ROWS = X`&#x20;
+`wandb.Table.MAX_ROWS = X`
 
 However, this would likely cause performance issues, such as slower queries, in the UI.
 {% endhint %}
@@ -137,7 +137,15 @@ test_predictions.add(test_table, "my_test_key"﻿)
 run.log_artifact(test_predictions)   
 ```
 
-### Join artifact tables
+### Join Artifact Tables
+
+You can join tables you've locally constructed or tables you've retrieved from other artifacts using `wandb.JoinedTable(table_1, table_2, join_key)`.
+
+| Args      | Description                                                                                                        |
+| --------- | ------------------------------------------------------------------------------------------------------------------ |
+| table\_1  | (str, `wandb.Table`, ArtifactEntry) the path to a `wandb.Table` in an artifact, the table object, or ArtifactEntry |
+| table\_2  | (str, `wandb.Table`, ArtifactEntry) the path to a `wandb.Table` in an artifact, the table object, or ArtifactEntry |
+| join\_key | (str, \[str, str]) key or keys on which to perform the join                                                        |
 
 To join two Tables you've logged previously in an artifact context, fetch them from the artifact and join the result into a new Table. For example, read one Table of original songs and another Table of synthesized versions of the same songs, join on "song\_id", and upload a new Table to explore ([live example → ](https://wandb.ai/stacey/cshanty/reports/Whale2Song-W-B-Tables-for-Audio--Vmlldzo4NDI3NzM)).
 
