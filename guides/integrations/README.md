@@ -37,7 +37,7 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 {% tab title="Popular Tools" %}
 * [TensorBoard](tensorboard.md)
 * [SageMaker](other/sagemaker.md)
-* [Kubeflow](other/kubeflow.md)
+* [Kubeflow Pipelines](other/kubeflow-pipelines-kfp.md)
 * [Docker](other/docker.md)
 * [Databricks](other/databricks.md)
 * [Ray Tune](other/ray-tune.md)

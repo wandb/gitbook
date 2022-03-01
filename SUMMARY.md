@@ -41,7 +41,7 @@
       * [Databricks](guides/integrations/other/databricks.md)
       * [Docker](guides/integrations/other/docker.md)
       * [Hydra](guides/integrations/other/hydra.md)
-      * [Kubeflow](guides/integrations/other/kubeflow.md)
+      * [Kubeflow Pipelines (kfp)](guides/integrations/other/kubeflow-pipelines-kfp.md)
       * [Metaflow](guides/integrations/other/metaflow.md)
       * [MMF](guides/integrations/other/mmf.md)
       * [OpenAI Gym](guides/integrations/other/openai-gym.md)
