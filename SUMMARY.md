@@ -151,7 +151,7 @@
     * [wandb.sweep](ref/python/sweep.md)
     * [wandb.watch](ref/python/watch.md)
   * [weave](ref/weave/README.md)
-    * [types](ref/weave/types/README.md)
+    * [Weave Types](ref/weave/types/README.md)
       * [artifact](ref/weave/types/artifact.md)
       * [entity](ref/weave/types/entity.md)
       * [file](ref/weave/types/file.md)
