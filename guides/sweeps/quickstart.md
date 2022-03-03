@@ -1,6 +1,6 @@
 # Sweeps Quickstart
 
-Start from any machine learning model and get a parallel hyperparameter sweep running in minutes.&#x20;
+Start from any machine learning model and get a parallel hyperparameter sweep running in minutes.
 
 {% hint style="info" %}
 Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3).
@@ -16,7 +16,7 @@ Trying to quickly generate a sweep based on runs you've already logged? Check ou
 
 ### **Set up your account**
 
-1. Start with a W\&B account.  [Create one now →](http://app.wandb.ai)
+1. Start with a W\&B account. [Create one now →](http://app.wandb.ai)
 2. Go to your project folder in your terminal and install our library: `pip install wandb`
 3. Inside your project folder, log in to W\&B: `wandb login`
 
@@ -29,7 +29,7 @@ Trying to run a hyperparameter sweep from a Jupyter notebook? You want [these in
 1. Import our library `wandb`.
 2. Pass the hyperparameter values to `wandb.init` to populate `wandb.config`.
 3. Use the values in the config to build your model and execute training.
-4. Log metrics to see them in the live dashboard.&#x20;
+4. Log metrics to see them in the live dashboard.
 
 See the code snippets below for several ways to set hyperparameter values so that training scripts can be run stand-alone or as part of a sweep.
 
@@ -197,7 +197,7 @@ Open your project to see your live results in the sweep dashboard. With just a f
 
 [Example dashboard →](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3)
 
-![](<../../.gitbook/assets/image (88) (2) (3) (3) (3) (3) (3) (5).png>)
+![](<../../.gitbook/assets/image (88) (2) (3) (3) (3) (3) (3) (1) (5).png>)
 
 ## 6. Stop the agent
 

@@ -8,11 +8,11 @@ W\&B Artifacts help you save and organize machine learning models throughout a p
 
 ### Common Use Cases
 
-1. ****[**Version and store reliably**](model-versioning.md#version-and-store-reliably), transferring models across machines
-2. ****[**Explore ideas in branches**](model-versioning.md#explore-ideas-in-branches), keeping different model ideas separate
-3. ****[**Compare models precisely**](model-versioning.md#compare-models-precisely), across many variants
-4. ****[**Manage a model ecosystem**](model-versioning.md#manage-a-model-ecosystem), even as the species multiply
-5. ****[**Visualize & share your workflow**](model-versioning.md#visualize-and-easily-share-your-workflow), keeping all your work in one place
+1. \*\*\*\*[**Version and store reliably**](model-versioning.md#version-and-store-reliably), transferring models across machines
+2. \*\*\*\*[**Explore ideas in branches**](model-versioning.md#explore-ideas-in-branches), keeping different model ideas separate
+3. \*\*\*\*[**Compare models precisely**](model-versioning.md#compare-models-precisely), across many variants
+4. \*\*\*\*[**Manage a model ecosystem**](model-versioning.md#manage-a-model-ecosystem), even as the species multiply
+5. \*\*\*\*[**Visualize & share your workflow**](model-versioning.md#visualize-and-easily-share-your-workflow), keeping all your work in one place
 
 ### Flexible tracking and hosting
 
@@ -56,7 +56,7 @@ A partial view of an artifact tree showing two versions of an Inception-based CN
 
 A partial view of a complex artifact tree focusing on two training runs (prefixed train), named beyond roads iou 0.48 (top left square node) and fastai baseline (bottom left square node). Each experiment produces many artifacts: sample predictions of the model on training and validation images after every epoch. In the right half of the image, you can see some test runs (prefixed test) which load in the model checkpoints of training runs (out of visible frame) and store predictions on the test data as artifacts (prefixed test\_preds).
 
-![](<../../.gitbook/assets/image (26) (1).png>)
+![](<../../.gitbook/assets/image (26) (10).png>)
 
 ## Compare models precisely
 

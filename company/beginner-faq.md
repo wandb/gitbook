@@ -24,9 +24,8 @@ If you're training a machine learning model, you want to be able to visualize ho
 
 Here's a hypothetical example— you're training a model to identify objects on the road. Your dataset is a bunch of labeled images with cars, pedestrians, bicycles, trees, buildings, etc. As you train your model, you can visualize the different class accuracies. That means you can see if your model is great at finding cars but bad at finding pedestrians. This could be a dangerous bias, especially in a self-driving car model.
 
-Interested in seeing a live example? Here's a report that compares the model's accuracy on identifying images of different types of plants and animals— birds, mammals, fungi etc. The Weights & Biases graphs make it easy to see how each version of the model \(each line on the graph\) performs on different classes.
+Interested in seeing a live example? Here's a report that compares the model's accuracy on identifying images of different types of plants and animals— birds, mammals, fungi etc. The Weights & Biases graphs make it easy to see how each version of the model (each line on the graph) performs on different classes.
 
-[See the report in W&B →](https://app.wandb.ai/stacey/curr_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
+[See the report in W\&B →](https://app.wandb.ai/stacey/curr\_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
 
-![](../.gitbook/assets/image%20%2818%29%20%283%29%20%283%29.png)
-
+![](<../.gitbook/assets/image (18) (3) (3) (1).png>)

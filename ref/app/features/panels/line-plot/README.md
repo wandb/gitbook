@@ -45,7 +45,7 @@ Pick **multiple y-axes** in the line plot settings to compare different metrics 
 * **Title**: Add a custom title for line plot, which shows up at the top of the chart
 * **X-Axis title**: Add a custom title for the x-axis of the line plot, which shows up in the lower right corner of the chart.
 * **Y-Axis title**: Add a custom title for the y-axis of the line plot, which shows up in the upper left corner of the chart.
-* **Legend**: Select field that you want to see in the legend of the plot for each line. You could, for example, show the name of the run and the learning rate.&#x20;
+* **Legend**: Select field that you want to see in the legend of the plot for each line. You could, for example, show the name of the run and the learning rate.
 * **Legend template**: Fully customizable, this powerful template allows you to specify exactly what text and variables you want to show up in the template at the top of the line plot as well as the legend that appears when you hover your mouse over the plot.
 
 ![Editing the line plot legend to show hyperparameters](../../../../../.gitbook/assets/screen-shot-2021-01-08-at-11.33.04-am.png)
@@ -53,7 +53,7 @@ Pick **multiple y-axes** in the line plot settings to compare different metrics 
 **Expressions**
 
 * **Y Axis Expressions**: Add calculated metrics to your graph. You can use any of the logged metrics as well as configuration values like hyperparameters to calculate custom lines.
-* **X Axis Expressions**: Rescale the x-axis to use calculated values using custom expressions. Useful variables include**\_step** for the default x-axis, and the syntax for referencing summary values is `${summary:value}`
+* **X Axis Expressions**: Rescale the x-axis to use calculated values using custom expressions. Useful variables include\*\*\_step\*\* for the default x-axis, and the syntax for referencing summary values is `${summary:value}`
 
 ## Visualize average values on a plot
 
@@ -65,7 +65,7 @@ Here is what the graph looks like before averaging:
 
 Here I have grouped the lines to see the average value across runs.
 
-![](<../../../../../.gitbook/assets/demo-average-precision-lines (2) (2) (3) (3) (3) (3) (4) (4) (5) (5) (4) (2).png>)
+![](<../../../../../.gitbook/assets/demo-average-precision-lines (2) (2) (3) (3) (3) (3) (4) (4) (5) (5) (4) (1) (5).png>)
 
 ## Compare two metrics on one chart
 

@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1).png>)
+![](<../../../.gitbook/assets/image (29) (1) (2) (4) (10).png>)
 
 ![](../../../.gitbook/assets/undelete.png)
 
@@ -50,7 +50,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (3).png>)
+![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (1) (1).png>)
 
 ### Search for runs
 
@@ -70,7 +70,7 @@ Each section has options in the upper right corner:
 * **Rename section**: Change the title for your section.
 * **Export section to report**: Save this section of panels to a new report.
 * **Delete section**: Remove the whole section and all the charts. This can be undone with the undo button at the bottom of the page in the workspace bar.
-* **Add panel**: Click the plus button to add a panel to the section. 
+* **Add panel**: Click the plus button to add a panel to the section.
 
 ![](../../../.gitbook/assets/add-section.gif)
 
@@ -82,8 +82,8 @@ Drag and drop panels to reorder and organize into sections. You can also click t
 
 ### Resize panels
 
-* **Standard layout**: All panels maintain the same size, and there are pages of panels. You can resize the panels by clicking and dragging the lower right corner. Resize the section by clicking and dragging the lower right corner of the section. 
-* **Custom layout**: All panels are sized individually, and there are no pages. 
+* **Standard layout**: All panels maintain the same size, and there are pages of panels. You can resize the panels by clicking and dragging the lower right corner. Resize the section by clicking and dragging the lower right corner of the section.
+* **Custom layout**: All panels are sized individually, and there are no pages.
 
 ![](../../../.gitbook/assets/resize-panel.gif)
 
@@ -149,7 +149,7 @@ The files panel lists the files and folders associated with the artifact. You ca
 
 ### Graph View panel
 
-![](<../../../.gitbook/assets/image (137) (1).png>)
+![](<../../../.gitbook/assets/image (137).png>)
 
 The graph view panel provides a view of all of the artifacts associated with a project and the runs that connect them to each other. It shows run types as blocks and artifacts as circles, with arrows to indicate when a run of a given type consumes or produces an artifact of a given type. The type of the particular artifact selected in the left-hand column is highlighted.
 
@@ -177,4 +177,4 @@ Click the lock in the navigation bar at the top of the page to change project pr
 
 If you see an error like the one below on your project page, here's how to reset your workspace.`"objconv: "100000000000" overflows the maximum values of a signed 64 bits integer"`
 
-Add `?workspace=clear `to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.
+Add `?workspace=clear` to the end of the URL and press enter. This should take you to a cleared version of your project page workspace.

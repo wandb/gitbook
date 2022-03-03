@@ -6,7 +6,7 @@ Wandb is an experiment tracking tool for machine learning. We make it easy for a
 
 Here's a 1 minute overview video. [View an example project →](https://app.wandb.ai/stacey/estuary)
 
-{% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" caption="" %}
+{% embed url="https://www.youtube.com/watch?v=icy3XkZ5jBk" %}
 
 ### How does it work?
 
@@ -34,11 +34,11 @@ You can create projects to keep all of your runs in a single place. You can visu
 
 A good example project is Stacey's [estuary project](https://app.wandb.ai/stacey/estuary). In the sidebar you can turn on and off runs to show on the graphs, or click one run to dive deeper. All your runs get saved and organized in a unified workspace for you.
 
-![](../.gitbook/assets/image%20%2885%29%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%284%29%20%283%29%20%281%29.png)
+![](<../.gitbook/assets/image (85) (1) (2) (3) (3) (3) (3) (4) (3) (1) (1) (3).png>)
 
 ### 3. Share your results
 
-Once you have done lots of runs you usually want to organize them to show some kind of result. Our friends at Latent Space wrote a nice article called [ML Best Practices: Test Driven Development](https://www.wandb.com/articles/ml-best-practices-test-driven-development) that talks about how they use W&B reports to improve their team's productivity.
+Once you have done lots of runs you usually want to organize them to show some kind of result. Our friends at Latent Space wrote a nice article called [ML Best Practices: Test Driven Development](https://www.wandb.com/articles/ml-best-practices-test-driven-development) that talks about how they use W\&B reports to improve their team's productivity.
 
 A user Boris Dayma wrote a public example report on [Semantic Segmentation](https://app.wandb.ai/borisd13/semantic-segmentation/reports?view=borisd13%2FSemantic%20Segmentation%20Report). He walks through various approaches he tried and how well they work.
 
@@ -54,4 +54,3 @@ If you're working on a machine learning project with collaborators, we make it e
 * [Academic Teams](https://www.wandb.com/academic): We are dedicated to supporting the academic transparent and collaborative research. If you're an academic, we will grant you access to free teams to share your research in private projects.
 
 If you'd like to share a project with people outside a team, click on the project privacy settings in the navigation bar and set the project to "Public." Anyone you share a link with will be able to see your public project results.
-

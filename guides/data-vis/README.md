@@ -20,11 +20,11 @@ The fastest way to try Tables is to log a dataframe and see the Table UI.
 wandb.log({"table": my_dataframe})
 ```
 
-![](<../../.gitbook/assets/wandb - iris table (1).png>)
+![](<../../.gitbook/assets/wandb - iris table.png>)
 
 ### Rich media
 
-Add rich media to your logged [Table](log-tables.md) (images, audio, point clouds, etc) with `wandb` [data types](../../ref/python/data-types/).&#x20;
+Add rich media to your logged [Table](log-tables.md) (images, audio, point clouds, etc) with `wandb` [data types](../../ref/python/data-types/).
 
 ![](<../../.gitbook/assets/wandb - demo table visualizer.png>)
 
@@ -70,7 +70,7 @@ Read [this report](https://wandb.ai/stacey/mendeleev/reports/Visualize-Data-for-
 
 ### Audio
 
-Interact with audio Tables in[ this report](https://wandb.ai/stacey/cshanty/reports/Whale2Song-W-B-Tables-for-Audio--Vmlldzo4NDI3NzM) on timbre transfer. You can compare a recorded whale song with a synthesized rendition of the same melody on an instrument like violin or trumpet. You can also record your own songs and explore their synthesized versions in W\&B via [this colab → ](http://wandb.me/audio-transfer)
+Interact with audio Tables in[ this report](https://wandb.ai/stacey/cshanty/reports/Whale2Song-W-B-Tables-for-Audio--Vmlldzo4NDI3NzM) on timbre transfer. You can compare a recorded whale song with a synthesized rendition of the same melody on an instrument like violin or trumpet. You can also record your own songs and explore their synthesized versions in W\&B via [this colab →](http://wandb.me/audio-transfer)
 
 ![](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZZ4TzdR0JwQNM7nIKD%2F-MZZAmcG-4OfHGOxnA38%2FScreen%20Shot%202021-04-30%20at%2012.08.52%20PM.png?alt=media\&token=bfea3626-a447-4f40-823b-e2072ef1ae89)
 
@@ -86,7 +86,7 @@ Browse and aggregate over videos logged during training to understand your model
 
 ![Browse easily through the few successful agents](https://gblobscdn.gitbook.com/assets%2F-Lqya5RvLedGEWPhtkjU%2F-MZovIldq3JZifxZ9pSh%2F-MZp-5h62yXSoqrCOJYC%2FScreen%20Shot%202021-04-22%20at%209.41.27%20PM.png?alt=media\&token=56439234-ab05-47fa-8c2c-38b22de8339f)
 
-### Tabular data&#x20;
+### Tabular data
 
 A report on [splitting and preprocessing tabular data](https://wandb.ai/dpaiton/splitting-tabular-data/reports/Tabular-Data-Versioning-and-Deduplication-with-Weights-Biases--VmlldzoxNDIzOTA1) with version control and deduplication.
 

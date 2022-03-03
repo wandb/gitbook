@@ -12,7 +12,7 @@ Use the run page to explore detailed information about a single version of your 
 
 * Run name, description, and tags
 * Run state
-  * **finished**: script ended and fully synced data, or called `wandb.finish()` 
+  * **finished**: script ended and fully synced data, or called `wandb.finish()`
   * **failed**: script ended with a non-zero exit status
   * **crashed**: script stopped sending heartbeats in the internal process, which can happen if the machine crashes
   * **running**: script is still running and has recently sent a heartbeat
@@ -39,7 +39,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](<../../../.gitbook/assets/wandb-run-page-workspace-tab (1).png>)
+![](<../../../.gitbook/assets/wandb-run-page-workspace-tab (10).png>)
 
 ## System Tab
 
@@ -85,6 +85,6 @@ The W\&B [Artifacts](../../../guides/artifacts/) system adds extra features for 
 * Provides a searchable list of the input and output [Artifacts](../../../guides/artifacts/) for this run
 * Click a row to see information about a particular artifact used or produced by this run
 * See the reference for the [project](project-page.md)-level [Artifacts Tab](project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app\
-  [View a live example →](https://wandb.ai/stacey/artifact_july_demo/runs/2cslp2rt/artifacts)
+  [View a live example →](https://wandb.ai/stacey/artifact\_july\_demo/runs/2cslp2rt/artifacts)
 
 ![](<../../../.gitbook/assets/image (141).png>)

@@ -20,13 +20,13 @@ Check out our [video demo](https://www.youtube.com/watch?v=2xeJIv\_K\_eI) of Rep
 
 ### **Notes: Add a visualization with a quick summary**
 
-Capture an important observation, an idea for future work, or a milestone reached in the development of a project. All experiment runs in your report will link to their parameters, metrics, logs, and code, so  you can save the full context of your work.
+Capture an important observation, an idea for future work, or a milestone reached in the development of a project. All experiment runs in your report will link to their parameters, metrics, logs, and code, so you can save the full context of your work.
 
 Jot down some text and pull in relevant charts to illustrate your insight ([comparing networks in distributed training →](https://wandb.ai/stacey/estuary/reports/When-Inception-ResNet-V2-is-too-slow--Vmlldzo3MDcxMA) )
 
-![](<../../.gitbook/assets/screen-shot-2021-04-19-at-2.21.25-pm (1).png>)
+![](<../../.gitbook/assets/screen-shot-2021-04-19-at-2.21.25-pm (1) (1) (1).png>)
 
-Save the best examples from a complex code base for easy reference and future interaction (example: [LIDAR point clouds → ](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg))&#x20;
+Save the best examples from a complex code base for easy reference and future interaction (example: [LIDAR point clouds → ](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg))
 
 ![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.18.56-pm.png)
 
@@ -40,7 +40,7 @@ Include dynamic settings so that your colleagues can explore for themselves, get
 
 ![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.32.58-pm.png)
 
-Use sliders and configurable media panels to showcase a model's results or training progress (example → [StarGANv2](https://wandb.ai/stacey/stargan/reports/Cute-Animals-and-Post-Modern-Style-Transfer-StarGAN-v2-for-Multi-Domain-Image-Synthesis---VmlldzoxNzcwODQ))&#x20;
+Use sliders and configurable media panels to showcase a model's results or training progress (example → [StarGANv2](https://wandb.ai/stacey/stargan/reports/Cute-Animals-and-Post-Modern-Style-Transfer-StarGAN-v2-for-Multi-Domain-Image-Synthesis---VmlldzoxNzcwODQ))
 
 ![](../../.gitbook/assets/screen-shot-2021-04-23-at-8.44.32-am.png)
 
@@ -56,7 +56,7 @@ Tell the story of a project, which you and others can reference later to underst
 
 ![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.47.02-pm.png)
 
-### ****[See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
+### \*\*\*\*[See the OpenAI case study →](https://bit.ly/wandb-learning-dexterity)
 
 Once you have [experiments in W\&B](../../quickstart.md), easily visualize results in reports. Here's a quick overview video.
 
@@ -74,7 +74,7 @@ Click **Create report** in the upper right corner of your workspace. This gives 
 
 We provide a few quick templates to guide you or you can create a blank report and start there.‌
 
-![](<../../.gitbook/assets/image (47) (1) (2) (2) (2) (2) (1) (2) (2) (2) (2) (2).png>)
+![](<../../.gitbook/assets/image (47) (1) (2) (2) (2) (2) (1) (2) (2) (2) (2) (1) (1).png>)
 
 * **Snapshot** adds the current date/time to the title, and adds a filter to the run set, which means only runs created before the current time are included in the snapshot.
 * **Dashboard** titles the report “Project Dashboard” and adds a filter to match exactly the current set of selected runs.
@@ -179,6 +179,6 @@ In view mode, someone who is not logged in can see the charts and mouse over to 
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1).gif>)
+![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1) (1) (5).gif>)
 
 ##

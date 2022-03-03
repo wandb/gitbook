@@ -4,9 +4,9 @@ description: How to configure the W&B Local Server installation
 
 # Advanced Configuration
 
-Your W\&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams. &#x20;
+Your W\&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
 
-The following are detailed information about manually configuring your local instance.  When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance.&#x20;
+The following are detailed information about manually configuring your local instance. When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance.
 
 ## Configuration as code
 
@@ -26,15 +26,15 @@ All configuration settings can be set via the UI however if you would like to ma
 | OIDC\_AUTH\_METHOD   | implicit (default) or pkce, see below for more context.                                                                                                                                    |
 | SLACK\_CLIENT\_ID    | The client ID of the Slack application you want to use for alerts                                                                                                                          |
 | SLACK\_SECRET        | The secret of the Slack application you want to use for alerts                                                                                                                             |
-| LOCAL\_RESTORE       | You can temporarily set this to true if you're unable to access your instance.  Check the logs from the container for temporary credentials.                                               |
+| LOCAL\_RESTORE       | You can temporarily set this to true if you're unable to access your instance. Check the logs from the container for temporary credentials.                                                |
 
 ## SSO & Authentication
 
-By default, a W\&B Local Server runs with manual user management.  Licensed versions of _wandb/local_ also unlock SSO.  W\&B can configure an [Auth0](https://auth0.com) tenant for you with any Identity provider they support such as SAML, Ping Federate, Active Directory, etc.  Just reach out to your account executive to schedule a setup call with one of our engineers.  If you already use Auth0 or have an Open ID Connect compatible server, you can follow the instructions below.
+By default, a W\&B Local Server runs with manual user management. Licensed versions of _wandb/local_ also unlock SSO. W\&B can configure an [Auth0](https://auth0.com) tenant for you with any Identity provider they support such as SAML, Ping Federate, Active Directory, etc. Just reach out to your account executive to schedule a setup call with one of our engineers. If you already use Auth0 or have an Open ID Connect compatible server, you can follow the instructions below.
 
 ### Open ID Connect
 
-_wandb/local_ uses Open ID Connect for authentication.  When creating an application client in your IPD you should choose Web Application or Public Client.  For example, if your using AWS Cognito as an identity provider you would choose Public Client:
+_wandb/local_ uses Open ID Connect for authentication. When creating an application client in your IPD you should choose Web Application or Public Client. For example, if your using AWS Cognito as an identity provider you would choose Public Client:
 
 ![Because we're only using OIDC for authentication and not authorization, public clients simplify setup](<../../.gitbook/assets/image (163).png>)
 
@@ -47,9 +47,9 @@ For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your applicati
 
 ![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (162).png>)
 
-_wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default.  You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow.  We request the following scopes for the grant: "openid", "profile", and "email".  Your identity provider will need to allow these scopes.  For example in AWS Cognito the application should look like:
+_wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
 
-![openid, profile, and email are required ](<../../.gitbook/assets/image (165).png>)
+![openid, profile, and email are required](<../../.gitbook/assets/image (165).png>)
 
 To tell _wandb/local_ which grant to use you can select the Auth Method in the settings page or set the OIDC\_AUTH\_METHOD environment variable.
 
@@ -57,12 +57,12 @@ To tell _wandb/local_ which grant to use you can select the Auth Method in the s
 For AWS Cognito providers you must set the Auth Method to "pkce"
 {% endhint %}
 
-You'll need a Client ID and the url of your OIDC issuer.  The OpenID discovery document must be available at `$OIDC_ISSUER/.well-known/openid-configuration` For example when using AWS Cognito you can generate your issuer url by appending your User Pool ID to the Cognito IDP url from the _User Pools > App Integration_ tab:
+You'll need a Client ID and the url of your OIDC issuer. The OpenID discovery document must be available at `$OIDC_ISSUER/.well-known/openid-configuration` For example when using AWS Cognito you can generate your issuer url by appending your User Pool ID to the Cognito IDP url from the _User Pools > App Integration_ tab:
 
 ![The issuer URL would be https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](<../../.gitbook/assets/image (160).png>)
 
 {% hint style="info" %}
-Do not use the "Cognito domain" for the IDP url.  Cognito provides it's discovery document at `https://cognito-idp.$REGION.amazonaws.com/$USER_POOL_ID`
+Do not use the "Cognito domain" for the IDP url. Cognito provides it's discovery document at `https://cognito-idp.$REGION.amazonaws.com/$USER_POOL_ID`
 {% endhint %}
 
 Once you have everything configured you can provide the Issuer, Client ID, and Auth method to _wandb/local_ via `/system-admin` or the environment variables and SSO will be configured.
@@ -70,7 +70,7 @@ Once you have everything configured you can provide the Issuer, Client ID, and A
 ![](<../../.gitbook/assets/image (170).png>)
 
 {% hint style="info" %}
-If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set.  This will output a temporary password to the containers logs and disable SSO.  Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.
+If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.
 {% endhint %}
 
 ## File Storage
@@ -78,7 +78,7 @@ If you're unable to login to your instance after configuring SSO, you can restar
 By default, a W\&B Enterprise Server saves files to a local data disk with a capacity that you set when you provision your instance. To support limitless file storage, you may configure your server to use an external cloud file storage bucket with an S3-compatible API.
 
 {% hint style="info" %}
-You should always specify the bucket you're using with the BUCKET environment variable.  This removes the need for a persistent volume as all settings can then be persisted to your bucket.
+You should always specify the bucket you're using with the BUCKET environment variable. This removes the need for a persistent volume as all settings can then be persisted to your bucket.
 {% endhint %}
 
 ### Amazon Web Services
@@ -142,7 +142,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -215,7 +215,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (2).png>)
 
 Press "update settings" to apply the new settings.
 
@@ -237,7 +237,7 @@ Click Review and Create, and then, on the summary screen, click Create:
 
 #### Creating the blob container
 
-Go to  [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service > Containers in the menu:
+Go to [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service > Containers in the menu:
 
 ![](<../../.gitbook/assets/image (102).png>)
 
@@ -257,7 +257,7 @@ Go to Queue service > Queues in your storage account, and create a new Queue:
 
 Go to Events in your storage account, and create an event subscription:
 
-![](<../../.gitbook/assets/image (108).png>)
+![](<../../.gitbook/assets/image (108) (1).png>)
 
 Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
 
@@ -294,7 +294,7 @@ Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Crea
 
 You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
 
-![](<../../.gitbook/assets/image (124).png>)
+![](<../../.gitbook/assets/image (124) (1).png>)
 
 #### Configuring the Slack application
 
@@ -304,9 +304,9 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../.gitbook/assets/image (128) (1) (1).png>)
+![](<../../.gitbook/assets/image (128) (1) (10).png>)
 
-Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to **** in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
+Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to \*\*\*\* in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
 ![](<../../.gitbook/assets/image (127).png>)
 

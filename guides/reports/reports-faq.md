@@ -8,7 +8,7 @@ If you currently want to upload a CSV to a report you can do it via the `wandb.T
 
 Reload the page to refresh data in a report and get the latest results from your active runs. Workspaces automatically load fresh data if you have the **Auto-refresh** option active (available in the dropdown menu in the upper right corner of your page). Auto-refresh does not apply to reports, so this data will not refresh until you reload the page.
 
-### Filter and delete unwanted reports&#x20;
+### Filter and delete unwanted reports
 
 Using the search bar, you can search and filter down the reports list. You can then delete an unwanted report from the list or select all and press 'Delete Reports' to remove them from your project.
 
@@ -16,11 +16,11 @@ Using the search bar, you can search and filter down the reports list. You can t
 
 ### Incorporating LaTeX
 
-LaTeX can be added into reports easily. In order to do so, create a new report, and start typing. The whole page is a rich text area where you can write notes and save custom visualizations and tables.&#x20;
+LaTeX can be added into reports easily. In order to do so, create a new report, and start typing. The whole page is a rich text area where you can write notes and save custom visualizations and tables.
 
 On a new line, press `/` and scroll to the inline equations tab to add rich content in LaTeX.
 
-![](<../../.gitbook/assets/Screen (2).mov>)
+![](<../../.gitbook/assets/Screen (1) (1).mov>)
 
 ### List of markdown shortcuts
 
@@ -32,7 +32,7 @@ On a new line, press `/` and scroll to the inline equations tab to add rich cont
 | Ordered list item | `1.`          |
 | Checklist         | `[]`          |
 | Blockquote        | `>` , `\|`    |
-| Heading 1         |  `#`          |
+| Heading 1         | `#`           |
 | Heading 2         | `##`          |
 | Heading 3         | `###`         |
 | Code block        | ` ``` `       |
@@ -40,7 +40,7 @@ On a new line, press `/` and scroll to the inline equations tab to add rich cont
 | Callout block     | `>>>`         |
 | Horizontal rule   | `---`, `___`  |
 
-A comprehensive list of LaTeX can be found [here](https://en.wikibooks.org/wiki/LaTeX/Mathematics).&#x20;
+A comprehensive list of LaTeX can be found [here](https://en.wikibooks.org/wiki/LaTeX/Mathematics).
 
 ### **WYSIWYG FAQ**
 
@@ -88,7 +88,7 @@ If you converted your report using the message at the top of the report, simply 
 
 If you converted a single Markdown block, try hitting cmd+z to undo.
 
-If neither of these options work because you've closed your session after converting, consider discarding your draft and editing your report from its last saved state. If this isn't an option either, let us know through the Intercom bubble at the bottom right and our team can try to restore your last working state.&#x20;
+If neither of these options work because you've closed your session after converting, consider discarding your draft and editing your report from its last saved state. If this isn't an option either, let us know through the Intercom bubble at the bottom right and our team can try to restore your last working state.
 
 **I have a problem that isn't addressed by this FAQ.**
 

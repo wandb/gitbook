@@ -2,7 +2,7 @@
 
 ## X-Axis
 
-![Selecting X-Axis](../../../../../.gitbook/assets/image%20%2815%29.png)
+![Selecting X-Axis](<../../../../../.gitbook/assets/image (15).png>)
 
 You can set the X-Axis of a line plot to any value that you have logged with wandb.log as long as it's always logged as a number.
 
@@ -34,20 +34,20 @@ Example:
 
 ${run:displayName} - ${config:dropout} will make the legend name for each run something like "royal-sweep - 0.5" where "royal-sweep" is the run name and 0.5 is the config parameter named "dropout".
 
-You can set value inside`[[ ]]` to display point specific values in the crosshair when hovering over a chart. For example \[\[ $x: $y \($original\) \]\] would display something like "2: 3 \(2.9\)"
+You can set value inside`[[ ]]` to display point specific values in the crosshair when hovering over a chart. For example \[\[ $x: $y ($original) ]] would display something like "2: 3 (2.9)"
 
-Supported values inside \[\[ \]\] are as follows:
+Supported values inside \[\[ ]] are as follows:
 
-| Value | Meaning |
-| :--- | :--- |
-| ${x} | X value  |
-| ${y} | Y value \(Including smoothing adjustment\) |
+| Value       | Meaning                                    |
+| ----------- | ------------------------------------------ |
+| ${x}        | X value                                    |
+| ${y}        | Y value (Including smoothing adjustment)   |
 | ${original} | Y value not including smoothing adjustment |
-| ${mean} | Mean of grouped runs |
-| ${stddev} | Standard Deviation of grouped runs |
-| ${min} | Min of grouped runs |
-| ${max} | Max of grouped runs |
-| ${percent} | Percent of total \(for stacked area charts\) |
+| ${mean}     | Mean of grouped runs                       |
+| ${stddev}   | Standard Deviation of grouped runs         |
+| ${min}      | Min of grouped runs                        |
+| ${max}      | Max of grouped runs                        |
+| ${percent}  | Percent of total (for stacked area charts) |
 
 ## Grouping
 
@@ -71,13 +71,12 @@ Select a style for your line plot.
 
 **Line plot:**
 
-![](../../../../../.gitbook/assets/image%20%285%29%20%282%29%20%283%29%20%283%29%20%283%29%20%282%29%20%281%29.png)
+![](<../../../../../.gitbook/assets/image (5) (2) (3) (3) (3) (2) (1) (1).png>)
 
 **Area plot:**
 
-![](../../../../../.gitbook/assets/image%20%2835%29%20%281%29%20%282%29%20%283%29%20%283%29%20%283%29%20%283%29%20%281%29%20%286%29.png)
+![](<../../../../../.gitbook/assets/image (35) (1) (2) (3) (3) (3) (3) (1) (1) (4).png>)
 
 **Percentage area plot:**
 
-![](../../../../../.gitbook/assets/image%20%2869%29%20%284%29%20%286%29%20%282%29.png)
-
+![](<../../../../../.gitbook/assets/image (69) (4) (6) (1) (10).png>)
