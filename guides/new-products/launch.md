@@ -14,6 +14,8 @@ W\&B Launch is the new beta tool for reproducing runs and orchestrating experime
 
 ## Quickstart
 
+:arrow\_forward: Start by adding `instant replay` to your user bio on your profile page! This unlocks the UI for using W\&B Launch.
+
 1. Open a project, pick a run in the sidebar, and click **Add to Launch queue**
 2. In the Launch modal — edit the run config to change a hyperparameter, then click **Push Run**
 3. On the command line run `wandb launch-agent <project-name>`
