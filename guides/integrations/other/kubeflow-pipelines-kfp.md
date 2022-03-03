@@ -6,7 +6,7 @@
 
 This integration lets users apply decorators to kfp python functional components to automatically log parameters and artifacts to W\&B.
 
-This feature was enabled in `wandb==0.12.11`
+This feature was enabled in `wandb==0.12.11` and requires `kfp<2.0.0`
 
 ## Quickstart
 
