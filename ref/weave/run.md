@@ -45,17 +45,6 @@ Returns the log history of the [run](https://docs.wandb.ai/ref/weave/types/run)
 #### Return Value
 The log history of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
-<h3 id="isNone"><code>isNone</code></h3>
-
-Determines if the value is None.
-
-| Argument |  | 
-| :--- | :--- |
-| `val` | Possibly None value. |
-
-#### Return Value
-True if the value is None.
-
 <h3 id="run-jobType"><code>run-jobType</code></h3>
 
 Returns the job type of the [run](https://docs.wandb.ai/ref/weave/types/run)
@@ -69,26 +58,26 @@ The job type of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-loggedArtifactVersion"><code>run-loggedArtifactVersion</code></h3>
 
-Returns the _artifactVersion_ logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
+Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
-| `artifactVersionName` | The name:alias of the _artifactVersion_ |
+| `artifactVersionName` | The name:alias of the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) |
 
 #### Return Value
-The _artifactVersion_ logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
+The [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
 
 <h3 id="run-loggedArtifactVersions"><code>run-loggedArtifactVersions</code></h3>
 
-Returns all of the _artifactVersions_ logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The _artifactVersions_ logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
+The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-name"><code>run-name</code></h3>
 
@@ -125,25 +114,25 @@ The summary _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-usedArtifactVersions"><code>run-usedArtifactVersions</code></h3>
 
-Returns all of the _artifactVersions_ used by the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The _artifactVersions_ used by the [run](https://docs.wandb.ai/ref/weave/types/run)
+The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-user"><code>run-user</code></h3>
 
-Returns the _user_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns the [user](https://docs.wandb.ai/ref/weave/types/user) of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The _user_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
+The [user](https://docs.wandb.ai/ref/weave/types/user) of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 
 ## List Ops
@@ -158,17 +147,6 @@ Returns the config _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/type
 #### Return Value
 The config _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
-<h3 id="count"><code>count</code></h3>
-
-Returns the count of elements in the _list_.
-
-| Argument |  | 
-| :--- | :--- |
-| `arr` | The _list_ to count. |
-
-#### Return Value
-The count of elements in the _list_.
-
 <h3 id="run-createdAt"><code>run-createdAt</code></h3>
 
 Returns the created at datetime of the [run](https://docs.wandb.ai/ref/weave/types/run)
@@ -179,29 +157,6 @@ Returns the created at datetime of the [run](https://docs.wandb.ai/ref/weave/typ
 
 #### Return Value
 The created at datetime of the [run](https://docs.wandb.ai/ref/weave/types/run)
-
-<h3 id="dropna"><code>dropna</code></h3>
-
-Drops elements of a _list_ which are null
-
-| Argument |  | 
-| :--- | :--- |
-| `arr` | The _list_ to drop elements from. |
-
-#### Return Value
-The _list_ with null elements removed.
-
-<h3 id="filter"><code>filter</code></h3>
-
-Filters the _list_.
-
-| Argument |  | 
-| :--- | :--- |
-| `arr` | The _list_ to filter. |
-| `filterFn` | A function to apply to each element of the _list_. The return value is a boolean indicating whether the element should be included in the result. |
-
-#### Return Value
-The filtered _list_.
 
 <h3 id="run-heartbeatAt"><code>run-heartbeatAt</code></h3>
 
@@ -225,17 +180,6 @@ Returns the log history of the [run](https://docs.wandb.ai/ref/weave/types/run)
 #### Return Value
 The log history of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
-<h3 id="isNone"><code>isNone</code></h3>
-
-Determines if the value is None.
-
-| Argument |  | 
-| :--- | :--- |
-| `val` | Possibly None value. |
-
-#### Return Value
-True if the value is None.
-
 <h3 id="run-jobType"><code>run-jobType</code></h3>
 
 Returns the job type of the [run](https://docs.wandb.ai/ref/weave/types/run)
@@ -247,52 +191,28 @@ Returns the job type of the [run](https://docs.wandb.ai/ref/weave/types/run)
 #### Return Value
 The job type of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
-<h3 id="joinToStr"><code>joinToStr</code></h3>
-
-Joins the elements of the _list_ into a _string_.
-
-| Argument |  | 
-| :--- | :--- |
-| `arr` | The _list_ to join. |
-| `sep` | The separator to use between elements. |
-
-#### Return Value
-The joined _string_.
-
 <h3 id="run-loggedArtifactVersion"><code>run-loggedArtifactVersion</code></h3>
 
-Returns the _artifactVersion_ logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
+Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
-| `artifactVersionName` | The name:alias of the _artifactVersion_ |
+| `artifactVersionName` | The name:alias of the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) |
 
 #### Return Value
-The _artifactVersion_ logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
+The [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
 
 <h3 id="run-loggedArtifactVersions"><code>run-loggedArtifactVersions</code></h3>
 
-Returns all of the _artifactVersions_ logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The _artifactVersions_ logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
-
-<h3 id="map"><code>map</code></h3>
-
-Applies a map function to each element in the _list_
-
-| Argument |  | 
-| :--- | :--- |
-| `arr` | The _list_ to map over. |
-| `mapFn` | A function to apply to each element of the _list_. |
-
-#### Return Value
-The _list_ with each element mapped over.
+The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-name"><code>run-name</code></h3>
 
@@ -329,35 +249,23 @@ The summary _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-usedArtifactVersions"><code>run-usedArtifactVersions</code></h3>
 
-Returns all of the _artifactVersions_ used by the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The _artifactVersions_ used by the [run](https://docs.wandb.ai/ref/weave/types/run)
+The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-user"><code>run-user</code></h3>
 
-Returns the _user_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns the [user](https://docs.wandb.ai/ref/weave/types/user) of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The _user_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
-
-<h3 id="index"><code>index</code></h3>
-
-Retrieve a value from a _list_ by index
-
-| Argument |  | 
-| :--- | :--- |
-| `arr` | The _list_ to index into. |
-| `index` | The index to retrieve |
-
-#### Return Value
-A value from the _list_
+The [user](https://docs.wandb.ai/ref/weave/types/user) of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
