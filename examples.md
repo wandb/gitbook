@@ -117,15 +117,23 @@ Use [W\&B Tables](guides/data-vis/tables-quickstart.md) to interact with your mo
 ![Grouped predictions using W\&B Tables](<.gitbook/assets/wandb - demo table visualizer.png>)
 
 ```python
+# Define the names of the columns in your Table
+column_names = ﻿[﻿"image_id"﻿, "image"﻿, "label"﻿, "prediction"﻿]
+
+# Prepare your data, row-wise
+# You can log filepaths or image tensors with wandb.Image
 my_data = [
-  [0, wandb.Image("img_0.jpg"), 0, 0],
-  [1, wandb.Image("img_1.jpg"), 8, 0],
-  [2, wandb.Image("img_2.jpg"), 7, 1],
-  [3, wandb.Image("img_3.jpg"), 1, 1]
+  ['img_0.jpg', wandb.Image("data/images/img_0.jpg"), 0, 0],
+  ['img_1.jpg', wandb.Image("data/images/img_1.jpg"), 8, 0],
+  ['img_2.jpg', wandb.Image("data/images/img_2.jpg"), 7, 1],
+  ['img_3.jpg', wandb.Image("data/images/img_3.jpg"), 1, 1]
 ]
-columns=﻿[﻿"id"﻿, "image"﻿, "prediction"﻿, "truth"﻿]
-test_table = wandb.Table(data=my_data, columns=columns)
-wandb.log({'my_test_table': test_table})
+
+# Create your W&B Table
+val_table = wandb.Table(data=my_data, columns=column_names)
+
+# Log the Table to W&B
+wandb.log({'my_val_table': val_table})
 ```
 
 Read more: [Data Visualization using Tables](guides/data-vis/)
