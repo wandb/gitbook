@@ -241,6 +241,7 @@ for id, img, boxes in zip(ids, images, boxes_set):
             for box in boxes
         ],
         "class_labels" : class_labels
+        }
     })
 ```
 {% endtab %}
