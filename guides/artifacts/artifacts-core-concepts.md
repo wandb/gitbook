@@ -79,13 +79,13 @@ While `v1` tracks a total of 6MB worth of files, it only takes up 3MB of space b
 
 When logging artifacts, the files are uploaded to Google Cloud bucket managed by W\&B. The contents of the bucket are encrypted both at rest and in transit. Moreover, the artifact files are only visible to users who have access to the corresponding project.
 
-![](<../../.gitbook/assets/image (72).png>)
+![](<../../.gitbook/assets/image (17).png>)
 
 When you delete a version of an artifact, all the files that can be safely deleted (meaning the files are not used in previous or subsequent versions) are _immediately_ removed from our bucket. Similarly, when you delete an entire artifact _all_ of its contents are removed from our bucket.
 
 For sensitive datasets that cannot reside in a multi-tenant environment, you can use either a private W\&B server connected to your cloud bucket or [**reference artifacts**](references.md). Reference artifacts maintain links to files on your buckets or servers, meaning that W\&B only keeps track of the metadata associated with the files and not the files themselves.
 
-![](<../../.gitbook/assets/image (73).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 Building [**reference artifacts**](references.md) works the same as a regular artifact:
 

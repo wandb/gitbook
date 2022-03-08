@@ -238,7 +238,7 @@ A service account is an API key that has permissions to write to your team, but 
 
 You can get the API key in your Team Settings page `/teams/<your-team-name>` where you invite new team members. Select service and click create to add a service account.
 
-![Create a service account on your team settings page for automated jobs](<../.gitbook/assets/image (167).png>)
+![Create a service account on your team settings page for automated jobs](<../.gitbook/assets/image (164).png>)
 
 ### How can I rotate or revoke access?
 
@@ -260,3 +260,7 @@ The W\&B client library supported both Python 2.7 and Python 3 through version 0
 ### Does the W\&B client support Python 3.5? <a href="#eol-python35" id="eol-python35"></a>
 
 The W\&B client library supported both Python 3.5 through version 0.11. Due to the Python 3.5 end of life, support was discontinued as of version 0.12.
+
+### Is there a dark mode?
+
+Yes, this is accessible by going into your profile by clicking on your icon on the top right of your dashboard. Under your profile name, you can type in `night` where it says `I teach robots how to learn`. &#x20;

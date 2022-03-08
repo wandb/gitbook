@@ -30,11 +30,11 @@ You can dynamically group by any config column. For example, if you use `wandb.c
 
 If you set grouping in `wandb.init()` , we will group runs by default in the UI. You can toggle this on and off by clicking the **Group** button at the top of the table. Here's an [example project](https://wandb.ai/carey/group-demo?workspace=user-carey) generated from [sample code](http://wandb.me/grouping) where we set grouping. You can click on each "Group" row in the sidebar to get to a dedicated group page for that experiment.
 
-![](<../../../.gitbook/assets/image (92).png>)
+![](<../../../.gitbook/assets/image (50).png>)
 
 From the project page above, you can click a **Group** in the left sidebar to get to a dedicated page like [this one](https://wandb.ai/carey/group-demo/groups/exp\_5?workspace=user-carey):
 
-![](<../../../.gitbook/assets/image (93).png>)
+![](<../../../.gitbook/assets/image (51).png>)
 
 ## Grouping dynamically in the UI
 
@@ -43,16 +43,16 @@ You can group runs by any column, for example by hyperparameter. Here's an examp
 * **Sidebar**: Runs are grouped by the number of epochs.
 * **Graphs**: Each line represents the mean of the group, and the shading indicates the variance. This behavior can be change in the graph settings.
 
-![](<../../../.gitbook/assets/demo - grouping.png>)
+![](../../../.gitbook/assets/demo-grouping.png)
 
 ## Turn off grouping
 
 Click the grouping button and clear group fields at any time, which returns the table and graphs to their ungrouped state.
 
-![](<../../../.gitbook/assets/demo - no grouping.png>)
+![](../../../.gitbook/assets/demo-no-grouping.png)
 
 ## Grouping graph settings
 
 Click the edit button in the upper right corner of a graph and select the **Advanced** tab to change the line and shading. You can select the mean, minimum, or maximum value to for the line in each group. For the shading, you can turn off shading, show the min and max, the standard deviation, and the standard error.
 
-![](<../../../.gitbook/assets/demo - grouping options for line plots.gif>)
+![](../../../.gitbook/assets/demo-grouping-options-for-line-plots.gif)

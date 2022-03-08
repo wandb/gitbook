@@ -20,7 +20,7 @@ If you hand off a project to a collaborator or take a vacation, W\&B makes it ea
 
 Compare each training run and see what hyperparameters changed. Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks.
 
-![](<../../.gitbook/assets/image (28).png>)
+![](<../../.gitbook/assets/image (19).png>)
 
 ### Reproducible models
 
@@ -40,10 +40,11 @@ Use W\&B to organize complex machine learning projects. It's easy to share a lin
 
 To undo a change in your workspace, click the "undo" button at the bottom of the page.
 
-![](<../../.gitbook/assets/demo - how to undo deleting a panel.gif>)
+![](../../.gitbook/assets/demo-how-to-undo-deleting-a-panel.gif)
 
 ### How to sort by more than one column in the runs table?
 
 To sort by more than 1 column in your runs table, click on "Sort" and then "Add another field".
 
 ![](<../../.gitbook/assets/sort\_columns (1).gif>)
+

@@ -40,11 +40,11 @@ If an empty panel appears, make sure that your runs are ungrouped
 
 We can let wandb visualise the most useful set of hyperparameters by clicking on the magic wand beside the parameters manager. We can then sort the hyperparameters based on the Importance.
 
-![Using automatic parameter visualization](<../../../../.gitbook/assets/2021-03-16 11.58.56.gif>)
+![Using automatic parameter visualization](../../../../.gitbook/assets/2021-03-16-11.58.56.gif)
 
 With the parameter manager, we can manually set the visible and hidden parameters.
 
-![Manually setting the visible and hidden fields](<../../../../.gitbook/assets/2021-03-16 12.09.57.gif>)
+![Manually setting the visible and hidden fields](../../../../.gitbook/assets/2021-03-16-12.09.57.gif)
 
 ## Interpreting A Hyperparameter Importance Panel
 
