@@ -125,6 +125,10 @@ View-only report links add a secret access token to the URL, so anyone who opens
 
 In view mode, someone who is not logged in can see the charts and mouse over to see tooltips of values, zoom in and out on charts, and scroll through columns in the table. When in view mode, they cannot create new charts or new table queries to explore the data. View-only visitors to the report link won't be able to click on a run to get to the run page.
 
+{% hint style="info" %}
+The view-only magic link is available _only_ for the author of that report.
+{% endhint %}
+
 ### Send a graph to a report
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
