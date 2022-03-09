@@ -16,7 +16,7 @@ with wandb.init(project="prodigy"):
 
 and get visual, interactive, shareable tables like this one:
 
-![](../../../.gitbook/assets/screenshot-from-2021-08-25-13-04-57.png)
+![](<../../../.gitbook/assets/Screenshot from 2021-08-25 13-04-57.png>)
 
 ## Quickstart
 

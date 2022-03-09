@@ -229,56 +229,56 @@ If you have a storage account you want to use already, you can skip this step.
 
 Navigate to [Storage Accounts > Add ](https://portal.azure.com/#create/Microsoft.StorageAccount)in the Azure portal. Select an Azure subscription, and select any resource group or create a new one. Enter a name for your storage account.
 
-![Azure storage account setup](<../../.gitbook/assets/image (106).png>)
+![Azure storage account setup](<../../.gitbook/assets/image (42).png>)
 
 Click Review and Create, and then, on the summary screen, click Create:
 
-![Azure storage account details review](<../../.gitbook/assets/image (114).png>)
+![Azure storage account details review](<../../.gitbook/assets/image (41).png>)
 
 #### Creating the blob container
 
 Go to [Storage Accounts](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) in the Azure portal, and click on your new storage account. In the storage account dashboard, click on Blob service > Containers in the menu:
 
-![](<../../.gitbook/assets/image (102).png>)
+![](<../../.gitbook/assets/image (43).png>)
 
 Create a new container, and set it to Private:
 
-![](<../../.gitbook/assets/image (110).png>)
+![](<../../.gitbook/assets/image (50).png>)
 
 Go to Settings > CORS > Blob service, and enter the IP of your wandb server as an allowed origin, with allowed methods `GET` and `PUT`, and all headers allowed and exposed, then save your CORS settings.
 
-![](<../../.gitbook/assets/image (119).png>)
+![](<../../.gitbook/assets/image (46).png>)
 
 #### Creating the Queue
 
 Go to Queue service > Queues in your storage account, and create a new Queue:
 
-![](<../../.gitbook/assets/image (101).png>)
+![](<../../.gitbook/assets/image (51).png>)
 
 Go to Events in your storage account, and create an event subscription:
 
-![](<../../.gitbook/assets/image (108).png>)
+![](<../../.gitbook/assets/image (47).png>)
 
 Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
 
-![](<../../.gitbook/assets/image (116).png>)
+![](<../../.gitbook/assets/image (52).png>)
 
 In the Filters tab, enable subject filtering for subjects beginning with `/blobServices/default/containers/your-blob-container-name/blobs/`
 
-![](<../../.gitbook/assets/image (105).png>)
+![](<../../.gitbook/assets/image (53).png>)
 
 #### Configure W\&B Server
 
 Go to Settings > Access keys in your storage account, click "Show keys", and then copy either key1 > Key or key2 > Key. Set this key on your W\&B server as the environment variable `AZURE_STORAGE_KEY`.
 
-![](<../../.gitbook/assets/image (115).png>)
+![](<../../.gitbook/assets/image (54).png>)
 
 Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external file storage backend" option, and fill in the s3 bucket, region, and SQS queue in the following format:
 
 * **File Storage Bucket**: `az://<storage-account-name>/<blob-container-name>`
 * **Notification Subscription**: `az://<storage-account-name>/<queue-name>`
 
-![](<../../.gitbook/assets/image (109).png>)
+![](<../../.gitbook/assets/image (55).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -290,7 +290,7 @@ In order to integrate your local W\&B installation with Slack, you'll need to cr
 
 Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Create New App** in the top right.
 
-![](<../../.gitbook/assets/image (123).png>)
+![](<../../.gitbook/assets/image (56).png>)
 
 You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
 
@@ -300,15 +300,15 @@ You can name it whatever you like, but what's important is to select the same Sl
 
 Now that we have a Slack application ready, we need to authorize for use as an OAuth bot. Select **OAuth & Permissions** in the sidebar to the left.
 
-![](<../../.gitbook/assets/image (125).png>)
+![](<../../.gitbook/assets/image (57).png>)
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../.gitbook/assets/image (128) (1) (1).png>)
+![](<../../.gitbook/assets/image (128) (1).png>)
 
 Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
-![](<../../.gitbook/assets/image (127).png>)
+![](<../../.gitbook/assets/image (58).png>)
 
 Hit **Save URLs** once finished.
 
@@ -318,10 +318,10 @@ To further secure your Slack application and prevent abuse, you can specify an I
 
 Navigate to the **System Settings** page of your W\&B instance. Check the box to enable a custom Slack application:
 
-![](<../../.gitbook/assets/image (126).png>)
+![](<../../.gitbook/assets/image (60).png>)
 
 You'll need to supply your Slack application's client ID and secret, which you can find in the **Basic Information** tab.
 
-![](<../../.gitbook/assets/image (120).png>)
+![](<../../.gitbook/assets/image (61).png>)
 
 That's it! You can now verify that everything is working by setting up a Slack integration in the W\&B app. Visit [this page](../../ref/app/features/alerts.md) for more detailed information.

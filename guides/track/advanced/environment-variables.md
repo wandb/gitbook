@@ -70,7 +70,7 @@ If you're running batch jobs in AWS, it's easy to authenticate your machines wit
 
 If you have automated tests or internal tools that launch runs logging to W\&B, create a **Service Account** on your team settings page. This will allow you to use a service API key for your automated jobs. If you want to attribute service account jobs to a specific user, you can use the **WANDB\_USERNAME** or **WANDB\_USER\_EMAIL** environment variables.
 
-![Create a service account on your team settings page for automated jobs](<../../../.gitbook/assets/image (92).png>)
+![Create a service account on your team settings page for automated jobs](<../../../.gitbook/assets/image (32).png>)
 
 This is useful for continuous integration and tools like TravisCI or CircleCI if you're setting up automated unit tests.
 

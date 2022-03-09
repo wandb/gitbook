@@ -31,7 +31,7 @@ To support the ML ecosystem, we offer free private teams to academics and open s
 
 By default, we only pick up the latest git SHA for your code. You can optionally turn on code saving features— this will enable a code comparison panel and tab in the UI to see the version of the code that ran your run. You can turn on code saving in your [settings page](https://app.wandb.ai/settings).
 
-![](../.gitbook/assets/project-defaults.png)
+![](<../.gitbook/assets/project defaults.png>)
 
 ## Exporting data
 

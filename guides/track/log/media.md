@@ -20,7 +20,7 @@ You can see working code to log all of these media objects in [this Colab Notebo
 
 Log images to track inputs, outputs, filter weights, activations, and more!
 
-![Inputs and outputs of an autoencoder network performing in-painting.](<../../../.gitbook/assets/image (76).png>)
+![Inputs and outputs of an autoencoder network performing in-painting.](<../../../.gitbook/assets/image (117).png>)
 
 Images can be logged directly from numpy arrays, as PIL images, or from the filesystem.
 
@@ -72,7 +72,7 @@ wandb.log({"example": wandb.Image("myimage.jpg")})
 {% tab title="Segmentation Masks" %}
 Log semantic segmentation masks and interact with them (altering opacity, viewing changes over time, and more) via the W\&B UI.
 
-![Interactive mask viewing in the W\&B UI.](../../../.gitbook/assets/semantic-segmentation.gif)
+![Interactive mask viewing in the W\&B UI.](<../../../.gitbook/assets/semantic segmentation.gif>)
 
 To log an overlay, you'll need to provide a dictionary with the following keys and values to the `masks` keyword argument of `wandb.Image`:
 
@@ -259,7 +259,7 @@ In the UI, histograms are plotted with the training step on the x-axis, the metr
 wandb.log({"gradients": wandb.Histogram(grads)})
 ```
 
-![Gradients for the discriminator in a GAN.](<../../../.gitbook/assets/image (74).png>)
+![Gradients for the discriminator in a GAN.](<../../../.gitbook/assets/image (116).png>)
 {% endtab %}
 
 {% tab title="Flexible Histogram Logging" %}
@@ -294,7 +294,7 @@ wandb.log({"generated_samples":
             wandb.Object3D(open("sample.glb"))]})
 ```
 
-![Ground truth and prediction of a headphones point cloud](../../../.gitbook/assets/ground-truth-prediction-of-3d-point-clouds.png)
+![Ground truth and prediction of a headphones point cloud](<../../../.gitbook/assets/ground truth - prediction of 3d point clouds.png>)
 
 [See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples\_3d\_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}

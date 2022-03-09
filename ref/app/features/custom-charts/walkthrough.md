@@ -29,7 +29,7 @@ wandb.log({"custom_data_table": wandb.Table(data=my_custom_data,
 
 Once you've logged data to visualize, go to your project page and click the **`+`** button to add a new panel, then select **Custom Chart**. You can follow along in [this workspace](https://app.wandb.ai/demo-team/custom-charts).
 
-![A new, blank custom chart ready to be configured](../../../../.gitbook/assets/screen-shot-2020-08-28-at-7.41.37-am.png)
+![A new, blank custom chart ready to be configured](<../../../../.gitbook/assets/Screen Shot 2020-08-28 at 7.41.37 AM.png>)
 
 ### **Add a query**
 
@@ -40,7 +40,7 @@ Once you've logged data to visualize, go to your project page and click the **`+
 
 Now that the query is loading in these columns, they're available as options to select in the Vega fields dropdown menus:
 
-![Pulling in columns from the query results to set Vega fields](../../../../.gitbook/assets/screen-shot-2020-08-28-at-8.04.39-am.png)
+![Pulling in columns from the query results to set Vega fields](<../../../../.gitbook/assets/Screen Shot 2020-08-28 at 8.04.39 AM.png>)
 
 * **x-axis:** runSets\_historyTable\_r (recall)
 * **y-axis:** runSets\_historyTable\_p (precision)
@@ -58,7 +58,7 @@ I updated the Vega spec to customize the visualization:
 * change the value of “mark” from “point” to “line”
 * remove the unused “size” field
 
-![](../../../../.gitbook/assets/customize-vega-spec-for-pr-curve.png)
+![](<../../../../.gitbook/assets/customize vega spec for pr curve.png>)
 
 To save this as a preset that you can use elsewhere in this project, click **Save as** at the top of the page. Here's what the result looks like, along with an ROC curve:
 
@@ -70,7 +70,7 @@ Thanks for following along! Message Carey (c@wandb.com) with questions and feedb
 
 Histograms can visualize numerical distributions to help us understand larger datasets. Composite histograms show multiple distributions across the same bins, letting us compare two or more metrics across different models or across different classes within our model. For a semantic segmentation model detecting objects in driving scenes, we might compare the effectiveness of optimizing for accuracy versus intersection over union (IOU), or we might want to know how well different models detect cars (large, common regions in the data) versus traffic signs (much smaller, less common regions). In the[ demo Colab](https://bit.ly/custom-charts-colab), you can compare the confidence scores for two of the ten classes of living things.
 
-![](../../../../.gitbook/assets/screen-shot-2020-08-28-at-7.19.47-am.png)
+![](<../../../../.gitbook/assets/Screen Shot 2020-08-28 at 7.19.47 AM.png>)
 
 To create your own version of the custom composite histogram panel:
 
