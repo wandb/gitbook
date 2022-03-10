@@ -363,7 +363,7 @@ spec:
             - name: BUCKET_QUEUE
               value: internal://
             - name: AWS_REGION
-              value: us-east1
+              value: us-east-1
             - name: MYSQL
               value: mysql://$USERNAME:$PASSWORD@$HOSTNAME/$DATABASE
           imagePullPolicy: IfNotPresent
