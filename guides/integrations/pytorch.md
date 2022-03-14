@@ -55,9 +55,9 @@ For more on logging rich media to W\&B in PyTorch and other frameworks, check ou
 If you also want to include information alongside media, like your model's predictions or derived metrics, use a `wandb.Table`.
 
 ```python
-my_table = wandb.Table()
+my_table = wandb.Table(columns=[])
 
-my_table.add_column("image", images_t)
+my_table.add_column("image", [wandb.Image(im) for im in images_t])
 my_table.add_column("label", labels)
 my_table.add_column("class_prediction", predictions_t)
 
