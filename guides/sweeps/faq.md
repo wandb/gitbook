@@ -61,7 +61,7 @@ wandb.agent(sweep_id, count)
 
 Every sweep is associated with an `entity` (a user or a team) and a `project`.
 
-These values can be set in four ways: as command-line arguments to [`wandb sweep`](../../ref/cli/wandb-sweep.md),  as part of the [sweep configuration](configuration.md) YAML file, as [environment variables](../track/advanced/environment-variables.md), or via the `wandb/settings` file.
+These values can be set in four ways: as command-line arguments to [`wandb sweep`](../../ref/cli/wandb-sweep.md), as part of the [sweep configuration](configuration.md) YAML file, as [environment variables](../track/advanced/environment-variables.md), or via the `wandb/settings` file.
 
 {% tabs %}
 {% tab title="CLI" %}
@@ -138,6 +138,20 @@ If you're trying to get a nice name to show up in the table and on the graphs, w
 wandb.init(name="a helpful readable run name")
 ```
 
+## What do I do if I get the error message `Cuda out of memory`?
+
+Refactoring the code to use process-based executions should address this issue. Assuming you can rewrite your code to a file named `train.py`, then the following should work:
+
+1. Add the `program` key to your sweep config, for example, `program: train.py`
+2. Add the following to the end of your script:
+
+```
+if _name_ == "_main_":
+    train()
+```
+
+Then instead of calling `wandb.agent(...)` inside of python, call it from the command line: `wandb agent SWEEP_ID`. This will launch each trial in a separate process which should guarantee you don't hold onto any memory.
+
 ## How do I use custom commands with sweeps?
 
 If you normally configure some aspects of training by passing command line arguments, for example:
@@ -210,7 +224,7 @@ Once a sweep has started you cannot change the sweep configuration. But you can 
 
 ## How to use sweeps with cloud infrastructures such as AWS Batch, ECS, etc.?
 
-In general, you would need a way to publish `sweep_id` to a place that any potential agent can read and a way for these agents to consume this `sweep_id` and start running.&#x20;
+In general, you would need a way to publish `sweep_id` to a place that any potential agent can read and a way for these agents to consume this `sweep_id` and start running.
 
 In other words, you would need something that can invoke `wandb agent`. For instance, bring up an EC2 instance and then call `wandb agent` on it. In this case, you might use a SQS queue to broadcast `sweep_id` to a few EC2 instances and then have them consume the `sweep_id` from the queue and start running.
 

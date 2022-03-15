@@ -8,11 +8,11 @@ description: >-
 
 Use W\&B Teams as a central workspace for your ML team to build better models faster.
 
-* **Track all the experiments** your team has tried so you never duplicate work.
-* **Save and reproduce** previously trained models.
-* **Share progress** and results with your boss and collaborators.
-* **Catch regressions** and immediately get alerted when performance drops.
-* **Benchmark model performance** and compare model versions.
+- **Track all the experiments** your team has tried so you never duplicate work.
+- **Save and reproduce** previously trained models.
+- **Share progress** and results with your boss and collaborators.
+- **Catch regressions** and immediately get alerted when performance drops.
+- **Benchmark model performance** and compare model versions.
 
 ## Create a collaborative team
 
@@ -74,9 +74,9 @@ When a team member leaves, it's easy to remove them. Team admins can open the te
 
 Invite colleagues to join the team, and select from these options:
 
-* **Member**: A regular member of your team, invited by email
-* **Admin**: A team member who can add and remove other admins and members
-* **Service**: A service worker, an API key useful for using W\&B with your run automation tools. If you use the API key from a service account for your team, make sure to set the environment variable **WANDB\_USERNAME** to attribute runs to the correct user.
+- **Member**: A regular member of your team, invited by email
+- **Admin**: A team member who can add and remove other admins and members
+- **Service**: A service worker, an API key useful for using W\&B with your run automation tools. If you use the API key from a service account for your team, make sure to set the environment variable **WANDB_USERNAME** to attribute runs to the correct user.
 
 ### **Change the billing user of an organization**
 

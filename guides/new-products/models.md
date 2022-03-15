@@ -16,7 +16,7 @@ Use W\&B for **Model Management** to track and report on the complete lifecycle 
 4. **Metrics**: The evaluation results of a model on different golden datasets
 5. **Statuses**: Where each model is in the pipeline (ex. "staging" or "production")
 
-## [Model Registry Demo](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
+## [Model Registry Demo](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
 Use the interactive W\&B UI to view all saved model versions, compare models on evaluation metrics, and track the status of models at different stages in the pipeline.
 
@@ -62,7 +62,7 @@ Later you'll be able to compare training performance for different models in the
 Did you hit a weird error? Try waiting a little longer for your dataset from Step #2 to get registered before running Step #3 to train on that dataset.
 {% endhint %}
 
-Here is an [example dashboard](https://wandb.ai/carey/model\_registry\_example?workspace=user-carey) comparing the models we've trained so far.
+Here is an [example dashboard](https://wandb.ai/carey/model_registry_example?workspace=user-carey) comparing the models we've trained so far.
 
 ![](<../../.gitbook/assets/image (157).png>)
 
@@ -80,7 +80,7 @@ python model_evaluator.py
 
 ### 5. Visualize results
 
-Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
+Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model_registry_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
 
 ![](<../../.gitbook/assets/image (154).png>)
 
@@ -132,9 +132,9 @@ Start typing a query in the weave panel.
 
 Here's what each piece of the query in my example means:
 
-* **projects("carey", "a\_model\_registry\_example")**: This pulls data from the entity `carey` and the project called `a_model_registry_example`.
-* **artifactType("model")**: This pulls all the artifacts of type `model` in this project.
-* **artifactVersions**: This pulls all the artifact versions of type `model`.
+- **projects("carey", "a_model_registry_example")**: This pulls data from the entity `carey` and the project called `a_model_registry_example`.
+- **artifactType("model")**: This pulls all the artifacts of type `model` in this project.
+- **artifactVersions**: This pulls all the artifact versions of type `model`.
 
 ### 5. Get the links to all model artifacts
 

@@ -19,7 +19,7 @@ See the [Generated Reference Docs](https://docs.wandb.ai/ref/python/public-api) 
 
 Authenticate your machine with your [API key](https://wandb.ai/authorize) in one of two ways:
 
-1. Run `wandb login`  on the command line and paste in your API key.
+1. Run `wandb login` on the command line and paste in your API key.
 2. Set the `WANDB_API_KEY` environment variable to your API key.
 
 ### Find the run path
@@ -41,14 +41,57 @@ The most commonly used attributes of a run object are:
 | Attribute       | Meaning                                                                                                                                                                                                                                                                                                             |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `run.config`    | A dictionary of the run's configuration information, such as the hyperparameters for a training run or the preprocessing methods for a run that creates a dataset Artifact. Think of these as the run's "inputs".                                                                                                   |
-| `run.history()` | A list of dictionaries meant to store values that change while the model is training such as loss.  The command `wandb.log()` appends to this object.                                                                                                                                                               |
+| `run.history()` | A list of dictionaries meant to store values that change while the model is training such as loss. The command `wandb.log()` appends to this object.                                                                                                                                                                |
 | `run.summary`   | A dictionary of information that summarizes the run's results. This can be scalars like accuracy and loss, or large files. By default, `wandb.log()` sets the summary to the final value of a logged timeseries. The contents of the summary can also be set directly. Think of the summary as the run's "outputs". |
 
 You can also modify or update the data of past runs. By default a single instance of an api object will cache all network requests. If your use case requires real time information in a running script, call `api.flush()` to get updated values.
 
+### Understanding the Different Attributes
+
+For the below run
+
+```python
+n_epochs = 5
+config = {"n_epochs": n_epochs}
+run = wandb.init(project=project, config=config)
+for n in range(run.config.get("n_epochs")):
+    run.log({"val": random.randint(0,1000), "loss": (random.randint(0,1000)/1000.00)})
+run.finish()
+```
+
+these are the different outputs for the above run object attributes
+
+#### `run.config`
+
+```python
+{'n_epochs': 5}
+```
+
+#### `run.history()`
+
+```python
+   _step  val   loss  _runtime  _timestamp
+0      0  500  0.244         4  1644345412
+1      1   45  0.521         4  1644345412
+2      2  240  0.785         4  1644345412
+3      3   31  0.305         4  1644345412
+4      4  525  0.041         4  1644345412
+```
+
+#### `run.summary`
+
+```python
+{'_runtime': 4,
+ '_step': 4,
+ '_timestamp': 1644345412,
+ '_wandb': {'runtime': 3},
+ 'loss': 0.041,
+ 'val': 525}
+```
+
 ### Sampling
 
-The default history method samples the metrics to a fixed number of samples (the default is 500, you can change this with the `samples` __ argument). If you want to export all of the data on a large run, you can use the `run.scan_history()` method. For more details see the [API Reference](https://docs.wandb.ai/ref/python/public-api).
+The default history method samples the metrics to a fixed number of samples (the default is 500, you can change this with the `samples` \_\_ argument). If you want to export all of the data on a large run, you can use the `run.scan_history()` method. For more details see the [API Reference](https://docs.wandb.ai/ref/python/public-api).
 
 ### Querying Multiple Runs
 
@@ -90,7 +133,7 @@ runs_df.to_csv("project.csv")
 {% endtab %}
 
 {% tab title="MongoDB Style" %}
-The W\&B API also provides a way for you to query across runs in a project with api.runs(). The most common use case is exporting runs data for custom analysis.  The query interface is the same as the one [MongoDB uses](https://docs.mongodb.com/manual/reference/operator/query).
+The W\&B API also provides a way for you to query across runs in a project with api.runs(). The most common use case is exporting runs data for custom analysis. The query interface is the same as the one [MongoDB uses](https://docs.mongodb.com/manual/reference/operator/query).
 
 ```python
 runs = api.runs("username/project",
@@ -123,16 +166,16 @@ Check out our [API examples](https://docs.wandb.ai/library/public-api-guide#publ
 
 ### How do I get a run's name and ID during a run?
 
-After calling `wandb.init()`  you can access the random run ID or the human readable run name from your script like this:
+After calling `wandb.init()` you can access the random run ID or the human readable run name from your script like this:
 
 * Unique run ID (8 character hash): `wandb.run.id`
 * Random run name (human readable): `wandb.run.name`
 
-&#x20;If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
+If you're thinking about ways to set useful identifiers for your runs, here's what we recommend:
 
 * **Run ID**: leave it as the generated hash. This needs to be unique across runs in your project.
 * **Run name**: This should be something short, readable, and preferably unique so that you can tell the difference between different lines on your charts.
-* **Run notes**: This is a great place to put a quick description of what you're doing in your run. You can set this with `wandb.init(notes="your notes here")`&#x20;
+* **Run notes**: This is a great place to put a quick description of what you're doing in your run. You can set this with `wandb.init(notes="your notes here")`
 * **Run tags**: Track things dynamically in run tags, and use filters in the UI to filter your table down to just the runs you care about. You can set tags from your script and then edit them in the UI, both in the runs table and the overview tab of the run page. See the detailed instructions [here](../../ref/app/features/tags.md).
 
 ## Public API Examples
@@ -351,7 +394,7 @@ run.file("model-best.h5").download()
 
 ### Download all files from a run
 
-This finds all files associated with a run and saves them locally. &#x20;
+This finds all files associated with a run and saves them locally.
 
 ```python
 import wandb
