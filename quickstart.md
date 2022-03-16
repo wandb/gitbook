@@ -16,18 +16,25 @@ Try this short Google Colab to see Weights & Biases in action, no code installat
 
 ### 1. Set up wandb
 
-[Sign up](https://app.wandb.ai/login?signup=true) for a free account, then from the command line install our library in a [Python 3](https://realpython.com/installing-python/) environment.
+[Sign up](https://app.wandb.ai/login?signup=true) for a free account, then from the command line install the wandb library in a Python 3 environment. To login, you'll need to be signed in to you account at www.wandb.ai, then you will find your API key on the [Authorize page](https://wandb.ai/authorize).
 
-```bash
+{% tabs %}
+{% tab title="Command Line" %}
+```
 pip install wandb
+
 wandb login
 ```
+{% endtab %}
 
-{% hint style="info" %}
-Trouble installing the library locally? Try [this quick tutorial notebook](http://wandb.me/intro).
+{% tab title="Notebook" %}
+```python
+!pip install wandb
 
-Note, to login to wandb local server you can [set the host flag](https://docs.wandb.ai/guides/self-hosted/quickstart#4.-modify-training-code-to-log-to-wandb-local-server) to the address of the local instance.
-{% endhint %}
+wandb.login()
+```
+{% endtab %}
+{% endtabs %}
 
 ### 2. Start a new run
 
@@ -92,13 +99,13 @@ Then see W\&B Alerts messages in Slack (or your email):
 ## Common Questions
 
 **Where do I find my API key?**\
-Once you've logged in, it will be on the [Authorize page](https://wandb.ai/authorize).
+Once you've signed in to www.wandb.ai, the API key will be on the [Authorize page](https://wandb.ai/authorize).
 
 **How do I use W\&B in an automated environment?**\
 If you are training models in an automated environment where it's inconvenient to run shell commands, such as Google's CloudML, you should look at our guide to configuration with [Environment Variables](guides/track/advanced/environment-variables.md).
 
-**Do you offer on-prem installs?**\
-Yes, you can [privately host W\&B](guides/self-hosted/) locally on your own machines or in a private cloud.
+**Do you offer local, on-prem installs?**\
+Yes, you can [privately host W\&B](guides/self-hosted/) locally on your own machines or in a private cloud, try [this quick tutorial notebook](http://wandb.me/intro) to see how. Note, to login to wandb local server you can [set the host flag](https://docs.wandb.ai/guides/self-hosted/quickstart#4.-modify-training-code-to-log-to-wandb-local-server) to the address of the local instance.  **** &#x20;
 
 **How do I turn off wandb logging temporarily?**\
 If you're testing code and want to disable wandb syncing, set the environment variable [`WANDB_MODE=offline`](guides/track/advanced/environment-variables.md).
