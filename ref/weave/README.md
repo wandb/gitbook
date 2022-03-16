@@ -21,6 +21,7 @@ Weave is wandb's data querying language, which you can use to select and aggrega
 * [bokeh-file](./bokeh-file.md)
 * [object3D-file](./object3D-file.md)
 * [molecule-file](./molecule-file.md)
+* [pytorch-model-file](./pytorch-model-file.md)
 * [table](./table.md)
 * [joined-table](./joined-table.md)
 * [partitioned-table](./partitioned-table.md)

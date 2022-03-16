@@ -1,6 +1,18 @@
 # project
 
 ## Chainable Ops
+<h3 id="project-artifact"><code>project-artifact</code></h3>
+
+Returns the [artifact](https://docs.wandb.ai/ref/weave/types/artifact) for a given name within a [project](https://docs.wandb.ai/ref/weave/types/project)
+
+| Argument |  | 
+| :--- | :--- |
+| `project` | A [project](https://docs.wandb.ai/ref/weave/types/project) |
+| `artifactName` | The name of the [artifact](https://docs.wandb.ai/ref/weave/types/artifact) |
+
+#### Return Value
+The [artifact](https://docs.wandb.ai/ref/weave/types/artifact) for a given name within a [project](https://docs.wandb.ai/ref/weave/types/project)
+
 <h3 id="project-artifactType"><code>project-artifactType</code></h3>
 
 Returns the [artifactType](https://docs.wandb.ai/ref/weave/types/artifactType) for a given name within a [project](https://docs.wandb.ai/ref/weave/types/project)
@@ -72,6 +84,18 @@ The [runs](https://docs.wandb.ai/ref/weave/types/run) from a [project](https://d
 
 
 ## List Ops
+<h3 id="project-artifact"><code>project-artifact</code></h3>
+
+Returns the [artifact](https://docs.wandb.ai/ref/weave/types/artifact) for a given name within a [project](https://docs.wandb.ai/ref/weave/types/project)
+
+| Argument |  | 
+| :--- | :--- |
+| `project` | A [project](https://docs.wandb.ai/ref/weave/types/project) |
+| `artifactName` | The name of the [artifact](https://docs.wandb.ai/ref/weave/types/artifact) |
+
+#### Return Value
+The [artifact](https://docs.wandb.ai/ref/weave/types/artifact) for a given name within a [project](https://docs.wandb.ai/ref/weave/types/project)
+
 <h3 id="project-artifactType"><code>project-artifactType</code></h3>
 
 Returns the [artifactType](https://docs.wandb.ai/ref/weave/types/artifactType) for a given name within a [project](https://docs.wandb.ai/ref/weave/types/project)
