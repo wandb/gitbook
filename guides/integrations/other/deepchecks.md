@@ -8,7 +8,7 @@ DeepChecks helps you validate your machine learning models and data, such as ver
 
 ## Getting Started
 
-With the Weights & Biases integration in DeepChecks you can quickly get started.
+To use DeepChecks with Weights & Biases you will first need to sign up for a Weights & Biases account [here](https://wandb.ai/site).  With the Weights & Biases integration in DeepChecks you can quickly get started like so:
 
 ```python
 import wandb
