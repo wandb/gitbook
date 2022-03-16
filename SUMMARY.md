@@ -55,6 +55,7 @@
       * [Stable Baselines 3](guides/integrations/other/stable-baselines-3.md)
       * [Skorch](guides/integrations/other/skorch.md)
       * [W\&B for Julia](guides/integrations/other/w-and-b-for-julia.md)
+      * [YOLOX](guides/integrations/other/yolox.md)
   * [Collaborative Reports](guides/reports/README.md)
     * [Reports Walkthrough](guides/reports/reports-walkthrough.md)
     * [Reports FAQ](guides/reports/reports-faq.md)
