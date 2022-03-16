@@ -37,6 +37,7 @@
     * [XGBoost & LightGBM](guides/integrations/boosting.md)
     * [Other Integrations](guides/integrations/other/README.md)
       * [Catalyst](guides/integrations/other/catalyst.md)
+      * [DeepChecks](guides/integrations/other/deepchecks.md)
       * [DeepChem](guides/integrations/other/deepchem.md)
       * [Databricks](guides/integrations/other/databricks.md)
       * [Docker](guides/integrations/other/docker.md)
