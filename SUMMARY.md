@@ -28,7 +28,7 @@
     * [PyTorch Lightning](guides/integrations/lightning.md)
     * [TensorFlow](guides/integrations/tensorflow.md)
     * [TensorBoard](guides/integrations/tensorboard.md)
-    * [Hugging Face](guides/integrations/huggingface.md)
+    * [Hugging Face Transformers](guides/integrations/huggingface.md)
     * [spaCy](guides/integrations/spacy.md)
     * [YOLOv5](guides/integrations/yolov5.md)
     * [MMDetection](guides/integrations/mmdetection.md)
