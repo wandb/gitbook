@@ -50,3 +50,4 @@ suite_result.to_wandb(
 
 ![](<../../../.gitbook/assets/Screenshot 2022-03-16 at 12.45.31.png>)
 
+Any questions or issues about this Weights & Biases integration? Open an issue in the [DeepChecks github repository](https://github.com/deepchecks/deepchecks) and we'll catch it and get you an answer :)&#x20;

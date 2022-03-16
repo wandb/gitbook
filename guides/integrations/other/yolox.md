@@ -30,3 +30,5 @@ python tools/train.py .... --logger wandb \
 [Example dashboard with YOLOX training and validation metrics ->](https://wandb.ai/manan-goel/yolox-nano/runs/3pzfeom)
 
 ![](<../../../.gitbook/assets/Screenshot 2022-03-16 at 13.01.31.png>)
+
+Any questions or issues about this Weights & Biases integration? Open an issue in the [YOLOX github repository](https://github.com/Megvii-BaseDetection/YOLOX) and we'll catch it and get you an answer :)&#x20;
