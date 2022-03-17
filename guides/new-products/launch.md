@@ -2,15 +2,15 @@
 description: Reproduce runs and orchestrate experiments
 ---
 
-# \[Beta] W\&B Launch
+# W\&B Launch
 
-_W\&B Launch is very early in development, and we're actively working on support for queueing and reproducing runs. Please reach out to us at support@wandb.com with any questions or suggestions._
+_W\&B Launch is in early development, and we're actively working on tools for queueing and triggering runs. Please reach out to us at support@wandb.com with any questions or suggestions._
 
-W\&B Launch is the new beta tool for reproducing runs and orchestrating experiments. Launch provides a streamlined way to:
+W\&B Launch is the new tool for reproducing runs and orchestrating experiments. Launch provides a streamlined way to:
 
 * Reproduce runs, or re-run previous runs with new parameters or datasets
-* Create and manage queues of experiments through the UI or CLI
-* Launch the experiments automatically on your own infrastructure
+* Create and manage queues of runs through the UI or CLI
+* Launch runs automatically on your own infrastructure
 
 ## Quickstart
 
