@@ -110,7 +110,7 @@ If you get this warning:
 
 `wandb: WARNING Ignoring project='speech-reconstruction-baseline' passed to wandb.init when running a sweep`
 
-then your `wandb.init` call includes the `project` argument. That's invalid, because sweep and the runs have to be in the same project. The project is set during sweep creation, e.g. by`wandb.sweep(sweep_config, project="cat-detector")`
+then your `wandb.init` call includes the `project` argument. That's invalid because sweep and the runs have to be in the same project. The project is set during sweep creation, e.g. by`wandb.sweep(sweep_config, project="cat-detector")`
 
 ## Why are my agents stopping after the first run finishes?
 
@@ -118,7 +118,7 @@ If the error message is a `400` code from the W\&B `anaconda` API, like this one
 
 `wandb: ERROR Error while calling W&B API: anaconda 400 error: {"code": 400, "message": "TypeError: bad operand type for unary -: 'NoneType'"}`
 
-then the most likely reason is that the `metric` you are optimizing in your configuration YAML file is not a metric that you are logging. For example, you could be optimizing the metric `f1`, but logging `validation_f1`. Double check that you're logging the _exact_ metric name that you've asked the sweep to optimize.
+then the most likely reason is that the `metric` you are optimizing in your configuration YAML file is not a metric that you are logging. For example, you could be optimizing the metric `f1`, but logging `validation_f1`. Double-check that you're logging the _exact_ metric name that you've asked the sweep to optimize.
 
 ## How should I run sweeps on SLURM?
 
@@ -130,7 +130,7 @@ Yes! If you exhaust a grid search but want to rerun some of the runs (for exampl
 
 ## What do I do if I get the error message `CommError, Run does not exist`?
 
-If you're seeing that error message, plus `ERROR Error uploading`, you might be setting an ID for your run, e.g. `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, the error above will be thrown. In the sweeps context, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
+If you're seeing that error message, plus `ERROR Error uploading`, you might be setting an ID for your run, e.g. `wandb.init(id="some-string")` . This ID needs to be unique in the project, and if it's not unique, the error above will be thrown. In the context of sweeps, you can't set a manual ID for your runs because we're automatically generating random, unique IDs for the runs.
 
 If you're trying to get a nice name to show up in the table and on the graphs, we recommend using `name` instead of `id.` For example:
 
@@ -218,15 +218,21 @@ We use scikit-learn's [Matern kernel](https://scikit-learn.org/stable/modules/ge
 
 If you stop the sweep instead of pausing it, then the agents will exit -- their work is done. If the sweep is merely paused, the agents will stay running in case the sweep is resumed.
 
-## Is there a way to add a extra values to a sweep, or do I need to start a new one?
+## Is there a way to add extra values to a sweep, or do I need to start a new one?
 
-Once a sweep has started you cannot change the sweep configuration. But you can go to any table view, and use the checkboxes to select runs, then use the "create sweep" menu option to a create a new sweep configuration using prior runs.
+Once a sweep has started you cannot change the sweep configuration. But you can go to any table view, and use the checkboxes to select runs, then use the "create sweep" menu option to create a new sweep configuration using prior runs.
+
+## Can we flag boolean variables as hyperparameters?
+
+Currently, we do not have a good solution to pass parameters without arguments due to how sweeps define a mechanism to choose arguments for parameters. A way to get around this would be to use `wandb.config.MY_PARAM` to set the defaults for your parameter and use `argparse` to override them.&#x20;
+
+After you call `wandb.init()`, we will then populate a `config` object with the parameters chosen by the sweep. You can get these parameters as a dictionary with `dict(wandb.config.user_items())`
 
 ## How to use sweeps with cloud infrastructures such as AWS Batch, ECS, etc.?
 
 In general, you would need a way to publish `sweep_id` to a place that any potential agent can read and a way for these agents to consume this `sweep_id` and start running.
 
-In other words, you would need something that can invoke `wandb agent`. For instance, bring up an EC2 instance and then call `wandb agent` on it. In this case, you might use a SQS queue to broadcast `sweep_id` to a few EC2 instances and then have them consume the `sweep_id` from the queue and start running.
+In other words, you would need something that can invoke `wandb agent`. For instance, bring up an EC2 instance and then call `wandb agent` on it. In this case, you might use an SQS queue to broadcast `sweep_id` to a few EC2 instances and then have them consume the `sweep_id` from the queue and start running.
 
 ## How can I change the directory my sweep logs to locally?
 
@@ -241,8 +247,8 @@ os.environ["WANDB_DIR"] = os.path.abspath("your/directory")
 You can launch sweep agents on multiple GPUs.
 
 * First specify the hyperparameters you’re sweeping over in a YAML file, as detailed further in the [sweep docs](https://docs.wandb.com/sweeps).
-* Get the sweep id by running the wandb sweep command and passing the yaml file as an argument
-*   Run the wandb agent with the sweep id you just got. You will also need the to specify the GPU like this:
+* Get the sweep id by running the wandb sweep command and passing the YAML file as an argument
+*   Run the wandb agent with the sweep id you just got. You will also need to specify the GPU like this:
 
     ```
      CUDA_VISIBLE_DEVICES=0 wandb agent sweep_id
