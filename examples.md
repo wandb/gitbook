@@ -312,10 +312,89 @@ for (audio_arr, spec, label) in my_data:
 * Save and version your models and datasets with [W\&B Artifacts](https://docs.wandb.ai/guides/artifacts)
 {% endtab %}
 
-{% tab title="Untitled" %}
+{% tab title="Interactive Charts 📊" %}
+### Interactive Charts ❤️ W\&B&#x20;
 
+Weights & Biases supports logging interactive charts from Plotly and Bokeh as HTML and adding them to Tables.
+
+
+
+#### Log Plotly figures to Tables as HTML
+
+You can log interactive Plotly charts to wandb Tables by converting them to HTML and then adding.
+
+```python
+import wandb
+import plotly.express as px
+
+# Initialize a new run
+run = wandb.init(project="log-plotly-fig-tables", name="plotly_html")
+
+# Create a table
+table = wandb.Table(columns = ["plotly_figure"])
+
+# Create path for Plotly figure
+path_to_plotly_html = "./plotly_figure.html"
+
+# Example Plotly figure
+fig = px.scatter(x = [0, 1, 2, 3, 4], y = [0, 1, 4, 9, 16])
+
+# Write Plotly figure to HTML
+fig.write_html(path_to_plotly_html, auto_play = False) # Setting auto_play to False prevents animated Plotly charts from playing in the table automatically
+
+# Add Plotly figure as HTML file into Table
+table.add_data(wandb.Html(path_to_plotly_html))
+
+# Log Table
+run.log({"test_table": table})
+wandb.finish()
+```
+
+
+
+#### Log Bokeh figures  to Tables as HTML
+
+You can log interactive Bokeh charts to wandb Tables by converting them to HTML and then adding them.
+
+```python
+from scipy.signal import spectrogram
+import holoviews as hv 
+import panel as pn
+from scipy.io import wavfile
+import numpy as np
+from bokeh.resources import INLINE
+hv.extension("bokeh", logo=False)
+import wandb
+
+def save_audio_with_bokeh_plot_to_html(audio_path, html_file_name):
+    sr, wav_data = wavfile.read(audio_path)
+    duration = len(wav_data)/sr
+    f, t, sxx = spectrogram(wav_data, sr)
+    spec_gram = hv.Image((t, f, np.log10(sxx)), ["Time (s)", "Frequency (hz)"]).opts(width=500, height=150, labelled=[])
+    audio = pn.pane.Audio(wav_data, sample_rate=sr, name='Audio', throttle=500)
+    slider = pn.widgets.FloatSlider(end=duration, visible=False)
+    line = hv.VLine(0).opts(color='white')
+    slider.jslink(audio, value='time', bidirectional=True)
+    slider.jslink(line, value='glyph.location')
+    combined = pn.Row(audio, spec_gram * line,  slider).save(html_file_name)
+
+
+html_file_name = 'audio_with_plot.html'
+audio_path = 'hello.wav'
+save_audio_with_bokeh_plot_to_html(audio_path, html_file_name)
+
+wandb_html = wandb.Html(html_file_name)
+run = wandb.init(project='audio_test')
+my_table = wandb.Table(columns=['audio_with_plot'], data=[[wandb_html], [wandb_html]])
+run.log({"audio_table": my_table})
+run.finish()
+```
 {% endtab %}
 {% endtabs %}
+
+
+
+
 
 ## Examples by ML Library
 
