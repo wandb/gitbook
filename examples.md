@@ -271,7 +271,7 @@ wandb.log({'loss': loss, ...})
 
 
 
-#### Log a audio files or arrays
+#### Log audio files or arrays
 
 You can log audio files and data arrays with [wandb.Audio()](https://docs.wandb.ai/ref/python/data-types/audio)
 
@@ -310,6 +310,10 @@ for (audio_arr, spec, label) in my_data:
 * See this [whale song Report](https://wandb.ai/stacey/cshanty/reports/Tables-Tutorial-Recreating-Whale-Melodies-on-Orchestral-Instruments--Vmlldzo4NDI3NzM) for more inspiration on how to log audio with W\&B.
 * Try HyperParameter Optimization with [W\&B Sweeps](https://docs.wandb.ai/guides/sweeps)
 * Save and version your models and datasets with [W\&B Artifacts](https://docs.wandb.ai/guides/artifacts)
+{% endtab %}
+
+{% tab title="Untitled" %}
+
 {% endtab %}
 {% endtabs %}
 
