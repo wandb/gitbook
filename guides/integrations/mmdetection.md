@@ -1,10 +1,10 @@
 # MMDetection
 
-[MMDetection](https://github.com/open-mmlab/mmdetection/) is a&#x20;
-
-
+[MMDetection](https://github.com/open-mmlab/mmdetection/) is an open source object detection toolbox based on PyTorch and is part of the [OpenMMLab](https://openmmlab.com) project.
 
 ## Getting Started
+
+You can get started with Weights and Biases by adding the following hook to your  MMDetection code
 
 ```python
 import wandb
@@ -26,9 +26,5 @@ log_config = dict(
 ```
 
 ## Example
-
-
-
-ddd
 
 Any questions or issues about this Weights & Biases integration? Open an issue in the [MMDetection github repository](https://github.com/open-mmlab/mmdetection) and we'll catch it and get you an answer :)

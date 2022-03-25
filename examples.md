@@ -392,10 +392,6 @@ run.finish()
 {% endtab %}
 {% endtabs %}
 
-
-
-
-
 ## Examples by ML Library
 
 Weights & Biases works natively with PyTorch, Tensorflow and Jax and also has logging integrations in all of the popular open source machine learning libraries, including the ones below as well as SpaCy, XGBoost, LightGBM, SciKit-Learn, YOLOv5, Fastai and more.&#x20;
@@ -558,7 +554,7 @@ See [LIDAR point cloud visualizations](https://wandb.ai/stacey/lyft/reports/LIDA
 {% tab title="Credit Scorecards" %}
 Track experiments, generate credit scorecard for loan defaults and run a hyperparameter sweep to find the best hyperparameters. [Click here](https://wandb.ai/morgan/credit\_scorecard) to view and interact with a live W\&B Dashboard built with [this](http://wandb.me/xgboost) notebook.
 
-![](<.gitbook/assets/image (179).png>)
+![](<.gitbook/assets/image (179) (1).png>)
 {% endtab %}
 {% endtabs %}
 
