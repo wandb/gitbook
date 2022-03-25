@@ -46,6 +46,7 @@
       * [Kubeflow Pipelines (kfp)](guides/integrations/other/kubeflow-pipelines-kfp.md)
       * [Metaflow](guides/integrations/other/metaflow.md)
       * [MMF](guides/integrations/other/mmf.md)
+      * [MosaicML Composer](guides/integrations/other/lightning.md)
       * [OpenAI API](guides/integrations/other/openai.md)
       * [OpenAI Gym](guides/integrations/other/openai-gym.md)
       * [Prodigy](guides/integrations/other/prodigy.md)
