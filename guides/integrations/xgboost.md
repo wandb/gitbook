@@ -1,15 +1,31 @@
+---
+description: Track your trees with W&B.
+---
+
 # XGBoost
 
-Use our callback to compare results between different versions of your XGBoost model.
+The `wandb` library includes a special callback for [XGBoost](https://xgboost.readthedocs.io/en/latest/index.html). It's also easy to use the generic logging features of Weights & Biases to track large experiments, like hyperparameter sweeps.
 
 ```python
-bst = xgb.train(param, xg_train, num_round, watchlist,
-                callbacks=[wandb.xgboost.wandb_callback()])
+from wandb.xgboost import wandb_callback
+import xgboost as xgb
+
+...
+
+bst = xgb.train(param, train_data, num_round, watchlist,
+                callbacks=[wandb_callback()])
 ```
 
-![](../../.gitbook/assets/image%20%2812%29.png)
+{% hint style="info" %}
+Looking for working code examples? Check out [our repository of examples on GitHub](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms) or try out a [Colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/boosting/Credit\_Scorecards\_with\_XGBoost\_and\_W%26B.ipynb).
+{% endhint %}
 
-## Example
+## Tuning your hyperparameters with Sweeps
 
-* [Example on Github](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms/xgboost-dermatology): Multi-class dermatology classification example
+Attaining the maximum performance out of models requires tuning hyperparameters, like tree depth and learning rate. Weights & Biases includes [Sweeps](../sweeps/), a powerful toolkit for configuring, orchestrating, and analyzing large hyperparameter testing experiments.
 
+{% hint style="info" %}
+To learn more about these tools and see an example of how to use Sweeps with XGBoost, check out [this interactive Colab notebook.](http://wandb.me/xgb-sweeps-colab)
+{% endhint %}
+
+![tl;dr: trees outperform linear learners on this classification dataset.](<../../.gitbook/assets/image (112).png>)

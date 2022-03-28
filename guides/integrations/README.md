@@ -31,7 +31,8 @@ Weights & Biases integrations make it fast and easy to set up experiment trackin
 * [YOLOv5](yolov5.md)
 * [Simple Transformers](other/simpletransformers.md)
 * [Catalyst](other/catalyst.md)
-* [XGBoost & LightGBM](boosting.md)
+* [XGBoost](xgboost.md)
+* [LightGBM](lightgbm.md)
 {% endtab %}
 
 {% tab title="Popular Tools" %}
