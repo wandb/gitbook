@@ -3,7 +3,7 @@
 <!-- Insert buttons and diff -->
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.11/wandb/__init__.py)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/__init__.py)
 
 
 
@@ -31,6 +31,8 @@ For reference documentation, see https://docs.wandb.com/ref/python.
 
 [`agent(...)`](./agent.md): Generic agent entrypoint, used for CLI or jupyter.
 
+[`config(...)`](./config.md): Config object
+
 [`controller(...)`](./controller.md): Public sweep controller constructor.
 
 [`finish(...)`](./finish.md): Marks a run as finished, and finishes uploading all data.
@@ -41,6 +43,8 @@ For reference documentation, see https://docs.wandb.com/ref/python.
 
 [`save(...)`](./save.md): Ensure all files matching `glob_str` are synced to wandb with the policy specified.
 
+[`summary(...)`](./summary.md): Tracks single values for each metric for each run.
+
 [`sweep(...)`](./sweep.md): Initialize a hyperparameter sweep.
 
 [`watch(...)`](./watch.md): Hooks into the torch model to collect gradients and the topology.
@@ -49,7 +53,5 @@ For reference documentation, see https://docs.wandb.com/ref/python.
 
 | Other Members |  |
 | :--- | :--- |
-|  `__version__`<a id="__version__"></a> |  `'0.12.11'` |
-|  `config`<a id="config"></a> |   |
-|  `summary`<a id="summary"></a> |   |
+|  `__version__`<a id="__version__"></a> |  `'0.12.10'` |
 

@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.11/wandb/sdk/wandb_run.py#L1237-L1422)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_run.py#L1125-L1351)
 
 
 
@@ -11,9 +11,9 @@ Logs a dictonary of data to the current run's history.
 ```python
 log(
     data: Dict[str, Any],
-    step: Optional[int] = None,
-    commit: Optional[bool] = None,
-    sync: Optional[bool] = None
+    step: int = None,
+    commit: bool = None,
+    sync: bool = None
 ) -> None
 ```
 

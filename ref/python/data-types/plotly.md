@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.11/wandb/sdk/data_types.py#L2568-L2618)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L2523-L2573)
 
 
 
@@ -28,7 +28,7 @@ Plotly(
 
 <h3 id="make_plot_media"><code>make_plot_media</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/sdk/data_types.py#L2578-L2586)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L2533-L2541)
 
 ```python
 @classmethod

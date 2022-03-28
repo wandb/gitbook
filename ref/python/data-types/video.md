@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/v0.12.11/wandb/sdk/data_types.py#L1184-L1373)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1154-L1343)
 
 
 
@@ -49,7 +49,7 @@ wandb.log({"video": wandb.Video(frames, fps=4)})
 
 <h3 id="encode"><code>encode</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/v0.12.11/wandb/sdk/data_types.py#L1264-L1301)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1234-L1271)
 
 ```python
 encode() -> None
