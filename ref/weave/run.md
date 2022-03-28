@@ -58,26 +58,26 @@ The job type of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-loggedArtifactVersion"><code>run-loggedArtifactVersion</code></h3>
 
-Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
+Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
-| `artifactVersionName` | The name:alias of the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) |
+| `artifactVersionName` | The name:alias of the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifact-version) |
 
 #### Return Value
-The [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
+The [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
 
 <h3 id="run-loggedArtifactVersions"><code>run-loggedArtifactVersions</code></h3>
 
-Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
+The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-name"><code>run-name</code></h3>
 
@@ -114,14 +114,14 @@ The summary _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-usedArtifactVersions"><code>run-usedArtifactVersions</code></h3>
 
-Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifact-version) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
+The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifact-version) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-user"><code>run-user</code></h3>
 
@@ -193,26 +193,26 @@ The job type of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-loggedArtifactVersion"><code>run-loggedArtifactVersion</code></h3>
 
-Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
+Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
-| `artifactVersionName` | The name:alias of the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) |
+| `artifactVersionName` | The name:alias of the [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifact-version) |
 
 #### Return Value
-The [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
+The [artifactVersion](https://docs.wandb.ai/ref/weave/types/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/types/run) for a given name and alias
 
 <h3 id="run-loggedArtifactVersions"><code>run-loggedArtifactVersions</code></h3>
 
-Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
+The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-name"><code>run-name</code></h3>
 
@@ -249,14 +249,14 @@ The summary _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-usedArtifactVersions"><code>run-usedArtifactVersions</code></h3>
 
-Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
+Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifact-version) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 | Argument |  | 
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/types/run) |
 
 #### Return Value
-The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifactVersion) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
+The [artifactVersions](https://docs.wandb.ai/ref/weave/types/artifact-version) used by the [run](https://docs.wandb.ai/ref/weave/types/run)
 
 <h3 id="run-user"><code>run-user</code></h3>
 
