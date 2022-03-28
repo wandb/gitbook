@@ -2,12 +2,10 @@
 description: Track your trees with W&B.
 ---
 
-# XGBoost & LightGBM
+# XGBoost
 
-The `wandb` library includes special callbacks for both of the most popular libraries for training gradient-boosted machines: [XGBoost ](https://xgboost.readthedocs.io/en/latest/index.html)and [LightGBM](https://lightgbm.readthedocs.io/en/latest/). It's also easy to use the generic logging features of Weights & Biases to track large experiments, like hyperparameter sweeps.
+The `wandb` library includes a special callback for [XGBoost](https://xgboost.readthedocs.io/en/latest/index.html). It's also easy to use the generic logging features of Weights & Biases to track large experiments, like hyperparameter sweeps.
 
-{% tabs %}
-{% tab title="XGBoost" %}
 ```python
 from wandb.xgboost import wandb_callback
 import xgboost as xgb
@@ -17,24 +15,9 @@ import xgboost as xgb
 bst = xgb.train(param, train_data, num_round, watchlist,
                 callbacks=[wandb_callback()])
 ```
-{% endtab %}
-
-{% tab title="LightGBM" %}
-```python
-from wandb.lightgbm import wandb_callback, log_summary
-import lightgbm as lgb
-
-# Log metrics to W&B
-gbm = lgb.train(..., callbacks=[wandb_callback()])
-
-# Log feature importance plot and upload model checkpoint to W&B 
-log_summary(gbm, save_model_checkpoint=True)
-```
-{% endtab %}
-{% endtabs %}
 
 {% hint style="info" %}
-Looking for working code examples? Check out [our repository of examples on GitHub](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms) or try out a Colab notebook ([XGBoost](http://wandb.me/xgb-colab), [LightGBM](http://wandb.me/lightgbm-colab)).
+Looking for working code examples? Check out [our repository of examples on GitHub](https://github.com/wandb/examples/tree/master/examples/boosting-algorithms) or try out a [Colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/boosting/Credit\_Scorecards\_with\_XGBoost\_and\_W%26B.ipynb).
 {% endhint %}
 
 ## Tuning your hyperparameters with Sweeps
