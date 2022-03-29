@@ -49,4 +49,16 @@ Weights & Biases does not use Java or log4j in the code or secondary software us
 
 At this time, we have not detected any successful Log4Shell exploit attempts on any internal systems. We continue to monitor our environment and evaluate any further risk to our systems and infrastructure.
 
-If you have any questions or concerns, please contact the Weights & Biases’ security team at [security@wandb.com](mailto:security@wandb.com).
+If you have any questions or concerns, please contact the Weights & Biases’ security team at [security@wandb.com](mailto:security@wandb.com).\
+
+
+## Our IP Addresses and Port Ranges
+
+In order to successfully communicate with the W\&B Server, you would need to whitelist certain IP addresses and services:
+
+* Our Load Balancer - `api.wandb.ai` (`35.186.228.49`)
+* Google's Storage API - `storage.googleapis.com`
+
+Since Google's Storage API is not a static IP address, you would also need to enable DNS to resolve its address.\
+\
+Our processes communicate over HTTPS, so for applications to function, you must allow TCP port 443.

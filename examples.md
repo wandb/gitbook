@@ -236,7 +236,7 @@ table = wandb.Table(my_df)
 wandb.log({'dataframe_in_table': table})
 ```
 
-![](<.gitbook/assets/wandb - iris table.png>)
+![](<.gitbook/assets/wandb - iris table (1).png>)
 
 #### Integrations
 
@@ -296,7 +296,7 @@ for (audio_arr, spec, label) in my_data:
  wandb.log({"validation_samples" : my_table})
 ```
 
-![](<.gitbook/assets/audio (1).png>)
+![](.gitbook/assets/audio.png)
 
 #### Integrations
 
