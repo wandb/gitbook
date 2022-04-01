@@ -39,7 +39,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](../../../.gitbook/assets/wandb-run-page-workspace-tab.png)
+![](<../../../.gitbook/assets/wandb run page workspace tab.png>)
 
 ## System Tab
 

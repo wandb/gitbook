@@ -82,6 +82,14 @@ Invite colleagues to join the team, and select from these options:
 * **Admin**: A team member who can add and remove other admins and members
 * **Service**: A service worker, an API key useful for using W\&B with your run automation tools. If you use the API key from a service account for your team, make sure to set the environment variable **WANDB\_USERNAME** to attribute runs to the correct user.
 
+### Change the account settings for an organization
+
+If you're a paid user, then you can go to your 'Subscriptions' page and click on the three dots next to the 'Account' next to your organization name. You'll be then able to edit the billing info for your organization, add seats to your org or contact sales to upgrade your plan.
+
+Similarly, if your organization is still on trial then you can go to your 'Subscriptions' page and click on the three dots next to the 'Account' to update your account settings. Then, you'll be able to add seats to your org, contact sales to upgrade your plan, etc.
+
+![Update Account Settings of an Org](../../../.gitbook/assets/edit\_account.gif)
+
 ### **Change the billing user of an organization**
 
 Change the billing user of your organization by clicking on the "Manage members" button on your [subscription page](https://wandb.ai/subscriptions).
