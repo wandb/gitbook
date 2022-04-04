@@ -119,20 +119,23 @@ parameter_name:
 
 Specify how values will be distributed, if they are selected randomly, e.g. with the `random` or `bayes` methods.
 
-| Value             | Description                                                                                                                                                                              |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `constant`        | Constant distribution. Must specify `value`.                                                                                                                                             |
-| `categorical`     | Categorical distribution. Must specify `values`.                                                                                                                                         |
-| `int_uniform`     | Discrete uniform distribution on integers. Must specify `max` and `min` as integers.                                                                                                     |
-| `uniform`         | Continuous uniform distribution. Must specify `max` and `min` as floats.                                                                                                                 |
-| `q_uniform`       | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`.                                                                                      |
-| `log_uniform`     | Log-uniform distribution. Returns a value between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`.                             |
-| `q_log_uniform`   | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`.                                                                                       |
-| `inv_log_uniform` | Inverse log uniform distribution. Returns `X`, where  `log(1/X)` is uniformly distributed between `min` and `max`.                                                                       |
-| `normal`          | Normal distribution. Return value is normally-distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`).                                                     |
-| `q_normal`        | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1.                                                                                        |
-| `log_normal`      | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`). |
-| `q_log_normal`    | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`.                                                                            |
+| Value                    | Description                                                                                                                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `constant`               | Constant distribution. Must specify `value`.                                                                                                                                             |
+| `categorical`            | Categorical distribution. Must specify `values`.                                                                                                                                         |
+| `int_uniform`            | Discrete uniform distribution on integers. Must specify `max` and `min` as integers.                                                                                                     |
+| `uniform`                | Continuous uniform distribution. Must specify `max` and `min` as floats.                                                                                                                 |
+| `q_uniform`              | Quantized uniform distribution. Returns `round(X / q) * q` where X is uniform. `q` defaults to `1`.                                                                                      |
+| `log_uniform`            | Log-uniform distribution. Returns a value `X` between `exp(min)` and `exp(max)`such that the natural logarithm is uniformly distributed between `min` and `max`.                         |
+| `log_uniform_values`     | Log-uniform distribution. Returns a value `X` between `min` and `max` such that `log(`X`)` is uniformly distributed between `log(min)` and `log(max)`.                                   |
+| `q_log_uniform`          | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform`. `q` defaults to `1`.                                                                                       |
+| `q_log_uniform_values`   | Quantized log uniform. Returns `round(X / q) * q` where `X` is `log_uniform_values`. `q` defaults to `1`.                                                                                |
+| `inv_log_uniform`        | Inverse log uniform distribution. Returns `X`, where  `log(1/X)` is uniformly distributed between `min` and `max`.                                                                       |
+| `inv_log_uniform_values` | Inverse log uniform distribution. Returns `X`, where  `log(1/X)` is uniformly distributed between `log(1/max)` and `log(1/min)`.                                                         |
+| `normal`                 | Normal distribution. Return value is normally-distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`).                                                     |
+| `q_normal`               | Quantized normal distribution. Returns `round(X / q) * q` where `X` is `normal`. Q defaults to 1.                                                                                        |
+| `log_normal`             | Log normal distribution. Returns a value `X` such that the natural logarithm `log(X)` is normally distributed with mean `mu` (default `0`) and standard deviation `sigma` (default `1`). |
+| `q_log_normal`           | Quantized log normal distribution. Returns `round(X / q) * q` where `X` is `log_normal`. `q` defaults to `1`.                                                                            |
 
 #### **Examples**
 
