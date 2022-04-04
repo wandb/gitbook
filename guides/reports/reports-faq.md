@@ -20,7 +20,7 @@ LaTeX can be added into reports easily. In order to do so, create a new report, 
 
 On a new line, press `/` and scroll to the inline equations tab to add rich content in LaTeX.
 
-![](<../../.gitbook/assets/Screen (1) (1).mov>)
+![](<../../.gitbook/assets/Screen (1) (2).mov>)
 
 ### List of markdown shortcuts
 

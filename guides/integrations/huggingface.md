@@ -140,7 +140,7 @@ wandb.finish()
 
 Once you have logged your training results you can explore your results dynamically in the[ W\&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations.
 
-![](<../../.gitbook/assets/hf-gif-15 (2) (2) (3) (3) (3) (1) (1) (1) (1) (1) (3) (6).gif>)
+![](<../../.gitbook/assets/hf-gif-15 (2) (2) (3) (3) (3) (1) (1) (1) (1) (1) (3) (1) (5).gif>)
 
 ## Advanced features
 

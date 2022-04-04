@@ -104,7 +104,7 @@ img = wandb.Image(image, boxes={
 wandb.log({"driving_scene": img})
 ```
 
-![Interactive bounding box viewing. ](https://2807047907-files.gitbook.io/\~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-Lqya5RvLedGEWPhtkjU%2F-M61xdWuQbgg6aVeX07a%2F-M624tPYtZkMLfl436U2%2Fbb-docs.jpeg?alt=media\&token=652a1d57-9bc5-412d-8a52-4a743748256a)
+![Interactive bounding box viewing. ](.gitbook/assets/bb-docs.jpeg)
 
 Read more: [Log Media & Objects](guides/track/log/media.md)
 
@@ -236,7 +236,7 @@ table = wandb.Table(my_df)
 wandb.log({'dataframe_in_table': table})
 ```
 
-![](<.gitbook/assets/wandb - iris table.png>)
+![](<.gitbook/assets/wandb - iris table (1).png>)
 
 #### Integrations
 
@@ -296,7 +296,7 @@ for (audio_arr, spec, label) in my_data:
  wandb.log({"validation_samples" : my_table})
 ```
 
-![](<.gitbook/assets/audio (1).png>)
+![](.gitbook/assets/audio.png)
 
 #### Integrations
 
