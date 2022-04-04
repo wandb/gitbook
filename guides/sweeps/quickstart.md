@@ -165,6 +165,10 @@ If you specify a metric to optimize, make sure you're logging it. In this exampl
 `wandb.log({"validation_loss": val_loss})`
 {% endhint %}
 
+{% hint style="info" %}
+If you want to optimize multiple metrics, consider using a [weighted optimization metric](faq.md#optimizing-multiple-metrics).
+{% endhint %}
+
 This example configuration will use a Bayesian search method to choose sets of hyperparameter values to pass as command line arguments to the `train.py` script on each step. The hyperparameters are also accessible via `wandb.config` after `wandb.init` is called.
 
 {% hint style="info" %}
@@ -197,7 +201,7 @@ Open your project to see your live results in the sweep dashboard. With just a f
 
 [Example dashboard →](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3)
 
-![](<../../.gitbook/assets/image (88) (2) (3) (3) (3) (3) (3) (1) (3) (6).png>)
+![](<../../.gitbook/assets/image (88) (2) (3) (3) (3) (3) (3) (1) (3) (1) (1) (5).png>)
 
 ## 6. Stop the agent
 
