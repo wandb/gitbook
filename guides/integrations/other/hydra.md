@@ -83,4 +83,4 @@ Hydra supports passing extra parameters through the command line which aren't pr
 $ python program.py +experiment=some_experiment
 ```
 
-You cannot sweep over such `+` configurations similar to what one does while configuring [Hydra Experiments](https://hydra.cc/docs/patterns/configuring\_experiments/). To work around this, you can initialize the experiment parameter with a default empty file and use W\&B Sweep to override those empty configs on each call. For more information, read [this W\&B Report](http://wandb.me/hydra).
+You cannot sweep over such `+` configurations similar to what one does while configuring [Hydra Experiments](https://hydra.cc/docs/patterns/configuring\_experiments/). To work around this, you can initialize the experiment parameter with a default empty file and use W\&B Sweep to override those empty configs on each call. For more information, read [**this W\&B Report**](http://wandb.me/hydra)**.**
