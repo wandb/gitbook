@@ -71,15 +71,16 @@ metric:
 
 Describe the hyperparameters to explore during the sweep. For each hyperparameter, specify the name and the possible values as a list of constants (for any `method`) or specify a `distribution` (for `random` or `bayes` ).
 
-| Values         | Description                                                                                                                                                                                                                                                                          |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `values`       | Specifies all valid values for this hyperparameter. Compatible with `grid`.                                                                                                                                                                                                          |
-| `value`        | Specifies the single valid value for this hyperparameter. Compatible with `grid`.                                                                                                                                                                                                    |
-| `distribution` | (`str`) Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set. |
-| `min`, `max`   | (`int`or `float`) Maximum and minimum values. If `int`, for `int_uniform` -distributed hyperparameters. If `float`, for `uniform` -distributed hyperparameters.                                                                                                                      |
-| `mu`           | (`float`) Mean parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                                 |
-| `sigma`        | (`float`) Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                   |
-| `q`            | (`float`) Quantization step size for quantized hyperparameters.                                                                                                                                                                                                                      |
+| Values          | Description                                                                                                                                                                                                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `values`        | Specifies all valid values for this hyperparameter. Compatible with `grid`.                                                                                                                                                                                                          |
+| `value`         | Specifies the single valid value for this hyperparameter. Compatible with `grid`.                                                                                                                                                                                                    |
+| `distribution`  | (`str`) Selects a distribution from the distribution table below. If not specified, will default to `categorical` if `values` is set, to `int_uniform` if `max` and `min` are set to integers, to `uniform` if `max` and `min` are set to floats, or to`constant` if `value` is set. |
+| `probabilities` | Specify the probability of selecting each element of `values` when using `random`.                                                                                                                                                                                                   |
+| `min`, `max`    | (`int`or `float`) Maximum and minimum values. If `int`, for `int_uniform` -distributed hyperparameters. If `float`, for `uniform` -distributed hyperparameters.                                                                                                                      |
+| `mu`            | (`float`) Mean parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                                 |
+| `sigma`         | (`float`) Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                   |
+| `q`             | (`float`) Quantization step size for quantized hyperparameters.                                                                                                                                                                                                                      |
 
 #### **Examples**
 
@@ -102,6 +103,14 @@ parameter_name:
   - 3
   - 0
   - 9
+```
+{% endtab %}
+
+{% tab title="random - custom probabilities" %}
+```yaml
+parameter_name:
+    values: [1, 2, 3, 4, 5]
+    probabilities: [0.1, 0.2, 0.1, 0.25, 0.35]
 ```
 {% endtab %}
 
