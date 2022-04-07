@@ -96,22 +96,12 @@ However, this would likely cause performance issues, such as slower queries, in 
 
 ### Access tables programmatically
 
-Pull logged tables from the W\&B API in two ways:
+In the backend, Tables are persisted as Artifacts. If you are interested in accessing a specific version, you can do so via the artifact API:
 
-1.  **Run Summary**: Access the last table a run logged under a given key.
-
-    ```
-    # First fetch the Run using the public API:
-    run = wandb.Api().run("USER/PROJECT/RUN_ID")
-    # Next, retrieve the summary entry
-    my_table = run.summary["table_name"]
-    ```
-2.  **Artifact Access**: In the backend, Run Tables are persisted as Artifacts. If you are interested in accessing a specific version, you can do so via the artifact API:
-
-    ```
-    with wandb.init() as run:
-       my_table = run.use_artifact("run-RUN_ID-table_name:v3").get("table_name")
-    ```
+```python
+with wandb.init() as run:
+   my_table = run.use_artifact("run-<run-id>-<table-name>:<tag>").get("<table-name>")
+```
 
 ## Visualize tables
 
