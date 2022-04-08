@@ -62,8 +62,13 @@ Your **default entity** is updated when you join a team. This means that on your
 
 ### Invite team members
 
-You can invite new members to your team on your team settings page:\
-app.wandb.ai/teams/\<your-team-name>
+You can invite new members to your team by going to your team page at https://wandb.ai/teams/\<team\_name_>_. In order for a user to be added to a team, they have to already [created a wandb account](https://app.wandb.ai/login?signup=true).
+
+![](../../../.gitbook/assets/ezgif-3-b665ff2fa9.gif)
+
+{% hint style="info" %}
+&#x20;If you have an Enterprise account, please contact your Account Executive to invite new members to your team.&#x20;
+{% endhint %}
 
 ### See privacy settings
 
