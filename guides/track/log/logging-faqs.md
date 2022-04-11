@@ -48,10 +48,10 @@ wandb.log({"losses": wandb.Histogram(losses)})  # converts losses to a histogram
 
 ### How do I plot multiple lines on a plot with a legend?
 
-Multi-line custom chart can be created by using `wandb.plot.lineseries()`. You'll need to navigate to the [project page](https://docs.wandb.ai/ref/app/pages/project-page) to see the line chart. To add a legend to the plot, pass the keys argument within `wandb.plot.lineseries()`. For example:
+Multi-line custom chart can be created by using `wandb.plot.line_series()`. You'll need to navigate to the [project page](https://docs.wandb.ai/ref/app/pages/project-page) to see the line chart. To add a legend to the plot, pass the keys argument within `wandb.plot.line_series()`. For example:
 
 ```python
-wandb.log({"my_plot" : wandb.plot.lineseries(
+wandb.log({"my_plot" : wandb.plot.line_series(
                          xs = x_data, 
                          ys = y_data, 
                          keys = ["metric_A", "metric_B"])}] 
