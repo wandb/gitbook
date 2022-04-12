@@ -2,7 +2,7 @@
 
 ## Questions about Artifacts
 
-### What happens if I log a new version of same artifact with only minor changes? Does the storage used double?
+### What happens if I log a new version of the same artifact with only minor changes? Does the storage used double?
 
 No need to worry! When logging a new version of an artifact, W\&B only uploads the files that changed between the last version and the new version. For example, if your first version uploads 100 files and the second version adds 10 more files, the second artifact will only consume the space of the 10 new files.
 
@@ -14,6 +14,14 @@ By default, W\&B stores artifact files in a private Google Cloud Storage bucket 
 
 For sensitive files, we recommend a [private W\&B installation](../self-hosted/) or the use of [reference artifacts](references.md).
 
+#### Locally during Training
+
+* `wandb` logs are saved in `./wandb` by default. This can be changed by setting `dir` in `wandb.init` or by setting the `WANDB_DIR` environment variable
+* `wandb` artifacts (and possibly other things) are saved in `~/.cache/wandb` by default. This can be changed by setting the `WANDB_CACHE_DIR` environment variable
+* `wandb` configs are saved in `~/.config/wandb` by default. This can be changed by setting the `WANDB_CONFIG_DIR` environment variable
+
+**NOTE**: Depending on the machine on which `wandb` is initialized, these default folders may not be located on a writeable part of the file system, which triggers an error
+
 ### When are artifact files deleted?
 
 W\&B stores artifact files in a way that minimizes duplication across successive artifact versions, as described above.
@@ -22,15 +30,15 @@ When deleting artifact versions, W\&B checks which files are completely safe to 
 
 ### Who has access to my artifacts?
 
-Artifacts inherit the access of their parent project:
+Artifacts inherit the access to their parent project:
 
 * If the project is private, then only members of the project's team have access to its artifacts.
 * For public projects, all users have read access to artifacts but only members of the project's team can create or modify them.
-* For open projects, all uses have read and write access to artifacts.
+* For open projects, all users have read and write access to artifacts.
 
 ## Questions about Artifacts workflows
 
-This section describes workflows for managing, and editing Artifacts. Many of these workflows use [the W\&B API](../track/public-api-guide.md), the component of [our client library](../../ref/python/) which provides access to data stored with W\&B.
+This section describes workflows for managing and editing Artifacts. Many of these workflows use [the W\&B API](../track/public-api-guide.md), the component of [our client library](../../ref/python/) which provides access to data stored with W\&B.
 
 ### How do I programmatically update artifacts?
 

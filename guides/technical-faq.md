@@ -28,6 +28,8 @@ If you're training on an offline machine and want to upload your results to our 
 
 By using `wandb.init(mode="disabled")` or by setting `WANDB_MODE=disabled` you will make wandb act like a NOOP which is perfect for testing your code.
 
+**Note**: Setting `wandb.init(mode=“disabled”)` does not prevent `wandb` from saving artifacts to `WANDB_CACHE_DIR`
+
 ### Does your tool track or store training data?
 
 You can pass a SHA or other unique identifier to `wandb.config.update(...)` to associate a dataset with a training run. W\&B does not store any data unless `wandb.save` is called with the local file name.

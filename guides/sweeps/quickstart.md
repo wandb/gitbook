@@ -3,7 +3,7 @@
 Start from any machine learning model and get a parallel hyperparameter sweep running in minutes.
 
 {% hint style="info" %}
-Want to see a working example? Here's [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3).
+Want to see a working example? Here's an [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3).
 {% endhint %}
 
 ![Draw insights from large hyperparameter tuning experiments with interactive dashboards.](<../../.gitbook/assets/image (114).png>)
@@ -133,8 +133,10 @@ Set up a YAML file to specify the hyperparameters you wish to sweep over, along 
 
 Here are some resources on configuring sweeps:
 
-1. [Example YAML files](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion) : an example script and several different YAML files
+1. [Example YAML files](https://github.com/wandb/examples/tree/master/examples/keras/keras-cnn-fashion): an example script and several different YAML files
 2. [Configuration](configuration.md): full specs to set up your sweep config
+   * top-level configurations such as `entity` or `project` for your `wandb` account
+   * low-level configurations like command-line arguments for your sweeps program
 3. [Jupyter Notebook](python-api.md): set up your sweep config with a Python dictionary instead of a YAML file
 4. [Generate config from UI](existing-project.md): take an existing W\&B project and generate a config file
 5. [Feed in prior runs](https://docs.wandb.com/sweeps/existing-project#seed-a-new-sweep-with-existing-runs): take previous runs and add them to a new sweep
