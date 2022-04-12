@@ -79,7 +79,7 @@ Click on any Run in the Kubeflow Pipelines UI that has been logged with W\&B.
 * Inputs and outputs will be tracked in the `Input/Output` and `ML Metadata` tabs
 * You can also view the W\&B web app from the `Visualizations` tab.
 
-![Get a view of W\&B in the Kubeflow UI](<../../../.gitbook/assets/image (176).png>)
+![Get a view of W\&B in the Kubeflow UI](<../../../.gitbook/assets/image (176) (1).png>)
 
 ### Via the web app UI
 

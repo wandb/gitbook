@@ -142,7 +142,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (5).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -304,7 +304,7 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../.gitbook/assets/image (128) (1).png>)
+![](<../../.gitbook/assets/image (128) (1) (13).png>)
 
 Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 

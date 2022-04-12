@@ -417,6 +417,20 @@ sweep = api.sweep("<entity>/<project>/<sweep_id>")
 sweep_runs = sweep.runs
 ```
 
+### Get the best run from a sweep
+
+The following snippet gets the best run from a given sweep.
+
+```python
+import wandb
+api = wandb.Api()
+
+sweep = api.sweep("<entity>/<project>/<sweep_id>")
+best_run = sweep.best_run()
+```
+
+The `best_run` is the run with the best metric as defined by the `metric` parameter in the sweep config.
+
 ### Download the best model file from a sweep
 
 This snippet downloads the model file with the highest validation accuracy from a sweep with runs that saved model files to `model.h5`.
