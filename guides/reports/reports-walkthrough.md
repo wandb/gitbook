@@ -14,14 +14,13 @@ Click **Create report** in the upper right corner of your workspace. This gives 
 
 ![](<../../.gitbook/assets/image (90).png>)
 
-We provide a few quick templates to guide you or you can create a blank report and start there.‌
+Select the charts you would like to start with. You can always add or delete charts later from the report interface.
 
-![Quick templates](<../../.gitbook/assets/image (47) (1) (2) (2) (2) (2) (1) (2) (2) (2) (2) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/Screen Shot 2021-11-17 at 11.01.32 AM.png>)
 
-* **Snapshot** adds the current date/time to the title and adds a filter to the run set, which means only runs created before the current time are included in the snapshot.
-* **Dashboard** titles the report “Project Dashboard” and adds a filter to match exactly the current set of selected runs.
-* **Update** titles the report “\<today’s date> Project Update” and filters to the exact set of runs that were selected in the workspace.
-* **Blank** gives you the space to add a fresh panel grid and visualizations, or just write some notes to yourself.
+Selecting the **Filter run sets** option will prevent new runs from being added to your report. This also can be changed later.&#x20;
+
+Once you click **Create report,** a draft report will be available in the report tab to continue working on.&#x20;
 
 ### 2. From the report tab‌ <a href="#2.-from-the-report-page" id="2.-from-the-report-page"></a>
 
