@@ -42,9 +42,17 @@ If you have a good layout that you'd like to reuse, you can select a panel grid 
 
 As you can see in the gif below, you can highlight a whole panel grid section by clicking the drag handle in the upper right corner. You can also click and drag to highlight and select a region in a report, which can include panel grids, text, and headings.
 
-To delete a panel grid, simply select it and press `delete` on your keyboard.
-
 ![](<../../.gitbook/assets/demo - copy and paste a panel grid section.gif>)
+
+To delete a panel grid, simply select it and press `delete` on your keyboard or refer to the gif below.
+
+![](../../.gitbook/assets/delete\_panel\_grid.gif)
+
+### Collapse headers to organize Reports
+
+Collapsing headers on a Report make it so the viewer will only see and load the headers that are expanded. This makes your reports better organized and prevents excessive data loading. Below is a gif showing the process.
+
+![](../../.gitbook/assets/collapse\_headers.gif)
 
 ## Collaborate on reports
 
