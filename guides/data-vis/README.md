@@ -20,7 +20,7 @@ The fastest way to try Tables is to log a dataframe and see the Table UI.
 wandb.log({"table": my_dataframe})
 ```
 
-![](<../../.gitbook/assets/wandb - iris table.png>)
+![](<../../.gitbook/assets/wandb - iris table (1).png>)
 
 ### Rich media
 

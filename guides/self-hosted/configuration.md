@@ -36,7 +36,7 @@ By default, a W\&B Local Server runs with manual user management. Licensed versi
 
 _wandb/local_ uses Open ID Connect for authentication. When creating an application client in your IPD you should choose Web Application or Public Client. For example, if your using AWS Cognito as an identity provider you would choose Public Client:
 
-![Because we're only using OIDC for authentication and not authorization, public clients simplify setup](<../../.gitbook/assets/image (163).png>)
+![Because we're only using OIDC for authentication and not authorization, public clients simplify setup](<../../.gitbook/assets/image (163) (1).png>)
 
 To configure an application client in your identity provider you'll need to provide an allowed callback url:
 
@@ -45,7 +45,7 @@ To configure an application client in your identity provider you'll need to prov
 
 For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your application was running at `https://wandb.mycompany.com`:
 
-![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (162) (1).png>)
+![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../.gitbook/assets/image (162) (1) (1).png>)
 
 _wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
 
@@ -142,7 +142,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -215,7 +215,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (5).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
 
 Press "update settings" to apply the new settings.
 
@@ -257,7 +257,7 @@ Go to Queue service > Queues in your storage account, and create a new Queue:
 
 Go to Events in your storage account, and create an event subscription:
 
-![](<../../.gitbook/assets/image (108).png>)
+![](<../../.gitbook/assets/image (47).png>)
 
 Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
 
@@ -294,7 +294,7 @@ Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Crea
 
 You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
 
-![](<../../.gitbook/assets/image (124) (1).png>)
+![](<../../.gitbook/assets/image (124).png>)
 
 #### Configuring the Slack application
 
@@ -304,7 +304,7 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../.gitbook/assets/image (128) (1) (1).png>)
+![](<../../.gitbook/assets/image (128) (1).png>)
 
 Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
