@@ -4,10 +4,10 @@ Weave is wandb's data querying language, which you can use to select and aggrega
 
 ## Data Types
 
-* [artifact](./artifact.md)
 * [artifactType](./artifact-type.md)
-* [audio-file](./audio-file.md)
+* [artifact](./artifact.md)
 * [artifactVersion](./artifact-version.md)
+* [audio-file](./audio-file.md)
 * [bokeh-file](./bokeh-file.md)
 * [boolean](./boolean.md)
 * [entity](./entity.md)
@@ -18,8 +18,8 @@ Weave is wandb's data querying language, which you can use to select and aggrega
 * [molecule-file](./molecule-file.md)
 * [number](./number.md)
 * [object3D-file](./object-3-d-file.md)
-* [project](./project.md)
 * [partitioned-table](./partitioned-table.md)
+* [project](./project.md)
 * [pytorch-model-file](./pytorch-model-file.md)
 * [run](./run.md)
 * [string](./string.md)
