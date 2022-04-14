@@ -20,7 +20,7 @@ LaTeX can be added into reports easily. In order to do so, create a new report, 
 
 On a new line, press `/` and scroll to the inline equations tab to add rich content in LaTeX.
 
-![](<../../.gitbook/assets/Screen (1) (1) (1) (1) (1) (1) (2) (1).mov>)
+![](<../../.gitbook/assets/Screen (1) (1) (1) (1) (1) (1) (1) (1).mov>)
 
 ### List of markdown shortcuts
 
@@ -41,6 +41,12 @@ On a new line, press `/` and scroll to the inline equations tab to add rich cont
 | Horizontal rule   | `---`, `___`  |
 
 A comprehensive list of LaTeX can be found [here](https://en.wikibooks.org/wiki/LaTeX/Mathematics).
+
+### Embedding Reports
+
+You are able to share the report that you have created by embedding it. This is done simply by clicking Share on the top right of your report and copying the embedded code at the bottom of the pop-up window that appears.&#x20;
+
+![](../../.gitbook/assets/89B8F1BD-D8EE-49C3-86D7-028809FDEB2C.gif)
 
 ### **WYSIWYG FAQ**
 
