@@ -87,7 +87,7 @@ To create a new version of an Artifact by modifying a previous version, use Patc
 
 ### How do I log a Table in Collaborative Mode?
 
-For large datasets multiple parallel runs might need to contribute to a single Table. You can use the following pattern to construct such parallel artifacts. The key idea is that each worker puts their own Table in a directory in the artifact. Then, the final worker adds a `PartitionTable` to the artifact which points to the folder of "parts".
+For large datasets multiple runs might need to contribute to a single Table. These runs can be performed in parallel or sequentially. You can use the following pattern to construct such artifacts. The key idea is that each run worker puts their own Table in a directory in the artifact. Then, the final worker adds a `PartitionTable` to the artifact which points to the folder of "parts". The below example shows how to perform this in a parallel setting. To get the same behavior for non-parallel settings, the core functions need not change. Commented is the one line needed to be changed to sequentially construct this artifact.
 
 ```python
 import wandb
@@ -129,6 +129,8 @@ def train(i):
   
 # Launch your runs in parallel
 result_ids = [train.remote(i) for i in range(num_parallel)]
+# OR Launch your runs sequentially. Remember to remove the ray components if you do so
+# _ = [train(i) for i in range(num_parts)]
 
 # Join on all the writers to make sure their files have
 # been added before finishing the artifact. 
