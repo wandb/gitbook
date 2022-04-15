@@ -333,15 +333,16 @@ The format and contents can be modified by specifying values under the `command`
 
 We support the following macros for variable components of the command:
 
-| Command Macro        | Description                                                                         |
-| -------------------- | ----------------------------------------------------------------------------------- |
-| `${env}`             | `/usr/bin/env` on UNIX systems, omitted on Windows.                                 |
-| `${interpreter}`     | Expands to `python`.                                                                |
-| `${program}`         | Training script filename specified by the sweep configuration `program` key.        |
-| `${args}`            | Hyperparameters and their values in the form `--param1=value1 --param2=value2`.     |
-| `${args_no_hyphens}` | Hyperparameters and their values in the form `param1=value1 param2=value2`.         |
-| `${args_json}`       | Hyperparameters and their values encoded as JSON.                                   |
-| `${args_json_file}`  | The path to a file containing the hyperparameters and their values encoded as JSON. |
+| Command Macro              | Description                                                                                                                                                           |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `${env}`                   | `/usr/bin/env` on UNIX systems, omitted on Windows.                                                                                                                   |
+| `${interpreter}`           | Expands to `python`.                                                                                                                                                  |
+| `${program}`               | Training script filename specified by the sweep configuration `program` key.                                                                                          |
+| `${args}`                  | Hyperparameters and their values in the form `--param1=value1 --param2=value2`.                                                                                       |
+| `${args_no_boolean_flags}` | Hyperparameters and their values in the form `--param1=value1` except boolean parameters are in the form `--boolean_flag_param` when `True` and omitted when `False`. |
+| `${args_no_hyphens}`       | Hyperparameters and their values in the form `param1=value1 param2=value2`.                                                                                           |
+| `${args_json}`             | Hyperparameters and their values encoded as JSON.                                                                                                                     |
+| `${args_json_file}`        | The path to a file containing the hyperparameters and their values encoded as JSON.                                                                                   |
 
 Hence, the default command format is defined as:
 

@@ -224,9 +224,7 @@ Once a sweep has started you cannot change the sweep configuration. But you can 
 
 ## Can we flag boolean variables as hyperparameters?
 
-Currently, we do not have a good solution to pass parameters without arguments due to how sweeps define a mechanism to choose arguments for parameters. A way to get around this would be to use `wandb.config.MY_PARAM` to set the defaults for your parameter and use `argparse` to override them.&#x20;
-
-After you call `wandb.init()`, we will then populate a `config` object with the parameters chosen by the sweep. You can get these parameters as a dictionary with `dict(wandb.config.user_items())`
+To pass hyperparameters as boolean flags you can use the `${args_no_boolean_flags}` macro in the [command section of the config](configuration.md#command). This will automatically pass in any boolean parameters as flags: when `param` is `True` the command will receive `--param`, when `param` is `False` the flag will be omitted.&#x20;
 
 ## How to use sweeps with cloud infrastructures such as AWS Batch, ECS, etc.?
 
