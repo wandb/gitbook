@@ -166,3 +166,14 @@ If you're getting the error message `Launch Error: Permission denied`, you don't
 1. You aren't logged in on this machine. Run [`wandb login`](https://docs.wandb.ai/ref/cli/wandb-login) on the command line.
 2. You've set an entity that doesn't exist. "Entity" should be your username or the name of an existing team. If you need to create a team, go to our [Subscriptions page](https://app.wandb.ai/billing).
 3. You don't have project permissions. Ask the creator of the project to set the privacy to **Open** so you can log runs to this project.
+
+### Does W\&B uses the `multiprocessing` library?
+
+Yes, W\&B uses the `multiprocessing` library. If you see an error message such as:
+
+```
+An attempt has been made to start a new process before the current process 
+has finished its bootstrapping phase.
+```
+
+This might mean that you might need to add an entry point protection `if name == main`. Note that you would only need to add this entry point protection in case you're trying to run W\&B directly from the script.
