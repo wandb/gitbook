@@ -300,8 +300,7 @@ for (audio_arr, spec, label) in my_data:
 
 #### Integrations
 
-* Try the [`WandbLogger`](https://tts.readthedocs.io/en/latest/\_modules/TTS/trainer.html?highlight=WandbLogger) in Coqui TTS library.
-* Try the [`WandBLogger`](https://app.gitbook.com/u/UsTCPn2iWpPlVbsDQln2chIGk0r2) in the SpeechBrain library.
+* Try the [WandBLogger](https://speechbrain.readthedocs.io/en/latest/\_modules/speechbrain/utils/train\_logger.html#WandBLogger) in the SpeechBrain library.
 
 
 
