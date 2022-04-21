@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1) (3) (1) (1) (1) (1) (1) (1) (2) (1).png>)
+![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ![](../../../.gitbook/assets/undelete.png)
 
@@ -50,7 +50,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (2) (1).png>)
+![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 ### Search for runs
 
@@ -149,11 +149,23 @@ The files panel lists the files and folders associated with the artifact. You ca
 
 ### Graph View panel
 
-![](<../../../.gitbook/assets/image (137) (1).png>)
+![](<../../../.gitbook/assets/image (137).png>)
 
 The graph view panel provides a view of all of the artifacts associated with a project and the runs that connect them to each other. It shows run types as blocks and artifacts as circles, with arrows to indicate when a run of a given type consumes or produces an artifact of a given type. The type of the particular artifact selected in the left-hand column is highlighted.
 
 Click the Explode toggle to view all of the individual artifact versions and the specific runs that connect them.
+
+## Project Defaults
+
+You can change your project default settings _manually_ in your User Settings at `/settings`.&#x20;
+
+* **Default location to create new projects**: This is set to your own personal entity by default. By clicking on the dropdown, you can switch between your personal entity and the teams you're part of.
+* **Default project privacy in your personal account**: This is set to 'Private' by default. In other words, your projects will be private and can only be accessed by you.
+* **Enable code saving in your personal account**: This is turned off by default. You can turn this on to save the main script or notebook to W\&B.
+
+_Note_ that these settings can also be specified by passing arguments to [`wandb.init`](../../python/init.md).
+
+![](<../../../.gitbook/assets/image (78).png>)
 
 ## Frequently Asked Questions
 
