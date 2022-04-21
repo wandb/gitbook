@@ -20,7 +20,7 @@ LaTeX can be added into reports easily. In order to do so, create a new report, 
 
 On a new line, press `/` and scroll to the inline equations tab to add rich content in LaTeX.
 
-![](<../../.gitbook/assets/Screen (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).mov>)
+![](<../../.gitbook/assets/Screen (2).mov>)
 
 ### List of markdown shortcuts
 
@@ -41,6 +41,12 @@ On a new line, press `/` and scroll to the inline equations tab to add rich cont
 | Horizontal rule   | `---`, `___`  |
 
 A comprehensive list of LaTeX can be found [here](https://en.wikibooks.org/wiki/LaTeX/Mathematics).
+
+### Adding multiple authors to a report
+
+When multiple users work on a report together, they should be credited as such. In our reports, you can do just that and add all the users that worked together on a report in the Author line. This is done by clicking Edit on the top right of the page. From there, a '+' will be seen on the right of the author line to where you can add all of the team members that have contributed to the report.
+
+![](<../../.gitbook/assets/Screen-Recording-2022-04-21-at-7.49.23-AM (1).gif>)
 
 ### Embedding Reports
 
@@ -90,7 +96,7 @@ Tables are the only feature from Markdown that we haven't added a WYSIWYG equiva
 
 If you converted your report using the message at the top of the report, simply hit the red "Revert" button to return to your pre-converted state. Note that any changes you've made after converting will be lost.
 
-![](<../../.gitbook/assets/image (62).png>)
+![](../../.gitbook/assets/image.png)
 
 If you converted a single Markdown block, try hitting cmd+z to undo.
 

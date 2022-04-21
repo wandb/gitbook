@@ -45,7 +45,7 @@ run.log_artifact(my_data)
 
 In [this example](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018), I have three datasets of 1K, 5K, and 10K items, and I can see and compare across the file names in subfolders (by data split or by class label).
 
-![](<../../.gitbook/assets/screen\_shot\_2021-02-23\_at\_3.18.03\_pm (1) (13).png>)
+![](<../../.gitbook/assets/screen\_shot\_2021-02-23\_at\_3.18.03\_pm (1) (1).png>)
 
 ## Prepackage data splits <a href="#7ccfb650-1f87-458c-a4e2-538138660292" id="7ccfb650-1f87-458c-a4e2-538138660292"></a>
 
@@ -75,7 +75,7 @@ run.log_artifact(my_data)
 
 View the [file contents →](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018/files)
 
-![](<../../.gitbook/assets/Screen Shot 2021-03-03 at 12.55.55 PM.png>)
+![](../../.gitbook/assets/screen-shot-2021-03-03-at-12.55.55-pm.png)
 
 ## Iteratively refine your data <a href="#cee1428d-3b7a-4e1b-956b-e83170e7038f" id="cee1428d-3b7a-4e1b-956b-e83170e7038f"></a>
 
@@ -111,7 +111,7 @@ run.log_artifact(artifact)
 
 Give your datasets custom names and annotate them with notes or key-value pair metadata
 
-![](<../../.gitbook/assets/image (64).png>)
+![](<../../.gitbook/assets/image (21).png>)
 
 ## Juggle multiple datasets <a href="#4ba93c33-dd39-468b-8b3e-96c938bbd024" id="4ba93c33-dd39-468b-8b3e-96c938bbd024"></a>
 
@@ -119,11 +119,11 @@ Your task may require a more complex curriculum: perhaps pretraining on a subset
 
 [Explore the graph interactively →](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018/graph)
 
-![](<../../.gitbook/assets/image (65).png>)
+![](<../../.gitbook/assets/image (18).png>)
 
 Multiple versions of balanced datasets of different sizes: 1K, 5K, and 10K and the corresponding artifact graph, showing training and inference runs on that data.
 
-![](<../../.gitbook/assets/image (66).png>)
+![](<../../.gitbook/assets/image (7).png>)
 
 Several versions of raw data with 50 and 500 items total, from which a data\_split job creates two separate artifacts for "train" and "val" data.
 
@@ -140,20 +140,20 @@ Artifacts let you see and formalize the flow of data through your model developm
 
 Simple compute graph example
 
-![](<../../.gitbook/assets/image (67).png>)
+![](<../../.gitbook/assets/image (13).png>)
 
 More complex compute graph with predictions and evaluation results logged as artifacts
 
-![](<../../.gitbook/assets/image (68).png>)
+![](<../../.gitbook/assets/image (14).png>)
 
 Simplified version of the compute graph, node grouped by artifact/job type ("Explode" off)
 
-![](<../../.gitbook/assets/image (69).png>)
+![](<../../.gitbook/assets/image (6).png>)
 
 Full details of each node: versions by artifact type and scripts runs by job type ("Explode" on)
 
-![](<../../.gitbook/assets/image (70).png>)
+![](<../../.gitbook/assets/image (8).png>)
 
 Details for a particular version of resnet18: which training run produced it and which further runs loaded it for inference. These are deeply linked in each project so you can navigate the full graph.
 
-![](<../../.gitbook/assets/image (71).png>)
+![](<../../.gitbook/assets/image (5).png>)

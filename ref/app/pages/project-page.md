@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1).png>)
 
 ![](../../../.gitbook/assets/undelete.png)
 
@@ -50,13 +50,13 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (3).png>)
 
 ### Search for runs
 
 Search for a run by name in the sidebar. You can use regex to filter down your visible runs. The search box affects which runs are shown on the graph. Here's an example:
 
-![](<../../../.gitbook/assets/2020-02-21 13.51.26.gif>)
+![](../../../.gitbook/assets/2020-02-21-13.51.26.gif)
 
 ### Add a section of panels
 
@@ -91,7 +91,7 @@ Drag and drop panels to reorder and organize into sections. You can also click t
 
 Use the search box in the workspace to filter down the panels. This search matches the panel titles, which are by default the name of the metrics visualized.
 
-![](<../../../.gitbook/assets/search in the workspace.png>)
+![](../../../.gitbook/assets/search-in-the-workspace.png)
 
 ## Table Tab
 
@@ -99,7 +99,7 @@ Use the table to filter, group, and sort your results.
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/table?workspace=user-carey)
 
-![](<../../../.gitbook/assets/image (24).png>)
+![](<../../../.gitbook/assets/image (86).png>)
 
 ## Reports Tab
 
@@ -119,7 +119,7 @@ View all the [artifacts](../../../guides/artifacts/) associated with a project, 
 
 ### Overview panel
 
-![](<../../../.gitbook/assets/image (135).png>)
+![](<../../../.gitbook/assets/image (140).png>)
 
 On the overview panel, you'll find a variety of high-level information about the artifact, including its name and version, the hash digest used to detect changes and prevent duplication, the creation date, and any aliases. You can add or remove aliases here, take notes on
 
@@ -127,29 +127,29 @@ This section also indicates and links to the run which output the artifact and a
 
 ### API panel
 
-![](<../../../.gitbook/assets/image (136).png>)
+![](<../../../.gitbook/assets/image (139).png>)
 
 The API panel provides a code snippet for downloading the artifact for use outside of the web app, for example on a local machine.
 
 ### Metadata panel
 
-![](<../../../.gitbook/assets/image (138).png>)
+![](<../../../.gitbook/assets/image (142).png>)
 
 The metadata panel provides access to the artifact's metadata, which is provided when the artifact is constructed. This metadata might include configuration arguments required to reconstruct the artifact, URLs where more information can be found, or metrics produced during the run which logged the artifact.
 
 ### Files panel
 
-![](<../../../.gitbook/assets/image (139).png>)
+![](<../../../.gitbook/assets/image (134).png>)
 
 The files panel lists the files and folders associated with the artifact. You can navigate through this file tree and view the contents directly in the W\&B web app.
 
 [Tables](../../../guides/data-vis/tables-quickstart.md) associated with artifacts are particularly rich and interactive in this context. Learn more about using Tables with Artifacts [here](../../../guides/data-vis/tables.md).
 
-![](<../../../.gitbook/assets/image (140).png>)
+![](<../../../.gitbook/assets/image (135).png>)
 
 ### Graph View panel
 
-![](<../../../.gitbook/assets/image (137).png>)
+![](<../../../.gitbook/assets/image (137) (1).png>)
 
 The graph view panel provides a view of all of the artifacts associated with a project and the runs that connect them to each other. It shows run types as blocks and artifacts as circles, with arrows to indicate when a run of a given type consumes or produces an artifact of a given type. The type of the particular artifact selected in the left-hand column is highlighted.
 
@@ -165,7 +165,7 @@ You can change your project default settings _manually_ in your User Settings at
 
 _Note_ that these settings can also be specified by passing arguments to [`wandb.init`](../../python/init.md).
 
-![](<../../../.gitbook/assets/image (78).png>)
+![](<../../../.gitbook/assets/image (78) (1).png>)
 
 ## Frequently Asked Questions
 
@@ -173,17 +173,17 @@ _Note_ that these settings can also be specified by passing arguments to [`wandb
 
 You can delete your project by clicking the three dots on the right of the overview tab.
 
-![](<../../../.gitbook/assets/howto - delete project.gif>)
+![](../../../.gitbook/assets/howto-delete-project.gif)
 
 If the project is empty (i.e. it has no runs), you can delete it by clicking the dropdown menu in the top-right and selecting "Delete project".
 
-![](<../../../.gitbook/assets/image (22).png>)
+![](<../../../.gitbook/assets/image (66).png>)
 
 ### Where are the privacy settings for projects? How can I make a project public or private?
 
 Click the lock in the navigation bar at the top of the page to change project privacy settings. You can edit who can view or submit runs to your project. These settings include all runs and reports in the project. If you'd like to share your results with just a few people, you can create a [private team](../features/teams.md).
 
-![](<../../../.gitbook/assets/image (141).png>)
+![](<../../../.gitbook/assets/image (138).png>)
 
 ### How do I reset my workspace?
 

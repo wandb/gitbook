@@ -12,7 +12,7 @@ New versions of an Artifact can be created in one of three ways:
 * **Collaborative**: A set of runs collectively provides all the data for a new version. This is best suited for distributed jobs which have multiple runs generating data, often in parallel. For example: evaluating a model in a distributed manner, and outputting the predictions.
 * **Patch:** (coming soon) A single run provides a patch of the differences to be applied. This is best suited when a run wants to add data to an artifact without needing to recreate all the already existing data. For example: you have a golden dataset which is created by running a daily web scraper - in this case, you want the run to append new data to the dataset.
 
-![](<../../.gitbook/assets/Artifact Version Types (2).png>)
+![](../../.gitbook/assets/artifact-version-types-2-.png)
 
 ### Simple Mode
 

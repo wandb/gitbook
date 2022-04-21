@@ -6,7 +6,7 @@ Start from any machine learning model and get a parallel hyperparameter sweep ru
 Want to see a working example? Here's an [example code](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion) and an [example dashboard](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3).
 {% endhint %}
 
-![Draw insights from large hyperparameter tuning experiments with interactive dashboards.](<../../.gitbook/assets/image (114).png>)
+![Draw insights from large hyperparameter tuning experiments with interactive dashboards.](<../../.gitbook/assets/image (72).png>)
 
 {% hint style="info" %}
 Trying to quickly generate a sweep based on runs you've already logged? Check out [this guide](existing-project.md).
@@ -203,7 +203,7 @@ Open your project to see your live results in the sweep dashboard. With just a f
 
 [Example dashboard →](https://wandb.ai/anmolmann/pytorch-cnn-fashion/sweeps/pmqye6u3)
 
-![](<../../.gitbook/assets/image (88) (2) (3) (3) (3) (3) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (5).png>)
+![](<../../.gitbook/assets/image (88) (2) (3) (3) (3) (3) (3) (5).png>)
 
 ## 6. Stop the agent
 

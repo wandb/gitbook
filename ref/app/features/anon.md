@@ -32,10 +32,10 @@ If you set `anonymous="allow"` in your script, we will check to make sure there'
 
 *   **No persistent data**: Runs are only saved for 7 days in an anonymous account. Users can claim anonymous run data by saving it to a real account.
 
-    ![](<../../../.gitbook/assets/image (170).png>)
+    <img src="../../../.gitbook/assets/image (165) (1) (1).png" alt="" data-size="original">
 *   **No artifact logging**: Runs will print a warning on the command line that you can't log an artifact to an anonymous run.
 
-    ![](<../../../.gitbook/assets/example warning.png>)
+    <img src="../../../.gitbook/assets/example warning.png" alt="" data-size="original">
 * **No profile or settings pages**: Certain pages aren't available in the UI, because they're only useful for real accounts.
 
 ## Example usage

@@ -4,7 +4,7 @@ By default, we only save the latest git commit hash. You can turn on more code f
 
 Starting with `wandb` version 0.8.28, we can save the code from your main training file where you call `wandb.init()`. This will get sync'd to the dashboard and show up in a tab on the run page, as well as the Code Comparer panel. Go to your [settings page](https://app.wandb.ai/settings) to enable code saving by default.
 
-![Here's what your account settings look like. You can save code by default.](<../../../../.gitbook/assets/Screen Shot 2020-05-12 at 12.28.40 PM.png>)
+![Here's what your account settings look like. You can save code by default.](../../../../.gitbook/assets/screen-shot-2020-05-12-at-12.28.40-pm.png)
 
 ## Save Library Code
 
@@ -20,11 +20,11 @@ Click the **+** button in your workspace or report to add a new panel, and selec
 
 Starting with **wandb** version 0.8.34, our library does Jupyter session saving. When you call **wandb.init()** inside of Jupyter, we add a hook to automatically save a Jupyter notebook containing the history of code executed in your current session. You can find this session history in a runs file browser under the code directory:
 
-![](<../../../../.gitbook/assets/cc2 (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)
+![](<../../../../.gitbook/assets/cc2 (4) (5).png>)
 
 Clicking on this file will display the cells that were executed in your session along with any outputs created by calling iPython’s display method. This enables you to see exactly what code was run within Jupyter in a given run. When possible we also save the most recent version of the notebook which you would find in the code directory as well.
 
-![](<../../../../.gitbook/assets/cc3 (3) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)
+![](<../../../../.gitbook/assets/cc3 (3) (3) (1).png>)
 
 ## Jupyter diffing
 
