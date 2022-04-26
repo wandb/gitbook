@@ -20,7 +20,7 @@ wandb_logger = WandBLogger(init_params=init_params)
 trainer = Trainer(..., logger=wandb_logger)
 ```
 
-![Interactive dashboards accessible anywhere, and more!](../../../.gitbook/assets/n6p7k4m.gif)
+![Interactive dashboards accessible anywhere, and more!](../../../.gitbook/assets/n6P7K4M.gif)
 
 ## Using Composer's `WandBLogger`
 

@@ -10,7 +10,7 @@ A bar plot presents categorical data with rectangular bars which can be plotted 
 
 Customize with chart settings to limit max runs to show, group runs by any config and rename labels.&#x20;
 
-![](<../../../../.gitbook/assets/image (182).png>)
+![](<../../../../.gitbook/assets/image (182) (1).png>)
 
 ### Customize Bar Plots
 

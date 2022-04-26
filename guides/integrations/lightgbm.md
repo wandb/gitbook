@@ -29,4 +29,4 @@ Attaining the maximum performance out of models requires tuning hyperparameters,
 To learn more about these tools and see an example of how to use Sweeps with XGBoost, check out [this interactive Colab notebook.](http://wandb.me/xgb-sweeps-colab)
 {% endhint %}
 
-![tl;dr: trees outperform linear learners on this classification dataset.](<../../.gitbook/assets/image (70).png>)
+![tl;dr: trees outperform linear learners on this classification dataset.](<../../.gitbook/assets/image (112).png>)

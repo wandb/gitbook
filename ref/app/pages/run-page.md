@@ -22,11 +22,11 @@ Use the run page to explore detailed information about a single version of your 
 
 [View a live example →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
 
-![W\&B Dashboard run overview tab](../../../.gitbook/assets/wandb-run-overview-page.png)
+![W\&B Dashboard run overview tab](<../../../.gitbook/assets/wandb run overview page.png>)
 
 The Python details are private, even if you make the page itself public. Here is an example of my run page in incognito on the left and my account on the right.
 
-![](../../../.gitbook/assets/screen-shot-2020-04-07-at-7.46.39-am.png)
+![](<../../../.gitbook/assets/Screen Shot 2020-04-07 at 7.46.39 AM.png>)
 
 ## Charts Tab
 
@@ -39,7 +39,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](<../../../.gitbook/assets/wandb-run-page-workspace-tab (1).png>)
+![](../../../.gitbook/assets/wandb-run-page-workspace-tab.png)
 
 ## System Tab
 
@@ -48,7 +48,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://wandb.ai/stacey/deep-drive/runs/ki2biuqy/system?workspace=user-carey)
 
-![](../../../.gitbook/assets/wandb-system-utilization.png)
+![](<../../../.gitbook/assets/wandb system utilization.png>)
 
 ## Model Tab
 
@@ -56,7 +56,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/model)
 
-![](../../../.gitbook/assets/wandb-run-page-model-tab.png)
+![](<../../../.gitbook/assets/wandb run page model tab.png>)
 
 ## Logs Tab
 
@@ -65,7 +65,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/logs)
 
-![](../../../.gitbook/assets/wandb-run-page-log-tab.png)
+![](<../../../.gitbook/assets/wandb run page log tab.png>)
 
 ## Files Tab
 
@@ -78,7 +78,7 @@ The Python details are private, even if you make the page itself public. Here is
 The W\&B [Artifacts](../../../guides/artifacts/) system adds extra features for handling, versioning, and deduplicating large files like datasets and models. We recommend you use Artifacts for tracking inputs and outputs of runs, rather than `wandb.save`. Check out the Artifacts quickstart [here](../../../guides/artifacts/).
 {% endhint %}
 
-![](../../../.gitbook/assets/wandb-run-page-files-tab.png)
+![](<../../../.gitbook/assets/wandb run page files tab.png>)
 
 ## Artifacts Tab
 
@@ -87,4 +87,4 @@ The W\&B [Artifacts](../../../guides/artifacts/) system adds extra features for 
 * See the reference for the [project](project-page.md)-level [Artifacts Tab](project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app\
   [View a live example →](https://wandb.ai/stacey/artifact\_july\_demo/runs/2cslp2rt/artifacts)
 
-![](<../../../.gitbook/assets/image (141).png>)
+![](<../../../.gitbook/assets/image (142).png>)

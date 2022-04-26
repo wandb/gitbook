@@ -145,7 +145,7 @@ for i in range(100):
 
 Here's a sample terminal output:
 
-![](<../../.gitbook/assets/image (81).png>)
+![](<../../.gitbook/assets/image (26).png>)
 
 And once you're ready, just run a sync command to send that folder to the cloud.
 
@@ -153,7 +153,7 @@ And once you're ready, just run a sync command to send that folder to the cloud.
 wandb sync wandb/dryrun-folder-name
 ```
 
-![](<../../.gitbook/assets/image (36).png>)
+![](<../../.gitbook/assets/image (27).png>)
 
 ### My run's state is "crashed" on the UI but is still running on my machine. What do I do to get my data back?
 

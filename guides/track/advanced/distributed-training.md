@@ -50,11 +50,11 @@ if __name__ == "__main__":
 
 If you want to see what the outputs look like for this method, check out an example dashboard [here](https://wandb.ai/ayush-thakur/DDP/runs/1s56u3hc/system). There, you can see that system metrics, like temperature and utilization, were tracked for both GPUs.
 
-![](<../../../.gitbook/assets/image (69).png>)
+![](<../../../.gitbook/assets/image (102).png>)
 
 The epoch-wise and batch-wise loss values, however, are only logged from a single GPU.
 
-![](<../../../.gitbook/assets/image (68).png>)
+![](<../../../.gitbook/assets/image (68) (2).png>)
 
 ### Method 2: `wandb.init` on all processes
 
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
 If you want to see what the outputs look like for this method, check out an example dashboard [here](https://wandb.ai/ayush-thakur/DDP). You'll see two runs grouped together in the sidebar. You can click on this group to get to the dedicated group page for the experiment, which displays metrics from each process separately.
 
-![](<../../../.gitbook/assets/image (63).png>)
+![](<../../../.gitbook/assets/image (103).png>)
 
 ## Common issues
 

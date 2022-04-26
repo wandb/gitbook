@@ -12,7 +12,7 @@ You can create a new report from a workspace, or directly from the report tab in
 
 Click **Create report** in the upper right corner of your workspace. This gives you a way to pull in some charts from the page to use in your new custom page.
 
-![](<../../.gitbook/assets/image (44).png>)
+![](<../../.gitbook/assets/image (90).png>)
 
 Select the charts you would like to start with. You can always add or delete charts later from the report interface.
 
@@ -26,7 +26,7 @@ Once you click **Create report,** a draft report will be available in the report
 
 Go to the Reports tab in your project, and click **Create Report** button on the report page. This creates a new blank report. Save that report to get a shareable link, or send charts to the report from different workspaces, and even different projects!
 
-![](<../../.gitbook/assets/image (48).png>)
+![](<../../.gitbook/assets/image (91).png>)
 
 ## How to edit a report
 
@@ -34,7 +34,7 @@ Go to the Reports tab in your project, and click **Create Report** button on the
 
 Again press `/`, then add a panel grid, then add a panel (like a line plot, scatter plot, or parallel coordinates chart). Each panel grid has a set of run sets and a set of panels. The run sets at the bottom of the section control what data shows up on the panels in the grid. Create a new panel grid if you want to add charts that pull data from a different set of runs.
 
-![Add charts to a report](../../.gitbook/assets/demo-report-add-panel-grid.gif)
+![Add charts to a report](<../../.gitbook/assets/demo - report add panel grid.gif>)
 
 ### Duplicate and delete panel grids
 
@@ -42,7 +42,7 @@ If you have a good layout that you'd like to reuse, you can select a panel grid 
 
 As you can see in the gif below, you can highlight a whole panel grid section by clicking the drag handle in the upper right corner. You can also click and drag to highlight and select a region in a report, which can include panel grids, text, and headings.
 
-![](../../.gitbook/assets/demo-copy-and-paste-a-panel-grid-section.gif)
+![](<../../.gitbook/assets/demo - copy and paste a panel grid section.gif>)
 
 To delete a panel grid, simply select it and press `delete` on your keyboard or refer to the gif below.
 
@@ -62,13 +62,13 @@ When you press edit, you'll be editing a draft copy of the report. This draft au
 
 If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
 
-![](../../.gitbook/assets/collaborative-reports.gif)
+![](<../../.gitbook/assets/collaborative reports.gif>)
 
 ### Comment on reports
 
 Click the comment button on a panel in a report to add a comment directly to that panel.
 
-![Adding a comment to a panel](../../.gitbook/assets/demo-comment-on-panels-in-reports.gif)
+![Adding a comment to a panel](<../../.gitbook/assets/demo - comment on panels in reports.gif>)
 
 ## Panel grids
 
@@ -116,7 +116,7 @@ Insert the direct link to the report within the embed cell.
 
 Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
 
-![Compare runs across different projects](../../.gitbook/assets/how-to-pick-a-different-project-to-draw-runs-from.gif)
+![Compare runs across different projects](<../../.gitbook/assets/how to - pick a different project to draw runs from.gif>)
 
 The visualizations in the section pull columns from the first active runset. If you're not seeing the metric you're looking for in the line plot, make sure that the first run set checked in the section has that column available. This feature supports history data on time series lines, but we don't support pulling different summary metrics from different projects— so a scatter plot wouldn't work for columns that are only logged in another project.
 
@@ -126,7 +126,7 @@ If you need to compare runs from two projects and the columns aren't working, ad
 
 Share a view-only link to a report that is in a private project or team project.
 
-![](../../.gitbook/assets/share-view-only-link.gif)
+![](<../../.gitbook/assets/share view only link.gif>)
 
 View-only report links add a secret access token to the URL, so anyone who opens the link can view the page. For customers on [W\&B Local](../self-hosted/) private cloud installations, these links will still be behind your firewall, so only members of your team with access to your private instance _and_ access to the view-only link will be able to view the report.
 
@@ -140,4 +140,4 @@ The view-only magic link is available _only_ for the author of that report.
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1).gif>)
+![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (5).gif>)

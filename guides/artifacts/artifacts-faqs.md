@@ -6,7 +6,7 @@
 
 No need to worry! When logging a new version of an artifact, W\&B only uploads the files that changed between the last version and the new version. For example, if your first version uploads 100 files and the second version adds 10 more files, the second artifact will only consume the space of the 10 new files.
 
-![v1 of the artifact "dataset" only has 2/5 images that differ, so it only uses 40% of the space.](../../.gitbook/assets/artifacts-dedupe.png)
+![v1 of the artifact "dataset" only has 2/5 images that differ, so it only uses 40% of the space.](../../.gitbook/assets/artifacts-dedupe.PNG)
 
 ### Where are artifact files stored?
 

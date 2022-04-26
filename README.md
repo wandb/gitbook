@@ -26,4 +26,4 @@ Set up W\&B in 5 minutes, then quickly iterate on your machine learning pipeline
 
 {% embed url="https://www.youtube.com/watch?v=EIgoKitLUqM" %}
 
-![](.gitbook/assets/w-and-b-diagram-20210913.png)
+![](<.gitbook/assets/W\&B Diagram - 20210913.png>)

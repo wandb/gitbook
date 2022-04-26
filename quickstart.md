@@ -12,7 +12,7 @@ Try this short Google Colab to see Weights & Biases in action, no code installat
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/intro)
 
-![](.gitbook/assets/wandb-demo-experiments-gif.gif)
+![](<.gitbook/assets/wandb demo - experiments gif.gif>)
 
 ### 1. Set up wandb
 
@@ -55,7 +55,7 @@ Use `wandb.log()` to track metrics or a framework [integration](guides/integrati
 wandb.log({'accuracy': train_acc, 'loss': train_loss})
 ```
 
-![](.gitbook/assets/wandb-demo-logging-metrics.png)
+![](<.gitbook/assets/wandb demo - logging metrics.png>)
 
 ### 4. Track hyperparameters
 
@@ -66,7 +66,7 @@ Save hyperparameters so you can quickly compare experiments.\
 wandb.config.dropout = 0.2
 ```
 
-![](.gitbook/assets/wandb-demo-logging-config.png)
+![](<.gitbook/assets/wandb demo - logging config.png>)
 
 ### 5. Get alerts
 
