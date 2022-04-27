@@ -47,12 +47,12 @@ Now that you've launched runs via the CLI and the UI, take a look at the documen
 
 * CLI reference for [`wandb launch`](../../ref/cli/wandb-launch.md) and [`wandb launch-agent`](../../ref/cli/wandb-launch-agent.md)``
 * Resource documentation for supported Launch integrations:
-  * [Local](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/a3dLxy87tdn4RvFki14h/guides/launch/launch-integrations/launch-local)
-  * [Amazon SageMaker](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/a3dLxy87tdn4RvFki14h/guides/launch/launch-integrations/launch-with-amazon-sagemaker)
-  * [GCP Vertex AI](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/a3dLxy87tdn4RvFki14h/guides/launch/launch-integrations/launch-with-gcp-vertex-ai)
-  * [Kubernetes](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/a3dLxy87tdn4RvFki14h/guides/launch/launch-integrations/launch-with-kubernetes)
-* Details on [Launch containerization](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/a3dLxy87tdn4RvFki14h/guides/launch/containerizing-with-launch) and bring-your-own-container options
-* Details on [Launch agents](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/a3dLxy87tdn4RvFki14h/guides/launch/launch-agents-and-queues), including how to deploy an agent in your own infrastructure
+  * [Local](../technical-faq/launch-integrations/launch-local.md)
+  * [Amazon SageMaker](../technical-faq/launch-integrations/launch-with-amazon-sagemaker.md)
+  * [GCP Vertex AI](../technical-faq/launch-integrations/launch-with-gcp-vertex-ai.md)
+  * [Kubernetes](../technical-faq/launch-integrations/launch-with-kubernetes.md)
+* Details on [Launch containerization](../technical-faq/containerizing-with-launch.md) and bring-your-own-container options
+* Details on [Launch agents](../technical-faq/launch-agents-and-queues.md), including how to deploy an agent in your own infrastructure
 
 ## Frequently asked questions
 
