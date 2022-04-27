@@ -53,7 +53,7 @@ By default, we don't log any of your dataset examples. You can explicitly turn t
 There's two ways to turn off code logging:
 
 1. Set `WANDB_DISABLE_CODE` to `true` to turn off all code tracking. We won't pick up the git SHA or the diff patch.
-2. Set `WANDB_IGNORE_GLOBS` to `*.patch` to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](../track/advanced/save-restore.md) command.
+2. Set `WANDB_IGNORE_GLOBS` to `*.patch` to turn off syncing the diff patch to our servers. You'll still have it locally and be able to apply it with the [wandb restore](track/advanced/save-restore.md) command.
 
 ### Does logging block my training?
 
@@ -67,7 +67,7 @@ We use the same exponential moving average formula as TensorBoard. You can find 
 
 ### How is W\&B different from TensorBoard?
 
-We love the TensorBoard folks, and we have a [TensorBoard integration](../integrations/tensorboard.md)! We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
+We love the TensorBoard folks, and we have a [TensorBoard integration](integrations/tensorboard.md)! We were inspired to improve experiment tracking tools for everyone. When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we focused on improving:
 
 1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your model checkpoints for you so your project is reproducible.
 2. **Automatic organization**: If you hand off a project to a collaborator or take a vacation, W\&B makes it easy to see all the models you've tried so you're not wasting hours re-running old experiments.
@@ -114,7 +114,7 @@ If you run into issues with this install, please let us know. This Anaconda [doc
 
 ### How do I stop wandb from writing to my terminal or my jupyter notebook output?
 
-Set the environment variable [`WANDB_SILENT`](../track/advanced/environment-variables.md) to `true`.
+Set the environment variable [`WANDB_SILENT`](track/advanced/environment-variables.md) to `true`.
 
 {% tabs %}
 {% tab title="Python" %}
@@ -146,7 +146,7 @@ If you're seeing SSL or network errors:`wandb: Network error (ConnectionError), 
 
 1. Upgrade your SSL certificate. If you're running the script on an Ubuntu server, run `update-ca-certificates` We can't sync training logs without a valid SSL certificate because it's a security vulnerability.
 2. If your network is flaky, run training in [offline mode](https://docs.wandb.ai/guides/track/launch#is-it-possible-to-save-metrics-offline-and-sync-them-to-w-and-b-later) and sync the files to us from a machine that has Internet access.
-3. Try running [W\&B Private Hosting](../self-hosted/), which operates on your machine and doesn't sync files to our cloud servers.
+3. Try running [W\&B Private Hosting](self-hosted/), which operates on your machine and doesn't sync files to our cloud servers.
 
 `SSL CERTIFICATE_VERIFY_FAILED`: this error could be due to your company's firewall. You can set up local CAs and then use:
 
@@ -180,9 +180,9 @@ Using `wandb.log({'final_accuracy': 0.9}` will work fine for this. By default `w
 
 There are several ways to do this.
 
-For complicated workflows, we recommend using multiple runs and setting group parameter in [`wandb.init`](../track/launch.md) to a unique value in all the processes that are run as part of a single experiment. The [runs table](../../ref/app/pages/run-page.md) will automatically group the table by the group ID and the visualizations will behave as expected. This will allow you to run multiple experiments and training runs as separate processes log all the results into a single place.
+For complicated workflows, we recommend using multiple runs and setting group parameter in [`wandb.init`](track/launch.md) to a unique value in all the processes that are run as part of a single experiment. The [runs table](../ref/app/pages/run-page.md) will automatically group the table by the group ID and the visualizations will behave as expected. This will allow you to run multiple experiments and training runs as separate processes log all the results into a single place.
 
-For simpler workflows, you can call `wandb.init` with `resume=True` and `id=UNIQUE_ID` and then later call `wandb.init` with the same `id=UNIQUE_ID`. Then you can log normally with [`wandb.log`](../track/log/) or `wandb.summary` and the runs values will update.
+For simpler workflows, you can call `wandb.init` with `resume=True` and `id=UNIQUE_ID` and then later call `wandb.init` with the same `id=UNIQUE_ID`. Then you can log normally with [`wandb.log`](track/log/) or `wandb.summary` and the runs values will update.
 
 At any point you can always use the [API](https://docs.wandb.ai/library/public-api-guide#update-metrics-for-a-run-after-the-run-has-finished) to add additional evaluation metrics.
 
@@ -236,11 +236,11 @@ For simplicity W\&B uses API keys for authorization when accessing the API. You 
 
 ### What is a service account, and why is it useful?
 
-A service account is an API key that has permissions to write to your team, but is not associated with a particular user. Among other things, service accounts are useful for tracking automated jobs logged to wandb, like periodic retraining, nightly builds, and so on. If you'd like, you can associate a username with one of these machine-launched runs with the [environment variable](../track/advanced/environment-variables.md) `WANDB_USERNAME`.
+A service account is an API key that has permissions to write to your team, but is not associated with a particular user. Among other things, service accounts are useful for tracking automated jobs logged to wandb, like periodic retraining, nightly builds, and so on. If you'd like, you can associate a username with one of these machine-launched runs with the [environment variable](track/advanced/environment-variables.md) `WANDB_USERNAME`.
 
 You can get the API key in your Team Settings page `/teams/<your-team-name>` where you invite new team members. Select service and click create to add a service account.
 
-![Create a service account on your team settings page for automated jobs](<../../.gitbook/assets/image (167).png>)
+![Create a service account on your team settings page for automated jobs](<../.gitbook/assets/image (167).png>)
 
 ### How can I rotate or revoke access?
 

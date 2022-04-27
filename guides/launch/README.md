@@ -47,12 +47,12 @@ Now that you've launched runs via the CLI and the UI, take a look at the documen
 
 * CLI reference for [`wandb launch`](../../ref/cli/wandb-launch.md) and [`wandb launch-agent`](../../ref/cli/wandb-launch-agent.md)``
 * Resource documentation for supported Launch integrations:
-  * [Local](../technical-faq/launch-integrations/launch-local.md)
-  * [Amazon SageMaker](../technical-faq/launch-integrations/launch-with-amazon-sagemaker.md)
-  * [GCP Vertex AI](../technical-faq/launch-integrations/launch-with-gcp-vertex-ai.md)
-  * [Kubernetes](../technical-faq/launch-integrations/launch-with-kubernetes.md)
-* Details on [Launch containerization](../technical-faq/containerizing-with-launch.md) and bring-your-own-container options
-* Details on [Launch agents](../technical-faq/launch-agents-and-queues.md), including how to deploy an agent in your own infrastructure
+  * [Local](integrations/local.md)
+  * [Amazon SageMaker](integrations/sagemaker.md)
+  * [GCP Vertex AI](integrations/vertex.md)
+  * [Kubernetes](integrations/kubernetes.md)
+* Details on [Launch containerization](containers.md) and bring-your-own-container options
+* Details on [Launch agents](agents.md), including how to deploy an agent in your own infrastructure
 
 ## Frequently asked questions
 

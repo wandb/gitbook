@@ -9,7 +9,7 @@ You can run Launch on any machine where you have local access — for example, a
 * Docker should be installed and running on your machine.
 * Make sure you have the latest version of wandb and you have Launch enabled by adding `instant replay` to your W\&B profile.
 
-You should now be able to run the quickstart example on the [main Launch page](../../new-products/launch.md).
+You should now be able to run the quickstart example on the [main Launch page](../).
 
 ## Config reference
 

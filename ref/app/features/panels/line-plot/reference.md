@@ -55,7 +55,7 @@ You can aggregate all of the runs by turning on grouping, or group over an indiv
 
 ## Smoothing
 
-You can set the [smoothing coefficient](../../../../../guides/technical-faq/#what-formula-do-you-use-for-your-smoothing-algorithm) to be between 0 and 1 where 0 is no smoothing and 1 is maximum smoothing.
+You can set the [smoothing coefficient](../../../../../guides/technical-faq.md#what-formula-do-you-use-for-your-smoothing-algorithm) to be between 0 and 1 where 0 is no smoothing and 1 is maximum smoothing.
 
 ## Ignore Outliers
 
