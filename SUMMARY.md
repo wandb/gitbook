@@ -114,7 +114,7 @@
     * [wandb docker](ref/cli/wandb-docker.md)
     * [wandb enabled](ref/cli/wandb-enabled.md)
     * [wandb init](ref/cli/wandb-init.md)
-    * [wandb launch-agent](ref/cli/wandb-launch-agent.md)
+    * [wandb launch agent](ref/cli/wandb-launch-agent.md)
     * [wandb launch](ref/cli/wandb-launch.md)
     * [wandb local](ref/cli/wandb-local.md)
     * [wandb login](ref/cli/wandb-login.md)
