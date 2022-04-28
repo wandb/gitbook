@@ -142,7 +142,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -215,7 +215,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
 
 Press "update settings" to apply the new settings.
 
@@ -257,7 +257,7 @@ Go to Queue service > Queues in your storage account, and create a new Queue:
 
 Go to Events in your storage account, and create an event subscription:
 
-![](<../../.gitbook/assets/image (47).png>)
+![](<../../.gitbook/assets/image (108).png>)
 
 Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
 
@@ -294,7 +294,7 @@ Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Crea
 
 You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
 
-![](<../../.gitbook/assets/image (124).png>)
+![](<../../.gitbook/assets/image (124) (1).png>)
 
 #### Configuring the Slack application
 
@@ -304,7 +304,7 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../.gitbook/assets/image (128) (1).png>)
+![](<../../.gitbook/assets/image (128) (1) (1).png>)
 
 Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 

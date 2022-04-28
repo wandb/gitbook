@@ -1,10 +1,12 @@
 ---
-description: Reproduce runs and orchestrate experiments
+description: Reproducibility, orchestration, and CI/CD
 ---
 
 # W\&B Launch
 
-_W\&B Launch is in early development, and we're actively working on more integrations, configuration options, and tools for features like automatically triggered jobs. Please reach out to us at support@wandb.com with any questions or suggestions._
+{% hint style="info" %}
+_This new product is in active development. Please message support@wandb.com with questions and suggestions._
+{% endhint %}
 
 W\&B Launch is our new platform for reproducing runs and orchestrating experiments. Launch provides a streamlined way to:
 
