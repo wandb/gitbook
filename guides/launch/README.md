@@ -8,26 +8,23 @@ description: Reproducibility, orchestration, and CI/CD
 _This new product is in active development. Please message support@wandb.com with questions and suggestions._
 {% endhint %}
 
-W\&B Launch is our new platform for reproducing runs and orchestrating experiments. Launch provides a streamlined way to:
+Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or CLI.
 
-* Execute runs automatically across infrastructure providers in reproducible, containerized environments
-* Rerun previous runs with new hyperparameters, models, or datasets
-* Containerize and execute runs from publicly hosted remote repositories
-* Create and manage queues of runs through the UI or CLI, accessible to team members
+* Retrain your model on the latest dataset
+* Quickly tweak a hyperparameter and retrain
+* Automatically run evaluation jobs on newly trained models
+* Queue and launch jobs across machines, and across blended infrastructure
+* Execute runs in reproducible, containerized environments
 
-## Quickstart example
+## Quickstart
 
-:arrow\_forward: Start by adding `instant replay` to your user bio on your profile page! This unlocks the UI for using W\&B Launch.
+{% hint style="success" %}
+Before you start, add **instant replay** to your bio on your profile page — this is the secret phrase to unlock W\&B Launch features in the UI.
+{% endhint %}
 
-_Note: First, make sure your installation of wandb is up to date, and that you have Docker installed and running._
-
-### Launch CLI
-
-Open the public [launch-welcome project](https://wandb.ai/wandb/launch-welcome), pick a run, and take a look. This project contains example runs of a Jupyter notebook that runs 10 epochs of a simple model on the MNIST dataset. Let's say we want to try training this model again, but with a different dropout rate. Copy the run URL and run something like this:
-
-`wandb launch`[ `https://wandb.ai/wandb/launch-welcome/runs/2er1eom2`](https://wandb.ai/wandb/launch-welcome/runs/2er1eom2) `-a dropout=0.7`
-
-This should kick off a new run on your machine in a container that exactly duplicates the code and execution environment of the example run — except now with dropout 0.7. You can then see the new run on your W\&B project page, listed as forked from the previous run.
+1. From [the sample project](https://wandb.ai/wandb/launch-welcome), pick a run to re-train and copy its URL.
+2. Run the launch command to re-run that run with a different config parameter, like dropout: `wandb launch`[ `https://wandb.ai/wandb/launch-welcome/runs/2er1eom2`](https://wandb.ai/wandb/launch-welcome/runs/2er1eom2) `-a dropout=0.7`
+3. Click the run link from the command line to view live results from model retraining.
 
 ### Launch UI
 

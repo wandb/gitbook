@@ -77,7 +77,7 @@ Here's a public example page. You can see on the files tab, there's a `model-bes
 
 [See the live example →](https://app.wandb.ai/wandb/neurips-demo/runs/206aacqo/files)
 
-![](<../../../.gitbook/assets/image (39) (6) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (10).png>)
+![](<../../../.gitbook/assets/image (39) (6) (1) (10).png>)
 
 ## Restoring Files
 
