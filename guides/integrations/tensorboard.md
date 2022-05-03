@@ -16,6 +16,8 @@ wandb.finish()
 
 We support TensorBoard with all versions of TensorFlow. W\&B also supports TensorBoard > 1.14 with PyTorch as well as TensorBoardX.
 
+
+
 ## How is W\&B different from TensorBoard?
 
 When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we've focused on improving:
@@ -78,3 +80,11 @@ If you have existing `tfevents` files stored locally and you would like to impor
 If running your code in a Jupyter or Colab notebook, make sure to call `wandb.finish()` and the end of your training. This will finish the wandb run and upload the tensorboard logs to W\&B so they can be visualised. This is not necessary when running a `.py` script as wandb finishes automatically when a script finishes.
 
 To run shell commands in a notebook environment, you must prepend a `!`, as in `!wandb sync directoryname`.
+
+### PyTorch and TensorBoard
+
+If you use PyTorch's TensorBoard integration, you may need to manually upload the PyTorch Profiler JSON file**:**&#x20;
+
+```
+wandb.save(glob.glob(f"runs/*.pt.trace.json")[0], base_path=f"runs")
+```
