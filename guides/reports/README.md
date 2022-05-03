@@ -24,7 +24,7 @@ Capture an important observation, an idea for future work, or a milestone reache
 
 Jot down some text and pull in relevant charts to illustrate your insight ([comparing networks in distributed training →](https://wandb.ai/stacey/estuary/reports/When-Inception-ResNet-V2-is-too-slow--Vmlldzo3MDcxMA) )
 
-![](../../.gitbook/assets/screen-shot-2021-04-19-at-2.21.25-pm.png)
+![](<../../.gitbook/assets/Screen Shot 2021-04-19 at 2.21.25 PM.png>)
 
 Save the best examples from a complex code base for easy reference and future interaction (example: [LIDAR point clouds → ](https://wandb.ai/stacey/lyft/reports/LIDAR-Point-Clouds-of-Driving-Scenes--Vmlldzo2MzA5Mg))
 
