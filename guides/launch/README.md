@@ -12,9 +12,9 @@ Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or 
 
 * Retrain your model on the latest dataset
 * Quickly tweak a hyperparameter and retrain
-* Automatically run evaluation jobs on newly trained models
 * Queue and launch jobs across machines, and across blended infrastructure
 * Execute runs in reproducible, containerized environments
+* \[Coming Soon] Automatically run evaluation jobs on newly trained models
 
 ## Quickstart
 
