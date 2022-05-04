@@ -22,11 +22,7 @@ Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or 
 Before you start, add **instant replay** to your bio on your profile page — this is the secret phrase to unlock W\&B Launch features in the UI.
 {% endhint %}
 
-1. From [the sample project](https://wandb.ai/wandb/launch-welcome), pick a run to re-train and copy its URL.
-2. Run the launch command to re-run that run with a different config parameter, like dropout: `wandb launch`[ `https://wandb.ai/wandb/launch-welcome/runs/2er1eom2`](https://wandb.ai/wandb/launch-welcome/runs/2er1eom2) `-a dropout=0.7`
-3. Click the run link from the command line to view live results from model retraining.
-
-### Launch UI
+From [the sample project](https://wandb.ai/wandb/launch-welcome), pick a run to re-train and copy its URL.
 
 You can also use Launch through the W\&B web interface. Open the launch-welcome project again, open the dropdown by a run, and select **Add to Launch queue**.
 
