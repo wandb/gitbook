@@ -269,3 +269,8 @@ You can launch sweep agents on multiple GPUs.
      CUDA_VISIBLE_DEVICES=0 wandb agent sweep_id
      CUDA_VISIBLE_DEVICES=1 wandb agent sweep_id
     ```
+
+## How do I enable code logging with Sweeps?
+
+To enable code logging for sweeps, simply add `wandb.log_code()` after you have initialised your wandb run. This is necessary even when you have enabled code logging in the settings page of your W\&B profile in the app. For more advanced code logging, see the [docs for `wandb.log_code()` here](https://docs.wandb.ai/ref/python/run#log\_code)
+
