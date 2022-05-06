@@ -39,7 +39,7 @@ As an experiment runs, you'll want to log every instance of your metrics so they
 run.log({key: val})
 ```
 
-Once an experiment reaches the end, you may want to log final summary metrics to define the outcome of the run. This can be done with W\&B using  `define_metric`, but in this example case, we will be directly adding the [summary](../../../ref/python/summary.md) metrics to our run with [`run.summary.update()`](../../../ref/python/summary.md)`.`
+Once an experiment reaches the end, you may want to log final summary metrics to define the outcome of the run. This can be done with W\&B using  `define_metric`, but in this example case, we will be directly adding the [summary](../../../ref/python/summary.md) metrics to our run with [`run.summary.update()`](../../../ref/python/summary.md):
 
 ```python
 run.summary.update(summaries)
