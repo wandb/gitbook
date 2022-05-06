@@ -10,6 +10,7 @@
     * [Log Data with wandb.log](guides/track/log/README.md)
       * [Log Media & Objects](guides/track/log/media.md)
       * [Log Plots](guides/track/log/plots.md)
+      * [Working with CSV](guides/track/log/working-with-csv.md)
       * [Logging FAQs](guides/track/log/logging-faqs.md)
     * [Send Alerts with wandb.alert](guides/track/advanced/alert.md)
     * [Dashboards](guides/track/app.md)
