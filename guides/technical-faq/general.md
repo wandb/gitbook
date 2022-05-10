@@ -63,6 +63,17 @@ With wandb reports the procedure is as follows:
 
 For simplicity, W\&B uses API keys for authorization when accessing the API. You can find your API keys in your [settings](https://app.wandb.ai/settings). Your API key should be stored securely and never checked into version control. In addition to personal API keys, you can add Service Account users to your team.
 
+### Does W\&B support SSO for SaaS?
+
+Yes, W\&B supports setting up Single Sign-On (SSO) for the SaaS offering via Auth0. W\&B support SSO integration with any OIDC compliant identity provider(ex: Okta, AzureAD etc.). If you have an OIDC provider, please follow the steps below:
+
+* Create a Single Page Application (SPA) on your Identity Provider.
+* Set `grant_type` to `implicit` flow.
+* Set the callback URI to [`https://wandb.auth0.com/login/callback`](https://wandb.auth0.com/login/callback)
+* Once you have the above setup, contact your customer success manager(CSM) and let us know the Client ID and Issuer URL associated with the application.
+
+We'll then set up an Auth0 connection with the above details and enable SSO.&#x20;
+
 ### What is a service account, and why is it useful?
 
 A service account is an API key that has permissions to write to your team, but is not associated with a particular user. Among other things, service accounts are useful for tracking automated jobs logged to wandb, like periodic retraining, nightly builds, and so on. If you'd like, you can associate a username with one of these machine-launched runs with the [environment variable](../track/advanced/environment-variables.md) `WANDB_USERNAME`.
