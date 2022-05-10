@@ -55,7 +55,7 @@ You can aggregate all of the runs by turning on grouping, or group over an indiv
 
 ## Smoothing
 
-You can set the [smoothing coefficient](../../../../../guides/technical-faq.md#what-formula-do-you-use-for-your-smoothing-algorithm) to be between 0 and 1 where 0 is no smoothing and 1 is maximum smoothing.
+You can set the [smoothing coefficient](../../../../../guides/technical-faq/#what-formula-do-you-use-for-your-smoothing-algorithm) to be between 0 and 1 where 0 is no smoothing and 1 is maximum smoothing.
 
 ## Ignore Outliers
 
@@ -71,12 +71,12 @@ Select a style for your line plot.
 
 **Line plot:**
 
-![](<../../../../../.gitbook/assets/image (5) (2) (3) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../../../../.gitbook/assets/image (5) (2) (3) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
 
 **Area plot:**
 
-![](<../../../../../.gitbook/assets/image (35) (1) (2) (3) (3) (3) (3) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (2) (4).png>)
+![](<../../../../../.gitbook/assets/image (35) (1) (2) (3) (3) (3) (3) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (4).png>)
 
 **Percentage area plot:**
 
-![](<../../../../../.gitbook/assets/image (69) (4) (6) (1) (2) (1) (1) (1) (1) (1) (1) (1) (4) (1) (1) (1) (1) (1) (1) (10) (9).png>)
+![](<../../../../../.gitbook/assets/image (69) (4) (6) (1) (2) (1) (1) (1) (1) (1) (1) (1) (4) (1) (1) (1) (1) (9).png>)
