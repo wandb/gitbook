@@ -9,7 +9,7 @@ description: >-
 _We are actively investing in new Model Management features within W\&B. Please contact us with questions or suggestions at support@wandb.com._
 
 {% hint style="success" %}
-**Prefer code?** Jump right into the [companion colab notebook now](https://colab.research.google.com/drive/1wjgr9AHICOa3EM1Ikr\_Ps\_MAm5D7QnCC#scrollTo=rsuDGJZiB2J3)!
+**Prefer code?** Jump right into the [companion colab notebook now](https://colab.research.google.com/drive/1wjgr9AHICOa3EM1Ikr\_Ps\_MAm5D7QnCC)!
 {% endhint %}
 
 A **Model Registry** is a system of record for organizing ML Models - often serving as an interface between model producers and consumers. This guide will show you how to use W\&B as a Model Registry to track and report on the complete workflow of developing a model:
@@ -63,7 +63,7 @@ Now we will walk through a canonical workflow for producing, organizing, and con
 7. [Use the Production Model for Inference](models.md#7.-consume-the-production-model)
 8. [Build a Reporting Dashboard](models.md#8.-build-a-reporting-dashboard)
 
-**A** [**companion colab notebook**](https://colab.research.google.com/drive/1wjgr9AHICOa3EM1Ikr\_Ps\_MAm5D7QnCC#scrollTo=rsuDGJZiB2J3) **is provided which covers step 2-3 in the first code block and steps 4-6 in the second code block.**
+**A** [**companion colab notebook**](https://colab.research.google.com/drive/1wjgr9AHICOa3EM1Ikr\_Ps\_MAm5D7QnCC) **is provided which covers step 2-3 in the first code block and steps 4-6 in the second code block.**
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-12 at 11.21.50 AM.png>)
 
