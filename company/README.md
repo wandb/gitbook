@@ -34,7 +34,7 @@ You can create projects to keep all of your runs in a single place. You can visu
 
 A good example project is Stacey's [estuary project](https://app.wandb.ai/stacey/estuary). In the sidebar you can turn on and off runs to show on the graphs, or click one run to dive deeper. All your runs get saved and organized in a unified workspace for you.
 
-![](<../.gitbook/assets/image (85) (1) (2) (3) (3) (3) (3) (4) (3) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (1) (3).png>)
+![](<../.gitbook/assets/image (85) (1) (2) (3) (3) (3) (3) (4) (3) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (4).png>)
 
 ### 3. Share your results
 
