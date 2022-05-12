@@ -16,7 +16,7 @@ No internet connection needed. W\&B Local can run in air gapped environments. Th
 The default docker image runs MySQL and Minio inside of the container and writes all data in sub folders of `/vol` . You can configure external MySQL and Object Storage by getting a license. Email [contact@wandb.com](mailto:contact@wandb.com) for more details.
 
 **Can I run a wandb server in my own datacenter?**\
-Yes, but you are responsible for running your own MySQL 5.7 database and Object Store as [described in Production Setup](setup.md#on-premise-baremetal). We strongly recommend running our server within a cloud vendor as the operational expertise and resources needed to operate a scalable MySQL 5.7 database and Object Store is non-trivial.
+Yes, but you are responsible for running your own MySQL 5.7 database and Object Store as [described in Production Setup](setup/#on-premise-baremetal). We strongly recommend running our server within a cloud vendor as the operational expertise and resources needed to operate a scalable MySQL 5.7 database and Object Store is non-trivial.
 
 **How often do you release upgrades?**\
 We strive to release upgraded versions of our server at least once a month.

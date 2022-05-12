@@ -1,271 +1,21 @@
-# Production Setup
+---
+description: Hosting W&B on baremetal servers on-premise
+---
 
-A W\&B Local Server is a Docker container running on your infrastructure that connects to scalable data stores. See the following for instructions for how to provision a new instance.
+# On Premise / Baremetal
 
-{% hint style="info" %}
-Check out a [video tutorial](https://www.youtube.com/watch?v=bYmLY5fT2oA) for getting set up using [Terraform](https://www.terraform.io) on AWS!
+A W\&B Docker container running on your bare metal infrastructure that connects to scalable external data stores. See the following for instructions on how to provision a new instance and guidance on provisioning external data stores.
+
+{% hint style="warning" %}
+W\&B application performance depends on scalable data stores that your operations team must configure and manage. The team must provide a MySQL 5.7 database server and an S3 compatible object store for the application to scale properly.
 {% endhint %}
 
-{% embed url="https://www.youtube.com/watch?v=bYmLY5fT2oA" %}
-
-## Amazon Web Services
-
-The simplest way to configure W\&B within AWS is to use our [official Terraform](https://github.com/wandb/local/tree/main/terraform/aws). Detailed instructions can be found in the README. If instead you want to configure services manually you can find [instructions here](configuration.md#amazon-web-services).
-
-## Microsoft Azure
-
-The simplest way to configure W\&B within Azure is to use our [official Terraform](https://github.com/wandb/local/tree/main/terraform/azure). Detailed instructions can be found in the README. If instead you want to configure services manually you can find [instructions here](configuration.md#azure).
-
-## Google Cloud Platform
-
-These instructions assume you have a GKE k8s cluster already configured. They also assume you have `gcloud` command via the [Cloud SDK](https://cloud.google.com/sdk) and docker running locally. This will run the W\&B service on the internet. If instead you only want this service running on your internal private network, you'll need to modify the instructions to use a Service of type LoadBalancer with the appropriate annotations and SSL configuration as described [here](https://pushbuildtestdeploy.com/how-to-run-an-internal-load-balancer-with-ssl-on-gke/).
-
-### Credentials
-
-Create a Service account in the cloud console IAM with the following roles:
-
-* Service Account Token Creator
-* Pub/Sub Admin
-* Storage Object Admin
-* Cloud SQL Client
-
-{% hint style="info" %}
-You can optionally restrict Pub/Sub and Cloud Storage roles to only apply to the subscriptions / bucket we create in future steps
-{% endhint %}
-
-Download a key in JSON format then create the following secret in your kubernetes cluster:
-
-```
-kubectl create secret generic wandb-service-account --from-file=key.json=PATH-TO-KEY-FILE.json
-```
-
-### Storage
-
-Create a bucket in the same region as your k8s cluster.
-
-Navigate to **Pub/Sub** > **Topics** in the GCP Console, and click "**Create topic**". Choose a name and create a topic.
-
-Navigate to **Pub/Sub** > **Subscriptions** in the GCP Console, and click "**Create subscription**". Choose a name, and make sure Delivery Type is set to "Pull". Click "**Create**".
-
-Finally make sure `gcloud` is configured with the project you're using and run:
-
-```
-gsutil notification create -t TOPIC_NAME -f json gs://BUCKET_NAME
-```
-
-Write the following to a file named `cors.json`
-
-```
-[
-  {
-    "origin": [
-      "*"
-    ],
-    "responseHeader": ["Content-Type", "x-goog-acl"],
-    "method": ["GET", "HEAD", "PUT"],
-    "maxAgeSeconds": 3600
-  }
-]
-```
-
-Then run:
-
-```
-gsutil cors set cors.json gs://BUCKET_NAME
-```
-
-### Setup MySQL
-
-Provision a Cloud SQL instance with version 5.7 of MySQL in the same region as your other resources. Note the **Connection name** once the instance has been provisions and replace YOUR\_MYSQL\_CONNECTION\_NAME in the templates below with it.
-
-Connect to your new database:
-
-```
-gcloud sql connect YOUR_DATABASE_NAME --user=root --quiet
-```
-
-Then run the following SQL:
-
-```sql
-CREATE USER 'wandb_local'@'%' IDENTIFIED BY 'wandb_local';
-CREATE DATABASE wandb_local CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-GRANT ALL ON wandb_local.* TO 'wandb_local'@'%' WITH GRANT OPTION;
-```
-
-### Create a k8s deployment
-
-This assumes you've created a static IP and are using GKE to manage certificates.
-
-#### Create global static IP
-
-```
-gcloud compute addresses create wandb-local-static-ip --global
-```
-
-You'll want to configure a DNS entry that points to this IP once it's been created, referred to as YOUR\_DNS\_NAME below.
-
-#### Create k8s deployment with a Google managed certificate
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: wandb
-  labels:
-    app: wandb
-spec:
-  strategy:
-    type: RollingUpdate
-  replicas: 1
-  selector:
-    matchLabels:
-      app: wandb
-  template:
-    metadata:
-      labels:
-        app: wandb
-    spec:
-      containers:
-        - name: cloud-sql-proxy
-          # It is recommended to use the latest version of the Cloud SQL proxy
-          # Make sure to update on a regular schedule!
-          image: gcr.io/cloudsql-docker/gce-proxy:1.27.1
-          command:
-            - "/cloud_sql_proxy"
-            # If connecting from a VPC-native GKE cluster, you can use the
-            # following flag to have the proxy connect over private IP
-            # - "-ip_address_types=PRIVATE"
-            - "-instances=YOUR_MYSQL_CONNECTION_NAME=tcp:3306"
-            - "-credential_file=/secrets/key.json"
-          securityContext:
-            # The default Cloud SQL proxy image runs as the
-            # "nonroot" user and group (uid: 65532) by default.
-            runAsNonRoot: true
-          volumeMounts:
-            - name: wandb-service-account
-              mountPath: /secrets/
-              readOnly: true
-          resources:
-            requests:
-              cpu: 100m
-              memory: 32Mi
-            limits:
-              cpu: 1000m
-              memory: 512Mi
-        - name: wandb
-          env:
-            - name: HOST
-              value: https://YOUR_DNS_NAME
-            - name: BUCKET
-              value: gs://YOUR_BUCKET_NAME
-            - name: BUCKET_QUEUE
-              value: pubsub:/PROJECT_NAME/TOPIC_NAME/SUBSCRIPTION_NAME
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: /var/secrets/google/key.json
-            - name: MYSQL
-              value: mysql://wandb_local:wandb_local@127.0.0.1:3306/wandb_local
-            - name: LICENSE
-              value: $REPLACE_ME_WITH_YOUR_LICENSE
-          imagePullPolicy: Always
-          image: wandb/local:latest
-          command:
-            - sh
-            - -c
-            - "sleep 10 && /sbin/my_init"
-          ports:
-            - name: http
-              containerPort: 8080
-              protocol: TCP
-          volumeMounts:
-            - name: wandb-service-account
-              mountPath: /var/secrets/google
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /ready
-              port: http
-          startupProbe:
-            httpGet:
-              path: /ready
-              port: http
-            failureThreshold: 60 # allow 10 minutes for migrations
-          resources:
-            requests:
-              cpu: "1500m"
-              memory: 4G
-            limits:
-              cpu: "4000m"
-              memory: 8G
-      volumes:
-        - name: wandb-service-account
-          secret:
-            secretName: wandb-service-account
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: wandb-service
-spec:
-  type: NodePort
-  selector:
-    app: wandb
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: wandb-ingress
-  annotations:
-    kubernetes.io/ingress.global-static-ip-name: wandb-local-static-ip
-    networking.gke.io/managed-certificates: wandb-local-cert
-spec:
-  defaultBackend:
-    service:
-      name: wandb-service
-      port:
-        number: 80
----
-apiVersion: networking.gke.io/v1beta1
-kind: ManagedCertificate
-metadata:
-  name: wandb-local-cert
-spec:
-  domains:
-    - YOUR_DNS_DOMAIN
-```
-
-### Configure your instance
-
-Go to https://YOUR\_DNS\_DOMAIN in your browser, and create your account. Choose "System Settings" from the menu in the upper right.
-
-Input the LICENSE we've provided and click "Use and external file storage backend". Specify: `pubsub:/PROJECT/TOPIC/SUBSCRIPTION` in the **Notification Subscription** section.
-
-Input https://YOUR\_DNS\_DOMAIN in the **Frontend Host** section. Click update settings.
-
-### Verify your installation
-
-On a machine with python run:
-
-```bash
-pip install wandb
-wandb login --host=https://YOUR_DNS_DOMAIN
-wandb verify
-```
-
-## On Premise / Baremetal
-
-W\&B depends on scalable data stores that must be configured and managed by your operations team. The team must provide a MySQL 5.7 database server and an S3 compatible object store for the application to scale properly.
+Talk to our sales team by reaching out to [contact@wandb.com](mailto:contact@wandb.com).
 
 ### MySQL 5.7
 
 {% hint style="warning" %}
-W\&B only supports MySQL 5.7 we do not support MySQL 8 or any other SQL engine.
+While W\&B currently supports MySQL 5.7, we are adding experimental support for MySQL 8.
 {% endhint %}
 
 There are a number of enterprise services that make operating a scalable MySQL database simpler. We suggest looking into one of the following solutions:
@@ -299,7 +49,7 @@ s3://$ACCESS_KEY:$SECRET_KEY@$HOST/$BUCKET_NAME
 By default we assume 3rd party object stores are not running over HTTPS. If you've configured a trusted SSL certificate for your object store, you can tell us to only connect over tls by adding the `tls` query parameter to the url, i.e.
 
 {% hint style="warning" %}
-This will only work if the SSL certificate is trusted. We do not support self signed certificates.
+This will only work if the SSL certificate is trusted. We do not support self-signed certificates.
 {% endhint %}
 
 ```yaml
@@ -423,7 +173,7 @@ spec:
         number: 80
 ```
 
-The k8s YAML above should work in most on-premise installations. However the details of your Ingress and optional SSL termination will vary. See [networking](setup.md#networking) below.
+The k8s YAML above should work in most on-premise installations. However the details of your Ingress and optional SSL termination will vary. See [networking](on-premise-baremetal.md#networking) below.
 
 ### Openshift
 

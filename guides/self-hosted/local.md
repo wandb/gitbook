@@ -10,7 +10,7 @@ The locally-hosted server is a single Docker image that is simple to deploy. You
 
 ## Private Hosting
 
-Running wandb on localhost is great for initial testing, but to leverage the collaborative features of _wandb/local_ you should host the service on a central server. Instructions for setting up a centralized server on various platforms can be found in the [Production Setup](setup.md) section.
+Running wandb on localhost is great for initial testing, but to leverage the collaborative features of _wandb/local_ you should host the service on a central server. Instructions for setting up a centralized server on various platforms can be found in the [Production Setup](setup/) section.
 
 {% hint style="danger" %}
 **Danger of Data Loss**
@@ -84,7 +84,7 @@ $ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 You need a license to complete your configuration of your Local host. [**Open the Deploy Manager** ](https://deploy.wandb.ai/deploy)to generate a free license. If you do not already have a cloud account then you will need to create one to generate your free license. We offer two options:
 
 1. [**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work:                                                                          ![](<../../.gitbook/assets/image (174).png>)
-2. &#x20; [**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:                                                                                                                                                      ![](<../../.gitbook/assets/image (163) (2).png>)
+2. &#x20; [**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:                                                                                                                                                      ![](<../../.gitbook/assets/image (175).png>)
 
 ### Add a license to your Local host
 
@@ -95,7 +95,7 @@ You need a license to complete your configuration of your Local host. [**Open th
 ### Persistence and Scalability
 
 * All metadata and files sent to W\&B are stored in the `/vol` directory. If you do not mount a persistent volume at this location all data will be lost when the docker process dies.
-* This solution is not meant for [production](setup.md) workloads.
+* This solution is not meant for [production](setup/) workloads.
 * You can store metadata in an external MySQL database and files in an external storage bucket.
 * The underlying file store should be resizable. Alerts should be put in place to let you know once minimum storage thresholds are crossed to resize the underlying file system.
 * For trial purposes, we recommend at least 100GB free space in the underlying volume for non-image/video/audio heavy workloads.

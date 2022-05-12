@@ -22,4 +22,4 @@ description: >-
 
 ![Copy your license from Deployer and paste it into your Local settings](../../.gitbook/assets/License.gif)
 
-We also offer [Managed W\&B Private Cloud](cloud.md), which runs a completely scalable infrastructure within your company's AWS or GCP account. This system is a good choice for massively scalable experiment tracking.
+We also offer [Private Cloud Deployment](setup/private-cloud.md) options for production, which runs a completely scalable infrastructure within your company's AWS or GCP account. This system is a good choice for massively scalable experiment tracking.

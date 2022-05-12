@@ -119,5 +119,5 @@ Note that "**Run Finished"** alerts (turned on via the "**Run Finished"** settin
 **Alerts with W\&B Local**
 
 {% hint style="warning" %}
-Note that if you are self-hosting using W\&B Local you will need to follow [these steps](../../self-hosted/configuration.md#slack) before enabling Slack alerts
+Note that if you are self-hosting using W\&B Local you will need to follow [these steps](../../self-hosted/setup/configuration.md#slack) before enabling Slack alerts
 {% endhint %}
