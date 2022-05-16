@@ -119,7 +119,7 @@ def name == "main":
 ### Advance Usage
 
 {% tabs %}
-{% tab title="Multiprocessing Pool" %}
+{% tab title="Spawned process" %}
 If you are initiating the run in a spawned process you should add `wandb.setup()` in the main process (line 8):
 
 ```python
@@ -167,8 +167,6 @@ Note that we can't guarantee order on logging and the synchronization should be 
 
 {% tab title="PyTorch Lightning" %}
 Starting from release 1.6.0, `service` is enabled by default in PyTorch Lightning, so if you are using version 1.6.0 or later you were using `service` by default.
-
-
 {% endtab %}
 {% endtabs %}
 
