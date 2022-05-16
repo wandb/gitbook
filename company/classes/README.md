@@ -20,7 +20,7 @@ Ask your students to submit reports so you can explore their results and compare
 
 Create a project in your academic team, and have your students compete to achieve the best accuracy on a shared task. Here's a screenshot of an example competition. Each row is a different experiment, and users are competing for the highest accuracy. [View the project →](https://app.wandb.ai/wandb/feb8-emotion)
 
-![](<../../.gitbook/assets/image (57) (4) (5) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (8).png>)
+![](<../../.gitbook/assets/image (57) (4) (5) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (1) (7).png>)
 
 ## Resources
 
@@ -30,7 +30,7 @@ We've built up a set of working examples of deep learning projects in different 
 
 [View the GitHub repo →](https://github.com/wandb/examples)
 
-![](<../../.gitbook/assets/image (48) (2) (3) (4) (2) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (6).png>)
+![](<../../.gitbook/assets/image (48) (2) (3) (4) (2) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (1) (5).png>)
 
 We also created some hosted notebooks with models that your students can start training for free with the click of a button.
 
@@ -44,7 +44,7 @@ Lukas and Chris have built a library of short tutorial projects with notes on ea
 
 [View the tutorials →](https://www.wandb.com/tutorials)
 
-![](<../../.gitbook/assets/image (76) (3) (4) (6) (3) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (4) (1) (1) (1) (1) (1) (1) (1) (2) (9).png>)
+![](<../../.gitbook/assets/image (76) (3) (4) (6) (3) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (4) (1) (1) (1) (1) (1) (1) (1) (2) (1) (8).png>)
 
 ### Free classes
 
@@ -52,8 +52,8 @@ Here are some excellent videos, notes, and slides from around the web. These are
 
 1. [Introduction to Machine Learning for Coders](http://course18.fast.ai/ml): Great fastai course with videos, example code, and a vibrant forum for support
 2. [Full Stack Deep Learning](https://fullstackdeeplearning.com/march2019): Taught by our friend Josh Tobin, this awesome course will take you to the next level of expertise in building deep learning models
-3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
-4. [MIT Intro to Deep Learning](http://introtodeeplearning.com): Accessible introduction taught by Alexander Amini and Ava Soleimany
+3. [Stanford CS230 Deep Learning](https://cs230.stanford.edu/): Lectures and slides are available online for this awesome Stanford course taught by Andrew Ng.
+4. [MIT Intro to Deep Learning](http://introtodeeplearning.com/): Accessible introduction taught by Alexander Amini and Ava Soleimany
 
 ### Slide decks
 
@@ -74,8 +74,8 @@ Here are some excellent videos, notes, and slides from around the web. These are
 
 1. [OpenAI GPT-2](https://openai.com/blog/better-language-models/): a model for generating realistic text
 2. [TalkToTransformer.com](https://talktotransformer.com): try GPT 2
-3. [GLUE Benchmark](https://gluebenchmark.com): resources for training and analyzing natural language systems
-4. [SuperGLUE](https://super.gluebenchmark.com): updated and improved v2 of the GLUE benchmark
+3. [GLUE Benchmark](https://gluebenchmark.com/): resources for training and analyzing natural language systems
+4. [SuperGLUE](https://super.gluebenchmark.com/): updated and improved v2 of the GLUE benchmark
 5. [Livox](http://impact-transfer.org/zero/livox/): uses NLP in an alternative communication app
 6. [Practical Twitter Content Mining](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3694275/): medical journal article about using NLP on tweets
 7. [Applications of NLP](https://medium.com/@datamonsters/artificial-neural-networks-in-natural-language-processing-bcf62aa9151a): Medium article talking about 10 interesting applications

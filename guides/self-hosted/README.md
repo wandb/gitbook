@@ -15,7 +15,7 @@ description: >-
     pip install wandb
     wandb local 
     ```
-2. Generate a free license from the [Deployer](https://deploy.wandb.ai).
+2. Generate a free license from the [Deployer](https://deploy.wandb.ai/).
 3. Add it to your local settings.
 
 #### Paste the license in the ** `/system-admin`** page on your localhost

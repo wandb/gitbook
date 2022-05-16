@@ -54,7 +54,7 @@ If you want to see what the outputs look like for this method, check out an exam
 
 The epoch-wise and batch-wise loss values, however, are only logged from a single GPU.
 
-![](<../../../.gitbook/assets/image (68) (2).png>)
+![](<../../../.gitbook/assets/image (68) (1).png>)
 
 ### Method 2: `wandb.init` on all processes
 
@@ -95,3 +95,80 @@ If launching the `wandb` process hangs, it could be because the `wandb` multipro
 ### Hanging at the end of training
 
 Is your process hanging at the end of training? The `wandb` process might not know it needs to exit, and that will cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause `wandb` to exit.
+
+## wandb service (beta)
+
+### Why would you use this feature?
+
+This is a new feature we introduce in `wandb`. This feature supports more generalized and robust treatment of multiprocessing. If you are using `wandb` in a distributed training setup and experiencing hangs, please consider trying out this new feature.
+
+### General Setup
+
+{% tabs %}
+{% tab title="Enable in script" %}
+`service` can be enabled by adding the following to your script:
+
+```python
+def name == "main":
+    wandb.require(experiment="service")
+    # <rest-of-your-script-goes-here>
+```
+{% endtab %}
+{% endtabs %}
+
+### Advance Usage
+
+{% tabs %}
+{% tab title="Multiprocessing Pool" %}
+If you are initiating the run in a spawned process you should add `wandb.setup()` in the main process (line 8):
+
+```python
+import multiprocessing as mp
+
+def do_work(n):
+    run = wandb.init(config=dict(n=n))
+    run.log(dict(this=n*n))
+
+def main():
+    wandb.setup()
+    pool = mp.Pool(processes=4)
+    pool.map(do_work, range(4))
+
+if __name__ == "__main__":
+    wandb.require("service")
+    main()
+```
+{% endtab %}
+
+{% tab title="Sharing a run" %}
+If you want to share a run between processes you could just pass it as an argument:
+
+```python
+def do_work(run):
+    run.log(dict(this=1))
+
+def main():
+    wandb.require("service")
+    run = wandb.init()
+    p = mp.Process(target=do_work, kwargs=dict(run=run))
+    p.start()
+    p.join()
+        
+if __name__ == "__main__":
+    main()
+```
+
+
+
+{% hint style="info" %}
+Note that we can't guarantee order on logging and the synchronization should be done by the author of the script
+{% endhint %}
+{% endtab %}
+
+{% tab title="PyTorch Lightning" %}
+Starting from release 1.6.0, `service` is enabled by default in PyTorch Lightning, so if you are using version 1.6.0 or later you were using `service` by default.
+
+
+{% endtab %}
+{% endtabs %}
+

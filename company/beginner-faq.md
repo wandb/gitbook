@@ -28,4 +28,4 @@ Interested in seeing a live example? Here's a report that compares the model's a
 
 [See the report in W\&B →](https://app.wandb.ai/stacey/curr\_learn/reports/Species-Identification--VmlldzoxMDk3Nw)
 
-![](<../.gitbook/assets/image (18) (3) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3).png>)
+![](<../.gitbook/assets/image (18) (3) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (1).png>)
