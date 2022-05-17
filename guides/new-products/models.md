@@ -26,12 +26,12 @@ First, let's define the data model & terminology used throughout this guide:
 
 * **Model Version:** a package of data & metadata describing a trained model.
 * **Model Artifact:** a sequence of logged Model Versions - often tracking the progress of training.
-* **Model Portfolio:** a selection of linked Model Versions - often representing all the candidate models for a single modeling use case or task
+* **Model Collection:** a selection of linked Model Versions - often representing all the candidate models for a single modeling use case or task
 
-_Hint: A Model Version will always belong to one and only one Model Artifact, yet may belong to zero or more Model Portfolios._
+_Hint: A Model Version will always belong to one and only one Model Artifact, yet may belong to zero or more Model Collections._
 
 {% hint style="info" %}
-For those familiar with W\&B Artifacts: a Model is exactly an Artifact with `type="model"`, a Model Version is an Artifact Version belonging to such an Artifact, and a Model Portfolio is an Artifact Portfolio of `type="model"`.
+For those familiar with W\&B Artifacts: a Model is exactly an Artifact with `type="model"`, a Model Version is an Artifact Version belonging to such an Artifact, and a Model Collection is an Artifact Collection of `type="model"`.
 {% endhint %}
 
 In W\&B a **Model Version** is an immutable directory of data; it is up to you to decide what files & formats are appropriate to store (and restore) your model architecture & learned parameters. Typically you will want to store whatever files are produced from the serialization process provided by your modeling library (eg [PyTorch](https://pytorch.org/tutorials/beginner/saving\_loading\_models.html) & [Keras](https://www.tensorflow.org/guide/keras/save\_and\_serialize)).
@@ -40,11 +40,11 @@ Furthermore, a **Model Artifact** is a sequence of Model Versions. Model Artifac
 
 ![](../../.gitbook/assets/mr1c.png)
 
-Finally, a **Model Portfolio** is a set links to Model Versions. A Model Portfolio can be accessed exactly like act like Model Artifacts (identified by `[[entityName/]/projectName]/portfolioName:alias`), however it acts more like a folder of "bookmarks" - where each "version" of a Model Portfolio is actually a link to an Model Version belonging to a Model Artifact of the same type. A Model Version may be linked to any number of Model Portfolios. Typically you will create a Model Portfolio for each of your use cases / modeling tasks and use aliases like "production" or "staging" to denote versions with special purposes. _View an_ [_example Model Portfolio_](https://wandb.ai/timssweeney/model\_management\_docs\_official\_v0/artifacts/model/MNIST%20Grayscale%2028x28)_!_
+Finally, a **Model Collection** is a set links to Model Versions. A Model Collection can be accessed exactly like act like Model Artifacts (identified by `[[entityName/]/projectName]/collectionName:alias`), however it acts more like a folder of "bookmarks" - where each "version" of a Model Collection is actually a link to an Model Version belonging to a Model Artifact of the same type. A Model Version may be linked to any number of Model Collections. Typically you will create a Model Collection for each of your use cases / modeling tasks and use aliases like "production" or "staging" to denote versions with special purposes. _View an_ [_example Model Collection!_](https://wandb.ai/timssweeney/model\_management\_docs\_official\_v0/artifacts/model/MNIST%20Grayscale%2028x28)__
 
 ![](<../../.gitbook/assets/Diagram Doc (9).png>)
 
-While developing an ML Model, you will likely have dozens, hundreds, or even thousands of Runs which produce Model Versions - they may come from notebooks, remote training jobs, CI/CD pipelines, etc... Most likely, not all of those models are great; often you are iterating on scripts, parameters, architectures, preprocessing logic and more. The separation of Artifacts and Portfolios allows you to produce a massive number of Artifacts (think of them like "draft models"), and periodically _link_ your high performing versions to a the curated Model Portfolio. Then, use aliases to mark which Version in a Portfolio is at which stage in the lifecycle. Each person in your team can collaborate on a single use case (Portfolio), while having the freedom to explore and experiment without polluting namespaces or conflicting with others' work.
+While developing an ML Model, you will likely have dozens, hundreds, or even thousands of Runs which produce Model Versions - they may come from notebooks, remote training jobs, CI/CD pipelines, etc... Most likely, not all of those models are great; often you are iterating on scripts, parameters, architectures, preprocessing logic and more. The separation of Artifacts and Collections allows you to produce a massive number of Artifacts (think of them like "draft models"), and periodically _link_ your high performing versions to a the curated Model Collection. Then, use aliases to mark which Version in a Collection is at which stage in the lifecycle. Each person in your team can collaborate on a single use case (Collection), while having the freedom to explore and experiment without polluting namespaces or conflicting with others' work.
 
 ## Workflow
 
@@ -54,9 +54,9 @@ Please add `artifact-portfolios` to your bio in order to enable beta features re
 
 Now we will walk through a canonical workflow for producing, organizing, and consuming trained models:
 
-1. [Create a new Model Portfolio](models.md#1.-create-a-new-model-portfolio)
+1. [Create a new Model Collection](models.md#1.-create-a-new-model-portfolio)
 2. [Train & log Model Versions](models.md#2.-train-and-log-model-versions)
-3. [Link Model Versions to the Portfolio](models.md#3.-link-model-versions-to-the-portfolio)
+3. [Link Model Versions to the Collection](models.md#3.-link-model-versions-to-the-portfolio)
 4. [Using a Model Version](models.md#4.-use-a-model-version)
 5. [Evaluate Model Performance](models.md#5.-evaluate-model-performance)
 6. [Promote a Version to Production](models.md#6.-promote-a-version-to-production)
@@ -67,13 +67,13 @@ Now we will walk through a canonical workflow for producing, organizing, and con
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-12 at 11.21.50 AM.png>)
 
-### 1. Create a new Model Portfolio
+### 1. Create a new Model Collection
 
-First, create a Model Portfolio to hold all the candidate models for your particular modeling task. In this tutorial, we will use the classic [MNIST Dataset](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html#torchvision.datasets.MNIST) - 28x28 grayscale input images with output classes from 0-9. The video below demonstrates how to create a new Portfolio:
+First, create a Model Collection to hold all the candidate models for your particular modeling task. In this tutorial, we will use the classic [MNIST Dataset](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html#torchvision.datasets.MNIST) - 28x28 grayscale input images with output classes from 0-9. The video below demonstrates how to create a new Collection:
 
 1. Visit your Project's Artifact Browser: `wandb.ai/<entity>/<project>/artifacts`
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
-3. Select `Type: model`, `Style: Portfolio`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Portfolio should map to a modeling task - enter a unique name that describes the use case.
+3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
 ![](<../../.gitbook/assets/2022-05-11 01.20.37.gif>)
 
@@ -190,24 +190,24 @@ If you are following along the example notebook, you should see a Run Workspace 
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-12 at 11.42.12 AM.png>)
 
-### 3. Link Model Versions to the Portfolio
+### 3. Link Model Versions to the Collection
 
-Now, let's say that we are ready to link one of our Model Versions to the Model Portfolio. We can accomplish this manually as well as via an API.
+Now, let's say that we are ready to link one of our Model Versions to the Model Collection. We can accomplish this manually as well as via an API.
 
 {% tabs %}
 {% tab title="Manual Linking" %}
-The following video below demonstrates how to manually link a Model Version to your newly created Portfolio:
+The following video below demonstrates how to manually link a Model Version to your newly created Collection:
 
 1. Navigate to the Model Version of interest
 2. Click the link icon
-3. Select the target Portfolio
+3. Select the target Collection
 4. (optional): Add additional aliases
 
 ![](<../../.gitbook/assets/2022-05-11 15.13.48.gif>)
 {% endtab %}
 
 {% tab title="Programatic Linking" %}
-While manual linking is useful for one-off Models, it is often useful to programmatically link Model Versions to a Portfolio - consider a nightly job or CI pipeline that wants to link the best Model Version from every training job. Depending on your context and use case, you may use one of 3 different linking APIs:
+While manual linking is useful for one-off Models, it is often useful to programmatically link Model Versions to a Collection - consider a nightly job or CI pipeline that wants to link the best Model Version from every training job. Depending on your context and use case, you may use one of 3 different linking APIs:
 
 
 
@@ -219,8 +219,8 @@ import wandb
 # Fetch the Model Version via API
 art = wandb.Api().artifact(...)
 
-# Link the Model Version to the Model Portfolio
-art.link("[[entity/]project/]portfolioName")
+# Link the Model Version to the Model Collection
+art.link("[[entity/]project/]collectionName")
 ```
 
 
@@ -236,8 +236,8 @@ wandb.init()
 # Obtain a reference to a Model Version
 art = wandb.use_artifact(...)
 
-# Link the Model Version to the Model Portfolio
-art.link("[[entity/]project/]portfolioName")
+# Link the Model Version to the Model Collection
+art.link("[[entity/]project/]collectionName")
 ```
 
 
@@ -256,8 +256,8 @@ art = wandb.Artifact(...)
 # Log the Model Version
 wandb.log_artifact(art)
 
-# Link the Model Version to the Portfolio
-wandb.run.link_artifact(art, "[[entity/]project/]portfolioName")
+# Link the Model Version to the Collection
+wandb.run.link_artifact(art, "[[entity/]project/]collectionName")
 ```
 {% endtab %}
 
@@ -275,12 +275,12 @@ from wandb.beta.workflows import log_model, link_model
 model_version = wb.log_model(model, "mnist_nn")
 
 # Link the Model Version
-link_model(model_version, "[[entity/]project/]portfolioName")
+link_model(model_version, "[[entity/]project/]collectionName")
 ```
 {% endtab %}
 {% endtabs %}
 
-After you link the Model Version, you will see hyperlinks connecting the Version in the Portfolio to the source Artifact and visa versa.
+After you link the Model Version, you will see hyperlinks connecting the Version in the Collection to the source Artifact and visa versa.
 
 ![](../../.gitbook/assets/mr0a.png)
 
@@ -299,7 +299,7 @@ import wandb
 wandb.init()
 
 # Download your Model Version files
-path = wandb.use_artifact("[[entity/]project/]portfolioName:latest").download()
+path = wandb.use_artifact("[[entity/]project/]collectionName:latest").download()
 
 # Deserialize your model (this will be your custom code to load in
 # a model from disk - reversing the serialization process used in step 2)
@@ -317,7 +317,7 @@ Directly manipulating model files and handling deserialization can be tricky - e
 ```python
 from wandb.beta.workflows import use_model
 
-model = use_model("[[entity/]project/]portfolioName").model_obj()
+model = use_model("[[entity/]project/]collectionName").model_obj()
 ```
 {% endtab %}
 {% endtabs %}
@@ -348,11 +348,11 @@ If you are executing similar code, as demonstrated in the notebook, you should s
 
 ### 6. Promote a Version to Production
 
-Next, you will likely want to denote which version in the Portfolio is intended to be used for Production. Here, we use the concept of aliases. Each Portfolio can have any aliases which make sense for your use case - however we often see `production` as the most common alias. Each alias can only be assigned to a single Version at a time.
+Next, you will likely want to denote which version in the Collection is intended to be used for Production. Here, we use the concept of aliases. Each Collection can have any aliases which make sense for your use case - however we often see `production` as the most common alias. Each alias can only be assigned to a single Version at a time.
 
 {% tabs %}
 {% tab title="via API" %}
-Follow steps in [Part 3. Link Model Versions to the Portfolio](models.md#3.-linking-model-versions-to-the-portfolio) and add the aliases you want to the `aliases` parameter.
+Follow steps in [Part 3. Link Model Versions to the Collection](models.md#3.-linking-model-versions-to-the-portfolio) and add the aliases you want to the `aliases` parameter.
 {% endtab %}
 
 {% tab title="via UI Interface" %}
@@ -362,7 +362,7 @@ Coming soon!
 {% endtab %}
 {% endtabs %}
 
-The image below shows the new `production` alias added to v1 of the Portfolio!
+The image below shows the new `production` alias added to v1 of the Collection!
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-12 at 11.46.43 AM.png>)
 
@@ -371,13 +371,13 @@ The image below shows the new `production` alias added to v1 of the Portfolio!
 Finally, you will likely want to use your production Model for inference. To do so, simply follow the steps outlined in [Part 4. Using a Model Version](models.md#4.-evaluate-model-performance), with the `production` alias. For example:
 
 ```python
-wandb.use_artifact("[[entity/]project/]portfolioName:production")
+wandb.use_artifact("[[entity/]project/]collectionName:production")
 ```
 
-You can reference a Version within the Portfolio using different alias strategies:
+You can reference a Version within the Collection using different alias strategies:
 
 * `latest` - which will fetch the most recently linked Version
-* `v#` - using `v0`, `v1`, `v2`, ... you can fetch a specific version in the portfolio
+* `v#` - using `v0`, `v1`, `v2`, ... you can fetch a specific version in the Collection
 * `production` - you can use any custom alias that you and your team have assigned
 
 ### 8. Build a Reporting Dashboard
