@@ -52,3 +52,11 @@ At any point, you can always use the [API](https://docs.wandb.ai/library/public-
 ### Will wandb slow down my training?
 
 Wandb should have a negligible effect on your training performance if you use it normally. Normal use of wandb means logging less than once a second and logging less than a few megabytes of data at each step. Wandb runs in a separate process and the function calls don't block, so if the network goes down briefly or there are intermittent read write issues on disk it should not affect your performance. It is possible to log a huge amount of data quickly, and if you do that you might create disk I/O issues. If you have any questions, please don't hesitate to contact us.
+
+### How many runs to create per project?&#x20;
+
+We recommend you have roughly 10k runs per project max for performance reasons.
+
+### Best practices to organize hyperparameter searches
+
+If 10k runs per project (approx.) is a reasonable limit then our recommendation would be to set tags in `wandb.init()` and have a unique tag for each search. This means that you'll easily be able to filter the project down to a given search by clicking that tag in the Project Page in the Runs Table. For example `wandb.init(tags='your_tag')`  docs for this can be found [here](../../ref/python/init.md).
