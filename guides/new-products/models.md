@@ -6,6 +6,10 @@ description: >-
 
 # Model Management
 
+{% hint style="info" %}
+Please add `artifact-portfolios` to your bio in order to enable beta features required to complete this guide.
+{% endhint %}
+
 _We are actively investing in new Model Management features within W\&B. Please contact us with questions or suggestions at support@wandb.com._
 
 {% hint style="success" %}
@@ -75,7 +79,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
-![](<../../.gitbook/assets/2022-05-11 01.20.37.gif>)
+![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
 
 ### 2. Train & log Model Versions
 
