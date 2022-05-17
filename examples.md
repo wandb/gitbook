@@ -190,7 +190,7 @@ for headline in headlines:
 wandb.log({"validation_samples" : text_table})
 ```
 
-![Text and model scores in a W\&B Table](.gitbook/assets/text.png)
+![Text and model scores in a W\&B Table](<.gitbook/assets/text (1).png>)
 
 #### Integrations
 
@@ -296,7 +296,7 @@ for (audio_arr, spec, label) in my_data:
  wandb.log({"validation_samples" : my_table})
 ```
 
-![](<.gitbook/assets/audio (1).png>)
+![](<.gitbook/assets/audio (1) (1).png>)
 
 #### Integrations
 

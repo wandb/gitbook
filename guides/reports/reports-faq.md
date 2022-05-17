@@ -4,6 +4,12 @@
 
 If you currently want to upload a CSV to a report you can do it via the `wandb.Table` format. Loading the CSV in your Python script and logging it as a `wandb.Table` object will allow you to render the data as a table in a report.
 
+### **Upload an image to a report**
+
+On a new line, press `/` and scroll to Image. Then just drag and drop an image into the report.
+
+![](<../../.gitbook/assets/Add an image.gif>)
+
 ### Refreshing data
 
 Reload the page to refresh data in a report and get the latest results from your active runs. Workspaces automatically load fresh data if you have the **Auto-refresh** option active (available in the dropdown menu in the upper right corner of your page). Auto-refresh does not apply to reports, so this data will not refresh until you reload the page.
@@ -20,7 +26,7 @@ LaTeX can be added into reports easily. In order to do so, create a new report, 
 
 On a new line, press `/` and scroll to the inline equations tab to add rich content in LaTeX.
 
-![](<../../.gitbook/assets/Screen (1) (1) (1) (1) (1) (1) (1) (2) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).mov>)
+![](<../../.gitbook/assets/Screen (1) (1) (1) (1) (1) (1) (1) (2) (2) (1) (1) (1) (1) (1) (1) (2) (1).mov>)
 
 ### List of markdown shortcuts
 

@@ -100,6 +100,12 @@ You need a license to complete your configuration of your Local host. [**Open th
 * The underlying file store should be resizable. Alerts should be put in place to let you know once minimum storage thresholds are crossed to resize the underlying file system.
 * For trial purposes, we recommend at least 100GB free space in the underlying volume for non-image/video/audio heavy workloads.
 
+#### How does wandb Persist user account data?
+
+When a Kubernetes instance is stopped, the wandb application bundles all the user account data into a tarball and uploads it to the S3 object store. On restarting the instance and providing the `BUCKET` environment variable, wandb pulls that previously uploaded tarball and loads the user account info into the newly started Kubernetes deployment.
+
+Wandb persists instance settings in the external bucket when it's configured. We also persist certificates, and secrets in the bucket but should be moving those into proper secret stores or at least adding a layer of encryption. When an external object store is enabled, strong access controls should be enforced as it will contain all users data
+
 #### Create and scale a shared instance
 
 This private instance of W\&B is excellent for initial testing. To enjoy the powerful collaborative features of W\&B, you will need a shared instance on a central server, which you can [set up on AWS, GCP, Azure, Kubernetes, or Docker](https://docs.wandb.ai/self-hosted/setup).
