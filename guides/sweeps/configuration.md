@@ -81,18 +81,19 @@ Describe the hyperparameters to explore during the sweep. For each hyperparamete
 | `mu`            | (`float`) Mean parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                                 |
 | `sigma`         | (`float`) Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                   |
 | `q`             | (`float`) Quantization step size for quantized hyperparameters.                                                                                                                                                                                                                      |
+| `parameters`    | Nest other parameters inside a root level parameter. It's parameter inception!                                                                                                                                                                                                       |
 
 #### **Examples**
 
 {% tabs %}
-{% tab title="grid - single value" %}
+{% tab title="single value" %}
 ```yaml
 parameter_name:
   value: 1.618
 ```
 {% endtab %}
 
-{% tab title="grid - multiple values" %}
+{% tab title="multiple values" %}
 ```yaml
 parameter_name:
   values:
@@ -106,7 +107,7 @@ parameter_name:
 ```
 {% endtab %}
 
-{% tab title="random - custom probabilities" %}
+{% tab title="probabilities" %}
 ```yaml
 parameter_name:
     values: [1, 2, 3, 4, 5]
@@ -114,12 +115,23 @@ parameter_name:
 ```
 {% endtab %}
 
-{% tab title="random or bayes - normal distribution" %}
+{% tab title="distribution" %}
 ```yaml
 parameter_name:
   distribution: normal
   mu: 100
   sigma: 10
+```
+{% endtab %}
+
+{% tab title="nested" %}
+```yaml
+optimizer:
+    parameters:
+        learning_rate:
+            values: [0.01, 0.001]
+        momentum:
+            value: 0.9
 ```
 {% endtab %}
 {% endtabs %}
@@ -333,16 +345,16 @@ The format and contents can be modified by specifying values under the `command`
 
 We support the following macros for variable components of the command:
 
-| Command Macro              | Description                                                                                                                                                                                                                                          |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `${env}`                   | `/usr/bin/env` on UNIX systems, omitted on Windows.                                                                                                                                                                                                  |
-| `${interpreter}`           | Expands to `python`.                                                                                                                                                                                                                                 |
-| `${program}`               | Training script filename specified by the sweep configuration `program` key.                                                                                                                                                                         |
-| `${args}`                  | Hyperparameters and their values in the form `--param1=value1 --param2=value2`.                                                                                                                                                                      |
-| `${args_no_boolean_flags}` | Hyperparameters and their values in the form `--param1=value1` except boolean parameters are in the form `--boolean_flag_param` when `True` and omitted when `False`. (_This feature is not yet available and will be included in the next release_) |
-| `${args_no_hyphens}`       | Hyperparameters and their values in the form `param1=value1 param2=value2`.                                                                                                                                                                          |
-| `${args_json}`             | Hyperparameters and their values encoded as JSON.                                                                                                                                                                                                    |
-| `${args_json_file}`        | The path to a file containing the hyperparameters and their values encoded as JSON.                                                                                                                                                                  |
+| Command Macro              | Description                                                                                                                                                           |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `${env}`                   | `/usr/bin/env` on UNIX systems, omitted on Windows.                                                                                                                   |
+| `${interpreter}`           | Expands to `python`.                                                                                                                                                  |
+| `${program}`               | Training script filename specified by the sweep configuration `program` key.                                                                                          |
+| `${args}`                  | Hyperparameters and their values in the form `--param1=value1 --param2=value2`.                                                                                       |
+| `${args_no_boolean_flags}` | Hyperparameters and their values in the form `--param1=value1` except boolean parameters are in the form `--boolean_flag_param` when `True` and omitted when `False`. |
+| `${args_no_hyphens}`       | Hyperparameters and their values in the form `param1=value1 param2=value2`.                                                                                           |
+| `${args_json}`             | Hyperparameters and their values encoded as JSON.                                                                                                                     |
+| `${args_json_file}`        | The path to a file containing the hyperparameters and their values encoded as JSON.                                                                                   |
 
 Hence, the default command format is defined as:
 
