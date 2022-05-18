@@ -114,6 +114,16 @@ def name == "main":
     # <rest-of-your-script-goes-here>
 ```
 {% endtab %}
+
+{% tab title="Install pre-release package" %}
+This will enable service by default for all scripts that import `wandb`:
+
+```bash
+pip install --pre --upgrade wandb
+```
+
+No additional changes required in your script.
+{% endtab %}
 {% endtabs %}
 
 ### Advance Usage
