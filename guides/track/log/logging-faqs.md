@@ -164,6 +164,10 @@ We recommend that you try to log less than 10,000 points per metric. If you log 
 
 W\&B can be used even for projects that only log scalars — you specify any files or data you'd like to upload explicitly. Here's [a quick example in PyTorch](http://wandb.me/pytorch-colab) that does not log images.
 
+### What happens if I pass a class attribute into wandb.log()?
+
+It is generally not recommended to pass class attributes into `wandb.log()` as the attribute may change before the network call is made. If you are storing metrics as the attribute of a class, it is recommended to deep copy the attribute to ensure the metric logged matches the value of the attribute at the time that `wandb.log()` was called.
+
 ### Why am I seeing fewer data points than I logged?
 
 If you are visualizing your metrics against something other than `Step` on your X-Axis, you might see fewer data points than you expect. This is because we require the metrics to be plotted against one another to be logged at the same `Step` - that is how we keep your metrics synchronized, i.e., we only sample metrics that are logged at the same `Step` while interpolating in between samples.\
