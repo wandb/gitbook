@@ -199,6 +199,7 @@
       * [Project Page](ref/app/pages/project-page.md)
       * [Run Page](ref/app/pages/run-page.md)
       * [Workspaces](ref/app/pages/workspaces.md)
+      * [Settings Page](ref/app/pages/settings-page.md)
     * [Features](ref/app/features/README.md)
       * [Panels](ref/app/features/panels/README.md)
         * [Line Plot](ref/app/features/panels/line-plot/README.md)
