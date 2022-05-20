@@ -46,7 +46,7 @@ Furthermore, a **Model Artifact** is a sequence of Model Versions. Model Artifac
 
 Finally, a **Model Collection** is a set links to Model Versions. A Model Collection can be accessed exactly like act like Model Artifacts (identified by `[[entityName/]/projectName]/collectionName:alias`), however it acts more like a folder of "bookmarks" - where each "version" of a Model Collection is actually a link to an Model Version belonging to a Model Artifact of the same type. A Model Version may be linked to any number of Model Collections. Typically you will create a Model Collection for each of your use cases / modeling tasks and use aliases like "production" or "staging" to denote versions with special purposes. _View an_ [_example Model Collection!_](https://wandb.ai/timssweeney/model\_management\_docs\_official\_v0/artifacts/model/MNIST%20Grayscale%2028x28)__
 
-![](<../../.gitbook/assets/Diagram Doc (9).png>)
+![](<../../.gitbook/assets/Diagram Doc (12).png>)
 
 While developing an ML Model, you will likely have dozens, hundreds, or even thousands of Runs which produce Model Versions - they may come from notebooks, remote training jobs, CI/CD pipelines, etc... Most likely, not all of those models are great; often you are iterating on scripts, parameters, architectures, preprocessing logic and more. The separation of Artifacts and Collections allows you to produce a massive number of Artifacts (think of them like "draft models"), and periodically _link_ your high performing versions to a the curated Model Collection. Then, use aliases to mark which Version in a Collection is at which stage in the lifecycle. Each person in your team can collaborate on a single use case (Collection), while having the freedom to explore and experiment without polluting namespaces or conflicting with others' work.
 
@@ -79,7 +79,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
-![](<../../.gitbook/assets/2022-05-17 14.20.36.gif>)
+![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
 
 ### 2. Train & log Model Versions
 
@@ -286,7 +286,7 @@ link_model(model_version, "[[entity/]project/]collectionName")
 
 After you link the Model Version, you will see hyperlinks connecting the Version in the Collection to the source Artifact and visa versa.
 
-![](../../.gitbook/assets/mr0a.png)
+![](../../.gitbook/assets/13\_edit.png)
 
 ### 4. Use a Model Version
 
