@@ -7,7 +7,7 @@ description: Log rich media, from 3D point clouds and molecules to HTML and hist
 We support images, video, audio, and more. Log rich media to explore your results and visually compare your runs, models, and datasets. Read on for examples and how-to guides.
 
 {% hint style="info" %}
-Looking for reference docs for our media types? You want [this page](../../../ref/python/data-types/).
+Looking for reference docs for our media types? You want [this page](../../../../ref/python/data-types/).
 {% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=96MxRvx15Ts" %}
@@ -20,7 +20,7 @@ You can see working code to log all of these media objects in [this Colab Notebo
 
 Log images to track inputs, outputs, filter weights, activations, and more!
 
-![Inputs and outputs of an autoencoder network performing in-painting.](<../../../.gitbook/assets/image (117).png>)
+![Inputs and outputs of an autoencoder network performing in-painting.](<../../../../.gitbook/assets/image (117).png>)
 
 Images can be logged directly from numpy arrays, as PIL images, or from the filesystem.
 
@@ -72,7 +72,7 @@ wandb.log({"example": wandb.Image("myimage.jpg")})
 {% tab title="Segmentation Masks" %}
 Log semantic segmentation masks and interact with them (altering opacity, viewing changes over time, and more) via the W\&B UI.
 
-![Interactive mask viewing in the W\&B UI.](<../../../.gitbook/assets/semantic segmentation.gif>)
+![Interactive mask viewing in the W\&B UI.](<../../../../.gitbook/assets/semantic segmentation.gif>)
 
 To log an overlay, you'll need to provide a dictionary with the following keys and values to the `masks` keyword argument of `wandb.Image`:
 
@@ -112,7 +112,7 @@ mask_img = wandb.Image(image, masks={
 {% tab title="Bounding Boxes" %}
 Log bounding boxes with images, and use filters and toggles to dynamically visualize different sets of boxes in the UI.
 
-![](../../../.gitbook/assets/bb-docs.jpeg)
+![](../../../../.gitbook/assets/bb-docs.jpeg)
 
 [See a live example →](https://app.wandb.ai/stacey/yolo-drive/reports/Bounding-Boxes-for-Object-Detection--Vmlldzo4Nzg4MQ)
 
@@ -190,7 +190,7 @@ wandb.log({"driving_scene": img})
 
 {% tabs %}
 {% tab title="Segmentation Masks" %}
-![Interactive Segmentation Masks in Tables](<../../../.gitbook/assets/Segmentation Masks.gif>)
+![Interactive Segmentation Masks in Tables](<../../../../.gitbook/assets/Segmentation Masks (1).gif>)
 
 To log Segmentation Masks in tables, you will need to provide a `wandb.Image` object for each row in the table.\
 \
@@ -215,7 +215,7 @@ wandb.log({"Table" : table})
 {% endtab %}
 
 {% tab title="Bounding Boxes" %}
-![Interactive Bounding Boxes in Tables](<../../../.gitbook/assets/Bounding Boxes (1).gif>)
+![Interactive Bounding Boxes in Tables](<../../../../.gitbook/assets/Bounding Boxes.gif>)
 
 To log Images with Bounding Boxes in tables, you will need to provide a `wandb.Image` object for each row in the table.\
 \
@@ -259,7 +259,7 @@ In the UI, histograms are plotted with the training step on the x-axis, the metr
 wandb.log({"gradients": wandb.Histogram(grads)})
 ```
 
-![Gradients for the discriminator in a GAN.](<../../../.gitbook/assets/image (116).png>)
+![Gradients for the discriminator in a GAN.](<../../../../.gitbook/assets/image (116).png>)
 {% endtab %}
 
 {% tab title="Flexible Histogram Logging" %}
@@ -279,7 +279,7 @@ wandb.run.summary.update(  # if only in summary, only visible on overview tab
 {% endtab %}
 {% endtabs %}
 
-If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
+If histograms are in your summary they will appear on the Overview tab of the [Run Page](../../../../ref/app/pages/run-page.md). If they are in your history, we plot a heatmap of bins over time on the Charts tab.
 
 ## 3D Visualizations
 
@@ -294,7 +294,7 @@ wandb.log({"generated_samples":
             wandb.Object3D(open("sample.glb"))]})
 ```
 
-![Ground truth and prediction of a headphones point cloud](<../../../.gitbook/assets/ground truth - prediction of 3d point clouds.png>)
+![Ground truth and prediction of a headphones point cloud](<../../../../.gitbook/assets/ground truth - prediction of 3d point clouds.png>)
 
 [See a live example →](https://app.wandb.ai/nbaryd/SparseConvNet-examples\_3d\_segmentation/reports/Point-Clouds--Vmlldzo4ODcyMA)
 {% endtab %}
@@ -401,7 +401,7 @@ When your run finishes, you'll be able to interact with 3D visualizations of you
 
 [See a live example using AlphaFold →](http://wandb.me/alphafold-workspace)
 
-![](../../../.gitbook/assets/docs-molecule.png)
+![](../../../../.gitbook/assets/docs-molecule.png)
 {% endtab %}
 {% endtabs %}
 
@@ -427,7 +427,7 @@ wandb.log(
 
 If a numpy array is supplied we assume the dimensions are, in order: time, channels, width, height. By default we create a 4 fps gif image ([`ffmpeg`](https://www.ffmpeg.org) and the [`moviepy`](https://pypi.org/project/moviepy/) python library are required when passing numpy objects). Supported formats are `"gif"`, `"mp4"`, `"webm"`, and `"ogg"`. If you pass a string to `wandb.Video` we assert the file exists and is a supported format before uploading to wandb. Passing a `BytesIO` object will create a tempfile with the specified format as the extension.
 
-On the W\&B [Run](../../../ref/app/pages/run-page.md) and [Project](../../../ref/app/pages/project-page.md) Pages, you will see your videos in the Media section.
+On the W\&B [Run](../../../../ref/app/pages/run-page.md) and [Project](../../../../ref/app/pages/project-page.md) Pages, you will see your videos in the Media section.
 {% endtab %}
 
 {% tab title="Text" %}
@@ -480,7 +480,7 @@ W\&B can be used even for projects that only log scalars — you specify any fil
 
 ### **How do I log a PNG?**
 
-\`\`[`wandb.Image`](../../../ref/python/data-types/image.md) converts `numpy` arrays or instances of `PILImage` to PNGs by default.
+\`\`[`wandb.Image`](../../../../ref/python/data-types/image.md) converts `numpy` arrays or instances of `PILImage` to PNGs by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
@@ -490,7 +490,7 @@ wandb.log({"example": [wandb.Image(...) for img in images]})
 
 ### **How do I log a video?**
 
-Videos are logged using the [`wandb.Video`](../../../ref/python/data-types/video.md) data type:
+Videos are logged using the [`wandb.Video`](../../../../ref/python/data-types/video.md) data type:
 
 ```python
 wandb.log({"example": wandb.Video("myvideo.mp4")})
@@ -504,7 +504,7 @@ You can hold control and use the mouse to move around inside the space.
 
 ### How do I log a 2D view of a molecule?
 
-You can log a 2D view of a molecule using the [`wandb.Image`](../../../ref/python/data-types/image.md) data type and [`rdkit`](https://www.rdkit.org/docs/index.html):
+You can log a 2D view of a molecule using the [`wandb.Image`](../../../../ref/python/data-types/image.md) data type and [`rdkit`](https://www.rdkit.org/docs/index.html):
 
 ```python
 molecule = rdkit.Chem.MolFromSmiles("CC(=O)O")
