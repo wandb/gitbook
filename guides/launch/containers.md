@@ -22,6 +22,6 @@ Some non-requirements:
 
 Launch also accepts pre-built containers already containing the code and runtime environment for a run. To use a pre-built container, run `wandb launch --docker-image <image>`, or schedule a job via the web UI as follows:
 
-![](<../../.gitbook/assets/image (177).png>)
+![](<../../.gitbook/assets/image (177) (1).png>)
 
 The image can be local or hosted on a remote registry (in which case you must have Docker permissions to pull from that registry).

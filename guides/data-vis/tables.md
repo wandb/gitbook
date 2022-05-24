@@ -116,11 +116,9 @@ From the merged view, you can
 
 #### Side-by-side view
 
-To view the two Tables side-by-side, change the first dropdown from "WBTableFile" to "Row → TableFile". Here the first Table selected is on the left with a blue highlight, and the second one on the right with a yellow highlight.
+To view the two Tables side-by-side, change the first dropdown from "Merge Tables: Table" to "List of: Table" and then update the "Page size" respectively. Here the first Table selected is on the left and the second one is on the right. Also, you can compare these tables vertically as well by clicking on the "Vertical" checkbox.
 
-![In the side-by-side view, Table rows are independent of each other.](<../../.gitbook/assets/Screen Shot 2021-05-03 at 2.31.43 PM.png>)
-
-From the side-by-side view, you can
+![In the side-by-side view, Table rows are independent of each other.](<../../.gitbook/assets/image (78).png>)
 
 * **compare the Tables at a glance**: apply any operations (sort, filter, group) to both Tables in tandem and spot any changes or differences quickly. For example, view the incorrect predictions grouped by guess, the hardest negatives overall, the confidence score distribution by true label, etc.
 * **explore two Tables independently**: scroll through and focus on the side/rows of interest

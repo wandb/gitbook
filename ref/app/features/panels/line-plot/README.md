@@ -65,7 +65,7 @@ Here is what the graph looks like before averaging:
 
 Here I have grouped the lines to see the average value across runs.
 
-![](<../../../../../.gitbook/assets/demo-average-precision-lines (2) (2) (3) (3) (3) (3) (4) (4) (5) (5) (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (4).png>)
+![](<../../../../../.gitbook/assets/demo-average-precision-lines (2) (2) (3) (3) (3) (3) (4) (4) (5) (5) (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (2) (4).png>)
 
 ## Visualize NaN value on a plot
 
@@ -75,7 +75,7 @@ You can also plot `NaN` values including PyTorch tensors on a line plot with `wa
 wandb.log({'test': [..., float("nan"), ...]})
 ```
 
-![](<../../../../../.gitbook/assets/image (78).png>)
+![](<../../../../../.gitbook/assets/image (78) (1).png>)
 
 ## Compare two metrics on one chart
 

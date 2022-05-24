@@ -165,7 +165,7 @@ You can change your project default settings _manually_ in your User Settings at
 
 _Note_ that these settings can also be specified by passing arguments to [`wandb.init`](../../python/init.md).
 
-![](<../../../.gitbook/assets/image (78) (1).png>)
+![](<../../../.gitbook/assets/image (78) (1) (1).png>)
 
 ## Frequently Asked Questions
 
