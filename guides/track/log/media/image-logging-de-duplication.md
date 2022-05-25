@@ -1,8 +1,6 @@
 # Image Logging De-Duplication
 
-{% hint style="info" %}
-Executable companion code can be found here: [https://colab.research.google.com/drive/15LVKk02VCZfEKRQWTg019JMSIbrqPAah?usp=sharing](https://colab.research.google.com/drive/15LVKk02VCZfEKRQWTg019JMSIbrqPAah?usp=sharing)
-{% endhint %}
+[<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="" data-size="original">](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-log/Image\_Logging\_de\_duplication.ipynb)
 
 In this guide, you will learn how to upload an image to W\&B once, even while logging the image across multiple runs!
 

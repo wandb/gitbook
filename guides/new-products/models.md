@@ -6,15 +6,13 @@ description: >-
 
 # Model Management
 
+[<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="" data-size="line">](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Model\_Management\_Guide.ipynb)
+
 {% hint style="info" %}
 Please add `artifact-portfolios` to your bio in order to enable beta features required to complete this guide.
 {% endhint %}
 
 _We are actively investing in new Model Management features within W\&B. Please contact us with questions or suggestions at support@wandb.com._
-
-{% hint style="success" %}
-**Prefer code?** Jump right into the [companion colab notebook now](https://colab.research.google.com/drive/1wjgr9AHICOa3EM1Ikr\_Ps\_MAm5D7QnCC)!
-{% endhint %}
 
 A **Model Registry** is a system of record for organizing ML Models - often serving as an interface between model producers and consumers. This guide will show you how to use W\&B as a Model Registry to track and report on the complete workflow of developing a model:
 
