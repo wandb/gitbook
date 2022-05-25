@@ -14,7 +14,7 @@ When code saving is enabled, wandb will save the code from the file that called 
 
 Click the **+** button in your workspace or report to add a new panel, and select the Code Comparer. Diff any two experiments in your project and see exactly which lines of code changed. Here’s an example:
 
-![](../../../../.gitbook/assets/cc1.png)
+![](<../../../../.gitbook/assets/cc1 (1).png>)
 
 ## Jupyter Session History
 

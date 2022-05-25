@@ -1,52 +1,20 @@
 ---
 description: >-
-  Catalog and version models, track metadata & lineage, promote the best models
-  to production, and report on evaluation analytics.
+  Catalog and version models, track metadata and lineage, promote the best
+  models to production, and report on evaluation analytics.
 ---
 
-# Model Management
+# Model Management Walkthrough
 
 [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="" data-size="line">](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Model\_Management\_Guide.ipynb)
 
-{% hint style="info" %}
-Please add `artifact-portfolios` to your bio in order to enable beta features required to complete this guide.
-{% endhint %}
+In this walkthrough you'll learn how to use Weights & Biases for Model Management. Track, visualize, and report on the complete production model workflow.
 
-_We are actively investing in new Model Management features within W\&B. Please contact us with questions or suggestions at support@wandb.com._
+1. **Model Versioning**: Save and restore every version of your model & learned parameters - organize versions by use case and objective. Track training metrics, assign custom metadata, and document rich markdown descriptions of your models.
+2. **Model Lineage:** Track the exact code, hyperparameters, & training dataset used to produce the model. Enable model reproducibility.
+3. **Model Lifecycle:** Promote promising models to positions like "staging" or "production" - allowing downstream users to fetch the best model automatically. Communicate progress collaboratively in Reports.
 
-A **Model Registry** is a system of record for organizing ML Models - often serving as an interface between model producers and consumers. This guide will show you how to use W\&B as a Model Registry to track and report on the complete workflow of developing a model:
-
-1. **Model Catalog & Versioning**: Save and restore every version of your model & learned parameters - organize versions by use case and objective.
-2. **Model Metadata:** Track training metrics, assign custom metadata, and document rich markdown descriptions of your models.
-3. **Model Lineage Tracking & Reproducibility:** Track the exact code, hyperparameters, & training dataset used to produce the model.
-4. **Model Lifecycle:** Promote promising models to positions like "staging" or "production" - allowing downstream users to fetch the best model automatically.
-5. **Model Reporting:** Create a Report dashboard to summarize model progression and performance over time
-
-## Data Model & Terminology
-
-First, let's define the data model & terminology used throughout this guide:
-
-* **Model Version:** a package of data & metadata describing a trained model.
-* **Model Artifact:** a sequence of logged Model Versions - often tracking the progress of training.
-* **Model Collection:** a selection of linked Model Versions - often representing all the candidate models for a single modeling use case or task
-
-_Hint: A Model Version will always belong to one and only one Model Artifact, yet may belong to zero or more Model Collections._
-
-{% hint style="info" %}
-For those familiar with W\&B Artifacts: a Model is exactly an Artifact with `type="model"`, a Model Version is an Artifact Version belonging to such an Artifact, and a Model Collection is an Artifact Collection of `type="model"`.
-{% endhint %}
-
-In W\&B a **Model Version** is an immutable directory of data; it is up to you to decide what files & formats are appropriate to store (and restore) your model architecture & learned parameters. Typically you will want to store whatever files are produced from the serialization process provided by your modeling library (eg [PyTorch](https://pytorch.org/tutorials/beginner/saving\_loading\_models.html) & [Keras](https://www.tensorflow.org/guide/keras/save\_and\_serialize)).
-
-Furthermore, a **Model Artifact** is a sequence of Model Versions. Model Artifact can **alias** specific versions so that downstream consumers can pin to such aliases. It is extremely common for a W\&B Run to produce many versions of a model while training (periodically saving checkpoints). Using this approach, each individual model being trained by the Run corresponds to its own Model Artifact, and each checkpoint corresponds to its own Model Version of the respective Model Artifact. _View an_ [_example Model Artifact_](https://wandb.ai/timssweeney/model\_management\_docs\_official\_v0/artifacts/model/mnist-zws7gt0n)_!_
-
-![](../../.gitbook/assets/mr1c.png)
-
-Finally, a **Model Collection** is a set links to Model Versions. A Model Collection can be accessed exactly like act like Model Artifacts (identified by `[[entityName/]/projectName]/collectionName:alias`), however it acts more like a folder of "bookmarks" - where each "version" of a Model Collection is actually a link to an Model Version belonging to a Model Artifact of the same type. A Model Version may be linked to any number of Model Collections. Typically you will create a Model Collection for each of your use cases / modeling tasks and use aliases like "production" or "staging" to denote versions with special purposes. _View an_ [_example Model Collection!_](https://wandb.ai/timssweeney/model\_management\_docs\_official\_v0/artifacts/model/MNIST%20Grayscale%2028x28)__
-
-![](<../../.gitbook/assets/Diagram Doc (12).png>)
-
-While developing an ML Model, you will likely have dozens, hundreds, or even thousands of Runs which produce Model Versions - they may come from notebooks, remote training jobs, CI/CD pipelines, etc... Most likely, not all of those models are great; often you are iterating on scripts, parameters, architectures, preprocessing logic and more. The separation of Artifacts and Collections allows you to produce a massive number of Artifacts (think of them like "draft models"), and periodically _link_ your high performing versions to a the curated Model Collection. Then, use aliases to mark which Version in a Collection is at which stage in the lifecycle. Each person in your team can collaborate on a single use case (Collection), while having the freedom to explore and experiment without polluting namespaces or conflicting with others' work.
+_We are actively building new Model Management features. Please reach out with questions or suggestions at support@wandb.com._
 
 ## Workflow
 
@@ -56,14 +24,14 @@ Please add `artifact-portfolios` to your bio in order to enable beta features re
 
 Now we will walk through a canonical workflow for producing, organizing, and consuming trained models:
 
-1. [Create a new Model Collection](models.md#1.-create-a-new-model-portfolio)
-2. [Train & log Model Versions](models.md#2.-train-and-log-model-versions)
-3. [Link Model Versions to the Collection](models.md#3.-link-model-versions-to-the-portfolio)
-4. [Using a Model Version](models.md#4.-use-a-model-version)
-5. [Evaluate Model Performance](models.md#5.-evaluate-model-performance)
-6. [Promote a Version to Production](models.md#6.-promote-a-version-to-production)
-7. [Use the Production Model for Inference](models.md#7.-consume-the-production-model)
-8. [Build a Reporting Dashboard](models.md#8.-build-a-reporting-dashboard)
+1. [Create a new Model Collection](walkthrough.md#1.-create-a-new-model-portfolio)
+2. [Train & log Model Versions](walkthrough.md#2.-train-and-log-model-versions)
+3. [Link Model Versions to the Collection](walkthrough.md#3.-link-model-versions-to-the-portfolio)
+4. [Using a Model Version](walkthrough.md#4.-use-a-model-version)
+5. [Evaluate Model Performance](walkthrough.md#5.-evaluate-model-performance)
+6. [Promote a Version to Production](walkthrough.md#6.-promote-a-version-to-production)
+7. [Use the Production Model for Inference](walkthrough.md#7.-consume-the-production-model)
+8. [Build a Reporting Dashboard](walkthrough.md#8.-build-a-reporting-dashboard)
 
 **A** [**companion colab notebook**](https://colab.research.google.com/drive/1wjgr9AHICOa3EM1Ikr\_Ps\_MAm5D7QnCC) **is provided which covers step 2-3 in the first code block and steps 4-6 in the second code block.**
 
@@ -77,7 +45,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
-![](<../../.gitbook/assets/2022-05-17 14.20.36.gif>)
+![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
 
 ### 2. Train & log Model Versions
 
@@ -354,7 +322,7 @@ Next, you will likely want to denote which version in the Collection is intended
 
 {% tabs %}
 {% tab title="via API" %}
-Follow steps in [Part 3. Link Model Versions to the Collection](models.md#3.-linking-model-versions-to-the-portfolio) and add the aliases you want to the `aliases` parameter.
+Follow steps in [Part 3. Link Model Versions to the Collection](walkthrough.md#3.-linking-model-versions-to-the-portfolio) and add the aliases you want to the `aliases` parameter.
 {% endtab %}
 
 {% tab title="via UI Interface" %}
@@ -370,7 +338,7 @@ The image below shows the new `production` alias added to v1 of the Collection!
 
 ### 7. Consume the Production Model
 
-Finally, you will likely want to use your production Model for inference. To do so, simply follow the steps outlined in [Part 4. Using a Model Version](models.md#4.-evaluate-model-performance), with the `production` alias. For example:
+Finally, you will likely want to use your production Model for inference. To do so, simply follow the steps outlined in [Part 4. Using a Model Version](walkthrough.md#4.-evaluate-model-performance), with the `production` alias. For example:
 
 ```python
 wandb.use_artifact("[[entity/]project/]collectionName:production")

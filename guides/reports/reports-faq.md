@@ -52,11 +52,11 @@ A comprehensive list of LaTeX can be found [here](https://en.wikibooks.org/wiki/
 
 When multiple users work on a report together, they should be credited as such. In our reports, you can do just that and add all the users that worked together on a report in the Author line. This is done by clicking Edit on the top right of the page. From there, a '+' will be seen on the right of the author line to where you can add all of the team members that have contributed to the report.
 
-![](<../../.gitbook/assets/Screen-Recording-2022-04-21-at-7.49.23-AM (1).gif>)
+![](../../.gitbook/assets/Screen-Recording-2022-04-21-at-7.49.23-AM.gif)
 
 ### Embedding Reports
 
-You are able to share the report that you have created by embedding it. This is done simply by clicking Share on the top right of your report and copying the embedded code at the bottom of the pop-up window that appears.&#x20;
+You are able to share the report that you have created by embedding it. This is done simply by clicking Share on the top right of your report and copying the embedded code at the bottom of the pop-up window that appears.
 
 ![](../../.gitbook/assets/89B8F1BD-D8EE-49C3-86D7-028809FDEB2C.gif)
 
