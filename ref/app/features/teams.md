@@ -100,3 +100,10 @@ Similarly, if your organization is still on trial then you can go to your 'Subsc
 Change the billing user of your organization by clicking on the "Manage members" button on your [subscription page](https://wandb.ai/subscriptions).
 
 ![](<../../../.gitbook/assets/Change billing user.gif>)
+
+### What kind of permissions are placed on team projects?
+
+On a team, there are two main different types of users: **admins** and **members**. With these two different types of users, there are different permissions given to each group.
+
+1. Team admins have permission total access to modify team projects even if they were not the ones who had created them. This includes, but is not limited to, deleting runs, projects, artifacts, and sweeps.&#x20;
+2. Team members are more limited in what they are able to delete. They can only delete runs and sweep runs that they created. Even if another team member moves a run to another member's project, the project owner will not be able to delete the run. Only the member that had created the run or the team admin can delete the run.&#x20;
