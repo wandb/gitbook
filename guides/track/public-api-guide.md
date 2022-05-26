@@ -194,6 +194,23 @@ if run.state == "finished":
       print(row["_timestamp"], row["accuracy"])
 ```
 
+### Filter runs
+
+You can filters by using the MongoDB Query Language.
+
+#### Date
+
+```python
+runs = api.runs('<entity>/<project>', {
+    "$and": [{
+    'created_at': {
+        "$lt": 'YYYY-MM-DDT##',
+        "$gt": 'YYYY-MM-DDT##'
+        }
+    }]
+})
+```
+
 ### Read specific metrics from a run
 
 To pull specific metrics from a run, use the `keys` argument. The default number of samples when using `run.history()` is 500. Logged steps that do not include a specific metric will appear in the output dataframe as `NaN`. The `keys` argument will cause the API to sample steps that include the listed metric keys more frequently.
