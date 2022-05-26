@@ -18,9 +18,9 @@ Select the charts you would like to start with. You can always add or delete cha
 
 ![](<../../.gitbook/assets/Screen Shot 2021-11-17 at 11.01.32 AM.png>)
 
-Selecting the **Filter run sets** option will prevent new runs from being added to your report. This also can be changed later.&#x20;
+Selecting the **Filter run sets** option will prevent new runs from being added to your report. This also can be changed later.
 
-Once you click **Create report,** a draft report will be available in the report tab to continue working on.&#x20;
+Once you click **Create report,** a draft report will be available in the report tab to continue working on.
 
 ### 2. From the report tab‌ <a href="#2.-from-the-report-page" id="2.-from-the-report-page"></a>
 
@@ -86,7 +86,7 @@ Click the download button to export your report as a LaTeX zip file. Check the R
 
 ## Cloning reports
 
-Click the 'Clone this report' button to clone your reports.&#x20;
+Click the 'Clone this report' button to clone your reports.
 
 ![](../../.gitbook/assets/clone\_reports.gif)
 
@@ -140,4 +140,4 @@ The view-only magic link is available _only_ for the author of that report.
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (4).gif>)
+![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (5) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (1) (1) (6).gif>)

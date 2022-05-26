@@ -45,7 +45,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
-![](<../../.gitbook/assets/2022-05-17 14.20.36.gif>)
+![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
 
 ### 2. Train & log Model Versions
 
@@ -107,7 +107,7 @@ from wandb.beta.workflows import log_model
 # alternative examples.
 dataset = wandb.use_artifact("mnist:latest")
 
-# This one mthod will serialize the model, start a run, create a version
+# This one method will serialize the model, start a run, create a version
 # add the files to the version, and log the version. You can override
 # the default name, project, aliases, metadata, and more!
 log_model(model, "mnist-nn", aliases=["best"] if model_is_best else [])
