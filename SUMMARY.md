@@ -52,6 +52,7 @@
       * [MosaicML Composer](guides/integrations/other/composer.md)
       * [OpenAI API](guides/integrations/other/openai.md)
       * [OpenAI Gym](guides/integrations/other/openai-gym.md)
+      * [PaddleOCR](guides/integrations/other/paddleocr.md)
       * [Prodigy](guides/integrations/other/prodigy.md)
       * [PyTorch Ignite](guides/integrations/other/ignite.md)
       * [Ray Tune](guides/integrations/other/ray-tune.md)
