@@ -1,2 +1,2 @@
-# Other Integrations
+# 🛠 Other Integrations
 
