@@ -26,7 +26,7 @@ LaTeX can be added into reports easily. In order to do so, create a new report, 
 
 On a new line, press `/` and scroll to the inline equations tab to add rich content in LaTeX.
 
-![](<../../.gitbook/assets/Screen (1) (1) (1) (1) (1) (1) (1) (2) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (3).mov>)
+![](<../../.gitbook/assets/Screen (1) (1) (1) (1) (1) (1) (1) (2) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (2).mov>)
 
 ### List of markdown shortcuts
 
@@ -52,7 +52,7 @@ A comprehensive list of LaTeX can be found [here](https://en.wikibooks.org/wiki/
 
 When multiple users work on a report together, they should be credited as such. In our reports, you can do just that and add all the users that worked together on a report in the Author line. This is done by clicking Edit on the top right of the page. From there, a '+' will be seen on the right of the author line to where you can add all of the team members that have contributed to the report.
 
-![](../../.gitbook/assets/Screen-Recording-2022-04-21-at-7.49.23-AM.gif)
+![](<../../.gitbook/assets/Screen-Recording-2022-04-21-at-7.49.23-AM (1).gif>)
 
 ### Embedding Reports
 
