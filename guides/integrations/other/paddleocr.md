@@ -60,7 +60,7 @@ Once you run your `train.py` file with Weights & Biases turned on, a link will b
 
 ![](<../../../.gitbook/assets/Screenshot 2022-05-20 at 1.58.15 PM.png>) ![](<../../../.gitbook/assets/Screenshot 2022-05-20 at 2.01.01 PM.png>)
 
-![W\&B Dashboard for the Text Detection Model](<../../../.gitbook/assets/Screenshot 2022-05-20 at 1.59.22 PM (1).png>)
+![W\&B Dashboard for the Text Detection Model](<../../../.gitbook/assets/Screenshot 2022-05-20 at 1.59.22 PM.png>)
 
 ## Feedback or Issues?
 

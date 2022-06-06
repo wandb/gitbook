@@ -18,10 +18,6 @@ _We are actively building new Model Management features. Please reach out with q
 
 ## Workflow
 
-{% hint style="info" %}
-Please add `artifact-portfolios` to your bio in order to enable beta features required to complete this guide.
-{% endhint %}
-
 Now we will walk through a canonical workflow for producing, organizing, and consuming trained models:
 
 1. [Create a new Model Collection](walkthrough.md#1.-create-a-new-model-portfolio)
@@ -33,7 +29,9 @@ Now we will walk through a canonical workflow for producing, organizing, and con
 7. [Use the Production Model for Inference](walkthrough.md#7.-consume-the-production-model)
 8. [Build a Reporting Dashboard](walkthrough.md#8.-build-a-reporting-dashboard)
 
+{% hint style="success" %}
 **A** [**companion colab notebook**](https://colab.research.google.com/drive/1wjgr9AHICOa3EM1Ikr\_Ps\_MAm5D7QnCC) **is provided which covers step 2-3 in the first code block and steps 4-6 in the second code block.**
+{% endhint %}
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-12 at 11.21.50 AM.png>)
 
@@ -45,7 +43,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
-![](<../../.gitbook/assets/2022-05-17 14.20.36.gif>)
+![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
 
 ### 2. Train & log Model Versions
 
@@ -321,14 +319,12 @@ If you are executing similar code, as demonstrated in the notebook, you should s
 Next, you will likely want to denote which version in the Collection is intended to be used for Production. Here, we use the concept of aliases. Each Collection can have any aliases which make sense for your use case - however we often see `production` as the most common alias. Each alias can only be assigned to a single Version at a time.
 
 {% tabs %}
-{% tab title="via API" %}
-Follow steps in [Part 3. Link Model Versions to the Collection](walkthrough.md#3.-linking-model-versions-to-the-portfolio) and add the aliases you want to the `aliases` parameter.
+{% tab title="via UI Interface" %}
+![](<../../.gitbook/assets/Screen Shot 2022-06-06 at 7.50.27 AM.png>)
 {% endtab %}
 
-{% tab title="via UI Interface" %}
-{% hint style="info" %}
-Coming soon!
-{% endhint %}
+{% tab title="via API" %}
+Follow steps in [Part 3. Link Model Versions to the Collection](walkthrough.md#3.-linking-model-versions-to-the-portfolio) and add the aliases you want to the `aliases` parameter.
 {% endtab %}
 {% endtabs %}
 
