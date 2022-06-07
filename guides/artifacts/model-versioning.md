@@ -56,7 +56,7 @@ A partial view of an artifact tree showing two versions of an Inception-based CN
 
 A partial view of a complex artifact tree focusing on two training runs (prefixed train), named beyond roads iou 0.48 (top left square node) and fastai baseline (bottom left square node). Each experiment produces many artifacts: sample predictions of the model on training and validation images after every epoch. In the right half of the image, you can see some test runs (prefixed test) which load in the model checkpoints of training runs (out of visible frame) and store predictions on the test data as artifacts (prefixed test\_preds).
 
-![](<../../.gitbook/assets/image (26) (2).png>)
+![](<../../.gitbook/assets/image (26) (13).png>)
 
 ## Compare models precisely
 

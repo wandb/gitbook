@@ -45,7 +45,7 @@ To configure an application client in your identity provider you'll need to prov
 
 For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your application was running at `https://wandb.mycompany.com`:
 
-![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../../.gitbook/assets/image (162) (1).png>)
+![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../../.gitbook/assets/image (162) (1) (1).png>)
 
 _wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
 
@@ -215,7 +215,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (5).png>)
 
 Press "update settings" to apply the new settings.
 

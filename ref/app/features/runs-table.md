@@ -14,7 +14,7 @@ We support full [regex](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) sea
 
 We provide a column named `End Time` that logs that last heartbeat from the client process. The field is hidden by default.
 
-![](<../../../.gitbook/assets/image (62) (1) (8).png>)
+![](<../../../.gitbook/assets/image (62) (1) (4).png>)
 
 ## Resize the sidebar
 

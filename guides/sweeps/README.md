@@ -32,7 +32,7 @@ Get started with Sweeps quickly with our [video tutorial](http://wandb.me/sweeps
 4. **Launch agent(s)**: Run a single-line command on each machine you'd like to use to train models in the sweep. The agents ask the central sweep server what hyperparameters to try next, and then they execute the runs.
 5. **Visualize results**: Open our live dashboard to see all your results in one central place.
 
-![](<../../.gitbook/assets/central-sweep-server-3 (2) (2) (3) (3) (2) (1) (1) (1) (1) (1) (1) (1) (1) (2) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/central-sweep-server-3 (2) (2) (3) (3) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)
 
 {% content-ref url="quickstart.md" %}
 [quickstart.md](quickstart.md)
