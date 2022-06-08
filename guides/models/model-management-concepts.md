@@ -22,7 +22,7 @@ Furthermore, a **Model Artifact** is a sequence of Model Versions. Model Artifac
 
 ![](../../.gitbook/assets/mr1c.png)
 
-Finally, a **Model Collection** is a set links to Model Versions. A Model Collection can be accessed exactly like act like Model Artifacts (identified by `[[entityName/]/projectName]/collectionName:alias`), however it acts more like a folder of "bookmarks" - where each "version" of a Model Collection is actually a link to an Model Version belonging to a Model Artifact of the same type. A Model Version may be linked to any number of Model Collections. Typically you will create a Model Collection for each of your use cases / modeling tasks and use aliases like "production" or "staging" to denote versions with special purposes. _View an_ [_example Model Collection!_](https://wandb.ai/timssweeney/model\_management\_docs\_official\_v0/artifacts/model/MNIST%20Grayscale%2028x28)__
+Finally, a **Model Collection** is a set links to Model Versions. A Model Collection can be accessed exactly like Model Artifacts (identified by `[[entityName/]/projectName]/collectionName:alias`), however it acts more like a folder of "bookmarks" - where each "version" of a Model Collection is actually a link to an Model Version belonging to a Model Artifact of the same type. A Model Version may be linked to any number of Model Collections. Typically you will create a Model Collection for each of your use cases / modeling tasks and use aliases like "production" or "staging" to denote versions with special purposes. _View an_ [_example Model Collection!_](https://wandb.ai/timssweeney/model\_management\_docs\_official\_v0/artifacts/model/MNIST%20Grayscale%2028x28)__
 
 ![](<../../.gitbook/assets/Diagram Doc (12).png>)
 
