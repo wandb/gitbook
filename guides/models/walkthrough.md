@@ -55,7 +55,7 @@ Next, you will log a model from your training script:
    * Note: We use the name `f'mnist-nn-{wandb.run.id}'`. While not required, it is advisable to name-space your "draft" Artifacts with the Run id in order to stay organized
 4. **Log** your model
    * Note: If you are logging multiple versions, it is advisable to add an alias of "best" to your Model Version when it outperforms the prior versions. This will make it easy to find the model with peak performance - especially when the tail end of training may overfit!
-5. (Optional) Log training metrics associated with the performance of your model during training.&#x20;
+5. (Optional) Log training metrics associated with the performance of your model during training.
    * Note: The data logged immediately after logging your Model Version will automatically be associated with that version.
 
 By default, you should use the native W\&B Artifacts API to log your serialized model. However, since this pattern is so common, we have provided a single method which combines serialization, Artifact creation, and logging. See the "(Beta) Using `log_model`" tab for details.
@@ -94,7 +94,7 @@ wandb.log({"train_loss": 0.345, "val_loss": 0.456})
 
 {% tab title="(Beta) Using `log_model`" %}
 {% hint style="warning" %}
-The following code snippet leverages actively developed `beta` APIs and therefore is subject to change and not guaranteed to be backwards compatible.&#x20;
+The following code snippet leverages actively developed `beta` APIs and therefore is subject to change and not guaranteed to be backwards compatible.
 {% endhint %}
 
 ```python
@@ -120,7 +120,7 @@ Note: you may want to define custom serialization and deserialization strategies
 {% tab title="Declare Dataset Dependency" %}
 If you would like to track your training data, you can declare a dependency by calling `wandb.use_artifact` on your dataset. Here are 3 examples of how you can declare a dataset dependency:
 
-****
+***
 
 **Dataset stored in W\&B**
 
@@ -128,7 +128,7 @@ If you would like to track your training data, you can declare a dependency by c
 dataset = wandb.use_artifact("[[entity/]project/]name:alias")
 ```
 
-****
+***
 
 **Dataset stored on Local Filesystem**
 
@@ -138,7 +138,7 @@ art.add_dir("path/to/data") # or art.add_file("path/to/data.csv")
 dataset = wandb.use_artifact(art)
 ```
 
-****
+***
 
 **Dataset stored on Remote Bucket**
 
@@ -150,7 +150,7 @@ dataset = wandb.use_artifact(art)
 {% endtab %}
 {% endtabs %}
 
-After logging 1 or more Model Versions, you will notice that your will have a new Model Artifact in your Artifact Browser. Here, we can see the results of logging 5 versions to an artifact named `mnist_nn-fz3l7wpe`.&#x20;
+After logging 1 or more Model Versions, you will notice that your will have a new Model Artifact in your Artifact Browser. Here, we can see the results of logging 5 versions to an artifact named `mnist_nn-fz3l7wpe`.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-11 at 1.31.14 AM.png>)
 
@@ -177,8 +177,6 @@ The following video below demonstrates how to manually link a Model Version to y
 {% tab title="Programatic Linking" %}
 While manual linking is useful for one-off Models, it is often useful to programmatically link Model Versions to a Collection - consider a nightly job or CI pipeline that wants to link the best Model Version from every training job. Depending on your context and use case, you may use one of 3 different linking APIs:
 
-
-
 **Fetch Model Artifact from Public API:**
 
 ```python
@@ -190,8 +188,6 @@ art = wandb.Api().artifact(...)
 # Link the Model Version to the Model Collection
 art.link("[[entity/]project/]collectionName")
 ```
-
-
 
 **Model Artifact is "used" by the current Run:**
 
@@ -207,8 +203,6 @@ art = wandb.use_artifact(...)
 # Link the Model Version to the Model Collection
 art.link("[[entity/]project/]collectionName")
 ```
-
-
 
 **Model Artifact is logged by the current Run:**
 
@@ -231,7 +225,7 @@ wandb.run.link_artifact(art, "[[entity/]project/]collectionName")
 
 {% tab title="(Beta) Using `link_model`" %}
 {% hint style="warning" %}
-The following code snippet leverages actively developed `beta` APIs and therefore is subject to change and not guaranteed to be backwards compatible.&#x20;
+The following code snippet leverages actively developed `beta` APIs and therefore is subject to change and not guaranteed to be backwards compatible.
 {% endhint %}
 
 In the case that you logged a model with the beta `log_model` discussed above, then you can use it's companion method: `link_model`
@@ -277,7 +271,7 @@ model = make_model_from_data(path)
 
 {% tab title="(Beta) Using `use_model`" %}
 {% hint style="warning" %}
-The following code snippet leverages actively developed `beta` APIs and therefore is subject to change and not guaranteed to be backwards compatible.&#x20;
+The following code snippet leverages actively developed `beta` APIs and therefore is subject to change and not guaranteed to be backwards compatible.
 {% endhint %}
 
 Directly manipulating model files and handling deserialization can be tricky - especially if you were not the one who serialized the model. As a companion to `log_model`, `use_model` automatically deserializes and reconstructs your model for use.
@@ -352,7 +346,7 @@ You can reference a Version within the Collection using different alias strategi
 
 <summary>Use Weave to Build a Model Report</summary>
 
-## [Model Registry Demo](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
+### [Model Registry Demo](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
 
 Use the interactive W\&B UI to view all saved model versions, compare models on evaluation metrics, and track the status of models at different stages in the pipeline.
 
@@ -360,11 +354,11 @@ _To unlock Weave panels, add `weave-report` to your profile page bio._
 
 <img src="../../.gitbook/assets/image (156).png" alt="" data-size="original">
 
-## Quickstart Walkthrough
+### Quickstart Walkthrough
 
 [Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation) and follow along with this `model-evaluation` code example.
 
-### **1. Install requirements**
+#### **1. Install requirements**
 
 Install the Weights & Biases library `wandb` and other dependencies.
 
@@ -372,7 +366,7 @@ Install the Weights & Biases library `wandb` and other dependencies.
 pip install -r requirements.txt
 ```
 
-### **2. Register a dataset**
+#### **2. Register a dataset**
 
 Generate and register a dataset for a particular model use case. In this example, we use the MNIST dataset for simplicity.
 
@@ -380,7 +374,7 @@ Generate and register a dataset for a particular model use case. In this example
 python dataset_generator.py
 ```
 
-### **3. Train some models**
+#### **3. Train some models**
 
 Train a model based on the latest available dataset for the given model use case. Tweak hyperparameters from the command line, like this:
 
@@ -400,7 +394,7 @@ Here is an [example dashboard](https://wandb.ai/carey/model\_registry\_example?w
 
 <img src="../../.gitbook/assets/image (157).png" alt="" data-size="original">
 
-### **4. Evaluate candidate models**
+#### **4. Evaluate candidate models**
 
 Next, run the evaluator script to:
 
@@ -412,7 +406,7 @@ Next, run the evaluator script to:
 python model_evaluator.py
 ```
 
-### 5. Visualize results
+#### 5. Visualize results
 
 Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
 
@@ -426,7 +420,7 @@ In this example, this [**Weave**](../../ref/app/features/panels/weave.md) table 
 4. **Loss @ 10k**: Metric calculated on an evaluation set of 10k
 5. **Loss @ 1k:** Model metric calculated on an evaluation set of 1k
 
-## Core features for model management
+### Core features for model management
 
 There are a few key features you can use to build your own Model Registry:
 
@@ -436,29 +430,29 @@ There are a few key features you can use to build your own Model Registry:
 4. [**Weave**](../../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models.
 5. [**Reports**](../reports/): Organize and visualize results — ex. charts, tables, and notes
 
-## Model Registry Table
+### Model Registry Table
 
 Once you have logged model Artifacts, it's time to query those artifacts.
 
-### 1. Activate Weave
+#### 1. Activate Weave
 
 Go to your profile page and add `weave-report` to your bio to activate this new beta query feature.
 
 <img src="../../.gitbook/assets/weave demo 1 - bio.gif" alt="" data-size="original">
 
-### 2. Create a report
+#### 2. Create a report
 
 In a project, go to the **Reports** tab and click **Create a report.**
 
 <img src="../../.gitbook/assets/weave demo 2 - create report.gif" alt="" data-size="original">
 
-### 3. Add a Weave panel
+#### 3. Add a Weave panel
 
 Type `/weave` to create a new Weave panel in your report. If you want to remove the Weave panel later, you can click the handle on the left sidebar and click Delete.
 
 <img src="../../.gitbook/assets/weave demo 3 - create weave panel.gif" alt="" data-size="original">
 
-### 4. Query your logged models
+#### 4. Query your logged models
 
 Start typing a query in the weave panel.
 
@@ -470,13 +464,13 @@ Here's what each piece of the query in my example means:
 * **artifactType("model")**: This pulls all the artifacts of type `model` in this project.
 * **artifactVersions**: This pulls all the artifact versions of type `model`.
 
-### 5. Get the links to all model artifacts
+#### 5. Get the links to all model artifacts
 
 Add a column to pull all the links to different logged model artifacts.
 
 <img src="../../.gitbook/assets/weave demo 5 - get model links.gif" alt="" data-size="original">
 
-### 6. Get the evaluation metric for each model
+#### 6. Get the evaluation metric for each model
 
 Create a new row in the table, and query for the loss. This was calculated in the evaluation step, which tested each model on a held-out dataset.
 
@@ -488,7 +482,7 @@ Optionally, you can rename the loss column so it's more readable.
 
 <img src="../../.gitbook/assets/weave demo 6 - rename column.gif" alt="" data-size="original">
 
-### 7. Add a date created column
+#### 7. Add a date created column
 
 Sometimes it's nice to sort the table by the created time. Add a column:
 
@@ -496,7 +490,7 @@ Sometimes it's nice to sort the table by the created time. Add a column:
 
 <img src="../../.gitbook/assets/wandb demo 7 - add date column.gif" alt="" data-size="original">
 
-### 8. Add a status column
+#### 8. Add a status column
 
 Use the artifacts `alias` field to keep track of the status of different artifacts in your model registry. Add a column with `row.aliases`
 

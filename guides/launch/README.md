@@ -20,6 +20,8 @@ Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or 
 
 {% hint style="success" %}
 Before you start, add **instant replay** to your bio on your profile page — this is the secret phrase to unlock W\&B Launch features in the UI.
+
+Then on the command line run **`pip install wandb["launch"]`** to get access to this W\&B Launch feature in the SDK.
 {% endhint %}
 
 From [the sample project](https://wandb.ai/wandb/launch-welcome), pick a run to re-train and copy its URL.

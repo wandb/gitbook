@@ -47,7 +47,7 @@ add = components.create_component_from_func(add)
 
 ### Passing env vars to containers
 
-You may need to explicitly pass[ WANDB env vars ](https://docs.wandb.ai/guides/track/advanced/environment-variables)to your containers.  For two-way linking, you should also set the env var `WANDB_KUBEFLOW_URL` to the base URL of your Kubeflow Pipelines instance (e.g. https://kubeflow.mysite.com)
+You may need to explicitly pass[ WANDB env vars ](https://docs.wandb.ai/guides/track/advanced/environment-variables)to your containers. For two-way linking, you should also set the env var `WANDB_KUBEFLOW_URL` to the base URL of your Kubeflow Pipelines instance (e.g. https://kubeflow.mysite.com)
 
 ```python
 import os
@@ -70,7 +70,7 @@ def example_pipeline(...):
     ...
 ```
 
-## Where is my data?  Can I access it programmatically?
+## Where is my data? Can I access it programmatically?
 
 ### Via the Kubeflow Pipelines UI
 
@@ -83,9 +83,9 @@ Click on any Run in the Kubeflow Pipelines UI that has been logged with W\&B.
 
 ### Via the web app UI
 
-The web app UI has the same content as the `Visualizations` tab in Kubeflow Pipelines, but with more space!  Learn [more about the web app UI here](https://docs.wandb.ai/ref/app).
+The web app UI has the same content as the `Visualizations` tab in Kubeflow Pipelines, but with more space! Learn [more about the web app UI here](https://docs.wandb.ai/ref/app).
 
-![View details about a particular run (and link back to the Kubeflow UI)](<../../../.gitbook/assets/image (176) (2) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![View details about a particular run (and link back to the Kubeflow UI)](<../../../.gitbook/assets/image (176) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)
 
 ![See the full DAG of inputs and outputs at each stage of your pipeline](<../../../.gitbook/assets/image (179).png>)
 
@@ -110,7 +110,7 @@ If you want finer control of logging, you can sprinkle in `wandb.log` and `wandb
 
 ### With explicit wandb logging calls
 
-In this example below, we are training a model.  The `@wandb_log` decorator will automatically track the relevant inputs and outputs.  If you want to log the training process, you can explicitly add that logging like so:
+In this example below, we are training a model. The `@wandb_log` decorator will automatically track the relevant inputs and outputs. If you want to log the training process, you can explicitly add that logging like so:
 
 ```python
 @wandb_log
@@ -150,4 +150,3 @@ def train_model(
     trainer = Trainer(logger=WandbLogger())
     ...  # do training
 ```
-
