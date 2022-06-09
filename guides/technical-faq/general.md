@@ -72,7 +72,7 @@ Yes, W\&B supports setting up Single Sign-On (SSO) for the SaaS offering via Aut
 * Set the callback URI to [`https://wandb.auth0.com/login/callback`](https://wandb.auth0.com/login/callback)
 * Once you have the above setup, contact your customer success manager(CSM) and let us know the Client ID and Issuer URL associated with the application.
 
-We'll then set up an Auth0 connection with the above details and enable SSO.&#x20;
+We'll then set up an Auth0 connection with the above details and enable SSO.
 
 ### What is a service account, and why is it useful?
 
@@ -80,7 +80,7 @@ A service account is an API key that has permissions to write to your team, but 
 
 You can get the API key in your Team Settings page `/teams/<your-team-name>` where you invite new team members. Select service and click create to add a service account.
 
-![Create a service account on your team settings page for automated jobs](<../../.gitbook/assets/image (167) (2).png>)
+![Create a service account on your team settings page for automated jobs](<../../.gitbook/assets/image (167) (1).png>)
 
 ### How can I rotate or revoke access?
 
