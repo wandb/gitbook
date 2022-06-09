@@ -4,7 +4,7 @@
 
 ## Example Blog & Colab
 
-[**Read here**](https://wandb.ai/manan-goel/text\_detection/reports/Train-and-Debug-Your-OCR-Models-with-PaddleOCR-and-W-B--VmlldzoyMDUwMDIw) to see how to train a model with PaddleOCR on the ICDAR2015 dataset. This also comes with a [**Google Colab**](https://colab.research.google.com/drive/1id2VTIQ5-M1TElAkzjzobUCdGeJeW-nV?usp=sharing) and the corresponding live W\&B dashboard is available [**here**](https://wandb.ai/manan-goel/text\_detection). There is also a Chinese version of this blog here: **** [**W\&B对您的OCR模型进行训练和调试**](https://wandb.ai/wandb\_fc/chinese/reports/W-B-OCR---VmlldzoyMDk1NzE4)****
+[**Read here**](https://wandb.ai/manan-goel/text\_detection/reports/Train-and-Debug-Your-OCR-Models-with-PaddleOCR-and-W-B--VmlldzoyMDUwMDIw) to see how to train a model with PaddleOCR on the ICDAR2015 dataset. This also comes with a [**Google Colab**](https://colab.research.google.com/drive/1id2VTIQ5-M1TElAkzjzobUCdGeJeW-nV?usp=sharing) and the corresponding live W\&B dashboard is available [**here**](https://wandb.ai/manan-goel/text\_detection). There is also a Chinese version of this blog here: \*\*\*\* [**W\&B对您的OCR模型进行训练和调试**](https://wandb.ai/wandb\_fc/chinese/reports/W-B-OCR---VmlldzoyMDk1NzE4)\*\*\*\*
 
 ## Using PaddleOCR with Weights & Biases
 
@@ -48,7 +48,7 @@ wandb:
     name: MyOCRModel  # (optional) this is the name of the wandb run
 ```
 
-### 3. Pass the `config.yml` file to `train.py`&#x20;
+### 3. Pass the `config.yml` file to `train.py`
 
 The yaml file is then provided as an argument to the [training script](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.5/tools/train.py) available in the PaddleOCR repository.
 
@@ -60,7 +60,7 @@ Once you run your `train.py` file with Weights & Biases turned on, a link will b
 
 ![](<../../../.gitbook/assets/Screenshot 2022-05-20 at 1.58.15 PM.png>) ![](<../../../.gitbook/assets/Screenshot 2022-05-20 at 2.01.01 PM.png>)
 
-![W\&B Dashboard for the Text Detection Model](<../../../.gitbook/assets/Screenshot 2022-05-20 at 1.59.22 PM (1).png>)
+![W\&B Dashboard for the Text Detection Model](<../../../.gitbook/assets/Screenshot 2022-05-20 at 1.59.22 PM.png>)
 
 ## Feedback or Issues?
 

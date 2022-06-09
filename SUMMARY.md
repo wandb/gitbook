@@ -92,7 +92,7 @@
     * [Production Setup](guides/self-hosted/setup/README.md)
       * [Dedicated Cloud](guides/self-hosted/setup/dedicated-cloud.md)
       * [Private Cloud](guides/self-hosted/setup/private-cloud.md)
-      * [On Premise / Baremetal](guides/self-hosted/setup/on-premise-baremetal.md)
+      * [On Prem / Baremetal](guides/self-hosted/setup/on-premise-baremetal.md)
       * [Advanced Configuration](guides/self-hosted/setup/configuration.md)
     * [FAQ](guides/self-hosted/local-common-questions.md)
   * [Technical FAQ](guides/technical-faq/README.md)

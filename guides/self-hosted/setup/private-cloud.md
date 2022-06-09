@@ -1,10 +1,10 @@
 ---
-description: Hosting W&B on your private cloud.
+description: Hosting W&B Server on your private cloud.
 ---
 
 # Private Cloud
 
-A W\&B Docker container running in a scalable deployment on your private AWS or GCP infrastructure, in your chosen region, and connected to a scalable data store. The environment can be provisioned by us or by your company, using a toolset comprised of Terraform and Kubernetes.
+A W\&B Server running in a scalable deployment on your private AWS or GCP infrastructure, in your chosen region, and connected to a scalable data store. The environment can be provisioned by us or by your company, using a toolset comprised of Terraform and Kubernetes.
 
 Talk to our sales team by reaching out to [contact@wandb.com](mailto:contact@wandb.com).
 

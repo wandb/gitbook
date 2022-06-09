@@ -4,7 +4,7 @@ description: Deploying W&B in production
 
 # Production Setup
 
-There are two ways to setup Weights & Biases in a production environment.
+There are two ways to setup a W\&B Server in a production environment.
 
 1.  [Production Cloud](private-cloud.md) _(Recommended)_
 

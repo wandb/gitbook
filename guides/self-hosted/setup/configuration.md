@@ -4,9 +4,9 @@ description: How to configure the W&B Local Server installation
 
 # Advanced Configuration
 
-Your W\&B Local Server comes up ready-to-use on boot. However, several advanced configuration options are available, at the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
+W\&B Server starts ready-to-use on boot using `wandb server start`. However, several advanced configuration options are available using the `/system-admin` page on your server once it's up and running. You can email [contact@wandb.com](mailto:contact@wandb.com) to request a trial license to enable more users and teams.
 
-The following is detailed information about manually configuring your local instance. When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance.
+The following is detailed information about the advanced configuration of a local server. When possible we suggest you use our [existing Terraform](https://github.com/wandb/local) to configure your instance.
 
 ## Configuration as code
 
@@ -23,14 +23,16 @@ All configuration settings can be set via the UI however if you would like to ma
 | HOST                 | The FQD of your instance, i.e. [https://my.domain.net](https://my.domain.net)                                                                                                              |
 | OIDC\_ISSUER         | A url to your Open ID Connect identity provider, i.e. [https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd) |
 | OIDC\_CLIENT\_ID     | The Client ID of application in your identity provider                                                                                                                                     |
-| OIDC\_AUTH\_METHOD   | implicit (default) or pkce, see below for more context.                                                                                                                                    |
+| OIDC\_AUTH\_METHOD   | Implicit (default) or pkce, see below for more context                                                                                                                                     |
 | SLACK\_CLIENT\_ID    | The client ID of the Slack application you want to use for alerts                                                                                                                          |
 | SLACK\_SECRET        | The secret of the Slack application you want to use for alerts                                                                                                                             |
 | LOCAL\_RESTORE       | You can temporarily set this to true if you're unable to access your instance. Check the logs from the container for temporary credentials.                                                |
 
 ## SSO & Authentication
 
-By default, a W\&B Local Server runs with manual user management. Licensed versions of _wandb/local_ also unlock SSO. W\&B can configure an [Auth0](https://auth0.com) tenant for you with any Identity provider they support such as SAML, Ping Federate, Active Directory, etc. Just reach out to your account executive to schedule a setup call with one of our engineers. If you already use Auth0 or have an Open ID Connect compatible server, you can follow the instructions below.
+By default, a W\&B Server runs with manual user management. Licensed versions of _wandb/local_ also unlock SSO. Email  [contact@wandb.com](mailto:contact@wandb.com) to schedule a time with us to configure an [Auth0](https://auth0.com) tenant for you with any Identity provider they support such as SAML, Ping Federate, Active Directory, etc.&#x20;
+
+If you already use Auth0 or have an Open ID Connect compatible server, you can follow the instructions below.
 
 ### Open ID Connect
 
@@ -45,7 +47,7 @@ To configure an application client in your identity provider you'll need to prov
 
 For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your application was running at `https://wandb.mycompany.com`:
 
-![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../../.gitbook/assets/image (162) (1).png>)
+![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../../.gitbook/assets/image (162) (1) (1).png>)
 
 _wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
 
@@ -57,7 +59,7 @@ To tell _wandb/local_ which grant to use you can select the Auth Method in the s
 For AWS Cognito providers you must set the Auth Method to "pkce"
 {% endhint %}
 
-You'll need a Client ID and the url of your OIDC issuer. The OpenID discovery document must be available at `$OIDC_ISSUER/.well-known/openid-configuration` For example when using AWS Cognito you can generate your issuer url by appending your User Pool ID to the Cognito IDP url from the _User Pools > App Integration_ tab:
+You'll need a Client ID and the url of your OIDC issuer. The OpenID discovery document must be available at `$OIDC_ISSUER/.well-known/openid-configuration` For example, when using AWS Cognito you can generate your issuer url by appending your User Pool ID to the Cognito IDP url from the _User Pools > App Integration_ tab:
 
 ![The issuer URL would be https://cognito-idp.us-east-1.amazonaws.com/us-east-1\_uiIFNdacd](<../../../.gitbook/assets/image (160) (1).png>)
 
@@ -111,7 +113,7 @@ Enable CORS access: your CORS configuration should look like the following:
 
 **Grant Permissions to Node Running W\&B**
 
-The node on which W\&B Local is running must be configured to permit access to s3 and SQS. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
+The node on which W\&B Server is running must be configured to permit access to S3 and SQS. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
 
 ```
 {
@@ -142,7 +144,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (5).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -180,11 +182,11 @@ gsutil notification create -t <TOPIC-NAME> -f json gs://<BUCKET-NAME>
 
 **Add Signing Permissions**
 
-To create signed file URLs, your W\&B instance also needs the `iam.serviceAccounts.signBlob` permission in GCP. You can add it by adding the `Service Account Token Creator` role to the service account or IAM member that your instance is running as.
+To create signed file URLs, your W\&B Server also needs the `iam.serviceAccounts.signBlob` permission in GCP. You can add it by adding the `Service Account Token Creator` role to the service account or IAM member that your instance is running as.
 
-**Grant Permissions to Node Running W\&B**
+**Grant Permissions to Node Running W\&B Server**
 
-The node on which W\&B Local is running must be configured to permit access to s3 and sqs. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
+The node on which W\&B Server is running must be configured to permit access to S3 and SQS. Depending on the type of server deployment you've opted for, you may need to add the following policy statements to your node role:
 
 ```
 {
@@ -304,7 +306,7 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../../.gitbook/assets/image (128) (1) (17).png>)
+![](<../../../.gitbook/assets/image (128) (1) (13).png>)
 
 Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
