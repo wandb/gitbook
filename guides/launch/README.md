@@ -21,24 +21,19 @@ Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or 
 {% hint style="success" %}
 Before you start, add **instant replay** to your bio on your profile page — this is the secret phrase to unlock W\&B Launch features in the UI.
 
-Then on the command line run **`pip install wandb["launch"]`** to get access to this W\&B Launch feature in the SDK.
+Then on the command line run **`pip install "wandb[launch]"`** to get access to this W\&B Launch feature in the SDK.
 {% endhint %}
 
-From [the sample project](https://wandb.ai/wandb/launch-welcome), pick a run to re-train and copy its URL.
+The standard use case for W\&B Launch is to integrate with [Kubernetes](integrations/kubernetes.md) or [SageMaker](integrations/sagemaker.md), then easily launch jobs on machines in a remote cluster. In this quickstart, we run a [Local Agent](integrations/local.md) for simplicity:
 
-You can also use Launch through the W\&B web interface. Open the launch-welcome project again, open the dropdown by a run, and select **Add to Launch queue**.
+1. Open a project and pick a run from your Runs Workspace.
+2. Click the menu to `Add to Launch Queue`
+3. Update the config to tweak hyperparameters
+4. On your command line, go to the machine where you want to launch that job, and run the command `wandb launch-agent <your-project-name>`
 
-![](../../.gitbook/assets/launch.gif)
+This will start an agent running on your machine, which will pull down queued jobs and run them automatically. See the live results of the new run stream in to your project page.
 
-A modal should appear, pre-populated with the original config values in the run. Edit this config to change any of the original parameters, select the entity and project you'd like to send the run to then click **Push Run**.
-
-You've now queued an edited version of the run, which is now waiting to be picked up by an agent. Back in your terminal, run:
-
-`wandb launch-agent <your-selected-project-name>`
-
-If you happened to queue the run to anything other than the default queue, add `-q <queue-name>` to your command. You should see that the agent picks up the run and builds a container with your edits to the run, just as before.
-
-Now that you've launched runs via the CLI and the UI, take a look at the documentation to integrate Launch with your infrastructure and workflow.
+![](<../../.gitbook/assets/2022-06-10 09.25.31.gif>)
 
 ## Documentation
 
