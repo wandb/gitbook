@@ -1,8 +1,6 @@
----
-description: Frequently Asked Questions
----
-
 # Technical FAQ
+
+### Frequently Asked Questions
 
 {% content-ref url="general.md" %}
 [general.md](general.md)
