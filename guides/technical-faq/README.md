@@ -1,6 +1,6 @@
 # Technical FAQ
 
-### Frequently Asked Questions
+Frequently Asked Questions
 
 {% content-ref url="general.md" %}
 [general.md](general.md)
