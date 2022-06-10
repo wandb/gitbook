@@ -103,7 +103,7 @@
   * [Model Management](guides/models/README.md)
     * [Model Management Concepts](guides/models/model-management-concepts.md)
     * [Model Management Walkthrough](guides/models/walkthrough.md)
-  * [W\&B Launch](guides/launch/README.md)
+  * [Launch Jobs](guides/launch/README.md)
     * [Launch Agents and Queues](guides/launch/agents.md)
     * [Containerizing with Launch](guides/launch/containers.md)
     * [Launch Integrations](guides/launch/integrations/README.md)

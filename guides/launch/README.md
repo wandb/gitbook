@@ -2,10 +2,10 @@
 description: Reproducibility, orchestration, and CI/CD
 ---
 
-# W\&B Launch
+# Launch Jobs
 
-{% hint style="info" %}
-_This new product is in active development. Please message support@wandb.com with questions and suggestions._
+{% hint style="danger" %}
+This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
 {% endhint %}
 
 Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or CLI.
