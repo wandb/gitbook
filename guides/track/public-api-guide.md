@@ -141,7 +141,7 @@ runs = api.runs("username/project",
         {"config.experiment_name": "foo"},
         {"config.experiment_name": "bar"}]
     })
-print(f"Found {}len(runs) runs")
+print(f"Found {len(runs)} runs")
 ```
 {% endtab %}
 {% endtabs %}
