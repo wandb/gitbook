@@ -56,13 +56,13 @@ Collapsing headers on a Report make it so the viewer will only see and load the 
 
 ## Collaborate on reports
 
-Once you've saved a report, you can click the **Share** button to collaborate. Make sure the visibility settings on your project allow your collaborators to access the report— you'll need an open project or a team project to share a report that you can edit together.
+Once you've saved a report, you can click the **Share** button to collaborate. When you press edit, you'll be editing a draft copy of the report. This draft auto-saves, and when you press **Save to report** you'll be publishing your changes to the shared report.
 
-When you press edit, you'll be editing a draft copy of the report. This draft auto-saves, and when you press **Save to report** you'll be publishing your changes to the shared report.
+For a _private_ project (individual), only the owner of that report can see a share modal. For a _team_ project, the admin or report creator can switch between edit or view access for other team members.
 
 If one of your collaborators has edited the report in the meantime, you'll get a warning to help you resolve potential edit conflicts.
 
-![](<../../.gitbook/assets/collaborative reports.gif>)
+![Report sharing modal for a report in a 'Public' project](../../.gitbook/assets/share-report.gif)
 
 ### Comment on reports
 
@@ -126,18 +126,20 @@ If you need to compare runs from two projects and the columns aren't working, ad
 
 Share a view-only link to a report that is in a private project or team project.
 
-![](<../../.gitbook/assets/share view only link.gif>)
+![](../../.gitbook/assets/magic-links.gif)
 
-View-only report links add a secret access token to the URL, so anyone who opens the link can view the page. For customers on [W\&B Local](../self-hosted/) private cloud installations, these links will still be behind your firewall, so only members of your team with access to your private instance _and_ access to the view-only link will be able to view the report.
+View-only report links add a secret access token to the URL, so anyone who opens the link can view the page. The magic link can also be used to let anyone view the report without logging in first. For customers on [W\&B Local](../self-hosted/) private cloud installations, these links will still be behind your firewall, so only members of your team with access to your private instance _and_ access to the view-only link will be able to view the report.
 
-In view mode, someone who is not logged in can see the charts and mouse over to see tooltips of values, zoom in and out on charts, and scroll through columns in the table. When in view mode, they cannot create new charts or new table queries to explore the data. View-only visitors to the report link won't be able to click on a run to get to the run page.
+**View-only mode**
+
+In view mode, someone who is not logged in can see the charts and mouse over to see tooltips of values, zoom in and out on charts, and scroll through columns in the table. When in view mode, they cannot create new charts or new table queries to explore the data. View-only visitors to the report link won't be able to click on a run to get to the run page. Also, the view-only visitors would not be able to see the share modal but instead would see a tooltip on hover which says: `Sharing not available for view only access`.
 
 {% hint style="info" %}
-The view-only magic link is available _only_ for the author of that report.
+Note: The magic links are only available for “Private” and “Team” projects. For “Public” (anyone can view) or “Open” (anyone can view and contribute runs) projects, the links can't turn on/off because this project is public implying that it is already available to anyone with the link.
 {% endhint %}
 
 ### Send a graph to a report
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).gif>)
+![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (7).gif>)
