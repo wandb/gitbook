@@ -1,5 +1,6 @@
 # Table of contents
 
+* [Something else](http://google.com)
 * [Weights & Biases](README.md)
 * [Quickstart](quickstart.md)
 * [Examples](examples.md)
