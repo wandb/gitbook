@@ -31,6 +31,7 @@ The Python details are private, even if you make the page itself public. Here is
 ## Charts Tab
 
 * Search, group, and arrange visualizations
+  * the search bar supports regular expressions
 * Click the pencil icon ✏️ on a graph to edit
   * change x-axis, metrics, and ranges
   * edit legends, titles, and colors of charts
@@ -39,7 +40,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](<../../../.gitbook/assets/wandb-run-page-workspace-tab (13).png>)
+![](<../../../.gitbook/assets/wandb run page workspace tab.png>)
 
 ## System Tab
 
