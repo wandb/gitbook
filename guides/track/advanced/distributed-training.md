@@ -90,19 +90,21 @@ If you want to see what the outputs look like for this method, check out an exam
 
 ### Hanging at the beginning of training
 
-If launching the `wandb` process hangs, it could be because the `wandb` multiprocessing is interfering with the multiprocessing from distributed training. Try setting the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead.
+If launching the `wandb` process hangs, it could be because the `wandb` multiprocessing is interfering with the multiprocessing from distributed training. Try setting the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead. We also recommend using the new [wandb service](distributed-training.md#wandb-service) to improve the reliability of your distributed jobs.&#x20;
 
 ### Hanging at the end of training
 
-Is your process hanging at the end of training? The `wandb` process might not know it needs to exit, and that will cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause `wandb` to exit.
+Is your process hanging at the end of training? The `wandb` process might not know it needs to exit, and that will cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause `wandb` to exit. If you are using `wandb` in a distributed training setup and experiencing hangs, please consider using the [wandb service](distributed-training.md#wandb-service) to improve the reliability of your runs.&#x20;
 
 ## wandb service
 
 ### Why would you use this feature?
 
-This is a new feature we introduce in `wandb`. This feature supports more generalized and robust treatment of multiprocessing. If you are using `wandb` in a distributed training setup and experiencing hangs, please consider trying out this new feature.
+The wandb service addresses the [Common Issues](distributed-training.md#common-issues) with distributed training noted above by improving how W\&B tracks distributed experiments. The `wandb service` enhances how W\&B handles multiprocessing runs and thus improves reliability in a distributed training setting.
 
-### General Setup
+Running `wandb` previously in a distributed training setup could experience hanging jobs and made for an overall poor experience. Now with `wandb service` enabled by default, there is no extra work required by the user to log multiprocessing runs. You can enable wandb service directly in your script, or install a pre-release wandb package with it enabled by default:
+
+### Enabling wandb Service
 
 {% tabs %}
 {% tab title="Enable in script" %}
@@ -126,7 +128,7 @@ No additional changes required in your script.
 {% endtab %}
 {% endtabs %}
 
-### Advance Usage
+### Advanced Usage
 
 {% tabs %}
 {% tab title="Spawned process" %}
