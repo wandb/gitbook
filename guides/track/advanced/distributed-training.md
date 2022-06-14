@@ -54,7 +54,7 @@ If you want to see what the outputs look like for this method, check out an exam
 
 The epoch-wise and batch-wise loss values, however, are only logged from a single GPU.
 
-![](<../../../.gitbook/assets/image (68) (1).png>)
+![](<../../../.gitbook/assets/image (68) (2).png>)
 
 ### Method 2: `wandb.init` on all processes
 
@@ -96,7 +96,7 @@ If launching the `wandb` process hangs, it could be because the `wandb` multipro
 
 Is your process hanging at the end of training? The `wandb` process might not know it needs to exit, and that will cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause `wandb` to exit.
 
-## wandb service (beta)
+## wandb service
 
 ### Why would you use this feature?
 
@@ -109,8 +109,8 @@ This is a new feature we introduce in `wandb`. This feature supports more genera
 `service` can be enabled by adding the following to your script:
 
 ```python
-def name == "main":
-    wandb.require(experiment="service")
+if __name__ == "__main__":
+    wandb.require("service")
     # <rest-of-your-script-goes-here>
 ```
 {% endtab %}
