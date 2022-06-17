@@ -10,11 +10,17 @@ On the project page, we show runs in a sidebar. Expand the sidebar to view a tab
 
 We support full [regex](https://dev.mysql.com/doc/refman/8.0/en/regexp.html) search on run names in the table. When you type a query in the search box, that will filter down the visible runs in the graphs on the workspace as well as filtering the rows of the table.
 
+#### What to do in case regex fails?
+
+If regex doesn't provide you the desired results, you can make use of [tags](tags.md) to filter out the runs in Runs Table. Tags can be added either on run creation or after they're finished. Once the tags are added to a run, you can add a tag filter as shown in the gif below.
+
+![If regex doesn't provide you the desired results, you can make use of tags to filter out the runs in Runs Table](../../../.gitbook/assets/tags.gif)
+
 ## Search End Time for runs
 
 We provide a column named `End Time` that logs that last heartbeat from the client process. The field is hidden by default.
 
-![](<../../../.gitbook/assets/image (62) (1) (1).png>)
+![](<../../../.gitbook/assets/image (62) (1) (4).png>)
 
 ## Resize the sidebar
 
