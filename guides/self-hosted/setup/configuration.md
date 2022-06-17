@@ -28,6 +28,19 @@ All configuration settings can be set via the UI however if you would like to ma
 | SLACK\_SECRET        | The secret of the Slack application you want to use for alerts                                                                                                                             |
 | LOCAL\_RESTORE       | You can temporarily set this to true if you're unable to access your instance. Check the logs from the container for temporary credentials.                                                |
 
+### Host Configuration
+
+To change the host and port that you want to deploy your `wandb server` instance then you can run the command
+
+`wandb server -e HOST=http://<HOST>:<PORT>`
+
+You can connect to this instance by then explicitly defining the HOST for our authentication method for `wandb` client. Here are various ways to perform this action.
+
+1. `wandb login --host=<HOST>:<PORT>`
+2. `wandb.login(host="<HOST>:<PORT>")`
+3. `export WANDB_BASE_URL=<HOST>:<PORT>`\
+   `export WANDB_API_KEY=<API-KEY>`&#x20;
+
 ## SSO & Authentication
 
 By default, a W\&B Server runs with manual user management. Licensed versions of _wandb/local_ also unlock SSO. Email  [contact@wandb.com](mailto:contact@wandb.com) to schedule a time with us to configure an [Auth0](https://auth0.com) tenant for you with any Identity provider they support such as SAML, Ping Federate, Active Directory, etc.&#x20;

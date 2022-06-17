@@ -11,7 +11,7 @@ wandb.init()
 art = wandb.Artifact("my_images", "dataset")
 for path in IMAGE_PATHS:
     art.add(wandb.Image(path), path)
-art.log_artifact(art)
+wandb.log_artifact(art)
 ```
 
 ### Step 2: Use Artifact Images for Logging
