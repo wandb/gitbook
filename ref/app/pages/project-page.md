@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (6).png>)
+![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (2) (5).png>)
 
 ![](../../../.gitbook/assets/undelete.png)
 
@@ -50,7 +50,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (3) (5) (1) (3) (6).png>)
+![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (3) (5) (1) (3) (2) (5).png>)
 
 ### Search for runs
 
@@ -119,41 +119,45 @@ View all the [artifacts](../../../guides/artifacts/) associated with a project, 
 
 ### Overview panel
 
-![](<../../../.gitbook/assets/image (135).png>)
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 8.29.04 AM.png>)
 
-On the overview panel, you'll find a variety of high-level information about the artifact, including its name and version, the hash digest used to detect changes and prevent duplication, the creation date, and any aliases. You can add or remove aliases here, take notes on
-
-This section also indicates and links to the run which output the artifact and any runs which use the artifact as an input.
-
-### API panel
-
-![](<../../../.gitbook/assets/image (136).png>)
-
-The API panel provides a code snippet for downloading the artifact for use outside of the web app, for example on a local machine.
+On the overview panel, you'll find a variety of high-level information about the artifact, including its name and version, the hash digest used to detect changes and prevent duplication, the creation date, and any aliases. You can add or remove aliases here, take notes on both the version as well as the artifact as a whole.
 
 ### Metadata panel
 
-![](<../../../.gitbook/assets/image (138).png>)
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 8.29.53 AM.png>)
 
-The metadata panel provides access to the artifact's metadata, which is provided when the artifact is constructed. This metadata might include configuration arguments required to reconstruct the artifact, URLs where more information can be found, or metrics produced during the run which logged the artifact.
+The metadata panel provides access to the artifact's metadata, which is provided when the artifact is constructed. This metadata might include configuration arguments required to reconstruct the artifact, URLs where more information can be found, or metrics produced during the run which logged the artifact. Additionally, you can see the configuration for the run which produced the artifact as well as the history metrics at the time of logging the artifact.
+
+### Usage panel
+
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 8.30.20 AM.png>)
+
+The Usage panel provides a code snippet for downloading the artifact for use outside of the web app, for example on a local machine. This section also indicates and links to the run which output the artifact and any runs which use the artifact as an input.
 
 ### Files panel
 
-![](<../../../.gitbook/assets/image (139).png>)
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 8.30.27 AM.png>)
 
 The files panel lists the files and folders associated with the artifact. You can navigate through this file tree and view the contents directly in the W\&B web app.
 
 [Tables](../../../guides/data-vis/tables-quickstart.md) associated with artifacts are particularly rich and interactive in this context. Learn more about using Tables with Artifacts [here](../../../guides/data-vis/tables.md).
 
-![](<../../../.gitbook/assets/image (140).png>)
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 8.31.17 AM.png>)
 
-### Graph View panel
+### Lineage panel
 
-![](<../../../.gitbook/assets/image (137).png>)
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 8.35.12 AM.png>)
 
-The graph view panel provides a view of all of the artifacts associated with a project and the runs that connect them to each other. It shows run types as blocks and artifacts as circles, with arrows to indicate when a run of a given type consumes or produces an artifact of a given type. The type of the particular artifact selected in the left-hand column is highlighted.
+The lineage panel provides a view of all of the artifacts associated with a project and the runs that connect them to each other. It shows run types as blocks and artifacts as circles, with arrows to indicate when a run of a given type consumes or produces an artifact of a given type. The type of the particular artifact selected in the left-hand column is highlighted.
 
 Click the Explode toggle to view all of the individual artifact versions and the specific runs that connect them.
+
+### Versions tab
+
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 8.32.57 AM.png>)
+
+The versions tab shows all versions of the artifact as well as columns for each of the numberic values of the Run History at the time of logging the version. This allows you to compare performance and quickly identiy versions of interest.
 
 ## Project Defaults
 

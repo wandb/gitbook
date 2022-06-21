@@ -85,7 +85,7 @@ Click on any Run in the Kubeflow Pipelines UI that has been logged with W\&B.
 
 The web app UI has the same content as the `Visualizations` tab in Kubeflow Pipelines, but with more space! Learn [more about the web app UI here](https://docs.wandb.ai/ref/app).
 
-![View details about a particular run (and link back to the Kubeflow UI)](<../../../.gitbook/assets/image (176) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1).png>)
+![View details about a particular run (and link back to the Kubeflow UI)](<../../../.gitbook/assets/image (176) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png>)
 
 ![See the full DAG of inputs and outputs at each stage of your pipeline](<../../../.gitbook/assets/image (179).png>)
 
