@@ -153,11 +153,19 @@ The lineage panel provides a view of all of the artifacts associated with a proj
 
 Click the Explode toggle to view all of the individual artifact versions and the specific runs that connect them.
 
+### Action History Audit tab
+
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 10.56.57 AM.png>)
+
+![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 10.57.02 AM.png>)
+
+The action history audit tab shows all of the alias actions and membership changes for a Collection so you can audit the entire evolution of the resource.
+
 ### Versions tab
 
 ![](<../../../.gitbook/assets/Screen Shot 2022-06-21 at 8.32.57 AM.png>)
 
-The versions tab shows all versions of the artifact as well as columns for each of the numberic values of the Run History at the time of logging the version. This allows you to compare performance and quickly identiy versions of interest.
+The versions tab shows all versions of the artifact as well as columns for each of the numeric values of the Run History at the time of logging the version. This allows you to compare performance and quickly identify versions of interest.
 
 ## Project Defaults
 

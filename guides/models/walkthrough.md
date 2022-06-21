@@ -18,6 +18,10 @@ In this walkthrough you'll learn how to use Weights & Biases for Model Managemen
 
 _We are actively building new Model Management features. Please reach out with questions or suggestions at support@wandb.com._
 
+{% hint style="info" %}
+Please see the[ Artifact Tab](https://docs.wandb.ai/ref/app/pages/project-page#artifacts-tab) details for a discussion of all content available in the Model Registry!
+{% endhint %}
+
 ## Workflow
 
 Now we will walk through a canonical workflow for producing, organizing, and consuming trained models:
