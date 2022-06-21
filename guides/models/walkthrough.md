@@ -8,6 +8,8 @@ description: >-
 
 [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="" data-size="line">](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Model\_Management\_Guide.ipynb)
 
+![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.22.27 AM.png>)
+
 In this walkthrough you'll learn how to use Weights & Biases for Model Management. Track, visualize, and report on the complete production model workflow.
 
 1. **Model Versioning**: Save and restore every version of your model & learned parameters - organize versions by use case and objective. Track training metrics, assign custom metadata, and document rich markdown descriptions of your models.
@@ -33,17 +35,41 @@ Now we will walk through a canonical workflow for producing, organizing, and con
 **A** [**companion colab notebook**](https://colab.research.google.com/drive/1wjgr9AHICOa3EM1Ikr\_Ps\_MAm5D7QnCC) **is provided which covers step 2-3 in the first code block and steps 4-6 in the second code block.**
 {% endhint %}
 
-![](<../../.gitbook/assets/Screen Shot 2022-05-12 at 11.21.50 AM.png>)
+![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.24.10 AM.png>)
 
 ### 1. Create a new Model Collection
 
-First, create a Model Collection to hold all the candidate models for your particular modeling task. In this tutorial, we will use the classic [MNIST Dataset](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html#torchvision.datasets.MNIST) - 28x28 grayscale input images with output classes from 0-9. The video below demonstrates how to create a new Collection:
+First, create a Model Collection to hold all the candidate models for your particular modeling task. In this tutorial, we will use the classic [MNIST Dataset](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html#torchvision.datasets.MNIST) - 28x28 grayscale input images with output classes from 0-9. The video below demonstrates how to create a new Collection:1.&#x20;
 
+{% tabs %}
+{% tab title="Using Model Registry" %}
+1\. Visit your Model Registry at [wandb.ai/registry/model](https://wandb.ai/registry/model) (linked from homepage).
+
+![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.14.10 AM.png>)
+
+![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.18.28 AM.png>)
+
+2\. Click the `Create Model Collection` button at the top of the Model Registry.
+
+![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.17.24 AM.png>)
+
+3\. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
+
+![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.20.23 AM.png>)
+{% endtab %}
+
+{% tab title="Using Artifact Browser" %}
 1. Visit your Project's Artifact Browser: `wandb.ai/<entity>/<project>/artifacts`
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
 ![](<../../.gitbook/assets/2022-05-17 14.20.36.gif>)
+
+
+{% endtab %}
+{% endtabs %}
+
+
 
 ### 2. Train & log Model Versions
 
@@ -150,9 +176,9 @@ dataset = wandb.use_artifact(art)
 {% endtab %}
 {% endtabs %}
 
-After logging 1 or more Model Versions, you will notice that your will have a new Model Artifact in your Artifact Browser. Here, we can see the results of logging 5 versions to an artifact named `mnist_nn-fz3l7wpe`.
+After logging 1 or more Model Versions, you will notice that your will have a new Model Artifact in your Artifact Browser. Here, we can see the results of logging 5 versions to an artifact named `mnist_nn-1r9jjogr`.
 
-![](<../../.gitbook/assets/Screen Shot 2022-05-11 at 1.31.14 AM.png>)
+![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.25.13 AM.png>)
 
 If you are following along the example notebook, you should see a Run Workspace with charts similar to the image below
 
@@ -342,160 +368,6 @@ You can reference a Version within the Collection using different alias strategi
 
 ### 8. Build a Reporting Dashboard
 
-<details>
+Using Weave Panels, you can display any of the Model Registry/Artifact views inside of Reports! See a [demo here](https://wandb.ai/timssweeney/model\_management\_docs\_official\_v0/reports/MNIST-Grayscale-28x28-Model-Dashboard--VmlldzoyMDI0Mzc1). Below is a full-page screenshot of an example Model Dashboard.
 
-<summary>Use Weave to Build a Model Report</summary>
-
-### [Model Registry Demo](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA)
-
-Use the interactive W\&B UI to view all saved model versions, compare models on evaluation metrics, and track the status of models at different stages in the pipeline.
-
-_To unlock Weave panels, add `weave-report` to your profile page bio._
-
-<img src="../../.gitbook/assets/image (156).png" alt="" data-size="original">
-
-### Quickstart Walkthrough
-
-[Clone our **GitHub Examples Repo**](https://github.com/wandb/examples/tree/master/examples/model-evaluation) and follow along with this `model-evaluation` code example.
-
-#### **1. Install requirements**
-
-Install the Weights & Biases library `wandb` and other dependencies.
-
-```
-pip install -r requirements.txt
-```
-
-#### **2. Register a dataset**
-
-Generate and register a dataset for a particular model use case. In this example, we use the MNIST dataset for simplicity.
-
-```
-python dataset_generator.py
-```
-
-#### **3. Train some models**
-
-Train a model based on the latest available dataset for the given model use case. Tweak hyperparameters from the command line, like this:
-
-```
-python model_trainer.py
-python model_trainer.py --validation_split 0.05
-python model_trainer.py --validation_split 0.2
-python model_trainer.py --batch_size 64
-python model_trainer.py --batch_size 160
-```
-
-Later you'll be able to compare training performance for different models in the W\&B dashboard.
-
-Did you hit a weird error? Try waiting a little longer for your dataset from Step #2 to get registered before running Step #3 to train on that dataset.
-
-Here is an [example dashboard](https://wandb.ai/carey/model\_registry\_example?workspace=user-carey) comparing the models we've trained so far.
-
-<img src="../../.gitbook/assets/image (157).png" alt="" data-size="original">
-
-#### **4. Evaluate candidate models**
-
-Next, run the evaluator script to:
-
-1. Finds all models that haven't yet been evaluated on the latest evaluation dataset
-2. Runs the evaluation job for each model
-3. Labels the best model "production" to feed into an inference system
-
-```
-python model_evaluator.py
-```
-
-#### 5. Visualize results
-
-Create tables to visualize your results. Here's [an example report](https://wandb.ai/timssweeney/model\_registry\_example/reports/MNIST-Model-Status--Vmlldzo4OTIyNTA) that captures and compares trained models:
-
-<img src="../../.gitbook/assets/image (154).png" alt="" data-size="original">
-
-In this example, this [**Weave**](../../ref/app/features/panels/weave.md) table is visualizing logged model [**Artifacts**](../artifacts/) with:
-
-1. **Model link**: A link to the registered model artifact in the app
-2. **Version**: A unique version number for each registered model
-3. **Status**: A label to indicate key model versions, like `production`
-4. **Loss @ 10k**: Metric calculated on an evaluation set of 10k
-5. **Loss @ 1k:** Model metric calculated on an evaluation set of 1k
-
-### Core features for model management
-
-There are a few key features you can use to build your own Model Registry:
-
-1. [**Runs**](../track/): Track a job execution in your ML pipeline — ex. model training, model evaluation
-2. [**Artifacts**](../artifacts/): Track job inputs and outputs — ex. datasets, trained models
-3. [**Tables**](../data-vis/): Track and visualize tabular data — ex. evaluation datasets, model predictions
-4. [**Weave**](../../ref/app/features/panels/weave.md): Query and visualize logged data — ex. a list of trained models.
-5. [**Reports**](../reports/): Organize and visualize results — ex. charts, tables, and notes
-
-### Model Registry Table
-
-Once you have logged model Artifacts, it's time to query those artifacts.
-
-#### 1. Activate Weave
-
-Go to your profile page and add `weave-report` to your bio to activate this new beta query feature.
-
-<img src="../../.gitbook/assets/weave demo 1 - bio.gif" alt="" data-size="original">
-
-#### 2. Create a report
-
-In a project, go to the **Reports** tab and click **Create a report.**
-
-<img src="../../.gitbook/assets/weave demo 2 - create report.gif" alt="" data-size="original">
-
-#### 3. Add a Weave panel
-
-Type `/weave` to create a new Weave panel in your report. If you want to remove the Weave panel later, you can click the handle on the left sidebar and click Delete.
-
-<img src="../../.gitbook/assets/weave demo 3 - create weave panel.gif" alt="" data-size="original">
-
-#### 4. Query your logged models
-
-Start typing a query in the weave panel.
-
-<img src="../../.gitbook/assets/weave demo 4 - make a query.gif" alt="" data-size="original">
-
-Here's what each piece of the query in my example means:
-
-* **projects("carey", "a\_model\_registry\_example")**: This pulls data from the entity `carey` and the project called `a_model_registry_example`.
-* **artifactType("model")**: This pulls all the artifacts of type `model` in this project.
-* **artifactVersions**: This pulls all the artifact versions of type `model`.
-
-#### 5. Get the links to all model artifacts
-
-Add a column to pull all the links to different logged model artifacts.
-
-<img src="../../.gitbook/assets/weave demo 5 - get model links.gif" alt="" data-size="original">
-
-#### 6. Get the evaluation metric for each model
-
-Create a new row in the table, and query for the loss. This was calculated in the evaluation step, which tested each model on a held-out dataset.
-
-`row.metadata["mnist_ds:v0-ce_loss"]`
-
-<img src="../../.gitbook/assets/2021-10-01 18.19.59.gif" alt="" data-size="original">
-
-Optionally, you can rename the loss column so it's more readable.
-
-<img src="../../.gitbook/assets/weave demo 6 - rename column.gif" alt="" data-size="original">
-
-#### 7. Add a date created column
-
-Sometimes it's nice to sort the table by the created time. Add a column:
-
-`row.createdBy.createdAt`
-
-<img src="../../.gitbook/assets/wandb demo 7 - add date column.gif" alt="" data-size="original">
-
-#### 8. Add a status column
-
-Use the artifacts `alias` field to keep track of the status of different artifacts in your model registry. Add a column with `row.aliases`
-
-Then make the Panel visualize the results of the query as: `List of: String`
-
-<img src="../../.gitbook/assets/wandb demo 8 - add a status column.gif" alt="" data-size="original">
-
-</details>
+![](<../../.gitbook/assets/Screenshot 2022-06-21 at 10-42-44 Weights & Biases.png>)
