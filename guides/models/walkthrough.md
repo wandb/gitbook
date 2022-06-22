@@ -6,8 +6,6 @@ description: >-
 
 # Model Management Walkthrough
 
-[<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="" data-size="line">](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/wandb-artifacts/Model\_Management\_Guide.ipynb)
-
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.22.27 AM.png>)
 
 In this walkthrough you'll learn how to use Weights & Biases for Model Management. Track, visualize, and report on the complete production model workflow.
