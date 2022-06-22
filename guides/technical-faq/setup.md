@@ -14,6 +14,12 @@ If you're training on an offline machine and want to upload your results to our 
 
 You can check via API whether your run is offline by using `run.settings._offline` or `run.settings.mode` after your wandb.init().
 
+#### Some use-cases where you can use [`wandb sync`](../../ref/cli/wandb-sync.md)
+
+* If you don’t have internet.
+* If you need to fully disable things.
+* To sync your run later due to any reason. For instance: if you want to avoid using resources on a training machine.
+
 ### Does this only work for Python?
 
 Currently, the library only works with Python 2.7+ & 3.6+ projects. The architecture mentioned above should enable us to integrate with other languages easily. If you have a need for monitoring other languages, send us a note at [contact@wandb.com](mailto:contact@wandb.com).
