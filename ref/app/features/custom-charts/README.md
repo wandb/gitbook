@@ -266,6 +266,12 @@ This can be enabled on the “Other settings” page of the custom chart editor.
 
 ![Show step slider in a custom chart](<../../../../.gitbook/assets/Screen Recording 2021-11-12 at 3.22.50 PM.gif>)
 
+### How to delete a custom chart preset?
+
+You can do this by going into the custom chart editor. Then click on the currently selected chart type, this will open up a menu with all your presets. Hover the mouse on a preset you want to delete and then click on the Trash icon.
+
+![](<../../../../.gitbook/assets/Jun-27-2022 17-32-39.gif>)
+
 ### Common use cases
 
 * Customize bar plots with error bars

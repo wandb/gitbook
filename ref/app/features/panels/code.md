@@ -8,7 +8,12 @@ Starting with `wandb` version 0.8.28, we can save the code from your main traini
 
 ## Save Library Code
 
-When code saving is enabled, wandb will save the code from the file that called `wandb.init()`. To save additional library code, call `wandb.run.log_code(".")` after calling `wandb.init()` to capture all python source code files in the current directory and all subdirectories as an [artifact](https://docs.wandb.ai/ref/python/artifact). For more control over the types and locations of source code files that are saved, please see the [reference docs](https://docs.wandb.ai/ref/python/run#log\_code).
+When code saving is enabled, wandb will save the code from the file that called `wandb.init()`. To save additional library code, you have two options:
+
+* &#x20;Call `wandb.run.log_code(".")` after calling `wandb.init()`&#x20;
+* &#x20;Pass a settings object to `wandb.init` with code\_dir set: `wandb.init(settings=wandb.Settings(code_dir="."))`
+
+This will capture all python source code files in the current directory and all subdirectories as an [artifact](https://docs.wandb.ai/ref/python/artifact). For more control over the types and locations of source code files that are saved, please see the [reference docs](https://docs.wandb.ai/ref/python/run#log\_code).
 
 ## Code Comparer
 
@@ -20,11 +25,11 @@ Click the **+** button in your workspace or report to add a new panel, and selec
 
 Starting with **wandb** version 0.8.34, our library does Jupyter session saving. When you call **wandb.init()** inside of Jupyter, we add a hook to automatically save a Jupyter notebook containing the history of code executed in your current session. You can find this session history in a runs file browser under the code directory:
 
-![](<../../../../.gitbook/assets/cc2 (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (3) (1) (1) (4).png>)
+![](<../../../../.gitbook/assets/cc2 (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (3) (1) (1) (2) (4).png>)
 
 Clicking on this file will display the cells that were executed in your session along with any outputs created by calling iPython’s display method. This enables you to see exactly what code was run within Jupyter in a given run. When possible we also save the most recent version of the notebook which you would find in the code directory as well.
 
-![](<../../../../.gitbook/assets/cc3 (3) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (6).png>)
+![](<../../../../.gitbook/assets/cc3 (3) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (2) (6).png>)
 
 ## Jupyter diffing
 
