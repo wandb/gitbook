@@ -4,6 +4,8 @@ description: Call wandb.init() at the top of your script to start a new run
 
 # Launch Experiments with wandb.init
 
+
+
 Call `wandb.init()` once at the beginning of your script to initialize a new job. This creates a new run in W\&B and launches a background process to sync data.
 
 * **On-Prem**: If you need a private cloud or local instance of W\&B, see our [Self Hosted](../self-hosted/) offerings.
@@ -154,6 +156,16 @@ wandb sync wandb/dryrun-folder-name
 ```
 
 ![](<../../.gitbook/assets/image (27).png>)
+
+### What is the difference between wandb.init modes?
+
+Modes can be "online", "offline" or "disabled", and default to online.
+
+`online`(default): In this mode, the client sends data to the wandb server.
+
+`offline`: In this mode, instead of sending data to the wandb server, the client will store data on your local machine which can be later synced with the [`wandb sync`](https://docs.wandb.ai/ref/cli/wandb-sync?q=sync) command.
+
+`disabled`: In this mode, the client **** returns mocked objects and prevents all network communication. The client will essentially act like a no-op. In other words, all logging is entirely disabled. However, stubs out of all the API methods are still callable. This is usually used in tests.
 
 ### My run's state is "crashed" on the UI but is still running on my machine. What do I do to get my data back?
 
