@@ -17,7 +17,7 @@ There are a few ways to take notes about your work in Weights & Biases.
 You can edit the notes on a run in two places.
 
 1. **Project Page**: the table has an editable notes column
-2. **Run Page**: the overview tab shows information about a run, and you can 
+2. **Run Page**: the overview tab shows information about a run, and you can
 
 On the project page, expand the table. Click "Add notes..." to type notes in-line.
 
@@ -35,3 +35,12 @@ Use reports to write about your findings when comparing multiple runs. Click "Ad
 
 ![](https://downloads.intercomcdn.com/i/o/148297552/64e5baa86a48927158d17456/2019-09-13+08.08.31.gif)
 
+## Write Markdown in a new panel
+
+Use markdown and latex equtions such as:
+
+$TPR = Sensitivity = \dfrac{TP}{TP+FN}$
+
+Do this by adding a panel, selecting markdown, and then entering your markdown text, tables equations and code block will automatically render when clicking outside the markdown panel.
+
+![](../../../.gitbook/assets/tables\_panel.gif)

@@ -164,7 +164,7 @@ artifact = run.use_artifact('mnist:latest', type='dataset')
 artifact_dir = artifact.download()
 ```
 
-For filesystem references, a `download()` operation copies the files from the referenced paths to construct the artifact directory. In the above example, the contents of `/mount/datasets/mnist` will be copied into the directory `artifacts/mnist:v0/`. If an artifact contains a reference to a fail that was overwritten, then `download()` will throw an error as the artifact can no longer be reconstructed.
+For filesystem references, a `download()` operation copies the files from the referenced paths to construct the artifact directory. In the above example, the contents of `/mount/datasets/mnist` will be copied into the directory `artifacts/mnist:v0/`. If an artifact contains a reference to a file that was overwritten, then `download()` will throw an error as the artifact can no longer be reconstructed.
 
 Putting everything together, here's a simple workflow you can use to track a dataset under a mounted filesystem that feeds into a training job:
 

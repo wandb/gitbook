@@ -100,10 +100,6 @@ You should always specify the bucket you're using with the BUCKET environment va
 
 To use an AWS S3 bucket as the file storage backend for W\&B, you'll need to create a bucket, along with an SQS queue configured to receive object creation notifications from that bucket. Your instance will need permissions to read from this queue.
 
-**Create an SQS Queue**
-
-First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage`, `ReceiveMessage`, `ChangeMessageVisibility`, `DeleteMessage`, and `GetQueueUrl` actions. (If you'd like you can further lock this down using an advanced policy document)
-
 **Create an S3 Bucket and Bucket Notifications**
 
 Then, create an S3 bucket. Under the bucket properties page in the console, in the "Events" section of "Advanced Settings", click "Add notification", and configure all object creation events to be sent to the SQS Queue you configured earlier.
@@ -122,6 +118,27 @@ Enable CORS access: your CORS configuration should look like the following:
     <AllowedHeader>*</AllowedHeader>
 </CORSRule>
 </CORSConfiguration>
+```
+
+**Create an SQS Queue**
+
+First, create an SQS Standard Queue. Add a permission for all principals for the `SendMessage`, `ReceiveMessage`, `ChangeMessageVisibility`, `DeleteMessage`, and `GetQueueUrl` actions. If you'd like you can further lock this down using an advanced policy document. For instance, the policy for accessing SQS with a statement is as follows:
+
+```json
+{
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Principal" : "*",
+        "Action" : ["sqs:SendMessage"],
+        "Resource" : "<sqs-queue-arn>",
+        "Condition" : {
+          "ArnEquals" : { "aws:SourceArn" : "<s3-bucket-arn>" }
+        }
+      }
+    ]
+}
 ```
 
 **Grant Permissions to Node Running W\&B**
