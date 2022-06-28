@@ -6,4 +6,4 @@ description: Configure important settings for you wandb account
 
 ### Add Additional Emails
 
-![](../../../.gitbook/assets/ezgif.com-gif-maker.gif)
+![](../../../../.gitbook/assets/ezgif.com-gif-maker.gif)
