@@ -2,6 +2,52 @@
 
 You can use wandb to visualize and compare your scikit-learn models' performance with just a few lines of code. [**Try an example →**](http://wandb.me/scikit-colab)
 
+## :fire: Getting Started
+
+### Sign up and Log in to wandb
+
+a) [**Sign up**](https://wandb.ai/site) for a free account
+
+b) Pip install the `wandb` library&#x20;
+
+c) To login in your training script, you'll need to be signed in to you account at www.wandb.ai, then **you will find your API key on the** [**Authorize page**](https://wandb.ai/authorize)**.**
+
+If you are using Weights and Biases for the first time you might want to check out our [quickstart](../../quickstart.md)
+
+{% tabs %}
+{% tab title="Command Line" %}
+```
+pip install wandb
+
+wandb login
+```
+{% endtab %}
+
+{% tab title="Notebook" %}
+```python
+!pip install wandb
+
+wandb.login()
+```
+{% endtab %}
+{% endtabs %}
+
+### Logging Metrics
+
+```python
+import wandb
+wandb.init(project="visualize-sklearn")
+
+y_pred = clf.predict(X_test)
+accuracy = sklearn.metrics.accuracy_score(y_true, y_pred)
+
+# If logging metrics over time, then use wandb.log
+wandb.log({"accuracy": accuracy})
+
+# OR to log a final metric at the end of training you can also use wandb.summary
+wandb.summary["accuracy"] = accuracy
+```
+
 ### Making Plots
 
 #### Step 1: Import wandb and initialize a new run.
@@ -9,19 +55,20 @@ You can use wandb to visualize and compare your scikit-learn models' performance
 ```python
 import wandb
 wandb.init(project="visualize-sklearn")
-
-# load and preprocess dataset
-# train a model
 ```
 
-#### Step 2: Visualize individual plots.
+#### Step 2: Visualize individual plots
+
+After training a model and making predictions you can then generate plots in wandb to analyse your predictions. See the **Supported Plots** section below for a full list of supported charts
 
 ```python
 # Visualize single plot
 wandb.sklearn.plot_confusion_matrix(y_true, y_pred, labels)
 ```
 
-#### Or visualize all plots at once:
+#### Or visualize all plots at once
+
+W\&B has functions such as `plot_classifier` that will plot several relevant plots:
 
 ```python
 # Visualize all classifier plots
@@ -33,6 +80,28 @@ wandb.sklearn.plot_regressor(reg, X_train, X_test, y_train, y_test,  model_name=
 
 # All clustering plots
 wandb.sklearn.plot_clusterer(kmeans, X_train, cluster_labels, labels=None, model_name='KMeans')
+```
+
+**Or plot existing matplotlib plots:**
+
+Plots created on Matplotlib can also be logged on W\&B dashboard. To do that, it is first required to install `plotly`.
+
+```
+pip install plotly
+```
+
+Finally, the plots can be logged on W\&B's dashboard as follows:
+
+```python
+import matplotlib.pyplot as plt
+import wandb
+wandb.init(project="visualize-sklearn")
+
+# do all the plt.plot(), plt.scatter(), etc. here.
+# ...
+
+# instead of doing plt.show() do:
+wandb.log({"plot": plt})
 ```
 
 ### Supported Plots
@@ -199,4 +268,3 @@ Generally, the residuals of a well-fit model should be randomly distributed beca
 ## Example
 
 * [Run in colab](http://wandb.me/scikit-colab): A simple notebook to get you started
-* [Wandb Dashboard](https://app.wandb.ai/wandb/iris): View result on W\&B
