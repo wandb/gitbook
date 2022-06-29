@@ -13,6 +13,18 @@ Determines inequality of two values.
 #### Return Value
 Whether the two values are not equal.
 
+<h3 id="number-modulo"><code>number-modulo</code></h3>
+
+Divide a [number](https://docs.wandb.ai/ref/weave//number) by another and return remainder
+
+| Argument |  | 
+| :--- | :--- |
+| `lhs` | [number](https://docs.wandb.ai/ref/weave//number) to divide |
+| `rhs` | [number](https://docs.wandb.ai/ref/weave//number) to divide by |
+
+#### Return Value
+Modulo of two [numbers](https://docs.wandb.ai/ref/weave//number)
+
 <h3 id="number-mult"><code>number-mult</code></h3>
 
 Multiply two [numbers](https://docs.wandb.ai/ref/weave//number)
@@ -120,6 +132,17 @@ Check if a [number](https://docs.wandb.ai/ref/weave//number) is greater than or 
 
 #### Return Value
 Whether the first [number](https://docs.wandb.ai/ref/weave//number) is greater than or equal to the second
+
+<h3 id="number-negate"><code>number-negate</code></h3>
+
+Negate a [number](https://docs.wandb.ai/ref/weave//number)
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Number to negate |
+
+#### Return Value
+A [number](https://docs.wandb.ai/ref/weave//number)
 
 <h3 id="number-toString"><code>number-toString</code></h3>
 
@@ -157,6 +180,18 @@ Determines inequality of two values.
 #### Return Value
 Whether the two values are not equal.
 
+<h3 id="number-modulo"><code>number-modulo</code></h3>
+
+Divide a [number](https://docs.wandb.ai/ref/weave//number) by another and return remainder
+
+| Argument |  | 
+| :--- | :--- |
+| `lhs` | [number](https://docs.wandb.ai/ref/weave//number) to divide |
+| `rhs` | [number](https://docs.wandb.ai/ref/weave//number) to divide by |
+
+#### Return Value
+Modulo of two [numbers](https://docs.wandb.ai/ref/weave//number)
+
 <h3 id="number-mult"><code>number-mult</code></h3>
 
 Multiply two [numbers](https://docs.wandb.ai/ref/weave//number)
@@ -264,6 +299,17 @@ Check if a [number](https://docs.wandb.ai/ref/weave//number) is greater than or 
 
 #### Return Value
 Whether the first [number](https://docs.wandb.ai/ref/weave//number) is greater than or equal to the second
+
+<h3 id="number-negate"><code>number-negate</code></h3>
+
+Negate a [number](https://docs.wandb.ai/ref/weave//number)
+
+| Argument |  | 
+| :--- | :--- |
+| `val` | Number to negate |
+
+#### Return Value
+A [number](https://docs.wandb.ai/ref/weave//number)
 
 <h3 id="numbers-argmax"><code>numbers-argmax</code></h3>
 
