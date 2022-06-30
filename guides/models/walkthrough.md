@@ -65,7 +65,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
-![](<../../.gitbook/assets/2022-05-17 14.20.36.gif>)
+![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
 
 
 {% endtab %}

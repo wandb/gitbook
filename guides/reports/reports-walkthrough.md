@@ -112,6 +112,32 @@ Insert the direct link to the report within the embed cell.
 
 ![](../../.gitbook/assets/embed\_iframe\_notion.gif)
 
+## Embed rich media links in reports
+
+### Replit
+
+Paste a link to a repl in the report.
+
+![](<../../.gitbook/assets/Jun-30-2022 20-22-32.gif>)
+
+### SoundCloud
+
+Paste a link to an audio file in the report.
+
+![](<../../.gitbook/assets/Jun-30-2022 20-20-52.gif>)
+
+### Twitter
+
+Paste a link to a tweet in the report.
+
+![](<../../.gitbook/assets/Jun-30-2022 20-18-35.gif>)
+
+### Youtube
+
+Paste a link to a video in the report.
+
+![](<../../.gitbook/assets/Jun-30-2022 20-15-16.gif>)
+
 ## Cross-project reports
 
 Compare runs from two different projects with cross-project reports. Use the project selector in the run set table to pick a project.
@@ -142,4 +168,4 @@ Note: The magic links are only available for “Private” and “Team” projec
 
 Send a graph from your workspace to a report to keep track of your progress. Click the dropdown menu on the chart or panel you'd like to copy to a report and click **Add to report** to select the destination report.
 
-![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (2) (6).gif>)
+![](<../../.gitbook/assets/demo-export-to-existing-report (1) (2) (3) (3) (3) (3) (4) (4) (5) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (6).gif>)
