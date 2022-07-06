@@ -160,7 +160,7 @@ Downloading a reference artifact is simple:
 import wandb
 
 run = wandb.init()
-artifact = run.use_artifact('mnist:latest', type='dataset')
+artifact = run.use_artifact('entity/project/mnist:latest', type='dataset')
 artifact_dir = artifact.download()
 ```
 
