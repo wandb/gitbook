@@ -81,5 +81,13 @@ Usually the `max_prepared_stmt_count` values range from `0-1048576` with the def
     `set global max_connections = 16400;`
 * This will update the `max_connections` allowed on the database
 
+### Deploy Manager
 
+#### How can users create an organization with deploy manager? (Note: this only applies to customers on Dedicated Cloud and who don't have an existing organization with W\&B)&#x20;
 
+* First, sign up for [deploy manager](https://deploy.wandb.ai/)
+* Click on `New Deployment`
+* Select `Manual Deployment`
+* Click on create a new organization
+* Set organization name (ex: `Acme Inc.`)
+* Update the license section or leave defaults and click on `Generate License`

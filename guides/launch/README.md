@@ -41,7 +41,6 @@ This will start an agent running on your machine, which will pull down queued jo
 * Resource documentation for supported Launch integrations:
   * [Local](integrations/local.md)
   * [Amazon SageMaker](integrations/sagemaker.md)
-  * [GCP Vertex AI](integrations/vertex.md)
   * [Kubernetes](integrations/kubernetes.md)
 * Details on [Launch containerization](containers.md) and bring-your-own-container options
 * Details on [Launch agents](agents.md), including how to deploy an agent in your own infrastructure
