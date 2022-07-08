@@ -166,6 +166,17 @@ Converts a [number](https://docs.wandb.ai/ref/weave//number) to a _timestamp_. V
 #### Return Value
 Timestamp
 
+<h3 id="number-abs"><code>number-abs</code></h3>
+
+Calculates the absolute value of a [number](https://docs.wandb.ai/ref/weave//number)
+
+| Argument |  | 
+| :--- | :--- |
+| `n` | A [number](https://docs.wandb.ai/ref/weave//number) |
+
+#### Return Value
+The absolute value of the [number](https://docs.wandb.ai/ref/weave//number)
+
 
 ## List Ops
 <h3 id="number-notEqual"><code>number-notEqual</code></h3>
@@ -409,4 +420,15 @@ Converts a [number](https://docs.wandb.ai/ref/weave//number) to a _timestamp_. V
 
 #### Return Value
 Timestamp
+
+<h3 id="number-abs"><code>number-abs</code></h3>
+
+Calculates the absolute value of a [number](https://docs.wandb.ai/ref/weave//number)
+
+| Argument |  | 
+| :--- | :--- |
+| `n` | A [number](https://docs.wandb.ai/ref/weave//number) |
+
+#### Return Value
+The absolute value of the [number](https://docs.wandb.ai/ref/weave//number)
 
