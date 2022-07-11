@@ -37,6 +37,18 @@ Multiply two [numbers](https://docs.wandb.ai/ref/weave//number)
 #### Return Value
 Product of two [numbers](https://docs.wandb.ai/ref/weave//number)
 
+<h3 id="number-pow-binary"><code>number-pow-binary</code></h3>
+
+Raise a [number](https://docs.wandb.ai/ref/weave//number) to an exponent
+
+| Argument |  | 
+| :--- | :--- |
+| `lhs` | Base [number](https://docs.wandb.ai/ref/weave//number) |
+| `rhs` | Exponent [number](https://docs.wandb.ai/ref/weave//number) |
+
+#### Return Value
+The base [numbers](https://docs.wandb.ai/ref/weave//number) raised to nth power
+
 <h3 id="number-add"><code>number-add</code></h3>
 
 Add two [numbers](https://docs.wandb.ai/ref/weave//number)
@@ -214,6 +226,18 @@ Multiply two [numbers](https://docs.wandb.ai/ref/weave//number)
 
 #### Return Value
 Product of two [numbers](https://docs.wandb.ai/ref/weave//number)
+
+<h3 id="number-pow-binary"><code>number-pow-binary</code></h3>
+
+Raise a [number](https://docs.wandb.ai/ref/weave//number) to an exponent
+
+| Argument |  | 
+| :--- | :--- |
+| `lhs` | Base [number](https://docs.wandb.ai/ref/weave//number) |
+| `rhs` | Exponent [number](https://docs.wandb.ai/ref/weave//number) |
+
+#### Return Value
+The base [numbers](https://docs.wandb.ai/ref/weave//number) raised to nth power
 
 <h3 id="number-add"><code>number-add</code></h3>
 
