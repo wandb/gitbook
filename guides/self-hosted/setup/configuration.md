@@ -49,7 +49,9 @@ If you already use Auth0 or have an Open ID Connect compatible server, you can f
 
 ### Open ID Connect
 
-_wandb/local_ uses Open ID Connect for authentication. When creating an application client in your IPD you should choose Web Application or Public Client. For example, if you're using AWS Cognito as an identity provider you would choose Public Client:
+_wandb/local_ uses Open ID Connect for authentication. When creating an application client in your IDP you should choose Single Page Application or Public Client.&#x20;
+
+#### Setting up with AWS Cognito
 
 ![Because we're only using OIDC for authentication and not authorization, public clients simplify setup](<../../../.gitbook/assets/image (163) (1).png>)
 
@@ -83,6 +85,41 @@ Do not use the "Cognito domain" for the IDP url. Cognito provides it's discovery
 Once you have everything configured you can provide the Issuer, Client ID, and Auth method to _wandb/local_ via `/system-admin` or the environment variables and SSO will be configured.
 
 ![](<../../../.gitbook/assets/image (170) (1).png>)
+
+#### Setting up with Okta
+
+First set up a new application  by navigating in your provider's UI, Click on Add apps
+
+<img src="../../../.gitbook/assets/Screenshot 2022-07-08 at 16.16.23.png" alt="" data-size="original">
+
+Name your App Integration (ex: Weights & Biases) and select grant type `implicit (hybrid)`&#x20;
+
+W\&B also supports the Authorization Code grant type with PKCE
+
+![](<../../../.gitbook/assets/Screenshot 2022-07-08 at 16.37.44.png>)
+
+To configure an application client in your identity provider you'll need to provide an allowed callback url:
+
+* Add the following allowed Callback URL `http(s)://YOUR-W&B-HOST/oidc/callback`
+* If your IDP supports universal logout, set Logout URL to `http(s)://YOUR-W&B-HOST`
+
+For example, if your application was running at `https://localhost:8080`,\
+&#x20;the redirect URI would look like `https://localhost:8080/oidc/callback`![](<../../../.gitbook/assets/Screenshot 2022-07-08 at 16.37.51.png>)
+
+Set the sign-out redirect to `http(s)://YOUR-W&B-HOST/logout`\
+\
+![](<../../../.gitbook/assets/Screenshot 2022-07-08 at 16.37.57.png>)
+
+Once you have everything configured you can provide the Issuer, Client ID, and Auth method to `wandb/local` via `/system-admin` or the environment variables and SSO will be configured.
+
+Sign in to your Weights and Biases server and navigate to the `System Settings` page \
+\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.39.png>)\
+\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50.png>)\
+\
+\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10.png>)
 
 {% hint style="info" %}
 If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.
@@ -174,7 +211,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (5).png>)
+![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -247,7 +284,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (5).png>)
 
 Press "update settings" to apply the new settings.
 
@@ -289,7 +326,7 @@ Go to Queue service > Queues in your storage account, and create a new Queue:
 
 Go to Events in your storage account, and create an event subscription:
 
-![](<../../../.gitbook/assets/image (47).png>)
+![](<../../../.gitbook/assets/image (108).png>)
 
 Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
 
@@ -326,7 +363,7 @@ Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Crea
 
 You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
 
-![](<../../../.gitbook/assets/image (124).png>)
+![](<../../../.gitbook/assets/image (124) (1).png>)
 
 #### Configuring the Slack application
 
@@ -336,7 +373,7 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../../.gitbook/assets/image (128) (1) (13).png>)
+![](<../../../.gitbook/assets/image (128) (1) (1).png>)
 
 Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
