@@ -21,7 +21,7 @@ Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or 
 {% hint style="success" %}
 Before you start, add **instant replay** to your bio on your profile page — this is the secret phrase to unlock W\&B Launch features in the UI.
 
-Then on the command line run **`pip install "wandb[launch]"`** to get access to this W\&B Launch feature in the SDK.
+Then on the command line run **`pip install --upgrade wandb`** to get access to this W\&B Launch feature in the SDK.
 {% endhint %}
 
 The standard use case for W\&B Launch is to integrate with [Kubernetes](integrations/kubernetes.md) or [SageMaker](integrations/sagemaker.md), then easily launch jobs on machines in a remote cluster. In this quickstart, we run a [Local Agent](integrations/local.md) for simplicity:
@@ -32,6 +32,8 @@ The standard use case for W\&B Launch is to integrate with [Kubernetes](integrat
 4. On your command line, go to the machine where you want to launch that job, and run the command `wandb launch-agent <your-project-name>`
 
 This will start an agent running on your machine, which will pull down queued jobs and run them automatically. See the live results of the new run stream in to your project page.
+
+Here's a short screen video of what it looks like to pick an existing run from the project page, update config, and see it get added to the Launch queue:
 
 ![](<../../.gitbook/assets/2022-06-10 09.25.31.gif>)
 
