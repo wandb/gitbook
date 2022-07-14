@@ -26,7 +26,7 @@ wandb.log({"table": my_dataframe})
 
 Add rich media to your logged [Table](log-tables.md) (images, audio, point clouds, etc) with `wandb` [data types](../../ref/python/data-types/).
 
-![](<../../.gitbook/assets/tablesquickstart (1).png>)
+![](../../.gitbook/assets/tablesquickstart.png)
 
 ## What are W\&B Tables?
 
