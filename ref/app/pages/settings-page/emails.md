@@ -1,5 +1,5 @@
 ---
-description: Manage emails from the Settings page
+description: Manage emails from the Settings page.
 ---
 
 # Emails
