@@ -4,17 +4,17 @@ description: Appropriate limits and guidelines for logging data to Weights & Bia
 
 # Limits & Performance
 
-## Best Practices for Fast Page Loading
+## Best Practices for Fast Pages
 
-To keep your pages snappy and responsive in the W\&B UI, we recommend keeping logged data within these bounds.
+Keep your pages in W\&B faster and more responsive by logging within these suggested bounds.
 
 ### Logged Metrics
 
-You can use `wandb.log` to track your experiment's metrics. Once logged you can generate plots and visualizations, filter/group/sort experiments by their logged values, and generate reports. Logging excessively can negatively impact the performance of the UI or SDK APIs.
+Use `wandb.log` to track experiment metrics. Once logged, these metrics generate charts and show up in tables. Too much logged data can make the app slow.
 
 #### **Count of Distinct Metrics**
 
-Keep the total number of distinct metric under 10,000. Each unique metric name passed to an invocation of `wandb.log` counts towards this limit.&#x20;
+Keep the total number of distinct metrics under 10,000.
 
 ```python
 wandb.log({
@@ -29,7 +29,7 @@ wandb.log({
 We automatically flatten nested values, so if you pass us a dictionary we will turn it into a dot-separated name. For config values, we support 3 dots in the name. For summary values, we support 4 dots.
 {% endhint %}
 
-Prefer to log related metrics to the same name instead of spreading them out across multiple names.
+Log related media to the same metric name:
 
 ```python
 for i, img in enumerate(images):
