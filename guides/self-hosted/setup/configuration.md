@@ -62,7 +62,7 @@ To configure an application client in your identity provider you'll need to prov
 
 For example, in [AWS Cognito](https://aws.amazon.com/cognito/) if your application was running at `https://wandb.mycompany.com`:
 
-![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../../.gitbook/assets/image (162) (1) (1).png>)
+![If your instance is accessible from multiple hosts, be sure to include all of them here.](<../../../.gitbook/assets/image (162) (1).png>)
 
 _wandb/local_ will use the ["implicit" grant with the "form\_post" response type](https://auth0.com/docs/get-started/authentication-and-authorization-flow/implicit-flow-with-form-post) by default. You can also configure _wandb/local_ to perform an "authorization\_code" grant using the [PKCE Code Exchange](https://www.oauth.com/oauth2-servers/pkce/) flow. We request the following scopes for the grant: "openid", "profile", and "email". Your identity provider will need to allow these scopes. For example in AWS Cognito the application should look like:
 
@@ -116,10 +116,10 @@ Sign in to your Weights and Biases server and navigate to the `System Settings` 
 \
 ![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.39 (1).png>)\
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1).png>)\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1).png>)\
 \
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1).png>)
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1).png>)
 
 {% hint style="info" %}
 If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.
@@ -211,7 +211,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (5).png>)
+![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -373,7 +373,7 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../../.gitbook/assets/image (128) (1) (13).png>)
+![](<../../../.gitbook/assets/image (128) (1) (17).png>)
 
 Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 

@@ -85,7 +85,7 @@ In addition your training and validation files are logged and versioned, as well
 
 Use [Tables](../../data-vis/) to better visualize sample predictions and compare models.
 
-![](<../../../.gitbook/assets/image (162) (1).png>)
+![](<../../../.gitbook/assets/image (162).png>)
 
 Create a new run:
 
