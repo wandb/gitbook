@@ -22,6 +22,34 @@ trainer = Trainer(logger=wandb_logger)
 
 ![Interactive dashboards accessible anywhere, and more!](../../.gitbook/assets/n6P7K4M.gif)
 
+## Sign up and Log in to wandb
+
+a) [**Sign up**](https://wandb.ai/site) for a free account
+
+b) Pip install the `wandb` library&#x20;
+
+c) To login in your training script, you'll need to be signed in to you account at www.wandb.ai, then **you will find your API key on the** [**Authorize page**](https://wandb.ai/authorize)**.**
+
+If you are using Weights and Biases for the first time you might want to check out our [**quickstart**](../../quickstart.md)****
+
+{% tabs %}
+{% tab title="Command Line" %}
+```
+pip install wandb
+
+wandb login
+```
+{% endtab %}
+
+{% tab title="Notebook" %}
+```python
+!pip install wandb
+
+wandb.login()
+```
+{% endtab %}
+{% endtabs %}
+
 ## Using PyTorch Lightning's `WandbLogger`
 
 PyTorch Lightning has a [**`WandbLogger`**](https://pytorch-lightning.readthedocs.io/en/latest/extensions/generated/pytorch\_lightning.loggers.WandbLogger.html?highlight=wandblogger) class that can be used to seamlessly log metrics, model weights, media and more. Just instantiate the WandbLogger and pass it to Lightning's `Trainer`.
