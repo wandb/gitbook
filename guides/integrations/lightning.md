@@ -193,6 +193,33 @@ class My_LitModule(LightningModule):
         return preds
 ```
 
+### Model Checkpointing
+
+&#x20;Custom checkpointing to W\&B can be set up through the PyTorch Lightning [`ModelCheckpoint`](https://pytorch-lightning.readthedocs.io/en/stable/api/pytorch\_lightning.callbacks.ModelCheckpoint.html#pytorch\_lightning.callbacks.ModelCheckpoint) when the log\_model argument is used in the `WandbLogger`:
+
+```python
+# log model only if `val_accuracy` increases
+wandb_logger = WandbLogger(log_model="all")
+checkpoint_callback = ModelCheckpoint(monitor="val_accuracy", mode="max")
+trainer = Trainer(logger=wandb_logger, callbacks=[checkpoint_callback])
+```
+
+The _latest_ and _best_ aliases are automatically set to easily retrieve a model checkpoint from W\&B Artifacts:
+
+```python
+# reference can be retrieved in artifacts panel
+# "VERSION" can be a version (ex: "v2") or an alias ("latest or "best")
+checkpoint_reference = "USER/PROJECT/MODEL-RUN_ID:VERSION"
+
+# download checkpoint locally (if not already cached)
+run = wandb.init(project="MNIST")
+artifact = run.use_artifact(checkpoint_reference, type="model")
+artifact_dir = artifact.download()
+
+# load checkpoint
+model = LitModule.load_from_checkpoint(Path(artifact_dir) / "model.ckpt")
+```
+
 ### Log images, text and more
 
 The `WandbLogger` has `log_image`, `log_text` and `log_table` methods for logging media.&#x20;
