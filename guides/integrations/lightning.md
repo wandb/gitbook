@@ -45,6 +45,7 @@ wandb login
 ```python
 !pip install wandb
 
+import wandb
 wandb.login()
 ```
 {% endtab %}
