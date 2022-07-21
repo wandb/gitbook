@@ -128,6 +128,10 @@ with f as open('large_config.json', 'r'):
   wandb.init(config=large_config)
 ```
 
+#### Run Count
+
+Keep the total number of runs in a single project under 10,000. Large run counts can slow down project workspaces and runs table operations, especially when grouping is enabled or runs have a large count of distinct metrics.&#x20;
+
 ### Python Script Performance
 
 There are few common ways the performance of your python script can be reduced:
