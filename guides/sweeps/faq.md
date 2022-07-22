@@ -208,7 +208,7 @@ command:
 
 ## How does the Bayesian search work?
 
-The Gaussian process model that's used for Bayesian optimization is defined in our [open source sweep logic](https://github.com/wandb/client/blob/master/wandb/sweeps/bayes\_search.py). If you'd like extra configurability and control, try our support for [Ray Tune](https://docs.wandb.com/sweeps/ray-tune).
+The Gaussian process model that's used for Bayesian optimization is defined in our open source sweep logic. If you'd like extra configurability and control, try our support for Ray Tune.
 
 We use scikit-learn's [Matern kernel](https://scikit-learn.org/stable/modules/generated/sklearn.gaussian\_process.kernels.Matern.html) with the `nu` parameter set to `1.5` -- this corresponds to much a weaker smoothness assumption than for the radial basis function (RBF) kernel. For details on kernels in Gaussian processes, see [Chapter 4 of Rasmussen and Williams](http://www.gaussianprocess.org/gpml/chapters/RW4.pdf) or the scikit-learn docs linked above.
 

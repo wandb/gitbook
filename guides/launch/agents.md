@@ -16,5 +16,5 @@ For details on how to run a launch agent locally, see the `wandb launch-agent` [
 
 ### Deployable agents
 
-The launch agent can be deployed to Kubernetes using the provided deployment files found [here](https://github.com/wandb/client/tree/master/wandb/sdk/launch/deploys). Provide your API key, target project and maximum number of concurrent jobs in the launch configuration file. Check the launch-agent.yaml file for the name of the container that will be deployed.
+The launch agent can be deployed to Kubernetes using the provided deployment files found [here](https://github.com/wandb/wandb/tree/master/wandb/sdk/launch/deploys). Provide your API key, target project and maximum number of concurrent jobs in the launch configuration file. Check the launch-agent.yaml file for the name of the container that will be deployed.
 
