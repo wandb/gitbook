@@ -10,18 +10,17 @@ This new product is in beta and under active development. Please message support
 
 Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or CLI.
 
-* Retrain your model on the latest dataset
-* Quickly tweak a hyperparameter and retrain
-* Queue and launch jobs across machines, and across blended infrastructure
 * Execute runs in reproducible, containerized environments
+* Queue and launch jobs across machines, and across blended infrastructure
+* Easily tweak hyperparameters or input data and retrain models
 * \[Coming Soon] Automatically run evaluation jobs on newly trained models
 
 ## Quickstart
 
 {% hint style="success" %}
-Before you start, add **instant replay** to your bio on your profile page — this is the secret phrase to unlock W\&B Launch features in the UI.
+First, go to [**Settings**](https://wandb.ai/settings) and turn on the **W\&B Launch** toggle to enable this feature in the UI.
 
-Then on the command line run **`pip install --upgrade wandb`** to get access to this W\&B Launch feature in the SDK.
+Then on the command line run **`pip install --upgrade wandb`** to get the latest version of our SDK.
 {% endhint %}
 
 The standard use case for W\&B Launch is to integrate with [Kubernetes](integrations/kubernetes.md) or [SageMaker](integrations/sagemaker.md), then easily launch jobs on machines in a remote cluster. In this quickstart, we run a [Local Agent](integrations/local.md) for simplicity:

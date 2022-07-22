@@ -1,15 +1,6 @@
 # Launch Local
 
-You can run Launch on any machine where you have local access — for example, a cluster computer you might access via ssh.
-
-## Local quickstart
-
-### Requirements
-
-* Docker should be installed and running on your machine.
-* Make sure you have the latest version of wandb and you have Launch enabled by adding `instant replay` to your W\&B profile.
-
-You should now be able to run the quickstart example on the [main Launch page](../).
+You can run Launch on any machine where you have local access — for example, a cluster computer you might access via ssh. [See the main page](../) for a quickstart using Launch Local.
 
 ## Config reference
 
