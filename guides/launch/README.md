@@ -11,26 +11,29 @@ This new product is in beta and under active development. Please message support
 Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or CLI.
 
 * Execute runs in reproducible, containerized environments
-* Queue and launch jobs across machines, and across blended infrastructure
+* Queue and launch jobs across your own clusters, locally or in the cloud
 * Easily tweak hyperparameters or input data and retrain models
 * \[Coming Soon] Automatically run evaluation jobs on newly trained models
 
 ## Quickstart
 
 {% hint style="success" %}
-First, go to [**Settings**](https://wandb.ai/settings) and turn on the **W\&B Launch** toggle to enable this feature in the UI.
+**Before we get started**
 
-Then on the command line run **`pip install --upgrade wandb`** to get the latest version of our SDK.
+Go to [Settings](https://wandb.ai/settings) and turn on the **W\&B Launch** toggle, then upgrade your SDK with **`pip install --upgrade wandb`**. Make sure you have Docker installed and running.
 {% endhint %}
 
-The standard use case for W\&B Launch is to integrate with [Kubernetes](integrations/kubernetes.md) or [SageMaker](integrations/sagemaker.md), then easily launch jobs on machines in a remote cluster. In this quickstart, we run a [Local Agent](integrations/local.md) for simplicity:
+The standard use case for W\&B Launch is to integrate with [Kubernetes](integrations/kubernetes.md) or [SageMaker](integrations/sagemaker.md), then easily launch jobs on machines in a remote cluster.&#x20;
 
-1. Open a project and pick a run from your Runs Workspace.
-2. Click the menu to `Add to Launch Queue`
-3. Update the config to tweak hyperparameters
-4. On your command line, go to the machine where you want to launch that job, and run the command `wandb launch-agent <your-project-name>`
+In this Quickstart, we will instead run a [Local Agent](integrations/local.md) for simplicity. Run this command in your terminal to clone a simple run from [our demo project](https://wandb.ai/wandb/launch-quickstart?workspace=user-carey), and re-run it for yourself:
+
+```
+wandb launch https://wandb.ai/wandb/launch-quickstart/runs/1gdn7vfv
+```
 
 This will start an agent running on your machine, which will pull down queued jobs and run them automatically. See the live results of the new run stream in to your project page.
+
+#### **Next, try re-running a run from the UI**
 
 Here's a short screen video of what it looks like to pick an existing run from the project page, update config, and see it get added to the Launch queue:
 
