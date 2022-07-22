@@ -84,3 +84,14 @@ Full run queues can be deleted as well. Select the queue or queues to be deleted
 {% hint style="info" %}
 The project's default queue cannot be deleted.
 {% endhint %}
+
+### How do I log code to use with W\&B Launch?
+
+If you try to use Launch to re-run an existing run, and you get the error:
+
+> Error: Reproducing a run requires either an associated git repo or a code artifact logged with `run.log_code()`
+
+You have two options to log code so that the run is reproducible:
+
+1. **Git**: Move your script to a git repo. We can automatically use the git commit and diff patch to restore the exact state of the code.
+2. **Code Logging**: You can also use the built in feature `wandb.log_code()` in your script to save the code as an artifact with your run.
