@@ -31,7 +31,7 @@ In this Quickstart, we will instead pull down and reproduce a run locally, for s
 wandb launch https://wandb.ai/wandb/launch-quickstart/runs/1gdn7vfv
 ```
 
-This will start an agent running on your machine, which will pull down queued jobs and run them automatically. See the live results of the new run stream in to your project page.
+See the live results of the new run stream in to your project page.
 
 #### **Next, try re-running a run from the UI**
 
