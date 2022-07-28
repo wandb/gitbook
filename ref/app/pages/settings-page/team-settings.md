@@ -6,7 +6,7 @@ description: >-
 
 # Team settings
 
-Navigate to your team’s profile page and select the **Team settings** icon to manage your team's settings. Not all members in a team can modify a team's settings. The account type (Administrator, Member, or Service) of a member determines what settings that member can modify. For example, only Administration account types can change team privacy settings and remove a member from a team.
+Navigate to your team’s profile page and select the **Team settings** icon to manage team settings. Not all members in a team can modify team settings. The account type (Administrator, Member, or Service) of a member determines what settings that member can modify. For example, only Administration account types can change team privacy settings and remove a member from a team.
 
 ### Members
 
@@ -14,17 +14,26 @@ The **Members** section shows a list of all pending invitations and the members 
 
 #### Change a member's role in the team
 
-Select the account type icon next to the name of a given team member. A modal will appear. Select the drop-down menu and choose the account type you want that team member to posses.
+Complete the proceeding steps to change a member's role in a team:
+
+1. Select the account type icon next to the name of a given team member. A modal will appear.
+2. Select the drop-down menu.
+3. From the drop-down, choose the account type you want that team member to posses.
 
 #### Remove a member from a team
 
 Select the trash can icon next to the name of the member you want to remove from the team.
 
-Runs created in a team account are preserved even if the member who created those runs are removed.
+{% hint style="info" %}
+Runs created in a team account are preserved when the member who created those runs are removed from the team.
+{% endhint %}
 
 ### Avatar
 
-Set an avatar by navigating to the **Avatar** section and uploading an image. Select the **Update Avatar** to prompt a file dialog to appear. From the file dialog, choose the image you want to use.
+Set an avatar by navigating to the **Avatar** section and uploading an image.&#x20;
+
+1. Select the **Update Avatar** to prompt a file dialog to appear.&#x20;
+2. From the file dialog, choose the image you want to use.
 
 ### Alerts
 
