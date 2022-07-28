@@ -25,7 +25,7 @@ Go to [Settings](https://wandb.ai/settings) and turn on the **W\&B Launch** togg
 
 The standard use case for W\&B Launch is to integrate with [Kubernetes](integrations/kubernetes.md) or [SageMaker](integrations/sagemaker.md), then easily launch jobs on machines in a remote cluster.&#x20;
 
-In this Quickstart, we will instead run a [Local Agent](integrations/local.md) for simplicity. Run this command in your terminal to clone a simple run from [our demo project](https://wandb.ai/wandb/launch-quickstart?workspace=user-carey), and re-run it for yourself:
+In this Quickstart, we will instead pull down and reproduce a run locally, for simplicity. Run this command in your terminal to clone a simple run from [our demo project](https://wandb.ai/wandb/launch-quickstart?workspace=user-carey), and re-run it for yourself:
 
 ```
 wandb launch https://wandb.ai/wandb/launch-quickstart/runs/1gdn7vfv
