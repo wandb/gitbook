@@ -35,7 +35,11 @@ Only administrative accounts can create a team.
 
 ### Beta features
 
-Within the **Beta Features** section you can optionally enable fun add-ons and sneak previews of new products in development. Select the toggle switch next to the beta feature you want to enable.
+Within the **Beta Features** section you can optionally enable fun add-ons and sneak previews of new products in development. Select the toggle switch next to the beta feature you want to enable. Currently you can get a sneak peak of the proceeding features:
+
+* **Night mode** - Invert the colors everywhere! This makes pages dark, but might make colors on charts less easy to distinguish.
+* **W\&B Launch** - Launch jobs on your own infrastructure from Weights and Biases. For more information, see the [Launch Jobs](https://docs.wandb.ai/guides/launch?\_gl=1\*pdlnmj\*\_ga\*MjQzNTM2NTgwLjE2NTQwMTQ1NzA.\*\_ga\_JH1SJHJQXJ\*MTY1OTAzMTAwMS45Ni4xLjE2NTkwMzM5NjYuNjA.) documentation.&#x20;
+* **Unicorn mode** - Change your cursor on charts from a boring pointer to a unicorn!
 
 ### Alerts
 
