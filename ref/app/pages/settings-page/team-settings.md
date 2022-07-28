@@ -6,11 +6,11 @@ description: >-
 
 # Team settings
 
-Navigate to your team’s profile page and select the **Team settings** icon to manage your team's settings. Not all members in a team can modify the team's settings.  The account type (Administrator, Member, or Service) of a member determines what settings that member can modify. For example, only Administration account types can change team privacy settings and remove a member from a team.
+Navigate to your team’s profile page and select the **Team settings** icon to manage your team's settings. Not all members in a team can modify a team's settings. The account type (Administrator, Member, or Service) of a member determines what settings that member can modify. For example, only Administration account types can change team privacy settings and remove a member from a team.
 
 ### Members
 
-The **Members** section shows a list of all pending invitations and the members that have either accepted the invitation to join the team. Each member listed displays the member’s name, username, and account type. There are three account types: Administrator (Admin), Member, and Service.
+The **Members** section shows a list of all pending invitations and the members that have either accepted the invitation to join the team. Each member listed displays a member’s name, username, and account type. There are three account types: Administrator (Admin), Member, and Service.
 
 #### Change a member's role in the team
 
@@ -20,22 +20,26 @@ Select the account type icon next to the name of a given team member. A modal wi
 
 Select the trash can icon next to the name of the member you want to remove from the team.
 
+Runs created in a team account are preserved even if the member who created those runs are removed.
+
 ### Avatar
 
-Set a team's avatar by navigating to the **Avatar** section and uploading an image. Select the **Update Avatar** to prompt a file dialog to appear. From the file dialog, choose the image you want to use the team's avatar.
+Set an avatar by navigating to the **Avatar** section and uploading an image. Select the **Update Avatar** to prompt a file dialog to appear. From the file dialog, choose the image you want to use.
 
 ### Alerts
 
-Notify the team’s Slack workspace when a member’s run finishes or crashes. There are two types of alerts your team can receive by email or Slack:
+Notify your team when runs crash, finish, or set custom alerts. Your team can receive alerts either through email or Slack.
+
+Toggle the switch next to the event type you want to receive alerts from. Weights and Biases provides the following event type options be default:
 
 * **Runs finished**: whether a Weights and Biases run successfully finished.
-* **Run crashed**: notification if a run has failed to finish.
+* **Run crashed**: if a run has failed to finish.
 
-For more information about setting up alerts for Weights and Biases runs, see [Send alerts with wandb.alert](https://docs.wandb.ai/guides/track/alert).
+For more information about how to set up and manage alerts, see [Send alerts with wandb.alert](https://docs.wandb.ai/guides/track/alert).
 
 ### Privacy
 
-Navigate to the **Privacy** section to change privacy settings. Only members with Administrative roles can modify privacy settings. Administrator roles can modify:
+Navigate to the **Privacy** section to change privacy settings. Only members with Administrative roles can modify privacy settings. Administrator roles can:
 
 * Force projects in the team to be private.
 * Enable code saving by default.

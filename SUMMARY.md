@@ -215,6 +215,7 @@
       * [Run Page](ref/app/pages/run-page.md)
       * [Workspaces](ref/app/pages/workspaces.md)
       * [Settings Page](ref/app/pages/settings-page/README.md)
+        * [User settings](ref/app/pages/settings-page/user-settings.md)
         * [Team settings](ref/app/pages/settings-page/team-settings.md)
         * [Emails](ref/app/pages/settings-page/emails.md)
     * [Features](ref/app/features/README.md)
