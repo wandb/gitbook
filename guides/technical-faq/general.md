@@ -97,4 +97,8 @@ if os.path.exists("~/keys.json"):
 
 ### Is there a dark mode?
 
-Yes, this is accessible by going into your profile by clicking on your icon on the top right of your dashboard. Under your profile name, you can type in `night` where it says `I teach robots how to learn`.
+Yes. To enable dark mode:
+
+1. Navigate to your account settings at [https://wandb.ai/settings](https://wandb.ai/settings).&#x20;
+2. Scroll to the **Beta Features** section.
+3. Toggle the **Night mode** option.
