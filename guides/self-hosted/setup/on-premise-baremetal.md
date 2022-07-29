@@ -15,7 +15,7 @@ Talk to our sales team by reaching out to [contact@wandb.com](mailto:contact@wan
 ### MySQL 5.7
 
 {% hint style="warning" %}
-While W\&B currently supports MySQL 5.7 or MySQL 8.
+W\&B currently supports MySQL 5.7 or MySQL 8.
 {% endhint %}
 
 There are a number of enterprise services that make operating a scalable MySQL database simpler. We suggest looking into one of the following solutions:
