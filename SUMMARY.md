@@ -47,7 +47,6 @@
     * [Launch Integrations](guides/launch/integrations/README.md)
       * [Launch Local](guides/launch/integrations/local.md)
       * [Launch with Kubernetes](guides/launch/integrations/kubernetes.md)
-      * [Launch with GCP Vertex AI](guides/launch/integrations/vertex.md)
       * [Launch with Amazon SageMaker](guides/launch/integrations/sagemaker.md)
   * [Data + Model Versioning](guides/artifacts/README.md)
     * [Artifacts Core Concepts](guides/artifacts/artifacts-core-concepts.md)
