@@ -1,4 +1,4 @@
-# number
+# float
 
 ## Chainable Ops
 <h3 id="number-notEqual"><code>number-notEqual</code></h3>
