@@ -86,6 +86,7 @@ Invite colleagues to join the team, and select from these options:
 * **Member**: A regular member of your team, invited by email by the team admin. _Note_ that a team member cannot invite other members.
 * **Admin**: A team member who can add and remove other admins and members
 * **Service**: A service worker, an API key useful for using W\&B with your run automation tools. If you use the API key from a service account for your team, make sure to set the environment variable **WANDB\_USERNAME** to attribute runs to the correct user.
+* **View-Only (**_**Enterprise-only feature)**_: members can view assets within the team such as runs, reports, and workspaces. View-Only members can follow and comment on reports, but they can not create, edit, or delete project overview, reports, or runs. View-Only members do not have an API key.
 
 ### Change the account settings for an organization
 
@@ -107,3 +108,4 @@ On a team, there are two main different types of users: **admins** and **members
 
 1. Team admins have permission total access to modify team projects even if they were not the ones who had created them. This includes, but is not limited to, deleting runs, projects, artifacts, and sweeps.&#x20;
 2. Team members are more limited in what they are able to delete. They can only delete runs and sweep runs that they created. Even if another team member moves a run to another member's project, the project owner will not be able to delete the run. Only the member that had created the run or the team admin can delete the run.&#x20;
+3. Team members with View-Only account types can not create, edit, or delete team projects, runs, or reports.
