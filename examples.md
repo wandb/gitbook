@@ -16,7 +16,7 @@ Get an overview of what's possible with Weights & Biases via the three sections 
 
 {% tabs %}
 {% tab title=" CV 🕶" %}
-#### Computer Vision ❤️ W\&B
+**Computer Vision ❤️ W\&B**
 
 Track your experiments, log your Images or Video, analyze your models predictions and optimize your hyperparameters.
 
@@ -128,8 +128,6 @@ wandb.log({'my_val_table': val_table})
 
 Read more: [Data Visualization using Tables](guides/data-vis/)
 
-
-
 **Integrations**
 
 * [**YOLOv5**](https://docs.wandb.ai/guides/integrations/yolov5)\*\*\*\*
@@ -144,7 +142,7 @@ Read more: [Data Visualization using Tables](guides/data-vis/)
 {% endtab %}
 
 {% tab title="NLP 📚" %}
-#### NLP ❤️ W\&B
+**NLP ❤️ W\&B**
 
 It's easy to integrate W\&B into your NLP projects. Make your work more reproducible, visible and debuggable.
 
@@ -156,8 +154,6 @@ Everytime you run your code, it's captured and visualized in W\&B.
 wandb.init(project='my-transformer', config={'lr': 0.01, ...})
 wandb.log({'accuracy': accuracy, ...})
 ```
-
-
 
 **Log text, custom HTML and displacy visualizations**
 
@@ -195,7 +191,7 @@ wandb.log({"validation_samples" : text_table})
 {% endtab %}
 
 {% tab title="Tabular 🔢" %}
-#### Tabular ❤️ W\&B
+**Tabular ❤️ W\&B**
 
 Weights & Biases supports logging pandas dataframes, iterative modelling with traditional ML and has integrations with Scikit-Learn, XGBoost, LightGBM, CatBoost and PyCaret.
 
@@ -220,7 +216,7 @@ table = wandb.Table(my_df)
 wandb.log({'dataframe_in_table': table})
 ```
 
-![](<.gitbook/assets/wandb - iris table (1).png>)
+![](<.gitbook/assets/wandb - iris table.png>)
 
 **Integrations**
 
@@ -236,7 +232,7 @@ wandb.log({'dataframe_in_table': table})
 {% endtab %}
 
 {% tab title="Audio 🔊" %}
-#### Audio ❤️ W\&B
+**Audio ❤️ W\&B**
 
 Weights & Biases supports logging audio data arrays or file that can be played back in W\&B
 
@@ -274,7 +270,7 @@ for (audio_arr, spec, label) in my_data:
  wandb.log({"validation_samples" : my_table})
 ```
 
-![](.gitbook/assets/audio.png)
+![](<.gitbook/assets/audio (1).png>)
 
 **Integrations**
 

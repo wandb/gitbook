@@ -41,7 +41,7 @@ Now we will walk through a canonical workflow for producing, organizing, and con
 
 ### 1. Create a new Model Collection
 
-First, create a Model Collection to hold all the candidate models for your particular modeling task. In this tutorial, we will use the classic [MNIST Dataset](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html#torchvision.datasets.MNIST) - 28x28 grayscale input images with output classes from 0-9. The video below demonstrates how to create a new Collection:1.&#x20;
+First, create a Model Collection to hold all the candidate models for your particular modeling task. In this tutorial, we will use the classic [MNIST Dataset](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html#torchvision.datasets.MNIST) - 28x28 grayscale input images with output classes from 0-9. The video below demonstrates how to create a new Collection:1.
 
 {% tabs %}
 {% tab title="Using Model Registry" %}
@@ -65,13 +65,9 @@ First, create a Model Collection to hold all the candidate models for your parti
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
-![](<../../.gitbook/assets/2022-05-17 14.20.36.gif>)
-
-
+![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
 {% endtab %}
 {% endtabs %}
-
-
 
 ### 2. Train & log Model Versions
 

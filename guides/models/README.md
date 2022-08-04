@@ -4,15 +4,15 @@ description: Manage the model lifecycle from training to production
 
 # Model Management
 
-W\&B is a central system of record for model development, enabling you and your team to collaboratively manage the lifecycle of machine learning models, covering three key use cases: Model Versioning, Model Lineage, and Model Lifecycle.
+Use the W\&B Model Registry as a central system of record for models.
 
-### Model Registry
+## Model Registry
 
-Browse & discover all the models you have access to across all teams and organizations.
+* Create Collections to organize your best model versions for a given task
+* Track a model moving into staging and production
+* See a history of all changes, including who moved a model to production
 
-* Create new Model Collections for your team to collaborate.
-* Search across all teams and organizations.
-* View Action History audit log to see membership and status history.
+![](../../.gitbook/assets/image.png)
 
 ### Model Versioning
 

@@ -54,7 +54,7 @@ If you want to see what the outputs look like for this method, check out an exam
 
 The epoch-wise and batch-wise loss values, however, are only logged from a single GPU.
 
-![](<../../../.gitbook/assets/image (68) (1).png>)
+![](<../../../.gitbook/assets/image (68) (2).png>)
 
 ### Method 2: `wandb.init` on all processes
 
@@ -90,11 +90,11 @@ If you want to see what the outputs look like for this method, check out an exam
 
 ### Hanging at the beginning of training
 
-If launching the `wandb` process hangs, it could be because the `wandb` multiprocessing is interfering with the multiprocessing from distributed training. Try setting the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead. We also recommend using the new [wandb service](distributed-training.md#wandb-service) to improve the reliability of your distributed jobs.&#x20;
+If launching the `wandb` process hangs, it could be because the `wandb` multiprocessing is interfering with the multiprocessing from distributed training. Try setting the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead. We also recommend using the new [wandb service](distributed-training.md#wandb-service) to improve the reliability of your distributed jobs.
 
 ### Hanging at the end of training
 
-Is your process hanging at the end of training? The `wandb` process might not know it needs to exit, and that will cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause `wandb` to exit. If you are using `wandb` in a distributed training setup and experiencing hangs, please consider using the [wandb service](distributed-training.md#wandb-service) to improve the reliability of your runs.&#x20;
+Is your process hanging at the end of training? The `wandb` process might not know it needs to exit, and that will cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause `wandb` to exit. If you are using `wandb` in a distributed training setup and experiencing hangs, please consider using the [wandb service](distributed-training.md#wandb-service) to improve the reliability of your runs.
 
 ## wandb service
 
@@ -170,8 +170,6 @@ if __name__ == "__main__":
     main()
 ```
 
-
-
 {% hint style="info" %}
 Note that we can't guarantee order on logging and the synchronization should be done by the author of the script
 {% endhint %}
@@ -181,4 +179,3 @@ Note that we can't guarantee order on logging and the synchronization should be 
 Starting from release 1.6.0, `service` is enabled by default in PyTorch Lightning, so if you are using version 1.6.0 or later you were using `service` by default.
 {% endtab %}
 {% endtabs %}
-

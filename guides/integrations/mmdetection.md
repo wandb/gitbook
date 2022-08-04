@@ -6,11 +6,11 @@
 
 [Weights and Biases](https://wandb.ai/site) is directly integrated into MMDetection through a dedicated `MMDetWandbHook` that can be used to:
 
-✅ Log training and evaluation metrics.&#x20;
+✅ Log training and evaluation metrics.
 
-✅ Log versioned model checkpoints.&#x20;
+✅ Log versioned model checkpoints.
 
-✅ Log versioned validation dataset with ground truth bounding boxes.&#x20;
+✅ Log versioned validation dataset with ground truth bounding boxes.
 
 ✅ Log and visualize model predictions.
 
@@ -20,7 +20,7 @@
 
 a) [**Sign up**](https://wandb.ai/site) for a free account
 
-b) Pip install the `wandb` library&#x20;
+b) Pip install the `wandb` library
 
 c) To login in your training script, you'll need to be signed in to you account at www.wandb.ai, then **you will find your API key on the** [**Authorize page**](https://wandb.ai/authorize)**.**
 
@@ -46,7 +46,7 @@ wandb.login()
 
 ### Using `MMDetWandbHook`
 
-You can get started with Weights and Biases by adding the `MMDetWandbHook` to the MMDetection `log_config` method of the config system.&#x20;
+You can get started with Weights and Biases by adding the `MMDetWandbHook` to the MMDetection `log_config` method of the config system.
 
 {% hint style="info" %}
 `MMDetWandbHook` is supported by [MMDetection v2.25.0](https://twitter.com/OpenMMLab/status/1532193548283432960?s=20\&t=dzBiKn9dlNdrvK8e\_q0zfQ) and above.
@@ -104,7 +104,7 @@ You can reliably store these checkpoints as [W\&B Artifacts](../artifacts/api.md
 Every W\&B account comes with 100 GB of free storage for datasets and models.
 {% endhint %}
 
-![The checkpoints are shown as different versions on the left-hand side pane. You can download the model from the Files tab or use API to download it programmatically.](../../.gitbook/assets/0b86abff.png)
+![The checkpoints are shown as different versions on the left-hand side pane. You can download the model from the Files tab or use API to download it programmatically.](<../../.gitbook/assets/0b86abff (1).png>)
 
 ### :mega: Checkpoint with Metadata
 

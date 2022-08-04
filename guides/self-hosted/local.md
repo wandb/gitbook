@@ -31,7 +31,7 @@ wandb server start
 
 ### Login
 
-If this is your first time logging in then you will need to create your local W\&B Server account and authorize your API key.&#x20;
+If this is your first time logging in then you will need to create your local W\&B Server account and authorize your API key.
 
 If you're running `wandb` on multiple machines or switching between a private instance and the wandb cloud, there are several ways to control where your runs are logged. If you want to send metrics to the shared private instance and you've configured DNS, you can
 
@@ -83,13 +83,13 @@ $ docker run --rm -d -v wandb:/vol -p 8080:8080 --name wandb-local wandb/local
 
 You need a license to complete your configuration of a W\&B Server. [**Open the Deploy Manager** ](https://deploy.wandb.ai/deploy)to generate a free license. If you do not already have a cloud account then you will need to create one to generate your free license. We offer two options:
 
-1. [**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work:                                                                          ![](<../../.gitbook/assets/image (174).png>)
-2. [**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend:                                                                                                                                                      ![](<../../.gitbook/assets/image (163) (2).png>)
+1. [**Personal licenses ->**](https://deploy.wandb.ai/deploy) are free forever for personal work: ![](<../../.gitbook/assets/image (174).png>)
+2. [**Team trial licenses ->**](https://deploy.wandb.ai/deploy) are free and last 30 days, allowing you to set up a team and connect a scalable backend: ![](<../../.gitbook/assets/image (175) (1).png>)
 
 ### Add a license to your Local host
 
-1. Copy your license from your Deployment and navigate back to your W\&B Server's localhost:  ![](<../../.gitbook/assets/image (178) (1).png>)
-2. Add it to your local settings by pasting it into the `/system-admin` page of your localhost: \
+1. Copy your license from your Deployment and navigate back to your W\&B Server's localhost: ![](<../../.gitbook/assets/image (178) (1).png>)
+2. Add it to your local settings by pasting it into the `/system-admin` page of your localhost:\
    ![](../../.gitbook/assets/License.gif)
 
 ### Persistence and Scalability

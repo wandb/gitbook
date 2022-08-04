@@ -6,7 +6,7 @@ PaddleDetection now comes with a built in W\&B integration which logs all your t
 
 ## Example Blog and Colab
 
-[**Read our blog  here**](https://wandb.ai/manan-goel/PaddleDetectionYOLOX/reports/Object-Detection-with-PaddleDetection-and-W-B--VmlldzoyMDU4MjY0) to see how to train a  YOLOX model with PaddleDetection on a subset of the COCO2017 dataset. This also comes with a [**Google Colab**](https://colab.research.google.com/drive/1ywdzcZKPmynih1GuGyCWB4Brf5Jj7xRY?usp=sharing) and the corresponding live W\&B dashboard is available [**here**](https://wandb.ai/manan-goel/PaddleDetectionYOLOX/runs/2ry6i2x9?workspace=)
+[**Read our blog here**](https://wandb.ai/manan-goel/PaddleDetectionYOLOX/reports/Object-Detection-with-PaddleDetection-and-W-B--VmlldzoyMDU4MjY0) to see how to train a YOLOX model with PaddleDetection on a subset of the COCO2017 dataset. This also comes with a [**Google Colab**](https://colab.research.google.com/drive/1ywdzcZKPmynih1GuGyCWB4Brf5Jj7xRY?usp=sharing) and the corresponding live W\&B dashboard is available [**here**](https://wandb.ai/manan-goel/PaddleDetectionYOLOX/runs/2ry6i2x9?workspace=)
 
 ## The PaddleDetection WandbLogger
 
@@ -69,7 +69,7 @@ wandb:
 
 Once you run your `train.py` file with Weights & Biases turned on, a link will be generated to bring you to your W\&B dashboard:
 
-![A Weights & Biases Dashboard](<../../../.gitbook/assets/Screenshot 2022-06-08 at 6.20.35 PM (1).png>)
+![A Weights & Biases Dashboard](<../../../.gitbook/assets/Screenshot 2022-06-08 at 6.20.35 PM.png>)
 
 ## Feedback or Issues
 
