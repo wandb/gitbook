@@ -34,11 +34,11 @@ If you'd rather dive straight into working code, check out this [Google Colab](h
 
 a) [**Sign up**](https://wandb.ai/site) for a free account
 
-b) Pip install the `wandb` library&#x20;
+b) Pip install the `wandb` library
 
 c) To login in your training script, you'll need to be signed in to you account at www.wandb.ai, then **you will find your API key on the** [**Authorize page**](https://wandb.ai/authorize)**.**
 
-If you are using Weights and Biases for the first time you might want to check out our [**quickstart**](../../quickstart.md)****
+If you are using Weights and Biases for the first time you might want to check out our [**quickstart**](../../quickstart.md)\*\*\*\*
 
 {% tabs %}
 {% tab title="Command Line" %}
@@ -149,7 +149,7 @@ wandb.finish()
 
 Once you have logged your training results you can explore your results dynamically in the[ W\&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations.
 
-![](<../../.gitbook/assets/hf-gif-15 (2) (2) (3) (3) (3) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (7).gif>)
+![](<../../.gitbook/assets/hf-gif-15 (2) (2) (3) (3) (3) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (5).gif>)
 
 ## Advanced features
 

@@ -77,10 +77,10 @@ Next, you will log a model from your training script:
 2. **Serialize** your model to disk periodically (and/or at the end of training) using the serialization process provided by your modeling library (eg [PyTorch](https://pytorch.org/tutorials/beginner/saving\_loading\_models.html) & [Keras](https://www.tensorflow.org/guide/keras/save\_and\_serialize)).
 3. **Add** your model files to an Artifact of type "model"
    * Note: We use the name `f'mnist-nn-{wandb.run.id}'`. While not required, it is advisable to name-space your "draft" Artifacts with the Run id in order to stay organized
-4. **Log** your model
+4. (Optional) Log training metrics associated with the performance of your model during training.
+   * Note: The data logged immediately before logging your Model Version will automatically be associated with that version
+5. **Log** your model
    * Note: If you are logging multiple versions, it is advisable to add an alias of "best" to your Model Version when it outperforms the prior versions. This will make it easy to find the model with peak performance - especially when the tail end of training may overfit!
-5. (Optional) Log training metrics associated with the performance of your model during training.
-   * Note: The data logged immediately after logging your Model Version will automatically be associated with that version.
 
 By default, you should use the native W\&B Artifacts API to log your serialized model. However, since this pattern is so common, we have provided a single method which combines serialization, Artifact creation, and logging. See the "(Beta) Using `log_model`" tab for details.
 
@@ -104,15 +104,14 @@ model.save("path/to/model.pt")
 art = wandb.Artifact(f'mnist-nn-{wandb.run.id}', type="model")
 # ... Add the serialized files
 art.add_file("path/to/model.pt", "model.pt")
+# (optional) Log training metrics
+wandb.log({"train_loss": 0.345, "val_loss": 0.456})
 # ... Log the Version
 if model_is_best:
     # If the model is the best model so far, add "best" to the aliases
     wandb.log_artifact(art, aliases=["latest", "best"])
 else:
     wandb.log_artifact(art)
-    
-# (optional) Log training metrics
-wandb.log({"train_loss": 0.345, "val_loss": 0.456})
 ```
 {% endtab %}
 
