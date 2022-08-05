@@ -33,7 +33,7 @@ We hope to discover and share high level patterns to move the field of machine l
 
 At Weights & Biases our mission is to build the best tools for machine learning. Our experienced technical cofounders built Figure Eight, and our tools are being used by cutting-edge machine learning teams including OpenAI and Toyota. We enjoy making useful tools, and the best part of our day is interacting with people who are building real models using our product.
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (1).png>)
 
 ## How do I pronounce "wandb"?
 

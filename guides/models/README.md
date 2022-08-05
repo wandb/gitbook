@@ -12,7 +12,7 @@ Use the W\&B Model Registry as a central system of record for models.
 * Track a model moving into staging and production
 * See a history of all changes, including who moved a model to production
 
-![](<../../.gitbook/assets/image (1).png>)
+![](../../.gitbook/assets/image.png)
 
 ### Model Versioning
 

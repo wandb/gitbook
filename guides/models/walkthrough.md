@@ -55,7 +55,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.17.24 AM.png>)
 
-3\. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
+3\. Make sure the `Owning Entity` and `Owning Project` are set correctly to the values you desire. Enter a unique name for your new Collection that describes the modeling task or use-case of interest.&#x20;
 
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.20.23 AM.png>)
 {% endtab %}
@@ -135,7 +135,6 @@ wandb.log({"train_loss": 0.345, "val_loss": 0.456})
 # add the files to the version, and log the version. You can override
 # the default name, project, aliases, metadata, and more!
 log_model(model, "mnist-nn", aliases=["best"] if model_is_best else [])
-
 ```
 
 Note: you may want to define custom serialization and deserialization strategies. You can do so by subclassing the [`_SavedModel` class](https://github.com/wandb/wandb/blob/9dfa60b14599f2716ab94dd85aa0c1113cb5d073/wandb/sdk/data\_types/saved\_model.py#L73), similar to the [`_PytorchSavedModel` class](https://github.com/wandb/wandb/blob/9dfa60b14599f2716ab94dd85aa0c1113cb5d073/wandb/sdk/data\_types/saved\_model.py#L358). All subclasses will automatically be loaded into the serialization registry. _As this is a beta feature, please reach out to support@wandb.com with questions or comments._
