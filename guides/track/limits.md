@@ -134,7 +134,7 @@ Keep the total number of runs in a single project under 10,000. Large run counts
 
 #### File Count
 
-Keep the total number of files uploaded for a single file under 1,000. You can use [W\&B Artifacts](../artifacts/api.md) when you need to log a large number of files. Exceeding 1,000 files in a single run can slow down your run pages.
+Keep the total number of files uploaded for a single run under 1,000. You can use [W\&B Artifacts](../artifacts/api.md) when you need to log a large number of files. Exceeding 1,000 files in a single run can slow down your run pages.
 
 ### Python Script Performance
 
