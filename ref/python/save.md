@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_run.py#L1353-L1443)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_run.py#L1592-L1621)
 
 
 
@@ -12,7 +12,7 @@ Ensure all files matching `glob_str` are synced to wandb with the policy specifi
 save(
     glob_str: Optional[str] = None,
     base_path: Optional[str] = None,
-    policy: str = "live"
+    policy: "PolicyName" = "live"
 ) -> Union[bool, List[str]]
 ```
 

@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L969-L1113)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1027-L1176)
 
 
 
@@ -30,7 +30,7 @@ Audio(
 
 <h3 id="durations"><code>durations</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1071-L1073)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1134-L1136)
 
 ```python
 @classmethod
@@ -44,7 +44,7 @@ durations(
 
 <h3 id="path_is_reference"><code>path_is_reference</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1014-L1016)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1072-L1074)
 
 ```python
 @classmethod
@@ -58,7 +58,7 @@ path_is_reference(
 
 <h3 id="resolve_ref"><code>resolve_ref</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1087-L1099)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1150-L1162)
 
 ```python
 resolve_ref()
@@ -69,7 +69,7 @@ resolve_ref()
 
 <h3 id="sample_rates"><code>sample_rates</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1075-L1077)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L1138-L1140)
 
 ```python
 @classmethod

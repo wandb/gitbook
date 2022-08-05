@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1154-L1343)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types/video.py#L48-L235)
 
 
 
@@ -10,7 +10,7 @@ Format a video for logging to W&B.
 
 ```python
 Video(
-    data_or_path: Union['np.ndarray', str, 'TextIO'],
+    data_or_path: Union['np.ndarray', str, 'TextIO', 'BytesIO'],
     caption: Optional[str] = None,
     fps: int = 4,
     format: Optional[str] = None
@@ -49,7 +49,7 @@ wandb.log({"video": wandb.Video(frames, fps=4)})
 
 <h3 id="encode"><code>encode</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1234-L1271)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types/video.py#L128-L163)
 
 ```python
 encode() -> None

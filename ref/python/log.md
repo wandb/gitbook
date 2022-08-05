@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_run.py#L1125-L1351)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_run.py#L1396-L1590)
 
 
 
@@ -11,9 +11,9 @@ Logs a dictonary of data to the current run's history.
 ```python
 log(
     data: Dict[str, Any],
-    step: int = None,
-    commit: bool = None,
-    sync: bool = None
+    step: Optional[int] = None,
+    commit: Optional[bool] = None,
+    sync: Optional[bool] = None
 ) -> None
 ```
 
@@ -57,7 +57,7 @@ If you log with a nested dictionary like `wandb.log({"train":
 wandb keeps track of a global step, which by default increments with each
 call to `wandb.log`, so logging related metrics together is encouraged.
 If it's inconvenient to log related metrics together
-calling `wandb.log({"train-loss": 0.5, commit=False})` and then
+calling `wandb.log({"train-loss": 0.5}, commit=False)` and then
 `wandb.log({"accuracy": 0.9})` is equivalent to calling
 `wandb.log({"train-loss": 0.5, "accuracy": 0.9})`.
 
@@ -67,8 +67,8 @@ the data on the client side or you may get degraded performance.
 
 | Arguments |  |
 | :--- | :--- |
-|  `row` |  (dict, optional) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or any of the `wandb.data_types`. |
-|  `commit` |  (boolean, optional) Save the metrics dict to the wandb server and increment the step. If false `wandb.log` just updates the current metrics dict with the row argument and metrics won't be saved until `wandb.log` is called with `commit=True`. |
+|  `data` |  (dict, optional) A dict of serializable python objects i.e `str`, `ints`, `floats`, `Tensors`, `dicts`, or any of the `wandb.data_types`. |
+|  `commit` |  (boolean, optional) Save the metrics dict to the wandb server and increment the step. If false `wandb.log` just updates the current metrics dict with the data argument and metrics won't be saved until `wandb.log` is called with `commit=True`. |
 |  `step` |  (integer, optional) The global step in processing. This persists any non-committed earlier steps but defaults to not committing the specified step. |
 |  `sync` |  (boolean, True) This argument is deprecated and currently doesn't change the behaviour of `wandb.log`. |
 
@@ -83,18 +83,20 @@ For more and more detailed examples, see
 <!--yeadoc-test:init-and-log-basic-->
 ```python
 import wandb
+
 wandb.init()
-wandb.log({'accuracy': 0.9, 'epoch': 5})
+wandb.log({"accuracy": 0.9, "epoch": 5})
 ```
 
 ### Incremental logging
 <!--yeadoc-test:init-and-log-incremental-->
 ```python
 import wandb
+
 wandb.init()
-wandb.log({'loss': 0.2}, commit=False)
+wandb.log({"loss": 0.2}, commit=False)
 # Somewhere else when I'm ready to report this step:
-wandb.log({'accuracy': 0.8})
+wandb.log({"accuracy": 0.8})
 ```
 
 ### Histogram
@@ -170,15 +172,20 @@ wandb.log({"chart": fig})
 
 ### PR Curve
 ```python
-wandb.log({'pr': wandb.plots.precision_recall(y_test, y_probas, labels)})
+wandb.log({"pr": wandb.plots.precision_recall(y_test, y_probas, labels)})
 ```
 
 ### 3D Object
 ```python
-wandb.log({"generated_samples":
-[wandb.Object3D(open("sample.obj")),
-    wandb.Object3D(open("sample.gltf")),
-    wandb.Object3D(open("sample.glb"))]})
+wandb.log(
+    {
+        "generated_samples": [
+            wandb.Object3D(open("sample.obj")),
+            wandb.Object3D(open("sample.gltf")),
+            wandb.Object3D(open("sample.glb")),
+        ]
+    }
+)
 ```
 
 

@@ -1,20 +1,19 @@
-# wandb local
+# wandb server start
 
 **Usage**
 
-`wandb local [OPTIONS]`
+`wandb server start [OPTIONS]`
 
 **Summary**
 
-Launch local W&B container (Experimental)
+Start a local W&B server
 
 **Options**
 
 | **Option** | **Description** |
 | :--- | :--- |
-| -p, --port | The host port to bind W&B local on |
+| -p, --port | The host port to bind W&B server on |
 | -e, --env | Env vars to pass to wandb/local |
 | --daemon / --no-daemon | Run or don't run in daemon mode |
-| --upgrade | Upgrade to the most recent version |
 | --help | Show this message and exit. |
 

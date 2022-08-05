@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2061-L2235)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2368-L2545)
 
 
 
@@ -10,7 +10,7 @@ A set of runs associated with a sweep.
 
 ```python
 Sweep(
-    client, entity, project, sweep_id, attrs={}
+    client, entity, project, sweep_id, attrs=None
 )
 ```
 
@@ -44,7 +44,7 @@ sweep = api.sweep(path/to/sweep)
 
 <h3 id="best_run"><code>best_run</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2137-L2160)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2445-L2468)
 
 ```python
 best_run(
@@ -57,7 +57,7 @@ Returns the best run sorted by the metric defined in config or the order passed 
 
 <h3 id="display"><code>display</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L777-L788)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L935-L946)
 
 ```python
 display(
@@ -70,7 +70,7 @@ Display this object in jupyter
 
 <h3 id="get"><code>get</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2180-L2219)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2488-L2527)
 
 ```python
 @classmethod
@@ -84,7 +84,7 @@ Execute a query against the cloud backend
 
 <h3 id="load"><code>load</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2118-L2126)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2426-L2434)
 
 ```python
 load(
@@ -97,7 +97,7 @@ load(
 
 <h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L773-L775)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L931-L933)
 
 ```python
 snake_to_camel(
@@ -110,7 +110,7 @@ snake_to_camel(
 
 <h3 id="to_html"><code>to_html</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2221-L2229)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2529-L2537)
 
 ```python
 to_html(
