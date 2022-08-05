@@ -128,13 +128,14 @@ from wandb.beta.workflows import log_model
 # alternative examples.
 dataset = wandb.use_artifact("mnist:latest")
 
+# (optional) Log training metrics
+wandb.log({"train_loss": 0.345, "val_loss": 0.456})
+
 # This one method will serialize the model, start a run, create a version
 # add the files to the version, and log the version. You can override
 # the default name, project, aliases, metadata, and more!
 log_model(model, "mnist-nn", aliases=["best"] if model_is_best else [])
 
-# (optional) Log training metrics
-wandb.log({"train_loss": 0.345, "val_loss": 0.456})
 ```
 
 Note: you may want to define custom serialization and deserialization strategies. You can do so by subclassing the [`_SavedModel` class](https://github.com/wandb/wandb/blob/9dfa60b14599f2716ab94dd85aa0c1113cb5d073/wandb/sdk/data\_types/saved\_model.py#L73), similar to the [`_PytorchSavedModel` class](https://github.com/wandb/wandb/blob/9dfa60b14599f2716ab94dd85aa0c1113cb5d073/wandb/sdk/data\_types/saved\_model.py#L358). All subclasses will automatically be loaded into the serialization registry. _As this is a beta feature, please reach out to support@wandb.com with questions or comments._

@@ -1,5 +1,9 @@
 # Launch with Amazon SageMaker
 
+{% hint style="danger" %}
+This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
+{% endhint %}
+
 [Sagemaker ](https://aws.amazon.com/pm/sagemaker/?trk=8987dd52-6f33-407a-b89b-a7ba025c913c\&sc\_channel=ps\&sc\_campaign=acquisition\&sc\_medium=ACQ-P|PS-GO|Brand|Desktop|SU|Machine%20Learning|Sagemaker|US|EN|Text\&s\_kwcid=AL!4422!3!532502995192!e!!g!!sagemaker\&ef\_id=CjwKCAjwopWSBhB6EiwAjxmqDXI888l7VXCP\_vdFZYDAxR0uxs0WeD0vbFrsYgQDEqRj0wDPFoT6BxoC5PoQAvD\_BwE:G:s\&s\_kwcid=AL!4422!3!532502995192!e!!g!!sagemaker)is Amazon's ML development platform. Using Launch you can build and execute training jobs on Sagemaker.
 
 ## SageMaker quickstart

@@ -1,5 +1,9 @@
 # Containerizing with Launch
 
+{% hint style="danger" %}
+This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
+{% endhint %}
+
 Launch abstracts away the details of executing runs by packaging up everything needed for a run into a portable container environment. You can either have Launch build a container for you, or you can supply your own image and Launch will run it on your chosen infrastructure.
 
 ## Building a container with Launch

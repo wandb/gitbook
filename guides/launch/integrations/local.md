@@ -1,5 +1,9 @@
 # Launch Local
 
+{% hint style="danger" %}
+This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
+{% endhint %}
+
 You can run Launch on any machine where you have local access — for example, a cluster computer you might access via ssh. [See the main page](../) for a quickstart using Launch Local.
 
 ## Config reference

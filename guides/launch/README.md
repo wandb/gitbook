@@ -8,12 +8,12 @@ description: Reproducibility, orchestration, and CI/CD
 This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
 {% endhint %}
 
-Use W\&B Launch to kick off jobs on your own infrastructure from the W\&B UI or CLI.
+Connect your own SageMaker or Kubernetes cluster, then easily queue and manage jobs using W\&B Launch. Kick off jobs on your own infrastructure from the W\&B UI or CLI.&#x20;
 
 * Execute runs in reproducible, containerized environments
 * Queue and launch jobs across your own clusters, locally or in the cloud
 * Easily tweak hyperparameters or input data and retrain models
-* \[Coming Soon] Automatically run evaluation jobs on newly trained models
+* \[Coming Soon] Automatically trigger evaluation jobs on newly trained models
 
 ## Quickstart
 

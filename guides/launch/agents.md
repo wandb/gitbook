@@ -1,5 +1,9 @@
 # Launch Agents and Queues
 
+{% hint style="danger" %}
+This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
+{% endhint %}
+
 Launch agents allow you and other members of your team to queue runs to be executed on remote infrastructure. Agents can be run on your machine or deployed via a container to the cloud to listen for new jobs pushed to your queues.
 
 ## Launch queues
