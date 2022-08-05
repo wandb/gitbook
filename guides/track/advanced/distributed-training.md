@@ -54,7 +54,7 @@ If you want to see what the outputs look like for this method, check out an exam
 
 The epoch-wise and batch-wise loss values, however, are only logged from a single GPU.
 
-![](<../../../.gitbook/assets/image (68) (2).png>)
+![](<../../../.gitbook/assets/image (68) (1).png>)
 
 ### Method 2: `wandb.init` on all processes
 

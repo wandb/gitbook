@@ -12,13 +12,13 @@ Use the W\&B Model Registry as a central system of record for models.
 * Track a model moving into staging and production
 * See a history of all changes, including who moved a model to production
 
-![](../../.gitbook/assets/image.png)
+![](<../../.gitbook/assets/image (1).png>)
 
 ### Model Versioning
 
 Iterate to get the best model version for a task, and catalog all the changes along the way.
 
-* Track every model version in a central repository&#x20;
+* Track every model version in a central repository
 * Browse and compare model versions
 * Capture training metrics and hyperparameters
 
@@ -50,6 +50,3 @@ Dig into the details of how to use Weights & Biases for model management:
 {% content-ref url="walkthrough.md" %}
 [walkthrough.md](walkthrough.md)
 {% endcontent-ref %}
-
-
-
