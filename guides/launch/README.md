@@ -8,7 +8,7 @@ description: Reproducibility, orchestration, and CI/CD
 This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
 {% endhint %}
 
-Connect your own SageMaker or Kubernetes cluster, then easily queue and manage jobs using W\&B Launch. Kick off jobs on your own infrastructure from the W\&B UI or CLI.&#x20;
+Connect your own SageMaker or Kubernetes cluster, then easily queue and manage jobs using W\&B Launch. Kick off jobs on your own infrastructure from the W\&B UI or CLI.
 
 * Execute runs in reproducible, containerized environments
 * Queue and launch jobs across your own clusters, locally or in the cloud
@@ -23,25 +23,56 @@ Connect your own SageMaker or Kubernetes cluster, then easily queue and manage j
 Go to [Settings](https://wandb.ai/settings) and turn on the **W\&B Launch** toggle, then upgrade your SDK with **`pip install --upgrade wandb`**. Make sure you have Docker installed and running.
 {% endhint %}
 
-The standard use case for W\&B Launch is to integrate with [Kubernetes](integrations/kubernetes.md) or [SageMaker](integrations/sagemaker.md), then easily launch jobs on machines in a remote cluster.&#x20;
+The standard use case for W\&B Launch is to integrate with [Kubernetes](integrations/kubernetes.md) or [SageMaker](integrations/sagemaker.md), then easily launch jobs on machines in a remote cluster.
 
-In this Quickstart, we will instead pull down and reproduce a run locally, for simplicity. Run this command in your terminal to clone a simple run from [our demo project](https://wandb.ai/wandb/launch-quickstart?workspace=user-carey), and re-run it for yourself:
+In this Quickstart, we will instead build and run a job locally, for simplicity. You can get started by cloning our examples repository!
+
+```bash
+git clone https://github.com/wandb/examples
+cd ./examples/examples/launch/launch-quickstart
+```
+
+The `launch-quickstart` example contains a script `train.py` that trains a simple neural net with keras and then logs metrics and predictions back to Weights & Biases. There is also a Dockerfile so that you can build the training script into a container image. To do so, run:
 
 ```
-wandb launch https://wandb.ai/wandb/launch-quickstart/runs/1gdn7vfv
+docker build . -t mnist-training
 ```
 
-See the live results of the new run stream in to your project page.
+Now that the training container is built, you can train the model and see results in a Weights & Biases dashboard by running:
 
-#### **Next, try re-running a run from the UI**
+```
+wandb launch -d mnist-training -p mnist
+```
 
-Here's a short screen video of what it looks like to pick an existing run from the project page, update config, and see it get added to the Launch queue:
+The run will be logged to a newly created `mnist` project in your Weights & Biases account!
 
-![](<../../.gitbook/assets/2022-06-10 09.25.31.gif>)
+#### **Next, train another model from the UI!**
+
+In addition to launching jobs with the `wandb` command line interface, you can also submit jobs through the Weights & Biases UI.  Step 1 is to run `wandb launch-agent -p mnist` on your machine. Now, head back your `mnist` project on the W\&B site. Follow the video below to navigate to the launch menu:
+
+![Opening the launch menu](<../../.gitbook/assets/2022-08-05 17.48.04.gif>)
+
+You can copy and paste the following `JSON` snippet into the editor that appears, then click `Push Run`.&#x20;
+
+```json
+{
+  "overrides": {
+    "run_config": {
+      "batch_size": 128, 
+      "optimizer": "adam"
+    }
+  },
+  "docker": {
+    "docker_image": "mnist-training"
+  }
+}
+```
+
+The agent you started on your machine earlier will pull the run from the queue you pushed it to and run it on your machine! The `run_config` `overrides` that we passed in will actually modify the contents of our `wandb.config` when `wandb.init` is called, so you modify any hyperparameter and relaunch an experiment without leaving your dashboard.
 
 ## Documentation
 
-* CLI reference for [`wandb launch`](../../ref/cli/wandb-launch.md) and [`wandb launch-agent`](../../ref/cli/wandb-launch-agent.md)``
+* CLI reference for [`wandb launch`](../../ref/cli/wandb-launch.md) and [`wandb launch-agent`](../../ref/cli/wandb-launch-agent.md)\`\`
 * Resource documentation for supported Launch integrations:
   * [Local](integrations/local.md)
   * [Amazon SageMaker](integrations/sagemaker.md)
