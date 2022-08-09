@@ -54,7 +54,7 @@ If you want to see what the outputs look like for this method, check out an exam
 
 The epoch-wise and batch-wise loss values, however, are only logged from a single GPU.
 
-![](<../../../.gitbook/assets/image (68) (1).png>)
+![](<../../../.gitbook/assets/image (68) (2).png>)
 
 ### Method 2: `wandb.init` on all processes
 
@@ -90,7 +90,7 @@ If you want to see what the outputs look like for this method, check out an exam
 
 ### Hanging at the beginning of training
 
-If launching the `wandb` process hangs, it could be because the `wandb` multiprocessing is interfering with the multiprocessing from distributed training. Try setting the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead. We also recommend using the new [wandb service](distributed-training.md#wandb-service) to improve the reliability of your distributed jobs.
+If launching the `wandb` process hangs, it could be because the `wandb` multiprocessing is interfering with the multiprocessing from distributed training. We recommend using the new [wandb service](distributed-training.md#wandb-service) to improve the reliability of your distributed jobs. If you need to use a version where `service` is not available, try setting the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead.
 
 ### Hanging at the end of training
 
@@ -102,31 +102,18 @@ Is your process hanging at the end of training? The `wandb` process might not kn
 
 The wandb service addresses the [Common Issues](distributed-training.md#common-issues) with distributed training noted above by improving how W\&B tracks distributed experiments. The `wandb service` enhances how W\&B handles multiprocessing runs and thus improves reliability in a distributed training setting.
 
-Running `wandb` previously in a distributed training setup could experience hanging jobs and made for an overall poor experience. Now with `wandb service` enabled by default, there is no extra work required by the user to log multiprocessing runs. You can enable wandb service directly in your script, or install a pre-release wandb package with it enabled by default:
+Running `wandb` previously in a distributed training setup could experience hanging jobs and made for an overall poor experience. Now with `wandb service` enabled by default, there is no extra work required by the user to log multiprocessing runs.
 
 ### Enabling wandb Service
 
-{% tabs %}
-{% tab title="Enable in script" %}
-`service` can be enabled by adding the following to your script:
+* Starting from version `0.13.0` service is enabled by default so you should expect it to just work.
+* From versions `0.12.5` you can enable service in your script by modifying your script as follows (for optimal experience we do recommend you upgrade to the latest version):
 
-```python
+```
 if __name__ == "__main__":
     wandb.require("service")
-    # <rest-of-your-script-goes-here>
+    # rest-of-your-script-goes-here
 ```
-{% endtab %}
-
-{% tab title="Install pre-release package" %}
-This will enable service by default for all scripts that import `wandb`:
-
-```bash
-pip install --pre --upgrade wandb
-```
-
-No additional changes required in your script.
-{% endtab %}
-{% endtabs %}
 
 ### Advanced Usage
 
@@ -147,7 +134,6 @@ def main():
     pool.map(do_work, range(4))
 
 if __name__ == "__main__":
-    wandb.require("service")
     main()
 ```
 {% endtab %}
@@ -160,7 +146,6 @@ def do_work(run):
     run.log(dict(this=1))
 
 def main():
-    wandb.require("service")
     run = wandb.init()
     p = mp.Process(target=do_work, kwargs=dict(run=run))
     p.start()

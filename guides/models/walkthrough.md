@@ -55,7 +55,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.17.24 AM.png>)
 
-3\. Make sure the `Owning Entity` and `Owning Project` are set correctly to the values you desire. Enter a unique name for your new Collection that describes the modeling task or use-case of interest.&#x20;
+3\. Make sure the `Owning Entity` and `Owning Project` are set correctly to the values you desire. Enter a unique name for your new Collection that describes the modeling task or use-case of interest.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.20.23 AM.png>)
 {% endtab %}
@@ -65,7 +65,7 @@ First, create a Model Collection to hold all the candidate models for your parti
 2. Click the `+` icon on the bottom of the Artifact Browser Sidebar
 3. Select `Type: model`, `Style: Collection`, and enter a name. In our case `MNIST Grayscale 28x28`. Remember, a Collection should map to a modeling task - enter a unique name that describes the use case.
 
-![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
+![](<../../.gitbook/assets/2022-05-17 14.20.36.gif>)
 {% endtab %}
 {% endtabs %}
 
