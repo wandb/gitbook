@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1061-L1151)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types/html.py#L19-L109)
 
 
 
@@ -30,7 +30,7 @@ Html(
 
 <h3 id="inject_head"><code>inject_head</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types.py#L1103-L1118)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types/html.py#L61-L76)
 
 ```python
 inject_head() -> None

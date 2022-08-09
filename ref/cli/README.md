@@ -26,12 +26,13 @@
 | init | Configure a directory with Weights & Biases |
 | launch | Launch or queue a job from a uri (Experimental). |
 | launch-agent | Run a W&B launch agent (Experimental) |
-| local | Launch local W&B container (Experimental) |
 | login | Login to Weights & Biases |
 | offline | Disable W&B sync |
 | online | Enable W&B sync |
 | pull | Pull files from Weights & Biases |
 | restore | Restore code, config and docker state for a run |
+| scheduler | Run a W&B launch sweep scheduler (Experimental) |
+| server | Commands for operating a local W&B server |
 | status | Show configuration settings |
 | sweep | Create a sweep |
 | sync | Upload an offline training directory to W&B |

@@ -19,6 +19,8 @@ Create a sweep
 | --name | Set sweep name |
 | --program | Set sweep program |
 | --update | Update pending sweep |
+| -q, --queue | Name of launch run queue to push sweep runs into. If   supplied without an argument (`--queue`), defaults to |
+| classic sweep behavior. Else, if name supplied, | specified run queue must exist under the project and |
 | --stop | Finish a sweep to stop running new runs and let   currently running runs finish. |
 | --cancel | Cancel a sweep to kill all running runs and stop running   new runs. |
 | --pause | Pause a sweep to temporarily stop running new runs. |

@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2304-L2407)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2614-L2683)
 
 
 
@@ -29,7 +29,7 @@ File(
 
 <h3 id="delete"><code>delete</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2387-L2400)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2663-L2676)
 
 ```python
 delete()
@@ -38,9 +38,22 @@ delete()
 
 
 
+<h3 id="display"><code>display</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L935-L946)
+
+```python
+display(
+    height=420, hidden=(False)
+) -> bool
+```
+
+Display this object in jupyter
+
+
 <h3 id="download"><code>download</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2364-L2385)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2640-L2661)
 
 ```python
 download(
@@ -60,6 +73,32 @@ Downloads a file previously saved by a run from the wandb server.
 | Raises |  |
 | :--- | :--- |
 |  `ValueError` if file already exists and replace=False |
+
+
+
+<h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L931-L933)
+
+```python
+snake_to_camel(
+    string
+)
+```
+
+
+
+
+<h3 id="to_html"><code>to_html</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L948-L949)
+
+```python
+to_html(
+    *args, **kwargs
+)
+```
+
 
 
 

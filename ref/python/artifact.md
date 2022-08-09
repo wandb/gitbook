@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L78-L714)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L79-L723)
 
 
 
@@ -85,7 +85,7 @@ wandb.log_artifact(artifact)
 
 <h3 id="add"><code>add</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L459-L539)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L463-L544)
 
 ```python
 add(
@@ -133,7 +133,7 @@ table = artifact.get("my_table")
 
 <h3 id="add_dir"><code>add_dir</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L390-L423)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L394-L427)
 
 ```python
 add_dir(
@@ -180,7 +180,7 @@ artifact.add_dir('my_dir/', path='destination') # All files in `my_dir/` are add
 
 <h3 id="add_file"><code>add_file</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L369-L388)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L373-L392)
 
 ```python
 add_file(
@@ -229,7 +229,7 @@ artifact.add_file('path/to/file.txt', name='new/path/file.txt') # Added as 'new/
 
 <h3 id="add_reference"><code>add_reference</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L425-L457)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L429-L461)
 
 ```python
 add_reference(
@@ -303,7 +303,7 @@ artifact.add_reference('gs://mybucket/prefix', name='path')
 
 <h3 id="checkout"><code>checkout</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L565-L571)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L570-L576)
 
 ```python
 checkout(
@@ -330,7 +330,7 @@ artifact.
 
 <h3 id="delete"><code>delete</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L622-L628)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L627-L633)
 
 ```python
 delete() -> None
@@ -348,7 +348,7 @@ NOTE: Deletion is permanent and CANNOT be undone.
 
 <h3 id="download"><code>download</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L557-L563)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L562-L568)
 
 ```python
 download(
@@ -378,7 +378,7 @@ match the artifact.
 
 <h3 id="finalize"><code>finalize</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L663-L677)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L668-L682)
 
 ```python
 finalize() -> None
@@ -396,7 +396,7 @@ This happens automatically when calling `log_artifact`.
 
 <h3 id="get"><code>get</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L549-L555)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L554-L560)
 
 ```python
 get(
@@ -441,7 +441,7 @@ with wandb.init() as r:
 
 <h3 id="get_added_local_path_name"><code>get_added_local_path_name</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L638-L661)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L643-L666)
 
 ```python
 get_added_local_path_name(
@@ -478,7 +478,7 @@ name = artifact.get_added_local_path_name('path/to/file.txt')
 
 <h3 id="get_path"><code>get_path</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L541-L547)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L546-L552)
 
 ```python
 get_path(
@@ -525,7 +525,7 @@ with wandb.init() as r:
 
 <h3 id="json_encode"><code>json_encode</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L679-L684)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L684-L689)
 
 ```python
 json_encode() -> Dict[str, Any]
@@ -534,9 +534,36 @@ json_encode() -> Dict[str, Any]
 
 
 
+<h3 id="link"><code>link</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/interface/artifacts.py#L676-L689)
+
+```python
+link(
+    target_path: str,
+    aliases: Optional[List[str]] = None
+) -> None
+```
+
+Links this artifact to a portfolio (a promoted collection of artifacts), with aliases.
+
+
+| Arguments |  |
+| :--- | :--- |
+|  `target_path` |  (str) The path to the portfolio. It must take the form {portfolio}, {project}/{portfolio} or {entity}/{project}/{portfolio}. |
+|  `aliases` |  (Optional[List[str]]) A list of strings which uniquely identifies the artifact inside the specified portfolio. |
+
+
+
+| Returns |  |
+| :--- | :--- |
+|  None |
+
+
+
 <h3 id="logged_by"><code>logged_by</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L346-L352)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L345-L351)
 
 ```python
 logged_by() -> "wandb.apis.public.Run"
@@ -547,13 +574,14 @@ Returns:
 
 <h3 id="new_file"><code>new_file</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L354-L367)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L353-L371)
 
 ```python
 @contextlib.contextmanager
 new_file(
     name: str,
-    mode: str = "w"
+    mode: str = "w",
+    encoding: Optional[str] = None
 ) -> Generator[IO, None, None]
 ```
 
@@ -564,6 +592,7 @@ Open a new temporary file that will be automatically added to the artifact.
 | :--- | :--- |
 |  `name` |  (str) The name of the new file being added to the artifact. |
 |  `mode` |  (str, optional) The mode in which to open the new file. |
+|  `encoding` |  (str, optional) The encoding in which to open the new file. |
 
 
 
@@ -586,7 +615,7 @@ wandb.log_artifact(artifact)
 
 <h3 id="save"><code>save</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L581-L620)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L586-L625)
 
 ```python
 save(
@@ -614,7 +643,7 @@ to track this artifact.
 
 <h3 id="used_by"><code>used_by</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L338-L344)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L337-L343)
 
 ```python
 used_by() -> List['wandb.apis.public.Run']
@@ -625,7 +654,7 @@ Returns:
 
 <h3 id="verify"><code>verify</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L573-L579)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L578-L584)
 
 ```python
 verify(
@@ -656,7 +685,7 @@ NOTE: References are not verified.
 
 <h3 id="wait"><code>wait</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L630-L636)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L635-L641)
 
 ```python
 wait() -> ArtifactInterface
@@ -673,7 +702,7 @@ Waits for this artifact to finish logging, if needed.
 
 <h3 id="__getitem__"><code>__getitem__</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L713-L714)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_artifacts.py#L722-L723)
 
 ```python
 __getitem__(

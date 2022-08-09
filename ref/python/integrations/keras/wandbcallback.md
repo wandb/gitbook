@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L272-L969)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L277-L1073)
 
 
 
@@ -28,10 +28,11 @@ WandbCallback(
 #### Example:
 
 ```python
-model.fit(X_train,
+model.fit(
+    X_train,
     y_train,
     validation_data=(X_test, y_test),
-    callbacks=[WandbCallback()]
+    callbacks=[WandbCallback()],
 )
 ```
 
@@ -40,7 +41,7 @@ model.fit(X_train,
 metrics collected by keras: loss and anything passed into `keras_model.compile()`.
 
 `WandbCallback` will set summary metrics for the run associated with the "best" training
-step, where "best" is defined by the `monitor` and `mode` attribues.  This defaults
+step, where "best" is defined by the `monitor` and `mode` attributes.  This defaults
 to the epoch with the minimum `val_loss`. `WandbCallback` will by default save the model
 associated with the best `epoch`.
 
@@ -58,14 +59,14 @@ associated with the best `epoch`.
 |  `log_weights` |  (boolean) if True save histograms of the model's layer's weights. |
 |  `log_gradients` |  (boolean) if True log histograms of the training gradients |
 |  `training_data` |  (tuple) Same format `(X,y)` as passed to `model.fit`. This is needed for calculating gradients - this is mandatory if `log_gradients` is `True`. |
-|  `validation_data` |  (tuple) Same format `(X,y)` as passed to `model.fit`. A set of data for wandb to visualize. If this is set, every epoch, wandb will make a small number of predictions and save the results for later visualization. |
-|  `generator` |  (generator) a generator that returns validation data for wandb to visualize. This generator should return tuples `(X,y)`. Either `validate_data` or generator should be set for wandb to visualize specific data examples. |
+|  `validation_data` |  (tuple) Same format `(X,y)` as passed to `model.fit`. A set of data for wandb to visualize. If this is set, every epoch, wandb will make a small number of predictions and save the results for later visualization. In case you are working with image data, please also set `input_type` and `output_type` in order to log correctly. |
+|  `generator` |  (generator) a generator that returns validation data for wandb to visualize. This generator should return tuples `(X,y)`. Either `validate_data` or generator should be set for wandb to visualize specific data examples. In case you are working with image data, please also set `input_type` and `output_type` in order to log correctly. |
 |  `validation_steps` |  (int) if `validation_data` is a generator, how many steps to run the generator for the full validation set. |
 |  `labels` |  (list) If you are visualizing your data with wandb this list of labels will convert numeric output to understandable string if you are building a multiclass classifier. If you are making a binary classifier you can pass in a list of two labels ["label for false", "label for true"]. If `validate_data` and generator are both false, this won't do anything. |
 |  `predictions` |  (int) the number of predictions to make for visualization each epoch, max is 100. |
-|  `input_type` |  (string) type of the model input to help visualization. can be one of: (`image`, `images`, `segmentation_mask`). |
-|  `output_type` |  (string) type of the model output to help visualziation. can be one of: (`image`, `images`, `segmentation_mask`). |
-|  `log_evaluation` |  (boolean) if True, save a Table containing validation data and the model's preditions at each epoch. See `validation_indexes`, `validation_row_processor`, and `output_row_processor` for additional details. |
+|  `input_type` |  (string) type of the model input to help visualization. can be one of: (`image`, `images`, `segmentation_mask`, `auto`). |
+|  `output_type` |  (string) type of the model output to help visualization. can be one of: (`image`, `images`, `segmentation_mask`, `label`). |
+|  `log_evaluation` |  (boolean) if True, save a Table containing validation data and the model's predictions at each epoch. See `validation_indexes`, `validation_row_processor`, and `output_row_processor` for additional details. |
 |  `class_colors` |  ([float, float, float]) if the input or output is a segmentation mask, an array containing an rgb tuple (range 0-1) for each class. |
 |  `log_batch_frequency` |  (integer) if None, callback will log every epoch. If set to integer, callback will log training metrics every `log_batch_frequency` batches. |
 |  `log_best_prefix` |  (string) if None, no extra summary metrics will be saved. If set to a string, the monitored metric and epoch will be prepended with this value and stored as summary metrics. |
@@ -79,9 +80,20 @@ associated with the best `epoch`.
 
 ## Methods
 
+<h3 id="get_flops"><code>get_flops</code></h3>
+
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L1025-L1073)
+
+```python
+get_flops() -> float
+```
+
+Calculate FLOPS [GFLOPs] for a tf.keras.Model or tf.keras.Sequential model
+in inference mode. It uses tf.compat.v1.profiler under the hood.
+
 <h3 id="set_model"><code>set_model</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L517-L526)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L536-L545)
 
 ```python
 set_model(
@@ -94,7 +106,7 @@ set_model(
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L514-L515)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L533-L534)
 
 ```python
 set_params(

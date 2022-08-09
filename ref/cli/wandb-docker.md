@@ -17,7 +17,7 @@ wandb docker -v /mnt/dataset:/app/data wandb docker gcr.io/kubeflow-images-
 public/tensorflow-1.12.0-notebook-cpu:v0.4.0 --jupyter wandb docker
 wandb/deepo:keras-gpu --no-tty --cmd "python train.py --epochs=5"
 
-By default we override the entrypoint to check for the existance of wandb
+By default, we override the entrypoint to check for the existence of wandb
 and install it if not present.  If you pass the --jupyter flag we will
 ensure jupyter is installed and start jupyter lab on port 8888.  If we
 detect nvidia-docker on your system we will use the nvidia runtime.  If you

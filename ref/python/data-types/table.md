@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L117-L865)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L150-L923)
 
 
 
@@ -105,7 +105,7 @@ due to lack of consistent typing.
 
 <h3 id="add_column"><code>add_column</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L761-L800)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L819-L858)
 
 ```python
 add_column(
@@ -122,7 +122,7 @@ Arguments
 
 <h3 id="add_computed_columns"><code>add_computed_columns</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L843-L865)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L901-L923)
 
 ```python
 add_computed_columns(
@@ -141,7 +141,7 @@ Adds one or more computed columns based on existing data
 
 <h3 id="add_data"><code>add_data</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L417-L447)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L451-L481)
 
 ```python
 add_data(
@@ -154,7 +154,7 @@ Add a row of data to the table. Argument length should match column length
 
 <h3 id="add_row"><code>add_row</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L413-L415)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L446-L449)
 
 ```python
 add_row(
@@ -162,12 +162,12 @@ add_row(
 )
 ```
 
-
+add_row is deprecated. Please use add_data
 
 
 <h3 id="cast"><code>cast</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L312-L366)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L345-L399)
 
 ```python
 cast(
@@ -181,14 +181,14 @@ Casts a column to a specific type
 | Arguments |  |
 | :--- | :--- |
 |  `col_name` |  (str) - name of the column to cast |
-|  `dtype` |  (class, wandb.wandb_sdk.interface._dtypes.Type, any) - the target dtype. Can be one of normal python class, internal WB type, or an example object (eg. an instance of wandb.Image or wandb.Classes) |
+|  `dtype` |  (class, wandb.wandb_sdk.interface._dtypes.Type, any) - the target dtype. Can be one of normal python class, internal WB type, or an example object (e.g. an instance of wandb.Image or wandb.Classes) |
 |  `optional` |  (bool) - if the column should allow Nones |
 
 
 
 <h3 id="get_column"><code>get_column</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L802-L825)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L860-L883)
 
 ```python
 get_column(
@@ -205,7 +205,7 @@ Arguments
 
 <h3 id="get_index"><code>get_index</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L827-L834)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L885-L892)
 
 ```python
 get_index()
@@ -216,7 +216,7 @@ Returns an array of row indexes which can be used in other tables to create link
 
 <h3 id="index_ref"><code>index_ref</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L836-L841)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L894-L899)
 
 ```python
 index_ref(
@@ -229,7 +229,7 @@ Get a reference to a particular row index in the table
 
 <h3 id="iterrows"><code>iterrows</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L640-L653)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L698-L711)
 
 ```python
 iterrows()
@@ -246,7 +246,7 @@ row : List[any]
 
 <h3 id="set_fk"><code>set_fk</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L660-L664)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L718-L722)
 
 ```python
 set_fk(
@@ -259,7 +259,7 @@ set_fk(
 
 <h3 id="set_pk"><code>set_pk</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L655-L658)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L713-L716)
 
 ```python
 set_pk(
