@@ -62,6 +62,8 @@ wandb.init(settings=wandb.Settings(start_method="fork"))
 {% endtab %}
 
 {% tab title="Google Colab" %}
+For versions prior to `0.13.0` we suggest using:
+
 ```python
 wandb.init(settings=wandb.Settings(start_method="thread"))
 ```
