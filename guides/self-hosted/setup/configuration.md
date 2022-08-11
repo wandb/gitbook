@@ -117,10 +117,10 @@ Sign in to your Weights and Biases server and navigate to the `System Settings` 
 \
 ![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.39.png>)\
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png>)\
 \
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (4).png>)
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (2).png>)
 
 {% hint style="info" %}
 If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.

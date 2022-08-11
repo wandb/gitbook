@@ -35,24 +35,24 @@ cd ./examples/examples/launch/launch-quickstart
 The `launch-quickstart` example contains a script `train.py` that trains a simple neural net with keras and then logs metrics and predictions back to Weights & Biases. There is also a Dockerfile so that you can build the training script into a container image. To do so, run:
 
 ```
-docker build . -t mnist-training
+docker build . -t fmnist-training
 ```
 
 Now that the training container is built, you can train the model and see results in a Weights & Biases dashboard by running:
 
 ```
-wandb launch -d mnist-training -p mnist
+wandb launch -d fmnist-training -p fmnist
 ```
 
-The run will be logged to a newly created `mnist` project in your Weights & Biases account!
+The run will be logged to a newly created `fmnist` project in your Weights & Biases account!
 
 #### **Next, train another model from the UI!**
 
-In addition to launching jobs with the `wandb` command line interface, you can also submit jobs through the Weights & Biases UI.  Step 1 is to run `wandb launch-agent -p mnist` on your machine. Now, head back your `mnist` project on the W\&B site. Follow the video below to navigate to the launch menu:
+In addition to launching jobs with the `wandb` command line interface, you can also submit jobs through the Weights & Biases UI. Step 1 is to run `wandb launch-agent -p fmnist` on your machine. Now, head back your `fmnist` project on the W\&B site. Follow the video below to navigate to the launch menu:
 
 ![Opening the launch menu](<../../.gitbook/assets/2022-08-05 17.48.04.gif>)
 
-You can copy and paste the following `JSON` snippet into the editor that appears, then click `Push Run`.&#x20;
+You can copy and paste the following `JSON` snippet into the editor that appears, then click `Push Run`.
 
 ```json
 {
@@ -63,7 +63,7 @@ You can copy and paste the following `JSON` snippet into the editor that appears
     }
   },
   "docker": {
-    "docker_image": "mnist-training"
+    "docker_image": "fmnist-training"
   }
 }
 ```
