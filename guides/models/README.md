@@ -8,7 +8,7 @@ Use the W\&B Model Registry as a central system of record for models.
 
 ## Model Registry
 
-* Create Collections to organize your best model versions for a given task
+* Create Registered Models to organize your best model versions for a given task
 * Track a model moving into staging and production
 * See a history of all changes, including who moved a model to production
 

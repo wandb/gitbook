@@ -24,9 +24,9 @@ Please see the[ Artifact Tab](https://docs.wandb.ai/ref/app/pages/project-page#a
 
 Now we will walk through a canonical workflow for producing, organizing, and consuming trained models:
 
-1. [Create a new Model Collection](walkthrough.md#1.-create-a-new-model-portfolio)
+1. [Create a new Registered Model](walkthrough.md#1.-create-a-new-model-portfolio)
 2. [Train & log Model Versions](walkthrough.md#2.-train-and-log-model-versions)
-3. [Link Model Versions to the Collection](walkthrough.md#3.-link-model-versions-to-the-portfolio)
+3. [Link Model Versions to the Registered Model](walkthrough.md#3.-link-model-versions-to-the-portfolio)
 4. [Using a Model Version](walkthrough.md#4.-use-a-model-version)
 5. [Evaluate Model Performance](walkthrough.md#5.-evaluate-model-performance)
 6. [Promote a Version to Production](walkthrough.md#6.-promote-a-version-to-production)
@@ -39,9 +39,9 @@ Now we will walk through a canonical workflow for producing, organizing, and con
 
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.24.10 AM.png>)
 
-### 1. Create a new Model Collection
+### 1. Create a new Registered Model
 
-First, create a Model Collection to hold all the candidate models for your particular modeling task. In this tutorial, we will use the classic [MNIST Dataset](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html#torchvision.datasets.MNIST) - 28x28 grayscale input images with output classes from 0-9. The video below demonstrates how to create a new Collection:1.
+First, create a Registered Model to hold all the candidate models for your particular modeling task. In this tutorial, we will use the classic [MNIST Dataset](https://pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html#torchvision.datasets.MNIST) - 28x28 grayscale input images with output classes from 0-9. The video below demonstrates how to create a new Registered Model.
 
 {% tabs %}
 {% tab title="Using Model Registry" %}
@@ -51,11 +51,11 @@ First, create a Model Collection to hold all the candidate models for your parti
 
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.18.28 AM.png>)
 
-2\. Click the `Create Model Collection` button at the top of the Model Registry.
+2\. Click the `Create Registered Model` button at the top of the Model Registry.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.17.24 AM.png>)
 
-3\. Make sure the `Owning Entity` and `Owning Project` are set correctly to the values you desire. Enter a unique name for your new Collection that describes the modeling task or use-case of interest.
+3\. Make sure the `Owning Entity` and `Owning Project` are set correctly to the values you desire. Enter a unique name for your new Registered Model that describes the modeling task or use-case of interest.
 
 ![](<../../.gitbook/assets/Screen Shot 2022-06-21 at 10.20.23 AM.png>)
 {% endtab %}
@@ -181,17 +181,17 @@ If you are following along the example notebook, you should see a Run Workspace 
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-12 at 11.42.12 AM.png>)
 
-### 3. Link Model Versions to the Collection
+### 3. Link Model Versions to the Registered Model
 
-Now, let's say that we are ready to link one of our Model Versions to the Model Collection. We can accomplish this manually as well as via an API.
+Now, let's say that we are ready to link one of our Model Versions to the Registered Model. We can accomplish this manually as well as via an API.
 
 {% tabs %}
 {% tab title="Manual Linking" %}
-The following video below demonstrates how to manually link a Model Version to your newly created Collection:
+The following video below demonstrates how to manually link a Model Version to your newly created Registered Model:
 
 1. Navigate to the Model Version of interest
 2. Click the link icon
-3. Select the target Collection
+3. Select the target Registered Model
 4. (optional): Add additional aliases
 
 ![](<../../.gitbook/assets/2022-05-11 15.13.48.gif>)
@@ -265,7 +265,7 @@ link_model(model_version, "[[entity/]project/]collectionName")
 {% endtab %}
 {% endtabs %}
 
-After you link the Model Version, you will see hyperlinks connecting the Version in the Collection to the source Artifact and visa versa.
+After you link the Model Version, you will see hyperlinks connecting the Version in the Registered Model to the source Artifact and visa versa.
 
 ![](../../.gitbook/assets/13\_edit.png)
 
@@ -333,7 +333,7 @@ If you are executing similar code, as demonstrated in the notebook, you should s
 
 ### 6. Promote a Version to Production
 
-Next, you will likely want to denote which version in the Collection is intended to be used for Production. Here, we use the concept of aliases. Each Collection can have any aliases which make sense for your use case - however we often see `production` as the most common alias. Each alias can only be assigned to a single Version at a time.
+Next, you will likely want to denote which version in the Registered Model is intended to be used for Production. Here, we use the concept of aliases. Each Registered Model can have any aliases which make sense for your use case - however we often see `production` as the most common alias. Each alias can only be assigned to a single Version at a time.
 
 {% tabs %}
 {% tab title="via UI Interface" %}
@@ -345,7 +345,7 @@ Follow steps in [Part 3. Link Model Versions to the Collection](walkthrough.md#3
 {% endtab %}
 {% endtabs %}
 
-The image below shows the new `production` alias added to v1 of the Collection!
+The image below shows the new `production` alias added to v1 of the Registered Model!
 
 ![](<../../.gitbook/assets/Screen Shot 2022-05-12 at 11.46.43 AM.png>)
 
@@ -354,13 +354,13 @@ The image below shows the new `production` alias added to v1 of the Collection!
 Finally, you will likely want to use your production Model for inference. To do so, simply follow the steps outlined in [Part 4. Using a Model Version](walkthrough.md#4.-evaluate-model-performance), with the `production` alias. For example:
 
 ```python
-wandb.use_artifact("[[entity/]project/]collectionName:production")
+wandb.use_artifact("[[entity/]project/]registeredModelName:production")
 ```
 
-You can reference a Version within the Collection using different alias strategies:
+You can reference a Version within the Registered Model using different alias strategies:
 
 * `latest` - which will fetch the most recently linked Version
-* `v#` - using `v0`, `v1`, `v2`, ... you can fetch a specific version in the Collection
+* `v#` - using `v0`, `v1`, `v2`, ... you can fetch a specific version in the Registered Model
 * `production` - you can use any custom alias that you and your team have assigned
 
 ### 8. Build a Reporting Dashboard
