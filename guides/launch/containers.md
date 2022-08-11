@@ -1,10 +1,12 @@
 # Containerizing with Launch
 
 {% hint style="danger" %}
-This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
-{% endhint %}
+### <mark style="color:red;">**Beta product in active development**</mark>
 
-Launch abstracts away the details of executing runs by packaging up everything needed for a run into a portable container environment. You can either have Launch build a container for you, or you can supply your own image and Launch will run it on your chosen infrastructure.
+<mark style="color:red;">**Interested in Launch? Reach out to your account team to talk about joining the customer pilot program for W\&B Launch.**</mark>
+
+<mark style="color:red;">**Pilot customers need to use AWS EKS or SageMaker to qualify for the beta program. We ultimately plan to support additional platforms.**</mark>
+{% endhint %}
 
 ## Building a container with Launch
 

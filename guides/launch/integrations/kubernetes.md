@@ -1,10 +1,14 @@
 # Launch with Kubernetes
 
 {% hint style="danger" %}
-This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
+### <mark style="color:red;">**Beta product in active development**</mark>
+
+<mark style="color:red;">**Interested in Launch? Reach out to your account team to talk about joining the customer pilot program for W\&B Launch.**</mark>
+
+<mark style="color:red;">**Pilot customers need to use AWS EKS or SageMaker to qualify for the beta program. We ultimately plan to support additional platforms.**</mark>
 {% endhint %}
 
-[Kubernetes](https://kubernetes.io/) is an open-source containerization and deployment system. With Launch, you can build and run jobs on any Kubernetes cluster, including self-managed clusters as well as clusters managed through cloud services like [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine) or [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/).&#x20;
+[Kubernetes](https://kubernetes.io/) is an open-source containerization and deployment system. With Launch, you can build and run jobs on any Kubernetes cluster, including self-managed clusters as well as clusters managed through cloud services like [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine) or [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/).
 
 ## Kubernetes quickstart
 

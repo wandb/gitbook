@@ -1,10 +1,12 @@
 # Launch Agents and Queues
 
 {% hint style="danger" %}
-This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
-{% endhint %}
+### <mark style="color:red;">**Beta product in active development**</mark>
 
-Launch agents allow you and other members of your team to queue runs to be executed on remote infrastructure. Agents can be run on your machine or deployed via a container to the cloud to listen for new jobs pushed to your queues.
+<mark style="color:red;">**Interested in Launch? Reach out to your account team to talk about joining the customer pilot program for W\&B Launch.**</mark>
+
+<mark style="color:red;">**Pilot customers need to use AWS EKS or SageMaker to qualify for the beta program. We ultimately plan to support additional platforms.**</mark>
+{% endhint %}
 
 ## Launch queues
 
@@ -21,4 +23,3 @@ For details on how to run a launch agent locally, see the `wandb launch-agent` [
 ### Deployable agents
 
 The launch agent can be deployed to Kubernetes using the provided deployment files found [here](https://github.com/wandb/wandb/tree/master/wandb/sdk/launch/deploys). Provide your API key, target project and maximum number of concurrent jobs in the launch configuration file. Check the launch-agent.yaml file for the name of the container that will be deployed.
-

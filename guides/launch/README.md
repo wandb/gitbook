@@ -1,11 +1,15 @@
 ---
-description: Reproducibility, orchestration, and CI/CD
+description: Reproducibility, Orchestration, and CI/CD
 ---
 
 # Launch Jobs
 
 {% hint style="danger" %}
-This new product is in beta and under active development. Please message support@wandb.com with questions and suggestions.
+### <mark style="color:red;">**Beta product in active development**</mark>
+
+<mark style="color:red;">**Interested in Launch? Reach out to your account team to talk about joining the customer pilot program for W\&B Launch.**</mark>
+
+<mark style="color:red;">**Pilot customers need to use AWS EKS or SageMaker to qualify for the beta program. We ultimately plan to support additional platforms.**</mark>
 {% endhint %}
 
 Connect your own SageMaker or Kubernetes cluster, then easily queue and manage jobs using W\&B Launch. Kick off jobs on your own infrastructure from the W\&B UI or CLI.
@@ -81,6 +85,10 @@ The agent you started on your machine earlier will pull the run from the queue y
 * Details on [Launch agents](agents.md), including how to deploy an agent in your own infrastructure
 
 ## Frequently asked questions
+
+### I use Google Kubernetes Engine. Can i still use Launch?
+
+Weights and Biases currently does not support GKE, but will in subsequent quarters. Reach out to your account team if you are interested in connecting with the product team and providing feedback.&#x20;
 
 ### Can I use launch to create new runs?
 
