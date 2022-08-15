@@ -40,7 +40,7 @@ images = wandb.Image(image_array, caption="Top: Output, Bottom: Input")
 wandb.log({"examples": images}
 ```
 
-We assume the image is gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats, we convert them to integers between `0` and `255`. If you want to normalize your images differently, you can specify the [`mode`](https://pillow.readthedocs.io/en/3.1.x/handbook/concepts.html#concept-modes) manually or just supply a [`PIL.Image`](https://pillow.readthedocs.io/en/stable/reference/Image.html), as described in the "Logging PIL Images" tab of this panel.
+We assume the image is gray scale if the last dimension is 1, RGB if it's 3, and RGBA if it's 4. If the array contains floats, we convert them to integers between `0` and `255`. If you want to normalize your images differently, you can specify the [`mode`](https://pillow.readthedocs.io/en/stable/handbook/concepts.html#modes) manually or just supply a [`PIL.Image`](https://pillow.readthedocs.io/en/stable/reference/Image.html), as described in the "Logging PIL Images" tab of this panel.
 {% endtab %}
 
 {% tab title="Logging PIL Images" %}
@@ -190,7 +190,7 @@ wandb.log({"driving_scene": img})
 
 {% tabs %}
 {% tab title="Segmentation Masks" %}
-![Interactive Segmentation Masks in Tables](<../../../.gitbook/assets/Segmentation Masks (1).gif>)
+![Interactive Segmentation Masks in Tables](<../../../.gitbook/assets/Segmentation Masks.gif>)
 
 To log Segmentation Masks in tables, you will need to provide a `wandb.Image` object for each row in the table.\
 \
@@ -215,7 +215,7 @@ wandb.log({"Table" : table})
 {% endtab %}
 
 {% tab title="Bounding Boxes" %}
-![Interactive Bounding Boxes in Tables](<../../../.gitbook/assets/Bounding Boxes.gif>)
+![Interactive Bounding Boxes in Tables](<../../../.gitbook/assets/Bounding Boxes (1).gif>)
 
 To log Images with Bounding Boxes in tables, you will need to provide a `wandb.Image` object for each row in the table.\
 \
