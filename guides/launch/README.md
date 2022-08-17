@@ -1,5 +1,7 @@
 ---
-description: Reproducibility, Orchestration, and CI/CD
+description: >-
+  Containerized Reproducible Workflows, Connect to W&B to Cloud Infrastructure,
+  CI/CD
 ---
 
 # Launch Jobs
@@ -14,7 +16,7 @@ description: Reproducibility, Orchestration, and CI/CD
 
 Connect your own SageMaker or Kubernetes cluster, then easily queue and manage jobs using W\&B Launch. Kick off jobs on your own infrastructure from the W\&B UI or CLI.
 
-* Execute runs in reproducible, containerized environments
+* Execute runs in reproducible containerized environments
 * Queue and launch jobs across your own clusters, locally or in the cloud
 * Easily tweak hyperparameters or input data and retrain models
 * \[Coming Soon] Automatically trigger evaluation jobs on newly trained models
@@ -52,7 +54,13 @@ The run will be logged to a newly created `fmnist` project in your Weights & Bia
 
 #### **Next, train another model from the UI!**
 
-In addition to launching jobs with the `wandb` command line interface, you can also submit jobs through the Weights & Biases UI. Step 1 is to run `wandb launch-agent -p fmnist` on your machine. Now, head back your `fmnist` project on the W\&B site. Follow the video below to navigate to the launch menu:
+In addition to launching jobs with the `wandb` command line interface, you can also submit jobs through the Weights & Biases UI.&#x20;
+
+Step 1 is to run:
+
+&#x20;`wandb launch-agent -p fmnist`&#x20;
+
+on your machine. Now, head back your `fmnist` project on the W\&B site. Follow the video below to navigate to the launch menu:
 
 ![Opening the launch menu](<../../.gitbook/assets/2022-08-05 17.48.04.gif>)
 
