@@ -22,6 +22,8 @@ Use the W\&B Model Registry as a central system of record for models.
     ```
 3. From the Artifact page, link the artifact version to the registry.
 
+### Watch the 1 minute video walkthrough:
+
 {% embed url="https://www.youtube.com/watch?v=jy9Pk9riwZI" %}
 
 ## Model Registry Features
