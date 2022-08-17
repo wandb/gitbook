@@ -286,8 +286,9 @@ wandb.init()
 # Download your Model Version files
 path = wandb.use_artifact("[[entity/]project/]collectionName:latest").download()
 
-# Deserialize your model (this will be your custom code to load in
-# a model from disk - reversing the serialization process used in step 2)
+# Reconstruct your model object in memory:
+# `make_model_from_data` below represents your deserialization logic
+# to load in a model from disk
 model = make_model_from_data(path)
 ```
 {% endtab %}
@@ -320,7 +321,7 @@ After training many Models, you will likely want to evaluate the performance of 
 # (Optional) Declare an upstream evaluation dataset dependency
 dataset = wandb.use_artifact("mnist-evaluation:latest")
 
-# Evaluate your model in whatever way makes sense for your
+# Evaluate your model according to your use-case
 loss, accuracy, predictions = evaluate_model(model, dataset)
 
 # Log out metrics, images, tables, or any data useful for evaluation.
