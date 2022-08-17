@@ -13,7 +13,9 @@ Use the W\&B Model Registry as a central system of record for models.
 ## Model Registry Quickstart
 
 1. Open [your Model Registry](https://wandb.ai/registry/model) and create a registered model.
-2.  In your script, log a model as an [artifact version](https://docs.wandb.ai/guides/artifacts). Try it yourself [**in the example notebook ->**](https://wandb.me/model-registry-quickstart)****
+2.  In your script, log a model as an [artifact version](https://docs.wandb.ai/guides/artifacts).
+
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://wandb.me/model-registry-quickstart)
 
     ```
     art = wandb.Artifact("my-object-detector", type="model")
