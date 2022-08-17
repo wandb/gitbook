@@ -55,6 +55,13 @@ Manage the process as a model moves from training through staging to production.
 * Communicate where a model version is in the process — staging, production etc
 * Review the history of model versions that moved through each stage
 
+## Model Registry Pilot Limits
+
+This new feature is now turned on for all users to try for free, up to:
+
+* 5 Registered Models, with unlimited versions linked to each model
+* 10 most recent steps of Action History shown in the UI for each registered model
+
 ## Up Next
 
 Dig into the details of how to use Weights & Biases for model management:

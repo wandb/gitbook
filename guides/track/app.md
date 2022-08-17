@@ -46,4 +46,4 @@ To undo a change in your workspace, click the "undo" button at the bottom of the
 
 To sort by more than 1 column in your runs table, click on "Sort" and then "Add another field".
 
-![](../../.gitbook/assets/sort\_columns.gif)
+![](<../../.gitbook/assets/sort\_columns (1).gif>)
