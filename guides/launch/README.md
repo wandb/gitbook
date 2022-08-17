@@ -19,7 +19,7 @@ Connect your own SageMaker or Kubernetes cluster, then easily queue and manage j
 * Easily tweak hyperparameters or input data and retrain models
 * \[Coming Soon] Automatically trigger evaluation jobs on newly trained models
 
-## Quickstart
+## Launch Quickstart
 
 {% hint style="success" %}
 **Before we get started**

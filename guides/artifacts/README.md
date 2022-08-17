@@ -8,7 +8,7 @@ description: >-
 
 Use W\&B Artifacts for dataset versioning, model versioning, and tracking dependencies and results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems like S3, GCP, or your own system.
 
-## Quickly log your first Artifact
+## Artifacts Quickstart
 
 The easiest way to log an artifact is passing a path to your data files. Remember to also specify a name and an artifact type.
 
