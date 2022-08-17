@@ -6,13 +6,25 @@ description: Manage the model lifecycle from training to production
 
 Use the W\&B Model Registry as a central system of record for models.
 
-## Model Registry
-
 * Create Registered Models to organize your best model versions for a given task
 * Track a model moving into staging and production
 * See a history of all changes, including who moved a model to production
 
-![](<../../.gitbook/assets/image (1).png>)
+## Model Registry Quickstart
+
+1. Open [your Model Registry](https://wandb.ai/registry/model) and create a registered model.
+2.  In your script, log a model as an [artifact version](https://docs.wandb.ai/guides/artifacts).
+
+    ```
+    art = wandb.Artifact("my-object-detector", type="model")
+    art.add_file("saved_model_weights.pt")
+    wandb.log_artifact(art)
+    ```
+3. From the Artifact page, link the artifact version to the registry.
+
+{% embed url="https://www.youtube.com/watch?v=jy9Pk9riwZI" %}
+
+## Model Registry Features
 
 ### Model Versioning
 
