@@ -27,6 +27,7 @@ All configuration settings can be set via the UI however if you would like to ma
 | SLACK\_CLIENT\_ID    | The client ID of the Slack application you want to use for alerts                                                                                                                          |
 | SLACK\_SECRET        | The secret of the Slack application you want to use for alerts                                                                                                                             |
 | LOCAL\_RESTORE       | You can temporarily set this to true if you're unable to access your instance. Check the logs from the container for temporary credentials.                                                |
+| REDIS                | Can be used to setup an external REDIS instance with W\&B.                                                                                                                                 |
 | LOGGING\_ENABLED     | When set to true, access logs are streamed to stdout. You can also mount a sidecar container and tail `/var/log/gorilla.log` without setting this variable.                                |
 
 ### Host Configuration
@@ -117,10 +118,10 @@ Sign in to your Weights and Biases server and navigate to the `System Settings` 
 \
 ![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.39.png>)\
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1).png>)\
 \
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (4) (2).png>)
 
 {% hint style="info" %}
 If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.
@@ -351,6 +352,27 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 ![](<../../../.gitbook/assets/image (55).png>)
 
 Press "Update settings" to apply the new settings.
+
+## Advanced Reliability Settings
+
+#### Redis
+
+Configuring an external redis server will improve the reliability of the service and enable caching which will decrease load times especially in large projects. We recommend using a managed redis service (ex: ElastiCache) with HA and the following specs:
+
+* Minimum 4GB of memory, suggested 8GB
+* Redis version 6.x
+* In transit encryption
+* Authentication enabled
+
+#### Configuring REDIS in the W\&B server
+
+To configure the redis instance with W\&B, you can navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external Redis instance" option, and fill in the redis connection string in the following format:
+
+![Configuring REDIS in W\&B](<../../../.gitbook/assets/Screen Shot 2022-08-19 at 1.45.26 PM.png>)
+
+The above assumes the REDIS instance is running at the default port of `6379`
+
+If you configure a different port, setup authentication and also have TLS enabled on the redis instance the connection string format would look something like: `redis://$USER:$PASSWORD@$HOST:$PORT?tls=true`
 
 ## Slack
 

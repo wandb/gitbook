@@ -7,7 +7,7 @@ description: >-
 # Launch Jobs
 
 {% hint style="danger" %}
-### <mark style="color:red;">**Beta product in active development**</mark>
+#### <mark style="color:red;">**Beta product in active development**</mark>
 
 <mark style="color:red;">**Interested in Launch? Reach out to your account team to talk about joining the customer pilot program for W\&B Launch.**</mark>
 
@@ -54,11 +54,11 @@ The run will be logged to a newly created `fmnist` project in your Weights & Bia
 
 #### **Next, train another model from the UI!**
 
-In addition to launching jobs with the `wandb` command line interface, you can also submit jobs through the Weights & Biases UI.&#x20;
+In addition to launching jobs with the `wandb` command line interface, you can also submit jobs through the Weights & Biases UI.
 
 Step 1 is to run:
 
-&#x20;`wandb launch-agent -p fmnist`&#x20;
+`wandb launch-agent -p fmnist`
 
 on your machine. Now, head back your `fmnist` project on the W\&B site. Follow the video below to navigate to the launch menu:
 
@@ -96,7 +96,7 @@ The agent you started on your machine earlier will pull the run from the queue y
 
 ### I use Google Kubernetes Engine. Can i still use Launch?
 
-Weights and Biases currently does not support GKE, but will in subsequent quarters. Reach out to your account team if you are interested in connecting with the product team and providing feedback.&#x20;
+Weights and Biases currently does not support GKE, but will in subsequent quarters. Reach out to your account team if you are interested in connecting with the product team and providing feedback.
 
 ### Can I use launch to create new runs?
 
