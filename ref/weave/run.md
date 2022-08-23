@@ -5,7 +5,7 @@
 
 Returns the config _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -16,7 +16,7 @@ The config _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the created at datetime of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -27,7 +27,7 @@ The created at datetime of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the last heartbeat datetime of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -38,7 +38,7 @@ The last heartbeat datetime of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the log history of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -49,7 +49,7 @@ The log history of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the job type of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -60,7 +60,7 @@ The job type of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/run) for a given name and alias
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 | `artifactVersionName` | The name:alias of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
@@ -72,7 +72,7 @@ The [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) logged b
 
 Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -83,7 +83,7 @@ The [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) logged 
 
 Returns the name of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -94,7 +94,7 @@ The name of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the runtime in seconds of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -105,7 +105,7 @@ The runtime in seconds of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the summary _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -116,7 +116,7 @@ The summary _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) used by the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -127,7 +127,7 @@ The [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) used by
 
 Returns the [user](https://docs.wandb.ai/ref/weave/user) of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -140,7 +140,7 @@ The [user](https://docs.wandb.ai/ref/weave/user) of the [run](https://docs.wandb
 
 Returns the config _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -151,7 +151,7 @@ The config _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the created at datetime of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -162,7 +162,7 @@ The created at datetime of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the last heartbeat datetime of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -173,7 +173,7 @@ The last heartbeat datetime of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the log history of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -184,7 +184,7 @@ The log history of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the job type of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -195,7 +195,7 @@ The job type of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/run) for a given name and alias
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 | `artifactVersionName` | The name:alias of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
@@ -207,7 +207,7 @@ The [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) logged b
 
 Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) logged by the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -218,7 +218,7 @@ The [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) logged 
 
 Returns the name of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -229,7 +229,7 @@ The name of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the runtime in seconds of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -240,7 +240,7 @@ The runtime in seconds of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns the summary _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -251,7 +251,7 @@ The summary _typedDict_ of the [run](https://docs.wandb.ai/ref/weave/run)
 
 Returns all of the [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) used by the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 
@@ -262,7 +262,7 @@ The [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) used by
 
 Returns the [user](https://docs.wandb.ai/ref/weave/user) of the [run](https://docs.wandb.ai/ref/weave/run)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `run` | A [run](https://docs.wandb.ai/ref/weave/run) |
 

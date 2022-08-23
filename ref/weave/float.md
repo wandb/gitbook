@@ -5,7 +5,7 @@
 
 Determines inequality of two values.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first value to compare. |
 | `rhs` | The second value to compare. |
@@ -17,7 +17,7 @@ Whether the two values are not equal.
 
 Divide a [number](https://docs.wandb.ai/ref/weave/number) by another and return remainder
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to divide |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to divide by |
@@ -29,7 +29,7 @@ Modulo of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Multiply two [numbers](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | First [number](https://docs.wandb.ai/ref/weave/number) |
 | `rhs` | Second [number](https://docs.wandb.ai/ref/weave/number) |
@@ -41,7 +41,7 @@ Product of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Raise a [number](https://docs.wandb.ai/ref/weave/number) to an exponent
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | Base [number](https://docs.wandb.ai/ref/weave/number) |
 | `rhs` | Exponent [number](https://docs.wandb.ai/ref/weave/number) |
@@ -53,7 +53,7 @@ The base [numbers](https://docs.wandb.ai/ref/weave/number) raised to nth power
 
 Add two [numbers](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | First [number](https://docs.wandb.ai/ref/weave/number) |
 | `rhs` | Second [number](https://docs.wandb.ai/ref/weave/number) |
@@ -65,7 +65,7 @@ Sum of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Subtract a [number](https://docs.wandb.ai/ref/weave/number) from another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to subtract from |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to subtract |
@@ -77,7 +77,7 @@ Difference of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Divide a [number](https://docs.wandb.ai/ref/weave/number) by another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to divide |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to divide by |
@@ -89,7 +89,7 @@ Quotient of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Check if a [number](https://docs.wandb.ai/ref/weave/number) is less than another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare to |
@@ -101,7 +101,7 @@ Whether the first [number](https://docs.wandb.ai/ref/weave/number) is less than 
 
 Check if a [number](https://docs.wandb.ai/ref/weave/number) is less than or equal to another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare to |
@@ -113,7 +113,7 @@ Whether the first [number](https://docs.wandb.ai/ref/weave/number) is less than 
 
 Determines equality of two values.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first value to compare. |
 | `rhs` | The second value to compare. |
@@ -125,7 +125,7 @@ Whether the two values are equal.
 
 Check if a [number](https://docs.wandb.ai/ref/weave/number) is greater than another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare to |
@@ -137,7 +137,7 @@ Whether the first [number](https://docs.wandb.ai/ref/weave/number) is greater th
 
 Check if a [number](https://docs.wandb.ai/ref/weave/number) is greater than or equal to another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare to |
@@ -149,7 +149,7 @@ Whether the first [number](https://docs.wandb.ai/ref/weave/number) is greater th
 
 Negate a [number](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `val` | Number to negate |
 
@@ -160,7 +160,7 @@ A [number](https://docs.wandb.ai/ref/weave/number)
 
 Convert a [number](https://docs.wandb.ai/ref/weave/number) to a string
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `in` | Number to convert |
 
@@ -171,7 +171,7 @@ String representation of the [number](https://docs.wandb.ai/ref/weave/number)
 
 Converts a [number](https://docs.wandb.ai/ref/weave/number) to a _timestamp_. Values less than 31536000000 will be converted to seconds, values less than 31536000000000 will be converted to milliseconds, values less than 31536000000000000 will be converted to microseconds, and values less than 31536000000000000000 will be converted to nanoseconds.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `val` | Number to convert to a timestamp |
 
@@ -182,7 +182,7 @@ Timestamp
 
 Calculates the absolute value of a [number](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `n` | A [number](https://docs.wandb.ai/ref/weave/number) |
 
@@ -195,7 +195,7 @@ The absolute value of the [number](https://docs.wandb.ai/ref/weave/number)
 
 Determines inequality of two values.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first value to compare. |
 | `rhs` | The second value to compare. |
@@ -207,7 +207,7 @@ Whether the two values are not equal.
 
 Divide a [number](https://docs.wandb.ai/ref/weave/number) by another and return remainder
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to divide |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to divide by |
@@ -219,7 +219,7 @@ Modulo of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Multiply two [numbers](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | First [number](https://docs.wandb.ai/ref/weave/number) |
 | `rhs` | Second [number](https://docs.wandb.ai/ref/weave/number) |
@@ -231,7 +231,7 @@ Product of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Raise a [number](https://docs.wandb.ai/ref/weave/number) to an exponent
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | Base [number](https://docs.wandb.ai/ref/weave/number) |
 | `rhs` | Exponent [number](https://docs.wandb.ai/ref/weave/number) |
@@ -243,7 +243,7 @@ The base [numbers](https://docs.wandb.ai/ref/weave/number) raised to nth power
 
 Add two [numbers](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | First [number](https://docs.wandb.ai/ref/weave/number) |
 | `rhs` | Second [number](https://docs.wandb.ai/ref/weave/number) |
@@ -255,7 +255,7 @@ Sum of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Subtract a [number](https://docs.wandb.ai/ref/weave/number) from another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to subtract from |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to subtract |
@@ -267,7 +267,7 @@ Difference of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Divide a [number](https://docs.wandb.ai/ref/weave/number) by another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to divide |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to divide by |
@@ -279,7 +279,7 @@ Quotient of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Check if a [number](https://docs.wandb.ai/ref/weave/number) is less than another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare to |
@@ -291,7 +291,7 @@ Whether the first [number](https://docs.wandb.ai/ref/weave/number) is less than 
 
 Check if a [number](https://docs.wandb.ai/ref/weave/number) is less than or equal to another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare to |
@@ -303,7 +303,7 @@ Whether the first [number](https://docs.wandb.ai/ref/weave/number) is less than 
 
 Determines equality of two values.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first value to compare. |
 | `rhs` | The second value to compare. |
@@ -315,7 +315,7 @@ Whether the two values are equal.
 
 Check if a [number](https://docs.wandb.ai/ref/weave/number) is greater than another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare to |
@@ -327,7 +327,7 @@ Whether the first [number](https://docs.wandb.ai/ref/weave/number) is greater th
 
 Check if a [number](https://docs.wandb.ai/ref/weave/number) is greater than or equal to another
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare |
 | `rhs` | [number](https://docs.wandb.ai/ref/weave/number) to compare to |
@@ -339,7 +339,7 @@ Whether the first [number](https://docs.wandb.ai/ref/weave/number) is greater th
 
 Negate a [number](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `val` | Number to negate |
 
@@ -350,7 +350,7 @@ A [number](https://docs.wandb.ai/ref/weave/number)
 
 Finds the index of maximum [number](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `numbers` | _list_ of [numbers](https://docs.wandb.ai/ref/weave/number) to find the index of maximum [number](https://docs.wandb.ai/ref/weave/number) |
 
@@ -361,7 +361,7 @@ Index of maximum [number](https://docs.wandb.ai/ref/weave/number)
 
 Finds the index of minimum [number](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `numbers` | _list_ of [numbers](https://docs.wandb.ai/ref/weave/number) to find the index of minimum [number](https://docs.wandb.ai/ref/weave/number) |
 
@@ -372,7 +372,7 @@ Index of minimum [number](https://docs.wandb.ai/ref/weave/number)
 
 Average of [numbers](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `numbers` | _list_ of [numbers](https://docs.wandb.ai/ref/weave/number) to average |
 
@@ -383,7 +383,7 @@ Average of [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Maximum number
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `numbers` | _list_ of [numbers](https://docs.wandb.ai/ref/weave/number) to find the maximum [number](https://docs.wandb.ai/ref/weave/number) |
 
@@ -394,7 +394,7 @@ Maximum [number](https://docs.wandb.ai/ref/weave/number)
 
 Minimum number
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `numbers` | _list_ of [numbers](https://docs.wandb.ai/ref/weave/number) to find the minimum [number](https://docs.wandb.ai/ref/weave/number) |
 
@@ -405,7 +405,7 @@ Minimum [number](https://docs.wandb.ai/ref/weave/number)
 
 Standard deviation of [numbers](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `numbers` | _list_ of [numbers](https://docs.wandb.ai/ref/weave/number) to calculate the standard deviation |
 
@@ -416,7 +416,7 @@ Standard deviation of [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Sum of [numbers](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `numbers` | _list_ of [numbers](https://docs.wandb.ai/ref/weave/number) to sum |
 
@@ -427,7 +427,7 @@ Sum of [numbers](https://docs.wandb.ai/ref/weave/number)
 
 Convert a [number](https://docs.wandb.ai/ref/weave/number) to a string
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `in` | Number to convert |
 
@@ -438,7 +438,7 @@ String representation of the [number](https://docs.wandb.ai/ref/weave/number)
 
 Converts a [number](https://docs.wandb.ai/ref/weave/number) to a _timestamp_. Values less than 31536000000 will be converted to seconds, values less than 31536000000000 will be converted to milliseconds, values less than 31536000000000000 will be converted to microseconds, and values less than 31536000000000000000 will be converted to nanoseconds.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `val` | Number to convert to a timestamp |
 
@@ -449,7 +449,7 @@ Timestamp
 
 Calculates the absolute value of a [number](https://docs.wandb.ai/ref/weave/number)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `n` | A [number](https://docs.wandb.ai/ref/weave/number) |
 

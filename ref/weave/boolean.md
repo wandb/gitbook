@@ -5,7 +5,7 @@
 
 Returns the logical `and` of the two values
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | First binary value |
 | `rhs` | Second binary value |
@@ -17,7 +17,7 @@ The logical `and` of the two values
 
 Returns the logical `or` of the two values
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | First binary value |
 | `rhs` | Second binary value |
@@ -29,7 +29,7 @@ The logical `or` of the two values
 
 Returns the logical inverse of the value
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `bool` | The boolean value |
 
@@ -40,7 +40,7 @@ The logical inverse of the value
 
 Returns the logical inverse of the value
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `bool` | The boolean value |
 
@@ -53,7 +53,7 @@ The logical inverse of the value
 
 Returns the logical `and` of the two values
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | First binary value |
 | `rhs` | Second binary value |
@@ -65,7 +65,7 @@ The logical `and` of the two values
 
 Returns the logical `or` of the two values
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | First binary value |
 | `rhs` | Second binary value |
@@ -77,7 +77,7 @@ The logical `or` of the two values
 
 Returns the logical inverse of the value
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `bool` | The boolean value |
 
@@ -88,7 +88,7 @@ The logical inverse of the value
 
 Returns the logical inverse of the value
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `bool` | The boolean value |
 

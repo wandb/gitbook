@@ -5,7 +5,7 @@
 
 Returns the aliases for a [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -16,7 +16,7 @@ The aliases for a [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-ver
 
 Returns the datetime at which the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) was created
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -27,7 +27,7 @@ The datetime at which the [artifactVersion](https://docs.wandb.ai/ref/weave/arti
 
 Returns the _file_ of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) for the given path
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 | `path` | The path of the _file_ |
@@ -39,7 +39,7 @@ The _file_ of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-ver
 
 Returns the _list_ of _files_ of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -50,7 +50,7 @@ The _list_ of _files_ of the [artifactVersion](https://docs.wandb.ai/ref/weave/a
 
 Returns the url for a [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -61,7 +61,7 @@ The url for a [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version
 
 Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) metadata dictionary
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -72,7 +72,7 @@ The [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) metadata
 
 Returns the name of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -83,7 +83,7 @@ The name of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-versi
 
 Returns the size of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -94,7 +94,7 @@ The size of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-versi
 
 Returns the [runs](https://docs.wandb.ai/ref/weave/run) that use the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -105,7 +105,7 @@ The [runs](https://docs.wandb.ai/ref/weave/run) that use the [artifactVersion](h
 
 Returns the versionId of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -118,7 +118,7 @@ The versionId of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-
 
 Returns the aliases for a [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -129,7 +129,7 @@ The aliases for a [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-ver
 
 Returns the datetime at which the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) was created
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -140,7 +140,7 @@ The datetime at which the [artifactVersion](https://docs.wandb.ai/ref/weave/arti
 
 Returns the _file_ of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) for the given path
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 | `path` | The path of the _file_ |
@@ -152,7 +152,7 @@ The _file_ of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-ver
 
 Returns the _list_ of _files_ of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -163,7 +163,7 @@ The _list_ of _files_ of the [artifactVersion](https://docs.wandb.ai/ref/weave/a
 
 Returns the url for a [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -174,7 +174,7 @@ The url for a [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version
 
 Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) metadata dictionary
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -185,7 +185,7 @@ The [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) metadata
 
 Returns the name of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -196,7 +196,7 @@ The name of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-versi
 
 Returns the size of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -207,7 +207,7 @@ The size of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-versi
 
 Returns the [runs](https://docs.wandb.ai/ref/weave/run) that use the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 
@@ -218,7 +218,7 @@ The [runs](https://docs.wandb.ai/ref/weave/run) that use the [artifactVersion](h
 
 Returns the versionId of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactVersion` | A [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
 

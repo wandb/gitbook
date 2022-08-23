@@ -5,7 +5,7 @@
 
 Returns the contents of the _file_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `file` | A _file_ |
 
@@ -16,7 +16,7 @@ The contents of the _file_
 
 Returns the digest of the _file_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `file` | A _file_ |
 
@@ -27,7 +27,7 @@ The digest of the _file_
 
 Returns the size of the _file_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `file` | A _file_ |
 
@@ -38,7 +38,7 @@ The size of the _file_
 
 Returns the contents of the _file_ as a _table_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `file` | A _file_ |
 
@@ -51,7 +51,7 @@ The contents of the _file_ as a _table_
 
 Returns the contents of the _file_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `file` | A _file_ |
 
@@ -62,7 +62,7 @@ The contents of the _file_
 
 Returns the digest of the _file_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `file` | A _file_ |
 
@@ -73,7 +73,7 @@ The digest of the _file_
 
 Returns the size of the _file_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `file` | A _file_ |
 
@@ -84,7 +84,7 @@ The size of the _file_
 
 Returns the contents of the _file_ as a _table_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `file` | A _file_ |
 

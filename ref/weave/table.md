@@ -5,7 +5,7 @@
 
 Returns the _file_ of the asset
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `asset` | The asset |
 
@@ -16,7 +16,7 @@ The _file_ of the asset
 
 Returns the rows of a _table_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `table` | A _table_ |
 
@@ -29,7 +29,7 @@ The rows of the _table_
 
 Returns the _file_ of the asset
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `asset` | The asset |
 
@@ -40,7 +40,7 @@ The _file_ of the asset
 
 Returns the rows of a _table_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `table` | A _table_ |
 

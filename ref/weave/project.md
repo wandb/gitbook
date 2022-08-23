@@ -5,7 +5,7 @@
 
 Returns the [artifact](https://docs.wandb.ai/ref/weave/artifact) for a given name within a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 | `artifactName` | The name of the [artifact](https://docs.wandb.ai/ref/weave/artifact) |
@@ -17,7 +17,7 @@ The [artifact](https://docs.wandb.ai/ref/weave/artifact) for a given name within
 
 Returns the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) for a given name within a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 | `artifactType` | The name of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) |
@@ -29,7 +29,7 @@ The [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) for a given na
 
 Returns the [artifactTypes](https://docs.wandb.ai/ref/weave/artifact-type) for a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 
@@ -40,7 +40,7 @@ The [artifactTypes](https://docs.wandb.ai/ref/weave/artifact-type) for a [projec
 
 Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) for a given name and version within a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 | `artifactName` | The name of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
@@ -53,7 +53,7 @@ The [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) for a gi
 
 Returns the creation time of the [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 
@@ -64,7 +64,7 @@ The creation time of the [project](https://docs.wandb.ai/ref/weave/project)
 
 Returns the name of the [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 
@@ -75,7 +75,7 @@ The name of the [project](https://docs.wandb.ai/ref/weave/project)
 
 Returns the [runs](https://docs.wandb.ai/ref/weave/run) from a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 
@@ -88,7 +88,7 @@ The [runs](https://docs.wandb.ai/ref/weave/run) from a [project](https://docs.wa
 
 Returns the [artifact](https://docs.wandb.ai/ref/weave/artifact) for a given name within a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 | `artifactName` | The name of the [artifact](https://docs.wandb.ai/ref/weave/artifact) |
@@ -100,7 +100,7 @@ The [artifact](https://docs.wandb.ai/ref/weave/artifact) for a given name within
 
 Returns the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) for a given name within a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 | `artifactType` | The name of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) |
@@ -112,7 +112,7 @@ The [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) for a given na
 
 Returns the [artifactTypes](https://docs.wandb.ai/ref/weave/artifact-type) for a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 
@@ -123,7 +123,7 @@ The [artifactTypes](https://docs.wandb.ai/ref/weave/artifact-type) for a [projec
 
 Returns the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) for a given name and version within a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 | `artifactName` | The name of the [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) |
@@ -136,7 +136,7 @@ The [artifactVersion](https://docs.wandb.ai/ref/weave/artifact-version) for a gi
 
 Returns the creation time of the [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 
@@ -147,7 +147,7 @@ The creation time of the [project](https://docs.wandb.ai/ref/weave/project)
 
 Returns the name of the [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 
@@ -158,7 +158,7 @@ The name of the [project](https://docs.wandb.ai/ref/weave/project)
 
 Returns the [runs](https://docs.wandb.ai/ref/weave/run) from a [project](https://docs.wandb.ai/ref/weave/project)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `project` | A [project](https://docs.wandb.ai/ref/weave/project) |
 

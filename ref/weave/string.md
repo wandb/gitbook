@@ -5,7 +5,7 @@
 
 Determines inequality of two values.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first value to compare. |
 | `rhs` | The second value to compare. |
@@ -17,7 +17,7 @@ Whether the two values are not equal.
 
 Concatenates two [strings](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first [string](https://docs.wandb.ai/ref/weave/string) |
 | `rhs` | The second [string](https://docs.wandb.ai/ref/weave/string) |
@@ -29,7 +29,7 @@ The concatenated [string](https://docs.wandb.ai/ref/weave/string)
 
 Determines equality of two values.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first value to compare. |
 | `rhs` | The second value to compare. |
@@ -41,7 +41,7 @@ Whether the two values are equal.
 
 Appends a suffix to a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to append to |
 | `suffix` | The suffix to append |
@@ -53,7 +53,7 @@ The [string](https://docs.wandb.ai/ref/weave/string) with the suffix appended
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) contains a substring
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 | `sub` | The substring to check for |
@@ -65,7 +65,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) contains the substr
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) ends with a suffix
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 | `suffix` | The suffix to check for |
@@ -77,7 +77,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) ends with the suffi
 
 Finds all occurrences of a substring in a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to find occurrences of the substring in |
 | `sub` | The substring to find |
@@ -89,7 +89,7 @@ The _list_ of indices of the substring in the [string](https://docs.wandb.ai/ref
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) is alphanumeric
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 
@@ -100,7 +100,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) is alphanumeric
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) is alphabetic
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 
@@ -111,7 +111,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) is alphabetic
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) is numeric
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 
@@ -122,7 +122,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) is numeric
 
 Strip leading whitespace
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to strip. |
 
@@ -133,7 +133,7 @@ The stripped [string](https://docs.wandb.ai/ref/weave/string).
 
 Returns the length of a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 
@@ -144,7 +144,7 @@ The length of the [string](https://docs.wandb.ai/ref/weave/string)
 
 Converts a [string](https://docs.wandb.ai/ref/weave/string) to lowercase
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to convert to lowercase |
 
@@ -155,7 +155,7 @@ The lowercase [string](https://docs.wandb.ai/ref/weave/string)
 
 Partitions a [string](https://docs.wandb.ai/ref/weave/string) into a _list_ of the [strings](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to split |
 | `sep` | The separator to split on |
@@ -167,7 +167,7 @@ A _list_ of [strings](https://docs.wandb.ai/ref/weave/string): the [string](http
 
 Prepends a prefix to a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to prepend to |
 | `prefix` | The prefix to prepend |
@@ -179,7 +179,7 @@ The [string](https://docs.wandb.ai/ref/weave/string) with the prefix prepended
 
 Strip trailing whitespace
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to strip. |
 
@@ -190,7 +190,7 @@ The stripped [string](https://docs.wandb.ai/ref/weave/string).
 
 Replaces all occurrences of a substring in a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to replace contents of |
 | `sub` | The substring to replace |
@@ -203,7 +203,7 @@ The [string](https://docs.wandb.ai/ref/weave/string) with the replacements
 
 Slices a [string](https://docs.wandb.ai/ref/weave/string) into a substring based on beginning and end indices
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to slice |
 | `begin` | The beginning index of the substring |
@@ -216,7 +216,7 @@ The substring
 
 Splits a [string](https://docs.wandb.ai/ref/weave/string) into a _list_ of [strings](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to split |
 | `sep` | The separator to split on |
@@ -228,7 +228,7 @@ The _list_ of [strings](https://docs.wandb.ai/ref/weave/string)
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) starts with a prefix
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 | `prefix` | The prefix to check for |
@@ -240,7 +240,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) starts with the pre
 
 Strip whitespace from both ends of a [string](https://docs.wandb.ai/ref/weave/string).
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to strip. |
 
@@ -251,7 +251,7 @@ The stripped [string](https://docs.wandb.ai/ref/weave/string).
 
 Converts a [string](https://docs.wandb.ai/ref/weave/string) to uppercase
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to convert to uppercase |
 
@@ -262,7 +262,7 @@ The uppercase [string](https://docs.wandb.ai/ref/weave/string)
 
 Calculates the Levenshtein distance between two [strings](https://docs.wandb.ai/ref/weave/string).
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str1` | The first [string](https://docs.wandb.ai/ref/weave/string). |
 | `str2` | The second [string](https://docs.wandb.ai/ref/weave/string). |
@@ -276,7 +276,7 @@ The Levenshtein distance between the two [strings](https://docs.wandb.ai/ref/wea
 
 Determines inequality of two values.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first value to compare. |
 | `rhs` | The second value to compare. |
@@ -288,7 +288,7 @@ Whether the two values are not equal.
 
 Concatenates two [strings](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first [string](https://docs.wandb.ai/ref/weave/string) |
 | `rhs` | The second [string](https://docs.wandb.ai/ref/weave/string) |
@@ -300,7 +300,7 @@ The concatenated [string](https://docs.wandb.ai/ref/weave/string)
 
 Determines equality of two values.
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `lhs` | The first value to compare. |
 | `rhs` | The second value to compare. |
@@ -312,7 +312,7 @@ Whether the two values are equal.
 
 Appends a suffix to a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to append to |
 | `suffix` | The suffix to append |
@@ -324,7 +324,7 @@ The [string](https://docs.wandb.ai/ref/weave/string) with the suffix appended
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) contains a substring
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 | `sub` | The substring to check for |
@@ -336,7 +336,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) contains the substr
 
 Check if a _list_ contains a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `arr` | _list_ to check |
 | `element` | [string](https://docs.wandb.ai/ref/weave/string) to check for |
@@ -348,7 +348,7 @@ True if the _list_ contains the [string](https://docs.wandb.ai/ref/weave/string)
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) ends with a suffix
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 | `suffix` | The suffix to check for |
@@ -360,7 +360,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) ends with the suffi
 
 Finds all occurrences of a substring in a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to find occurrences of the substring in |
 | `sub` | The substring to find |
@@ -372,7 +372,7 @@ The _list_ of indices of the substring in the [string](https://docs.wandb.ai/ref
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) is alphanumeric
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 
@@ -383,7 +383,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) is alphanumeric
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) is alphabetic
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 
@@ -394,7 +394,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) is alphabetic
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) is numeric
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 
@@ -405,7 +405,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) is numeric
 
 Strip leading whitespace
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to strip. |
 
@@ -416,7 +416,7 @@ The stripped [string](https://docs.wandb.ai/ref/weave/string).
 
 Returns the length of a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 
@@ -427,7 +427,7 @@ The length of the [string](https://docs.wandb.ai/ref/weave/string)
 
 Converts a [string](https://docs.wandb.ai/ref/weave/string) to lowercase
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to convert to lowercase |
 
@@ -438,7 +438,7 @@ The lowercase [string](https://docs.wandb.ai/ref/weave/string)
 
 Partitions a [string](https://docs.wandb.ai/ref/weave/string) into a _list_ of the [strings](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to split |
 | `sep` | The separator to split on |
@@ -450,7 +450,7 @@ A _list_ of [strings](https://docs.wandb.ai/ref/weave/string): the [string](http
 
 Prepends a prefix to a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to prepend to |
 | `prefix` | The prefix to prepend |
@@ -462,7 +462,7 @@ The [string](https://docs.wandb.ai/ref/weave/string) with the prefix prepended
 
 Strip trailing whitespace
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to strip. |
 
@@ -473,7 +473,7 @@ The stripped [string](https://docs.wandb.ai/ref/weave/string).
 
 Replaces all occurrences of a substring in a [string](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to replace contents of |
 | `sub` | The substring to replace |
@@ -486,7 +486,7 @@ The [string](https://docs.wandb.ai/ref/weave/string) with the replacements
 
 Slices a [string](https://docs.wandb.ai/ref/weave/string) into a substring based on beginning and end indices
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to slice |
 | `begin` | The beginning index of the substring |
@@ -499,7 +499,7 @@ The substring
 
 Splits a [string](https://docs.wandb.ai/ref/weave/string) into a _list_ of [strings](https://docs.wandb.ai/ref/weave/string)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to split |
 | `sep` | The separator to split on |
@@ -511,7 +511,7 @@ The _list_ of [strings](https://docs.wandb.ai/ref/weave/string)
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) starts with a prefix
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to check |
 | `prefix` | The prefix to check for |
@@ -523,7 +523,7 @@ Whether the [string](https://docs.wandb.ai/ref/weave/string) starts with the pre
 
 Strip whitespace from both ends of a [string](https://docs.wandb.ai/ref/weave/string).
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to strip. |
 
@@ -534,7 +534,7 @@ The stripped [string](https://docs.wandb.ai/ref/weave/string).
 
 Converts a [string](https://docs.wandb.ai/ref/weave/string) to uppercase
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str` | The [string](https://docs.wandb.ai/ref/weave/string) to convert to uppercase |
 
@@ -545,7 +545,7 @@ The uppercase [string](https://docs.wandb.ai/ref/weave/string)
 
 Calculates the Levenshtein distance between two [strings](https://docs.wandb.ai/ref/weave/string).
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `str1` | The first [string](https://docs.wandb.ai/ref/weave/string). |
 | `str2` | The second [string](https://docs.wandb.ai/ref/weave/string). |

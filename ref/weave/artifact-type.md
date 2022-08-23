@@ -5,7 +5,7 @@
 
 Returns the [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) of all [artifacts](https://docs.wandb.ai/ref/weave/artifact) of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactType` | A [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) |
 
@@ -16,7 +16,7 @@ The [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) of all 
 
 Returns the [artifacts](https://docs.wandb.ai/ref/weave/artifact) of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactType` | A [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) |
 
@@ -27,7 +27,7 @@ The [artifacts](https://docs.wandb.ai/ref/weave/artifact) of the [artifactType](
 
 Returns the name of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactType` | A [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) |
 
@@ -40,7 +40,7 @@ The name of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type)
 
 Returns the [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) of all [artifacts](https://docs.wandb.ai/ref/weave/artifact) of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactType` | A [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) |
 
@@ -51,7 +51,7 @@ The [artifactVersions](https://docs.wandb.ai/ref/weave/artifact-version) of all 
 
 Returns the [artifacts](https://docs.wandb.ai/ref/weave/artifact) of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactType` | A [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) |
 
@@ -62,7 +62,7 @@ The [artifacts](https://docs.wandb.ai/ref/weave/artifact) of the [artifactType](
 
 Returns the name of the [artifactType](https://docs.wandb.ai/ref/weave/artifact-type)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifactType` | A [artifactType](https://docs.wandb.ai/ref/weave/artifact-type) |
 

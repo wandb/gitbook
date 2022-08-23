@@ -5,7 +5,7 @@
 
 Returns the link of the [entity](https://docs.wandb.ai/ref/weave/entity)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `entity` | A [entity](https://docs.wandb.ai/ref/weave/entity) |
 
@@ -16,7 +16,7 @@ The link of the [entity](https://docs.wandb.ai/ref/weave/entity)
 
 Returns the name of the [entity](https://docs.wandb.ai/ref/weave/entity)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `entity` | A [entity](https://docs.wandb.ai/ref/weave/entity) |
 
@@ -29,7 +29,7 @@ The name of the [entity](https://docs.wandb.ai/ref/weave/entity)
 
 Returns the link of the [entity](https://docs.wandb.ai/ref/weave/entity)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `entity` | A [entity](https://docs.wandb.ai/ref/weave/entity) |
 
@@ -40,7 +40,7 @@ The link of the [entity](https://docs.wandb.ai/ref/weave/entity)
 
 Returns the name of the [entity](https://docs.wandb.ai/ref/weave/entity)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `entity` | A [entity](https://docs.wandb.ai/ref/weave/entity) |
 

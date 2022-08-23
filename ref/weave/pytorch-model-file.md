@@ -5,7 +5,7 @@
 
 Returns the _file_ of the asset
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `asset` | The asset |
 
@@ -18,7 +18,7 @@ The _file_ of the asset
 
 Returns the _file_ of the asset
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `asset` | The asset |
 

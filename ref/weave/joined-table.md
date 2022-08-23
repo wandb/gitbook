@@ -5,7 +5,7 @@
 
 Returns the _file_ of the asset
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `asset` | The asset |
 
@@ -16,7 +16,7 @@ The _file_ of the asset
 
 Returns the _file_ of a _joined-table_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `joinedTable` | The _joined-table_ |
 
@@ -27,7 +27,7 @@ The  _file_ of a _joined-table_
 
 Returns the rows of a _joined-table_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `joinedTable` | The _joined-table_ |
 | `leftOuter` | Whether to include rows from the left table that do not have a matching row in the right table |
@@ -42,7 +42,7 @@ The rows of the _joined-table_
 
 Returns the _file_ of the asset
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `asset` | The asset |
 

@@ -5,7 +5,7 @@
 
 Returns the username of the [user](https://docs.wandb.ai/ref/weave/user)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `user` | A [user](https://docs.wandb.ai/ref/weave/user) |
 
@@ -18,7 +18,7 @@ The username of the [user](https://docs.wandb.ai/ref/weave/user)
 
 Returns the username of the [user](https://docs.wandb.ai/ref/weave/user)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `user` | A [user](https://docs.wandb.ai/ref/weave/user) |
 

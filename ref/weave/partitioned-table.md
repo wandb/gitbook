@@ -5,7 +5,7 @@
 
 Returns the _file_ of the asset
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `asset` | The asset |
 
@@ -16,7 +16,7 @@ The _file_ of the asset
 
 Returns the _file_ of a _partitioned-table_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `partitionedTable` | The _partitioned-table_ |
 
@@ -27,7 +27,7 @@ _file_ of the _partitioned-table_
 
 Returns the rows of a _partitioned-table_
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `partitionedTable` | The _partitioned-table_ to get rows from |
 
@@ -40,7 +40,7 @@ Rows of the _partitioned-table_
 
 Returns the _file_ of the asset
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `asset` | The asset |
 

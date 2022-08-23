@@ -5,7 +5,7 @@
 
 Returns the url for a [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifact` | A [artifact](https://docs.wandb.ai/ref/weave/artifact) |
 
@@ -16,7 +16,7 @@ The url for a [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
 Returns the name of the [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifact` | A [artifact](https://docs.wandb.ai/ref/weave/artifact) |
 
@@ -27,7 +27,7 @@ The name of the [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
 Returns the versions of the [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifact` | A [artifact](https://docs.wandb.ai/ref/weave/artifact) |
 
@@ -40,7 +40,7 @@ The versions of the [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
 Returns the url for a [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifact` | A [artifact](https://docs.wandb.ai/ref/weave/artifact) |
 
@@ -51,7 +51,7 @@ The url for a [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
 Returns the name of the [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifact` | A [artifact](https://docs.wandb.ai/ref/weave/artifact) |
 
@@ -62,7 +62,7 @@ The name of the [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
 Returns the versions of the [artifact](https://docs.wandb.ai/ref/weave/artifact)
 
-| Argument |  | 
+| Argument |  |
 | :--- | :--- |
 | `artifact` | A [artifact](https://docs.wandb.ai/ref/weave/artifact) |
 
