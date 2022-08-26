@@ -5,7 +5,7 @@
 * [Examples](examples.md)
 * [Guides](guides/README.md)
   * [Artifacts](guides/artifacts/README.md)
-    * [Quick start](guides/artifacts/quick-start.md)
+    * [Quickstart](guides/artifacts/quickstart.md)
     * [Construct an artifact](guides/artifacts/construct-an-artifact.md)
     * [Download and use an artifact](guides/artifacts/download-and-use-an-artifact.md)
     * [Update an artifact](guides/artifacts/update-an-artifact.md)
