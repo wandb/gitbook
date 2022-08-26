@@ -69,7 +69,7 @@ If you log values wider than these recommendations your data will be saved and t
 Pick a logging frequency that is appropriate to the metric you are logging. As a general rule of thumb, the wider the metric the less frequently you should log it. Concretely, we recommend:
 
 * **Scalars**: <100,000 logged points per metric
-* **Media**: <50,000 logged points per metric &#x20;
+* **Media**: <50,000 logged points per metric
 * **Histograms**: <10,000 logged points per metric
 
 {% hint style="warning" %}
@@ -134,7 +134,7 @@ Keep the total number of runs in a single project under 10,000. Large run counts
 
 #### File Count
 
-Keep the total number of files uploaded for a single run under 1,000. You can use [W\&B Artifacts](../artifacts/api.md) when you need to log a large number of files. Exceeding 1,000 files in a single run can slow down your run pages.
+Keep the total number of files uploaded for a single run under 1,000. You can use W\&B Artifacts when you need to log a large number of files. Exceeding 1,000 files in a single run can slow down your run pages.
 
 ### Python Script Performance
 

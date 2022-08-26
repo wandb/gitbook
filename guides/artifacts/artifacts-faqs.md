@@ -2,26 +2,6 @@
 
 ## Questions about Artifacts
 
-### What happens if I log a new version of the same artifact with only minor changes? Does the storage used double?
-
-No need to worry! When logging a new version of an artifact, W\&B only uploads the files that changed between the last version and the new version. For example, if your first version uploads 100 files and the second version adds 10 more files, the second artifact will only consume the space of the 10 new files.
-
-![v1 of the artifact "dataset" only has 2/5 images that differ, so it only uses 40% of the space.](../../.gitbook/assets/artifacts-dedupe.PNG)
-
-### Where are artifact files stored?
-
-By default, W\&B stores artifact files in a private Google Cloud Storage bucket located in the United States. All files are encrypted at rest and in transit.
-
-For sensitive files, we recommend a [private W\&B installation](../self-hosted/) or the use of [reference artifacts](references.md).
-
-#### Locally during Training
-
-* `wandb` logs are saved in `./wandb` by default. This can be changed by setting `dir` in `wandb.init` or by setting the `WANDB_DIR` environment variable
-* `wandb` artifacts (and possibly other things) are saved in `~/.cache/wandb` by default. This can be changed by setting the `WANDB_CACHE_DIR` environment variable
-* `wandb` configs are saved in `~/.config/wandb` by default. This can be changed by setting the `WANDB_CONFIG_DIR` environment variable
-
-**NOTE**: Depending on the machine on which `wandb` is initialized, these default folders may not be located on a writeable part of the file system, which triggers an error
-
 ### When are artifact files deleted?
 
 W\&B stores artifact files in a way that minimizes duplication across successive artifact versions, as described above.
@@ -40,35 +20,6 @@ Artifacts inherit the access to their parent project:
 
 This section describes workflows for managing and editing Artifacts. Many of these workflows use [the W\&B API](../track/public-api-guide.md), the component of [our client library](../../ref/python/) which provides access to data stored with W\&B.
 
-### How do I programmatically update artifacts?
-
-You can update various artifact properties (such as `description`, `metadata`, and `aliases`) directly from your scripts simply by setting them to the desired values and then calling `.save()`:
-
-```python
-api = wandb.Api()
-artifact = api.artifact("car-vision-project/bike-dataset:latest")
-
-# Update the description
-artifact.description = "My new description"
-
-# Selectively update metadata keys
-artifact.metadata["oldKey"] = "new value"
-
-# Replace the metadata entirely
-artifact.metadata = {"newKey": "new value"}
-
-# Add an alias
-artifact.aliases.append("best")
-# Remove an alias
-artifact.aliases.remove("latest")
-
-# Completely replace the aliases
-artifact.aliases = ["replaced"]
-
-# Persist all artifact modifications
-artifact.save()
-```
-
 ### How do I log an artifact to an existing run?
 
 Occasionally, you may want to mark an artifact as the output of a previously logged run. In that scenario, you can [reinitialize the old run](../track/advanced/resuming.md) and log new artifacts to it as follows:
@@ -78,29 +29,6 @@ with wandb.init(id="existing_run_id", resume="allow") as run:
     artifact = wandb.Artifact("artifact_name", "artifact_type")
     artifact.add_file("my_data/file.txt")
     run.log_artifact(artifact)
-```
-
-### How do I log an artifact without launching a run? How do I download an artifact outside of a run?
-
-From the command line, you can use the handy [`wandb artifact put`](../../ref/cli/wandb-artifact/wandb-artifact-put.md) command to log artifacts without needing to write a script to handle the upload:
-
-```python
-$ wandb artifact put -n project/artifact -t dataset mnist/
-```
-
-Similarly, you can then download artifacts to a directory with the [`wandb artifact get`](../../ref/cli/wandb-artifact/wandb-artifact-get.md) command:
-
-```python
-$ wandb artifact get project/artifact:alias --root mnist/
-```
-
-Alternatively, you could write a script that uses [the public API](../track/public-api-guide.md):
-
-```python
-api = wandb.Api()
-
-artifact = api.artifact("project/artifact:alias")
-artifact_dir = artifact.checkout()
 ```
 
 ### How can I find the artifacts logged or consumed by a run? How can I find the runs that produced or consumed an artifact?
@@ -147,46 +75,6 @@ consumer_runs = produced_artifacts[0].used_by()
 {% endtab %}
 {% endtabs %}
 
-### How do I clean up unused artifact versions?
-
-As an artifact evolves over time, you might end up with a large number of versions that clutter the UI and eat up storage space. This is especially true if you are using artifacts for model checkpoints, where often only the most recent version (the version tagged `latest`) of your artifact is useful.
-
-Here's how you can delete all versions of an artifact that don't have any aliases:
-
-```python
-# When using artifact api methods that don't have an entity or project
-#  argument, you must provide that information when instantiating the wandb.Api
-api = wandb.Api(overrides={"project": "capsule-gpt", "entity": "geoff"})
-
-artifact_type, artifact_name = ... # fill in the desired type + name
-for version in api.artifact_versions(artifact_type, artifact_name):
-  # Clean up all versions that don't have an alias such as 'latest'.
-	# NOTE: You can put whatever deletion logic you want here.
-  if len(version.aliases) == 0:
-      version.delete()
-```
-
-### How do I delete an artifact with associated aliases?
-
-If you're trying to [delete](https://docs.wandb.ai/ref/python/public-api/artifact#delete) artifacts that have aliases associated with them programmatically by calling `artifact.delete()`, then you might encounter a `400 Client Error`. You would need to remove the alias corresponding to the artifact in order to delete it. To do so, you can pass an additional flag `delete_aliases` that would auto-delete it if the flag is set to `True`.
-
-Here's an example on how to delete artifacts having aliases associated with them:
-
-```python
-for artifact in run.logged_artifacts():
-    artifact.delete(delete_aliases=True)  
-```
-
-### How do I clean up my local artifact cache?
-
-W\&B caches artifact files to speed up downloads across versions that share many files in common. Over time, however, this cache directory can become large. You can run the [`wandb artifact cache cleanup`](../../ref/cli/wandb-artifact/wandb-artifact-cache/wandb-artifact-cache-cleanup.md) command to prune the cache, removing any files that haven't been used recently:
-
-```python
-$ wandb artifact cache cleanup 1GB
-```
-
-Running the above command will limit the size of the cache to 1GB, prioritizing files to delete based on how long ago they were last accessed.
-
 ### How do I best log models from runs in a sweep?
 
 One effective pattern for logging models in a [sweep](../sweeps/) is to have a model artifact for the sweep, where the versions will correspond to different runs from the sweep. More concretely, you would have:
@@ -227,65 +115,15 @@ There are many ways in which you can think of _version_ a model. Artifacts provi
 1. Create a new artifact for each different model architecture. You can use `metadata` attribute of artifacts to describe the architecture in more detail (similar to how you would use `config` for a run).
 2. For each model, periodically log checkpoints with `log_artifact`. W\&B will automatically build a history of those checkpoints, annotating the most recent checkpoint with the `latest` alias so you can refer to the latest checkpoint for any given model architecture using `architecture-name:latest`
 
-### How do I log an artifact with distributed processes?
+## Artifact References FAQs
 
-For large datasets or distributed training, multiple parallel runs might need to contribute to a single artifact. You can use the following pattern to construct such parallel artifacts:
+### How can I fetch these V**ersion IDs** and **ETags** via W\&B?
+
+If you've logged an artifact reference with W\&B and if the versioning is enabled on your buckets then the version IDs can be seen in the S3 UI. To fetch these version IDs and ETags via W\&B, you can use our [public API](../../ref/python/public-api/artifact.md) and then get the corresponding manifest entries. For example:
 
 ```python
-import wandb
-import time
-
-# We will use ray to launch our runs in parallel
-# for demonstration purposes. You can orchestrate
-# your parallel runs however you want.
-import ray
-
-ray.init()
-
-artifact_type = "dataset"
-artifact_name = "parallel-artifact"
-table_name = "distributed_table"
-parts_path = "parts"
-num_parallel = 5
-
-# Each batch of parallel writers should have its own
-# unique group name.
-group_name = "writer-group-{}".format(round(time.time()))
-
-@ray.remote
-def train(i):
-  """
-  Our writer job. Each writer will add one image to the artifact.
-  """
-  with wandb.init(group=group_name) as run:
-    artifact = wandb.Artifact(name=artifact_name, type=artifact_type)
-    
-    # Add data to a wandb table. In this case we use example data
-    table = wandb.Table(columns=["a", "b", "c"], data=[[i, i*2, 2**i]])
-    
-    # Add the table to folder in the artifact
-    artifact.add(table, "{}/table_{}".format(parts_path, i))
-    
-    # Upserting the artifact creates or appends data to the artifact
-    run.upsert_artifact(artifact)
-  
-# Launch your runs in parallel
-result_ids = [train.remote(i) for i in range(num_parallel)]
-
-# Join on all the writers to make sure their files have
-# been added before finishing the artifact. 
-ray.get(result_ids)
-
-# Once all the writers are done writing, finish the artifact
-# to mark it ready.
-with wandb.init(group=group_name) as run:
-  artifact = wandb.Artifact(artifact_name, type=artifact_type)
-  
-  # Create a "PartitionTable" pointing to the folder of tables
-  # and add it to the artifact.
-  artifact.add(wandb.data_types.PartitionedTable(parts_path), table_name)
-  
-  # Finish artifact finalizes the artifact, disallowing future "upserts"
-  # to this version.
-  run.finish_artifact(artifact)
+artifact = run.use_artifact('my_table:latest')
+for entry in artifact.manifest.entries.values():
+    versionID = entry.extra.get("versionID")
+    etag = manifest_entry.extra.get("etag")
 ```

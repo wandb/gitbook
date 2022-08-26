@@ -95,7 +95,7 @@ Then see W\&B Alerts messages in Slack (or your email):
 ## What next?
 
 1. [**Collaborative Reports**](guides/reports/): Snapshot results, take notes, and share findings
-2. [**Data + Model Versioning**](guides/artifacts/): Track dependencies and results in your ML pipeline
+2. [**Data + Model Versioning**](guides/artifacts-1/): Track dependencies and results in your ML pipeline
 3. [**Data Visualization**](guides/data-vis/)**:** Visualize and query datasets and model evaluations
 4. [**Hyperparameter Tuning**](guides/sweeps/): Quickly automate optimizing hyperparameters
 5. ****[**Private-Hosting**](guides/self-hosted/): The enterprise solution for private cloud or on-prem hosting of W\&B

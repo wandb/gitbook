@@ -18,13 +18,11 @@ W\&B Artifacts help you save and organize machine learning models throughout a p
 
 Beyond these common scenarios, you can use core Artifact features to upload, version, alias, compare, and download models, supporting any custom model training and management process on local or remote filesystems, via S3, GCP, or https.
 
-For more detail on these features, check out [Artifacts Core Concepts](artifacts-core-concepts.md).
-
 ## Core Artifacts features
 
 W\&B Artifacts support model management through these basic features:
 
-1. **Upload**: Save any model (as a directory or file in any format) with`run.log_artifact()`. You can also track datasets in a remote filesystem (e.g. cloud storage in S3 or GCP) [by reference](https://docs.wandb.ai/artifacts/api#adding-references), using a link or URI instead of the raw contents.
+1. **Upload**: Save any model (as a directory or file in any format) with`run.log_artifact()`. You can also track datasets in a remote filesystem (e.g. cloud storage in S3 or GCP) by reference, using a link or URI instead of the raw contents.
 2. **Version**: Define an artifact by giving it a type (`"resnet50"`, `"bert"`, `"stacked_lstm"`) and a name (`"my_resnet50_variant_with_attention"`). When you log the same name again, W\&B automatically creates a new version of the artifact with the latest contents. You can use artifact versions to checkpoint models during training — just log a new model file to the same name at each checkpoint.
 3. **Alias**: Set an alias like `"baseline"`, `"best"`, or `"production"` to highlight the important versions in a lineage of experiments and developed models.
 4. **Compare**: Select any two versions to browse the contents side-by-side. We also have tools for visualizing model inputs and outputs, [learn more here →](https://docs.wandb.ai/datasets-and-predictions)
@@ -78,8 +76,8 @@ Each experiment run visible in the workspace links to its associated artifacts. 
 
 The artifacts graph records and makes traceable the evolution of your models across datasets, training and evaluation code repositories, projects, and teammates. To help organize the proliferation of models, you can
 
-* **use aliases to designate particular models** as `"baseline"`, `"production"`, `"ablation"`, or any other custom tag, from the W\&B UI or [from your code](https://docs.wandb.ai/artifacts/api#updating-artifacts). You can also add longer notes or dictionary-style metadata elsewhere.
-* leverage the [artifacts API](https://docs.wandb.ai/artifacts/api#updating-artifacts) to **traverse the artifacts graph** and script pipelines, e.g. to automatically evaluate new models once they're finished training
+* **use aliases to designate particular models** as `"baseline"`, `"production"`, `"ablation"`, or any other custom tag, from the W\&B UI or from your code. You can also add longer notes or dictionary-style metadata elsewhere.
+* leverage the artifacts API to **traverse the artifacts graph** and script pipelines, e.g. to automatically evaluate new models once they're finished training
 * **create dynamically-updating** [**reports**](https://docs.wandb.ai/reports) **and dashboards** to show the top-performing models for your target metrics and **deep-link to the relevant model** artifacts for downstream use
 * **maintain lineages of models** via fixed artifact types and only save models which improve on the best performance, such that the `"latest"` alias always points to the best model version of that type
 * refer to fixed model artifacts by name and alias (or version) when running experiments, such that across individuals and teams **all projects** **use an identical copy of the model**
@@ -96,7 +94,7 @@ Artifacts let you see and formalize the stages of your model development, keepin
 * **hypothesis or exploration branch your team tries: e**asily track which parameter or code changes in your experiments led to which model checkpoints. Interact with all the connections between your data, training code, and resulting models as you explore the artifact graph (input artifact(s) → script or job → output artifact(s)). Click "explode" on the compute graph to see all the versions for each artifact or all the runs of each script by job type. Click individual nodes to see further details in a new tab (file contents or code, annotations/metadata, config, timestamp, parent/child nodes, etc).
 * **meaningful instance pointer or alias your team needs**: use an alias like `"prod_ready"`, `"SOTA"`, or "`baseline"` to standardize models across your team. These will reliably return the same model checkpoint files, facilitating more scalable and reproducible workflows across file systems, environments, hardware, user accounts, etc.
 
-With artifacts, you can iterate confidently, knowing that the models resulting from all of your experiments will be saved, versioned, and organized for easy retrieval. Cleanup of unused artifacts is straightforward through the browser or [API](https://docs.wandb.ai/artifacts/api#cleaning-up-unused-versions).
+With artifacts, you can iterate confidently, knowing that the models resulting from all of your experiments will be saved, versioned, and organized for easy retrieval. Cleanup of unused artifacts is straightforward through the browser or API.
 
 Below is a walkthrough of a combination of these features for visualizing a workflow.
 

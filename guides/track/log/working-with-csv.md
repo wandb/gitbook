@@ -2,7 +2,7 @@
 description: Importing and logging data into W&B
 ---
 
-# Working with CSV
+# Import CSV
 
 ## Converting your CSV of Experiments into a W\&B Dashboard
 
@@ -101,7 +101,7 @@ for i, row in loaded_experiment_df.iterrows():
 
 You can also convert CSVs into [interactive `wandb.Table` format](../../data-vis/tables-quickstart.md) fit for a W\&B Dashboard.
 
-Using [Artifacts](../../artifacts/api.md) we can also directly log our `.csv` file to W\&B for reuse across projects and experiments:
+Using [Artifacts](broken-reference) we can also directly log our `.csv` file to W\&B for reuse across projects and experiments:
 
 ```python
 # Read our CSV into a new DataFrame

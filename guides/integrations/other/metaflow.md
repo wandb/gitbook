@@ -109,15 +109,15 @@ class WandbExampleFlow(FlowSpec):
 
 ## Where is my data? Can I access it programmatically?
 
-You can access the information we've captured in three ways: inside the original Python process being logged using the [`wandb` client library](../../../ref/python/), via the [web app UI](../../../ref/app/), or programmatically using [our Public API](../../../ref/python/public-api/). `Parameter`s are saved to W\&B's [`config`](../../track/config.md) and can be found in the [Overview tab](../../../ref/app/pages/run-page.md#overview-tab). `datasets`, `models`, and `others` are saved to [W\&B Artifacts](../../artifacts/artifacts-core-concepts.md) and can be found in the [Artifacts tab](../../../ref/app/pages/run-page.md#artifacts-tab). Base python types are saved to W\&B's [`summary`](../../track/log/) dict and can be found in the Overview tab. See our [guide to the Public API](../../track/public-api-guide.md) for details on using the API to get this information programmatically from outside .
+You can access the information we've captured in three ways: inside the original Python process being logged using the [`wandb` client library](../../../ref/python/), via the [web app UI](../../../ref/app/), or programmatically using [our Public API](../../../ref/python/public-api/). `Parameter`s are saved to W\&B's [`config`](../../track/config.md) and can be found in the [Overview tab](../../../ref/app/pages/run-page.md#overview-tab). `datasets`, `models`, and `others` are saved to [W\&B Artifacts](broken-reference) and can be found in the [Artifacts tab](../../../ref/app/pages/run-page.md#artifacts-tab). Base python types are saved to W\&B's [`summary`](../../track/log/) dict and can be found in the Overview tab. See our [guide to the Public API](../../track/public-api-guide.md) for details on using the API to get this information programmatically from outside .
 
 Here's a cheatsheet:
 
-| Data                                            | Client library                            | UI                     |
-| ----------------------------------------------- | ----------------------------------------- | ---------------------- |
-| `Parameter(...)`                                | `wandb.config`                            | Overview tab, Config   |
-| `datasets`, `models`, `others`                  | `wandb.use_artifact("{var_name}:latest")` | Artifacts tab          |
-| Base Python types (`dict`, `list`, `str`, etc.) | `wandb.summary`                           | Overview tab,  Summary |
+| Data                                            | Client library                            | UI                    |
+| ----------------------------------------------- | ----------------------------------------- | --------------------- |
+| `Parameter(...)`                                | `wandb.config`                            | Overview tab, Config  |
+| `datasets`, `models`, `others`                  | `wandb.use_artifact("{var_name}:latest")` | Artifacts tab         |
+| Base Python types (`dict`, `list`, `str`, etc.) | `wandb.summary`                           | Overview tab, Summary |
 
 ### `wandb_log` kwargs
 
@@ -132,7 +132,7 @@ Here's a cheatsheet:
 
 ### What exactly do you log? Do you log all instance and local variables?
 
-`wandb_log` only logs instance variables.  Local variables are NEVER logged.  This is useful to avoid logging unnecessary data. &#x20;
+`wandb_log` only logs instance variables. Local variables are NEVER logged. This is useful to avoid logging unnecessary data.
 
 ### Which data types get logged?
 
@@ -157,6 +157,6 @@ We currently support these types:
 
 ### Does this track artifact lineage?
 
-Yes!  If you have an artifact that is an output of step A and an input to step B, we automatically construct the lineage DAG for you.
+Yes! If you have an artifact that is an output of step A and an input to step B, we automatically construct the lineage DAG for you.
 
 For an example of this behaviour, please see this[ notebook](https://colab.research.google.com/drive/1wZG-jYzPelk8Rs2gIM3a71uEoG46u\_nG#scrollTo=DQQVaKS0TmDU) and its corresponding [W\&B Artifacts page](https://wandb.ai/megatruong/metaflow\_integration/artifacts/dataset/raw\_df/7d14e6578d3f1cfc72fe/graph)

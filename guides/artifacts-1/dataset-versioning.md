@@ -28,7 +28,7 @@ W\&B Artifacts support dataset versioning through these basic features:
 4. **Compare**: Select any two versions to browse the contents side-by-side. We're also working on a tool for dataset visualization, [learn more here →](https://docs.wandb.ai/datasets-and-predictions)
 5. **Download**: Obtain a local copy of the artifact or verify the contents by reference.
 
-For more detail on these features, check out [Artifacts Core Concepts](artifacts-core-concepts.md).
+For more detail on these features, check out [Artifacts Core Concepts](broken-reference).
 
 ## Version data seamlessly <a href="#25c79f05-174e-4d35-abda-e5c238b8d6d6" id="25c79f05-174e-4d35-abda-e5c238b8d6d6"></a>
 

@@ -1,78 +1,88 @@
----
-description: >-
-  Dataset versioning, model versioning, pipeline tracking with flexible and
-  lightweight building blocks
----
+# Artifacts
 
-# Data + Model Versioning
+Use Weights and Biases Artifacts to track datasets, models, dependencies, and results through each step of your machine learning pipeline. Artifacts make it easy to get a complete and auditable history of changes to your files.
 
-Use W\&B Artifacts for dataset versioning, model versioning, and tracking dependencies and results across machine learning pipelines. Think of an artifact as a versioned folder of data. You can store entire datasets directly in artifacts, or use artifact references to point to data in other systems like S3, GCP, or your own system.
+Artifacts can be thought of as a versioned directory. Artifacts are either an input of a run or an output of a run. Common artifacts include entire training sets and models. Store datasets directly into artifacts, or use artifact references to point to data in other systems like Amazon S3, GCP, or your own system.
 
-## Artifacts Quickstart
+<figure><img src="../../.gitbook/assets/image (185).png" alt=""><figcaption><p>Artifacts can be an input or an output of a given run.</p></figcaption></figure>
 
-The easiest way to log an artifact is passing a path to your data files. Remember to also specify a name and an artifact type.
+Artifacts and runs form a directed graph because a given Weights and Biases run can use another run’s output artifact as input. You do not need to define pipelines ahead of time. Weights and Biases will create the DAG for you when you use and log artifacts.&#x20;
 
-```
-wandb.log_artifact(file_path, name='new_artifact', type='my_dataset') 
-```
+The following animation demonstrates an example artifacts DAG as seen in the Weights and Biases App UI.&#x20;
 
-This will create a new artifact in your project's workspace:
+![Example artifact DAG](<../../.gitbook/assets/2020-09-03 15.59.43.gif>)
 
-![](<../../.gitbook/assets/Screen Shot 2021-11-05 at 1.23.04 PM.png>)
+For more information about exploring an artifacts graph, see[ Explore and traverse an artifact graph](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/explore-and-traverse-an-artifact-graph).
 
-### Log a new version
+### How it works
 
-If you log again, we'll checksum the artifact, identify that something changed, and track the new version. If nothing changes, we don't re-upload any data or create a new version.
+An artifact is like a directory of data. Each entry is either an actual file stored in the artifact, or a reference to an external URI. You can nest folders inside an artifact just like a regular filesystem. You can store any data, including: datasets, models, images, HTML, code, audio, raw binary data and more.
+
+Every time you change the contents of this directory, Weights and Biases will create a new version of your artifact instead overwriting the previous contents.
+
+As an example, assume we have the following directory structure:
 
 ```
-artifact = wandb.Artifact('new_artifact', type='my_dataset')
-artifact.add_dir('nature_100/')
-run.log_artifact(artifact)
+images
+|-- cat.png (2MB)
+|-- dog.png (1MB)
 ```
 
-![In your Artifact page, click on the Compare button to see a new folder appears in the new version](<../../.gitbook/assets/Screen Shot 2021-11-05 at 1.34.26 PM.png>)
+The proceeding code snippet demonstrates how to create a dataset artifact called `‘animals’`. (The specifics of how the following code snippet work are explained in greater detail in later sections).
 
-### Use your artifact
+```python
+import wandb
 
-In a separate run, you can retrieve and download a specific version of an artifact to a local path:
+run = wandb.init() # Initialize a W&B Run
+artifact = wandb.Artifact('animals', type='dataset')
+artifact.add_dir('images') # Adds multiple files to artifact
+run.log_artifact(artifact) # Creates `animals:v0`
+```
+
+Weights and Biases automatically assigns a version `v0` and attaches an alias called `latest` when you create and log a new artifact object to Weights and Biases. An _alias_ is a human-readable name that you can give to an artifact version.
+
+If you create another artifact with the same name, type, and contents (in other words, you create another version of the artifact), Weights and Biases will increase the version index by one. The alias `latest` is unassigned from artifact `v0` and assigned to the `v1` artifact.
+
+Weights and Biases uploads files that were modified between artifacts versions. For more information about how artifacts are stored, see [Artifacts Storage](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/storage).
+
+You can use either the index version or the alias to refer to a specific artifact.&#x20;
+
+As an example, suppose you want to upload a new image, `bird.png`, to your dataset artifact. Continuing from the previous code example, your directory might look similar to the following:
 
 ```
-artifact = run.use_artifact('user_name/project_name/new_artifact:v1', type='my_dataset')
-artifact_dir = artifact.download()
+images
+|-- cat.png (2MB)
+|-- dog.png (1MB)
+|-- bird.png (3MB)
 ```
 
-### [![](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/artifacts-quickstart)
+Re initialize the previous code snippet. This will produce a new artifact version `animals:v1`. Weights and Biases will automatically assign this version with the alias: `latest` . You can customize the aliases to apply to a version by passing in `aliases=['my-cool-alias']` to `log_artifact`. For more information about how to create new versions, see [Create a new artifact version](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/create-a-new-artifact-version).
 
-Looking for a longer example with real model training? Try our [Guide to W\&B Artifacts](https://wandb.ai/wandb/arttest/reports/Guide-to-W-B-Artifacts--VmlldzozNTAzMDM).
+To use the artifact, provide the name of the artifact along with the alias.&#x20;
 
-![](<../../.gitbook/assets/keras example.png>)
+```python
+import wandb
 
-## How it works
+run = wandb.init()
+animals = run.use_artifact('animals:latest')
+directory = animals.download()
+```
 
-Using our Artifacts API, you can log artifacts as outputs of W\&B runs, or use artifacts as input to runs.
+For more information about how to download use artifacts, see [Use an artifact](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/use-an-artifact).
 
-![](<../../.gitbook/assets/simple artifact diagram 2 (1).png>)
+### How to get started
 
-Since a run can use another run’s output artifact as input, artifacts and runs together form a directed graph. You don’t need to define pipelines ahead of time. Just use and log artifacts, and we’ll stitch everything together.
+Depending on your use case, explore the following resources to get started with Weights and Biases Artifacts:
 
-Here's an [example artifact](https://app.wandb.ai/shawn/detectron2-11/artifacts/model/run-1cxg5qfx-model/4a0e3a7c5bff65ff4f91/graph) where you can see the summary view of the DAG, as well as the zoomed-out view of every execution of each step and every artifact version.
+* If this is your first time using Weights and Biases Artifacts, we recommend you read the Quick Start. The [Quick Start](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/quick-start) walks you through setting up your first artifact
+* Looking for a longer example with real model training? Try our [Guide to W\&B Artifacts](https://wandb.ai/wandb/arttest/reports/Guide-to-W-B-Artifacts--VmlldzozNTAzMDM).
+* Explore topics about Artifacts in the Weights and Biases Developer Guide such as:
+  * Create an artifact or a new artifact version.
+  * Update an artifact.
+  * Download and use an artifact.
+  * Delete artifacts.
+* Read the [Weights and Biases SDK Reference Guide](https://docs.wandb.ai/ref).
 
-![](<../../.gitbook/assets/2020-09-03 15.59.43.gif>)
+For a step-by-step video, see [Version Control Data and Model with W\&B Artifacts](https://www.youtube.com/watch?v=Hd94gatGMic\&ab\_channel=Weights%26Biases):&#x20;
 
-## Artifacts resources
-
-Learn more about using artifacts for data and model versioning:
-
-1. [Artifacts Core Concepts](artifacts-core-concepts.md)
-2. [Artifacts Walkthrough](api.md)
-3. [Dataset Versioning](dataset-versioning.md)
-4. [Model Versioning](model-versioning.md)
-5. [Artifacts FAQs](artifacts-faqs.md)
-6. [Artifacts Examples](examples.md)
-7. [Artifact reference docs](https://docs.wandb.ai/ref/python/artifact)
-
-## Video tutorial for W\&B Artifacts
-
-Follow along with our [tutorial video](http://wandb.me/artifacts-video) and [interactive colab](http://wandb.me/artifacts-colab) and learn how to track your machine learning pipeline with W\&B Artifacts.
-
-{% embed url="http://wandb.me/artifacts-video" %}
+{% embed url="https://www.youtube.com/watch?v=Hd94gatGMic" %}
