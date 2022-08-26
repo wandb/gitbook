@@ -1,15 +1,15 @@
-# Quick start
+# Quickstart
 
 The proceeding quick start demonstrates how to create, track, and use a dataset artifact. Ensure you have a Weights and Biases account before you begin.&#x20;
 
 The following procedure lists how to construct and use an artifact. Steps 1 and 2 are not unique to Weights and Biases Artifacts.
 
-1. Log into Weights and Biases.
-2. Initialize a Run.
-3. Create an artifact object.
-4. Add the dataset to the artifact.
-5. Log the dataset.
-6. Use the dataset artifact.
+1. [Log into Weights and Biases.](quickstart.md#log-into-weights-and-biases)
+2. [Initialize a Run.](quickstart.md#initialize)
+3. [Create an artifact object.](quickstart.md#create-an-artifact-object)
+4. [Add the dataset to the artifact.](quickstart.md#add-a-file)
+5. [Log the dataset.](quickstart.md#log-the-file)
+6. [Download and use the artifact.](quickstart.md#download-and-use-the-artifact)
 
 ### Log into Weights and Biases
 
@@ -21,7 +21,7 @@ import wandb
 wandb.login()
 ```
 
-### Initialize
+### Initialize a run
 
 Use the [`wandb.init()`](https://docs.wandb.ai/ref/python/init) API to generate a background process to sync and log data as a Weights and Biases Run. Provide a project name and a job type:
 
@@ -43,7 +43,7 @@ artifact = wandb.Artifact(name='bicycle-dataset', type='dataset')
 
 For more information about how to construct an artifact, see the Artifacts [Construct an artifact](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/construct-an-artifact) documentation.
 
-### Add a file
+### Add the dataset to the artifact
 
 Add a file to the artifact. Common file types include models and datasets. The following example adds a dataset names `model.h5` that is saved locally on our machine to the artifact:
 
@@ -54,7 +54,7 @@ artifact.add_file(local_path='model.h5')
 
 Replace the filename `model.h5` in the preceding code snippet with the path to the file you want to add to the artifact.
 
-### Log the file
+### Log the dataset
 
 Use the Weights and Biases run objects `log_artifact()` method to both save your artifact version and declare the artifact as an output of the run.
 

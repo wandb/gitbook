@@ -45,7 +45,7 @@ run.log_artifact(my_data)
 
 In [this example](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018), I have three datasets of 1K, 5K, and 10K items, and I can see and compare across the file names in subfolders (by data split or by class label).
 
-![](<../../.gitbook/assets/screen\_shot\_2021-02-23\_at\_3.18.03\_pm (1) (5).png>)
+![](<../../.gitbook/assets/screen\_shot\_2021-02-23\_at\_3.18.03\_pm (1) (1).png>)
 
 ## Prepackage data splits <a href="#7ccfb650-1f87-458c-a4e2-538138660292" id="7ccfb650-1f87-458c-a4e2-538138660292"></a>
 
