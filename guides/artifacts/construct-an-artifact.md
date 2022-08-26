@@ -1,6 +1,6 @@
-# Construct an artifact
+# Construct artifacts
 
-Use the Weights and Biases SDK to construct an artifact during or outside of a Weights and Biases Run. Add files, directories, URIs, and files from parallel runs to artifacts. Once a file or URI is added, save your artifact to Weights and Biases with a Weights and Biases Run. For information on how to track an external file outside of a Weights and Biases run, see [Track external files](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/track-external-files).
+Use the Weights and Biases SDK to construct an artifact during or outside of a Weights and Biases Run. Add files, directories, URIs, and files from parallel runs to artifacts. Once a file or URI is added, save your artifact to Weights and Biases with a Weights and Biases Run. For information on how to track an external file outside of a Weights and Biases run, see [Track external files](https://docs.wandb.ai/guides/artifacts/track-external-files).
 
 ### How to construct an artifact
 
@@ -37,7 +37,7 @@ Add files, directories, external URI references (such as Amazon S3) and more wit
 artifact.add_file(local_path='hello_world.txt', name='optional-name')
 ```
 
-You can also add multiple files with the [`add_dir`](https://docs.wandb.ai/ref/python/artifact#add\_dir) method. For more information on how to add files, see [Update an artifact](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/update-an-artifact).
+You can also add multiple files with the [`add_dir`](https://docs.wandb.ai/ref/python/artifact#add\_dir) method. For more information on how to add files, see [Update an artifact](https://docs.wandb.ai/guides/artifacts/update-an-artifact).
 
 #### 3. Save your artifact to the Weights and Biases server
 
@@ -50,7 +50,7 @@ run = wandb.init(project="artifacts-example", job_type='job-type')
 run.log_artifact(artifact)
 ```
 
-You can optionally construct an artifact outside of a Weights and Biases run. For more information, see [Track external files](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/track-external-files).
+You can optionally construct an artifact outside of a Weights and Biases run. For more information, see [Track external files](https://docs.wandb.ai/guides/artifacts/track-external-files).
 
 {% hint style="warning" %}
 Calls to `log_artifact` are performed asynchronously for performant uploads. This can cause surprising behavior when logging artifacts in a loop. For example:

@@ -12,7 +12,7 @@ Use the [`wandb artifact put`](https://docs.wandb.ai/ref/cli/wandb-artifact/wand
 $ wandb artifact put --name project/artifact_name --type TYPE PATH
 ```
 
-Weights and Biases will create a new project if a the project you specify does not exist. For information on how to download an artifact, see [Use an artifact](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/use-an-artifact).
+Weights and Biases will create a new project if a the project you specify does not exist. For information on how to download an artifact, see [Download and use artifacts](https://docs.wandb.ai/guides/artifacts/download-and-use-an-artifact).
 
 ## Track artifacts outside of Weights and Biases
 
