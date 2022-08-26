@@ -16,7 +16,7 @@ Weights and Biases will create a new project if a the project you specify does n
 
 ## Track artifacts outside of Weights and Biases
 
-Use Weights and Baises Artifacts for dataset versioning and model lineage, and use **reference artifacts** to track files saved outside the Weights and Biases server. In this mode an artifact only stores metadata about the files, such as URLs, size, and checksums. The underlying data never leaves your system.  See the [Quick Start](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/quick-start) for information on how to save files and directories to Weights and Biases servers instead.
+Use Weights and Baises Artifacts for dataset versioning and model lineage, and use **reference artifacts** to track files saved outside the Weights and Biases server. In this mode an artifact only stores metadata about the files, such as URLs, size, and checksums. The underlying data never leaves your system.  See the [Quick start](https://docs.wandb.ai/guides/artifacts/quickstart) for information on how to save files and directories to Weights and Biases servers instead.
 
 For an example of tracking reference files in GCP, see the [Guide to Tracking Artifacts by Reference](https://wandb.ai/stacey/artifacts/reports/Tracking-Artifacts-by-Reference--Vmlldzo1NDMwOTE).
 

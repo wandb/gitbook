@@ -1,4 +1,4 @@
-# Download and use artifacts
+# Download and use an artifact
 
 Download and use an artifact that is already stored on the Weights and Biases server or construct an artifact object and pass it in to be deduplicated as necessary.
 
@@ -45,7 +45,7 @@ This fetches only the file at the path `name`. It returns an `Entry` object with
 * `Entry.download`: Downloads file from the artifact at path `name`
 * `Entry.ref`: If the entry was stored as a reference using `add_reference`, returns the URI
 
-References that have schemes that Weights and Biases knows how to handle can be downloaded just like artifact files.  For more information, see [Track external files](https://docs.wandb.ai/guides/artifacts/track-external-files).
+References that have schemes that Weights and Biases knows how to handle can be downloaded just like artifact files.  For more information, see [Track external files](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/track-external-files).
 {% endtab %}
 
 {% tab title="Outside of a run" %}
@@ -82,18 +82,16 @@ Specify the name of artifact along with its project name to reference an artifac
 
 The following code example demonstrates how to query an artifact from another project as input to our current Weights and Biases run. &#x20;
 
-```python
-import wandb
-
-run = wandb.init(project="<example>", job_type="<job-type>")
-# Query W&B for an artifact from another project and mark it
-# as an input to this run.
+<pre class="language-python"><code class="lang-python"><strong>import wandb
+</strong><strong>
+</strong>run = wandb.init(project="&#x3C;example>", job_type="&#x3C;job-type>")
+<strong># Query W&#x26;B for an artifact from another project and mark it
+</strong># as an input to this run.
 artifact = run.use_artifact('my-project/artifact:alias')
 
 # Use an artifact from another entity and mark it as an input
 # to this run.
-artifact = run.use_artifact('my-entity/my-project/artifact:alias')
-```
+artifact = run.use_artifact('my-entity/my-project/artifact:alias')</code></pre>
 
 ### Construct and use an artifact simultaneously
 
@@ -106,4 +104,4 @@ artifact.add_file('model.h5')
 run.use_artifact(artifact)
 ```
 
-For more information about constructing an artifact, see [Construct an artifact](https://docs.wandb.ai/guides/artifacts/construct-an-artifact).
+For more information about constructing an artifact, see [Construct an artifact](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/construct-an-artifact).

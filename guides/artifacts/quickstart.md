@@ -41,7 +41,7 @@ For example, the following code snippet demonstrates how to create an artifact c
 artifact = wandb.Artifact(name='bicycle-dataset', type='dataset')
 ```
 
-For more information about how to construct an artifact, see [Construct artifacts](https://docs.wandb.ai/guides/artifacts/construct-an-artifact).
+For more information about how to construct an artifact, see the Artifacts [Construct an artifact](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/construct-an-artifact) documentation.
 
 ### Add the dataset to the artifact
 
@@ -63,7 +63,7 @@ Use the Weights and Biases run objects `log_artifact()` method to both save your
 run.log_artifact(artifact)
 ```
 
-A `'latest'` alias is created by default when you log an artifact. For more information about artifact aliases and versions, see [Create a custom alias](https://docs.wandb.ai/guides/artifacts/create-a-custom-alias) and [Create new artifact versions](https://docs.wandb.ai/guides/artifacts/create-a-new-artifact-version), respectively.
+A `'latest'` alias is created by default when you log an artifact. For more information about artifact aliases and versions, see [Create a custom alias](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/create-a-custom-alias) and [Create a new artifact version](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/create-a-new-artifact-version), respectively.
 
 ### Download and use the artifact
 
@@ -85,4 +85,4 @@ artifact = run.use_artifact('bicycle-dataset:latest')
 artifact_dir = artifact.download()
 ```
 
-Alternatively, you can use the Public API (`wandb.Api`) to export (or update data) data already saved in a Weights and Biases outside of a Run. See [Track external files](https://docs.wandb.ai/guides/artifacts/track-external-files) for more information.
+Alternatively, you can use the Public API (`wandb.Api`) to export (or update data) data already saved in a Weights and Biases outside of a Run. See [Track external files](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/track-external-files) for more information.

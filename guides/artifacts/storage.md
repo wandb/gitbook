@@ -2,7 +2,7 @@
 
 Weights and Biases stores artifact files in a private Google Cloud Storage bucket located in the United States by default. All files are encrypted at rest and in transit.
 
-For sensitive files, we recommend you set up [Private Hosting](https://docs.wandb.ai/guides/self-hosted) or use [reference artifacts](https://docs.wandb.ai/guides/artifacts/track-external-files).
+For sensitive files, we recommend you set up [Private Hosting](https://docs.wandb.ai/guides/self-hosted) or use [reference artifacts](https://docs.wandb.ai/guides/self-hosted).
 
 During training, Weights and Biases locally saves logs, artifacts, and configuration files in the following local directories:
 
