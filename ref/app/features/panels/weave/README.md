@@ -57,7 +57,7 @@ There are a few special case to be aware of:
 1. If you are currently viewing a Table, then a `Plot table query` option will be available in addition to all the other normal options. Selecting this option means that you want to plot the results of the _current table query_. So, if you have perhaps added a custom field, grouped, sorted, filtered, or otherwise manipulated the table, you can select `Plot table query` to use the current results as the input to the plot.
 2.  `Merge Tables: <Panel>` is a special case where the incoming datatype is a List of Tables. In such cases, the "Merge Tables" portion of the panel allows users to either concatenate all the rows, or join the tables on a particular column. This setting is configured in the Weave Configuration (discussed below) and shown in the following screen shots
 
-    <img src="../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.53.43 PM.png" alt="" data-size="original"><img src="../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.53.53 PM.png" alt="" data-size="original">
+    ![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.53.43 PM.png>) ![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.53.53 PM.png>)
 3. `List of: <Panel>` is a special case where the incoming datatype is a List - and you wish to display a paginated view of panels. The following example shows `List of: Plot` , where each plot is from a different run
 
 ![](<../../../../.gitbook/assets/Screen Shot 2021-09-28 at 2.59.53 PM.png>)
