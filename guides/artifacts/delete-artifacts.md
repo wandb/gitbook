@@ -1,10 +1,10 @@
 # Delete artifacts
 
-Delete artifacts interactively with the App UI or programmatically with the Weights and Biases SDK. Weights and Biases first checks if the artifact and its associated files are not used by a previous or subsequent artifact version before it deletes an artifact. You can delete a specific artifact version or delete the entire artifact.
+Delete artifacts interactively with the App UI or programmatically with the Weights & Biases SDK. Weights & Biases first checks if the artifact and its associated files are not used by a previous or subsequent artifact version before it deletes an artifact. You can delete a specific artifact version or delete the entire artifact.
 
 You can delete aliases before you delete an artifact or you can delete an artifact and pass an additional flag to the API call. It is recommended that you remove aliases associated to the artifact you want to delete before you delete the artifact.
 
-See the Update an artifact documentation for information on how to programmatically or interactively update an alias with the Weights and Biases SDK or App UI, respectively.
+See the Update an artifact documentation for information on how to programmatically or interactively update an alias with the W\&B SDK or App UI, respectively.
 
 ### Delete an artifact version
 

@@ -1,22 +1,22 @@
 # Track external files
 
-Use **reference artifacts** to track files saved outside the Weights and Biases system, for example in an Amazon S3 bucket, GCS bucket, HTTP file server, or even an NFS share. Log artifacts outside of a [Weights and Biases Run](https://docs.wandb.ai/ref/python/run) with the Weights and Biases [CLI](https://docs.wandb.ai/ref/cli).
+Use **reference artifacts** to track files saved outside the Weights & Biases system, for example in an Amazon S3 bucket, GCS bucket, HTTP file server, or even an NFS share. Log artifacts outside of a [W\&B Run](https://docs.wandb.ai/ref/python/run) with the W\&B [CLI](https://docs.wandb.ai/ref/cli).
 
 ### Log artifacts outside of runs
 
-Weights and Biases creates a run when you log an artifact outside of a run. Each artifact belongs to a run, which in turn belongs to a project; an artifact (version) also belongs to a collection, and has a type.
+Weights & Biases creates a run when you log an artifact outside of a run. Each artifact belongs to a run, which in turn belongs to a project; an artifact (version) also belongs to a collection, and has a type.
 
-Use the [`wandb artifact put`](https://docs.wandb.ai/ref/cli/wandb-artifact/wandb-artifact-put) command to upload an artifact to the Weights and Biases server outside of a Weights and Biases run. Provide the name of the project you want the artifact to belong to along with the name of the artifact (`project/artifact_name`).Optionally provide the type (`TYPE`). Replace `PATH` in the code snippet below with the file path of the artifact you want to upload.
+Use the [`wandb artifact put`](https://docs.wandb.ai/ref/cli/wandb-artifact/wandb-artifact-put) command to upload an artifact to the W\&B server outside of a W\&B run. Provide the name of the project you want the artifact to belong to along with the name of the artifact (`project/artifact_name`).Optionally provide the type (`TYPE`). Replace `PATH` in the code snippet below with the file path of the artifact you want to upload.
 
 ```bash
 $ wandb artifact put --name project/artifact_name --type TYPE PATH
 ```
 
-Weights and Biases will create a new project if a the project you specify does not exist. For information on how to download an artifact, see [Download and use artifacts](https://docs.wandb.ai/guides/artifacts/download-and-use-an-artifact).
+Weights & Biases will create a new project if a the project you specify does not exist. For information on how to download an artifact, see [Download and use artifacts](https://docs.wandb.ai/guides/artifacts/download-and-use-an-artifact).
 
-## Track artifacts outside of Weights and Biases
+## Track artifacts outside of Weights & Biases
 
-Use Weights and Baises Artifacts for dataset versioning and model lineage, and use **reference artifacts** to track files saved outside the Weights and Biases server. In this mode an artifact only stores metadata about the files, such as URLs, size, and checksums. The underlying data never leaves your system.  See the [Quick start](https://docs.wandb.ai/guides/artifacts/quickstart) for information on how to save files and directories to Weights and Biases servers instead.
+Use Weights & Biases Artifacts for dataset versioning and model lineage, and use **reference artifacts** to track files saved outside the W\&B server. In this mode an artifact only stores metadata about the files, such as URLs, size, and checksums. The underlying data never leaves your system.  See the [Quick start](https://docs.wandb.ai/guides/artifacts/quickstart) for information on how to save files and directories to W\&B servers instead.
 
 For an example of tracking reference files in GCP, see the [Guide to Tracking Artifacts by Reference](https://wandb.ai/stacey/artifacts/reports/Tracking-Artifacts-by-Reference--Vmlldzo1NDMwOTE).
 
@@ -24,12 +24,12 @@ The following describes how to construct reference artifacts and how to best inc
 
 ### Amazon S3 / GCS References
 
-Use Weights and Biases Artifacts for dataset and model versioning to track references in cloud storage buckets. With artifact references, seamlessly layer tracking on top of your buckets with no modifications to your existing storage layout.
+Use Weights & Biases Artifacts for dataset and model versioning to track references in cloud storage buckets. With artifact references, seamlessly layer tracking on top of your buckets with no modifications to your existing storage layout.
 
 Artifacts abstract away the underlying cloud storage vendor (such AWS or GCP). Information described the proceeding section apply uniformly both Google Cloud Storage and Amazon S3.
 
 {% hint style="info" %}
-Weights and Biases Artifacts support any Amazon S3 compatible interface — including MinIO! The scripts below work, as is, when you set the AWS\_S3\_ENDPOINT\_URL environment variable to point at your MinIO server.
+Weights & Biases Artifacts support any Amazon S3 compatible interface — including MinIO! The scripts below work, as is, when you set the AWS\_S3\_ENDPOINT\_URL environment variable to point at your MinIO server.
 {% endhint %}
 
 Assume we have a bucket with the following structure:
@@ -59,7 +59,7 @@ By default, W\&B imposes a 10,000 object limit when adding an object prefix. You
 
 Our new reference artifact `mnist:latest` looks and behaves similarly to a regular artifact. The only difference is that the artifact only consists of metadata about the S3/GCS object such as its ETag, size, and version ID (if object versioning is enabled on the bucket).
 
-Weights and Biases will attempt to use the corresponding credential files or environment variables associated with the cloud provider when it adds references to Amazon S3 or GCS buckets.
+Weights & Biases will attempt to use the corresponding credential files or environment variables associated with the cloud provider when it adds references to Amazon S3 or GCS buckets.
 
 | Priority                    | Amazon S3                                                                                                           | Google Cloud Storage                                          |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -85,7 +85,7 @@ artifact = run.use_artifact('mnist:latest', type='dataset')
 artifact_dir = artifact.download()
 ```
 
-Weights and Biases will use the metadata recorded when the artifact was logged to retrieve the files from the underlying bucket when it downloads a reference artifact. If your bucket has object versioning enabled, Weights and Biases will retrieve the object version corresponding to the state of the file at the time an artifact was logged. This means that as you evolve the contents of your bucket, you can still point to the exact iteration of your data a given model was trained on since the artifact serves as a snapshot of your bucket at the time of training.
+Weights & Biases will use the metadata recorded when the artifact was logged to retrieve the files from the underlying bucket when it downloads a reference artifact. If your bucket has object versioning enabled, Weights & Biases will retrieve the object version corresponding to the state of the file at the time an artifact was logged. This means that as you evolve the contents of your bucket, you can still point to the exact iteration of your data a given model was trained on since the artifact serves as a snapshot of your bucket at the time of training.
 
 {% hint style="info" %}
 W\&B recommends that you enable 'Object Versioning' on your Amazon S3 or GCS buckets if you overwrite files as part of your workflow. With versioning enabled on your buckets, artifacts with references to files that have been overwritten will still be intact because the older object versions are retained.

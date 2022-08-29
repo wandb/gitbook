@@ -4,11 +4,11 @@ description: Add, delete, and duplicate panels in a report.
 
 # Edit a report
 
-Edit a report interactively with the App UI or programmatically with the Weights and Biases SDK.
+Edit a report interactively with the App UI or programmatically with the Weights & Biases SDK.
 
 Reports consist of _blocks_. Blocks make up the body of a report. Within these blocks you can add text, images, embedded visualizations, plots from experiments and run, and panels grids.
 
-_Panel grids_ are a specific type of block that hold panels and _run sets_. Run sets are a collection of runs logged to a project in Weights and Biases. Panels are visualizations of run set data.
+_Panel grids_ are a specific type of block that hold panels and _run sets_. Run sets are a collection of runs logged to a project in W\&B. Panels are visualizations of run set data.
 
 ### Add plots
 
@@ -16,7 +16,7 @@ Each panel grid has a set of run sets and a set of panels. The run sets at the b
 
 {% tabs %}
 {% tab title="App UI" %}
-Enter a forward slash (`/`) in the report to display a dropdown menu. Select **Add panel** to add a panel. You can add any panel that is supported by Weights and Biases; including a line plot, scatter plot or parallel coordinates chart.
+Enter a forward slash (`/`) in the report to display a dropdown menu. Select **Add panel** to add a panel. You can add any panel that is supported by Weights & Biases; including a line plot, scatter plot or parallel coordinates chart.
 
 
 
@@ -59,7 +59,7 @@ For more information about available plots and charts you can add to a report pr
 
 ### Add run sets
 
-Add run sets from projects interactively with the App UI or the Weights and Biases SDK.
+Add run sets from projects interactively with the App UI or the Weights & Biases SDK.
 
 {% tabs %}
 {% tab title="App UI" %}
@@ -157,7 +157,7 @@ report.save()
 
 ### Add code blocks
 
-Add code blocks to your report interactively with the App UI or with the Weights and Biases SDK.
+Add code blocks to your report interactively with the App UI or with the Weights & Biases SDK.
 
 {% tabs %}
 {% tab title="App UI" %}
@@ -228,7 +228,7 @@ Hello, World!
 
 ### Markdown
 
-Add markdown to your report interactively with the App UI or with the Weights and Biases SDK.
+Add markdown to your report interactively with the App UI or with the Weights & Biases SDK.
 
 {% tabs %}
 {% tab title="App UI" %}
@@ -259,7 +259,7 @@ This will render a markdown block similar to:
 
 ### HTML elements
 
-Add HTML elements to your report interactively with the App UI or with the Weights and Biases SDK.
+Add HTML elements to your report interactively with the App UI or with the Weights & Biases SDK.
 
 {% tabs %}
 {% tab title="App UI" %}
@@ -296,11 +296,11 @@ This will render a HTML elements  to the following:
 
 ### Embed rich media links
 
-Embed rich media within the report with the App UI or with the Weights and Biases SDK.
+Embed rich media within the report with the App UI or with the Weights & Biases SDK.
 
 {% tabs %}
 {% tab title="App UI" %}
-Copy and past URLs into reports to embed rich media within the report. The following animations demonstrate how to copy and paste URLs from Replit, Spotify, Twitter and YouTube.
+Copy and past URLs into reports to embed rich media within the report. The following animations demonstrate how to copy and paste URLs from Replit, Twitter and YouTube.
 
 #### Replit
 

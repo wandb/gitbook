@@ -1,10 +1,10 @@
 # Storage
 
-Weights and Biases stores artifact files in a private Google Cloud Storage bucket located in the United States by default. All files are encrypted at rest and in transit.
+Weights & Biases stores artifact files in a private Google Cloud Storage bucket located in the United States by default. All files are encrypted at rest and in transit.
 
 For sensitive files, we recommend you set up [Private Hosting](https://docs.wandb.ai/guides/self-hosted) or use [reference artifacts](https://docs.wandb.ai/guides/artifacts/track-external-files).
 
-During training, Weights and Biases locally saves logs, artifacts, and configuration files in the following local directories:
+During training, Weights & Biases locally saves logs, artifacts, and configuration files in the following local directories:
 
 | File      | Default location  | To change default location set:                                   |
 | --------- | ----------------- | ----------------------------------------------------------------- |
@@ -18,7 +18,7 @@ Depending on the machine on `wandb` is initialized on, these default folders may
 
 ### Clean up local artifact cache
 
-Weights and Biases caches artifact files to speed up downloads across versions that share files in common. Over time this cache directory can become large. Run the [`wandb artifact cache cleanup`](https://docs.wandb.ai/ref/cli/wandb-artifact/wandb-artifact-cache) command to prune the cache and to remove any files that have not been used recently.
+Weights & Biases caches artifact files to speed up downloads across versions that share files in common. Over time this cache directory can become large. Run the [`wandb artifact cache cleanup`](https://docs.wandb.ai/ref/cli/wandb-artifact/wandb-artifact-cache) command to prune the cache and to remove any files that have not been used recently.
 
 The proceeding code snippet demonstrates how to limit the size of the cache to 1GB. Copy and paste the code snippet into your terminal:
 

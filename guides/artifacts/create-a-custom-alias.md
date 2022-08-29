@@ -2,7 +2,7 @@
 
 Use aliases as pointers to specific versions. By default, `Run.log_artifact` adds the `latest` alias to the logged version.
 
-An artifact version `v0` is created and attached to your artifact when you log an artifact for the first time. Weights and Biases checksums the contents when you log again to the same artifact. If the artifact changed, Weights and Biases saves a new version `v1`.
+An artifact version `v0` is created and attached to your artifact when you log an artifact for the first time. Weights & Biases checksums the contents when you log again to the same artifact. If the artifact changed, Weights & Biases saves a new version `v1`.
 
 For example, if you want your training script to pull the most recent version of a dataset, specify `latest` when you use that artifact. The proceeding code example demonstrates how to download a recent dataset artifact named `bike-dataset` that has an alias, `latest`:
 

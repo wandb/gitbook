@@ -37,7 +37,7 @@ artifact.save()
 
 Use Collaborative Mode to allow a collection of runs to collaborate on a version before committing it. There are two key ideas to keep in mind when using Collaborative Mode:
 
-1. Each Run in the collection needs to be aware of the same unique ID (called `distributed_id`) in order to collaborate on the same version. As a default, if present, Weights and Biases uses the run's `group` as set by `wandb.init(group=GROUP)` as the `distributed_id`.
+1. Each Run in the collection needs to be aware of the same unique ID (called `distributed_id`) in order to collaborate on the same version. As a default, if present, Weights & Biases uses the run's `group` as set by `wandb.init(group=GROUP)` as the `distributed_id`.
 2. There must be a final run that "commits" the version, permanently locking its state.
 
 Consider the following example. Note that rather than using `log_artifact` we use `upsert_artifact` to add the the collaborative artifact and `finish_artifact` to finalize the commit:

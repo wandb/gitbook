@@ -1,8 +1,8 @@
-# Explore and traverse an artifact graph
+# Explore and traverse artifact graphs
 
-Weights and Biases automatically tracks the artifacts a given run logged as well as the artifacts a given run used. To view an artifact graph:
+Weights & Biases automatically tracks the artifacts a given run logged as well as the artifacts a given run used. To view an artifact graph:
 
-1. Navigate to your project in the Weights and Biases App UI
+1. Navigate to your project in the W\&B App UI
 2. Choose the artifact icon on the left panel.
 3. Select **Lineage**.
 
@@ -16,11 +16,11 @@ For a more detailed view, select the Explode toggle on the upper left hand side 
 
 ### Traverse a graph
 
-Programmatically walk a graph with the Weights and Biases Public API (`wandb.Api`). Traverse a graph from an artifact or from a run.&#x20;
+Programmatically walk a graph with the W\&B Public API (`wandb.Api`). Traverse a graph from an artifact or from a run.&#x20;
 
 #### Traverse from an artifact
 
-Create an artifact object with the Weights and Biases Public API ([wandb.Api](https://docs.wandb.ai/ref/python/public-api/api)). Provide the name of the project, artifact and alias of the artifact:
+Create an artifact object with the W\&B Public API ([wandb.Api](https://docs.wandb.ai/ref/python/public-api/api)). Provide the name of the project, artifact and alias of the artifact:
 
 ```python
 import wandb
@@ -40,7 +40,7 @@ consumer_runs = artifact.used_by()
 
 #### Traverse from a run&#x20;
 
-Create an artifact object with the Weights and Biases Public API ([wandb.Api.Run](https://docs.wandb.ai/ref/python/public-api/run)). Provide the name of the entity, project, and run ID:
+Create an artifact object with the W\&B Public API ([wandb.Api.Run](https://docs.wandb.ai/ref/python/public-api/run)). Provide the name of the entity, project, and run ID:
 
 ```python
 import wandb

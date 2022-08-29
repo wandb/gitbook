@@ -1,8 +1,8 @@
-# Update an artifact
+# Update artifacts
 
-Pass desired values to update the `description`, `metadata`, and `alias` of an artifact. Call the `save()` method to update the artifact on the Weights and Biases servers. You can update an artifact during a Weights and Biases Run or outside of a Run.
+Pass desired values to update the `description`, `metadata`, and `alias` of an artifact. Call the `save()` method to update the artifact on the Weights & Biases servers. You can update an artifact during a W\&B Run or outside of a Run.
 
-Use the Weights and Biases Public API ([`wandb.Api`](https://docs.wandb.ai/ref/python/public-api/api)) to update an artifact outside of a run. Use the Artifact API ([`wandb.Artifact`](https://docs.wandb.ai/ref/python/artifact)) to update an artifact during a run.&#x20;
+Use the W\&B Public API ([`wandb.Api`](https://docs.wandb.ai/ref/python/public-api/api)) to update an artifact outside of a run. Use the Artifact API ([`wandb.Artifact`](https://docs.wandb.ai/ref/python/artifact)) to update an artifact during a run.&#x20;
 
 {% hint style="warning" %}
 You can not update the alias of artifact that is linked to a model in Model Registry.

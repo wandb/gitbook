@@ -1,19 +1,19 @@
 # Quickstart
 
-The proceeding quick start demonstrates how to create, track, and use a dataset artifact. Ensure you have a Weights and Biases account before you begin.&#x20;
+The proceeding quick start demonstrates how to create, track, and use a dataset artifact. Ensure you have a Weights & Biases account before you begin.&#x20;
 
-The following procedure lists how to construct and use an artifact. Steps 1 and 2 are not unique to Weights and Biases Artifacts.
+The following procedure lists how to construct and use an artifact. Steps 1 and 2 are not unique to W\&B Artifacts.
 
-1. [Log into Weights and Biases.](quickstart.md#log-into-weights-and-biases)
+1. [Log into Weights & Biases.](quickstart.md#log-into-weights-and-biases)
 2. [Initialize a Run.](quickstart.md#initialize)
 3. [Create an artifact object.](quickstart.md#create-an-artifact-object)
 4. [Add the dataset to the artifact.](quickstart.md#add-a-file)
 5. [Log the dataset.](quickstart.md#log-the-file)
 6. [Download and use the artifact.](quickstart.md#download-and-use-the-artifact)
 
-### Log into Weights and Biases
+### Log into Weights & Biases
 
-Import the Weights and Biases library and log in to Weights and Biases. You will need to sign up for a free Weights and Biases account if you have not done so already.
+Import the Weights & Biases library and log in to W\&B. You will need to sign up for a free W\&B account if you have not done so already.
 
 ```python
 import wandb
@@ -23,7 +23,7 @@ wandb.login()
 
 ### Initialize a run
 
-Use the [`wandb.init()`](https://docs.wandb.ai/ref/python/init) API to generate a background process to sync and log data as a Weights and Biases Run. Provide a project name and a job type:
+Use the [`wandb.init()`](https://docs.wandb.ai/ref/python/init) API to generate a background process to sync and log data as a W\&B Run. Provide a project name and a job type:
 
 ```python
 # Create a W&B Run. Here we specify 'dataset' as the job type since this example
@@ -56,7 +56,7 @@ Replace the filename `dataset.h5` in the preceding code snippet with the path to
 
 ### Log the dataset
 
-Use the Weights and Biases run objects `log_artifact()` method to both save your artifact version and declare the artifact as an output of the run.
+Use the W\&B run objects `log_artifact()` method to both save your artifact version and declare the artifact as an output of the run.
 
 ```python
 # Save the artifact version to W&B and mark it as the output of this run
@@ -67,10 +67,10 @@ A `'latest'` alias is created by default when you log an artifact. For more info
 
 ### Download and use the artifact
 
-The following code example demonstrates the steps you can take to use an artifact you have logged and saved to the Weights and Biases servers.
+The following code example demonstrates the steps you can take to use an artifact you have logged and saved to the Weights & Biases servers.
 
 1. First, initialize a new run object with **`wandb.init()`.**
-2. Second, use the run objects [`use_artifact()`](https://docs.wandb.ai/ref/python/run#use\_artifact) method to tell Weights and Biases what artifact to use. This returns an artifact object.
+2. Second, use the run objects [`use_artifact()`](https://docs.wandb.ai/ref/python/run#use\_artifact) method to tell Weights & Biases what artifact to use. This returns an artifact object.
 3. Third, use the artifacts [`download()`](https://docs.wandb.ai/ref/python/artifact#download) method to download the contents of the artifact.
 
 ```python
@@ -85,4 +85,4 @@ artifact = run.use_artifact('bicycle-dataset:latest')
 artifact_dir = artifact.download()
 ```
 
-Alternatively, you can use the Public API (`wandb.Api`) to export (or update data) data already saved in a Weights and Biases outside of a Run. See [Track external files](https://docs.wandb.ai/guides/artifacts/track-external-files) for more information.
+Alternatively, you can use the Public API (`wandb.Api`) to export (or update data) data already saved in a Weights & Biases outside of a Run. See [Track external files](https://docs.wandb.ai/guides/artifacts/track-external-files) for more information.
