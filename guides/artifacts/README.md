@@ -12,7 +12,7 @@ The following animation demonstrates an example artifacts DAG as seen in the Wei
 
 ![Example artifact DAG](<../../.gitbook/assets/2020-09-03 15.59.43.gif>)
 
-For more information about exploring an artifacts graph, see[ Explore and traverse an artifact graph](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/explore-and-traverse-an-artifact-graph).
+For more information about exploring an artifacts graph, see [Explore and traverse an artifact graph](explore-and-traverse-an-artifact-graph.md).
 
 ### How it works
 
@@ -43,7 +43,7 @@ Weights and Biases automatically assigns a version `v0` and attaches an alias ca
 
 If you create another artifact with the same name, type, and contents (in other words, you create another version of the artifact), Weights and Biases will increase the version index by one. The alias `latest` is unassigned from artifact `v0` and assigned to the `v1` artifact.
 
-Weights and Biases uploads files that were modified between artifacts versions. For more information about how artifacts are stored, see [Artifacts Storage](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/storage).
+Weights and Biases uploads files that were modified between artifacts versions. For more information about how artifacts are stored, see [Artifacts Storage](storage.md).
 
 You can use either the index version or the alias to refer to a specific artifact.&#x20;
 
@@ -56,7 +56,7 @@ images
 |-- bird.png (3MB)
 ```
 
-Re initialize the previous code snippet. This will produce a new artifact version `animals:v1`. Weights and Biases will automatically assign this version with the alias: `latest` . You can customize the aliases to apply to a version by passing in `aliases=['my-cool-alias']` to `log_artifact`. For more information about how to create new versions, see [Create a new artifact version](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/create-a-new-artifact-version).
+Re initialize the previous code snippet. This will produce a new artifact version `animals:v1`. Weights and Biases will automatically assign this version with the alias: `latest` . You can customize the aliases to apply to a version by passing in `aliases=['my-cool-alias']` to `log_artifact`. For more information about how to create new versions, see Create a new artifact version.
 
 To use the artifact, provide the name of the artifact along with the alias.&#x20;
 
@@ -68,13 +68,13 @@ animals = run.use_artifact('animals:latest')
 directory = animals.download()
 ```
 
-For more information about how to download use artifacts, see [Use an artifact](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/use-an-artifact).
+For more information about how to download use artifacts, see [Use an artifact](download-and-use-an-artifact.md).
 
 ### How to get started
 
 Depending on your use case, explore the following resources to get started with Weights and Biases Artifacts:
 
-* If this is your first time using Weights and Biases Artifacts, we recommend you read the Quick Start. The [Quick Start](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/quick-start) walks you through setting up your first artifact
+* If this is your first time using Weights and Biases Artifacts, we recommend you read the Quick Start. The [Quick Start](quickstart.md) walks you through setting up your first artifact
 * Looking for a longer example with real model training? Try our [Guide to W\&B Artifacts](https://wandb.ai/wandb/arttest/reports/Guide-to-W-B-Artifacts--VmlldzozNTAzMDM).
 * Explore topics about Artifacts in the Weights and Biases Developer Guide such as:
   * Create an artifact or a new artifact version.
