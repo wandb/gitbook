@@ -55,7 +55,7 @@ First, import the Weights and Biases SDK. Next, create an artifact from the Publ
 import wandb
 
 api = wandb.Api()
-artifact = api.artifact('entity/project/artifact:alias')pyth
+artifact = api.artifact('entity/project/artifact:alias')
 ```
 
 Use the object returned to download the contents of the artifact:
