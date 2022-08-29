@@ -45,14 +45,14 @@ For more information about how to construct an artifact, see [Construct artifact
 
 ### Add the dataset to the artifact
 
-Add a file to the artifact. Common file types include models and datasets. The following example adds a dataset names `model.h5` that is saved locally on our machine to the artifact:
+Add a file to the artifact. Common file types include models and datasets. The following example adds a dataset named `dataset.h5` that is saved locally on our machine to the artifact:
 
 ```python
 # Add a file to the artifact's contents
-artifact.add_file(local_path='model.h5')
+artifact.add_file(local_path='dataset.h5')
 ```
 
-Replace the filename `model.h5` in the preceding code snippet with the path to the file you want to add to the artifact.
+Replace the filename `dataset.h5` in the preceding code snippet with the path to the file you want to add to the artifact.
 
 ### Log the dataset
 
