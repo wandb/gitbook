@@ -53,7 +53,6 @@
     * [Collaborate on reports](guides/reports/collaborate-on-reports.md)
     * [Clone and export reports](guides/reports/clone-and-export-reports.md)
     * [Embed reports](guides/reports/embed-reports.md)
-    * [Embed rich media links into reports](guides/reports/embed-rich-media-links-into-reports.md)
     * [Cross-project reports](guides/reports/cross-project-reports.md)
     * [Reports FAQ](guides/reports/reports-faq.md)
   * [Launch Jobs](guides/launch/README.md)
