@@ -366,13 +366,13 @@ Configuring an external redis server will improve the reliability of the service
 
 #### Configuring REDIS in the W\&B server
 
-To configure the redis instance with W\&B, you can navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external Redis instance" option, and fill in the redis connection string in the following format:
+To configure the redis instance with W\&B, you can navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/system-admin`. Enable the "Use an external Redis instance" option, and fill in the `redis` connection string in the following format:
 
 ![Configuring REDIS in W\&B](<../../../.gitbook/assets/Screen Shot 2022-08-19 at 1.45.26 PM.png>)
 
-The above assumes the REDIS instance is running at the default port of `6379`
+You can also configure `redis` using the environment variable `REDIS` on the container or in your Kubernetes deployment. Alternatively, you could also setup `REDIS` as a Kubernetes secret.
 
-If you configure a different port, setup authentication and also have TLS enabled on the redis instance the connection string format would look something like: `redis://$USER:$PASSWORD@$HOST:$PORT?tls=true`
+The above assumes the `redis` instance is running at the default port of `6379`. If you configure a different port, setup authentication and also want to have TLS enabled on the `redis` instance the connection string format would look something like: `redis://$USER:$PASSWORD@$HOST:$PORT?tls=true`
 
 ## Slack
 
