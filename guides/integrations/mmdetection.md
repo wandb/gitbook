@@ -98,13 +98,13 @@ Check out all the arguments for wandb.init [here](https://docs.wandb.ai/ref/pyth
 
 ### :checkered\_flag: Checkpointing
 
-You can reliably store these checkpoints as [W\&B Artifacts](broken-reference) by using the `log_checkpoint=True` argument in `MMDetWandbHook`. This feature depends on the MMCV's [`CheckpointHook`](https://mmcv.readthedocs.io/en/latest/api.html?highlight=CheckpointHook#mmcv.runner.CheckpointHook) that periodically save the model checkpoints. The period is determined by `checkpoint_config.interval`.
+You can reliably store these checkpoints as [W\&B Artifacts](broken-reference/) by using the `log_checkpoint=True` argument in `MMDetWandbHook`. This feature depends on the MMCV's [`CheckpointHook`](https://mmcv.readthedocs.io/en/latest/api.html?highlight=CheckpointHook#mmcv.runner.CheckpointHook) that periodically save the model checkpoints. The period is determined by `checkpoint_config.interval`.
 
 {% hint style="info" %}
 Every W\&B account comes with 100 GB of free storage for datasets and models.
 {% endhint %}
 
-![The checkpoints are shown as different versions on the left-hand side pane. You can download the model from the Files tab or use API to download it programmatically.](../../.gitbook/assets/0b86abff.png)
+![The checkpoints are shown as different versions on the left-hand side pane. You can download the model from the Files tab or use API to download it programmatically.](<../../.gitbook/assets/0b86abff (1).png>)
 
 ### :mega: Checkpoint with Metadata
 

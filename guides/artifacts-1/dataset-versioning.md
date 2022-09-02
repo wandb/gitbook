@@ -28,7 +28,7 @@ W\&B Artifacts support dataset versioning through these basic features:
 4. **Compare**: Select any two versions to browse the contents side-by-side. We're also working on a tool for dataset visualization, [learn more here →](https://docs.wandb.ai/datasets-and-predictions)
 5. **Download**: Obtain a local copy of the artifact or verify the contents by reference.
 
-For more detail on these features, check out [Artifacts Core Concepts](broken-reference).
+For more detail on these features, check out [Artifacts Core Concepts](broken-reference/).
 
 ## Version data seamlessly <a href="#25c79f05-174e-4d35-abda-e5c238b8d6d6" id="25c79f05-174e-4d35-abda-e5c238b8d6d6"></a>
 
@@ -45,7 +45,7 @@ run.log_artifact(my_data)
 
 In [this example](https://wandb.ai/stacey/mendeleev/artifacts/balanced\_data/inat\_80-10-10\_5K/ab79f01e007113280018), I have three datasets of 1K, 5K, and 10K items, and I can see and compare across the file names in subfolders (by data split or by class label).
 
-![](<../../.gitbook/assets/screen\_shot\_2021-02-23\_at\_3.18.03\_pm (1) (1).png>)
+![](<../../.gitbook/assets/screen\_shot\_2021-02-23\_at\_3.18.03\_pm (1) (5).png>)
 
 ## Prepackage data splits <a href="#7ccfb650-1f87-458c-a4e2-538138660292" id="7ccfb650-1f87-458c-a4e2-538138660292"></a>
 
