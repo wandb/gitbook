@@ -1,5 +1,6 @@
 ---
 redirects:
+  artifacts/api: ./guides/artifacts/quickstart.md
   api: ./ref/python/public-api/README.md
   api/overview: ./guides/track/public-api-guide.md
   api/project: ./ref/python/public-api/project.md
