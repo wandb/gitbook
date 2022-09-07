@@ -4,6 +4,7 @@ redirects:
   api/overview: ./library/api/README.md
   api/project: ./library/api/README.md
   api/run: ./library/api/README.md
+  artifacts/api: ./guides/artifacts/quickstart.md
   cli/overview: ./library/cli.md
   cli/restoring: ./library/cli.md
   docs/: ./README.md
