@@ -300,19 +300,7 @@ Embed rich media within the report with the App UI or with the Weights & Biases 
 
 {% tabs %}
 {% tab title="App UI" %}
-Copy and past URLs into reports to embed rich media within the report. The following animations demonstrate how to copy and paste URLs from Replit, Twitter and YouTube.
-
-#### Replit
-
-Copy and paste a link from Repl to embed an interactive IDE into a report.
-
-![](<../../.gitbook/assets/Jun-30-2022 20-22-32.gif>)
-
-#### SoundCloud
-
-Copy and paste a SoundCloud link to embed an audio file into a report.
-
-![](<../../.gitbook/assets/Jun-30-2022 20-20-52.gif>)
+Copy and past URLs into reports to embed rich media within the report. The following animations demonstrate how to copy and paste URLs from Twitter, YouTube and Soundcloud
 
 #### Twitter
 
@@ -320,11 +308,19 @@ Copy and paste a Tweet link URL into a report to view the Tweet within the repor
 
 ![](<../../.gitbook/assets/Jun-30-2022 20-18-35.gif>)
 
+####
+
 #### Youtube
 
 Copy and paste a YouTube video URL link to embed a video in the report.
 
 ![](<../../.gitbook/assets/Jun-30-2022 20-15-16.gif>)
+
+#### SoundCloud
+
+Copy and paste a SoundCloud link to embed an audio file into a report.
+
+![](<../../.gitbook/assets/Jun-30-2022 20-20-52.gif>)
 {% endtab %}
 
 {% tab title="Python SDK (Beta)" %}
