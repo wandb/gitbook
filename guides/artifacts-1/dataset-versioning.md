@@ -22,13 +22,13 @@ Beyond these common scenarios, you can use core Artifact features to upload, ver
 
 W\&B Artifacts support dataset versioning through these basic features:
 
-1. **Upload**: Start tracking and versioning any data (files or directories) with `run.log_artifact()`. You can also track datasets in a remote filesystem (e.g. cloud storage in S3 or GCP) [by reference](https://docs.wandb.ai/artifacts/api#adding-references), using a link or URI instead of the raw contents.
+1. **Upload**: Start tracking and versioning any data (files or directories) with `run.log_artifact()`. You can also track datasets in a remote filesystem (e.g. cloud storage in S3 or GCP) by [reference](https://docs.wandb.ai/guides/artifacts/track-external-files), using a link or URI instead of the raw contents.
 2. **Version**: Define an artifact by giving it a type (`"raw_data"`, `"preprocessed_data"`, `"balanced_data"`) and a name (`"imagenet_cats_10K"`). When you log the same name again, W\&B automatically creates a new version of the artifact with the latest contents.
 3. **Alias**: Set an alias like `"best"` or `"production"` to highlight the important versions in a lineage of artifacts.
 4. **Compare**: Select any two versions to browse the contents side-by-side. We're also working on a tool for dataset visualization, [learn more here →](https://docs.wandb.ai/datasets-and-predictions)
 5. **Download**: Obtain a local copy of the artifact or verify the contents by reference.
 
-For more detail on these features, check out [Artifacts Core Concepts](broken-reference/).
+For more detail on these features, check out [Artifacts how it works](https://docs.wandb.ai/guides/artifacts#how-it-works).
 
 ## Version data seamlessly <a href="#25c79f05-174e-4d35-abda-e5c238b8d6d6" id="25c79f05-174e-4d35-abda-e5c238b8d6d6"></a>
 
