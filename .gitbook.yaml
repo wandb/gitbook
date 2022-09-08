@@ -1,6 +1,5 @@
 ---
 redirects:
-  artifacts/api: ./guides/artifacts/quickstart.md
   api: ./ref/python/public-api/README.md
   api/overview: ./guides/track/public-api-guide.md
   api/project: ./ref/python/public-api/project.md
@@ -160,12 +159,12 @@ redirects:
   library/sweeps/python-api: ./guides/sweeps/python-api.md
   guides/sweeps/visualize-sweep-results: ./guides/sweeps/quickstart.md
   artifacts: ./guides/artifacts/README.md
-  artifacts/artifacts-core-concepts: ./guides/artifacts/artifacts-core-concepts.md
-  artifacts/api: ./guides/artifacts/api.md
+  artifacts/artifacts-core-concepts: ./guides/artifacts/README.md#how-it-works
+  artifacts/api: ./guides/artifacts/quickstart.md
   artifacts/dataset-versioning: ./guides/artifacts/dataset-versioning.md
   artifacts/model-versioning: ./guides/artifacts/model-versioning.md
-  artifacts/artifact-creation-modes: ./guides/artifacts/artifact-creation-modes.md
-  artifacts/references: ./guides/artifacts/references.md
+  artifacts/artifact-creation-modes: ./guides/artifacts/create-a-new-artifact-version.md
+  artifacts/references: ./guides/artifacts/track-external-files.md
   artifacts/examples: ./guides/artifacts/examples.md
   artifacts/artifacts-faqs: ./guides/artifacts/artifacts-faqs.md
   reports: ./guides/reports.md
