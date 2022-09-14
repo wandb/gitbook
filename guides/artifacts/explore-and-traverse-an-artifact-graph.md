@@ -22,7 +22,7 @@ A W\&B run was initialized (`wandb.init`) with a job type called 'model\_trainer
 
 For a more detailed view, select the **Explode** toggle on the upper left hand side of the dashboard. The expanded graph shows details of every run and every artifact in the project that was logged. Above the circle or square is a key-value pair. The key is the type, and the value is either the run name (runs) or the version (artifacts).
 
-&#x20;Try it yourself on this [example Graph page](https://wandb.ai/shawn/detectron2-11/artifacts/dataset/furniture-small-val/06d5ddd4deeb2a6ebdd5/graph).
+&#x20;Try it yourself on this [example Graph page](https://wandb.ai/shawn/detectron2-11/artifacts/dataset/furniture-small-val/v0/lineage).
 
 ### Traverse a graph
 
