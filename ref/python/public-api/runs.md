@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1493-L1592)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1511-L1621)
 
 
 
@@ -10,7 +10,13 @@ An iterable collection of runs associated with a project and optional filter.
 
 ```python
 Runs(
-    client, entity, project, filters=None, order=None, per_page=50
+    client: "RetryingClient",
+    entity: str,
+    project: str,
+    filters: Optional[str] = None,
+    order: Optional[str] = None,
+    per_page: int = 50,
+    include_sweeps: bool = (True)
 )
 ```
 

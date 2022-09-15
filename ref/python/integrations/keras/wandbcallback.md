@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L277-L1073)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L278-L1074)
 
 
 
@@ -82,7 +82,7 @@ associated with the best `epoch`.
 
 <h3 id="get_flops"><code>get_flops</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L1025-L1073)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L1026-L1074)
 
 ```python
 get_flops() -> float
@@ -93,7 +93,7 @@ in inference mode. It uses tf.compat.v1.profiler under the hood.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L536-L545)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L537-L546)
 
 ```python
 set_model(
@@ -106,7 +106,7 @@ set_model(
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L533-L534)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L534-L535)
 
 ```python
 set_params(

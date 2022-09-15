@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_watch.py#L16-L103)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/wandb_watch.py#L20-L106)
 
 
 
@@ -12,7 +12,7 @@ Hooks into the torch model to collect gradients and the topology.
 watch(
     models,
     criterion=None,
-    log: Optional[str] = "gradients",
+    log: Optional[Literal['gradients', 'parameters', 'all']] = "gradients",
     log_freq: int = 1000,
     idx: Optional[int] = None,
     log_graph: bool = (False)

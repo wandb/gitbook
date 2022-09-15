@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1595-L2195)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1624-L2233)
 
 
 
@@ -10,7 +10,12 @@ A single run associated with an entity and project.
 
 ```python
 Run(
-    client, entity, project, run_id, attrs=None
+    client: "RetryingClient",
+    entity: str,
+    project: str,
+    run_id: str,
+    attrs: Optional[Mapping] = None,
+    include_sweeps: bool = (True)
 )
 ```
 
@@ -29,7 +34,7 @@ Run(
 
 <h3 id="create"><code>create</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1682-L1722)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1720-L1760)
 
 ```python
 @classmethod
@@ -43,7 +48,7 @@ Create a run for the given project
 
 <h3 id="delete"><code>delete</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1837-L1871)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1875-L1909)
 
 ```python
 delete(
@@ -56,7 +61,7 @@ Deletes the given run from the wandb backend.
 
 <h3 id="display"><code>display</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L935-L946)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L944-L955)
 
 ```python
 display(
@@ -69,7 +74,7 @@ Display this object in jupyter
 
 <h3 id="file"><code>file</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1933-L1942)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1971-L1980)
 
 ```python
 file(
@@ -88,7 +93,7 @@ Arguments:
 
 <h3 id="files"><code>files</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1921-L1931)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1959-L1969)
 
 ```python
 files(
@@ -108,7 +113,7 @@ Arguments:
 
 <h3 id="history"><code>history</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1967-L2006)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2005-L2044)
 
 ```python
 history(
@@ -133,7 +138,7 @@ the history records being sampled.
 
 <h3 id="load"><code>load</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1724-L1782)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1762-L1820)
 
 ```python
 load(
@@ -146,7 +151,7 @@ load(
 
 <h3 id="log_artifact"><code>log_artifact</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2104-L2136)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2142-L2174)
 
 ```python
 log_artifact(
@@ -171,7 +176,7 @@ Declare an artifact as output of a run.
 
 <h3 id="logged_artifacts"><code>logged_artifacts</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2064-L2066)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2102-L2104)
 
 ```python
 logged_artifacts(
@@ -184,7 +189,7 @@ logged_artifacts(
 
 <h3 id="save"><code>save</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1873-L1874)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1911-L1912)
 
 ```python
 save()
@@ -195,7 +200,7 @@ save()
 
 <h3 id="scan_history"><code>scan_history</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2008-L2062)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2046-L2100)
 
 ```python
 scan_history(
@@ -233,7 +238,7 @@ losses = [row["Loss"] for row in history]
 
 <h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L931-L933)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L940-L942)
 
 ```python
 snake_to_camel(
@@ -246,7 +251,7 @@ snake_to_camel(
 
 <h3 id="to_html"><code>to_html</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2181-L2189)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2219-L2227)
 
 ```python
 to_html(
@@ -259,7 +264,7 @@ Generate HTML containing an iframe displaying this run
 
 <h3 id="update"><code>update</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1807-L1835)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1845-L1873)
 
 ```python
 update()
@@ -270,7 +275,7 @@ Persists changes to the run object to the wandb backend.
 
 <h3 id="upload_file"><code>upload_file</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1944-L1965)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1982-L2003)
 
 ```python
 upload_file(
@@ -292,7 +297,7 @@ Arguments:
 
 <h3 id="use_artifact"><code>use_artifact</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2072-L2102)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2110-L2140)
 
 ```python
 use_artifact(
@@ -317,7 +322,7 @@ Declare an artifact as an input to a run.
 
 <h3 id="used_artifacts"><code>used_artifacts</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2068-L2070)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2106-L2108)
 
 ```python
 used_artifacts(
@@ -330,7 +335,7 @@ used_artifacts(
 
 <h3 id="wait_until_finished"><code>wait_until_finished</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1784-L1805)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1822-L1843)
 
 ```python
 wait_until_finished()

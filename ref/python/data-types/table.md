@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L150-L923)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/data_types.py#L149-L923)
 
 
 
@@ -33,8 +33,7 @@ Tables can be constructed with initial data using the `data` or
 import pandas as pd
 import wandb
 
-data = {"users": ["geoff", "juergen", "ada"],
-        "feature_01": [1, 117, 42]}
+data = {"users": ["geoff", "juergen", "ada"], "feature_01": [1, 117, 42]}
 df = pd.DataFrame(data)
 
 tbl = wandb.Table(data=df)
@@ -56,7 +55,11 @@ users = ["geoff", "juergen", "ada"]
 [tbl.add_data(user) for user in users]
 assert tbl.get_column("user") == users
 
-def get_user_name_length(index, row): return {"feature_01": len(row["user"])}
+
+def get_user_name_length(index, row):
+    return {"feature_01": len(row["user"])}
+
+
 tbl.add_computed_columns(get_user_name_length)
 assert tbl.get_column("feature_01") == [5, 7, 3]
 ```
