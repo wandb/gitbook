@@ -71,8 +71,8 @@ With data and model versioning, you can resume paused or crashed experiments fro
 
 ### Learn more about versioning and visualization:
 
-{% content-ref url="../artifacts-1/" %}
-[artifacts-1](../artifacts-1/)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="../data-vis/" %}

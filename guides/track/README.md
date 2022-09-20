@@ -19,7 +19,7 @@ Below are the simple building blocks to track an experiment with W\&B. We also h
 3. [**`wandb.log()`**](log/): Log metrics over time in a training loop, such as accuracy and loss. By default, when you call `wandb.log` it appends a new step to the `history` object and updates the `summary` object.
    * `history`: An array of dictionary-like objects that tracks metrics over time. These time series values are shown as default line plots in the UI.
    * `summary`: By default, the final value of a metric logged with wandb.log(). You can set the summary for a metric manually to capture the highest accuracy or lowest loss instead of the final value. These values are used in the table, and plots that compare runs — for example, you could visualize at the final accuracy for all runs in your project.
-4. [**`wandb.log_artifact`**](../artifacts-1/): Save outputs of a run, like the model weights or a table of predictions. This lets you track not just model training, but all the pipeline steps that affect the final model.
+4. [**`wandb.log_artifact`**](broken-reference): Save outputs of a run, like the model weights or a table of predictions. This lets you track not just model training, but all the pipeline steps that affect the final model.
 
 ## Best Practices
 

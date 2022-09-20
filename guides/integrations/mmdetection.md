@@ -136,8 +136,8 @@ Any questions or issues about this Weights & Biases integration? Open an issue i
 
 ### Learn more about versioning and visualization:
 
-{% content-ref url="../artifacts-1/" %}
-[artifacts-1](../artifacts-1/)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="../data-vis/" %}

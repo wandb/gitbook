@@ -28,6 +28,17 @@ Select the trash can icon next to the name of the member you want to remove from
 Runs created in a team account are preserved when the member who created those runs are removed from the team.
 {% endhint %}
 
+#### Match members to a team organization during signup
+
+Allow new users within your organization discover Teams within your organization when they sign-up. New users must have a verified email domain that matches your organization's verified email domain. Verified new users will see a list of verified teams that belong to an organization when they sign up for a W\&B account.&#x20;
+
+An organization administrator (Admin) must enable this feature. To enable this feature, follow these steps:
+
+1. Navigate to the **Privacy** section of the Teams Setting page.
+2. Select the **Request Access** button next to text "Allow users with matching organization email domain to join this team". Weights & Biases Support will be notified of the request.
+3. The **Request Access** button will disappear and the toggle is enabled when W\&B Support verifies the request.&#x20;
+4. Select the newly enabled toggle.
+
 ### Avatar
 
 Set an avatar by navigating to the **Avatar** section and uploading an image.&#x20;

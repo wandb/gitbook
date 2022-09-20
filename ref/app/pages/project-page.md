@@ -28,7 +28,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo/overview)
 
-![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/image (29) (1) (2) (4) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (2) (4).png>)
 
 ![](../../../.gitbook/assets/undelete.png)
 
@@ -50,7 +50,7 @@ Project page tabs:
 
 [View a live example →](https://app.wandb.ai/example-team/sweep-demo)
 
-![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (3) (5) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1)  (3).png>)
+![](<../../../.gitbook/assets/image (38) (2) (3) (3) (2) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (3) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (3) (5) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1)  (5).png>)
 
 ### Search for runs
 
@@ -115,7 +115,7 @@ Start a new [sweep](../../../guides/sweeps/) from your project.
 
 ## Artifacts Tab
 
-View all the [artifacts](../../../guides/artifacts-1/) associated with a project, from [training datasets](../../../guides/artifacts-1/dataset-versioning.md) and [fine-tuned models](../../../guides/artifacts-1/model-versioning.md) to [tables of metrics and media](../../../guides/data-vis/tables-quickstart.md). For more on getting started with Artifacts, check out the [Quick start](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/quick-start).
+View all the [artifacts](broken-reference) associated with a project, from [training datasets](../../../guides/artifacts-1/dataset-versioning.md) and [fine-tuned models](../../../guides/artifacts-1/model-versioning.md) to [tables of metrics and media](../../../guides/data-vis/tables-quickstart.md). For more on getting started with Artifacts, check out the [Quick start](https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/\~/changes/j1B9n6G73J5mTKwAVy6u/guides/artifacts/quick-start).
 
 ### Overview panel
 
