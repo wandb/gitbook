@@ -143,6 +143,6 @@ This is a toy example of model comparison, but it illustrates the ease, flexibil
 {% endtab %}
 
 {% tab title="5 training epochs" %}
-![After 5 epochs, the "double" variant is catching up to the baseline.](<../../.gitbook/assets/screen-shot-2021-05-03-at-5.47.19-pm (8).png>)
+![After 5 epochs, the "double" variant is catching up to the baseline.](<../../.gitbook/assets/Screen Shot 2021-05-03 at 5.47.19 PM.png>)
 {% endtab %}
 {% endtabs %}
