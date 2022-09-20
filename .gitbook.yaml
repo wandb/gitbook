@@ -158,6 +158,9 @@ redirects:
   library/sweeps/local-controller: ./guides/sweeps/advanced-sweeps/local-controller.md
   library/sweeps/python-api: ./guides/sweeps/python-api.md
   guides/sweeps/visualize-sweep-results: ./guides/sweeps/quickstart.md
+  artifacts-1: ./guides/data-and-model-versioning/README.md
+  artifacts-1/dataset-versioning: ./guides/data-and-model-versioning/dataset-versioning.md
+  artifacts-1/model-versioning: ./guides/data-and-model-versioning/model-versioning.md
   artifacts: ./guides/artifacts/README.md
   artifacts/artifacts-core-concepts: ./guides/artifacts/README.md#how-it-works
   artifacts/api: ./guides/artifacts/quickstart.md
