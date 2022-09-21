@@ -12,7 +12,7 @@ Set up W\&B in 5 minutes, then quickly iterate on your machine learning pipeline
 
 1. [Experiment Tracking](guides/track/): Visualize experiments in real time
 2. [Hyperparameter Tuning](guides/sweeps/): Optimize models quickly
-3. [Data + Model Versioning](broken-reference): Version datasets and models
+3. [Data + Model Versioning](https://docs.wandb.ai/guides/artifacts-1): Version datasets and models
 4. [Model Management](https://docs.wandb.ai/guides/models): Manage the model lifecycle from training to production
 5. [Data Visualization](guides/data-vis/): Visualize predictions across model versions
 6. [Collaborative Reports](guides/reports/): Describe and share findings
