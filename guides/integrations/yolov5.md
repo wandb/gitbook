@@ -36,8 +36,8 @@ Just follow the links printed to the standard out by wandb.
 
 But that's not all! By passing a few simple command line arguments to YOLO, you can take advantage of even more W\&B features.
 
-* Passing a number to `--save_period` will turn on [model versioning](../artifacts-1/model-versioning.md). At the end of every `save_period` epochs, the model weights will be saved to W\&B. The best-performing model on the validation set will be tagged automatically.
-* Turning on the `--upload_dataset` flag will also upload the dataset for [data versioning](../artifacts-1/dataset-versioning.md).
+* Passing a number to `--save_period` will turn on [model versioning](../data-and-model-versioning/model-versioning.md). At the end of every `save_period` epochs, the model weights will be saved to W\&B. The best-performing model on the validation set will be tagged automatically.
+* Turning on the `--upload_dataset` flag will also upload the dataset for [data versioning](../data-and-model-versioning/dataset-versioning.md).
 * Passing a number to `--bbox_interval` will turn on [data visualization](../data-vis/). At the end of every `bbox_interval` epochs, the outputs of the model on the validation set will be uploaded to W\&B.
 
 {% tabs %}

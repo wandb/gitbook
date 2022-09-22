@@ -51,14 +51,14 @@ model_log_interval = 1000
 {% endtab %}
 {% endtabs %}
 
-| Name                   | Description                                                                                                                                                                                                                                     |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `project_name`         | `str`. The name of the Weights & Biases [project](../../ref/app/pages/project-page.md). The project will be created automatically if it doesn’t exist yet.                                                                                      |
-| `remove_config_values` | `List[str]` . A list of values to exclude from the config before it is uploaded to W\&B. `[]` by default.                                                                                                                                       |
-| `model_log_interval`   | `Optional int`. `None` by default. If set, [model versioning](../artifacts-1/model-versioning.md) with [Artifacts ](broken-reference)will be enabled. Pass in the number of steps to wait between logging model checkpoints. `None` by default. |
-| `log_dataset_dir`      | `Optional str`. If passed a path, the dataset will be uploaded as an [Artifact](broken-reference) at the beginning of training. `None` by default.                                                                                              |
-| `entity`               | `Optional str` . If passed, the run will be created in the specified entity                                                                                                                                                                     |
-| `run_name`             | `Optional str` . If specified, the run will be created with the specified name.                                                                                                                                                                 |
+| Name                   | Description                                                                                                                                                                                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `project_name`         | `str`. The name of the Weights & Biases [project](../../ref/app/pages/project-page.md). The project will be created automatically if it doesn’t exist yet.                                                                                                    |
+| `remove_config_values` | `List[str]` . A list of values to exclude from the config before it is uploaded to W\&B. `[]` by default.                                                                                                                                                     |
+| `model_log_interval`   | `Optional int`. `None` by default. If set, [model versioning](../data-and-model-versioning/model-versioning.md) with [Artifacts ](broken-reference)will be enabled. Pass in the number of steps to wait between logging model checkpoints. `None` by default. |
+| `log_dataset_dir`      | `Optional str`. If passed a path, the dataset will be uploaded as an [Artifact](broken-reference) at the beginning of training. `None` by default.                                                                                                            |
+| `entity`               | `Optional str` . If passed, the run will be created in the specified entity                                                                                                                                                                                   |
+| `run_name`             | `Optional str` . If specified, the run will be created with the specified name.                                                                                                                                                                               |
 
 ### 3) Start training
 
