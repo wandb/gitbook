@@ -24,17 +24,30 @@ Try this short Google Colab to see Weights & Biases in action, no code installat
 
 {% tabs %}
 {% tab title="Command Line" %}
+Install the CLI and Python library for interacting with the Weights and Biases API:
+
 ```
 pip install wandb
+```
 
+Next, log in to W\&B:
+
+```
 wandb login
 ```
 {% endtab %}
 
 {% tab title="Notebook" %}
+Install the CLI and Python library for interacting with the Weights and Biases API:
+
 ```python
 !pip install wandb
+```
 
+Next, import the W\&B Python SDK and log in:
+
+```python
+import wandb
 wandb.login()
 ```
 {% endtab %}
