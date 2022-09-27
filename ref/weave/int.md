@@ -37,7 +37,7 @@ Multiply two [numbers](https://docs.wandb.ai/ref/weave/number)
 #### Return Value
 Product of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
-<h3 id="number-pow-binary"><code>number-pow-binary</code></h3>
+<h3 id="number-powBinary"><code>number-powBinary</code></h3>
 
 Raise a [number](https://docs.wandb.ai/ref/weave/number) to an exponent
 
@@ -227,7 +227,7 @@ Multiply two [numbers](https://docs.wandb.ai/ref/weave/number)
 #### Return Value
 Product of two [numbers](https://docs.wandb.ai/ref/weave/number)
 
-<h3 id="number-pow-binary"><code>number-pow-binary</code></h3>
+<h3 id="number-powBinary"><code>number-powBinary</code></h3>
 
 Raise a [number](https://docs.wandb.ai/ref/weave/number) to an exponent
 
