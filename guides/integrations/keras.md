@@ -2,7 +2,7 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/intro-keras)
 
-Use our callback to automatically save all the metrics and the loss values tracked in `model.fit`.
+Use the W\&B library [`WandbCallback`](https://docs.wandb.ai/ref/python/integrations/keras/wandbcallback) Class to automatically save all the metrics and the loss values tracked in `model.fit`.
 
 ```python
 import wandb
@@ -17,13 +17,19 @@ model.fit(X_train, y_train,  validation_data=(X_test, y_test),
           callbacks=[WandbCallback()])
 ```
 
-## Usage Examples
+## Usage examples
 
-{% hint style="info" %}
-Try our integration out in a [colab notebook](http://wandb.me/keras-colab) (with video walkthrough below) or see our [example repo](https://github.com/wandb/examples) for scripts, including a [Fashion MNIST example](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py) and the [W\&B Dashboard](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs) it generates.
-{% endhint %}
+See this one minute, step-by-step video if this is your first time integrating W\&B with Keras:
+
+{% embed url="https://www.youtube.com/watch?ab_channel=Weights&Biases&v=4FjDIJ-vO_M" %}
+
+For a more detailed video, see [Integrate Weights & Biases with Keras](https://www.youtube.com/watch?v=Bsudo7jbMow\&ab\_channel=Weights%26Biases). The notebook example used can be found here: [Colab Jupyter Notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/keras/Keras\_pipeline\_with\_Weights\_and\_Biases.ipynb).
 
 {% embed url="https://www.youtube.com/watch?v=Bsudo7jbMow" %}
+
+{% hint style="info" %}
+Try W\&B and Keras integration example from the video above in a [colab notebook](http://wandb.me/keras-colab). Or see our [example repo](https://github.com/wandb/examples) for scripts, including a [Fashion MNIST example](https://github.com/wandb/examples/blob/master/examples/keras/keras-cnn-fashion/train.py) and the [W\&B Dashboard](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs) it generates.
+{% endhint %}
 
 ## Configuring the `WandbCallback`
 
