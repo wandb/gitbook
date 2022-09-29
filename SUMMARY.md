@@ -20,7 +20,7 @@
     * [Import & Export Data](guides/track/public-api-guide.md)
     * [Tracking Jupyter Notebooks](guides/track/jupyter.md)
     * [Advanced Features](guides/track/advanced/README.md)
-      * [Distributed Training](guides/track/advanced/distributed-training.md)
+      * [Log distributed training experiments](guides/track/advanced/distributed-training.md)
       * [Group Runs](guides/track/advanced/grouping.md)
       * [Resume Runs](guides/track/advanced/resuming.md)
       * [Save & Restore Files](guides/track/advanced/save-restore.md)

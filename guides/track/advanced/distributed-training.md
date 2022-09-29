@@ -1,36 +1,31 @@
 ---
-description: How to use W&B when training with multiple GPUs
+description: Use W&B to log distributed training experiments with multiple GPUs.
 ---
 
-# Distributed Training
+# Log distributed training experiments
 
-In distributed training, models are trained using multiple GPUs in parallel. To track distributed training using Weights & Biases, here are two patterns we support:
+In distributed training, models are trained using multiple GPUs in parallel. W\&B supports two patterns to track distributed training experiments:
 
-1. **One Process**: Only call `wandb.init()` and `wandb.log()` from a single process, e.g. the rank0 process. This is the most common solution for logging with PyTorch DDP. In some cases, users funnel data over from other processes using a multiprocessing queue (or another communication primitive) to the main logging process.
-2. **All Processes**: In every process, call `wandb.init()`. These are effectively separate experiments, so use the `group` parameter to set a shared experiment name and group the logged values together in the UI.
+1. **One process**: Initialize W\&B ([`wandb.init`](https://docs.wandb.ai/ref/python/init)) and log experiments ([`wandb.log`](https://docs.wandb.ai/ref/python/log)) from a single process. This is a common solution for logging distributed training experiments with the [PyTorch Distributed Data Parallel](https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html#torch.nn.parallel.DistributedDataParallel) (DDP) Class. In some cases, users funnel data over from other processes using a multiprocessing queue (or another communication primitive) to the main logging process.
+2. **Many processes**: Initialize W\&B ([`wandb.init`](https://docs.wandb.ai/ref/python/init)) and log experiments ([`wandb.log`](https://docs.wandb.ai/ref/python/log)) in every process. Each process is effectively a separate experiment. Use the `group` parameter when you initialize W\&B (`wandb.init(group='group-name')`) to define a shared experiment and group the logged values together in the W\&B App UI.
 
-Below, you'll find a more thorough description of these two patterns, based on a[ code example](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-ddp) from our repository of examples. Check out the "Common Issues" section at the bottom of this guide for some gotchas.
-
-## Logging distributed training experiments with W\&B
+The proceeding examples demonstrate how to track metrics with W\&B using PyTorch DDP on two GPUs on a single machine. [PyTorch DDP](https://pytorch.org/tutorials/intermediate/ddp\_tutorial.html) (`DistributedDataParallel` in`torch.nn`) is a popular library for distributed training. The basic principles apply to any distributed training setup, but the details of implementation may differ.
 
 {% hint style="info" %}
-Check out the code behind these examples in our examples repository [here](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-ddp).
+Explore the code behind these examples in the W\&B GitHub examples repository [here](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-ddp). Specifically, see the [`log-dpp.py`](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-ddp/log-ddp.py) Python script for information on how to implement one process and many process methods.
 {% endhint %}
 
-Sometimes a single GPU is insufficient for training large deep learning models on huge amounts of data, so we distribute our training runs across multiple GPUs. [PyTorch DDP](https://pytorch.org/tutorials/intermediate/ddp\_tutorial.html) (`DistributedDataParallel` in`torch.nn`) is a popular library for distributed training. In this walkthrough, we'll show how to track metrics with Weights & Biases using PyTorch DDP on two GPUs on a single machine. The basic principles apply to any distributed training setup, but the details of implementation may differ.
+### Method 1: One process
 
-### Method 1: `wandb.init` on `rank0` process
-
-In multi-GPU training, the `rank0` process is the main process and coordinates the other processes. Often, it's useful to just track this single process as a W\&B run, using `wandb.init()` in just the `rank0` process and only calling `wandb.log()` there, not in any sub-processes.
-
-This method is simple and robust, but it means that model metrics from other processes (e.g. loss values or inputs from their batches) are not logged. System metrics, like usage and memory, are still logged for all GPUs, since that information is available to all processes.
+In this method we track only a rank 0 process. To implement this method, initialize W\&B (`wandb.init)`, commence a W\&B Run, and log metrics (`wandb.log`) within the rank 0 process.  This method is simple and robust, however, this method does not log model metrics from other processes (for example, loss values or inputs from their batches). System metrics, such as usage and memory, are still logged for all GPUs since that information is available to all processes.
 
 {% hint style="info" %}
-**Use this method if the metrics you care about are available from a single process**. Typical examples include GPU/CPU utilization, behavior on a shared validation set, gradients and parameters, and loss values on representative data examples.
+**Use this method to only track metrics  available from a single process**. Typical examples include GPU/CPU utilization, behavior on a shared validation set, gradients and parameters, and loss values on representative data examples.
 {% endhint %}
 
-In [our example](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-ddp#method-1-log-from-a-single-process) of this method, we launch multiple processes with `torch.distributed.launch`. With this module, we can determine the rank of the process from the `--local_rank` argument. Now that we have the rank of the process, we can set up `wandb` logging conditionally in the `train()` function.
+Within our [sample Python script (`log-ddp.py`)](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-ddp/log-ddp.py), we check to see if the rank is 0. To do so, we first launch multiple processes with `torch.distributed.launch`.  Next, we check the rank with the `--local_rank` command line argument. If the rank is set to 0, we set up `wandb` logging conditionally in the [`train()`](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-ddp/log-ddp.py#L24) function. Within our Python script, we use the following check:
 
+{% code lineNumbers="true" %}
 ```python
 if __name__ == "__main__":
     # Get args
@@ -47,26 +42,27 @@ if __name__ == "__main__":
     else:
         train(args)
 ```
+{% endcode %}
 
-If you want to see what the outputs look like for this method, check out an example dashboard [here](https://wandb.ai/ayush-thakur/DDP/runs/1s56u3hc/system). There, you can see that system metrics, like temperature and utilization, were tracked for both GPUs.
+Explore the W\&B App UI to view an [example dashboard](https://wandb.ai/ayush-thakur/DDP/runs/1s56u3hc/system) of metrics tracked from a single process. The dashboard displays system metrics such as temperature and utilization, that were tracked for both GPUs.
 
 ![](<../../../.gitbook/assets/image (102).png>)
 
-The epoch-wise and batch-wise loss values, however, are only logged from a single GPU.
+However, the loss values as a function epoch and batch size were only logged from a single GPU.
 
 ![](<../../../.gitbook/assets/image (68) (1).png>)
 
-### Method 2: `wandb.init` on all processes
+### Method 2: Many processes
 
-In this method, we track each process in the job, calling `wandb.init()` and `wandb.log()` from each process separately. It's also useful to call `wandb.finish()` at the end of training, to mark that the run has completed so that all processes exit properly.
+In this method, we track each process in the job, calling `wandb.init()` and `wandb.log()` from each process separately. We suggest you call `wandb.finish()` at the end of training, to mark that the run has completed so that all processes exit properly.
 
-The benefit of this method is that more information is accessible for logging and that logging doesn't need to be made conditional on process rank in the code. However, it results in information from a single experiment being reported from multiple runs in the W\&B UI.
+This method makes more information accessible for logging. However, note that multiple W\&B Runs are reported in the W\&B App UI. It might be difficult to keep track of W\&B Runs across multiple experiments. To mitigate this, provide a value to the group parameter when you initialize W\&B to keep track of which W\&B Run belongs to a given experiment. For more information about how to keep track of training and evaluation W\&B Runs in experiments, see [Group Runs](https://docs.wandb.ai/guides/track/advanced/grouping).
 
 {% hint style="info" %}
-**Use this method if you care about the private metrics of individual processes**. Typical examples include the data and predictions on each node (for debugging data distribution) and metrics on individual batches outside of the main node. This method is not necessary to get system metrics from all nodes nor to get summary statistics available on the main node.
+**Use this method if you want to track metrics from individual processes**. Typical examples include the data and predictions on each node (for debugging data distribution) and metrics on individual batches outside of the main node. This method is not necessary to get system metrics from all nodes nor to get summary statistics available on the main node.
 {% endhint %}
 
-In order to keep track of which runs correspond to which experiments, we use the [grouping](grouping.md) feature of Weights & Biases. It's as simple as setting the `group` parameter in `wandb.init()`. These results will be shown together on a group page in the W\&B UI, so our experiments stay organized.
+The following Python code snippet demonstrates how to set the group parameter when you initialize W\&B:
 
 ```python
 if __name__ == "__main__":
@@ -82,45 +78,57 @@ if __name__ == "__main__":
     train(args, run)
 ```
 
-If you want to see what the outputs look like for this method, check out an example dashboard [here](https://wandb.ai/ayush-thakur/DDP). You'll see two runs grouped together in the sidebar. You can click on this group to get to the dedicated group page for the experiment, which displays metrics from each process separately.
+Explore the W\&B App UI to view an [example dashboard](https://wandb.ai/ayush-thakur/DDP?workspace=user-noahluna) of metrics tracked from multiple processes.  Note that there are two W\&B Runs grouped together in the left sidebar. Click on a group to view the dedicated group page for the experiment. The dedicated group page displays metrics from each process separately.
 
-![](<../../../.gitbook/assets/image (103).png>)
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>W&#x26;B App UI dashboard that shows W&#x26;B Runs grouped together.</p></figcaption></figure>
 
-## Common issues
+The preceding image demonstrates the W\&B App UI dashboard. On the sidebar we see two experiments. One labeled 'null' and a second (bound by a yellow box) called 'DPP'. If you expand the group (select the Group dropdown) you will see the W\&B Runs that are associated to that experiment.
 
-### Hanging at the beginning of training
+### Use W\&B Service to avoid common distributed training issues.
 
-If launching the `wandb` process hangs, it could be because the `wandb` multiprocessing is interfering with the multiprocessing from distributed training. We recommend using the new [wandb service](distributed-training.md#wandb-service) to improve the reliability of your distributed jobs. If you need to use a version where `service` is not available, try setting the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead.
+There are two common issues you might encounter when using W\&B and distributed training:
 
-### Hanging at the end of training
+1. **Hanging at the beginning of training** - A `wandb` process can hang if the `wandb` multiprocessing interferes with the multiprocessing from distributed training.&#x20;
+2. **Hanging at the end of training** - A training job might hang if the `wandb` process does not know when it needs to exit. Call the `wandb.finish()` API at the end of your Python script to tell W\&B that the Run finished. The wandb.finish() API will finish uploading data and will cause W\&B to exit.
 
-Is your process hanging at the end of training? The `wandb` process might not know it needs to exit, and that will cause your job to hang. In this case, call `wandb.finish()` at the end of your script to mark the run as finished and cause `wandb` to exit. If you are using `wandb` in a distributed training setup and experiencing hangs, please consider using the [wandb service](distributed-training.md#wandb-service) to improve the reliability of your runs.
+We recommend using the `wandb service` to improve the reliability of your distributed jobs. Both of the preceding training issues are commonly found in versions of the W\&B SDK  where wandb service is unavailable.
 
-## wandb service
+### Enable W\&B Service
 
-### Why would you use this feature?
+Depending on your version of the W\&B SDK, you might already have W\&B Service enabled by default.
 
-The wandb service addresses the [Common Issues](distributed-training.md#common-issues) with distributed training noted above by improving how W\&B tracks distributed experiments. The `wandb service` enhances how W\&B handles multiprocessing runs and thus improves reliability in a distributed training setting.
+#### W\&B SDK 0.13.0 and above
 
-Running `wandb` previously in a distributed training setup could experience hanging jobs and made for an overall poor experience. Now with `wandb service` enabled by default, there is no extra work required by the user to log multiprocessing runs.
+W\&B Service is enabled by default for versions of the W\&B SDK `0.13.0` and above.&#x20;
 
-### Enabling wandb Service
+#### W\&B SDK 0.12.5 and above
 
-* Starting from version `0.13.0` service is enabled by default so you should expect it to just work.
-* From versions `0.12.5` you can enable service in your script by modifying your script as follows (for optimal experience we do recommend you upgrade to the latest version):
+Modify your Python script to enable W\&B Service for W\&B SDK version 0.12.5 and above. Use the `wandb.require` method and pass the string `"service"` within your main function:
 
-```
+```python
 if __name__ == "__main__":
+    main()
+
+def main():
     wandb.require("service")
     # rest-of-your-script-goes-here
 ```
 
-### Advanced Usage
+&#x20;For optimal experience we do recommend you upgrade to the latest version.
 
-{% tabs %}
-{% tab title="Spawned process" %}
-If you are initiating the run in a spawned process you should add `wandb.setup()` in the main process (line 8):
+**W\&B SDK 0.12.4 and below**
 
+Set the `WANDB_START_METHOD` environment variable to `"thread"` to use multithreading instead if you use a W\&B SDK version 0.12.4 and below.
+
+### Example use cases for multiprocessing
+
+The following code snippets demonstrate common methods for advanced distributed use cases.
+
+#### Spawn process
+
+Use the `wandb.setup()[line 8]`method in your main function if you initiate a W\&B Run in a spawned process:
+
+{% code lineNumbers="true" %}
 ```python
 import multiprocessing as mp
 
@@ -136,11 +144,13 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-{% endtab %}
+{% endcode %}
 
-{% tab title="Sharing a run" %}
-If you want to share a run between processes you could just pass it as an argument:
+#### Share a W\&B Run
 
+Pass a W\&B Run object as an argument to share W\&B Runs between processes:
+
+{% code lineNumbers="true" %}
 ```python
 def do_work(run):
     run.log(dict(this=1))
@@ -154,13 +164,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+{% endcode %}
 
 {% hint style="info" %}
-Note that we can't guarantee order on logging and the synchronization should be done by the author of the script
+Note that we can not guarantee the logging order. Synchronization should be done by the author of the script.
 {% endhint %}
-{% endtab %}
-
-{% tab title="PyTorch Lightning" %}
-Starting from release 1.6.0, `service` is enabled by default in PyTorch Lightning, so if you are using version 1.6.0 or later you were using `service` by default.
-{% endtab %}
-{% endtabs %}
