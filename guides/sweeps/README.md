@@ -26,7 +26,7 @@ Create a W\&B Sweep with the following steps:
 
 Depending on your use case, explore the following resources to get started with Weights & Biases Sweeps:
 
-* If this is your first time hyperparameter tuning with Weights & Biases Sweeps, we recommend you read the [Quickstart](https://docs.wandb.ai/guides/tune-hyperparameters/quickstart). The Quickstart walks you through setting up your first W\&B Sweep.
+* If this is your first time hyperparameter tuning with Weights & Biases Sweeps, we recommend you read the [Quickstart](https://docs.wandb.ai/guides/sweeps/quickstart). The Quickstart walks you through setting up your first W\&B Sweep.
 * Explore topics about Sweeps in the Weights and Biases Developer Guide such as:
   * [Add W\&B to your code](https://docs.wandb.ai/guides/sweeps/add-w-and-b-to-your-code)
   * [Define sweep configuration](https://docs.wandb.ai/guides/sweeps/define-sweep-configuration)
