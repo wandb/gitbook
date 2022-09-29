@@ -1,6 +1,6 @@
 # Advanced Features
 
-The guides in this section go beyond core Weights & Biases experiment-tracking features like[ logging data and media](../log/), [building rich dashboards](../app.md), and [seamlessly integrating with popular frameworks and tools](../../integrations/) to cover advanced use cases and power-user features.
+The guides in this section go beyond core Weights & Biases experiment-tracking features like[ logging data and media](../log.md), [building rich dashboards](../app.md), and [seamlessly integrating with popular frameworks and tools](../../integrations/) to cover advanced use cases and power-user features.
 
 {% hint style="info" %}
 Looking for the gory details on how the `wandb` library, CLI, and UI tools work? You want the [Reference](../../../ref/) documentation.

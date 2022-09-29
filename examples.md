@@ -98,7 +98,7 @@ wandb.log({"driving_scene": img})
 
 ![Interactive bounding box viewing.](.gitbook/assets/bb-docs.jpeg)
 
-Read more: [Log Media & Objects](guides/track/log/media.md)
+Read more: [Log Media & Objects](guides/track/create-a-new-artifact-version/media.md)
 
 **Log Tables of predictions**
 

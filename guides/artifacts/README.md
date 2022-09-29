@@ -12,7 +12,7 @@ The following animation demonstrates an example artifacts DAG as seen in the W\&
 
 ![Example artifact DAG](<../../.gitbook/assets/2020-09-03 15.59.43.gif>)
 
-For more information about exploring an artifacts graph, see [Explore and traverse an artifact graph](explore-and-traverse-an-artifact-graph.md).
+For more information about exploring an artifacts graph, see [Explore and traverse an artifact graph](../track/explore-and-traverse-an-artifact-graph/).
 
 ### How it works
 
@@ -43,7 +43,7 @@ Weights & Biases automatically assigns a version `v0` and attaches an alias call
 
 If you create another artifact with the same name, type, and contents (in other words, you create another version of the artifact), W\&B will increase the version index by one. The alias `latest` is unassigned from artifact `v0` and assigned to the `v1` artifact.
 
-Weights & Biases uploads files that were modified between artifacts versions. For more information about how artifacts are stored, see [Artifacts Storage](storage.md).
+Weights & Biases uploads files that were modified between artifacts versions. For more information about how artifacts are stored, see [Artifacts Storage](../track/storage/).
 
 You can use either the index version or the alias to refer to a specific artifact.&#x20;
 

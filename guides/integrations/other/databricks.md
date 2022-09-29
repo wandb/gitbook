@@ -1,6 +1,6 @@
 # Databricks
 
-W&B integrates with [Databricks](https://www.databricks.com/) by customizing the W&B Jupyter notebook experience in the Databricks environment.
+W\&B integrates with [Databricks](https://www.databricks.com/) by customizing the W\&B Jupyter notebook experience in the Databricks environment.
 
 ## Databricks Configuration
 
@@ -10,7 +10,7 @@ Navigate to your cluster configuration, choose your cluster, click on Libraries,
 
 ### Authentication
 
-In order to authenticate your W&B account you can add a databricks secret which your notebooks can query.
+In order to authenticate your W\&B account you can add a databricks secret which your notebooks can query.
 
 ```bash
 # install databricks cli
@@ -46,7 +46,7 @@ wandb.log({"foo": 1})
 
 ### Sweeps
 
-Setup required \(temporary\) for notebooks attempting to use wandb.sweep\(\) or wandb.agent\(\):
+Setup required (temporary) for notebooks attempting to use wandb.sweep() or wandb.agent():
 
 ```python
 import os
@@ -57,5 +57,6 @@ os.environ['WANDB_PROJECT'] = "my-project-that-exists"
 
 We cover more details of how to run a sweep in a notebook here:
 
-{% page-ref page="../../sweeps/python-api.md" %}
-
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}

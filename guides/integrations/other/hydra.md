@@ -48,7 +48,7 @@ $ export WANDB_START_METHOD=thread
 
 ## Optimize Hyperparameters
 
-[W\&B Sweeps](../../sweeps/quickstart.md) is a highly scalable hyperparameter search platform, which provides interesting insights and visualization about W\&B experiments with minimal requirements code real-estate. Sweeps integrates seamlessly with Hydra projects with no-coding requirements. The only thing needed is a configuration file describing the various parameters to sweep over as normal.
+[W\&B Sweeps](broken-reference) is a highly scalable hyperparameter search platform, which provides interesting insights and visualization about W\&B experiments with minimal requirements code real-estate. Sweeps integrates seamlessly with Hydra projects with no-coding requirements. The only thing needed is a configuration file describing the various parameters to sweep over as normal.
 
 A simple example `sweep.yaml` file would be:
 
