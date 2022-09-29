@@ -5,7 +5,6 @@
 * [Examples](examples.md)
 * [Guides](guides/README.md)
   * [Artifacts](guides/artifacts/README.md)
-    * [Common Questions](guides/artifacts/faq.md)
     * [Quickstart](guides/artifacts/quickstart.md)
     * [Troublshoot sweeps](guides/artifacts/troublshoot-sweeps.md)
     * [Construct artifacts](guides/artifacts/construct-an-artifact.md)
