@@ -50,7 +50,7 @@ images_t = ...  # generate or load images as PyTorch Tensors
 wandb.log({"examples" : [wandb.Image(im) for im in images_t]})
 ```
 
-For more on logging rich media to W\&B in PyTorch and other frameworks, check out our [media logging guide](../track/create-a-new-artifact-version/media.md).
+For more on logging rich media to W\&B in PyTorch and other frameworks, check out our [media logging guide](../track/log/media/).
 
 If you also want to include information alongside media, like your model's predictions or derived metrics, use a `wandb.Table`.
 

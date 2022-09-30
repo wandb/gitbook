@@ -18,7 +18,7 @@ Use the run page to explore detailed information about a single version of your 
   * **running**: script is still running and has recently sent a heartbeat
 * Host name, operating system, Python version, and command that launched the run
 * List of config parameters saved with [`wandb.config`](../../../guides/track/config.md)
-* List of summary parameters saved with [`wandb.log()`](../../../guides/track/log.md), by default set to the last value logged
+* List of summary parameters saved with [`wandb.log()`](../../../guides/track/log/), by default set to the last value logged
 
 [View a live example →](https://app.wandb.ai/carey/pytorch-cnn-fashion/runs/munu5vvg/overview?workspace=user-carey)
 
@@ -36,11 +36,11 @@ The Python details are private, even if you make the page itself public. Here is
   * change x-axis, metrics, and ranges
   * edit legends, titles, and colors of charts
 * View examples predictions from your validation set
-* To get these charts, log data with [`wandb.log()`](../../../guides/track/log.md)
+* To get these charts, log data with [`wandb.log()`](../../../guides/track/log/)
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](<../../../.gitbook/assets/wandb run page workspace tab.png>)
+![](<../../../.gitbook/assets/wandb-run-page-workspace-tab (17).png>)
 
 ## System Tab
 
