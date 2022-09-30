@@ -30,7 +30,7 @@ Depending on your use case, explore the following resources to get started with 
 * Explore topics about Sweeps in the Weights and Biases Developer Guide such as:
   * [Add W\&B to your code](https://docs.wandb.ai/guides/sweeps/add-w-and-b-to-your-code)
   * [Define sweep configuration](https://docs.wandb.ai/guides/sweeps/define-sweep-configuration)
-  * [Initialize a sweeps](https://docs.wandb.ai/guides/sweeps/initialize-sweeps)
+  * [Initialize sweeps](https://docs.wandb.ai/guides/sweeps/initialize-sweeps)
   * [Start sweep agents](https://docs.wandb.ai/guides/sweeps/start-sweep-agents)
   * [Visualize sweep results](https://docs.wandb.ai/guides/sweeps/visualize-sweep-results)
 * Try our [Organizing Hyperparameter Sweeps in PyTorch](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Organizing\_Hyperparameter\_Sweeps\_in\_PyTorch\_with\_W%26B.ipynb#scrollTo=e43v8-9MEoYk) Google Collab Jupyter notebook for an example of how to create sweeps using the PyTorch framework in a Jupyter notebook.

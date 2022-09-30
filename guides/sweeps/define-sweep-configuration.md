@@ -18,7 +18,7 @@ sweep_configuration = {
     'method': 'random',
     'name': 'sweep',
     'metric': {
-        'goal': 'maximize', 
+        'goal': 'minimize', 
         'name': 'validation_loss'
 		},
     'parameters': {
@@ -38,7 +38,7 @@ program: train.py
 method: bayes
 metric:
   name: validation_loss
-  goal: maximize
+  goal: minimize
 parameters:
   learning_rate:
     min: 0.0001
