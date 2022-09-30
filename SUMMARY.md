@@ -48,7 +48,7 @@
     * [Start sweep agents](guides/sweeps/start-sweep-agents.md)
     * [Parallelize agents](guides/sweeps/parallelize-agents.md)
     * [Visualize sweep results](guides/sweeps/visualize-sweep-results.md)
-    * [Pause, resume and cancel sweeps](guides/sweeps/pause-resume-and-cancel-sweeps.md)
+    * [Pause, resume, stop and cancel sweeps](guides/sweeps/pause-resume-and-cancel-sweeps.md)
     * [Search and stop algorithms locally](guides/sweeps/local-controller.md)
     * [Troubleshoot Sweeps](guides/sweeps/troubleshoot-sweeps.md)
     * [FAQ](guides/sweeps/faq.md)

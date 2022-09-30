@@ -110,6 +110,15 @@ You cannot change the Sweep configuration once a W\&B Sweep has started. But you
 
 You can use the `${args_no_boolean_flags}` macro in the [command section of the config](broken-reference) to pass hyperparameters as boolean flags. This will automatically pass in any boolean parameters as flags. When `param` is `True` the command will receive `--param`, when `param` is `False` the flag will be omitted.&#x20;
 
+### Can I use Sweeps and SageMaker?
+
+Yes. At a glance, you will need to need to authenticate W\&B and you will need to create a `requirements.txt` file if you use a built-in SageMaker estimator. For more on how to authenticate and set up a requirements.txt file, see the [SageMaker integration](https://docs.wandb.ai/guides/integrations/other/sagemaker) guide.
+
+{% hint style="info" %}
+A complete example is available on [GitHub](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cifar10-sagemaker) and you can read more on our [blog](https://wandb.ai/site/articles/running-sweeps-with-sagemaker).\
+You can also read the [tutorial](https://wandb.ai/authors/sagemaker/reports/Deploy-Sentiment-Analyzer-Using-SageMaker-and-W-B--VmlldzoxODA1ODE) on deploying a sentiment analyzer using SageMaker and W\&B.
+{% endhint %}
+
 ### Can you use W\&B Sweeps with cloud infrastructures such as AWS Batch, ECS, etc.?
 
 In general, you would need a way to publish `sweep_id` to a location that any potential W\&B Sweep agent can read and a way for these Sweep agents to consume this `sweep_id` and start running.

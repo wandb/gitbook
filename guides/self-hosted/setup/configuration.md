@@ -110,18 +110,18 @@ the redirect URI would look like `https://localhost:8080/oidc/callback`![](<../.
 
 Set the sign-out redirect to `http(s)://YOUR-W&B-HOST/logout`\
 \
-![](<../../../.gitbook/assets/Screenshot 2022-07-08 at 16.37.57.png>)
+![](<../../../.gitbook/assets/Screenshot 2022-07-08 at 16.37.57 (1).png>)
 
 Once you have everything configured you can provide the Issuer, Client ID, and Auth method to `wandb/local` via `/system-admin` or the environment variables and SSO will be configured.
 
 Sign in to your Weights and Biases server and navigate to the `System Settings` page\
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.39.png>)\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.39 (1).png>)\
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3).png>)\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png>)\
 \
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (3) (2).png>)
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (5).png>)
 
 {% hint style="info" %}
 If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.
@@ -213,7 +213,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region (AWS only)**: `<region>`
 * **Notification Subscription**: `sqs://<queue-name>`
 
-![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
 
 Press "Update settings" to apply the new settings.
 
@@ -286,7 +286,7 @@ Finally, navigate to the W\&B settings page at `http(s)://YOUR-W&B-SERVER-HOST/s
 * **File Storage Region**: blank
 * **Notification Subscription**: `pubsub:/<project-name>/<topic-name>/<subscription-name>`
 
-![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1).png>)
+![](<../../../.gitbook/assets/file-store (2) (1) (1) (1) (1) (1).png>)
 
 Press "update settings" to apply the new settings.
 
@@ -328,7 +328,7 @@ Go to Queue service > Queues in your storage account, and create a new Queue:
 
 Go to Events in your storage account, and create an event subscription:
 
-![](<../../../.gitbook/assets/image (108).png>)
+![](<../../../.gitbook/assets/image (47).png>)
 
 Give the event subscription the Event Schema "Event Grid Schema", filter to only the "Blob Created" event type, set the Endpoint Type to Storage Queues, and then select the storage account/queue as the endpoint.
 
@@ -386,7 +386,7 @@ Visit [https://api.slack.com/apps](https://api.slack.com/apps) and select **Crea
 
 You can name it whatever you like, but what's important is to select the same Slack workspace as the one you intend to use for alerts.
 
-![](<../../../.gitbook/assets/image (124) (1).png>)
+![](<../../../.gitbook/assets/image (124).png>)
 
 #### Configuring the Slack application
 
@@ -396,7 +396,7 @@ Now that we have a Slack application ready, we need to authorize for use as an O
 
 Under **Scopes**, supply the bot with the **incoming\_webhook** scope.
 
-![](<../../../.gitbook/assets/image (128) (1) (1).png>)
+![](<../../../.gitbook/assets/image (128) (1) (17).png>)
 
 Finally, configure the **Redirect URL** to point to your W\&B installation. You should use the same value as what you set **Frontend Host** to in your local system settings. You can specify multiple URLs if you have different DNS mappings to your instance.
 
