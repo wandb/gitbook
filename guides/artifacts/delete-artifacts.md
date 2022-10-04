@@ -47,10 +47,10 @@ The proceeding code demonstrates how to delete multiple artifact versions that h
 ```python
 import wandb
 
-runs = api.run('entity/project_name/run_id')
+run = api.run('entity/project_name/run_id')
 
 # Delete artifact ith alias 'v3' and 'v4
-for artifact_version in runs.logged_artifacts():
+for artifact_version in run.logged_artifacts():
   # Replace with your own deletion logic.
   if artifact_version.name[-2:] == 'v3' or artifact_version.name[-2:] == 'v4':
     artifact.delete(delete_aliases=True)
