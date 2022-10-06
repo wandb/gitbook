@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1624-L2233)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1644-L2253)
 
 
 
@@ -34,7 +34,7 @@ Run(
 
 <h3 id="create"><code>create</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1720-L1760)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1740-L1780)
 
 ```python
 @classmethod
@@ -48,7 +48,7 @@ Create a run for the given project
 
 <h3 id="delete"><code>delete</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1875-L1909)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1895-L1929)
 
 ```python
 delete(
@@ -61,7 +61,7 @@ Deletes the given run from the wandb backend.
 
 <h3 id="display"><code>display</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L944-L955)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L959-L970)
 
 ```python
 display(
@@ -74,7 +74,7 @@ Display this object in jupyter
 
 <h3 id="file"><code>file</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1971-L1980)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1991-L2000)
 
 ```python
 file(
@@ -93,7 +93,7 @@ Arguments:
 
 <h3 id="files"><code>files</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1959-L1969)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1979-L1989)
 
 ```python
 files(
@@ -113,7 +113,7 @@ Arguments:
 
 <h3 id="history"><code>history</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2005-L2044)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2025-L2064)
 
 ```python
 history(
@@ -138,7 +138,7 @@ the history records being sampled.
 
 <h3 id="load"><code>load</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1762-L1820)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1782-L1840)
 
 ```python
 load(
@@ -151,7 +151,7 @@ load(
 
 <h3 id="log_artifact"><code>log_artifact</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2142-L2174)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2162-L2194)
 
 ```python
 log_artifact(
@@ -176,7 +176,7 @@ Declare an artifact as output of a run.
 
 <h3 id="logged_artifacts"><code>logged_artifacts</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2102-L2104)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2122-L2124)
 
 ```python
 logged_artifacts(
@@ -189,7 +189,7 @@ logged_artifacts(
 
 <h3 id="save"><code>save</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1911-L1912)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1931-L1932)
 
 ```python
 save()
@@ -200,7 +200,7 @@ save()
 
 <h3 id="scan_history"><code>scan_history</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2046-L2100)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2066-L2120)
 
 ```python
 scan_history(
@@ -238,7 +238,7 @@ losses = [row["Loss"] for row in history]
 
 <h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L940-L942)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L955-L957)
 
 ```python
 snake_to_camel(
@@ -251,7 +251,7 @@ snake_to_camel(
 
 <h3 id="to_html"><code>to_html</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2219-L2227)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2239-L2247)
 
 ```python
 to_html(
@@ -264,7 +264,7 @@ Generate HTML containing an iframe displaying this run
 
 <h3 id="update"><code>update</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1845-L1873)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1865-L1893)
 
 ```python
 update()
@@ -275,7 +275,7 @@ Persists changes to the run object to the wandb backend.
 
 <h3 id="upload_file"><code>upload_file</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1982-L2003)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2002-L2023)
 
 ```python
 upload_file(
@@ -297,7 +297,7 @@ Arguments:
 
 <h3 id="use_artifact"><code>use_artifact</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2110-L2140)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2130-L2160)
 
 ```python
 use_artifact(
@@ -322,7 +322,7 @@ Declare an artifact as an input to a run.
 
 <h3 id="used_artifacts"><code>used_artifacts</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2106-L2108)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2126-L2128)
 
 ```python
 used_artifacts(
@@ -335,7 +335,7 @@ used_artifacts(
 
 <h3 id="wait_until_finished"><code>wait_until_finished</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1822-L1843)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L1842-L1863)
 
 ```python
 wait_until_finished()

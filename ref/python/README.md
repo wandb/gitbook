@@ -49,7 +49,7 @@ For reference documentation, see https://docs.wandb.com/ref/python.
 
 | Other Members |  |
 | :--- | :--- |
-|  `__version__`<a id="__version__"></a> |  `'0.13.3'` |
+|  `__version__`<a id="__version__"></a> |  `'0.13.4'` |
 |  `config`<a id="config"></a> |   |
 |  `summary`<a id="summary"></a> |   |
 

@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L278-L1074)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L278-L1075)
 
 
 
@@ -17,7 +17,8 @@ WandbCallback(
     validation_steps=None, class_colors=None, log_batch_frequency=None,
     log_best_prefix="best_", save_graph=(True), validation_indexes=None,
     validation_row_processor=None, prediction_row_processor=None,
-    infer_missing_processors=(True), log_evaluation_frequency=0, **kwargs
+    infer_missing_processors=(True), log_evaluation_frequency=0,
+    compute_flops=(False), **kwargs
 )
 ```
 
@@ -75,6 +76,7 @@ associated with the best `epoch`.
 |  `output_row_processor` |  (Callable) same as `validation_row_processor`, but applied to the model's output. `row["output"]` will contain the results of the model output. |
 |  `infer_missing_processors` |  (bool) Determines if `validation_row_processor` and `output_row_processor` should be inferred if missing. Defaults to True. If `labels` are provided, we will attempt to infer classification-type processors where appropriate. |
 |  `log_evaluation_frequency` |  (int) Determines the frequency which evaluation results will be logged. Default 0 (only at the end of training). Set to 1 to log every epoch, 2 to log every other epoch, and so on. Has no effect when log_evaluation is False. |
+|  `compute_flops` |  (bool) Compute the FLOPs of your Keras Sequential or Functional model in GigaFLOPs unit. |
 
 
 
@@ -82,7 +84,7 @@ associated with the best `epoch`.
 
 <h3 id="get_flops"><code>get_flops</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L1026-L1074)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L1029-L1075)
 
 ```python
 get_flops() -> float
@@ -93,7 +95,7 @@ in inference mode. It uses tf.compat.v1.profiler under the hood.
 
 <h3 id="set_model"><code>set_model</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L537-L546)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L540-L549)
 
 ```python
 set_model(
@@ -106,7 +108,7 @@ set_model(
 
 <h3 id="set_params"><code>set_params</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L534-L535)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/integration/keras/keras.py#L537-L538)
 
 ```python
 set_params(

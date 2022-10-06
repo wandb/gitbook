@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2663-L2732)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2683-L2752)
 
 
 
@@ -29,7 +29,7 @@ File(
 
 <h3 id="delete"><code>delete</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2712-L2725)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2732-L2745)
 
 ```python
 delete()
@@ -40,7 +40,7 @@ delete()
 
 <h3 id="display"><code>display</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L944-L955)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L959-L970)
 
 ```python
 display(
@@ -53,7 +53,7 @@ Display this object in jupyter
 
 <h3 id="download"><code>download</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2689-L2710)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2709-L2730)
 
 ```python
 download(
@@ -78,7 +78,7 @@ Downloads a file previously saved by a run from the wandb server.
 
 <h3 id="snake_to_camel"><code>snake_to_camel</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L940-L942)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L955-L957)
 
 ```python
 snake_to_camel(
@@ -91,7 +91,7 @@ snake_to_camel(
 
 <h3 id="to_html"><code>to_html</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L957-L958)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L972-L973)
 
 ```python
 to_html(
