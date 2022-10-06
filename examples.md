@@ -98,7 +98,7 @@ wandb.log({"driving_scene": img})
 
 ![Interactive bounding box viewing.](.gitbook/assets/bb-docs.jpeg)
 
-Read more: [Log Media & Objects](guides/track/log/media/)
+Read more: [Log Media & Objects](guides/track/log/media.md)
 
 **Log Tables of predictions**
 

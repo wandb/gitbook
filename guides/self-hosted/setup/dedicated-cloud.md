@@ -23,8 +23,12 @@ To set up the environment, you must run a simple terraform and provide W\&B with
 
 ## Amazon Web Services
 
-The simplest way to configure an object store and a KMS key within AWS is to use our [official Terraform](https://github.com/wandb/terraform-aws-wandb/tree/main/examples/byob). Detailed instructions can be found in the README.
+The simplest way to configure an AWS S3 bucket and a KMS key within AWS is to use our [official Terraform](https://github.com/wandb/terraform-aws-wandb/tree/main/examples/byob). Detailed instructions can be found in the README.
 
 ## Google Cloud Platform
 
-The simplest way to configure an object store and a KMS key within GCP is to use our [official Terraform](https://github.com/wandb/terraform-google-wandb/tree/main/examples/byob). Detailed instructions can be found in the README.
+The simplest way to configure a GCS bucket within GCP is to use our [official Terraform](https://github.com/wandb/terraform-google-wandb/tree/main/examples/byob). Detailed instructions can be found in the README.
+
+## Microsoft Azure Cloud
+
+The simplest way to configure an Azure Blob Storage bucket within Azure is to use our [official Terraform](https://github.com/wandb/terraform-azurerm-wandb/tree/main/examples/byob). Detailed instructions can be found in the README.

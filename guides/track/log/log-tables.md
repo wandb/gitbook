@@ -6,6 +6,6 @@ The simplest way to log a table is to log a [pandas dataframe](https://pandas.py
 wandb.log({"table": my_dataframe})
 ```
 
-![Tables UI](<../../../.gitbook/assets/image (5).png>)
+![Tables UI](<../../../.gitbook/assets/image (4) (1).png>)
 
 There are many ways to use tables with rich media and interactive visualization. For more detail please refer to [tables-quickstart.md](../../data-vis/tables-quickstart.md "mention") and [table.md](../../../ref/python/data-types/table.md "mention").

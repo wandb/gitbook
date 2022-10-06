@@ -8,7 +8,7 @@
     * [Launch Experiments with wandb.init](guides/track/launch.md)
     * [Configure Experiments with wandb.config](guides/track/config.md)
     * [Log Data with wandb.log](guides/track/log/README.md)
-      * [Log Media & Objects](guides/track/log/media/README.md)
+      * [Log Media & Objects](guides/track/log/media.md)
         * [Image Logging De-Duplication](guides/track/log/media/image-logging-de-duplication.md)
       * [Log Plots](guides/track/log/plots.md)
       * [Log Tables](guides/track/log/log-tables.md)

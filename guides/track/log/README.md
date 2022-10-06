@@ -20,14 +20,14 @@ wandb.log({"loss": 0.314, "epoch": 5,
 1. **Compare the best accuracy**: To compare the best value of a metric across runs, set the summary value for that metric. By default, summary is set to the last value you logged for each key. This is useful in the table in the UI, where you can sort and filter runs based on their summary metrics — so you could compare runs in a table or bar chart based on their _best_ accuracy, instead of final accuracy. For example, you could set summary like so: `wandb.run.summary["best_accuracy"] = best_accuracy`
 2. **Multiple metrics on one chart**: Log multiple metrics in the same call to `wandb.log`, like this: `wandb.log({"acc'": 0.9, "loss": 0.1})` and they will both be available to plot against in the UI
 3. **Custom x-axis**: Add a custom x-axis to the same log call to visualize your metrics against a different axis in the W\&B dashboard. For example: `wandb.log({'acc': 0.9, 'epoch': 3, 'batch': 117})`. To set the default x-axis for a given metric use [Run.define\_metric()](https://docs.wandb.ai/ref/python/run#define\_metric)
-4. **Log rich media and charts**: `wandb.log` supports the logging of a wide variety of data types, from [media like images and videos](media/) to [tables](../../data-vis/log-tables.md) and [charts](plots.md).
+4. **Log rich media and charts**: `wandb.log` supports the logging of a wide variety of data types, from [media like images and videos](media.md) to [tables](../../data-vis/log-tables.md) and [charts](plots.md).
 
 ### In-**D**epth Guides
 
 For in-depth information on how to log everything from histograms to 3d molecules, check out the guides below.
 
-{% content-ref url="media/" %}
-[media](media/)
+{% content-ref url="media.md" %}
+[media.md](media.md)
 {% endcontent-ref %}
 
 {% content-ref url="plots.md" %}

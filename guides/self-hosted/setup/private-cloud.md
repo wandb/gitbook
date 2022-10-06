@@ -28,7 +28,7 @@ The simplest way to configure W\&B within AWS is to use our [official Terraform]
 
 ## Microsoft Azure
 
-The simplest way to configure W\&B within Azure is to use our [official Terraform](https://github.com/wandb/local/tree/main/terraform/azure). Detailed instructions can be found in the README. If instead you want to configure services manually you can find [instructions here](configuration.md#azure).
+The simplest way to configure W\&B within Azure is to use our [official Terraform](https://github.com/wandb/terraform-azurerm-wandb). Detailed instructions can be found in the README. If instead you want to configure services manually you can find [instructions here](configuration.md#azure).
 
 ## Google Cloud Platform
 
