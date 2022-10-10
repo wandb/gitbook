@@ -7,7 +7,7 @@ Define your strategy in the form of a sweep configuration. Specify the configura
 1. Python nested dictionary data structure if you use a Jupyter Notebook or Python script.
 2. YAML file if you use the command line (CLI).
 
-The following code snippets demonstrate examples of how to define a sweep configuration in a Jupyter Notebook or Python script and in within a YAML file. Configuration keys are defined in detail in subsequent sections.
+The following code snippets demonstrate examples of how to define a Sweep configuration in a Jupyter Notebook or Python script or within a YAML file. Configuration keys are defined in detail in subsequent sections.
 
 {% tabs %}
 {% tab title="Python script or Jupyter Notebook" %}
@@ -92,7 +92,7 @@ Sweep configurations are nested; keys can have, as their values, further keys. T
 The following list describes hyperparameter search methods. Specify the search strategy with the `method`:
 
 * **`grid`**  – Iterate over every combination of hyperparameter values. Can be computationally costly.
-* **`random`**  – Choose a random set of values on each iteration based on provided distributions.
+* **`random`**  – Choose a random set of hyperparameter values on each iteration based on provided distributions.
 * **`bayes`** – Create a probabilistic model of a metric score as a function of the hyperparameters, and choose parameters with high probability of improving the metric. Bayesian hyperparameter search method uses a Gaussian Process to model the relationship between the parameters and the model metric and chooses parameters to optimize the probability of improvement. This strategy requires the `metric`key to be specified. Works well for small numbers of continuous parameters but scales poorly.
 
 {% tabs %}
@@ -297,7 +297,7 @@ wandb.log({"val_loss" : valid_loss})
 {% tab title="Maximize" %}
 ```yaml
 metric:
-  name: val_loss
+  name: val_acc
   goal: maximize
 ```
 {% endtab %}
@@ -306,6 +306,7 @@ metric:
 ```yaml
 metric:
   name: val_loss
+  goal: minimize
 ```
 {% endtab %}
 
