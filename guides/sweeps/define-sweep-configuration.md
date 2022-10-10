@@ -443,6 +443,7 @@ We support the following macros for variable components of the command:
 | `${args_no_hyphens}`       | Hyperparameters and their values in the form `param1=value1 param2=value2`.                                                                                           |
 | `${args_json}`             | Hyperparameters and their values encoded as JSON.                                                                                                                     |
 | `${args_json_file}`        | The path to a file containing the hyperparameters and their values encoded as JSON.                                                                                   |
+| `${envvar}`                | A way to pass environment variables. `${envvar: MYENVVAR}` __ expands to the value of MYENVVAR environment variable. __                                               |
 
 The default command format is defined as:
 
