@@ -49,9 +49,9 @@ Tables are mutable, and as your script executes you can add more data to your ta
 ```python
 # create a Table with the same columns as above,
 # plus confidence scores for all labels
-columns=﻿[﻿"id"﻿, "image"﻿, "guess"﻿, "truth"﻿]
-for digit in range﻿(﻿10﻿)﻿:
-    columns.append(﻿"score_" + str﻿(digit)﻿)
+columns=["id", "image", "guess", "truth"]
+for digit in range(10):
+    columns.append("score_" + str(digit))
 test_table = wandb.Table(columns=columns)
 
 # run inference on every image, assuming my_model returns the
