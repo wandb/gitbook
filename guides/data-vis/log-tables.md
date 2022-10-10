@@ -33,7 +33,7 @@ my_data = [
 ]
           
 # create a wandb.Table() with corresponding columns
-columns=﻿[﻿"id"﻿, "image"﻿, "prediction"﻿, "truth"﻿]
+columns=["id", "image", "prediction", "truth"]
 test_table = wandb.Table(data=my_data, columns=columns)
 ```
 
@@ -118,13 +118,13 @@ Use `artifact.add()` to log tables to the Artifacts section of your run instead 
 ```python
 run = wandb.init(project="my_project")
 # create a wandb Artifact for each meaningful step
-test_predictions = wandb.Artifact(﻿"mnist_test_preds", 
-                                  type﻿=﻿"predictions"﻿)
-                                  ﻿
+test_predictions = wandb.Artifact("mnist_test_preds", 
+                                  type="predictions")
+                                  
 # [build up your predictions data as above]
 test_table = wandb.Table(data=data, columns=columns)
-test_predictions.add(test_table, "my_test_key"﻿)
-run.log_artifact(test_predictions)   
+test_predictions.add(test_table, "my_test_key")
+run.log_artifact(test_predictions)
 ```
 
 ### Join Artifact Tables
