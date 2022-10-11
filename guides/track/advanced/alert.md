@@ -108,16 +108,12 @@ Team admins can set up alerts for the team on the team settings page: wandb.ai/t
 
 To change what channel you're posting to, click **Disconnect Slack** and then reconnect, picking a different destination channel.
 
-### Note
+## FAQ(s)
 
-"**Run Finished" Alerts in Jupyter**
+#### Do "**Run Finished" Alerts work in Jupyter notebooks?**
 
-{% hint style="warning" %}
 Note that "**Run Finished"** alerts (turned on via the "**Run Finished"** setting in User Settings) only work with Python scripts and **** are disabled in Jupyter Notebook environments to prevent alert notifications on every cell execution. Use `wandb.alert()` in Jupyter Notebook environments instead.
-{% endhint %}
 
-**Alerts with W\&B Local**
+#### **How to enable alerts with** [**W\&B S**erver](../../self-hosted/)**?**
 
-{% hint style="warning" %}
-Note that if you are self-hosting using W\&B Local you will need to follow [these steps](../../self-hosted/setup/configuration.md#slack) before enabling Slack alerts
-{% endhint %}
+If you are self-hosting using W\&B Server you will need to follow [these steps](../../self-hosted/setup/configuration.md#slack) before enabling Slack alerts.
