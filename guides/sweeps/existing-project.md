@@ -1,12 +1,12 @@
 # Tutorial - Create sweeps from existing projects
 
-The proceeding tutorial will walk through the steps of how to create sweep jobs from a pre-existing Weights & Biases project. We will use the [Fashion MNIST dataset](https://github.com/zalandoresearch/fashion-mnist) to train a PyTorch convolutional neural network how to classify images. The required code an dataset is located in the  Weights & Biases repo: [https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)
+The proceeding tutorial will walk through the steps of how to create sweep jobs from a pre-existing Weights & Biases project. We will use the [Fashion MNIST dataset](https://github.com/zalandoresearch/fashion-mnist) to train a PyTorch convolutional neural network how to classify images. The required code an dataset is located in the Weights & Biases repo: [https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion)
 
 Explore the results in this [W\&B Dashboard](https://app.wandb.ai/carey/pytorch-cnn-fashion).
 
 ## 1. Create a project
 
-First, create a baseline. Download the PyTorch MNIST dataset example model from Weights & Biases examples GitHub repository. Next, train the model. The training script is within the `examples/pytorch/pytorch-cnn-fashion` directory.&#x20;
+First, create a baseline. Download the PyTorch MNIST dataset example model from Weights & Biases examples GitHub repository. Next, train the model. The training script is within the `examples/pytorch/pytorch-cnn-fashion` directory.
 
 1. Clone this repo `git clone https://github.com/wandb/examples.git`
 2. Open this example `cd examples/pytorch/pytorch-cnn-fashion`
@@ -46,7 +46,7 @@ Launch a new sweep using existing runs that you've previously logged.
 
 Your sweep will now be set up on our server. All you need to do is launch one or more agents to start running runs.
 
-![](<../../.gitbook/assets/create-sweep-from-table (1) (1).png>)
+![](<../../.gitbook/assets/create-sweep-from-table (1) (2).png>)
 
 {% hint style="info" %}
 _**Note**_: If you kick off the new sweep as a bayesian sweep, the selected runs will also seed the Gaussian Process.

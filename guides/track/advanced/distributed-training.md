@@ -17,13 +17,13 @@ Explore the code behind these examples in the W\&B GitHub examples repository [h
 
 ### Method 1: One process
 
-In this method we track only a rank 0 process. To implement this method, initialize W\&B (`wandb.init)`, commence a W\&B Run, and log metrics (`wandb.log`) within the rank 0 process.  This method is simple and robust, however, this method does not log model metrics from other processes (for example, loss values or inputs from their batches). System metrics, such as usage and memory, are still logged for all GPUs since that information is available to all processes.
+In this method we track only a rank 0 process. To implement this method, initialize W\&B (`wandb.init)`, commence a W\&B Run, and log metrics (`wandb.log`) within the rank 0 process. This method is simple and robust, however, this method does not log model metrics from other processes (for example, loss values or inputs from their batches). System metrics, such as usage and memory, are still logged for all GPUs since that information is available to all processes.
 
 {% hint style="info" %}
-**Use this method to only track metrics  available from a single process**. Typical examples include GPU/CPU utilization, behavior on a shared validation set, gradients and parameters, and loss values on representative data examples.
+**Use this method to only track metrics available from a single process**. Typical examples include GPU/CPU utilization, behavior on a shared validation set, gradients and parameters, and loss values on representative data examples.
 {% endhint %}
 
-Within our [sample Python script (`log-ddp.py`)](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-ddp/log-ddp.py), we check to see if the rank is 0. To do so, we first launch multiple processes with `torch.distributed.launch`.  Next, we check the rank with the `--local_rank` command line argument. If the rank is set to 0, we set up `wandb` logging conditionally in the [`train()`](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-ddp/log-ddp.py#L24) function. Within our Python script, we use the following check:
+Within our [sample Python script (`log-ddp.py`)](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-ddp/log-ddp.py), we check to see if the rank is 0. To do so, we first launch multiple processes with `torch.distributed.launch`. Next, we check the rank with the `--local_rank` command line argument. If the rank is set to 0, we set up `wandb` logging conditionally in the [`train()`](https://github.com/wandb/examples/blob/master/examples/pytorch/pytorch-ddp/log-ddp.py#L24) function. Within our Python script, we use the following check:
 
 {% code lineNumbers="true" %}
 ```python
@@ -50,7 +50,7 @@ Explore the W\&B App UI to view an [example dashboard](https://wandb.ai/ayush-th
 
 However, the loss values as a function epoch and batch size were only logged from a single GPU.
 
-![](<../../../.gitbook/assets/image (68) (1).png>)
+![](<../../../.gitbook/assets/image (68) (2).png>)
 
 ### Method 2: Many processes
 
@@ -78,9 +78,9 @@ if __name__ == "__main__":
     train(args, run)
 ```
 
-Explore the W\&B App UI to view an [example dashboard](https://wandb.ai/ayush-thakur/DDP?workspace=user-noahluna) of metrics tracked from multiple processes.  Note that there are two W\&B Runs grouped together in the left sidebar. Click on a group to view the dedicated group page for the experiment. The dedicated group page displays metrics from each process separately.
+Explore the W\&B App UI to view an [example dashboard](https://wandb.ai/ayush-thakur/DDP?workspace=user-noahluna) of metrics tracked from multiple processes. Note that there are two W\&B Runs grouped together in the left sidebar. Click on a group to view the dedicated group page for the experiment. The dedicated group page displays metrics from each process separately.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2022-09-27 at 4.23.19 PM (1).png" alt=""><figcaption><p>W&#x26;B App UI dashboard that shows W&#x26;B Runs grouped together.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2022-09-27 at 4.23.19 PM.png" alt=""><figcaption><p>W&#x26;B App UI dashboard that shows W&#x26;B Runs grouped together.</p></figcaption></figure>
 
 The preceding image demonstrates the W\&B App UI dashboard. On the sidebar we see two experiments. One labeled 'null' and a second (bound by a yellow box) called 'DPP'. If you expand the group (select the Group dropdown) you will see the W\&B Runs that are associated to that experiment.
 
@@ -88,10 +88,10 @@ The preceding image demonstrates the W\&B App UI dashboard. On the sidebar we se
 
 There are two common issues you might encounter when using W\&B and distributed training:
 
-1. **Hanging at the beginning of training** - A `wandb` process can hang if the `wandb` multiprocessing interferes with the multiprocessing from distributed training.&#x20;
+1. **Hanging at the beginning of training** - A `wandb` process can hang if the `wandb` multiprocessing interferes with the multiprocessing from distributed training.
 2. **Hanging at the end of training** - A training job might hang if the `wandb` process does not know when it needs to exit. Call the `wandb.finish()` API at the end of your Python script to tell W\&B that the Run finished. The wandb.finish() API will finish uploading data and will cause W\&B to exit.
 
-We recommend using the `wandb service` to improve the reliability of your distributed jobs. Both of the preceding training issues are commonly found in versions of the W\&B SDK  where wandb service is unavailable.
+We recommend using the `wandb service` to improve the reliability of your distributed jobs. Both of the preceding training issues are commonly found in versions of the W\&B SDK where wandb service is unavailable.
 
 ### Enable W\&B Service
 
@@ -99,7 +99,7 @@ Depending on your version of the W\&B SDK, you might already have W\&B Service e
 
 #### W\&B SDK 0.13.0 and above
 
-W\&B Service is enabled by default for versions of the W\&B SDK `0.13.0` and above.&#x20;
+W\&B Service is enabled by default for versions of the W\&B SDK `0.13.0` and above.
 
 #### W\&B SDK 0.12.5 and above
 
@@ -114,7 +114,7 @@ def main():
     # rest-of-your-script-goes-here
 ```
 
-&#x20;For optimal experience we do recommend you upgrade to the latest version.
+For optimal experience we do recommend you upgrade to the latest version.
 
 **W\&B SDK 0.12.4 and below**
 

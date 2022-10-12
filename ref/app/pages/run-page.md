@@ -40,7 +40,7 @@ The Python details are private, even if you make the page itself public. Here is
 
 [View a live example →](https://app.wandb.ai/wandb/examples-keras-cnn-fashion/runs/wec25l0q?workspace=user-carey)
 
-![](<../../../.gitbook/assets/wandb run page workspace tab.png>)
+![](<../../../.gitbook/assets/wandb-run-page-workspace-tab (17).png>)
 
 ## System Tab
 
@@ -76,14 +76,14 @@ The Python details are private, even if you make the page itself public. Here is
   [View a live example →](https://app.wandb.ai/stacey/deep-drive/runs/pr0os44x/files/media/images)
 
 {% hint style="info" %}
-The W\&B [Artifacts](broken-reference) system adds extra features for handling, versioning, and deduplicating large files like datasets and models. We recommend you use Artifacts for tracking inputs and outputs of runs, rather than `wandb.save`. Check out the Artifacts quickstart [here](broken-reference).
+The W\&B [Artifacts](broken-reference/) system adds extra features for handling, versioning, and deduplicating large files like datasets and models. We recommend you use Artifacts for tracking inputs and outputs of runs, rather than `wandb.save`. Check out the Artifacts quickstart [here](broken-reference/).
 {% endhint %}
 
 ![](<../../../.gitbook/assets/wandb run page files tab.png>)
 
 ## Artifacts Tab
 
-* Provides a searchable list of the input and output [Artifacts](broken-reference) for this run
+* Provides a searchable list of the input and output [Artifacts](broken-reference/) for this run
 * Click a row to see information about a particular artifact used or produced by this run
 * See the reference for the [project](project-page.md)-level [Artifacts Tab](project-page.md#artifacts-tab) for more on navigating and using the artifacts viewers in the web app\
   [View a live example →](https://wandb.ai/stacey/artifact\_july\_demo/runs/2cslp2rt/artifacts)

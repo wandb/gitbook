@@ -104,7 +104,7 @@ You can reliably store these checkpoints as [W\&B Artifacts](broken-reference/) 
 Every W\&B account comes with 100 GB of free storage for datasets and models.
 {% endhint %}
 
-![The checkpoints are shown as different versions on the left-hand side pane. You can download the model from the Files tab or use API to download it programmatically.](../../.gitbook/assets/0b86abff.png)
+![The checkpoints are shown as different versions on the left-hand side pane. You can download the model from the Files tab or use API to download it programmatically.](<../../.gitbook/assets/0b86abff (1).png>)
 
 ### :mega: Checkpoint with Metadata
 
@@ -136,8 +136,8 @@ Any questions or issues about this Weights & Biases integration? Open an issue i
 
 ### Learn more about versioning and visualization:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="broken-reference/" %}
+[broken-reference](broken-reference/)
 {% endcontent-ref %}
 
 {% content-ref url="../data-vis/" %}

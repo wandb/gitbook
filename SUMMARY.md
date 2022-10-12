@@ -32,7 +32,7 @@
     * [Update artifacts](guides/artifacts/update-an-artifact.md)
     * [Create a custom alias](guides/artifacts/create-a-custom-alias.md)
     * [Create new artifact versions](guides/artifacts/create-a-new-artifact-version.md)
-    * [Track external files](guides/artifacts/track-external-files.md)
+    * [Track external files with reference artifacts](guides/artifacts/track-external-files.md)
     * [Delete artifacts](guides/artifacts/delete-artifacts.md)
     * [Explore and traverse artifact graphs](guides/artifacts/explore-and-traverse-an-artifact-graph.md)
     * [Storage](guides/artifacts/storage.md)
