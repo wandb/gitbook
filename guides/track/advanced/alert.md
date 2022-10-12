@@ -28,6 +28,10 @@ There are 2 steps to follow the first time you'd like to send a Slack or email a
 1. Turn on Alerts in your W\&B [User Settings](https://wandb.ai/settings)
 2. Add `wandb.alert()` to your code
 
+{% hint style="info" %}
+Please note that these steps will turn on alerts in public cloud _only_. However, in case you're using [W\&B Server](../../self-hosted/), then please refer to the steps listed in our FAQ(s) to [enable alerts locally](alert.md#how-to-enable-alerts-with-w-and-b-server).
+{% endhint %}
+
 ### 1. Turn on Alerts in your W\&B User Settings
 
 In your [User Settings](https://wandb.ai/settings):
@@ -54,11 +58,9 @@ wandb.alert(
 
 #### Check your Slack or email
 
-Check your Slack or emails for the alert message. If you didn't receive any, make sure you've got emails or Slack turned on for **Scriptable Alerts** in your **** [User Settings](https://wandb.ai/settings)
+Check your Slack or emails for the alert message. If you didn't receive any, make sure you've got emails or Slack turned on for **Scriptable Alerts** in your \*\*\*\* [User Settings](https://wandb.ai/settings)
 
 ## Using \`wandb.alert()\`
-
-
 
 | Argument                   | Description                                                                                                                                           |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -112,7 +114,7 @@ To change what channel you're posting to, click **Disconnect Slack** and then re
 
 #### Do "**Run Finished" Alerts work in Jupyter notebooks?**
 
-Note that "**Run Finished"** alerts (turned on via the "**Run Finished"** setting in User Settings) only work with Python scripts and **** are disabled in Jupyter Notebook environments to prevent alert notifications on every cell execution. Use `wandb.alert()` in Jupyter Notebook environments instead.
+Note that "**Run Finished"** alerts (turned on via the "**Run Finished"** setting in User Settings) only work with Python scripts and \*\*\*\* are disabled in Jupyter Notebook environments to prevent alert notifications on every cell execution. Use `wandb.alert()` in Jupyter Notebook environments instead.
 
 #### **How to enable alerts with** [**W\&B S**erver](../../self-hosted/)**?**
 
