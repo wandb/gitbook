@@ -118,10 +118,10 @@ Sign in to your Weights and Biases server and navigate to the `System Settings` 
 \
 ![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.39.png>)\
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (3).png>)\
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.09.50 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (2) (1).png>)\
 \
 \
-![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6).png>)
+![](<../../../.gitbook/assets/Screenshot 2022-06-27 at 14.10.10 (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2).png>)
 
 {% hint style="info" %}
 If you're unable to login to your instance after configuring SSO, you can restart the instance with the `LOCAL_RESTORE=true` environment variable set. This will output a temporary password to the containers logs and disable SSO. Once you've resolved any issues with SSO, you must remove that environment variable to enable SSO again.
@@ -376,7 +376,7 @@ The above assumes the `redis` instance is running at the default port of `6379`.
 
 ## Slack
 
-In order to integrate your local W\&B installation with Slack, you'll need to create a suitable Slack application.
+In order to integrate your W\&B Server installation with Slack, you'll need to create a suitable Slack application.
 
 #### Creating the Slack application
 
@@ -416,4 +416,4 @@ You'll need to supply your Slack application's client ID and secret, which you c
 
 ![](<../../../.gitbook/assets/image (61).png>)
 
-That's it! You can now verify that everything is working by setting up a Slack integration in the W\&B app. Visit [this page](../../../ref/app/features/alerts.md) for more detailed information.
+That's it! You can now verify that everything is working by setting up a Slack integration in the W\&B app. Visit [this page](https://docs.wandb.ai/guides/track/alert) for more detailed information.

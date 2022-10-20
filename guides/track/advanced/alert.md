@@ -23,14 +23,16 @@ And then see W\&B Alerts messages in Slack (or your email):
 
 ## Getting Started
 
+{% hint style="info" %}
+Please note that these following steps are to turn on alerts in public cloud _only_.&#x20;
+
+If you're using [W\&B Server](../../self-hosted/) in your Private Cloud or on W\&B Dedicated Cloud, then please refer to [this documentation](https://docs.wandb.ai/guides/self-hosted/setup/configuration#slack) to setup Slack alerts.
+{% endhint %}
+
 There are 2 steps to follow the first time you'd like to send a Slack or email alert, triggered from your code:
 
 1. Turn on Alerts in your W\&B [User Settings](https://wandb.ai/settings)
 2. Add `wandb.alert()` to your code
-
-{% hint style="info" %}
-Please note that these steps will turn on alerts in public cloud _only_. However, in case you're using [W\&B Server](../../self-hosted/), then please refer to the steps listed in our FAQ(s) to [enable alerts locally](alert.md#how-to-enable-alerts-with-w-and-b-server).
-{% endhint %}
 
 ### 1. Turn on Alerts in your W\&B User Settings
 
