@@ -8,7 +8,7 @@ Li, Lisha, et al. "[Hyperband: A novel bandit-based approach to hyperparameter o
 
 The following W\&B Reports demonstrate examples of projects that explore hyperparameter optimization with W\&B Sweeps.&#x20;
 
-* [Drought Watch Benchmark Progress](https://wandb.ai/stacey/droughtwatch/reports/Drought-Watch-Benchmark-Progress--Vmlldzo3ODQ3OQ)
+* <mark style="color:blue;"></mark>[Drought Watch Benchmark Progress](https://wandb.ai/stacey/droughtwatch/reports/Drought-Watch-Benchmark-Progress--Vmlldzo3ODQ3OQ)
   * Description: Developing the baseline and exploring submissions to the Drought Watch benchmark.
 * [Tuning Safety Penalties in Reinforcement Learning](https://wandb.ai/safelife/benchmark-sweeps/reports/Tuning-Safety-Penalties-in-Reinforcement-Learning---VmlldzoyNjQyODM)
   * Description: We examine agents trained with different side effect penalties on three different tasks: pattern creation, pattern removal, and navigation.
@@ -18,6 +18,13 @@ The following W\&B Reports demonstrate examples of projects that explore hyperpa
   * Description: Using HuggingFace to explore models for natural language understanding
 * [DeepChem: Molecular Solubility](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM)
   * Description: Predict chemical properties from molecular structure with random forests and deep nets.
+
+### How-to-guides
+
+The following how-to-guide demonstrates how to solve real-world problems with Weights & Biases:
+
+* [Sweeps with XGBoost ](https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-xgboost/xgboost\_tune.py)
+  * Description: How to use W\&B Sweeps for hyperparameter tuning using XGBoost.
 
 ### Sweep GitHub repository
 
