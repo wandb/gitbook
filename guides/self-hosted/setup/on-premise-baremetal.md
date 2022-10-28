@@ -12,16 +12,34 @@ W\&B application performance depends on scalable data stores that your operation
 
 Talk to our sales team by reaching out to [contact@wandb.com](mailto:contact@wandb.com).
 
-### MySQL 5.7
+### MySQL Database&#x20;
 
 {% hint style="warning" %}
-W\&B currently supports MySQL 5.7 or MySQL 8.
+W\&B currently supports MySQL 5.7 or MySQL 8.0.28 and above.
 {% endhint %}
+
+#### MySQL 5.7
 
 There are a number of enterprise services that make operating a scalable MySQL database simpler. We suggest looking into one of the following solutions:
 
 * [https://www.percona.com/software/mysql-database/percona-server](https://www.percona.com/software/mysql-database/percona-server)
 * [https://github.com/mysql/mysql-operator](https://github.com/mysql/mysql-operator)
+
+#### MySQL 8.0
+
+{% hint style="info" %}
+The Weights & Biases application currently only supports`MySQL 8`versions`8.0.28`and above.
+{% endhint %}
+
+There are some additional performance tunings required when running your W\&B server with MySQL 8.0 or when upgrading from MySQL 5.7 to 8.0. Tuning your database engine with the following settings will improve the overall query performance of the `wandb` application:
+
+<pre class="language-markup"><code class="lang-markup"><strong>binlog_format = 'ROW'
+</strong>innodb_online_alter_log_max_size = 268435456
+sync_binlog = 1
+innodb_flush_log_at_trx_commit = 1
+binlog_row_image = 'MINIMAL'</code></pre>
+
+Due to some changes in the way that MySQL 8.0 handles `sort_buffer_size`_,_ you may need to update the `sort_buffer_size` parameter from its default value of `262144`. Our recommendation is to set the value at `4194304`(`4MiB)` to start with and then increase as needed up to `33554432(32MiB)` to efficiently work with the `wandb` application. Note that, this only works with MySQL versions 8.0.28 and above.
 
 The most important things to consider when running your own MySQL database are:
 
@@ -30,7 +48,7 @@ The most important things to consider when running your own MySQL database are:
 3. **Monitoring.** The database should be monitored for load. If CPU usage is sustained at > 40% of the system for more than 5 minutes it's likely a good indication the server is resource starved.
 4. **Availability.** Depending on your availability and durability requirements you may want to configure a hot standby on a separate machine that streams all updates in realtime from the primary server and can be used to failover to incase the primary server crashes or become corrupted.
 
-Once you've provisioned a compatible MySQL database you can create a database and user using the following SQL (replacing SOME\_PASSWORD).
+Once you've provisioned a compatible MySQL database you can create a database and a user using the following SQL (replacing SOME\_PASSWORD with password of your choice).
 
 ```sql
 CREATE USER 'wandb_local'@'%' IDENTIFIED BY 'SOME_PASSWORD';
@@ -40,7 +58,7 @@ GRANT ALL ON wandb_local.* TO 'wandb_local'@'%' WITH GRANT OPTION;
 
 ### Object Store
 
-The object store can be an externally hosted [Minio cluster](https://docs.min.io/minio/k8s/), or W\&B supports any S3 compatible object store that has support for signed urls. To see if your object store supports signed urls, you can run the [following script](https://gist.github.com/vanpelt/2e018f7313dabf7cca15ad66c2dd9c5b). When connecting to an S3 compatible object store you can specify your credentials in the connection string, i.e.
+The object store can be an externally hosted [Minio cluster](https://docs.min.io/minio/k8s/), or W\&B supports any **S3 compatible object store** that has support for signed urls. To see if your object store supports signed urls, you can run the [following script](https://gist.github.com/vanpelt/2e018f7313dabf7cca15ad66c2dd9c5b). When connecting to an S3 compatible object store you can specify your credentials in the connection string, i.e.
 
 ```yaml
 s3://$ACCESS_KEY:$SECRET_KEY@$HOST/$BUCKET_NAME
@@ -56,12 +74,12 @@ This will only work if the SSL certificate is trusted. We do not support self-si
 s3://$ACCESS_KEY:$SECRET_KEY@$HOST/$BUCKET_NAME?tls=true
 ```
 
-When using 3rd party object stores, you'll want to set `BUCKET_QUEUE` to `internal://`. This tells the W\&B server to manage all object notifications internally instead of depending on SQS.
+When using 3rd party object stores, you'll want to set `BUCKET_QUEUE` to `internal://`. This tells the W\&B server to manage all object notifications internally instead of depending on an external SQS queue or equivalent.&#x20;
 
 The most important things to consider when running your own object store are:
 
 1. **Storage capacity and performance**. It's fine to use magnetic disks, but you should be monitoring the capacity of these disks. Average W\&B usage results in 10's to 100's of Gigabytes. Heavy usage could result in Petabytes of storage consumption.
-2. **Fault tolerance.** At a minimum, the physical disk storing the objects should be on a RAID array. Consider running Minio in [distributed mode](https://docs.min.io/minio/baremetal/installation/deploy-minio-distributed.html#deploy-minio-distributed).
+2. **Fault tolerance.** At a minimum, the physical disk storing the objects should be on a RAID array. If you're using minio, consider running it in [distributed mode](https://docs.min.io/minio/baremetal/installation/deploy-minio-distributed.html#deploy-minio-distributed).
 3. **Availability.** Monitoring should be configured to ensure the storage is available.
 
 There are many enterprise alternatives to running your own object storage service such as:
@@ -80,7 +98,7 @@ mc mb --region=us-east1 local/local-files
 
 ### Kubernetes Deployment
 
-The following k8s yaml can be customized but should serve as a basic foundation for configuring local in kubernetes.
+The following k8s yaml can be customized but should serve as a basic foundation for configuring local in Kubernetes.
 
 ```yaml
 apiVersion: apps/v1
@@ -174,6 +192,10 @@ spec:
 ```
 
 The k8s YAML above should work in most on-premises installations. However the details of your Ingress and optional SSL termination will vary. See [networking](on-premise-baremetal.md#networking) below.
+
+### Helm Chart
+
+W\&B also supports deploying via a Helm Chart. The official W\&B helm chart can be [found here](https://github.com/wandb/helm-charts).&#x20;
 
 ### Openshift
 
