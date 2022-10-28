@@ -190,7 +190,7 @@ wandb.log({"driving_scene": img})
 
 {% tabs %}
 {% tab title="Segmentation Masks" %}
-![Interactive Segmentation Masks in Tables](<../../../.gitbook/assets/Segmentation Masks.gif>)
+![Interactive Segmentation Masks in Tables](<../../../.gitbook/assets/Segmentation Masks (1).gif>)
 
 To log Segmentation Masks in tables, you will need to provide a `wandb.Image` object for each row in the table.\
 \
@@ -215,7 +215,7 @@ wandb.log({"Table" : table})
 {% endtab %}
 
 {% tab title="Bounding Boxes" %}
-![Interactive Bounding Boxes in Tables](<../../../.gitbook/assets/Bounding Boxes (1).gif>)
+![Interactive Bounding Boxes in Tables](<../../../.gitbook/assets/Bounding Boxes.gif>)
 
 To log Images with Bounding Boxes in tables, you will need to provide a `wandb.Image` object for each row in the table.\
 \
@@ -480,7 +480,7 @@ W\&B can be used even for projects that only log scalars — you specify any fil
 
 ### **How do I log a PNG?**
 
-\`\`[`wandb.Image`](../../../ref/python/data-types/image.md) converts `numpy` arrays or instances of `PILImage` to PNGs by default.
+[`wandb.Image`](../../../ref/python/data-types/image.md) converts `numpy` arrays or instances of `PILImage` to PNGs by default.
 
 ```python
 wandb.log({"example": wandb.Image(...)})
