@@ -148,7 +148,7 @@ Describe the hyperparameters to explore during the sweep. For each hyperparamete
 | `mu`            | (`float`) Mean parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                                 |
 | `sigma`         | (`float`) Standard deviation parameter for `normal` - or `lognormal` -distributed hyperparameters.                                                                                                                                                                                   |
 | `q`             | (`float`) Quantization step size for quantized hyperparameters.                                                                                                                                                                                                                      |
-| `parameters`    | Nest other parameters inside a root level parameter. It's parameter inception!                                                                                                                                                                                                       |
+| `parameters`    | Nest other parameters inside a root level parameter.                                                                                                                                                                                                                                 |
 
 #### **Examples**
 
