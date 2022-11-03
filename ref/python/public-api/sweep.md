@@ -2,7 +2,7 @@
 
 
 
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2437-L2614)
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2466-L2643)
 
 
 
@@ -44,7 +44,7 @@ sweep = api.sweep(path/to/sweep)
 
 <h3 id="best_run"><code>best_run</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2514-L2537)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2543-L2566)
 
 ```python
 best_run(
@@ -70,7 +70,7 @@ Display this object in jupyter
 
 <h3 id="get"><code>get</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2557-L2596)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2586-L2625)
 
 ```python
 @classmethod
@@ -84,7 +84,7 @@ Execute a query against the cloud backend
 
 <h3 id="load"><code>load</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2495-L2503)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2524-L2532)
 
 ```python
 load(
@@ -110,7 +110,7 @@ snake_to_camel(
 
 <h3 id="to_html"><code>to_html</code></h3>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2598-L2606)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/apis/public.py#L2627-L2635)
 
 ```python
 to_html(

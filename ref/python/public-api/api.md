@@ -336,7 +336,7 @@ Get projects for a given entity.
 
 ```python
 queued_run(
-    entity, project, queue_id, run_queue_item_id, container_job=(False)
+    entity, project, queue_name, run_queue_item_id, container_job=(False)
 )
 ```
 
