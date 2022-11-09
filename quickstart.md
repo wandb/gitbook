@@ -35,6 +35,12 @@ Next, log in to W\&B:
 ```
 wandb login
 ```
+
+Or if you're using [W\&B Server:](https://docs.wandb.ai/guides/self-hosted)
+
+```
+wandb login --host=http://wandb.your-shared-local-host.com
+```
 {% endtab %}
 
 {% tab title="Notebook" %}
