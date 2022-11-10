@@ -8,7 +8,7 @@ description: Links and resources from our live presentations and talks
 
 Try our free tools for experiment tracking with this [5 minute example →](https://colab.research.google.com/drive/1b-6qlB-NL51BAWamtenbVxp7ryUWQivV#scrollTo=bZpt5W2NNl6S)
 
-![](<../../.gitbook/assets/image (76) (3) (4) (6) (3) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ( (19).png>)
+![](<../../.gitbook/assets/image (76) (3) (4) (6) (3) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (  (9).png>)
 
 ## Deep Learning in the Real World
 

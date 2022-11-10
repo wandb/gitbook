@@ -86,6 +86,7 @@ Sweep configurations are nested; keys can have, as their values, further keys. T
 | `command`         | Specify [command structure ](define-sweep-configuration.md#command)for invoking and passing arguments to the training script. |
 | `project`         | Specify the project for this sweep.                                                                                           |
 | `entity`          | Specify the entity for this sweep.                                                                                            |
+| `run_cap`         | Specify a maximum number of runs in a sweep.                                                                                  |
 
 ### Search type methods
 
