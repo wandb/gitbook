@@ -14,7 +14,7 @@ The scatter plot(left) compares the W\&B Runs that were generated during the Swe
 
 The parameter importance plot(right) lists the hyperparameters that were the best predictors of, and highly correlated to desirable values of your metrics. For more information parameter importance plots, see [Parameter Importance](https://docs.wandb.ai/ref/app/features/panels/parameter-importance).
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Example scatter plot (left) and parameter importance plot (right).</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Example scatter plot (left) and parameter importance plot (right).</p></figcaption></figure>
 
 You can alter the dependent and independent values (x and y axis) that are automatically used. Within each panel there is a pencil icon called **Edit panel**. Choose **Edit panel**. A model will appear. Within the modal, you can alter the behavior of the graph.
 

@@ -69,7 +69,7 @@ wandb:
 
 Once you run your `train.py` file with Weights & Biases turned on, a link will be generated to bring you to your W\&B dashboard:
 
-![A Weights & Biases Dashboard](<../../../.gitbook/assets/Screenshot 2022-06-08 at 6.20.35 PM (1).png>)
+![A Weights & Biases Dashboard](<../../../.gitbook/assets/Screenshot 2022-06-08 at 6.20.35 PM.png>)
 
 ## Feedback or Issues
 
