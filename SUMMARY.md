@@ -73,6 +73,7 @@
     * [Log Tables](guides/data-vis/log-tables.md)
     * [Visualize & Analyze Tables](guides/data-vis/tables.md)
   * [Integrations](guides/integrations/README.md)
+    * [Add wandb to Any Library](guides/integrations/add-wandb-to-any-library.md)
     * [Keras](guides/integrations/keras.md)
     * [PyTorch](guides/integrations/pytorch.md)
     * [PyTorch Lightning](guides/integrations/lightning.md)
