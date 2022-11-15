@@ -149,7 +149,67 @@ wandb.finish()
 
 Once you have logged your training results you can explore your results dynamically in the[ W\&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations.
 
-![](<../../.gitbook/assets/hf-gif-15 (2) (2) (3) (3) (3) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (1)   (7).gif>)
+![](<../../.gitbook/assets/hf-gif-15 (2) (2) (3) (3) (3) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (1)  (10).gif>)
+
+## Highlighted Articles
+
+Below are 6 Transformers and W\&B related artices you might enjoy
+
+<details>
+
+<summary><a href="https://wandb.ai/amogkam/transformers/reports/Hyperparameter-Optimization-for-Hugging-Face-Transformers--VmlldzoyMTc2ODI">Hyperparameter Optimization for Hugging Face Transformers</a></summary>
+
+* Three strategies for hyperparameter optimization for Hugging Face Transformers are compared - Grid Search, Bayesian Optimization, and Population Based Training.
+* We use a standard uncased BERT model from Hugging Face transformers, and we want to fine-tune on the RTE dataset from the SuperGLUE benchmark
+* Results show that Population Based Training is the most effective approach to hyperparameter optimization of our Hugging Face transformer model.
+
+</details>
+
+<details>
+
+<summary><a href="https://wandb.ai/wandb/huggingtweets/reports/HuggingTweets-Train-a-Model-to-Generate-Tweets--VmlldzoxMTY5MjI">Hugging Tweets: Train a Model to Generate Tweets</a></summary>
+
+* In the article, the author demonstrates how to fine-tune a pre-trained GPT2 HuggingFace Transformer model on anyone's Tweets in five minutes.
+* The model uses the following pipeline: Downloading Tweets, Optimizing the Dataset, Initial Experiments, Comparing Losses Between Users, Fine-Tuning the Model.
+
+</details>
+
+<details>
+
+<summary><a href="https://wandb.ai/cayush/bert-finetuning/reports/Sentence-Classification-With-Huggingface-BERT-and-W-B--Vmlldzo4MDMwNA">Sentence Classification With Huggingface BERT and W&#x26;B</a></summary>
+
+* In this article, we'll build a sentence classifier leveraging the power of recent breakthroughs in Natural Language Processing, focusing on an application of transfer learning to NLP.
+* We'll be using The Corpus of Linguistic Acceptability (CoLA) dataset for single sentence classification, which is a set of sentences labeled as grammatically correct or incorrect that was first published in May 2018.
+* We'll use Google's BERT to create high performance models with minimal effort on a range of NLP tasks.
+
+</details>
+
+<details>
+
+<summary><a href="https://wandb.ai/jxmorris12/huggingface-demo/reports/A-Step-by-Step-Guide-to-Tracking-Hugging-Face-Model-Performance--VmlldzoxMDE2MTU">A Step by Step Guide to Tracking Hugging Face Model Performance</a></summary>
+
+* We use Weights & Biases and Hugging Face transformers to train DistilBERT, a Transformer that's 40% smaller than BERT but retains 97% of BERT's accuracy, on the GLUE benchmark
+* The GLUE benchmark is a collection of nine datasets and tasks for training NLP models
+
+</details>
+
+<details>
+
+<summary><a href="https://wandb.ai/ayush-thakur/huggingface/reports/Early-Stopping-in-HuggingFace-Examples--Vmlldzo0MzE2MTM">Early Stopping in HuggingFace - Examples</a></summary>
+
+* Fine-tuning a HuggingFace Transformer using Early Stopping regularization can be done natively in PyTorch or TensorFlow.
+* Using the EarlyStopping callback in TensorFlow is straightforward with the `tf.keras.callbacks.EarlyStopping`callback.
+* In PyTorch, there is not an off-the-shelf early stopping method, but there is a working early stopping hook available on GitHub Gist.
+
+</details>
+
+<details>
+
+<summary><a href="https://wandb.ai/ayush-thakur/huggingface/reports/How-to-Fine-Tune-HuggingFace-Transformers-on-a-Custom-Dataset--Vmlldzo0MzQ2MDc">How to Fine-Tune Hugging Face Transformers on a Custom Dataset</a></summary>
+
+We fine tune a DistilBERT transformer for sentiment analysis (binary classification) on a custom IMDB dataset.
+
+</details>
 
 ## Advanced features
 
