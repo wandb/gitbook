@@ -81,7 +81,7 @@ If they're in a Jupyter or Colab notebook, log into W\&B like so
 
 ```python
 import wandb
-wandb.login
+wandb.login()
 ```
 {% endtab %}
 
@@ -140,7 +140,29 @@ python train.py ... --use-wandb
 {% endtab %}
 {% endtabs %}
 
-* Or, set `wandb` to be offline. In this case, you can also choose to disable warning messages.
+* Or, set `wandb` to be disabled in `wandb.init`
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+wandb.init(mode=“disabled”)
+```
+{% endtab %}
+
+{% tab title="Bash" %}
+```bash
+export WANDB_MODE=disabled
+```
+
+or
+
+```bash
+wandb disabled
+```
+{% endtab %}
+{% endtabs %}
+
+* Or, set `wandb` to be offline - note this will still run `wandb`, it just won't try and communicate back to Weights & Biases over the internet
 
 {% tabs %}
 {% tab title="Environment Variable" %}
