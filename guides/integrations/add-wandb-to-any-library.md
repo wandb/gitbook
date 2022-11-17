@@ -1,6 +1,10 @@
 # Add wandb To Any Library
 
-This guide provides best practices on how to integrate W\&B into your Python library. It covers best practices and tips when the codebase you are working on is more complicated than a single Python training script or Jupyter notebook. The topics covered are:
+This guide provides best practices on how to integrate Weights & Biases into your Python library to get powerful **Experiment Tracking**, **GPU and System Monitoring**, **Model Checkpointing and more** for you own library.
+
+> If you are still learning how to use W\&B, we recommend exploring the other W\&B Guides in these docs, such as our [Quickstart guide](https://docs.wandb.ai/quickstart) or [Experiment Tracking guide](https://docs.wandb.ai/guides/track), before reading further
+
+Below we cover best tips and best practices when the codebase you are working on is more complicated than a single Python training script or Jupyter notebook. The topics covered are:
 
 * **Setup requirements**
 * **User Login**
@@ -11,8 +15,6 @@ This guide provides best practices on how to integrate W\&B into your Python lib
 * **Model Checkpointing and More**
 * **Hyper-parameter tuning**
 * **Advanced Integrations**
-
-> **If you are still learning how to use W\&B, we recommend exploring the other W\&B Guides in these docs, such as** [**Experiment Tracking**](https://docs.wandb.ai/guides/track)**, before reading further**
 
 ### Setup Requirements
 
