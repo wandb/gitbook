@@ -1,6 +1,6 @@
-# Add wandb to Any Library
+# Add wandb To Any Library
 
-This guide provides best practices on how to integrate W\&B into your python library. It covers best practices and tips when the codebase you are working on is more complicated than a single python training script or Jupyter notebook. The topics covered are:
+This guide provides best practices on how to integrate W\&B into your Python library. It covers best practices and tips when the codebase you are working on is more complicated than a single Python training script or Jupyter notebook. The topics covered are:
 
 * **Setup requirements**
 * **User Login**
@@ -14,11 +14,11 @@ This guide provides best practices on how to integrate W\&B into your python lib
 
 > **If you are still learning how to use W\&B, we recommend exploring the other W\&B Guides in these docs, such as** [**Experiment Tracking**](https://docs.wandb.ai/guides/track)**, before reading further**
 
-### Setup requirements
+### Setup Requirements
 
 Before you get started, decide whether or not to require W\&B in your library’s dependencies:
 
-#### Require W\&B on Installation
+#### Require W\&B On Installation
 
 Add the W\&B Python library (`wandb`) to your dependencies file, for example, in your `requirements.txt` file
 
@@ -28,7 +28,7 @@ torch==1.8.0
 wandb==0.13.*
 ```
 
-#### Make W\&B optional on Installation
+#### Make W\&B Optional On Installation
 
 There are two ways to make the W\&B SDK (`wandb`) optional:&#x20;
 
@@ -44,7 +44,7 @@ except ImportError:
     ) 
 ```
 
-**B.**  Add `wandb` as an optional dependency to your `pyproject.toml` file, if you are building a python package.&#x20;
+**B.**  Add `wandb` as an optional dependency to your `pyproject.toml` file, if you are building a Python package.&#x20;
 
 ```toml
 [project]
@@ -98,7 +98,7 @@ os.environ['WANDB_API_KEY'] = "abc123..."
 
 If a user is using wandb for the first time without following any of the steps mentioned above, they will automatically be prompted to login when your script calls `wandb.init`
 
-### Starting a wandb Run
+### Starting A wandb Run
 
 A W\&B Run is a unit of computation logged by Weights & Biases. Typically you associate a single W\&B Run per training experiment.
 
@@ -114,11 +114,11 @@ Optionally you can provide a name for their project, or let the user set it them
 wandb.init(project=wandb_project, entity=wandb_entity)
 ```
 
-#### Where to place `wandb.init`?
+#### Where To Place `wandb.init`?
 
 Your library should create W\&B Run as early as possible because any output in your console, including error messages, are logged as part of the W\&B Run. This makes debugging easier.
 
-#### Run the library with `wandb` as optional
+#### Run The Library With `wandb` As Optional
 
 If you want to make `wandb` optional when your users use your library, you can either:&#x20;
 
@@ -160,7 +160,7 @@ wandb offline
 {% endtab %}
 {% endtabs %}
 
-### Defining a wandb Run Config
+### Defining A wandb Run Config
 
 With a `wandb` run config you can provide metadata about your model, dataset, and so on when you create a W\&B Run. You can use this information to compare different experiments and quickly understand what are the main differences.
 
@@ -179,7 +179,7 @@ config = {“batch_size”:32, …}
 wandb.init(…, config=config)
 ```
 
-#### Updating the wandb config
+#### Updating The wandb Config
 
 Use `wandb.config.update` to update the config. Updating your configuration dictionary is useful when parameters are obtained after the dictionary was defined, for example you might want to add a model’s parameters after the model is instantiated.&#x20;
 
@@ -189,7 +189,7 @@ wandb.config.update({“model_parameters” = 3500})
 
 For more information on how to define a config file, see [Configure Experiments with wandb.config](https://docs.wandb.ai/guides/track/config)
 
-### Logging to Weights & Biases
+### Logging To Weights & Biases
 
 #### Log Metrics
 
@@ -220,7 +220,7 @@ wandb.log(metrics)
 
 For more on `wandb.log`, see [Log Data with wandb.log](https://docs.wandb.ai/guides/track/log)
 
-#### Preventing x-axis misalignments
+#### Preventing x-axis Misalignments
 
 Sometimes you might need to perform multiple calls to `wandb.log` for the same training step. The wandb SDK has its own internal step counter that is incremented **every time** a `wandb.log` call is made. This means that there is a possibility that the wandb log counter is not aligned with the training step in your training loop.&#x20;
 
@@ -255,7 +255,7 @@ Now that you've called `wandb.define_metric` , you just need to log your metrics
 
 If you do not have access to the independent step variable, for example “global\_step” is not available during your validation loop, the previously logged value for "global\_step" is automatically used by wandb. In this case, ensure you log an initial value for the metric so it has been defined when it’s needed.
 
-#### Log images, tables, text, audio and more
+#### Log Images, Tables, Text, Audio And More
 
 In addition to metrics, you can log plots, histograms, tables, text and media such as images, videos, audios, 3D and more.
 
@@ -277,7 +277,7 @@ For frameworks supporting distributed environments, you can adapt any of the fol
 
 See [Log Distributed Training Experiments](https://docs.wandb.ai/guides/track/advanced/distributed-training) for more details
 
-### Logging Model Checkpoints and More
+### Logging Model Checkpoints And More
 
 If your framework uses or produces models or datasets, you can log them for full traceability and have wandb automatically monitor your entire pipeline through W\&B Artifacts.
 
@@ -311,7 +311,7 @@ For information on how to create a custom alias, see [Create a Custom Alias](htt
 
 You can log output Artifacts at any frequency (for example, every epoch, every 500 steps and so on) and are automatically versioned.
 
-#### Log and Track Pretrained Models or Datasets
+#### Log And Track Pretrained Models Or Datasets
 
 You can log artifacts that are used as inputs to your training such as pretrained models or datasets. The following snippet demonstrates how to log an Artifact and add it as an input to the ongoing Run as shown in the graph above.&#x20;
 
@@ -321,7 +321,7 @@ artifact_input_data.add_file(“flowers.npy”)
 wandb.use_artifact(artifact_input_data)
 ```
 
-#### Download a W\&B Artifact
+#### Download A W\&B Artifact
 
 You re-use an Artifact (dataset, model…) and `wandb` will download a copy locally (and cache it):&#x20;
 
