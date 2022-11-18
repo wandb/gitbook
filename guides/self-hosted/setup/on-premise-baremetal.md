@@ -39,7 +39,7 @@ sync_binlog = 1
 innodb_flush_log_at_trx_commit = 1
 binlog_row_image = 'MINIMAL'</code></pre>
 
-Due to some changes in the way that MySQL 8.0 handles `sort_buffer_size`_,_ you may need to update the `sort_buffer_size` parameter from its default value of `262144`. Our recommendation is to set the value at `4194304`(`4MiB)` to start with and then increase as needed up to `33554432(32MiB)` to efficiently work with the `wandb` application. Note that, this only works with MySQL versions 8.0.28 and above.
+Due to some changes in the way that MySQL 8.0 handles `sort_buffer_size`_,_ you may need to update the `sort_buffer_size` parameter from its default value of `262144`. Our recommendation is to set the value to `33554432(32MiB)` in order for the database to efficiently work with the `wandb` application. Note that, this only works with MySQL versions 8.0.28 and above.
 
 The most important things to consider when running your own MySQL database are:
 
