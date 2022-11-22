@@ -332,18 +332,6 @@ Checks if a [string](https://docs.wandb.ai/ref/weave/string) contains a substrin
 #### Return Value
 Whether the [string](https://docs.wandb.ai/ref/weave/string) contains the substring
 
-<h3 id="contains"><code>contains</code></h3>
-
-Check if a _list_ contains a [string](https://docs.wandb.ai/ref/weave/string)
-
-| Argument |  |
-| :--- | :--- |
-| `arr` | _list_ to check |
-| `element` | [string](https://docs.wandb.ai/ref/weave/string) to check for |
-
-#### Return Value
-True if the _list_ contains the [string](https://docs.wandb.ai/ref/weave/string)
-
 <h3 id="string-endsWith"><code>string-endsWith</code></h3>
 
 Checks if a [string](https://docs.wandb.ai/ref/weave/string) ends with a suffix
