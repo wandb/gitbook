@@ -26,5 +26,5 @@ Weave is wandb's data querying language, which you can use to select and aggrega
 * [run](./run.md)
 * [string](./string.md)
 * [table](./table.md)
-* [video-file](./video-file.md)
 * [user](./user.md)
+* [video-file](./video-file.md)
