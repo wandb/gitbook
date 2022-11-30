@@ -270,6 +270,18 @@ Calculates the Levenshtein distance between two [strings](https://docs.wandb.ai/
 #### Return Value
 The Levenshtein distance between the two [strings](https://docs.wandb.ai/ref/weave/string).
 
+<h3 id="local-sqlconnection"><code>local-sqlconnection</code></h3>
+
+hello
+
+| Argument |  |
+| :--- | :--- |
+| `conf` | hello |
+| `size` | hello |
+
+#### Return Value
+hello
+
 
 ## List Ops
 <h3 id="string-notEqual"><code>string-notEqual</code></h3>
