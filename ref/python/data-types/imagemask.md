@@ -1,12 +1,8 @@
-# ImageMask
+# wandb.data\_types.ImageMask
 
+[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data\_types/helper\_types/image\_mask.py#L18-L247)
 
-
-[![](https://www.tensorflow.org/images/GitHub-Mark-32px.png)View source on GitHub](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types/helper_types/image_mask.py#L18-L247)
-
-
-
-Format image masks or overlays for logging to W&B.
+Format image masks or overlays for logging to W\&B.
 
 ```python
 ImageMask(
@@ -15,21 +11,15 @@ ImageMask(
 ) -> None
 ```
 
-
-
-
-
-| Arguments |  |
-| :--- | :--- |
-|  `val` |  (dictionary) One of these two keys to represent the image: mask_data : (2D numpy array) The mask containing an integer class label for each pixel in the image path : (string) The path to a saved image file of the mask class_labels : (dictionary of integers to strings, optional) A mapping of the integer class labels in the mask to readable class names. These will default to class_0, class_1, class_2, etc. |
-|  `key` |  (string) The readable name or id for this mask type (e.g. predictions, ground_truth) |
-
-
+| Arguments |                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `val`     | (dictionary) One of these two keys to represent the image: mask\_data : (2D numpy array) The mask containing an integer class label for each pixel in the image path : (string) The path to a saved image file of the mask class\_labels : (dictionary of integers to strings, optional) A mapping of the integer class labels in the mask to readable class names. These will default to class\_0, class\_1, class\_2, etc. |
+| `key`     | (string) The readable name or id for this mask type (e.g. predictions, ground\_truth)                                                                                                                                                                                                                                                                                                                                        |
 
 #### Examples:
 
 ### Logging a single masked image
-<!--yeadoc-test:log-image-mask-->
+
 ```python
 import numpy as np
 import wandb
@@ -70,9 +60,8 @@ wandb.log({"img_with_masks" : masked_image})
 ```
 
 ### Log a masked image inside a Table
-<!--yeadoc-test:log-image-mask-table-->
-```python
 
+```python
 import numpy as np
 import wandb
 
@@ -121,33 +110,23 @@ table.add_data(masked_image)
 wandb.log({"random_field": table})
 ```
 
-
 ## Methods
 
-<h3 id="type_name"><code>type_name</code></h3>
+### `type_name` <a href="#type_name" id="type_name"></a>
 
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types/helper_types/image_mask.py#L219-L221)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data\_types/helper\_types/image\_mask.py#L219-L221)
 
 ```python
 @classmethod
 type_name() -> str
 ```
 
+### `validate` <a href="#validate" id="validate"></a>
 
-
-
-<h3 id="validate"><code>validate</code></h3>
-
-[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data_types/helper_types/image_mask.py#L223-L247)
+[View source](https://www.github.com/wandb/client/tree/latest/wandb/sdk/data\_types/helper\_types/image\_mask.py#L223-L247)
 
 ```python
 validate(
     val: dict
 ) -> bool
 ```
-
-
-
-
-
-

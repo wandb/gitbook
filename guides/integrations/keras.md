@@ -2,6 +2,212 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/intro-keras)
 
+_**For  our legacy Keras**** ****`WandbCallback`****, scroll down to the**** ****`WandbCallback`**** ****section**_
+
+## The Weights & Biases Keras Callbacks
+
+We have added three new callbacks for Keras and TensorFlow users, available from `wandb` v0.13.4
+
+### Callbacks
+
+**`WandbMetricsLogger`** : Use this callback for [Experiment Tracking](https://docs.wandb.ai/guides/track). It will log your training and validation metrics along with system metrics to Weights and Biases.
+
+**`WandbModelCheckpoint`** : Use this callback to log your model checkpoints to Weight and Biases [Artifacts](https://docs.wandb.ai/guides/data-and-model-versioning).
+
+**`WandbEvalCallback`**: This base callback will log model predictions to Weights and Biases [Tables](https://docs.wandb.ai/guides/data-vis) for interactive visualization.
+
+These new callbacks,
+
+* Adhere to Keras design philosophy
+* Reduce the cognitive load of using a single callback (`WandbCallback`) for everything,
+* Make it easy for Keras users to modify the callback by subclassing it to support their niche usecase.
+
+### Experiment Tracking with `WandbMetricsLogger`
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/wandb/examples/blob/master/colabs/keras/Use\_WandbMetricLogger\_in\_your\_Keras\_workflow.ipynb)
+
+`WandbMetricsLogger` automatically logs Keras' `logs` dictionary that callback methods such as `on_epoch_end`, `on_batch_end` etc, take as an argument.&#x20;
+
+Using this provides:
+
+* train and validation metrics defined in `model.compile`
+* system (CPU/GPU/TPU) metrics
+* learning rate (both for a fixed value or a learning rate scheduler)
+
+```python
+import wandb
+from wandb.keras import WandbMetricsLogger
+
+# Initialize a new W&B run
+wandb.init(config={"bs": 12})
+
+# Pass the WandbMetricsLogger to model.fit
+model.fit(
+    X_train,
+    y_train,
+    validation_data=(X_test, y_test),
+    callbacks=[WandbMetricsLogger()]
+)
+```
+
+### `WandbMetricsLogger` Reference
+
+| Parameter             | Description                                                                                                                                                                                                                                                    |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `log_freq`            | <p>("epoch", "batch", or int): if "epoch", logs metrics at the end of each epoch. If "batch", logs metrics at the end of each batch. If an int, logs metrics at the end of that many batches. <br><br>Defaults to "epoch".</p>                                 |
+| `initial_global_step` | <p>(int): Use this argument to correctly log the learning rate when you resume training from some <code>initial_epoch</code>, and a learning rate scheduler is used. This can be computed as <code>step_size * initial_step</code>. <br><br>Defaults to 0.</p> |
+
+## Model Checkpointing using `WandbModelCheckpoint`
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/wandb/examples/blob/master/colabs/keras/Use\_WandbModelCheckpoint\_in\_your\_Keras\_workflow.ipynb)
+
+Use `WandbModelCheckpoint` callback to save the Keras model (`SavedModel` format) or model weights periodically and uploads them to W\&B as a `wandb.Artifact` for model versioning. You can learn more about model versioning [here](https://docs.wandb.ai/guides/data-and-model-versioning/model-versioning).
+
+This callback is subclassed from [`tf.keras.callbacks.ModelCheckpoint`](https://www.tensorflow.org/api\_docs/python/tf/keras/callbacks/ModelCheckpoint) ,thus the checkpointing logic is taken care of by the parent callback.
+
+This callback provides the following features:
+
+* Save the model that has achieved "best performance" based on the "monitor".
+* Save the model at the end of every epoch regardless of the performance.
+* Save the model at the end of the epoch or after a fixed number of training batches.
+* Save only model weights, or save the whole model.
+* Save the model either in SavedModel format or in `.h5` format.
+
+This callback should be used in conjunction with `WandbMetricsLogger`.
+
+<pre class="language-python"><code class="lang-python">import wandb
+from wandb.keras import WandbMetricsLogger, WandbModelCheckpoint
+
+# Initialize a new W&#x26;B run
+wandb.init(config={"bs": 12})
+
+# Pass the WandbModelCheckpoint to model.fit
+model.fit(
+<strong>  X_train,
+</strong><strong>  y_train,
+</strong><strong>  validation_data=(X_test, y_test),
+</strong><strong>  callbacks=[
+</strong><strong>    WandbMetricsLogger(),
+</strong><strong>    WandbModelCheckpoint(),
+</strong>  ]
+)
+</code></pre>
+
+**`WandbModelCheckpoint` Reference**
+
+| Parameter                 | Description                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `filepath`                | (str): path to save the model file.                                                                                                                                                                                                                                                                                                                |
+| `monitor`                 | (str): The metric name to monitor.                                                                                                                                                                                                                                                                                                                 |
+| `verbose`                 | (int): Verbosity mode, 0 or 1. Mode 0 is silent, and mode 1 displays messages when the callback takes an action.                                                                                                                                                                                                                                   |
+| `save_best_only`          | (bool): if `save_best_only=True`, it only saves when the model is considered the "best" and the latest best model according to the quantity monitored (`monitor`) will not be overwritten.                                                                                                                                                         |
+| `save_weights_only`       | (bool): if True, then only the model's weights will be saved.                                                                                                                                                                                                                                                                                      |
+| `mode`                    | ("auto", "min", or "max"): For val\_acc, this should be ‘max’, for val\_loss this should be ‘min’, etc.                                                                                                                                                                                                                                            |
+| `save_weights_only`       | (bool): if True, then only the model's weights will be saved.                                                                                                                                                                                                                                                                                      |
+| `save_freq`               | ("epoch" or int): When using ‘epoch’, the callback saves the model after each epoch. When using an integer, the callback saves the model at end of this many batches. Note that when monitoring validation metrics such as `val_acc` or `val_loss`, `save_freq` must be set to "epoch" as those metrics are only available at the end of an epoch. |
+| `options`                 | (str): Optional `tf.train.CheckpointOptions` object if `save_weights_only` is true or optional `tf.saved_model.SaveOptions` object if `save_weights_only` is false.                                                                                                                                                                                |
+| `initial_value_threshold` | (float): Floating point initial "best" value of the metric to be monitored.                                                                                                                                                                                                                                                                        |
+
+## Model Prediction Visualization using `WandbEvalCallback`
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/wandb/examples/blob/e66f16fbe7ae7a2e636d59350a50059d3f7e5494/colabs/keras/Use\_WandbEvalCallback\_in\_your\_Keras\_workflow.ipynb)
+
+The `WandbEvalCallback` is an abstract base class to build Keras callbacks primarily for model prediction and, secondarily, dataset visualisation.
+
+This abstract callback is agnostic with respect to the dataset and the task. To use this, inherit from this base `WandbEvalCallback` callback class and implement the `add_ground_truth` and `add_model_prediction` methods.
+
+The `WandbEvalCallback` is a utility class that provides helpful methods to:
+
+* create data and prediction `wandb.Table` instances,
+* log data and prediction Tables as `wandb.Artifact`
+* logs the data table `on_train_begin`
+* logs the prediction table `on_epoch_end`
+
+For example, we have implemented `WandbClfEvalCallback` below for an image classification task. This example callback:
+
+* logs the validation data (`data_table`) to W\&B,
+* performs inference and logs the prediction (`pred_table`) to W\&B at the end of every epoch.
+
+```python
+import wandb
+from wandb.keras import WandbMetricsLogger, WandbEvalCallback
+
+# Implement your model prediction visualization callback
+class WandbClfEvalCallback(WandbEvalCallback):
+    def __init__(
+        self, validation_data, data_table_columns, pred_table_columns, num_samples=100
+    ):
+        super().__init__(data_table_columns, pred_table_columns)
+
+        self.x = validation_data[0]
+        self.y = validation_data[1]
+
+    def add_ground_truth(self, logs=None):
+        for idx, (image, label) in enumerate(zip(self.x, self.y)):
+            self.data_table.add_data(idx, wandb.Image(image), label)
+
+    def add_model_predictions(self, epoch, logs=None):
+        preds = self.model.predict(self.x, verbose=0)
+        preds = tf.argmax(preds, axis=-1)
+
+        table_idxs = self.data_table_ref.get_index()
+
+        for idx in table_idxs:
+            pred = preds[idx]
+            self.pred_table.add_data(
+                epoch,
+                self.data_table_ref.data[idx][0],
+                self.data_table_ref.data[idx][1],
+                self.data_table_ref.data[idx][2],
+                pred,
+            )
+
+# ...
+           
+# Initialize a new W&B run
+wandb.init(config={"hyper": "parameter"})
+
+# Add the Callbacks to Model.fit
+model.fit(
+    X_train,
+    y_train,
+    validation_data=(X_test, y_test),
+    callbacks=[
+        WandbMetricsLogger(),
+        WandbClfEvalCallback(
+            validation_data=(X_test, y_test),
+            data_table_columns=["idx", "image", "label"],
+            pred_table_columns=["epoch", "idx", "image", "label", "pred"],
+	),
+    ]
+)
+```
+
+{% hint style="info" %}
+💡 The Tables are logged to the W\&B [Artifact page](https://docs.wandb.ai/ref/app/pages/project-page#artifacts-tab) by default and not the [Workspace](https://docs.wandb.ai/ref/app/pages/workspaces) page.
+{% endhint %}
+
+### How the memory footprint is reduced?
+
+We log the `data_table` to W\&B when the `on_train_begin` method is invoked. Once it's uploaded as a W\&B Artifact, we get a reference to this table which can be accessed using `data_table_ref` class variable. The `data_table_ref` is a 2D list that can be indexed like `self.data_table_ref[idx][n]`, where `idx` is the row number while `n` is the column number. Let's see the usage in the example below.
+
+### Customize the callback further
+
+You can override the `on_train_begin` or `on_epoch_end` methods to have more fine-grained control. If you want to log the samples after `N` batches, you can implement `on_train_batch_end` method.
+
+{% hint style="info" %}
+💡 If you are implementing a callback for model prediction visualization by inheriting `WandbEvalCallback` and something needs to be clarified or fixed, please let us know by opening an [issue](https://github.com/wandb/wandb/issues).
+{% endhint %}
+
+### **`WandbEvalCallback` Reference**
+
+| Parameter            | Description                                      |
+| -------------------- | ------------------------------------------------ |
+| `data_table_columns` | (list) List of column names for the `data_table` |
+| `pred_table_columns` | (list) List of column names for the `pred_table` |
+
+## WandbCallback \[Legacy]
+
 Use the W\&B library [`WandbCallback`](https://docs.wandb.ai/ref/python/integrations/keras/wandbcallback) Class to automatically save all the metrics and the loss values tracked in `model.fit`.
 
 ```python
@@ -12,9 +218,13 @@ wandb.init(config={"hyper": "parameter"})
 
 ...  # code to set up your model in Keras
 
-# 🧙 magic
-model.fit(X_train, y_train,  validation_data=(X_test, y_test),
-          callbacks=[WandbCallback()])
+# Pass the callback to model.fit
+model.fit(
+  X_train,
+  y_train,
+  validation_data=(X_test, y_test),
+  callbacks=[WandbCallback()]
+)
 ```
 
 ## Usage examples
