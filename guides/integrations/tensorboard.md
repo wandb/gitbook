@@ -2,7 +2,7 @@
 
 ## Hosted TensorBoard with 1 Line of Code
 
-With Weight & Biases you can easily upload your TensorBoard logs to the cloud, quickly share your results among colleagues and classmates and keep your analysis in one centralized location.
+With Weight & Biases you can easily **upload** your TensorBoard logs to the cloud, quickly **share** your results among colleagues and classmates and **store** all your analysis in one centralized location.
 
 **Get started now in with this Notebook:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/wandb/examples/blob/master/colabs/tensorboard/TensorBoard\_and\_Weights\_and\_Biases.ipynb)
 
@@ -18,17 +18,17 @@ wandb.init(project='my-project', sync_tensorboard=True)
 # Your training code using TensorBoard
 ...
 
-# [Optional] If running in a notebook, finish the wandb run to upload the tensorboard logs to W&B
+# [Optional] Finish the wandb run to upload the tensorboard logs to W&B (if running in Notebook)
 wandb.finish()
 ```
+
+Once your wandb run finishes, your TensborBoard event files will then be uploaded to Weights & Biaes. These metrics will **also be logged** in native Weights & Biases charts along with a host of useful information such as your machines CPU or GPU utilization, the git state, the terminal command used, and much more.
 
 [**See here for an example of Tensorboard hosted in Weights & Biases**](https://wandb.ai/morgan/tensorboard\_demo/runs/1grhu7uq/tensorboard)****
 
 {% hint style="info" %}
 Weights & Biases support TensorBoard with all versions of TensorFlow. W\&B also supports TensorBoard > 1.14 with PyTorch as well as TensorBoardX.
 {% endhint %}
-
-
 
 ## Common questions
 
@@ -49,7 +49,7 @@ import wandb
 wandb.tensorboard.patch(root_logdir="<logging_directory>")
 wandb.init()
 
-# If running in a notebook, finish the wandb run to upload the tensorboard logs to W&B
+# Finish the wandb run to upload the tensorboard logs to W&B (if running in Notebook)
 wandb.finish()
 ```
 
