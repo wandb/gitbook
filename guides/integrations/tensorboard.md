@@ -1,35 +1,34 @@
 # TensorBoard
 
-W\&B supports patching TensorBoard to automatically log all the metrics from your script into our [rich, interactive dashboards](../track/app.md).
+## Hosted TensorBoard with 1 Line of Code
+
+With Weight & Biases you can easily upload your TensorBoard logs to the cloud, quickly share your results among colleagues and classmates and keep your analysis in one centralized location.
+
+**Get started now in with this Notebook:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/wandb/examples/blob/master/colabs/tensorboard/TensorBoard\_and\_Weights\_and\_Biases.ipynb)
+
+<figure><img src="../../.gitbook/assets/Screenshot 2022-12-05 at 20.06.40.png" alt=""><figcaption></figcaption></figure>
+
+### Just add 1 Line of Code
 
 ```python
 import wandb
-# Just start a W&B run, passing `sync_tensorboard=True)`, to plot your Tensorboard files
+# Start a wandb run with `sync_tensorboard=True`
 wandb.init(project='my-project', sync_tensorboard=True)
 
-# Your Keras, Tensorflow or PyTorch training code using TensorBoard
+# Your training code using TensorBoard
 ...
 
-# If running in a notebook, finish the wandb run to upload the tensorboard logs to W&B
+# [Optional] If running in a notebook, finish the wandb run to upload the tensorboard logs to W&B
 wandb.finish()
 ```
 
-We support TensorBoard with all versions of TensorFlow. W\&B also supports TensorBoard > 1.14 with PyTorch as well as TensorBoardX.
+[**See here for an example of Tensorboard hosted in Weights & Biases**](https://wandb.ai/morgan/tensorboard\_demo/runs/1grhu7uq/tensorboard)****
+
+{% hint style="info" %}
+Weights & Biases support TensorBoard with all versions of TensorFlow. W\&B also supports TensorBoard > 1.14 with PyTorch as well as TensorBoardX.
+{% endhint %}
 
 
-
-## How is W\&B different from TensorBoard?
-
-When the cofounders started working on W\&B, they were inspired to build a tool for the frustrated TensorBoard users at OpenAI. Here are a few things we've focused on improving:
-
-1. **Reproduce models**: Weights & Biases is good for experimentation, exploration, and reproducing models later. We capture not just the metrics, but also the hyperparameters and version of the code, and we can save your version-control status and model checkpoints for you so your project is reproducible.
-2. **Automatic organization**: Whether you're picking up a project from a collaborator, coming back from a vacation, or dusting off an old project, W\&B makes it easy to see all the models that have been tried so no one wastes hours, GPU cycles, or carbon re-running experiments.
-3. **Fast, flexible integration**: Add W\&B to your project in 5 minutes. Install our free open-source Python package and add a couple of lines to your code, and every time you run your model you'll have nice logged metrics and records.
-4. **Persistent, centralized dashboard**: No matter where you train your models, whether on your local machine, in a shared lab cluster, or on spot instances in the cloud, your results are shared to the same centralized dashboard. You don't need to spend your time copying and organizing TensorBoard files from different machines.
-5. **Powerful tables**: Search, filter, sort, and group results from different models. It's easy to look over thousands of model versions and find the best performing models for different tasks. TensorBoard isn't built to work well on large projects.
-6. **Tools for collaboration**: Use W\&B to organize complex machine learning projects. It's easy to share a link to W\&B, and you can use private teams to have everyone sending results to a shared project. We also support collaboration via reports— add interactive visualizations and describe your work in markdown. This is a great way to keep a work log, share findings with your supervisor, or present findings to your lab or team.
-
-Get started with a [free personal account →](https://wandb.ai)
 
 ## Common questions
 
