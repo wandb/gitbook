@@ -67,9 +67,64 @@ First, create a Registered Model to hold all the candidate models for your parti
 
 ![](<../../.gitbook/assets/2022-05-17 14.20.36 (1).gif>)
 {% endtab %}
+
+{% tab title="Programmatic Linking" %}
+If you already have a logged model version, you can link directly to a registered model from the SDK. If the registered model you specify doesn't exist, we will created it for you.
+
+While manual linking is useful for one-off Models, it is often useful to programmatically link Model Versions to a Collection - consider a nightly job or CI pipeline that wants to link the best Model Version from every training job. Depending on your context and use case, you may use one of 3 different linking APIs:
+
+**Fetch Model Artifact from Public API:**
+
+```python
+import wandb
+
+# Fetch the Model Version via API
+art = wandb.Api().artifact(...)
+
+# Link the Model Version to the Model Collection
+art.link("[[entity/]project/]collectionName")
+```
+
+**Model Artifact is "used" by the current Run:**
+
+```python
+import wandb
+
+# Initialize a W&B run to start tracking
+wandb.init()
+
+# Obtain a reference to a Model Version
+art = wandb.use_artifact(...)
+
+# Link the Model Version to the Model Collection
+art.link("[[entity/]project/]collectionName")
+```
+
+**Model Artifact is logged by the current Run:**
+
+```python
+import wandb
+
+# Initialize a W&B run to start tracking
+wandb.init()
+
+# Create an Model Version
+art = wandb.Artifact(...)
+
+# Log the Model Version
+wandb.log_artifact(art)
+
+# Link the Model Version to the Collection
+wandb.run.link_artifact(art, "[[entity/]project/]collectionName")
+```
+{% endtab %}
 {% endtabs %}
 
-### 2. Train & log Model Versions
+
+
+
+
+### 2. Train & Log Model Versions
 
 Next, you will log a model from your training script:
 
@@ -115,7 +170,7 @@ else:
 ```
 {% endtab %}
 
-{% tab title="(Beta) Using `log_model`" %}
+{% tab title="[Beta] Using log_model()" %}
 {% hint style="warning" %}
 The following code snippet leverages actively developed `beta` APIs and therefore is subject to change and not guaranteed to be backwards compatible.
 {% endhint %}
@@ -197,7 +252,7 @@ The following video below demonstrates how to manually link a Model Version to y
 ![](<../../.gitbook/assets/2022-05-11 15.13.48.gif>)
 {% endtab %}
 
-{% tab title="Programatic Linking" %}
+{% tab title="Programmatic Linking" %}
 While manual linking is useful for one-off Models, it is often useful to programmatically link Model Versions to a Collection - consider a nightly job or CI pipeline that wants to link the best Model Version from every training job. Depending on your context and use case, you may use one of 3 different linking APIs:
 
 **Fetch Model Artifact from Public API:**
