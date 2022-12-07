@@ -88,7 +88,7 @@ model.fit(
 </strong><strong>  validation_data=(X_test, y_test),
 </strong><strong>  callbacks=[
 </strong><strong>    WandbMetricsLogger(),
-</strong><strong>    WandbModelCheckpoint(),
+</strong><strong>    WandbModelCheckpoint("models"),
 </strong>  ]
 )
 </code></pre>
