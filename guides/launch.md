@@ -14,7 +14,7 @@ description: >-
 <mark style="color:red;">**Pilot customers need to use AWS EKS or SageMaker to qualify for the beta program. We plan to support additional platforms.**</mark>
 {% endhint %}
 
-Connect your own SageMaker or Kubernetes cluster, then easily queue and manage jobs using W\&B Launch. Kick off jobs on your own infrastructure from the W\&B UI or CLI.
+Connect your own SageMaker or Kubernetes cluster, then easily queue and manage jobs using W\&B Launch. Kick off jobs on your own infrastructure from the W\&B UI or CLI. Applications to the Launch pilot program are open to paying customers at the moment. To get started with W\&B for your company, talk to Sales here: [https://wandb.ai/site/pricing](https://wandb.ai/site/pricing)
 
 With W\&B Launch you can:
 
