@@ -4,7 +4,7 @@ description: Project management and collaboration tools for machine learning pro
 
 # Collaborative Reports
 
-Reports let you organize and embed visualizations, describe your findings, share updates with collaborators, and more.
+Reports let you organize, embed and automate visualizations, describe your findings, share updates with collaborators, and more.
 
 {% hint style="info" %}
 Check out our [video demo](https://www.youtube.com/watch?v=2xeJIv\_K\_eI) of Reports, or read curated Reports in [W\&B Fully Connected](http://wandb.me/fc).
@@ -14,9 +14,9 @@ Check out our [video demo](https://www.youtube.com/watch?v=2xeJIv\_K\_eI) of Rep
 
 ## Typical use cases for reports
 
-1. **Notes**: Add a graph with a quick note to yourself.
-2. **Collaboration**: Share findings with your colleagues.
-3. **Work log**: Track what you've tried and plan next steps.
+1. **Collaboration**: Share findings with your colleagues.
+2. **Work log**: Track what you've tried and plan next steps.
+3. **Automated Visualizations**: **** Integrate model analysis into your model CI/CD pipeline using the Report API.
 
 ### **Notes: Add a visualization with a quick summary**
 

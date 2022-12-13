@@ -59,7 +59,7 @@ model.fit(
 
 ## Model Checkpointing using `WandbModelCheckpoint`
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/wandb/examples/blob/master/colabs/keras/Use\_WandbModelCheckpoint\_in\_your\_Keras\_workflow.ipynb)
+https://app.gitbook.com/o/-Lr2SEfv2R3GSuF1kZCt/s/-Lqya5RvLedGEWPhtkjU-1972196547/guides/integrations/keras
 
 Use `WandbModelCheckpoint` callback to save the Keras model (`SavedModel` format) or model weights periodically and uploads them to W\&B as a `wandb.Artifact` for model versioning. You can learn more about model versioning [here](https://docs.wandb.ai/guides/data-and-model-versioning/model-versioning).
 

@@ -23,7 +23,9 @@ Enter a forward slash (`/`) in the report to display a dropdown menu. Select **A
 ![Add charts to a report](<../../.gitbook/assets/demo - report add panel grid.gif>)
 {% endtab %}
 
-{% tab title="Python SDK (Beta)" %}
+{% tab title="Python SDK" %}
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/report\_api)
+
 Add plots to a report programmatically with the SDK. Pass a list of one or more plot or chart objects to the `panels` parameter in the `PanelGrid` Public API Class. Create a plot or chart object with its associated Python Class.&#x20;
 
 
@@ -67,8 +69,6 @@ Enter a forward slash (`/`) in the report to display a dropdown menu. From the d
 {% endtab %}
 
 {% tab title="Python SDK" %}
-
-
 Add run sets from projects with the `wr.RunSet()` and `wr.PanelGrid` Classes. The proceeding procedure describes how to add a runset:
 
 1. Create a `wr.RunSet()` object instance. Provide the name of the project that contains the runsets for the project parameter and the entity that owns the project for the entity parameter.
@@ -166,7 +166,7 @@ Enter a forward slash (`/`) in the report to display a dropdown menu. From the d
 Select the name of the programming language on the right hand of the code block. This will expand a dropdown. From the dropdown, select your programming language syntax. You can choose from Javascript, Python, CSS, JSON, HTML, Markdown, and YAML.
 {% endtab %}
 
-{% tab title="Python SDK (Beta)" %}
+{% tab title="Python SDK" %}
 Use the `wr.CodeBlock` Class to create a code block programmatically. Provide the name of the language and the code you want to display for the language and code parameters, respectively.
 
 For example the proceeding example demonstrates a list in YAML file:
@@ -235,7 +235,7 @@ Add markdown to your report interactively with the App UI or with the Weights & 
 Enter a forward slash (/) in the report to display a dropdown menu. From the dropdown choose **Markdown**.
 {% endtab %}
 
-{% tab title="Python SDK (Beta)" %}
+{% tab title="Python SDK" %}
 Use the `wandb.apis.reports.MarkdownBlock` Class to create a markdown block programmatically. Pass a string to the `text` parameter:
 
 ```python
@@ -266,7 +266,7 @@ Add HTML elements to your report interactively with the App UI or with the Weigh
 Enter a forward slash (`/`) in the report to display a dropdown menu. From the dropdown select a type of text block. For example, to create an H2 heading block, select the `Heading 2` option.
 {% endtab %}
 
-{% tab title="Python SDK (Beta)" %}
+{% tab title="Python SDK" %}
 Pass a list of one or more HTML elements to `wandb.apis.reports.blocks` attribute. The proceeding example demonstrates how to create an H1, H2, and an unordered list:
 
 ```python

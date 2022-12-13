@@ -29,19 +29,17 @@ Navigate to the **Reports** tab in your project and select the **Create Report**
 
 {% endtab %}
 
-{% tab title="Python SDK (Beta)" %}
-{% hint style="danger" %}
-#### <mark style="color:red;">Creating Reports programmatically with the API is in</mark> <mark style="color:red;">**Beta and in active development.**</mark>
+{% tab title="Python SDK" %}
+{% hint style="info" %}
+For a complete walkthrough of Reports API, see this notebook:\
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://wandb.me/report\_api)
 {% endhint %}
 
-Create a report programmatically with the `wandb` library. After you import the `wandb`, state `wandb.require('report-editing')` to enable programatic report editing. This requirement ensures you do not accidentally modify a report.
+Create a report programmatically with the `wandb` library.&#x20;
 
 ```python
 import wandb
 import wandb.apis.reports as wr
-
-# W&B requirement to avoid accidental report modification
-wandb.require('report-editing')
 ```
 
 Create a report instance with the Report Class Public API ([`wandb.apis.reports`](https://docs.wandb.ai/ref/python/public-api/api#reports)). Specify a name for the project.
