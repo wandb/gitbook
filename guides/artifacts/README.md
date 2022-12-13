@@ -18,7 +18,7 @@ For more information about exploring an artifacts graph, see [Explore and traver
 
 An artifact is like a directory of data. Each entry is either an actual file stored in the artifact, or a reference to an external URI. You can nest folders inside an artifact just like a regular filesystem. You can store any data, including: datasets, models, images, HTML, code, audio, raw binary data and more.
 
-Every time you change the contents of this directory, Weights & Biases will create a new version of your artifact instead overwriting the previous contents.
+Every time you change the contents of this directory, Weights & Biases will create a new version of your artifact instead of overwriting the previous contents.
 
 As an example, assume we have the following directory structure:
 
