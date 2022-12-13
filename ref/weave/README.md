@@ -17,6 +17,7 @@ Weave is wandb's data querying language, which you can use to select and aggrega
 * [image-file](./image-file.md)
 * [int](./int.md)
 * [joined-table](./joined-table.md)
+* [molecule-file](./molecule-file.md)
 * [number](./number.md)
 * [object3D-file](./object-3-d-file.md)
 * [partitioned-table](./partitioned-table.md)
@@ -27,4 +28,3 @@ Weave is wandb's data querying language, which you can use to select and aggrega
 * [table](./table.md)
 * [user](./user.md)
 * [video-file](./video-file.md)
-* [molecule-file](./molecule-file.md)
