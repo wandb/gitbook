@@ -14,6 +14,8 @@ Use W\&B Teams as a central workspace for your ML team to build better models fa
 * **Catch regressions** and immediately get alerted when performance drops.
 * **Benchmark model performance** and compare model versions.
 
+<figure><img src="../../../.gitbook/assets/Screenshot 2022-12-07 at 12.33.29.png" alt=""><figcaption></figcaption></figure>
+
 ## Create a collaborative team
 
 1. [**Sign up or log in**](https://app.wandb.ai/login?signup=true) to your free W\&B account.
@@ -58,6 +60,26 @@ Your **default entity** is updated when you join a team. This means that on your
 
 ![](<../../../.gitbook/assets/Screen Shot 2020-08-17 at 12.48.57 AM.png>)
 
+### About your Team's Profile
+
+You can customize your team's profile page to show an introduction and showcase reports and projects that are visible to the public or team members.&#x20;
+
+#### Highlight your work
+
+Present reports, projects, and external links.
+
+* **Highlight your best research** to visitors by showcasing your best public reports
+* **Showcase the most active projects** to make it easier for teammates to find them
+* **Find collaborators** by adding external links to your company or research lab's website and any papers you've published
+
+#### Add Social Badges to your Intro
+
+In your Intro, type `/` and choose Markdown and paste the markdown snippet that will render your badge. Once you convert it to WYSIWYG, you can resize it.
+
+&#x20; [![Twitter: @weights\_biases](https://img.shields.io/twitter/follow/weights\_biases?style=social)](https://twitter.com/intent/follow?screen\_name=weights\_biases)&#x20;
+
+For example, to add a Twitter follow badge, add `[![Twitter: @weights_biase](https://img.shields.io/twitter/follow/weights_biases?style=social)](https://twitter.com/intent/follow?screen_name=weights_biases` replacing `weights_biases` with your Twitter username.
+
 ## Team Management FAQs
 
 ### Invite team members
@@ -67,7 +89,7 @@ You can invite new members to your team by going to https://wandb.ai/subscriptio
 ![](../../../.gitbook/assets/ezgif-3-b665ff2fa9.gif)
 
 {% hint style="info" %}
-&#x20;If you have an Enterprise account, please contact your Account Executive to invite new members to your team.&#x20;
+If you have an Enterprise account, please contact your Account Executive to invite new members to your team.
 {% endhint %}
 
 ### See privacy settings
@@ -106,6 +128,6 @@ Change the billing user of your organization by clicking on the "Manage members"
 
 On a team, there are two main different types of users: **admins** and **members**. With these two different types of users, there are different permissions given to each group.
 
-1. Team admins have permission total access to modify team projects even if they were not the ones who had created them. This includes, but is not limited to, deleting runs, projects, artifacts, and sweeps.&#x20;
-2. Team members are more limited in what they are able to delete. They can only delete runs and sweep runs that they created. Even if another team member moves a run to another member's project, the project owner will not be able to delete the run. Only the member that had created the run or the team admin can delete the run.&#x20;
+1. Team admins have permission total access to modify team projects even if they were not the ones who had created them. This includes, but is not limited to, deleting runs, projects, artifacts, and sweeps.
+2. Team members are more limited in what they are able to delete. They can only delete runs and sweep runs that they created. Even if another team member moves a run to another member's project, the project owner will not be able to delete the run. Only the member that had created the run or the team admin can delete the run.
 3. Team members with View-Only account types can not create, edit, or delete team projects, runs, or reports.
