@@ -8,9 +8,7 @@ PyTorch is one of the most popular frameworks for deep learning in Python, espec
 Try our integration out in a [colab notebook](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/pytorch/Simple\_PyTorch\_Integration.ipynb) (with video walkthrough below) or see our [example repo](https://github.com/wandb/examples) for scripts, including one on hyperparameter optimization using [Hyperband](https://arxiv.org/abs/1603.06560) on [Fashion MNIST](https://github.com/wandb/examples/tree/master/examples/pytorch/pytorch-cnn-fashion), plus the [W\&B Dashboard](https://wandb.ai/wandb/keras-fashion-mnist/runs/5z1d85qs) it generates.
 {% endhint %}
 
-{% embed url="https://www.youtube.com/watch?v=G7GH0SeNBMA" %}
-Follow along with a video tutorial!
-{% endembed %}
+{% embed url="https://www.youtube.com/watch?ab_channel=Weights&Biases&v=KESSYZExK44" %}
 
 ## Logging gradients with `wandb.watch`
 
