@@ -8,6 +8,8 @@ description: >-
 
 The [Hugging Face Transformers](https://huggingface.co/transformers/) library makes state-of-the-art NLP models like BERT and training techniques like mixed precision and gradient checkpointing easy to use. The [W\&B integration](https://huggingface.co/transformers/main\_classes/callback.html#transformers.integrations.WandbCallback) adds rich, flexible experiment tracking and model versioning to interactive centralized dashboards without compromising that ease of use.
 
+{% embed url="https://www.youtube.com/watch?ab_channel=Weights&Biases&v=hLu10AbgHbA" %}
+
 ## 🤗 Next-level logging in 2 lines
 
 ```python
@@ -149,7 +151,7 @@ wandb.finish()
 
 Once you have logged your training results you can explore your results dynamically in the[ W\&B Dashboard](../track/app.md). It's easy to compare across dozens of runs at once, zoom in on interesting findings, and coax insights out of complex data with flexible, interactive visualizations.
 
-![](<../../.gitbook/assets/hf-gif-15 (2) (2) (3) (3) (3) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (1)   (5).gif>)
+![](<../../.gitbook/assets/hf-gif-15 (2) (2) (3) (3) (3) (1) (1) (1) (1) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (6) (1) (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1) (1) (1)   (1).gif>)
 
 ## Highlighted Articles
 
