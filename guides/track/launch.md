@@ -100,7 +100,6 @@ If you'd like to overwrite the run name (like snowy-owl-10) with the run ID (lik
 import wandb
 wandb.init()
 wandb.run.name = wandb.run.id
-wandb.run.save()
 ```
 
 ### **I didn't name my run. Where is the run name coming from?**
