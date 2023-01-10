@@ -4,8 +4,8 @@ Weave is wandb's data querying language, which you can use to select and aggrega
 
 ## Data Types
 
-* [artifactType](./artifact-type.md)
 * [artifact](./artifact.md)
+* [artifactType](./artifact-type.md)
 * [artifactVersion](./artifact-version.md)
 * [audio-file](./audio-file.md)
 * [bokeh-file](./bokeh-file.md)
