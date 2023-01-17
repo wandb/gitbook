@@ -91,3 +91,16 @@ Usually the `max_prepared_stmt_count` values range from `0-1048576` with the def
 * Click on create a new organization
 * Set organization name (ex: `Acme Inc.`)
 * Update the license section or leave defaults and click on `Generate License`
+
+### How do I set up a Prometheus Endpoint?
+
+Prometheus in wandb server installs is currently exposed as a [kubernetes ClusterIP service](https://github.com/wandb/terraform-kubernetes-wandb/blob/main/main.tf#L225). To access the `/metrics` endpoint, follow the procedure outlined below:
+
+* Connect to the cluster with [kubectl](https://kubernetes.io/docs/reference/kubectl/)
+* Use `kubectl describe svc prometheus` to find the internal address.
+* Start a shell session inside a container running in your Kubernetes cluster with:\
+  `kubectl exec.`
+* Next, hit the endpoint at `<internal address>/metrics`
+  * This command will start a dummy pod that you can exec into to access anything in the network `kubectl run -it testpod --image=alpine bin/ash --restart=Never --rm`
+
+From there you can choose to keep access internal to the network or expose it yourself with Kubernetes NodePort service.
