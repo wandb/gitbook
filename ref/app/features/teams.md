@@ -14,7 +14,7 @@ Use W\&B Teams as a central workspace for your ML team to build better models fa
 * **Catch regressions** and immediately get alerted when performance drops.
 * **Benchmark model performance** and compare model versions.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2022-12-07 at 12.33.29 (1) (1) (1) (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2022-12-07 at 12.33.29 (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Create a collaborative team
 

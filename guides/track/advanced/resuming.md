@@ -10,7 +10,7 @@ import numpy as np
 import wandb
 from wandb.keras import WandbCallback
 
-wandb.init(project="preemptible", resume=True)
+wandb.init(project="preemptible", entity='ENTITY', resume='must')
 
 if wandb.run.resumed:
     # restore the best model
@@ -52,7 +52,7 @@ model = nn.Sequential(
 metric = nn.BCELoss()
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 epoch = 0
-run = wandb.init(project=PROJECT_NAME, resume=True)
+run = wandb.init(project=PROJECT_NAME, entity='ENTITY', resume='must')
 if wandb.run.resumed:
     checkpoint = torch.load(wandb.restore(CHECKPOINT_PATH))
     model.load_state_dict(checkpoint['model_state_dict'])

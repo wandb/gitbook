@@ -160,7 +160,7 @@ W\&B provides an estimated number of Runs that will occur when you create a W\&B
 
 For example, suppose you provide the following search space:
 
-<figure><img src="../../.gitbook/assets/sweeps_faq_whatisestruns_1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sweeps_faq_whatisestruns_1.png" alt=""><figcaption></figcaption></figure>
 
 The cartesian product in this example is 9. W\&B shows this number in the W\&B App UI as the estimated run count (**Est. Runs)**:
 
