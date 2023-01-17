@@ -28,7 +28,7 @@ Use the [`wandb.init()`](https://docs.wandb.ai/ref/python/init) API to generate 
 ```python
 # Create a W&B Run. Here we specify 'dataset' as the job type since this example
 # shows how to create a dataset artifact.
-run = wandb.init(project="artifacts-example", job_type='dataset')
+run = wandb.init(project="artifacts-example", job_type='upload-dataset')
 ```
 
 ### Create an artifact object
