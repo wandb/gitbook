@@ -25,6 +25,6 @@ Weave is wandb's data querying language, which you can use to select and aggrega
 * [pytorch-model-file](./pytorch-model-file.md)
 * [run](./run.md)
 * [string](./string.md)
-* [user](./user.md)
 * [table](./table.md)
+* [user](./user.md)
 * [video-file](./video-file.md)
