@@ -37,7 +37,8 @@ There are some additional performance tunings required when running your W\&B se
 </strong>innodb_online_alter_log_max_size = 268435456
 sync_binlog = 1
 innodb_flush_log_at_trx_commit = 1
-binlog_row_image = 'MINIMAL'</code></pre>
+binlog_row_image = 'MINIMAL'
+</code></pre>
 
 Due to some changes in the way that MySQL 8.0 handles `sort_buffer_size`_,_ you may need to update the `sort_buffer_size` parameter from its default value of `262144`. Our recommendation is to set the value to `33554432(32MiB)` in order for the database to efficiently work with the `wandb` application. Note that, this only works with MySQL versions 8.0.28 and above.
 
@@ -140,9 +141,6 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-          volumeMounts:
-            - name: wandb
-              mountPath: /vol
           livenessProbe:
             httpGet:
               path: /healthz
