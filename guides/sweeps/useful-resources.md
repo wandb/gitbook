@@ -18,6 +18,8 @@ The following W\&B Reports demonstrate examples of projects that explore hyperpa
   * Description: Using HuggingFace to explore models for natural language understanding
 * [DeepChem: Molecular Solubility](https://wandb.ai/stacey/deepchem\_molsol/reports/DeepChem-Molecular-Solubility--VmlldzoxMjQxMjM)
   * Description: Predict chemical properties from molecular structure with random forests and deep nets.
+* [Intro to MLOps: Hyperparameter Tuning](https://wandb.ai/iamleonie/Intro-to-MLOps/reports/Intro-to-MLOps-Hyperparameter-Tuning--VmlldzozMTg2OTk3)
+  * Description: Explore why hyperparameter optimization matters and look at three algorithms to automate hyperparameter tuning for your machine learning models.
 
 ### How-to-guides
 
