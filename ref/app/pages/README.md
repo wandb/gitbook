@@ -30,7 +30,7 @@ Compare results and describe your findings, then share links with colleagues. Le
 
 ## Profile Page
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2022-12-07 at 12.33.29 (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2022-12-07 at 12.33.29 (1).png" alt=""><figcaption></figcaption></figure>
 
 Use your personal or team's profile page to showcase your work, find collaborators and easily navigate between projects.&#x20;
 

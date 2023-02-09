@@ -88,6 +88,7 @@
     * [LightGBM](guides/integrations/lightgbm.md)
     * [Fastai](guides/integrations/fastai/README.md)
       * [fastai v1](guides/integrations/fastai/v1.md)
+    * [Dagster](guides/integrations/dagster.md)
     * [🛠 Other Integrations](guides/integrations/other/README.md)
       * [Catalyst](guides/integrations/other/catalyst.md)
       * [Databricks](guides/integrations/other/databricks.md)
